@@ -11,16 +11,15 @@
 <main>
   <article>
     {#each content as block}
-		{#if block.type === 'carto-world'}
+		{#if block.visual === 'carto-world'}
 		<CartoWorld {...block} />
-		{:else if block.type === 'carto-world'}
+		{:else if block.visual === 'carto-world'}
 		<CartoRegion {...block}/>
 		{:else if block.type === 'intro'}
 		<Intro {...block} />
     	{:else}
     	<Text {...block} />
     	{/if}
-
     {/each}
   </article>
 </main>
