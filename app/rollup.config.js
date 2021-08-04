@@ -101,7 +101,7 @@ export default {
 			// Warns to console about attributes from inside the <svg>.
 			// default: []
 			warnTagAttrs: []
-		  }),
+		}),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),
