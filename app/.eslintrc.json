@@ -17,7 +17,6 @@
       "processor": "svelte3/svelte3"
     }
   ],
-  "ignorePatterns": ["**/*.json"],
   "rules": {
     "semi": "error"
   },

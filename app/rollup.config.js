@@ -50,7 +50,9 @@ export default {
 			external: [],
 			extensions: ['.ts', '.json', '.svelte']
 		}),
-		eslint({}),
+		eslint({
+			include: ['src/**/*.(js|ts|svelte)']
+		}),
 		svelte({
 			preprocess: sveltePreprocess(),
 			compilerOptions: {
