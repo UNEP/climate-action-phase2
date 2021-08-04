@@ -1,10 +1,6 @@
-<script>
+<script lang="ts">
     import Logo from "./Logo.svelte";
 </script>
-<nav class="top">
+<nav class="top" role='navigation'>
     <Logo color="blue" />
 </nav>
-
-<style>
-    .top { margin-top: 2rem;}
-</style>

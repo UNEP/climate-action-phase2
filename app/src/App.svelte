@@ -4,8 +4,9 @@
 	import Intro from 'src/components/text/Intro.svelte';
 	import Text from 'src/components/text/Text.svelte';
 	import TopNav from 'src/components/nav/TopNav.svelte';
-  import type { Content } from 'src/types';
-  import text from 'src/text.json';
+	import Footer from './components/nav/Footer.svelte';
+	import type { Content } from 'src/types';
+	import text from 'src/text.json';
 
   const content: Content[] = text.article;
 
@@ -30,7 +31,7 @@
     {/each}
   </article>
 </main>
-
+<Footer />
 <style>
 
 </style>

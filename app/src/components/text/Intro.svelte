@@ -4,7 +4,7 @@ export let head;
 export let breadcrumbs;
 </script>
 <section class='intro col-text'>
-  <nav role="navigation" labelledby="breadcrumbs-label">
+  <nav class="inner-nav" role="navigation" labelledby="breadcrumbs-label">
     <h3 id="breadcrumbs-label" class="hidden">Breadcrumbs</h3>
     <ul class='breadcrumbs'>
       {#each breadcrumbs as b}
@@ -58,6 +58,7 @@ export let breadcrumbs;
     content: '/';
     margin-left:.4rem;
   }
+  li:last-child { font-weight: 800; }
   li a {
     border: none;
     transition: opacity .3s;
