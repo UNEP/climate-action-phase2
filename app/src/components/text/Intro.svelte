@@ -18,7 +18,7 @@ export let breadcrumbs;
   </nav>
 
   {#if head}
-  <h1>{@html head}</h1>
+    <h1>{@html head}</h1>
   {/if}
 
   {#if text}
@@ -30,7 +30,7 @@ export let breadcrumbs;
 </section>
 
 <style>
-  .intro { 
+  .intro {
     border-bottom: 1px solid #3B536527;
     padding-top:2rem;
   }
@@ -42,12 +42,12 @@ export let breadcrumbs;
     height: 1px;
     word-wrap: normal;
   }
-  .breadcrumbs { 
+  .breadcrumbs {
     list-style-type: none;
     margin:0;
     padding: 0;
   }
-  li { 
+  li {
     display: inline-block;
     margin-right:.8rem;
     font-size: 1rem;
@@ -58,7 +58,7 @@ export let breadcrumbs;
     content: '/';
     margin-left:.4rem;
   }
-  li a { 
+  li a {
     border: none;
     transition: opacity .3s;
     opacity: .68;
