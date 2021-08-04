@@ -4,12 +4,17 @@
 	import Intro from './components/text/Intro.svelte';
 	import Text from './components/text/Text.svelte';
 	import TopNav from './components/nav/TopNav.svelte';
+  import type { Content } from 'src/types';
+  import text from './text.json';
 
-  import type { Content, Footer, Meta } from 'src/types';
+  const content: Content[] = text.article;
 
-  export let content: Content[];
-  export let meta: Meta;
-  export let footer: Footer;
+  const components = {
+    'carto-world': CartoWorld,
+    'carto-region': CartoRegion,
+    'intro': Intro,
+    'text': Text,
+  };
 
 </script>
 
@@ -17,15 +22,11 @@
 <main>
   <article>
     {#each content as block}
-		{#if block.type === 'carto-world'}
-		<CartoWorld {...block} />
-		{:else if block.type === 'carto-region'}
-		<CartoRegion {...block}/>
-		{:else if block.type === 'intro'}
-		<Intro {...block} />
-    	{:else}
-    	  <Text {...block} />
-    	{/if}
+      {#if components[block.type]}
+        <svelte:component this={components[block.type]} {...block} />
+      {:else}
+        <div>Missing component for '{block.type}'</div>
+      {/if}
     {/each}
   </article>
 </main>
