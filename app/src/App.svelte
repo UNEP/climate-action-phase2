@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import CartoWorld from './components/CartoWorld.svelte';
 	import CartoRegion from './components/CartoRegion.svelte';
 	import Intro from './components/text/Intro.svelte';
