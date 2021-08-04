@@ -1,10 +1,15 @@
 <script>
-	import CartoWorld from './components/CartoWorld.svelte'
-	import CartoRegion from './components/CartoRegion.svelte'
-	import Intro from './components/text/Intro.svelte'
-	import Text from './components/text/Text.svelte'
+	import CartoWorld from './components/CartoWorld.svelte';
+	import CartoRegion from './components/CartoRegion.svelte';
+	import Intro from './components/text/Intro.svelte';
+	import Text from './components/text/Text.svelte';
 	import TopNav from './components/nav/TopNav.svelte';
-  	export let content, meta, footer;
+
+  import type { Content, Footer, Meta } from 'src/types';
+
+  export let content: Content[];
+  export let meta: Meta;
+  export let footer: Footer;
 
 </script>
 
@@ -19,12 +24,12 @@
 		{:else if block.type === 'intro'}
 		<Intro {...block} />
     	{:else}
-    	<Text {...block} />
+    	  <Text {...block} />
     	{/if}
     {/each}
   </article>
 </main>
 
 <style>
-	
+
 </style>

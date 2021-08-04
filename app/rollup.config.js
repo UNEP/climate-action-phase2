@@ -3,9 +3,13 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import sveltePreprocess from 'svelte-preprocess';
+import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
 import inlineSvg from 'rollup-plugin-inline-svg';
+import eslint from '@rollup/plugin-eslint';
+import includePaths from 'rollup-plugin-includepaths';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -31,7 +35,7 @@ function serve() {
 }
 
 export default {
-	input: 'src/main.js',
+	input: 'src/main.ts',
 	output: {
 		sourcemap: true,
 		format: 'iife',
@@ -40,7 +44,15 @@ export default {
 		inlineDynamicImports: true
 	},
 	plugins: [
+		includePaths({
+			include: {},
+			paths: ['./'],
+			external: [],
+			extensions: ['.ts', '.json', '.svelte']
+		}),
+		eslint({}),
 		svelte({
+			preprocess: sveltePreprocess(),
 			compilerOptions: {
 				// enable run-time checks when not in production
 				dev: !production
@@ -60,28 +72,32 @@ export default {
 			dedupe: ['svelte'],
 		}),
 		commonjs(),
+		typescript({
+			sourceMap: !production,
+			inlineSources: !production
+		}),
 		json(),
 		inlineSvg({
 			// Removes specified tags and its children. You can specify tags by setting removingTags query array.
 			// default: false
 			removeTags: false,
-		
+
 			// warning: this won't work unless you specify removeTags: true
 			// default: ['title', 'desc', 'defs', 'style']
 			removingTags: ['title', 'desc', 'defs', 'style'],
-		   
+
 			// warns about present tags, ex: ['desc', 'defs', 'style']
 			// default: []
-			warnTags: [], 
-	   
+			warnTags: [],
+
 			// Removes `width` and `height` attributes from <svg>.
 			// default: true
 			removeSVGTagAttrs: true,
-		
+
 			// Removes attributes from inside the <svg>.
 			// default: []
 			removingTagAttrs: [],
-		
+
 			// Warns to console about attributes from inside the <svg>.
 			// default: []
 			warnTagAttrs: []
