@@ -57,7 +57,7 @@
     margin:3rem 0 0 0;
     padding: 0;
     padding-bottom: 1rem;
-    border-bottom: 1px solid #FFFFFF44
+    border-bottom: 1px solid #FFFFFF44;
   }
   .social {
     margin-top: 1rem;
@@ -69,6 +69,12 @@
     color:#FFFFFF88;
     font-weight: 400;
   }
+  .social li { 
+    line-height: 1rem;
+		font-size: .85rem;
+		padding: 0 .18rem;
+		vertical-align: .3rem;
+	}
   .info li:not(:last-child)::after {
     content: '|';
     margin-left:.6rem;
@@ -78,13 +84,16 @@
     color:#FFFFFF88;
     transition: color .3s;
   }
+  .social li a { color:#FFFFFF;}
   li a:hover { color:#FFFFFFFF; }
+  .social li a:hover { color:#FFFFFFBB; }
 
   @media screen and (min-width: 56rem) {
     .menu {
         width:40%;
         display: inline-block;
         margin:3rem 0 0 0;
+				border-bottom: none;
     }
   }
 </style>
