@@ -77,8 +77,6 @@ p, ul {
 .logo { width: 6rem; }
 .top { margin-top: 1rem; }
 
-* { border: 1px solid rgba(255, 0, 255, 0.3)}
-
 @media screen and (min-width: 58rem) {
 	
 	html, body { font-size: 100%;}
