@@ -6,13 +6,22 @@
         {label: 'Privacy', a: 'https://www.unep.org/node/28178/'},
         {label: 'Report a project concern', a: 'https://www.unep.org/about-un-environment/why-does-un-environment-matter/un-environment-project-concern'},
     ];
+
+    const socialMenu = [
+        {label: 'facebook-official', a: 'https://www.facebook.com/unep'},
+        {label: 'twitter', a: 'https://twitter.com/UNEP'},
+        {label: 'linkedin', a: 'https://www.linkedin.com/company/unep/'},
+        {label: 'instagram', a: 'https://www.instagram.com/unep/'},
+        {label: 'youtube', a: 'https://www.youtube.com/unenvironmentprogramme'},
+        {label: 'weibo', a: 'https://www.weibo.com/unepandyou?is_hot=1'}
+    ];
 </script>
 
 <footer class="fs footer">
     <nav role="navigation" labelledby="footer-label">
         <Logo color="white" />
         <h3 id="footer-label" class="hidden">Footer menu</h3>
-        <ul class='menu'>
+        <ul class='menu info'>
             {#each footerMenu as b}
             {#if b.a}
             <li><a href='{b.a}'>{@html b.label}</a></li>
@@ -22,12 +31,8 @@
             {/each}
         </ul>
         <ul class='menu social'>
-            {#each footerMenu as b}
-            {#if b.a}
-            <li><a href='{b.a}'>{@html b.label}</a></li>
-            {:else}
-            <li>{@html b.label}</li>
-            {/if}
+            {#each socialMenu as b}
+            <li><a href='{b.a}' target='_blank'><i class="fa fa-{b.label} fa-lg"></i></a></li>
             {/each}
         </ul>
     </nav>
@@ -51,6 +56,11 @@
     list-style-type: none;
     margin:3rem 0 0 0;
     padding: 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #FFFFFF44
+  }
+  .social {
+    margin-top: 1rem;
   }
   li {
     display: inline-block;
@@ -59,7 +69,7 @@
     color:#FFFFFF88;
     font-weight: 400;
   }
-  li:not(:last-child)::after {
+  .info li:not(:last-child)::after {
     content: '|';
     margin-left:.6rem;
   }
@@ -69,4 +79,12 @@
     transition: color .3s;
   }
   li a:hover { color:#FFFFFFFF; }
+
+  @media screen and (min-width: 56rem) {
+    .menu {
+        width:40%;
+        display: inline-block;
+        margin:3rem 0 0 0;
+    }
+  }
 </style>
