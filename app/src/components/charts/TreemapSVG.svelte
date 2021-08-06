@@ -18,18 +18,18 @@
   export let width: number;
   export let height: number;
 
-  let convertX = (val: number) => width * val / data.scale_width;
-  let convertY = (val: number) => height * val / data.scale_height
+  const convertX = (val: number) => width * val / data.scale_width;
+  const convertY = (val: number) => height * val / data.scale_height
 
   const regions = data.regions.map(region => {
-    let hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
+    const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
       .sum(node => node.value || 0)
       .sort((a,b) => b.value - a.value);
 
     const canvasWidth = convertX(region.width);
     const canvasHeight = convertY(region.height);
 
-    let treemap = d3.treemap<HierarchicalDatum>()
+    const treemap = d3.treemap<HierarchicalDatum>()
       .size([canvasWidth, canvasHeight])
       .padding(2)
       (hierarchy);

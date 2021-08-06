@@ -74,11 +74,11 @@
     }
   }
 
-  let handleMouseOver = d => {
-    let parent = d3.select(d.path[1]);
-    let elementRegion = parent.attr('id').replace('-elements','');
+  const handleMouseOver = d => {
+    const parent = d3.select(d.path[1]);
+    const elementRegion = parent.attr('id').replace('-elements','');
 
-    let currentType = d3.select(d.target)
+    const currentType = d3.select(d.target)
       .transition()
       .duration(250)
       .style('stroke', 'black')
@@ -88,11 +88,11 @@
     showSelectedRegionInformation('#' + elementRegion + '-background')
   }
 
-  let handleMouseOut = (d) => {
-    let parent = d3.select(d.path[1]);
-    let elementRegion = parent.attr('id').replace('-elements','');
+  const handleMouseOut = (d) => {
+    const parent = d3.select(d.path[1]);
+    const elementRegion = parent.attr('id').replace('-elements','');
 
-    let currentType = d3.select(d.target)
+    const currentType = d3.select(d.target)
       .transition()
       .duration(250)
       .style('stroke', 'transparent')
@@ -101,8 +101,8 @@
 
   }
 
-  let handleMouseOverTreemap = d => showSelectedRegionInformation(d.target);
-  let handleMouseOutTreemap = d => removeInformation(d.target);
+  const handleMouseOverTreemap = d => showSelectedRegionInformation(d.target);
+  const handleMouseOutTreemap = d => removeInformation(d.target);
 
   /**************************************************************************
   * Function:    showSelectedRegionInformation(element)
@@ -111,20 +111,20 @@
   * Parameters:  -(None).
   * Return:      -(None).
   **************************************************************************/
-  let showSelectedRegionInformation = (element) => {
+  const showSelectedRegionInformation = (element) => {
 
-    let region = d3.select(element)
+    const region = d3.select(element)
     /*region.transition()
     .duration(500)
     .style('fill', 'black')*/
 
 
-    let svg = d3.select('#treemapCartogram');
+    const svg = d3.select('#treemapCartogram');
 
-    let x1 = +region.attr('x') + (+region.attr('width') * 0.1);
-    let y1 = +region.attr('y');
-    let x2 = x1;
-    let y2 = y1 - (width * 0.05)
+    const x1 = +region.attr('x') + (+region.attr('width') * 0.1);
+    const y1 = +region.attr('y');
+    const x2 = x1;
+    const y2 = y1 - (width * 0.05)
 
     svg.append('line')
     .attr("x1", x1)
@@ -163,13 +163,13 @@
   * Parameters:  -(None).
   * Return:      -(None).
   **************************************************************************/
-  let removeInformation = (element) => {
+  const removeInformation = (element) => {
     /*d3.select(element)
     .transition()
     .duration(1000)
     .style('fill', '#f3f3f3')*/
 
-    let svg = d3.select('#treemapCartogram');
+    const svg = d3.select('#treemapCartogram');
     svg.select('line').remove();
     svg.selectAll('text').remove();
 
@@ -185,14 +185,13 @@
     *                          maxEmissionTypeValue : Float --> Value of max emissions
     *                        }
     **************************************************************************/
-  let getRegionFromData = (regionName) => {
+  const getRegionFromData = (regionName) => {
 
     //Check paramaters
     if(regionName.lenght <= 0) return -1;       //Invalid regionName
 
-
     //Variable definition
-    let returnRegion = {
+    const returnRegion = {
       region : "",
       maxEmissionTypeName : "",
       maxEmissionTypeValue : 0
