@@ -62,9 +62,7 @@
 
   var cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
-    console.log("AHORA:");
     console.log(d);
-    //console.log
     const r = radius(d.value);
     console.log(r);
     return {
@@ -152,7 +150,7 @@
     helpTextFade = true;
     _debouncedShowHelpText();
   }
-
+  console.log(helpText);
   $: helpCountry = helpText ? cartogramData.find(d => d.code === helpText.code) : null;
 
   $: helpAnnotation = {

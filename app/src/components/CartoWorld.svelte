@@ -4,7 +4,7 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
 
-  //export var data:string = "pm25"; // "pm25" / "health"
+  export var data = "pm25"; // "pm25" / "health"
 
   let selectedDataset = pm25data;
   let selectedNodeSize = 125;
@@ -36,7 +36,6 @@
 <style>
   .container {
     position: relative;
-    border: 1px solid rgb(255, 255, 255);
     width: fit-content;
     height: fit-content;
   }
