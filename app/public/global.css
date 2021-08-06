@@ -74,6 +74,12 @@ p, ul {
 	padding-right:34%;
 }
 
+.right-narrow {
+	width:100%;
+	max-width: 40rem;
+	display: block;
+}
+
 .fs {
 	width: 100%;
 	margin: 0;
@@ -82,6 +88,14 @@ p, ul {
 
 .logo { width: 6.2rem; }
 .top { margin-top: 1.5rem; }
+.hidden {
+    position: absolute!important;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+  }
 
 @media screen and (min-width: 58rem) {
 	
@@ -102,7 +116,15 @@ p, ul {
 	
 	.narrow { 
 		width:30rem;
-		padding-right:calc(100% - 30rem);
+		margin-left:0;
+		margin-right:1rem;
+		display: inline-block;
+		padding-right:0;
+	}
+	.right-narrow {
+		width:calc(100% - 32rem);
+		display: inline-block;
+		vertical-align: middle;
 	}
 	.col { 
 		width:48rem;

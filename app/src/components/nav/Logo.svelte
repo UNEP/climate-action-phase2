@@ -5,9 +5,5 @@
 </script>
 
 <div class="logo">
-	{#if color === 'white'}
-	{@html UNEPLogoWhite}
-	{:else}
-	{@html UNEPLogoBlue}
-	{/if}
+	<img src={!color || color === 'blue' ? UNEPLogoBlue : UNEPLogoWhite} alt='Logo of the United Nations Environment Programme | 50 year anniversary'>
 </div>

@@ -32,8 +32,9 @@
 
   const colorHealth = scaleThreshold()
   	.domain([10,20,30,40,50,60,70,80,100])
-	.range(['#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877', '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382']);
+	  .range(['#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877', '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382']);
 
+  
 </script>
 
 <TopNav />
@@ -41,7 +42,7 @@
   <article>
     {#each content as block}
       {#if components[block.type]}
-        <svelte:component this={components[block.type]} {...block} />
+        <svelte:component this={components[block.type]} {...block} scale={colorSectors}/>
       {:else}
         <div>Missing component for '{block.type}'</div>
       {/if}

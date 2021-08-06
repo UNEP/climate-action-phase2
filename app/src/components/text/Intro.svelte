@@ -34,14 +34,6 @@ export let breadcrumbs;
     border-bottom: 1px solid #3B536527;
     padding-top:2rem;
   }
-  .hidden {
-    position: absolute!important;
-    overflow: hidden;
-    clip: rect(1px,1px,1px,1px);
-    width: 1px;
-    height: 1px;
-    word-wrap: normal;
-  }
   .breadcrumbs {
     list-style-type: none;
     margin:0;

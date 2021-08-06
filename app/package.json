@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@reuters-graphics/d3-locale": "^0.1.0",
+    "@rollup/plugin-image": "^2.1.0",
     "@sveltejs/svelte-scroller": "^2.0.6",
     "@types/d3-axis": "^3.0.1",
     "@types/d3-scale": "^4.0.1",
