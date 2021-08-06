@@ -1,6 +1,7 @@
 <script lang="ts">
   import Cartogram, { CountryDataPoint } from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
+  //import deathsData from 'src/data/death_coords.json';
 
   export var data: string; // "pm25" / "health"
 
