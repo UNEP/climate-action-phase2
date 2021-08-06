@@ -2,5 +2,5 @@
     import Logo from "./Logo.svelte";
 </script>
 <nav class="top" role='navigation'>
-    <Logo color="blue" />
+    <a href="https://www.unep.org"><Logo color="blue" /></a>
 </nav>

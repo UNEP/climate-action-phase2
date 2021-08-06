@@ -32,7 +32,7 @@
         </ul>
         <ul class='menu social'>
             {#each socialMenu as b}
-            <li><a href='{b.a}' target='_blank'><i class="fa fa-{b.label} fa-lg"></i></a></li>
+            <li><a href='{b.a}' target='_blank' rel='noopener' aria-label='{b.a}'><i class="fa fa-{b.label} fa-lg"></i></a></li>
             {/each}
         </ul>
     </nav>
@@ -54,7 +54,7 @@
     }
   .menu {
     list-style-type: none;
-    margin:3rem 0 0 0;
+    margin:2rem 0 0 0;
     padding: 0;
     padding-bottom: 1rem;
     border-bottom: 1px solid #FFFFFF44;
@@ -66,7 +66,7 @@
     display: inline-block;
     margin-right:.6rem;
     font-size: 1rem;
-    color:#FFFFFF88;
+    color:#FFFFFFBB;
     font-weight: 400;
   }
   .social li { 
@@ -81,7 +81,7 @@
   }
   li a {
     border: none;
-    color:#FFFFFF88;
+    color:#FFFFFFBB;
     transition: color .3s;
   }
   .social li a { color:#FFFFFF;}
@@ -92,7 +92,7 @@
     .menu {
         width:40%;
         display: inline-block;
-        margin:3rem 0 0 0;
+        margin:1.5rem 0 0 0;
 				border-bottom: none;
     }
   }

@@ -41,17 +41,18 @@ h1 {
 	font-size: 2.25rem;
 	margin: 1rem auto;
 }
-h1, h2 { line-height: 1;}
+h1 { line-height: 1.1;}
+h2 { line-height: 1.75rem;}
 h3, select { line-height: 1.25; }
 h4, p { line-height: 1.5; }
 h2, h3, select { font-weight: 300; }
 
 h2 { 
-	font-size: 1.875rem;
-	line-height: 2.5rem;
-	margin-bottom: 0;
+	font-size: 1.35rem;
+	margin-top: 2rem!important;
+	margin-bottom: 1rem!important;
 }
-h3 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
 h4 {
 	font-weight: 700;
 	font-size: 1.2rem;
@@ -68,14 +69,19 @@ p, ul {
 	width: 100%;
 }
 
+.narrow {
+	width:66%;
+	padding-right:34%;
+}
+
 .fs {
 	width: 100%;
 	margin: 0;
 	padding: 0;
 }
 
-.logo { width: 6rem; }
-.top { margin-top: 1rem; }
+.logo { width: 6.2rem; }
+.top { margin-top: 1.5rem; }
 
 @media screen and (min-width: 58rem) {
 	
@@ -87,17 +93,16 @@ p, ul {
 	}
 
 	article, nav {
-		margin: 0 auto;
 		margin-left: 3.75rem;
+		margin-right: 1.5rem;
 	}
 
 	h1 { font-size: 3rem; }
-	h2 { font-size: 1.875rem; }
-	h3 { font-size: 1.5rem; }
+	h3 { font-size: 1.25rem; }
 	
 	.narrow { 
-		width:38rem;
-		padding-right:calc(100% - 38rem);
+		width:30rem;
+		padding-right:calc(100% - 30rem);
 	}
 	.col { 
 		width:48rem;
@@ -108,7 +113,7 @@ p, ul {
 		padding-right:calc(100% - 52rem);
 	}
 
-	.logo { width: 9rem; }
+	.logo { width: 11rem; }
 	.top { margin-top: 2rem; }
 }
 
@@ -116,6 +121,4 @@ p, ul {
 	article, nav {
 		margin: 0 auto;
 	}
-
-	.logo { width: 11rem; }
 }
