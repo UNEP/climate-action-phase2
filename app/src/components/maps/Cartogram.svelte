@@ -62,14 +62,17 @@
 
   var cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
+    console.log("AHORA:");
+    console.log(d);
+    //console.log
     const r = radius(d.value);
+    console.log(r);
     return {
       ...d,
 
       category: categoryFn(d),
-
       left: xScale(d.x - r),
-      top: yScale(d.y - r),
+      top: yScale(d.y- r),
 
       // width height should be the same if the aspect is correct
       width: xScale(r * 2),

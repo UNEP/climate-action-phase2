@@ -57,14 +57,14 @@
             style = {
                 right: 100 - (xPerc - radiusX),
                 top: yPerc,
-            }
+            };
 
         }
         else if (pos === 'right') {
             style = {
                 left: xPerc + radiusX,
                 top: yPerc,
-            }
+            };
         }
         else if (pos === 'above') {
             const topPaddingPx = 5;
@@ -73,7 +73,7 @@
                 left: xPerc,
                 top: forceTopWherePossible ? topMin : Math.max(topMin, yPerc - radiusY - 40),
                 bottom: 100 - (yPerc - radiusY)
-            }
+            };
 
         }
         else if (pos === 'below') {
@@ -81,7 +81,7 @@
                 left: xPerc,
                 top: yPerc + radiusY,
                 bottom: Math.max(0, 100 - yPerc - 50)
-            }
+            };
         }
 
         if (pos === 'left' || pos === 'right') {
@@ -108,12 +108,12 @@
     var style: StyleCss;
 
     function calcStyle(style: StyleCss) {
-        const dimProps = ['left', 'top', 'bottom', 'right', 'width', 'height']
+        const dimProps = ['left', 'top', 'bottom', 'right', 'width', 'height'];
 
         const dimStr = dimProps
             .filter(prop => style[prop] !== undefined)
             .map(prop => `${prop}: ${style[prop]}%; `)
-            .join('')
+            .join('');
 
         const transformStr = `transform: ${style.transform};`;
         return dimStr + transformStr;

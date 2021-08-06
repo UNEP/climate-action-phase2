@@ -4,22 +4,21 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
 
-  export var data:string = "pm25"; // "pm25" / "health"
+  //export var data:string = "pm25"; // "pm25" / "health"
 
   let selectedDataset = pm25data;
-  let selectedNodeSize:number = 125;
+  let selectedNodeSize = 125;
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
-      const name = d.id;
-      const short = "SHORT";
-      const code = d.id;
-      const x = d.x;
-      const y = d.y;
-      const value = d.pm25;
       return {
-        name, short, code, x, y, value
-      }
+        name: d.id, 
+        short: "USA",
+        code: d.id,
+        x: d.x,
+        y: d.y, 
+        value: d.pm25
+      };
     });
 
 </script>
@@ -36,8 +35,8 @@
 
 <style>
   .container {
-    position: relativa;
-    border: 1px solid #777;
+    position: relative;
+    border: 1px solid rgb(255, 255, 255);
     width: fit-content;
     height: fit-content;
   }
