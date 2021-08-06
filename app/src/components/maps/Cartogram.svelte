@@ -1,5 +1,5 @@
-<script lang="ts" context="module">
-  export interface CountryDataPoint {
+<script lang="ts" context="module" >
+  export interface CountryDataPoint  {
     name: string;
     short: string;
     code: string;

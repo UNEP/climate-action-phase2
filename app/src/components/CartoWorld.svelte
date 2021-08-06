@@ -1,26 +1,24 @@
 <script lang="ts">
-  import Cartogram, { CountryDataPoint } from "src/components/maps/Cartogram.svelte";
+  //import Cartogram, {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
+  import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
+  import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
-  //import deathsData from 'src/data/death_coords.json';
 
-  export var data: string; // "pm25" / "health"
+  export var data:string = "pm25"; // "pm25" / "health"
 
   let selectedDataset = pm25data;
-  let selectedNodeSize = 125;
+  let selectedNodeSize:number = 125;
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
-      // d =
-      // {
-      //   "id": "AFG",
-      //   "pm25": 44.6,
-      //   "x": 481.366,
-      //   "y": 135.288
-      // }
-
+      const name = d.id;
+      const short = "SHORT";
+      const code = d.id;
+      const x = d.x;
+      const y = d.y;
+      const value = d.pm25;
       return {
-        name: 'XXX',
-        short: 'XXX',
+        name, short, code, x, y, value
       }
     });
 
@@ -38,6 +36,9 @@
 
 <style>
   .container {
-
+    position: relativa;
+    border: 1px solid #777;
+    width: fit-content;
+    height: fit-content;
   }
 </style>
