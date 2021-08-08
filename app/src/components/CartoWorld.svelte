@@ -11,14 +11,26 @@
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
-      return {
+      if (data === "pm25"){
+        return {
         name: d.id, 
-        short: "USA",
+        short: "*",
         code: d.id,
         x: d.x,
         y: d.y, 
         value: d.pm25
-      };
+        };
+      }
+      else{ //health
+        return {
+          name: d.id,
+          short: "USA",
+          code: d.id,
+          x: d.x,
+          y: d.y, 
+          value: d.pm25
+        }
+      }
     });
 
 </script>
@@ -35,8 +47,7 @@
 
 <style>
   .container {
-    position: relative;
-    width: fit-content;
-    height: fit-content;
+    color: aquamarine;
+    border: 1px solid rgb(100, 100, 100);
   }
 </style>
