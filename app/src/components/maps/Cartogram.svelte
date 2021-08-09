@@ -44,7 +44,7 @@
   var hoverTimeout: number;
   let hoverData: {x: number, y: number, country: CartogramDataPoint} = null;
   var helpTextFade = false;
-  var annotation: AnnotationData;
+  //var annotation: AnnotationData;
   var hoveredForX = false;
 
   $: largestVal = Math.max(...data.map(d => d.value));
@@ -110,7 +110,7 @@
   }, 0);
 
   // ANNOTATIONS....  yea it's pretty complicated... :(
-
+/*
   interface AnnotationData {
     x: number;
     y: number;
@@ -167,11 +167,13 @@
     radius: 2 + hoverData.country.width / 2,
     html: hoverTextFn(hoverData.country)
   };
-  $: annotation = countryAnnotation || helpAnnotation;
+  */
+  //$: annotation = countryAnnotation || helpAnnotation;
 
-  $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
+  $: annotation = false;
+  //$: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
 
-  $: data && fadeInHelpText();
+  //$: data && fadeInHelpText();
 
 </script>
 
@@ -249,7 +251,7 @@
   }
 
   .country-text {
-    color: white;
+    color: black;
     font-weight: 500;
     font-size: 14px;
     position: absolute;

@@ -1,5 +1,4 @@
 <script lang="ts">
-  //import Cartogram, {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
@@ -13,11 +12,11 @@
     .map(d => {
       return {
         name: d.id,
-        short: "USA",
+        short: "*",
         code: d.id,
         x: d.x,
         y: d.y,
-        value: d.pm25
+        value: data === "pm25" ? d.pm25 : 0
       };
     });
 
