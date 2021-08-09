@@ -18,7 +18,7 @@
   function colorFunction(d: CountryDataPoint) {
     if (data === "health"){
       console.log(d.value)
-    } 
+    }
     return data === "pm25" ? PM25colorPalette[Math.floor(d.value/10)] : healthColorPalette[Math.floor(d.rate/10)];
   }
 
@@ -54,7 +54,7 @@
     colorFn={d => colorFunction(d)}
     hoverTextFn={d => hoverTextFunction(d)}
     nodeSize={selectedNodeSize}
-    helpText={data === "pm25" ? {code: "CPV", text: "Each square represents a country, scaled by its PM2.5 emissions"} 
+    helpText={data === "pm25" ? {code: "CPV", text: "Each square represents a country, scaled by its PM2.5 emissions"}
                               : {code: "BRA", text: "Each square represents a country, scaled by the number of attributable deaths"}}
   />
 </div>

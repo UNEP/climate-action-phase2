@@ -11,12 +11,3 @@
 	{@html UNEPLogoBlue}
 	{/if}
 </div>
-
-<style>
-
-	.logo {
-		width: 11rem;
-		transition: height .5s;
-	}
-
-</style>
