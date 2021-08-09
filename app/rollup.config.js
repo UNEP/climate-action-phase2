@@ -7,7 +7,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import json from '@rollup/plugin-json';
-import inlineSvg from 'rollup-plugin-inline-svg';
+import image from '@rollup/plugin-image';
 import eslint from '@rollup/plugin-eslint';
 import includePaths from 'rollup-plugin-includepaths';
 
@@ -79,31 +79,7 @@ export default {
 			inlineSources: !production
 		}),
 		json(),
-		inlineSvg({
-			// Removes specified tags and its children. You can specify tags by setting removingTags query array.
-			// default: false
-			removeTags: false,
-
-			// warning: this won't work unless you specify removeTags: true
-			// default: ['title', 'desc', 'defs', 'style']
-			removingTags: ['title', 'desc', 'defs', 'style'],
-
-			// warns about present tags, ex: ['desc', 'defs', 'style']
-			// default: []
-			warnTags: [],
-
-			// Removes `width` and `height` attributes from <svg>.
-			// default: true
-			removeSVGTagAttrs: true,
-
-			// Removes attributes from inside the <svg>.
-			// default: []
-			removingTagAttrs: [],
-
-			// Warns to console about attributes from inside the <svg>.
-			// default: []
-			warnTagAttrs: []
-		}),
+		image(),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

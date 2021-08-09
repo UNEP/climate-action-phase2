@@ -39,14 +39,6 @@
   </footer>
 
 <style>
-    .hidden {
-    position: absolute!important;
-    overflow: hidden;
-    clip: rect(1px,1px,1px,1px);
-    width: 1px;
-    height: 1px;
-    word-wrap: normal;
-  }
   .footer { 
       background-color: #00abf1;
       padding-top: 2rem;

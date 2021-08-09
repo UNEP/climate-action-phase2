@@ -21,7 +21,7 @@ article, nav {
 
 article, section { position:relative; }
 
-p, h1, h2, h3, h4, select, ul { 
+p, h1, h2, h3, h4, select, ul {
 	font-family: 'Roboto', sans-serif;
 	text-align: left;
 }
@@ -37,7 +37,7 @@ p a:hover {
 	opacity: .7;
 }
 
-h1 { 
+h1 {
 	font-size: 2.25rem;
 	margin: 1rem auto;
 }
@@ -47,7 +47,7 @@ h3, select { line-height: 1.25; }
 h4, p { line-height: 1.5; }
 h2, h3, select { font-weight: 300; }
 
-h2 { 
+h2 {
 	font-size: 1.35rem;
 	margin-top: 2rem!important;
 	margin-bottom: 1rem!important;
@@ -57,7 +57,7 @@ h4 {
 	font-weight: 700;
 	font-size: 1.2rem;
 }
-p, ul { 
+p, ul {
 	font-size: 1.125rem;
 	line-height: 1.875rem;
 	font-weight: 300;
@@ -74,6 +74,12 @@ p, ul {
 	padding-right:34%;
 }
 
+.right-narrow {
+	width:100%;
+	max-width: 40rem;
+	display: block;
+}
+
 .fs {
 	width: 100%;
 	margin: 0;
@@ -82,12 +88,20 @@ p, ul {
 
 .logo { width: 6.2rem; }
 .top { margin-top: 1.5rem; }
+.hidden {
+    position: absolute!important;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+  }
 
 @media screen and (min-width: 58rem) {
-	
+
 	html, body { font-size: 100%;}
-	
-	p, h1, h2, h3, h4, select { 
+
+	p, h1, h2, h3, h4, select {
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -99,16 +113,24 @@ p, ul {
 
 	h1 { font-size: 3rem; }
 	h3 { font-size: 1.25rem; }
-	
-	.narrow { 
+
+	.narrow {
 		width:30rem;
-		padding-right:calc(100% - 30rem);
+		margin-left:0;
+		margin-right:1rem;
+		display: inline-block;
+		padding-right:0;
 	}
-	.col { 
+	.right-narrow {
+		width:calc(100% - 32rem);
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.col {
 		width:48rem;
 		padding-right:calc(100% - 48rem);
 	}
-	.col-text { 
+	.col-text {
 		width:52rem;
 		padding-right:calc(100% - 52rem);
 	}
