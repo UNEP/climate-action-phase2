@@ -6,6 +6,7 @@
     x: number;
     y: number;
     value: number;
+    rate: number
   }
 </script>
 
@@ -249,7 +250,7 @@
   }
 
   .country-text {
-    color: black;
+    color: white;
     font-weight: 500;
     font-size: 14px;
     position: absolute;
