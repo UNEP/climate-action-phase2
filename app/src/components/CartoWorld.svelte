@@ -12,8 +12,8 @@
   let selectedDataset = pm25data;
   let selectedNodeSize = 11;
 
-  var colorPalette = ["#03045e","#023e8a","#0077b6","#0096c7","#00b4d8","#48cae4","#90e0ef", "#a9d6e5"];
-  colorPalette.reverse();
+  var colorPalette = ['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080'];
+  //colorPalette.reverse();
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
