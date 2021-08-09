@@ -8,6 +8,7 @@
     export var text: string;
     export var radius: number;
     export var forceTopWherePossible: boolean = false;
+    export var justText: boolean = false;
 
     var textEl: HTMLElement;
     var el: HTMLElement;
@@ -130,6 +131,7 @@
 
 </script>
 
+{#if !justText}
 <div class="annotation annotation--{pos}" style={styleStr}
     bind:this={el}>
     <div class="line line-before"></div>
@@ -138,7 +140,14 @@
     </div>
     <div class="line line-after"></div>
 </div>
-
+{:else}
+<div class="annotation" 
+    bind:this={el}>
+    <div class="text" style="transform: translate({x}px, {y}px);" bind:this={textEl}>
+        {@html text}
+    </div>
+</div>
+{/if}
 <style>
 
     .annotation {

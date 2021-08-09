@@ -22,10 +22,10 @@ export interface Content {
 interface Region {
   posX: number;
   posY: number;
-  width: number;
-  height: number;
   region: string;
   types: Sector[];
+  numCountries: number
+  totalValue: number
 }
 
 export interface CartoRegionData {
