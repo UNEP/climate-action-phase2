@@ -110,7 +110,6 @@
   }, 0);
 
   // ANNOTATIONS....  yea it's pretty complicated... :(
-/*
   interface AnnotationData {
     x: number;
     y: number;
@@ -167,13 +166,12 @@
     radius: 2 + hoverData.country.width / 2,
     html: hoverTextFn(hoverData.country)
   };
-  */
-  //$: annotation = countryAnnotation || helpAnnotation;
 
-  $: annotation = false;
-  //$: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
+  $: annotation = countryAnnotation || helpAnnotation;
 
-  //$: data && fadeInHelpText();
+  $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
+
+  $: data && fadeInHelpText();
 
 </script>
 
