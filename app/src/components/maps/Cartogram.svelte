@@ -27,6 +27,7 @@
   export var domain: [number, number];
   export var helpText: {code: string, text: string} = null;
   export var categoryFn: (code: CountryDataPoint) => string;
+  export var colorFn: (code: CountryDataPoint) => string;
   export var hoverTextFn: (country: CountryDataPoint) => string;
   export var onHoverFn: (country: CountryDataPoint) => void = c => null;
   export var hideLabels = false;
@@ -62,9 +63,7 @@
 
   var cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
-    console.log(d);
     const r = radius(d.value);
-    console.log(r);
     return {
       ...d,
 
@@ -85,6 +84,7 @@
     `top: ${d.top}px`,
     `width: ${d.width}px`,
     `height: ${d.height}px`,
+    `background-color: ${colorFn(d)};`
     ];
     return styles.join(';');
   }
@@ -150,10 +150,10 @@
     helpTextFade = true;
     _debouncedShowHelpText();
   }
-  console.log(helpText);
+
   $: helpCountry = helpText ? cartogramData.find(d => d.code === helpText.code) : null;
 
-  $: helpAnnotation = {
+  $: helpAnnotation = helpCountry && {
     x: helpCountry.left + helpCountry.width/2,
     y: helpCountry.top + helpCountry.height/2,
     radius: 2 + helpCountry.width / 2,
@@ -241,6 +241,7 @@
     z-index: 2;
     transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
     will-change: opacity, background-color, border-radius;
+    background: grey;
   }
 
   .cartogram-resizing .country {

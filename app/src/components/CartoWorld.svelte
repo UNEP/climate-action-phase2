@@ -7,16 +7,16 @@
   export var data = "pm25"; // "pm25" / "health"
 
   let selectedDataset = pm25data;
-  let selectedNodeSize = 125;
+  let selectedNodeSize = 11;
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
       return {
-        name: d.id, 
+        name: d.id,
         short: "USA",
         code: d.id,
         x: d.x,
-        y: d.y, 
+        y: d.y,
         value: d.pm25
       };
     });
@@ -28,15 +28,17 @@
     data={cartogramData}
     domain={[700, 400]}
     categoryFn={() => null}
-    hoverTextFn={() => 'hover text'}
+    colorFn={d => 'red'}
+    hoverTextFn={d => `${d.code} ${d.value}`}
     nodeSize={selectedNodeSize}
+    helpText={{code: "USA", text: "test help text"}}
   />
 </div>
 
 <style>
   .container {
     position: relative;
-    width: fit-content;
-    height: fit-content;
+    width: 700px;
+    height: 400px;
   }
 </style>
