@@ -12,7 +12,7 @@
   let selectedDataset = pm25data;
   let selectedNodeSize = 11;
 
-  var colorPalette = ['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080'];
+  var PM25colorPalette = ['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080'];
   //colorPalette.reverse();
 
   let cartogramData: CountryDataPoint[] = selectedDataset
@@ -34,7 +34,7 @@
     data={cartogramData}
     domain={[700, 400]}
     categoryFn={() => null}
-    colorFn={d => colorPalette[Math.floor(d.value/10)]}
+    colorFn={d => PM25colorPalette[Math.floor(d.value/10)]}
     hoverTextFn={d => `${d.name} emitted ${d.value} μg/m3 of PM2.5`}
     nodeSize={selectedNodeSize}
     helpText={{code: "CPV", text: "Each square represents a country,\n scaled by its PM2.5 emissions"}}
