@@ -1,17 +1,24 @@
 <script lang="ts">
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
+  import * as d3 from 'src/d3';
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
+  import countryNameDictionary from 'src/data/countryDictionary.json';
+  import deaths_data from 'src/data/death_coords.json'
+  //import shortCountryNameDictionary from 'src/data/countryDictionary.json';
 
   export var data = "pm25"; // "pm25" / "health"
 
   let selectedDataset = pm25data;
   let selectedNodeSize = 11;
 
+  var colorPalette = ["#03045e","#023e8a","#0077b6","#0096c7","#00b4d8","#48cae4","#90e0ef", "#a9d6e5"];
+  colorPalette.reverse();
+
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
       return {
-        name: d.id,
+        name: countryNameDictionary.find(c => c.id === d.id).name,
         short: "*",
         code: d.id,
         x: d.x,
@@ -27,10 +34,10 @@
     data={cartogramData}
     domain={[700, 400]}
     categoryFn={() => null}
-    colorFn={d => 'red'}
-    hoverTextFn={d => `${d.code} ${d.value}`}
+    colorFn={d => colorPalette[Math.floor(d.value/10)]}
+    hoverTextFn={d => `${d.name} emitted ${d.value} μg/m3 of PM2.5`}
     nodeSize={selectedNodeSize}
-    helpText={{code: "USA", text: "test help text"}}
+    helpText={{code: "CPV", text: "Each square represents a country,\n scaled by its PM2.5 emissions"}}
   />
 </div>
 

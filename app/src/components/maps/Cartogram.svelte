@@ -44,7 +44,7 @@
   var hoverTimeout: number;
   let hoverData: {x: number, y: number, country: CartogramDataPoint} = null;
   var helpTextFade = false;
-  //var annotation: AnnotationData;
+  var annotation: AnnotationData;
   var hoveredForX = false;
 
   $: largestVal = Math.max(...data.map(d => d.value));
