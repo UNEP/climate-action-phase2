@@ -1,9 +1,8 @@
 <script lang='ts'>
-	export let title:string = '';
-	export let colors:string[];
-	export let labels:string[];
-	export let type:string = 'sequential';
-    
+	export let title: string = '';
+	export let colors: string[];
+	export let labels: string[];
+	export let type: string = 'sequential';
 </script>
 
 <h3 class="note title">{@html title}</h3>
@@ -11,9 +10,9 @@
 {#if type === 'sequential'}
 <ol class='seq info'>
 	{#each colors as c,i}
-	<li style='width:{100/colors.length}%; background-color: {c}'>
+	<li style='width: { 100 / colors.length }%; background-color: {c};'>
 		{#if labels[i] !== undefined}
-		<p class='note'>{labels[i]}</p>
+			<p class='note'>{labels[i]}</p>
 		{/if}
 	</li>
 	{/each}
@@ -22,9 +21,9 @@
 {:else if type === 'categorical'}
 <ul class='cat info'>
 	{#each colors as c,i}
-	<li class='cat-item note'>
-		<div class='cat-symbol' style='background-color: {c}'/>{labels[i]}
-	</li>
+    <li class='cat-item note'>
+      <div class='cat-symbol' style='background-color: {c};'/>{labels[i]}
+    </li>
 	{/each}
 </ul>
 {/if}
@@ -68,5 +67,7 @@
 		margin-right: .4rem;
 		vertical-align:-0.1rem;
 	}
-	.cat-item { margin-right: 1.25rem; }
+	.cat-item {
+    margin-right: 1.25rem;
+  }
 </style>
