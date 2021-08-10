@@ -56,8 +56,6 @@
 
   const scaleRate = data.scale_height / data.scale_width;
 
-  const textShowDelay = 0;
-  const textRemoveDelay = 0;
   let regionTextShowing = false;
   let typeTextShowing = false;
 
