@@ -22,7 +22,7 @@
 
 
   import * as d3 from 'src/d3';
-  import {colorSectors} from '../../App.svelte'
+  import {colorSectors, colorFuels} from '../../App.svelte';
   import type { CartoRegionData } from 'src/types';
 
 
@@ -30,7 +30,7 @@
     value?: number;
     type?: string;
     types?: HierarchicalDatum[];
-  }
+  };
 
   export let handleMouseOver;
   export let handleMouseOut;
@@ -110,7 +110,7 @@
           {#each region.leaves as leaf}
           <rect
             class="tile"
-            fill={colorSectors(leaf.data.type)}
+            fill={data.type === "sectors"? colorSectors(leaf.data.type): colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
             x={region.x + leaf.x0}

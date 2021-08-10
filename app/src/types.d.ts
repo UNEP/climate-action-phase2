@@ -32,4 +32,5 @@ export interface CartoRegionData {
   regions: Region[];
   scale_width: number;
   scale_height: number;
+  type: string;
 }

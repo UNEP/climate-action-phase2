@@ -2,9 +2,11 @@
   import * as d3 from 'src/d3';
   import TreemapSvg from './charts/TreemapSVG.svelte';
   import Annotation from './maps/Annotation.svelte';
-  import {sectoralBD} from  '../data/data'
+  import {sectoralBD, differentFuels} from  '../data/data';
   
-  import type {RegionTreemapData} from './charts/TreemapSVG.svelte'
+  import type {RegionTreemapData} from './charts/TreemapSVG.svelte';
+
+  export let data : string;
 
   interface CurrentSector{
     value: number,
@@ -24,16 +26,16 @@
     current: CurrentSector
   }
 
-
-  const data = sectoralBD;
+  const currentData = data === "sectors" ? sectoralBD: data === "fuel"? differentFuels : null;
 
   let width = 100;
 
-  const scaleRate = data.scale_height / data.scale_width;
+  const scaleRate = currentData.scale_height / currentData.scale_width;
 
   let regionTextShowing = false;
   let typeTextShowing = false;
   
+  let currentRegionElement:HTMLElement;
   
   let currentRegionData : CurrentRegion = {
     region : "",                                //Curren region name selected
@@ -72,7 +74,7 @@
 
   const handleMouseOut = (d:HTMLElement) => {
 
-    removeInformation('#' + (d.parentNode as HTMLElement).id.replace('-elements','') + "-background")
+    removeInformation()
 
     let currentType = d3.select(d)
       .transition()
@@ -95,11 +97,14 @@
     showSelectedRegionInformation(d);
   } 
 
-  const handleMouseOutTreemap = (d:HTMLElement) => removeInformation(d);
+  const handleMouseOutTreemap = (d:HTMLElement) => removeInformation();
 
   const showSelectedRegionInformation = (element:HTMLElement) => {
     
     const region = d3.select(element)
+
+    d3.select(currentRegionElement).style('filter', 'none')
+    currentRegionElement = element
 
     region.style('filter', 'url(#shadow)')
 
@@ -109,11 +114,11 @@
 
   };
 
-  const removeInformation = (element:string | HTMLElement) => {
+  const removeInformation = () => {
     
-    d3.select(element)
+    d3.select(currentRegionElement)
       .style('filter', 'none');
-
+    
     const svg = d3.select('#treemapCartogram');
     svg.select('line').remove();
     svg.selectAll('text').remove();
@@ -135,7 +140,7 @@
   }
 </script>
 
-<h1>TITLE</h1>
+<h1>{data}</h1>
 <div bind:clientWidth={width} >
   
   {#if regionTextShowing}
@@ -159,7 +164,7 @@
   />
   {/if}
   <TreemapSvg 
-    {data}
+    data={currentData}
     {width}
     height = {width * scaleRate} 
     {handleMouseOver}
