@@ -1,6 +1,14 @@
 <script lang="ts" context="module">
-  export interface RegionTreemapData{
-    leaves: any,
+  import type { HierarchyRectangularNode } from 'd3-hierarchy';
+
+  interface HierarchicalDatum {
+    value?: number;
+    type?: string;
+    types?: HierarchicalDatum[];
+  }
+
+  export interface RegionTreemapData {
+    leaves: HierarchyRectangularNode<HierarchicalDatum>[],
     background: {
       borderTop: number,
       borderBottom: number,
@@ -14,8 +22,8 @@
     x: number,
     y: number,
     totalPollutingValue: number,
-    mostPollutingValue: any,
-    mostPollutingType: any
+    mostPollutingValue: number,
+    mostPollutingType: string
   };
 </script>
 <script lang="ts">
