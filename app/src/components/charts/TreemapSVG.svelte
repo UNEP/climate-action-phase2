@@ -27,8 +27,6 @@
   };
 </script>
 <script lang="ts">
-
-
   import * as d3 from 'src/d3';
   import {colorSectors, colorFuels} from 'src/App.svelte';
   import type { CartoRegionData } from 'src/types';
@@ -47,16 +45,16 @@
   export let data: CartoRegionData;
   export let width: number;
   export let height: number;
-  
+
 
   const mapPropotions =  (val) => Math.sqrt(val)*width*0.03;
-  
+
   let regions : RegionTreemapData[];
-    
+
   $: regions = data.regions.map(region => {
     const convertX = (val: number) => width * val / data.scale_width;
     const convertY = (val: number) => height * val / data.scale_height;
-    
+
     const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
       .sum(node => node.value || 0)
       .sort((a,b) => b.value - a.value);
@@ -65,7 +63,7 @@
       .size([mapPropotions(region.totalValue/region.numCountries), mapPropotions(region.totalValue/region.numCountries)])
       .padding(2)
       (hierarchy);
-    
+
 
     const background = {
       borderTop  : 2,
@@ -77,7 +75,7 @@
       color: "#f3f3f3",
       region: region.region
     };
-   
+
     return {
       leaves : treemap.leaves(),
       background,
