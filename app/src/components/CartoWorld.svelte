@@ -9,32 +9,38 @@
 
   export var data:string;
   export var head:string;
+  export var source:string;
+  export var text:[];
 
   const datasetParams = {
     pm25: {
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized by the annual mean levels of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>`
+        text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
+        of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
       color: scaleThreshold<number, string>()
       .domain([...new Array(7)].map((d,i) => (i+1)*10))
       .range(['#ffbeb3','#eda6ac','#dc8ea5','#ca769e',
       '#b85f97','#a5468f','#932b88','#800080']),
-      legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`
+      legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"]
     },
 
     health: {
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: "Each square represents a country, scaled by the number of attributable deaths"
+        text: `<strong>Each square is a country</strong>, sized by the total 
+        number of <strong>deaths caused by small particle pollution</strong>.`
       },
       color: scaleThreshold<number, string>()
       .domain([10,20,30,40,50,60,70,80,100])
       .range(['#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877', 
       '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382']),
-      legendTitle: "Number of attributable deaths"
+      legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
+      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"]
     }
   };
 
@@ -61,18 +67,31 @@
 
   function hoverTextFunction(d: CountryDataPoint){
     if (data === "pm25"){
-      return `In <strong>${d.name}</strong>, people are exposed to an average of <strong>${d.value} μg/m3</strong> a year`;
+      return `In <strong>${d.name}</strong>, people are exposed to an average of 
+      <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}</strong> the WHO guideline.`;
     }
     else{
-      return `<strong>${d.name}</strong> had a total of ${d.value} attributable deaths`;
+      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
 
 </script>
 
 
-
 <div class="container">
+
+  <div class="title-text">
+    <p>{head}</p>
+  </div>
+
+  <div class="legend-container">
+    <Legend
+    title = {dsParam.legendTitle}
+	  colors = {dsParam.color.range()}
+	  labels = {dsParam.legendDomain}
+	  type = {'sequential'}
+  />
+  </div>
 
   <div class="cartogram-container">
     <Cartogram
@@ -86,51 +105,57 @@
   />
   </div>
 
-  <div class="legend-container">
-    <Legend
-    title = {dsParam.legendTitle}
-	  colors = {dsParam.color.range()}
-	  labels = {dsParam.color.domain().map(String)}
-	  type = {'sequential'}
-  />
+  <div class="paragraph">
+    {#each text as t}
+      <p>{t}</p>
+	  {/each}
   </div>
+
 </div>
 
 
 <style>
 
   .cartogram-container {
-    width: 700px;
-    height: 400px;
+    width: 1140px;
+    height: 650px;
   }
 
-  .Title {
-    font-size: 24px;
+  .title-text {
+    font-size: 16px;
+    float: left;
     line-height: 1.5;
     font-weight:300;
-    padding: 0 12px;
+    margin: 0;
+    margin-bottom: 10px;
+    position: relative;
+    max-width: 400px;
+    padding-top: 10px;
   }
 
-  .text {
+  .paragraph {
     font-size: 16px;
     line-height: 1.5;
     font-weight:300;
     margin: 0;
     margin-bottom: 10px;
-    padding: 0 12px;
+    position: relative;
+    max-width: 900px;
   }
 
   .container {
     position: relative;
-    width: 700;
-    height: 500px;
+    width: 1225px;
+    height: 900px;
   }
 
   .legend-container {
-    width: 75%;
+    float: left;
+    width: 570px;
     position: relative;
-    padding-left: 70px;
-    height: 100px;
+    height: 70px;
+    padding-top: 25px;
+    padding-left: 130px;
   }
 
 </style>

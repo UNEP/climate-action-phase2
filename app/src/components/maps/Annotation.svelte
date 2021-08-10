@@ -200,6 +200,7 @@
         font-size: 13px;
         line-height: 1.3;
         width: 250px;
+        font-family: Roboto;
         text-shadow: 1px 1px 1px #f3f3f3, -1px 1px 1px #f3f3f3, 1px -1px 1px #f3f3f3, -1px -1px 1px #f3f3f3,
             2px 2px 2px #f3f3f3, -2px 2px 2px #f3f3f3, 2px -2px 2px #f3f3f3, -2px -2px 2px #f3f3f3,
             3px 3px 2px #f3f3f3, -3px 3px 2px #f3f3f3, 3px -3px 2px #f3f3f3, -3px -3px 2px #f3f3f3,
