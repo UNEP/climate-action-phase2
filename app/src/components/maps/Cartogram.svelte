@@ -6,6 +6,7 @@
     x: number;
     y: number;
     value: number;
+    rate: number;
   }
 </script>
 
@@ -27,6 +28,7 @@
   export var domain: [number, number];
   export var helpText: {code: string, text: string} = null;
   export var categoryFn: (code: CountryDataPoint) => string;
+  export var colorFn: (code: CountryDataPoint) => string;
   export var hoverTextFn: (country: CountryDataPoint) => string;
   export var onHoverFn: (country: CountryDataPoint) => void = c => null;
   export var hideLabels = false;
@@ -67,9 +69,8 @@
       ...d,
 
       category: categoryFn(d),
-
       left: xScale(d.x - r),
-      top: yScale(d.y - r),
+      top: yScale(d.y- r),
 
       // width height should be the same if the aspect is correct
       width: xScale(r * 2),
@@ -84,6 +85,7 @@
     `top: ${d.top}px`,
     `width: ${d.width}px`,
     `height: ${d.height}px`,
+    `background-color: ${colorFn(d)};`
     ];
     return styles.join(';');
   }
@@ -109,7 +111,6 @@
   }, 0);
 
   // ANNOTATIONS....  yea it's pretty complicated... :(
-
   interface AnnotationData {
     x: number;
     y: number;
@@ -152,7 +153,7 @@
 
   $: helpCountry = helpText ? cartogramData.find(d => d.code === helpText.code) : null;
 
-  $: helpAnnotation = {
+  $: helpAnnotation = helpCountry && {
     x: helpCountry.left + helpCountry.width/2,
     y: helpCountry.top + helpCountry.height/2,
     radius: 2 + helpCountry.width / 2,
@@ -166,6 +167,7 @@
     radius: 2 + hoverData.country.width / 2,
     html: hoverTextFn(hoverData.country)
   };
+
   $: annotation = countryAnnotation || helpAnnotation;
 
   $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
@@ -240,6 +242,7 @@
     z-index: 2;
     transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
     will-change: opacity, background-color, border-radius;
+    background: grey;
   }
 
   .cartogram-resizing .country {
