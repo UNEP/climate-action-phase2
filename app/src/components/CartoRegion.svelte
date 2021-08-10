@@ -64,35 +64,32 @@
 
   }
 
-  const handleMouseOut = (d:HTMLElement) => removeInformation();
+  const handleMouseOut = (d: HTMLElement) => removeInformation();
 
-  const handleMouseOverTreemap = (d:HTMLElement, currentRegion:RegionTreemapData) =>{
+  const handleMouseOverTreemap = (d: HTMLElement, currentRegion:RegionTreemapData) =>{
 
     if(currentRegionData.region !== currentRegion.background.region){
-
-       currentRegionData.region = currentRegion.background.region
-       currentRegionData.total = currentRegion.totalPollutingValue
-       currentRegionData.type = currentRegion.mostPollutingType
-       currentRegionData.value = currentRegion.mostPollutingValue
-
+       currentRegionData.region = currentRegion.background.region;
+       currentRegionData.total = currentRegion.totalPollutingValue;
+       currentRegionData.type = currentRegion.mostPollutingType;
+       currentRegionData.value = currentRegion.mostPollutingValue;
     }
 
     showSelectedRegionInformation(d);
   }
 
-  const handleMouseOutTreemap = (d:HTMLElement) => removeInformation();
+  const handleMouseOutTreemap = (d: HTMLElement) => removeInformation();
 
-  const showSelectedRegionInformation = (element:HTMLElement) => {
+  const showSelectedRegionInformation = (element: HTMLElement) => {
 
-    const region = d3.select(element)
+    const region = d3.select(element);
 
-    d3.select(currentRegionElement).style('filter', 'none')
-    currentRegionElement = element
+    currentRegionElement = element;
 
-    region.style('filter', 'url(#shadow)')
+    region.style('filter', 'url(#shadow)');
 
-    currentRegionData.x = +region.attr('x') + +region.attr('width')/2;
-    currentRegionData.y = +region.attr('y')
+    currentRegionData.x = +region.attr('x') + +region.attr('width') / 2;
+    currentRegionData.y = +region.attr('y');
     regionTextShowing = true;
 
   };
