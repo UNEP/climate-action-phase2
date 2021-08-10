@@ -53,8 +53,7 @@
   }
 
   const handleMouseOver = (d:HTMLElement, currentElement:CurrentSector) => {
-    
-   console.log(typeof d)
+
     currentRegionData.current.type = currentElement.type
     currentRegionData.current.value = currentElement.value
     
@@ -138,21 +137,26 @@
 
 <h1>TITLE</h1>
 <div bind:clientWidth={width} >
+  
   {#if regionTextShowing}
   <Annotation x={currentRegionData.x} 
-              y={currentRegionData.y} 
-              text="Most of the PM 2.5 in {currentRegionData.region} comes from {currentRegionData.type} -- {currentRegionData.value.toFixed(2)} of the {currentRegionData.total.toFixed(2)} µg/m3" 
-              radius={currentRegionData.radius} forceTopWherePossible={true}
-              canvasWidth={width} canvasHeight={width * scaleRate} />
+    y={currentRegionData.y} 
+    text="Most of the PM 2.5 in {currentRegionData.region} comes from {currentRegionData.type} -- {currentRegionData.value.toFixed(2)} of the {currentRegionData.total.toFixed(2)} µg/m3" 
+    radius={currentRegionData.radius} forceTopWherePossible={true}
+    canvasWidth={width} canvasHeight={width * scaleRate} 
+  />
   {/if}
+
   {#if typeTextShowing}
-  <Annotation x={currentRegionData.current.x} 
-              y={currentRegionData.current.y} 
-              text="{currentRegionData.current.type} {currentRegionData.current.value.toFixed(2)} µg/m3"
-              radius={currentRegionData.radius} 
-              justText={true}
-              canvasWidth={width} 
-              canvasHeight={width * scaleRate} />
+  <Annotation 
+    x={currentRegionData.current.x} 
+    y={currentRegionData.current.y} 
+    text="{currentRegionData.current.type} {currentRegionData.current.value.toFixed(2)} µg/m3"
+    radius={currentRegionData.radius} 
+    justText={true}
+    canvasWidth={width} 
+    canvasHeight={width * scaleRate} 
+  />
   {/if}
   <TreemapSvg 
     {data}
@@ -162,7 +166,6 @@
     {handleMouseOut}
     {handleMouseOverTreemap}
     {handleMouseOutTreemap}
-    {currentRegionData}
   />
   
 </div>
