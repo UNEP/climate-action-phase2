@@ -1,24 +1,22 @@
 <script lang="ts">
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
-  import * as d3 from 'src/d3';
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json'
-  //import shortCountryNameDictionary from 'src/data/countryDictionary.json';
 
   export var data:string; // "pm25" / "health"
 
   let selectedDataset = data === "pm25" ? pm25data : deaths_data;
   let selectedNodeSize = data === "pm25" ? 11 : 73;
 
-  const PM25colorPalette = ['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080'];
-  const healthColorPalette = ['#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877', '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#7a3b7f', '#583382'];
+  const PM25colorPalette = ['#ffbeb3','#eda6ac','#dc8ea5','#ca769e',
+  '#b85f97','#a5468f','#932b88','#800080'];
+
+  const healthColorPalette = ['#facc6e', '#f3b670', '#eaa073', '#de8b75',
+  '#d07877', '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#7a3b7f', '#583382'];
 
   function colorFunction(d: CountryDataPoint) {
-    if (data === "health"){
-      console.log(d.value)
-    }
     return data === "pm25" ? PM25colorPalette[Math.floor(d.value/10)] : healthColorPalette[Math.floor(d.rate/10)];
   }
 
@@ -54,8 +52,9 @@
     colorFn={d => colorFunction(d)}
     hoverTextFn={d => hoverTextFunction(d)}
     nodeSize={selectedNodeSize}
-    helpText={data === "pm25" ? {code: "CPV", text: "Each square represents a country, scaled by its PM2.5 emissions"}
-                              : {code: "BRA", text: "Each square represents a country, scaled by the number of attributable deaths"}}
+    helpText={data === "pm25" ? 
+    {code: "CPV", text: "Each square represents a country, scaled by its PM2.5 emissions"}
+    :{code: "BRA", text: "Each square represents a country, scaled by the number of attributable deaths"}}
   />
 </div>
 
