@@ -98,13 +98,8 @@
   };
 
   const removeInformation = () => {
-
     d3.select(currentRegionElement)
       .style('filter', 'none');
-
-    const svg = d3.select('#treemapCartogram');
-    svg.select('line').remove();
-    svg.selectAll('text').remove();
 
     regionTextShowing = false;
     typeTextShowing = false;
