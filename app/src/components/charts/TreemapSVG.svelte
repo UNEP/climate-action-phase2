@@ -1,7 +1,28 @@
+<script lang="ts" context="module">
+  export interface RegionTreemapData{
+    leaves: any,
+    background: {
+        borderTop: number,
+        borderBottom: number,
+        borderLeft: number,
+        borderRight: number,
+        x: number,
+        y: number,
+        color: string,
+        region: string,
+    },
+    x: number,
+    y: number,
+    totalPollutingValue: number,
+    mostPollutingValue: any,
+    mostPollutingType: any
+  };
+</script>
 <script lang="ts">
-import { tree } from 'd3-hierarchy';
+
 
   import * as d3 from 'src/d3';
+  import {colorSectors} from '../../App.svelte'
   import type { CartoRegionData } from 'src/types';
 
 
@@ -16,18 +37,17 @@ import { tree } from 'd3-hierarchy';
   export let handleMouseOverTreemap;
   export let handleMouseOutTreemap;
   export let data: CartoRegionData;
-  export let currentRegionData;
   export let width: number;
   export let height: number;
   
 
-  const mapPropotions =  (val) => Math.sqrt(val)*width*0.03
+  const mapPropotions =  (val) => Math.sqrt(val)*width*0.03;
   
-  let regions;
+  let regions : RegionTreemapData[];
     
   $: regions = data.regions.map(region => {
     const convertX = (val: number) => width * val / data.scale_width;
-    const convertY = (val: number) => height * val / data.scale_height
+    const convertY = (val: number) => height * val / data.scale_height;
     
     const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
       .sum(node => node.value || 0)
@@ -46,8 +66,6 @@ import { tree } from 'd3-hierarchy';
       borderRight: 2,
       x: convertX(region.posX),
       y: convertY(region.posY),
-      width: convertX(region.width),
-      height: convertY(region.height),
       color: "#f3f3f3",
       region: region.region
     };
@@ -62,20 +80,6 @@ import { tree } from 'd3-hierarchy';
       mostPollutingType : treemap.children[0].data.type
     };
   });
- 
-  const colorSectors = d3.scaleOrdinal<string>()
-    .domain(['intlshipping','transport','residential','commercial','industry','afciddust','othercombustion','remainingsources','otherfires','agrwasteburning','agriculture','windblowndust','waste','solvents','energy'])
-    .range(['#9b7ccc','#811494','#407aa9','#ff9c9c','#ab4867','#b3b3b3','#8c8c8c','#666666','#333333','#62b048','#1b6e29','#faba26','#bd8e71','#854f38','#ff8a18']);
-
-  const handleMouseOverNode = (evt, node) => {
-    currentRegionData.region = node.leave.parent.data.region
-    currentRegionData.type = node.leave.data.type;
-    currentRegionData.value = node.leave.data.value
-    currentRegionData.total = node.leave.parent.value
-    currentRegionData.current.value = node.leave.parent.value
-    currentRegionData.current.type = node.leave.data.type;
-    handleMouseOver(evt);
-  }
 
 </script>
 
@@ -113,7 +117,7 @@ import { tree } from 'd3-hierarchy';
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseover={handleMouseOver(this, leaf.data)}
+            on:mouseover={handleMouseOver(this, (leaf.data))}
             on:focus={handleMouseOver(this, leaf.data)}
             on:mouseout={handleMouseOut(this)}
             on:blur={handleMouseOut(this)}
@@ -121,9 +125,6 @@ import { tree } from 'd3-hierarchy';
           {/each}
         </g>
       </g>
-
-     
-
     {/each}
 
   </svg>
