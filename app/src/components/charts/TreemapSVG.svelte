@@ -46,8 +46,7 @@
   export let width: number;
   export let height: number;
 
-
-  const mapPropotions =  (val) => Math.sqrt(val)*width*0.03;
+  const mapPropotions =  (val) => Math.sqrt(val) * width * 0.03;
 
   let regions : RegionTreemapData[];
 
@@ -60,7 +59,10 @@
       .sort((a,b) => b.value - a.value);
 
     const treemap = d3.treemap<HierarchicalDatum>()
-      .size([mapPropotions(region.totalValue/region.numCountries), mapPropotions(region.totalValue/region.numCountries)])
+      .size([
+        mapPropotions(region.totalValue / region.numCountries),
+        mapPropotions(region.totalValue / region.numCountries)
+      ])
       .padding(2)
       (hierarchy);
 
@@ -123,7 +125,7 @@
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseover={handleMouseOver(this, (leaf.data))}
+            on:mouseover={handleMouseOver(this, leaf.data)}
             on:focus={handleMouseOver(this, leaf.data)}
             on:mouseout={handleMouseOut(this)}
             on:blur={handleMouseOut(this)}
