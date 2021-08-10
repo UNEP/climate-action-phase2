@@ -58,29 +58,13 @@
     currentRegionData.current.type = currentElement.type
     currentRegionData.current.value = currentElement.value
 
-    d3.select(d)
-      .transition()
-      .duration(250)
-      .style('stroke', 'black')
-      .style('stroke-linecap', 'butt')
-      .style('stroke-width', '0.5')
-
     showSelectedRegionInformation(d.parentNode.parentNode.children[0] as HTMLElement)
 
     showConcreteTypeInformation(d)
 
   }
 
-  const handleMouseOut = (d:HTMLElement) => {
-
-    removeInformation()
-
-    let currentType = d3.select(d)
-      .transition()
-      .duration(250)
-      .style('stroke', 'transparent')
-
-  }
+  const handleMouseOut = (d:HTMLElement) => removeInformation();
 
   const handleMouseOverTreemap = (d:HTMLElement, currentRegion:RegionTreemapData) =>{
 

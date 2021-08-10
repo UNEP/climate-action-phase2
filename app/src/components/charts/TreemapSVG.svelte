@@ -115,7 +115,7 @@
         <g id={region.background.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
           {#each region.leaves as leaf}
           <rect
-            class="tile"
+            class="tile leaf"
             fill={data.type === "sectors"? colorSectors(leaf.data.type): colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
@@ -142,5 +142,14 @@
     border-style: solid;
     border-color: black;
     background-color: rgb(237,237,237);
+  }
+  .leaf {
+    stroke: transparent;
+    stroke-linecap: butt;
+    stroke-width: 0.5;
+  }
+  .leaf:hover {
+    stroke: black;
+    transition: 250ms stroke;
   }
 </style>
