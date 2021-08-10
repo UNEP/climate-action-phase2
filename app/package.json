@@ -6,7 +6,8 @@
     "dev": "rollup -c -w",
     "start": "sirv public",
     "gdocs": "node scripts/parseGDocs.js",
-    "validate": "svelte-check"
+    "validate": "svelte-check",
+    "lint": "eslint \"src/**/*.{js,ts,svelte}\""
   },
   "devDependencies": {
     "@beyonk/svelte-mapbox": "^7.0.0",
