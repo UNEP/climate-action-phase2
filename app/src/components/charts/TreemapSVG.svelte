@@ -22,7 +22,7 @@
 
 
   import * as d3 from 'src/d3';
-  import {colorSectors, colorFuels} from '../../App.svelte';
+  import {colorSectors, colorFuels} from 'src/App.svelte';
   import type { CartoRegionData } from 'src/types';
 
 
