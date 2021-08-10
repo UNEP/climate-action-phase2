@@ -2,9 +2,9 @@
   import * as d3 from 'src/d3';
   import TreemapSvg from './charts/TreemapSVG.svelte';
   import Annotation from './maps/Annotation.svelte';
-  import {sectoralBD, differentFuels} from  '../data/data';
   
   import type {RegionTreemapData} from './charts/TreemapSVG.svelte';
+  import {sectoralBD, differentFuels} from  'src/data';
 
   export let data : string;
 
