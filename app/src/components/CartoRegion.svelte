@@ -5,6 +5,7 @@
   import Annotation from 'src/components/maps/Annotation.svelte';
   import {sectoralBD, differentFuels} from  'src/data';
 
+
   export let data : string;
 
   interface CurrentSector{
@@ -33,9 +34,9 @@
 
   let regionTextShowing = false;
   let typeTextShowing = false;
-  
+
   let currentRegionElement:HTMLElement;
-  
+
   let currentRegionData : CurrentRegion = {
     region : "",                                //Curren region name selected
     type : "",                                  //Could be type of sector or fuel
@@ -49,26 +50,25 @@
       type: "",                                //Type of sector or fuel
       x: 0,
       y: 0,
-    } 
-    
-  }
+    }
+  };
 
   const handleMouseOver = (d:HTMLElement, currentElement:CurrentSector) => {
 
     currentRegionData.current.type = currentElement.type
     currentRegionData.current.value = currentElement.value
-    
+
     d3.select(d)
       .transition()
       .duration(250)
       .style('stroke', 'black')
       .style('stroke-linecap', 'butt')
       .style('stroke-width', '0.5')
-    
+
     showSelectedRegionInformation(d.parentNode.parentNode.children[0] as HTMLElement)
-    
+
     showConcreteTypeInformation(d)
-  
+
   }
 
   const handleMouseOut = (d:HTMLElement) => {
@@ -83,7 +83,7 @@
   }
 
   const handleMouseOverTreemap = (d:HTMLElement, currentRegion:RegionTreemapData) =>{
-  
+
     if(currentRegionData.region !== currentRegion.background.region){
 
        currentRegionData.region = currentRegion.background.region
@@ -94,12 +94,12 @@
     }
 
     showSelectedRegionInformation(d);
-  } 
+  }
 
   const handleMouseOutTreemap = (d:HTMLElement) => removeInformation();
 
   const showSelectedRegionInformation = (element:HTMLElement) => {
-    
+
     const region = d3.select(element)
 
     d3.select(currentRegionElement).style('filter', 'none')
@@ -114,10 +114,10 @@
   };
 
   const removeInformation = () => {
-    
+
     d3.select(currentRegionElement)
       .style('filter', 'none');
-    
+
     const svg = d3.select('#treemapCartogram');
     svg.select('line').remove();
     svg.selectAll('text').remove();
@@ -128,7 +128,7 @@
   };
 
   const showConcreteTypeInformation =  (element:HTMLElement) => {
-    
+
     const concreteType = d3.select(element)
 
     currentRegionData.current.x = +concreteType.attr('x') + (+concreteType.attr('width') + 5);
@@ -141,37 +141,37 @@
 
 <h1>{data}</h1>
 <div bind:clientWidth={width} >
-  
+
   {#if regionTextShowing}
-  <Annotation x={currentRegionData.x} 
-    y={currentRegionData.y} 
-    text="Most of the PM 2.5 in {currentRegionData.region} comes from {currentRegionData.type} -- {currentRegionData.value.toFixed(2)} of the {currentRegionData.total.toFixed(2)} µg/m3" 
+  <Annotation x={currentRegionData.x}
+    y={currentRegionData.y}
+    text="Most of the PM 2.5 in {currentRegionData.region} comes from {currentRegionData.type} -- {currentRegionData.value.toFixed(2)} of the {currentRegionData.total.toFixed(2)} µg/m3"
     radius={currentRegionData.radius} forceTopWherePossible={true}
-    canvasWidth={width} canvasHeight={width * scaleRate} 
+    canvasWidth={width} canvasHeight={width * scaleRate}
   />
   {/if}
 
   {#if typeTextShowing}
-  <Annotation 
-    x={currentRegionData.current.x} 
-    y={currentRegionData.current.y} 
+  <Annotation
+    x={currentRegionData.current.x}
+    y={currentRegionData.current.y}
     text="{currentRegionData.current.type} {currentRegionData.current.value.toFixed(2)} µg/m3"
-    radius={currentRegionData.radius} 
+    radius={currentRegionData.radius}
     justText={true}
-    canvasWidth={width} 
-    canvasHeight={width * scaleRate} 
+    canvasWidth={width}
+    canvasHeight={width * scaleRate}
   />
   {/if}
-  <TreemapSvg 
+  <TreemapSvg
     data={currentData}
     {width}
-    height = {width * scaleRate} 
+    height = {width * scaleRate}
     {handleMouseOver}
     {handleMouseOut}
     {handleMouseOverTreemap}
     {handleMouseOutTreemap}
   />
-  
+
 </div>
 
 
