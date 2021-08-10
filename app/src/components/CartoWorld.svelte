@@ -9,8 +9,6 @@
 
   export var data:string;
 
-  let selectedDataset = data === "pm25" ? pm25data : deaths_data;
-
   const datasetParams = {
     pm25: {
       nodeSize: 11,
@@ -40,20 +38,7 @@
   };
 
   let dsParam = data === "pm25" ? datasetParams.pm25 : datasetParams.health;
-
-
-  function colorFunction(d: CountryDataPoint) {
-    return data === "pm25" ? dsParam.color(d.value) : dsParam.color(d.rate);
-  }
-
-  function hoverTextFunction(d: CountryDataPoint){
-    if (data === "pm25"){
-      return `${d.name} emitted ${d.value} μg/m3 of PM2.5`;
-    }
-    else{
-      return `${d.name} had a total of ${d.value} attributable deaths`;
-    }
-  }
+  let selectedDataset = data === "pm25" ? pm25data : deaths_data;
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
@@ -68,6 +53,19 @@
       };
     }
   );
+
+  function colorFunction(d: CountryDataPoint) {
+    return data === "pm25" ? dsParam.color(d.value) : dsParam.color(d.rate);
+  }
+
+  function hoverTextFunction(d: CountryDataPoint){
+    if (data === "pm25"){
+      return `${d.name} emitted ${d.value} μg/m3 of PM2.5`;
+    }
+    else{
+      return `${d.name} had a total of ${d.value} attributable deaths`;
+    }
+  }
 
 </script>
 
@@ -114,5 +112,5 @@
     padding-left: 70px;
     height: 100px;
   }
-  
+
 </style>
