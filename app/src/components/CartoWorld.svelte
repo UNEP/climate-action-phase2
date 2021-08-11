@@ -7,10 +7,10 @@
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "./common/Legend.svelte";
   import type { TextBlock } from 'src/types';
+  import { colorPM25, colorHealth } from "src/App.svelte";
 
   export var data:string;
   export var head:string;
-  //export var source:string;
   export var text:TextBlock[];
 
   const datasetParams = {
@@ -21,10 +21,7 @@
         text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
-      color: scaleThreshold<number, string>()
-      .domain([...new Array(7)].map((d,i) => (i+1)*10))
-      .range(['#ffbeb3','#eda6ac','#dc8ea5','#ca769e',
-      '#b85f97','#a5468f','#932b88','#800080']),
+      color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
       legendDomain: ["x1", "2", "3", "4", "5", "6", "7"]
     },
@@ -36,10 +33,7 @@
         text: `<strong>Each square is a country</strong>, sized by the total 
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
-      color: scaleThreshold<number, string>()
-      .domain([10,20,30,40,50,60,70,80,100])
-      .range(['#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877', 
-      '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382']),
+      color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"]
     }
@@ -62,10 +56,8 @@
     }
   );
 
-  function colorFunction(d: CountryDataPoint) {
-    return data === "pm25" ? dsParam.color(d.value) : dsParam.color(d.rate);
-  }
-
+  const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
+  
   function hoverTextFunction(d: CountryDataPoint){
     if (data === "pm25"){
       return `In <strong>${d.name}</strong>, people are exposed to an average of 
@@ -76,11 +68,6 @@
       deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
-
-  text.forEach(element => { 
-    console.log(element);
-
-  });
   
 </script>
 
@@ -109,7 +96,7 @@
     hoverTextFn={d => hoverTextFunction(d)}
     nodeSize={dsParam.nodeSize}
     helpText={{code: dsParam.help.code, text: dsParam.help.text}}
-  />
+    />
   </div>
 
   <div class="paragraph">
