@@ -206,7 +206,8 @@
     }
 
     .text {
-        font-size: 13px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
         line-height: 1.3;
         width: 250px;
         text-shadow: 1px 1px 1px #f3f3f3, -1px 1px 1px #f3f3f3, 1px -1px 1px #f3f3f3, -1px -1px 1px #f3f3f3,

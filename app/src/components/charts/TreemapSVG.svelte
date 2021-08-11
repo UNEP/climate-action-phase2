@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { HierarchyRectangularNode } from 'd3-hierarchy';
+  import Annotation from 'src/components/maps/Annotation.svelte'
 
   interface HierarchicalDatum {
     value?: number;
@@ -14,16 +15,17 @@
       borderBottom: number,
       borderLeft: number,
       borderRight: number,
-      x: number,
-      y: number,
       color: string,
-      region: string,
+
     },
     x: number,
     y: number,
+    width: number,
+    height: number,
     totalPollutingValue: number,
     mostPollutingValue: number,
-    mostPollutingType: string
+    mostPollutingType: string,
+    region: string,
   };
 </script>
 <script lang="ts">
@@ -38,83 +40,135 @@
     types?: HierarchicalDatum[];
   };
 
-  export let handleMouseOver;
-  export let handleMouseOut;
-  export let handleMouseOverTreemap;
-  export let handleMouseOutTreemap;
+  interface Position{
+    x: number,
+    y: number
+  };
+
   export let data: CartoRegionData;
   export let width: number;
   export let height: number;
+  export let source: string;
+
+  let referenceRegion : Position;
 
   const mapPropotions =  (val) => Math.sqrt(val) * width * 0.03;
 
   let regions : RegionTreemapData[];
 
-  $: regions = data.regions.map(region => {
-    const convertX = (val: number) => width * val / data.scale_width;
-    const convertY = (val: number) => height * val / data.scale_height;
+  let showInformation = true;
 
-    const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
-      .sum(node => node.value || 0)
-      .sort((a,b) => b.value - a.value);
+  let showConcreteType = false;
 
-    const treemap = d3.treemap<HierarchicalDatum>()
-      .size([
-        mapPropotions(region.totalValue / region.numCountries),
-        mapPropotions(region.totalValue / region.numCountries)
-      ])
-      .padding(2)
-      (hierarchy);
+  let currentRegion : RegionTreemapData;
+
+  let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
+
+  $:{
+  
+    regions = data.regions.map(region => {
+      
+      const convertX = (val: number) => width * val / data.scale_width;
+      const convertY = (val: number) => height * val / data.scale_height;
+    
+
+      const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
+        .sum(node => node.value || 0)
+        .sort((a,b) => b.value - a.value);
+
+      const treemap = d3.treemap<HierarchicalDatum>()
+        .size([
+          mapPropotions(region.totalValue / region.numCountries),
+          mapPropotions(region.totalValue / region.numCountries)
+        ])
+        .padding(2)
+        (hierarchy);
 
 
-    const background = {
-      borderTop  : 2,
-      borderBottom: 2,
-      borderLeft: 2,
-      borderRight: 2,
-      x: convertX(region.posX),
-      y: convertY(region.posY),
-      color: "#f3f3f3",
-      region: region.region
-    };
+      const background = {
+        borderTop  : 2,
+        borderBottom: 2,
+        borderLeft: 2,
+        borderRight: 2,
+        color: "#f3f3f3",
+        
+      };
 
-    return {
-      leaves : treemap.leaves(),
-      background,
-      x : convertX(region.posX),
-      y : convertY(region.posY),
-      totalPollutingValue : treemap.value/region.numCountries,
-      mostPollutingValue : treemap.children[0].data.value,
-      mostPollutingType : treemap.children[0].data.type
-    };
-  });
-
+      return {
+        leaves : treemap.leaves(),
+        background,
+        x : convertX(region.posX),
+        y : convertY(region.posY),
+        width: mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft,
+        height: mapPropotions(treemap.value/region.numCountries) + background.borderBottom + background.borderTop,
+        totalPollutingValue : treemap.value/region.numCountries,
+        mostPollutingValue : treemap.children[0].data.value,
+        mostPollutingType : treemap.children[0].data.type,
+        region: region.region
+      };
+    });
+    
+    referenceRegion = {
+      x: regions[2].x + regions[2].width / 2,
+      y: regions[2].y
+    }
+  }
 </script>
 
+<div class="text">
+{#if showInformation}
+  <Annotation
+    x={referenceRegion.x}
+    y={referenceRegion.y}
+    text={source}
+    radius={0}
+    forceTopWherePossible={true}
+    canvasWidth={width}
+    canvasHeight={height}
+  />
+  {:else}
+  <Annotation x={currentRegion.x}
+    y={currentRegion.y}
+    text="Most of the PM 2.5 in {currentRegion.region} comes from {currentRegion.mostPollutingType} -- {currentRegion.mostPollutingValue.toFixed(2)} of the {currentRegion.totalPollutingValue.toFixed(2)} µg/m3"
+    radius={0} forceTopWherePossible={true}
+    canvasWidth={width} canvasHeight={height}
+  />
+  {/if}
+</div>
+  {#if showConcreteType}
+  <Annotation
+    x={currentRegion.x + currentLeaf.x1 + 5}
+    y={currentRegion.y + currentLeaf.y0}
+    text="{currentLeaf.data.type} {currentLeaf.data.value.toFixed(2)} µg/m3"
+    radius={0}
+    justText={true}
+    canvasWidth={width}
+    canvasHeight={height}
+  />
+{/if}
 <div class="svg" {width} {height}>
   <svg id="treemapCartogram" {width} {height}>
     <filter id="shadow" x="-10%">
       <feDropShadow dx="0" dy="0"></feDropShadow>
     </filter>
     {#each regions as region}
-      <g id={region.background.region.replace(/\s/g, '').replace('+','-') + "-group"}>
+      <g id={region.region.replace(/\s/g, '').replace('+','-') + "-group"} class="region">
         <rect
-          id = {region.background.region.replace(/\s/g, '').replace('+','-') + "-background"}
+          id = {region.region.replace(/\s/g, '').replace('+','-') + "-background"}
           class="tile"
-          width={mapPropotions(region.totalPollutingValue) + region.background.borderRight + region.background.borderLeft}
-          height={mapPropotions(region.totalPollutingValue) + region.background.borderTop + region.background.borderBottom}
-          x={region.background.x - region.background.borderRight}
-          y={region.background.y - region.background.borderBottom}
+          width={region.width}
+          height={region.height}
+          x={region.x - region.background.borderRight}
+          y={region.y - region.background.borderBottom}
           rx="2"
           ry="2"
           filter="none"
-          on:mouseover={handleMouseOverTreemap(this, region)}
-          on:focus={handleMouseOverTreemap(this,region)}
-          on:mouseout={handleMouseOutTreemap(this)}
-          on:blur={handleMouseOutTreemap(this)}
+          on:mouseenter={()=>{showInformation = false; currentRegion = region;}}
+          on:mouseout={()=>{showInformation = true}}
+          on:blur={()=>{showInformation = true}}
           style="fill: {region.background.color};"
         />
-        <g id={region.background.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
+        <g id={region.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
           {#each region.leaves as leaf}
           <rect
             class="tile leaf"
@@ -125,26 +179,19 @@
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseover={handleMouseOver(this, leaf.data)}
-            on:focus={handleMouseOver(this, leaf.data)}
-            on:mouseout={handleMouseOut(this)}
-            on:blur={handleMouseOut(this)}
+            on:mouseenter={()=>{currentRegion = region; showInformation = false; currentLeaf = leaf; showConcreteType = true}}
+            on:mouseout={()=>{showInformation = true; showConcreteType=false}}
+            on:blur={()=>{showInformation = true; showConcreteType=false}}
           />
           {/each}
         </g>
       </g>
-    {/each}
-
+    {/each} 
   </svg>
+  
 </div>
 
 <style>
-  .svg {
-    border-width: 0.5px;
-    border-style: solid;
-    border-color: black;
-    background-color: rgb(237,237,237);
-  }
   .leaf {
     stroke: transparent;
     stroke-linecap: butt;
@@ -153,5 +200,8 @@
   .leaf:hover {
     stroke: black;
     transition: 250ms stroke;
+  }
+  .region:hover{
+    filter: url("#shadow");
   }
 </style>
