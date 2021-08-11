@@ -71,7 +71,6 @@
   
 </script>
 
-
 <div class="container">
 
   <div class="title-text">
@@ -80,22 +79,22 @@
 
   <div class="legend-container">
     <Legend
-    title = {dsParam.legendTitle}
-	  colors = {dsParam.color.range()}
-	  labels = {dsParam.legendDomain}
-	  type = {'sequential'}
+      title = {dsParam.legendTitle}
+      colors = {dsParam.color.range()}
+      labels = {dsParam.legendDomain}
+      type = {'sequential'}
   />
   </div>
 
   <div class="cartogram-container">
     <Cartogram
-    data={cartogramData}
-    domain={[700, 400]}
-    categoryFn={() => null}
-    colorFn={d => colorFunction(d)}
-    hoverTextFn={d => hoverTextFunction(d)}
-    nodeSize={dsParam.nodeSize}
-    helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+      data={cartogramData}
+      domain={[700, 400]}
+      categoryFn={() => null}
+      colorFn={d => colorFunction(d)}
+      hoverTextFn={d => hoverTextFunction(d)}
+      nodeSize={dsParam.nodeSize}
+      helpText={{code: dsParam.help.code, text: dsParam.help.text}}
     />
   </div>
 
