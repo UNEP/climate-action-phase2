@@ -18,3 +18,19 @@ export interface Content {
   head: string;
   text: TextBlock[];
 }
+
+interface Region {
+  posX: number;
+  posY: number;
+  region: string;
+  types: Sector[];
+  numCountries: number
+  totalValue: number
+}
+
+export interface CartoRegionData {
+  regions: Region[];
+  scale_width: number;
+  scale_height: number;
+  type: string;
+}
