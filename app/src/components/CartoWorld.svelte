@@ -1,33 +1,46 @@
 <script lang="ts">
+  import { scaleThreshold } from 'd3-scale';
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
-  import deaths_data from 'src/data/death_coords.json'
+  import deaths_data from 'src/data/death_coords.json';
+  import Legend from "./common/Legend.svelte";
+  import type { TextBlock } from 'src/types';
+  import { colorPM25, colorHealth } from "src/App.svelte";
 
-  export var data:string; // "pm25" / "health"
+  export var data:string;
+  export var head:string;
+  export var text:TextBlock[];
 
+  const datasetParams = {
+    pm25: {
+      nodeSize: 11,
+      help: {
+        code: "CPV",
+        text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
+        of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+      },
+      color: colorPM25,
+      legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"]
+    },
+
+    health: {
+      nodeSize: 73,
+      help: {
+        code: "BRA",
+        text: `<strong>Each square is a country</strong>, sized by the total 
+        number of <strong>deaths caused by small particle pollution</strong>.`
+      },
+      color: colorHealth,
+      legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
+      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"]
+    }
+  };
+
+  let dsParam = data === "pm25" ? datasetParams.pm25 : datasetParams.health;
   let selectedDataset = data === "pm25" ? pm25data : deaths_data;
-  let selectedNodeSize = data === "pm25" ? 11 : 73;
-
-  const PM25colorPalette = ['#ffbeb3','#eda6ac','#dc8ea5','#ca769e',
-  '#b85f97','#a5468f','#932b88','#800080'];
-
-  const healthColorPalette = ['#facc6e', '#f3b670', '#eaa073', '#de8b75',
-  '#d07877', '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#7a3b7f', '#583382'];
-
-  function colorFunction(d: CountryDataPoint) {
-    return data === "pm25" ? PM25colorPalette[Math.floor(d.value/10)] : healthColorPalette[Math.floor(d.rate/10)];
-  }
-
-  function hoverTextFunction(d: CountryDataPoint){
-    if (data === "pm25"){
-      return `${d.name} emitted ${d.value} μg/m3 of PM2.5`;
-    }
-    else{
-      return `${d.name} had a total of ${d.value} attributable deaths`;
-    }
-  }
 
   let cartogramData: CountryDataPoint[] = selectedDataset
     .map(d => {
@@ -40,28 +53,103 @@
         value: data === "pm25" ? d.pm25 : d.deaths,
         rate: data === "health" ? d.rate : null
       };
-    });
+    }
+  );
 
+  const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
+  
+  function hoverTextFunction(d: CountryDataPoint){
+    if (data === "pm25"){
+      return `In <strong>${d.name}</strong>, people are exposed to an average of 
+      <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}</strong> the WHO guideline.`;
+    }
+    else{
+      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
+      deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
+    }
+  }
+  
 </script>
 
 <div class="container">
-  <Cartogram
-    data={cartogramData}
-    domain={[700, 400]}
-    categoryFn={() => null}
-    colorFn={d => colorFunction(d)}
-    hoverTextFn={d => hoverTextFunction(d)}
-    nodeSize={selectedNodeSize}
-    helpText={data === "pm25" ? 
-    {code: "CPV", text: "Each square represents a country, scaled by its PM2.5 emissions"}
-    :{code: "BRA", text: "Each square represents a country, scaled by the number of attributable deaths"}}
+
+  <div class="title-text">
+    <p>{head}</p>
+  </div>
+
+  <div class="legend-container">
+    <Legend
+      title = {dsParam.legendTitle}
+      colors = {dsParam.color.range()}
+      labels = {dsParam.legendDomain}
+      type = {'sequential'}
   />
+  </div>
+
+  <div class="cartogram-container">
+    <Cartogram
+      data={cartogramData}
+      domain={[700, 400]}
+      categoryFn={() => null}
+      colorFn={d => colorFunction(d)}
+      hoverTextFn={d => hoverTextFunction(d)}
+      nodeSize={dsParam.nodeSize}
+      helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+    />
+  </div>
+
+  <div class="paragraph">
+    {#each text as t}
+      <p>{t.p}</p>
+	  {/each}
+  </div>
+
 </div>
 
+
 <style>
+
+  .cartogram-container {
+    width: 1140px;
+    height: 650px;
+  }
+
+  .title-text {
+    font-size: 16px;
+    float: left;
+    line-height: 1.5;
+    font-weight:300;
+    margin: 0;
+    margin-bottom: 10px;
+    position: relative;
+    max-width: 400px;
+    padding-top: 10px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight:300;
+    margin: 0;
+    margin-bottom: 10px;
+    position: relative;
+    max-width: 900px;
+    padding-top: 75px;
+  }
+
   .container {
     position: relative;
-    width: 700px;
-    height: 400px;
+    width: 1225px;
+    height: 900px;
   }
+
+  .legend-container {
+    float: left;
+    width: 570px;
+    position: relative;
+    height: 70px;
+    padding-top: 25px;
+    padding-left: 130px;
+  }
+
 </style>

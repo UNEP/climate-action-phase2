@@ -251,6 +251,7 @@
 
   .country-text {
     color: white;
+    font-family: Roboto;
     font-weight: 500;
     font-size: 14px;
     position: absolute;
