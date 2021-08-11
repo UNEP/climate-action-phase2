@@ -6,11 +6,12 @@
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "./common/Legend.svelte";
+  import type { TextBlock } from 'src/types';
 
   export var data:string;
   export var head:string;
-  export var source:string;
-  export var text:[];
+  //export var source:string;
+  export var text:TextBlock[];
 
   const datasetParams = {
     pm25: {
@@ -71,10 +72,16 @@
       <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}</strong> the WHO guideline.`;
     }
     else{
-      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
+      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
+      deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
 
+  text.forEach(element => { 
+    console.log(element);
+
+  });
+  
 </script>
 
 
@@ -107,7 +114,7 @@
 
   <div class="paragraph">
     {#each text as t}
-      <p>{t}</p>
+      <p>{t.p}</p>
 	  {/each}
   </div>
 
@@ -141,6 +148,7 @@
     margin-bottom: 10px;
     position: relative;
     max-width: 900px;
+    padding-top: 75px;
   }
 
   .container {
