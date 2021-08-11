@@ -206,16 +206,8 @@
     }
 
     .text {
-        font-family: 'Roboto', sans-serif;
-        font-size: 18px;
-        line-height: 1.3;
         width: 250px;
-        font-family: Roboto;
-        text-shadow: 1px 1px 1px #f3f3f3, -1px 1px 1px #f3f3f3, 1px -1px 1px #f3f3f3, -1px -1px 1px #f3f3f3,
-            2px 2px 2px #f3f3f3, -2px 2px 2px #f3f3f3, 2px -2px 2px #f3f3f3, -2px -2px 2px #f3f3f3,
-            3px 3px 2px #f3f3f3, -3px 3px 2px #f3f3f3, 3px -3px 2px #f3f3f3, -3px -3px 2px #f3f3f3,
-            -3px 0 2px #f3f3f3, 3px 0 2px #f3f3f3, 0 -3px 2px #f3f3f3, 0 3px 2px #f3f3f3,
-            -4px 0 2px #f3f3f3, 4px 0 2px #f3f3f3, 0 -4px 2px #f3f3f3, 0 4px 2px #f3f3f3;
+        /* text-shadow: rgb(249, 249, 249) 3px 0px 0px, rgb(249, 249, 249) 2.83487px 0.981584px 0px, rgb(249, 249, 249) 2.35766px 1.85511px 0px, rgb(249, 249, 249) 1.62091px 2.52441px 0px, rgb(249, 249, 249) 0.705713px 2.91581px 0px, rgb(249, 249, 249) -0.287171px 2.98622px 0px, rgb(249, 249, 249) -1.24844px 2.72789px 0px, rgb(249, 249, 249) -2.07227px 2.16926px 0px, rgb(249, 249, 249) -2.66798px 1.37182px 0px, rgb(249, 249, 249) -2.96998px 0.42336px 0px, rgb(249, 249, 249) -2.94502px -0.571704px 0px, rgb(249, 249, 249) -2.59586px -1.50383px 0px, rgb(249, 249, 249) -1.96093px -2.27041px 0px, rgb(249, 249, 249) -1.11013px -2.78704px 0px, rgb(249, 249, 249) -0.137119px -2.99686px 0px, rgb(249, 249, 249) 0.850987px -2.87677px 0px, rgb(249, 249, 249) 1.74541px -2.43999px 0px, rgb(249, 249, 249) 2.44769px -1.73459px 0px, rgb(249, 249, 249) 2.88051px -0.838247px 0px; */
         z-index: 5;
         pointer-events: none;
     }

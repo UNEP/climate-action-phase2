@@ -2,18 +2,18 @@
 
   export const colorSectors = scaleOrdinal<string>()
     .domain([
-      'intlshipping','transport','residential','commercial','industry','afciddust',
+      'windblowndust','residential','intlshipping','transport','commercial','industry','afciddust',
       'othercombustion','remainingsources','otherfires','agrwasteburning','agriculture',
-      'windblowndust','waste','solvents','energy'
+      'waste','solvents','energy'
     ])
     .range([
-      '#9b7ccc','#811494','#407aa9','#ff9c9c','#ab4867','#b3b3b3','#8c8c8c','#666666',
-      '#333333','#62b048','#1b6e29','#faba26','#bd8e71','#854f38','#ff8a18'
+      '#faba26','#407aa9','#9b7ccc','#811494','#ff9c9c','#ab4867','#b3b3b3','#8c8c8c','#666666',
+      '#333333','#62b048','#1b6e29','#bd8e71','#854f38','#ff8a18'
     ]);
 
   export const colorFuels = scaleOrdinal<string>()
-    .domain(['liquid','process','solidbio','coal'])
-    .range(['#faba26','#407aa9','#62b048','#333333']);
+    .domain(['process','liquid','solidbio','coal'])
+    .range(['#407aa9','#faba26','#62b048','#333333']);
 
   export const colorPM25 = scaleThreshold<number, string>()
     .domain([...new Array(7)].map((d,i) => (i+1)*10))
@@ -52,7 +52,7 @@
   <article>
     {#each content as block}
       {#if components[block.type]}
-        <svelte:component this={components[block.type]} {...block} scale={colorSectors}/>
+        <svelte:component this={components[block.type]} {...block} />
       {:else}
         <div>Missing component for '{block.type}'</div>
       {/if}

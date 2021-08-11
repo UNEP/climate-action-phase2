@@ -225,10 +225,6 @@
     position: relative;
   }
 
-  .label {
-    font-size: 14px;
-  }
-
   .countries {
     flex: 0 0 100%;
     transform: rotateY(0.001deg);
@@ -251,9 +247,8 @@
 
   .country-text {
     color: white;
-    font-family: Roboto;
     font-weight: 500;
-    font-size: 14px;
+    font-size: .85rem;
     position: absolute;
     top: 50%;
     left: 0;
@@ -312,8 +307,6 @@
 
   .help-text {
     position: absolute;
-    font-size: 14px;
-    line-height: 20px;
     width: 180px;
     padding-bottom: 5px;
     z-index: 2;
@@ -328,9 +321,6 @@
   .annotation-container {
     opacity: 1;
     pointer-events: none;
-  }
-  .annotation-help :global(.text) {
-    font-size: 14px !important;
   }
 
   .annotation-help {

@@ -2,6 +2,7 @@ html, body {
 	width: 100%;
 	font-size: 90%;
 	height: 100%;
+	font-family: 'Roboto', sans-serif;
 }
 body {
 	background-color: #f9f9f9;
@@ -20,9 +21,9 @@ article, nav {
 .inner-nav { margin: 0; }
 
 article, section { position:relative; }
+.viz { padding: 2rem 0;}
 
 p, h1, h2, h3, h4, select, ul {
-	font-family: 'Roboto', sans-serif;
 	text-align: left;
 }
 
@@ -47,11 +48,7 @@ h3, select { line-height: 1.25; }
 h4, p { line-height: 1.5; }
 h2, h3, select { font-weight: 300; }
 
-h2 {
-	font-size: 1.35rem;
-	margin-top: 2rem!important;
-	margin-bottom: 1rem!important;
-}
+h2 {font-size: 1.35rem; }
 h3 { font-size: 1.25rem; }
 h4 {
 	font-weight: 700;
@@ -63,6 +60,12 @@ p, ul {
 	font-weight: 300;
 }
 .note { font-size: .9rem; }
+
+.text,.label, .help-text {
+	font-size: 1rem;
+	line-height: 1.35rem;
+	font-weight: 300;
+}
 
 .col, .wide, .col-text, .narrow {
 	margin: 0 auto;
@@ -78,6 +81,7 @@ p, ul {
 	width:100%;
 	max-width: 40rem;
 	display: block;
+	margin: 1rem 0;
 }
 
 .fs {
@@ -95,7 +99,9 @@ p, ul {
     width: 1px;
     height: 1px;
     word-wrap: normal;
-  }
+}
+
+sup { line-height: 0; }
 
 @media screen and (min-width: 58rem) {
 
@@ -124,7 +130,8 @@ p, ul {
 	.right-narrow {
 		width:calc(100% - 32rem);
 		display: inline-block;
-		vertical-align: middle;
+		vertical-align: top;
+		margin:0;
 	}
 	.col {
 		width:48rem;
@@ -135,6 +142,11 @@ p, ul {
 		padding-right:calc(100% - 52rem);
 	}
 
+	.wide {
+		max-width:72rem;
+		margin-left:0;
+	}
+
 	.logo { width: 11rem; }
 	.top { margin-top: 2rem; }
 }
@@ -142,5 +154,9 @@ p, ul {
 @media screen and (min-width: 95.25rem) {
 	article, nav {
 		margin: 0 auto;
+	}
+	.wide {
+		width:72rem;
+		padding-right:calc(100% - 72rem);
 	}
 }

@@ -69,15 +69,15 @@
     }
   }
   
+  let width;
+  $: height = width * (data === 'pm25' ? .55 : .62);
+  
 </script>
 
-<div class="container">
+<section class="viz wide">
+  <h2 class='narrow'>{@html head}</h2>
 
-  <div class="title-text">
-    <p>{head}</p>
-  </div>
-
-  <div class="legend-container">
+  <div class="right-narrow" >
     <Legend
       title = {dsParam.legendTitle}
       colors = {dsParam.color.range()}
@@ -86,7 +86,7 @@
   />
   </div>
 
-  <div class="cartogram-container">
+  <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
     <Cartogram
       data={cartogramData}
       domain={[700, 400]}
@@ -98,58 +98,8 @@
     />
   </div>
 
-  <div class="paragraph">
-    {#each text as t}
-      <p>{t.p}</p>
-	  {/each}
-  </div>
+  {#each text as t}
+    <p class='col-text'>{t.p}</p>
+	{/each}
 
-</div>
-
-
-<style>
-
-  .cartogram-container {
-    width: 1140px;
-    height: 650px;
-  }
-
-  .title-text {
-    font-size: 16px;
-    float: left;
-    line-height: 1.5;
-    font-weight:300;
-    margin: 0;
-    margin-bottom: 10px;
-    position: relative;
-    max-width: 400px;
-    padding-top: 10px;
-  }
-
-  .paragraph {
-    font-size: 16px;
-    line-height: 1.5;
-    font-weight:300;
-    margin: 0;
-    margin-bottom: 10px;
-    position: relative;
-    max-width: 900px;
-    padding-top: 75px;
-  }
-
-  .container {
-    position: relative;
-    width: 1225px;
-    height: 900px;
-  }
-
-  .legend-container {
-    float: left;
-    width: 570px;
-    position: relative;
-    height: 70px;
-    padding-top: 25px;
-    padding-left: 130px;
-  }
-
-</style>
+</section>

@@ -90,7 +90,7 @@
         borderBottom: 2,
         borderLeft: 2,
         borderRight: 2,
-        color: "#f3f3f3",
+        color: "#f9f9f9",
         
       };
 
@@ -129,7 +129,7 @@
   {:else}
   <Annotation x={currentRegion.x}
     y={currentRegion.y}
-    text="Most of the PM 2.5 in {currentRegion.region} comes from {currentRegion.mostPollutingType} -- {currentRegion.mostPollutingValue.toFixed(2)} of the {currentRegion.totalPollutingValue.toFixed(2)} µg/m3"
+    text="Most of the PM 2.5 in <b>{currentRegion.region}</b> comes from <b>{currentRegion.mostPollutingType}</b> —<b>{currentRegion.mostPollutingValue.toFixed(2)}</b> of the <b>{currentRegion.totalPollutingValue.toFixed(2)}<b> µg/m<sup>3</sup>"
     radius={0} forceTopWherePossible={true}
     canvasWidth={width} canvasHeight={height}
   />
@@ -139,7 +139,7 @@
   <Annotation
     x={currentRegion.x + currentLeaf.x1 + 5}
     y={currentRegion.y + currentLeaf.y0}
-    text="{currentLeaf.data.type} {currentLeaf.data.value.toFixed(2)} µg/m3"
+    text="{currentLeaf.data.type} {currentLeaf.data.value.toFixed(2)} µg/m<sup>3</sup>"
     radius={0}
     justText={true}
     canvasWidth={width}
@@ -149,7 +149,7 @@
 <div class="svg" {width} {height}>
   <svg id="treemapCartogram" {width} {height}>
     <filter id="shadow" x="-10%">
-      <feDropShadow dx="0" dy="0"></feDropShadow>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.4"></feDropShadow>
     </filter>
     {#each regions as region}
       <g id={region.region.replace(/\s/g, '').replace('+','-') + "-group"} class="region">
@@ -199,7 +199,8 @@
   }
   .leaf:hover {
     stroke: black;
-    transition: 250ms stroke;
+    stroke-width:1.5;
+    transition: .3s stroke;
   }
   .region:hover{
     filter: url("#shadow");
