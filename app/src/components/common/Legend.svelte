@@ -1,8 +1,8 @@
 <script lang='ts'>
-	export let title: string = '';
+	export let title = '';
 	export let colors: string[];
 	export let labels: string[];
-	export let type: string = 'sequential';
+	export let type = 'sequential';
 </script>
 
 <h3 class="note title">{@html title}</h3>
