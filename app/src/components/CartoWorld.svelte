@@ -74,7 +74,7 @@
   }
 </script>
 
-<section class="viz wide" bind:clientWidth={clientWidth}>
+<section class="viz wide">
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >
@@ -86,19 +86,21 @@
   />
   </div>
 
-  <ScrollableX>
-    <div class="carto-container" style="width:{width}px; height:{height}px">
-      <Cartogram
-        data={cartogramData}
-        domain={[700, 400]}
-        categoryFn={() => null}
-        colorFn={d => colorFunction(d)}
-        hoverTextFn={d => hoverTextFunction(d)}
-        nodeSize={dsParam.nodeSize}
-        helpText={{code: dsParam.help.code, text: dsParam.help.text}}
-      />
-    </div>
-  </ScrollableX>
+  <div class="scroll-container" bind:clientWidth={clientWidth}>
+    <ScrollableX>
+      <div class="carto-container" style="width:{width}px; height:{height}px">
+        <Cartogram
+          data={cartogramData}
+          domain={[700, 400]}
+          categoryFn={() => null}
+          colorFn={d => colorFunction(d)}
+          hoverTextFn={d => hoverTextFunction(d)}
+          nodeSize={dsParam.nodeSize}
+          helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+        />
+      </div>
+    </ScrollableX>
+  </div>
 
   {#each text as t}
     <p class='col-text'>{t.p}</p>
