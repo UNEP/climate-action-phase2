@@ -7,7 +7,7 @@
     "start": "sirv public",
     "gdocs": "node scripts/parseGDocs.js",
     "validate": "svelte-check",
-    "lint": "eslint \"src/**/*.{js,ts,svelte}\""
+    "lint": "eslint --ext .js,.svelte,.ts ./src"
   },
   "devDependencies": {
     "@beyonk/svelte-mapbox": "^7.0.0",
