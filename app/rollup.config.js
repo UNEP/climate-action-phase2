@@ -10,6 +10,7 @@ import json from '@rollup/plugin-json';
 import image from '@rollup/plugin-image';
 import eslint from '@rollup/plugin-eslint';
 import includePaths from 'rollup-plugin-includepaths';
+import { string } from 'rollup-plugin-string';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -79,7 +80,12 @@ export default {
 			inlineSources: !production
 		}),
 		json(),
-		image(),
+		image({
+			include: "src/assets/**/*"
+		}),
+		string({
+			include: "src/svg/**/*.svg",
+		}),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

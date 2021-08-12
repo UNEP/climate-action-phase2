@@ -1,24 +1,28 @@
 <script lang="ts">
-  import { scaleThreshold } from 'd3-scale';
-  import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
-  import Cartogram from "src/components/maps/Cartogram.svelte";
+  import type { TextBlock } from 'src/types';
   import pm25data from 'src/data/pm25_coords.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
-  import Legend from "./common/Legend.svelte";
-  import type { TextBlock } from 'src/types';
+  import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
+  import Cartogram from "src/components/maps/Cartogram.svelte";
+  import Legend from "src/components/common/Legend.svelte";
+  import ScrollableX from 'src/components/common/ScrollableX.svelte';
   import { colorPM25, colorHealth } from "src/App.svelte";
 
   export var data:string;
   export var head:string;
   export var text:TextBlock[];
 
+  let clientWidth: number;
+  $: width = Math.max(clientWidth, 700);
+  $: height = width * (data === 'pm25' ? .55 : .62);
+
   const datasetParams = {
     pm25: {
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
+        text: `<strong>Each square is a country</strong>, sized by the annual mean levels
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
       color: colorPM25,
@@ -30,7 +34,7 @@
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: `<strong>Each square is a country</strong>, sized by the total 
+        text: `<strong>Each square is a country</strong>, sized by the total
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
       color: colorHealth,
@@ -57,24 +61,20 @@
   );
 
   const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
-  
+
   function hoverTextFunction(d: CountryDataPoint){
     if (data === "pm25"){
-      return `In <strong>${d.name}</strong>, people are exposed to an average of 
+      return `In <strong>${d.name}</strong>, people are exposed to an average of
       <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}</strong> the WHO guideline.`;
     }
     else{
-      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
+      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value}
       deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
-  
-  let width;
-  $: height = width * (data === 'pm25' ? .55 : .62);
-  
 </script>
 
-<section class="viz wide">
+<section class="viz wide" bind:clientWidth={clientWidth}>
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >
@@ -86,17 +86,19 @@
   />
   </div>
 
-  <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-    <Cartogram
-      data={cartogramData}
-      domain={[700, 400]}
-      categoryFn={() => null}
-      colorFn={d => colorFunction(d)}
-      hoverTextFn={d => hoverTextFunction(d)}
-      nodeSize={dsParam.nodeSize}
-      helpText={{code: dsParam.help.code, text: dsParam.help.text}}
-    />
-  </div>
+  <ScrollableX>
+    <div class="carto-container" style="width:{width}px; height:{height}px">
+      <Cartogram
+        data={cartogramData}
+        domain={[700, 400]}
+        categoryFn={() => null}
+        colorFn={d => colorFunction(d)}
+        hoverTextFn={d => hoverTextFunction(d)}
+        nodeSize={dsParam.nodeSize}
+        helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+      />
+    </div>
+  </ScrollableX>
 
   {#each text as t}
     <p class='col-text'>{t.p}</p>
