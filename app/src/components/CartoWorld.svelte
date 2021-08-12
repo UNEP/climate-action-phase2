@@ -1,12 +1,11 @@
 <script lang="ts">
-  import { scaleThreshold } from 'd3-scale';
-  import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
-  import Cartogram from "src/components/maps/Cartogram.svelte";
+  import type { TextBlock } from 'src/types';
   import pm25data from 'src/data/pm25_coords.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
-  import Legend from "./common/Legend.svelte";
-  import type { TextBlock } from 'src/types';
+  import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
+  import Cartogram from "src/components/maps/Cartogram.svelte";
+  import Legend from "src/components/common/Legend.svelte";
   import ScrollableX from 'src/components/common/ScrollableX.svelte';
   import { colorPM25, colorHealth } from "src/App.svelte";
 
