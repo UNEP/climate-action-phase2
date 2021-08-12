@@ -22,7 +22,7 @@
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
+        text: `<strong>Each square is a country</strong>, sized by the annual mean levels
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
       color: colorPM25,
@@ -34,7 +34,7 @@
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: `<strong>Each square is a country</strong>, sized by the total 
+        text: `<strong>Each square is a country</strong>, sized by the total
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
       color: colorHealth,
@@ -61,14 +61,14 @@
   );
 
   const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
-  
+
   function hoverTextFunction(d: CountryDataPoint){
     if (data === "pm25"){
-      return `In <strong>${d.name}</strong>, people are exposed to an average of 
+      return `In <strong>${d.name}</strong>, people are exposed to an average of
       <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}</strong> the WHO guideline.`;
     }
     else{
-      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
+      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value}
       deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
