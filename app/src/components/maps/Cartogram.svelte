@@ -30,28 +30,45 @@
   export var categoryFn: (code: CountryDataPoint) => string;
   export var colorFn: (code: CountryDataPoint) => string;
   export var hoverTextFn: (country: CountryDataPoint) => string;
-  export var onHoverFn: (country: CountryDataPoint) => void = c => null;
+  export var onHoverFn: (country: CountryDataPoint) => void = () => null;
   export var hideLabels = false;
 
-  var containerEl: Element;
+  let containerEl: Element;
   let loaded = false;
 
   // used to scale to container el
   const originalWidth = domain[0];
   const originalHeight = domain[1];
-  var targetWidth: number = originalWidth;
-  var targetHeight: number = originalHeight;
-  var resizing = false;
-  var hoverTimeout: number;
+  let targetWidth: number = originalWidth;
+  let targetHeight: number = originalHeight;
+  let resizing = false;
+  let hoverTimeout: number;
   let hoverData: {x: number, y: number, country: CartogramDataPoint} = null;
-  var helpTextFade = false;
-  var annotation: AnnotationData;
-  var hoveredForX = false;
+  let helpTextFade = false;
+  let annotation: AnnotationData;
+  let hoveredForX = false;
 
   $: largestVal = Math.max(...data.map(d => d.value));
 
   let clientWidth: number;
-  $: clientWidth && resize();
+  let containerWidth: number;
+  let containerHeight: number;
+
+  function resize() {
+    if (containerEl) {
+      resizing = true;
+      const containerStyle = getComputedStyle(containerEl);
+      containerWidth = containerEl.clientWidth - parseFloat(containerStyle.paddingLeft) - parseFloat(containerStyle.paddingRight);
+      containerHeight = containerEl.clientHeight - parseFloat(containerStyle.paddingTop) - parseFloat(containerStyle.paddingBottom);
+      const scale = Math.min(containerWidth / originalWidth, containerHeight / originalHeight);
+      targetWidth = originalWidth * scale;
+      targetHeight = originalHeight * scale;
+      window.setTimeout(() => resizing = false);
+    }
+  }
+
+  const throttledResize = throttle(resize, 100);
+  $: clientWidth && throttledResize();
 
   $: radius = d3.scaleSqrt()
   .domain([0, largestVal])
@@ -65,7 +82,7 @@
   .domain([0, domain[1]])
   .range([0, targetHeight]);
 
-  var cartogramData: CartogramDataPoint[];
+  let cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
     const r = radius(d.value);
     return {
@@ -90,21 +107,6 @@
     `background-color: ${colorFn(d)};`
     ];
     return styles.join(';');
-  }
-
-  var containerWidth: number;
-  var containerHeight: number;
-  function resize() {
-    if (containerEl) {
-      resizing = true;
-      const containerStyle = getComputedStyle(containerEl);
-      containerWidth = containerEl.clientWidth - parseFloat(containerStyle.paddingLeft) - parseFloat(containerStyle.paddingRight);
-      containerHeight = containerEl.clientHeight - parseFloat(containerStyle.paddingTop) - parseFloat(containerStyle.paddingBottom);
-      const scale = Math.min(containerWidth / originalWidth, containerHeight / originalHeight);
-      targetWidth = originalWidth * scale;
-      targetHeight = originalHeight * scale;
-      window.setTimeout(() => resizing = false);
-    }
   }
 
   window.setTimeout(() => {
