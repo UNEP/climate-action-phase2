@@ -21,7 +21,8 @@
     }
   ],
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "@typescript-eslint/no-inferrable-types": "off"
   },
   "settings": {
     "svelte3/typescript": true
