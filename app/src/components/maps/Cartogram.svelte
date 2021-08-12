@@ -50,6 +50,9 @@
 
   $: largestVal = Math.max(...data.map(d => d.value));
 
+  let clientWidth: number;
+  $: clientWidth && resize();
+
   $: radius = d3.scaleSqrt()
   .domain([0, largestVal])
   .range([0, nodeSize]);
@@ -77,7 +80,6 @@
       height: yScale(r * 2),
     };
   });
-
 
   function calcStyle(d: CartogramDataPoint) {
     const styles = [
@@ -176,9 +178,8 @@
 
 </script>
 
-<svelte:window on:resize={throttle(resize, 50)} />
-
 <div class="cartogram" bind:this={containerEl}
+  bind:clientWidth={clientWidth}
   class:cartogram-country-hover={hoverData}
   class:cartogram-resizing={resizing}
   on:touchstart={clearHoverState}

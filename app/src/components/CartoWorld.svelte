@@ -7,11 +7,16 @@
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "./common/Legend.svelte";
   import type { TextBlock } from 'src/types';
+  import ScrollableX from 'src/components/common/ScrollableX.svelte';
   import { colorPM25, colorHealth } from "src/App.svelte";
 
   export var data:string;
   export var head:string;
   export var text:TextBlock[];
+
+  let clientWidth: number;
+  $: width = Math.max(clientWidth, 700);
+  $: height = width * (data === 'pm25' ? .55 : .62);
 
   const datasetParams = {
     pm25: {
@@ -68,13 +73,9 @@
       deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
-  
-  let width;
-  $: height = width * (data === 'pm25' ? .55 : .62);
-  
 </script>
 
-<section class="viz wide">
+<section class="viz wide" bind:clientWidth={clientWidth}>
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >
@@ -86,17 +87,19 @@
   />
   </div>
 
-  <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-    <Cartogram
-      data={cartogramData}
-      domain={[700, 400]}
-      categoryFn={() => null}
-      colorFn={d => colorFunction(d)}
-      hoverTextFn={d => hoverTextFunction(d)}
-      nodeSize={dsParam.nodeSize}
-      helpText={{code: dsParam.help.code, text: dsParam.help.text}}
-    />
-  </div>
+  <ScrollableX>
+    <div class="carto-container" style="width:{width}px; height:{height}px">
+      <Cartogram
+        data={cartogramData}
+        domain={[700, 400]}
+        categoryFn={() => null}
+        colorFn={d => colorFunction(d)}
+        hoverTextFn={d => hoverTextFunction(d)}
+        nodeSize={dsParam.nodeSize}
+        helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+      />
+    </div>
+  </ScrollableX>
 
   {#each text as t}
     <p class='col-text'>{t.p}</p>
