@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   import type { HierarchyRectangularNode } from 'd3-hierarchy';
-  import Annotation from 'src/components/maps/Annotation.svelte'
+  import Annotation from 'src/components/maps/Annotation.svelte';
 
   interface HierarchicalDatum {
     value?: number;
@@ -26,24 +26,17 @@
     mostPollutingValue: number,
     mostPollutingType: string,
     region: string,
-  };
+  }
 </script>
 <script lang="ts">
   import * as d3 from 'src/d3';
   import {colorSectors, colorFuels} from 'src/App.svelte';
   import type { CartoRegionData } from 'src/types';
 
-
-  interface HierarchicalDatum {
-    value?: number;
-    type?: string;
-    types?: HierarchicalDatum[];
-  };
-
   interface Position{
     x: number,
     y: number
-  };
+  }
 
   export let data: CartoRegionData;
   export let width: number;
@@ -65,12 +58,12 @@
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
 
   $:{
-  
+
     regions = data.regions.map(region => {
-      
+
       const convertX = (val: number) => width * val / data.scale_width;
       const convertY = (val: number) => height * val / data.scale_height;
-    
+
 
       const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
         .sum(node => node.value || 0)
@@ -81,8 +74,7 @@
           mapPropotions(region.totalValue / region.numCountries),
           mapPropotions(region.totalValue / region.numCountries)
         ])
-        .padding(2)
-        (hierarchy);
+        .padding(2)(hierarchy);
 
 
       const background = {
@@ -91,7 +83,7 @@
         borderLeft: 2,
         borderRight: 2,
         color: "#f9f9f9",
-        
+
       };
 
       return {
@@ -107,11 +99,11 @@
         region: region.region
       };
     });
-    
+
     referenceRegion = {
       x: regions[2].x + regions[2].width / 2,
       y: regions[2].y
-    }
+    };
   }
 </script>
 
@@ -164,8 +156,8 @@
           ry="2"
           filter="none"
           on:mouseenter={()=>{showInformation = false; currentRegion = region;}}
-          on:mouseout={()=>{showInformation = true}}
-          on:blur={()=>{showInformation = true}}
+          on:mouseout={()=>{showInformation = true;}}
+          on:blur={()=>{showInformation = true;}}
           style="fill: {region.background.color};"
         />
         <g id={region.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
@@ -179,16 +171,16 @@
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseenter={()=>{currentRegion = region; showInformation = false; currentLeaf = leaf; showConcreteType = true}}
-            on:mouseout={()=>{showInformation = true; showConcreteType=false}}
-            on:blur={()=>{showInformation = true; showConcreteType=false}}
+            on:mouseenter={()=>{currentRegion = region; showInformation = false; currentLeaf = leaf; showConcreteType = true;}}
+            on:mouseout={()=>{showInformation = true; showConcreteType=false;}}
+            on:blur={()=>{showInformation = true; showConcreteType=false;}}
           />
           {/each}
         </g>
       </g>
-    {/each} 
+    {/each}
   </svg>
-  
+
 </div>
 
 <style>
