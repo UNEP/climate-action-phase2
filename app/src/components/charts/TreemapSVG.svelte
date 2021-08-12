@@ -112,7 +112,7 @@
   <Annotation
     x={referenceRegion.x}
     y={referenceRegion.y}
-    text={source}
+    text="Squares are sized based on <strong>how much each {data.type === "sectors" ? 'sector' : 'fuel'}</strong> contributed to the mean annual levels of PM2.5 in that <strong>region</strong>"
     radius={0}
     forceTopWherePossible={true}
     canvasWidth={width}
@@ -121,7 +121,7 @@
   {:else}
   <Annotation x={currentRegion.x}
     y={currentRegion.y}
-    text="Most of the PM 2.5 in <b>{currentRegion.region}</b> comes from <b>{currentRegion.mostPollutingType}</b> —<b>{currentRegion.mostPollutingValue.toFixed(2)}</b> of the <b>{currentRegion.totalPollutingValue.toFixed(2)}<b> µg/m<sup>3</sup>"
+    text="Most of the PM2.5 in <strong>{currentRegion.region}</strong> comes from <strong>{currentRegion.mostPollutingType}</strong> —<strong>{currentRegion.mostPollutingValue.toFixed(2)}</strong> of the <strong>{currentRegion.totalPollutingValue.toFixed(2)}<strong> µg/m<sup>3</sup>"
     radius={0} forceTopWherePossible={true}
     canvasWidth={width} canvasHeight={height}
   />

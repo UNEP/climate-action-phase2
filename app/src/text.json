@@ -33,28 +33,28 @@
     {
       "type": "carto-world",
       "data": "pm25",
-      "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis.",
+      "head": "<strong>Nine out of ten people</strong> in the world are exposed to levels of air pollutants that exceed what the World Health Organization considers too much",
       "source": "Data from praesent pharetra neque vitae euismod sagittis",
       "text": [
         {
-          "p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis. Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "p": "Every breath you take, you suck in tiny particles that attack your lungs, heart, and brain causing a host of health problems. The most dangerous of these particles, which can be anything from soot to sulfates to lead, are fine particles 2.5 microns or less in diameter —shortened as PM 2.5."
         },
         {
-          "p": "Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "p": "Even though air pollution is a global problem, it disproportionately affects those living in developing economies."
         }
       ]
     },
     {
       "type": "carto-region",
       "data": "sectors",
-      "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis.",
+      "head": "<strong>Residential</strong> pollution, mostly from generating electricity and heating for our homes, is the main <strong>human-made source</strong> of fine particles —although <strong>windblown dust</strong> is still the major source in Africa and West Asia",
       "source": "Data from praesent pharetra neque vitae euismod sagittis",
       "text": [
         {
-          "p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis. Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "p": "Fine particles come from a wide range of sources, most of them from human activities like the burning of fossil fuels to generate electricity for homes and businesses and power transportation, agriculture —a major source of methane and ammonia, and chemical and mining industries. Non-human sources are anything from volcanic eruptions, dust storms, and other natural processes."
         },
         {
-          "p": "Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "p": "Dirty indoor cooking and heating systems, for example, are a major problem in the developing world."
         }
       ]
     },
@@ -75,14 +75,14 @@
     {
       "type": "carto-world",
       "data": "health",
-      "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis.",
+      "head": "Around <strong>four million people die each year</strong> from exposure to fine particles",
       "source": "Data from praesent pharetra neque vitae euismod sagittis",
       "text": [
         {
-          "p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis. Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "p": "Exposure to PM2.5 reduced average global life expectancy at birth by approximately one year, in 2016. It is a major global health epidemic, causing one in nine of all deaths."
         },
         {
-          "p": "Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+          "p": "The three biggest killers linked to air pollution are stroke, heart disease, and lung disease and cancer. And high levels of fine particles also contribute to other illnesses, like diabetes, hinder cognitive development in children, and cause mental health problems."
         }
       ]
     }

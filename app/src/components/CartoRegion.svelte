@@ -15,7 +15,7 @@
 
 	const legendOptions = {
     sectors: {
-      title: "Contribution of each <b>sector</b> to small particle pollution",
+      title: "Contribution of each <b>sector</b> to fine particle pollution",
       labels: ['Windblown dust','Residential','International shipping','Transport','Commercial','Industry','AFCID dust',
       'Other combustion','Remaining sources','Other fires','Agr. waste burning','Agriculture',
       'Waste','Solvents','Energy'],
@@ -23,7 +23,7 @@
     },
 
     fuel: {
-      title: "Contribution of each <b>type of fuel</b> to small particle pollution",
+      title: "Contribution of each <b>type of fuel</b> to fine particle pollution",
       labels: ['Process','Liquid','Solid bio','Coal'],
 			colors: colorFuels.range()
     }
