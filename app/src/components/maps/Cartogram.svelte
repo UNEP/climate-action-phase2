@@ -7,6 +7,9 @@
     y: number;
     value: number;
     rate: number;
+    pNo: number;
+    pYes: number;
+    pAlmost: number;
   }
 </script>
 
@@ -65,6 +68,7 @@
   var cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
     const r = radius(d.value);
+    console.log(d);
     return {
       ...d,
 
@@ -85,7 +89,7 @@
     `top: ${d.top}px`,
     `width: ${d.width}px`,
     `height: ${d.height}px`,
-    `background-color: ${colorFn(d)};`
+    `background: ${colorFn(d)};`
     ];
     return styles.join(';');
   }
@@ -335,5 +339,7 @@
   .annotation-container :global(.line) {
     border-color :#bbbbbb !important;
   }
+
+
 
 </style>

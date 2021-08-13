@@ -1,13 +1,20 @@
+<script lang="ts" context="module">
+  export enum Datasets {
+    pm25  = 0, health =  1, policies = 2
+  }
+</script>
 <script lang="ts">
-  import { scaleThreshold } from 'd3-scale';
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
+  import countries from 'src/data/countries.json';
+  import policies from 'src/data/policiesData.json'
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "./common/Legend.svelte";
   import type { TextBlock } from 'src/types';
   import { colorPM25, colorHealth } from "src/App.svelte";
+  import {createLookup} from 'src/util';
 
   export var data:string;
   export var head:string;
@@ -21,9 +28,11 @@
         text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
+      colorFn: (d: CountryDataPoint) => colorPM25(d.value),
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"]
+      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
+      domain: [700, 400]
     },
 
     health: {
@@ -33,30 +42,75 @@
         text: `<strong>Each square is a country</strong>, sized by the total 
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
+      colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
-      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"]
+      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
+      domain: [700, 400]
+    },
+
+    policies: {
+      nodeSize: 16,
+      help: {
+          code: "JPN",
+          text: `<strong>Each square is a country</strong>, sized by the total 
+                number of <strong>deaths caused by small particle pollution</strong>.`
+      },
+      colorFn: (d: CountryDataPoint) => {
+  
+        //"linear-gradient(to bottom,green " + pYes + "%, orange " + pYes + "% " + pAlmost + "%, red " + pAlmost + "% "+ pNo + "%, yellow " + pNo +"%)"
+        return  "linear-gradient(to bottom, #0074B2 " + d.pYes + "%," +
+                "#5A93B4 " + d.pYes + "% " + d.pAlmost + "%," +
+                "#BABABA " + d.pAlmost + "% "+ d.pNo + "%," +
+                "#E6E6E6 " + d.pNo +"%)"
+      },
+      color: colorHealth,
+      legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
+      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
+      domain: [1300, 1300 / (740/420)],
     }
   };
 
-  let dsParam = data === "pm25" ? datasetParams.pm25 : datasetParams.health;
-  let selectedDataset = data === "pm25" ? pm25data : deaths_data;
-
-  let cartogramData: CountryDataPoint[] = selectedDataset
-    .map(d => {
-      return {
-        name: countryNameDictionary.find(c => c.id === d.id).name,
-        short: countryNameDictionary.find(c => c.id === d.id).name,
-        code: d.id,
-        x: d.x,
-        y: d.y,
-        value: data === "pm25" ? d.pm25 : d.deaths,
-        rate: data === "health" ? d.rate : null
-      };
-    }
-  );
-
-  const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
+  let dsParam = data === "pm25" ? datasetParams.policies : datasetParams.health;
+  let selectedDataset = data === "pm25" ? countries : deaths_data;
+  
+  const policiesLoockup = createLookup(policies, d => d.id, d => d);
+  
+  let datasets = {
+    [Datasets.pm25]: pm25data
+        .map(d => {
+            return {
+              name: countryNameDictionary.find(c => c.id === d.id).name,
+              short: countryNameDictionary.find(c => c.id === d.id).name,
+              code: d.id,
+              x: d.x,
+              y: d.y,
+              value: d.pm25,
+            }
+        }),
+    [Datasets.health]: deaths_data
+        .map(d => {
+            return {
+              name: countryNameDictionary.find(c => c.id === d.id).name,
+              short: countryNameDictionary.find(c => c.id === d.id).name,
+              code: d.id,
+              x: d.x,
+              y: d.y,
+              value: d.deaths,
+              rate: d.rate
+            }
+        }),
+    [Datasets.policies]: countries
+        .filter((d) => policiesLoockup[d.code])
+        .map(d => {
+            return { 
+              ...d, 
+              ...d.trends, 
+              value: 5, 
+              ...policiesLoockup[d.code] 
+            }
+        })
+  }
   
   function hoverTextFunction(d: CountryDataPoint){
     if (data === "pm25"){
@@ -80,7 +134,7 @@
   <div class="right-narrow" >
     <Legend
       title = {dsParam.legendTitle}
-      colors = {dsParam.color.range()}
+      colors = {datasetParams[data].color.range()}
       labels = {dsParam.legendDomain}
       type = {'sequential'}
   />
@@ -88,13 +142,13 @@
 
   <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
     <Cartogram
-      data={cartogramData}
-      domain={[700, 400]}
+      data={datasets[Datasets[data]]}
+      domain={datasetParams[data].domain}
       categoryFn={() => null}
-      colorFn={d => colorFunction(d)}
+      colorFn={datasetParams[data].colorFn}
       hoverTextFn={d => hoverTextFunction(d)}
-      nodeSize={dsParam.nodeSize}
-      helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+      nodeSize={datasetParams[data].nodeSize}
+      helpText={datasetParams[data].help}
     />
   </div>
 

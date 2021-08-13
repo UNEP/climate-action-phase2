@@ -1,0 +1,3051 @@
+[
+    {
+        "code": "ARG",
+        "name": "Argentina",
+        "short": "Arg.",
+        "trends": {
+            "x": 219.1,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 125.075,
+            "y": 376.303
+        },
+        "total": {
+            "x": 140.365,
+            "y": 375.663
+        }
+    },
+    {
+        "code": "AUS",
+        "name": "Australia",
+        "short": "Aus.",
+        "trends": {
+            "x": 1030,
+            "y": 566.4
+        },
+        "percapita": {
+            "x": 589.532,
+            "y": 328.197
+        },
+        "total": {
+            "x": 609.49,
+            "y": 339.576
+        }
+    },
+    {
+        "code": "AUT",
+        "name": "Austria",
+        "short": "Au.",
+        "trends": {
+            "x": 536.4,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 405.171,
+            "y": 94.716
+        },
+        "total": {
+            "x": 316.404,
+            "y": 181.9
+        }
+    },
+    {
+        "code": "BEL",
+        "name": "Belgium",
+        "short": "Bel.",
+        "trends": {
+            "x": 430.6,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 197.039,
+            "y": 115.161
+        },
+        "total": {
+            "x": 276.377,
+            "y": 129.862
+        }
+    },
+    {
+        "code": "BGR",
+        "name": "Bulgaria",
+        "short": "Bu.",
+        "trends": {
+            "x": 606.9,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 275.161,
+            "y": 81.543
+        },
+        "total": {
+            "x": 341.904,
+            "y": 170.594
+        }
+    },
+    {
+        "code": "BRA",
+        "name": "Brazil",
+        "short": "Brazil",
+        "trends": {
+            "x": 254.3,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 136.132,
+            "y": 293.126
+        },
+        "total": {
+            "x": 155.079,
+            "y": 307.425
+        }
+    },
+    {
+        "code": "CAN",
+        "name": "Canada",
+        "short": "Can.",
+        "trends": {
+            "x": 78,
+            "y": 108.1
+        },
+        "percapita": {
+            "x": 55.666,
+            "y": 121.424
+        },
+        "total": {
+            "x": 72.388,
+            "y": 87.109
+        }
+    },
+    {
+        "code": "CHN",
+        "name": "China",
+        "short": "China",
+        "trends": {
+            "x": 959.5,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 514.149,
+            "y": 174.952
+        },
+        "total": {
+            "x": 551.233,
+            "y": 93.378
+        }
+    },
+    {
+        "code": "CYP",
+        "name": "Cyprus",
+        "short": "Cyprus",
+        "trends": {
+            "x": 642.2,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 353.113,
+            "y": 199.891
+        },
+        "total": {
+            "x": 359.967,
+            "y": 190.8
+        }
+    },
+    {
+        "code": "CZE",
+        "name": "Czechia",
+        "short": "Czechia",
+        "trends": {
+            "x": 536.4,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 356.951,
+            "y": 68.755
+        },
+        "total": {
+            "x": 316.397,
+            "y": 138.885
+        }
+    },
+    {
+        "code": "DEU",
+        "name": "Germany",
+        "short": "Ger.",
+        "trends": {
+            "x": 501.1,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 260.961,
+            "y": 137.301
+        },
+        "total": {
+            "x": 306.748,
+            "y": 94.088
+        }
+    },
+    {
+        "code": "DNK",
+        "name": "Denmark",
+        "short": "Den.",
+        "trends": {
+            "x": 501.1,
+            "y": 143.3
+        },
+        "percapita": {
+            "x": 270.013,
+            "y": 25.412
+        },
+        "total": {
+            "x": 302.88,
+            "y": 122.708
+        }
+    },
+    {
+        "code": "ESP",
+        "name": "Spain",
+        "short": "Spa.",
+        "trends": {
+            "x": 430.6,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 193.383,
+            "y": 186.045
+        },
+        "total": {
+            "x": 262.913,
+            "y": 185.253
+        }
+    },
+    {
+        "code": "EST",
+        "name": "Estonia",
+        "short": "Est.",
+        "trends": {
+            "x": 606.9,
+            "y": 72.8
+        },
+        "percapita": {
+            "x": 340.89,
+            "y": 31.347
+        },
+        "total": {
+            "x": 342.013,
+            "y": 113.304
+        }
+    },
+    {
+        "code": "FIN",
+        "name": "Finland",
+        "short": "Fin.",
+        "trends": {
+            "x": 571.6,
+            "y": 72.8
+        },
+        "percapita": {
+            "x": 302.351,
+            "y": 21.924
+        },
+        "total": {
+            "x": 342.943,
+            "y": 102.264
+        }
+    },
+    {
+        "code": "FRA",
+        "name": "France",
+        "short": "Fra.",
+        "trends": {
+            "x": 465.9,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 253.206,
+            "y": 166.387
+        },
+        "total": {
+            "x": 261.067,
+            "y": 154.934
+        }
+    },
+    {
+        "code": "GBR",
+        "name": "United Kingdom",
+        "short": "U.K.",
+        "trends": {
+            "x": 430.6,
+            "y": 108.1
+        },
+        "percapita": {
+            "x": 211.074,
+            "y": 71.009
+        },
+        "total": {
+            "x": 249.506,
+            "y": 120.967
+        }
+    },
+    {
+        "code": "GRC",
+        "name": "Greece",
+        "short": "Gr.",
+        "trends": {
+            "x": 606.9,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 220.343,
+            "y": 191.145
+        },
+        "total": {
+            "x": 333.555,
+            "y": 187.729
+        }
+    },
+    {
+        "code": "HRV",
+        "name": "Croatia",
+        "short": "Cro.",
+        "trends": {
+            "x": 536.4,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 301.373,
+            "y": 83.685
+        },
+        "total": {
+            "x": 296.179,
+            "y": 157.997
+        }
+    },
+    {
+        "code": "HUN",
+        "name": "Hungary",
+        "short": "Hun.",
+        "trends": {
+            "x": 571.6,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 262.978,
+            "y": 108.377
+        },
+        "total": {
+            "x": 325.075,
+            "y": 154.21
+        }
+    },
+    {
+        "code": "IDN",
+        "name": "Indonesia",
+        "short": "Indo.",
+        "trends": {
+            "x": 994.7,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 555.272,
+            "y": 276.754
+        },
+        "total": {
+            "x": 577.786,
+            "y": 286.095
+        }
+    },
+    {
+        "code": "IND",
+        "name": "India",
+        "short": "India",
+        "trends": {
+            "x": 889,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 490.59,
+            "y": 197.48
+        },
+        "total": {
+            "x": 463.297,
+            "y": 263.862
+        }
+    },
+    {
+        "code": "IRL",
+        "name": "Ireland",
+        "short": "Ire.",
+        "trends": {
+            "x": 395.3,
+            "y": 108.1
+        },
+        "percapita": {
+            "x": 232.378,
+            "y": 103.113
+        },
+        "total": {
+            "x": 238.542,
+            "y": 145.293
+        }
+    },
+    {
+        "code": "ISL",
+        "name": "Iceland",
+        "short": "Ice.",
+        "trends": {
+            "x": 254.3,
+            "y": 72.8
+        },
+        "percapita": {
+            "x": 178.266,
+            "y": 79.958
+        },
+        "total": {
+            "x": 249.409,
+            "y": 100.944
+        }
+    },
+    {
+        "code": "ITA",
+        "name": "Italy",
+        "short": "Ita.",
+        "trends": {
+            "x": 501.1,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 311.042,
+            "y": 170.786
+        },
+        "total": {
+            "x": 292.844,
+            "y": 177.925
+        }
+    },
+    {
+        "code": "JPN",
+        "name": "Japan",
+        "short": "Japan",
+        "trends": {
+            "x": 1065.3,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 588.312,
+            "y": 172.036
+        },
+        "total": {
+            "x": 663.327,
+            "y": 182.47
+        }
+    },
+    {
+        "code": "KOR",
+        "name": "Rep. of Korea",
+        "short": "Rep. of Korea",
+        "trends": {
+            "x": 994.7,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 554.652,
+            "y": 179.756
+        },
+        "total": {
+            "x": 579.475,
+            "y": 209.564
+        }
+    },
+    {
+        "code": "LTU",
+        "name": "Lithuania",
+        "short": "Lith.",
+        "trends": {
+            "x": 571.6,
+            "y": 108.1
+        },
+        "percapita": {
+            "x": 375.975,
+            "y": 105.907
+        },
+        "total": {
+            "x": 333.762,
+            "y": 113.313
+        }
+    },
+    {
+        "code": "LUX",
+        "name": "Luxembourg",
+        "short": "Lux.",
+        "trends": {
+            "x": 465.9,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 193.1,
+            "y": 152.224
+        },
+        "total": {
+            "x": 282.497,
+            "y": 147.689
+        }
+    },
+    {
+        "code": "LVA",
+        "name": "Latvia",
+        "short": "Lat.",
+        "trends": {
+            "x": 606.9,
+            "y": 108.1
+        },
+        "percapita": {
+            "x": 327.526,
+            "y": 72.903
+        },
+        "total": {
+            "x": 332.836,
+            "y": 105.997
+        }
+    },
+    {
+        "code": "MEX",
+        "name": "Mexico",
+        "short": "Mex.",
+        "trends": {
+            "x": 78,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 16.436,
+            "y": 203.966
+        },
+        "total": {
+            "x": 32.53,
+            "y": 248.002
+        }
+    },
+    {
+        "code": "MLT",
+        "name": "Malta",
+        "short": "Malta",
+        "trends": {
+            "x": 466.1,
+            "y": 284.4
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "NLD",
+        "name": "Netherlands",
+        "short": "Neth.",
+        "trends": {
+            "x": 465.9,
+            "y": 143.3
+        },
+        "percapita": {
+            "x": 250.862,
+            "y": 217.993
+        },
+        "total": {
+            "x": 296.461,
+            "y": 139.527
+        }
+    },
+    {
+        "code": "POL",
+        "name": "Poland",
+        "short": "Pol.",
+        "trends": {
+            "x": 536.4,
+            "y": 143.3
+        },
+        "percapita": {
+            "x": 229.153,
+            "y": 136.599
+        },
+        "total": {
+            "x": 340.385,
+            "y": 132.579
+        }
+    },
+    {
+        "code": "PRT",
+        "name": "Portugal",
+        "short": "Port.",
+        "trends": {
+            "x": 395.3,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 227.686,
+            "y": 164.829
+        },
+        "total": {
+            "x": 241.998,
+            "y": 177.696
+        }
+    },
+    {
+        "code": "ROU",
+        "name": "Romania",
+        "short": "Rom.",
+        "trends": {
+            "x": 606.9,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 341.117,
+            "y": 128.001
+        },
+        "total": {
+            "x": 339.861,
+            "y": 156.029
+        }
+    },
+    {
+        "code": "RUS",
+        "name": "Russian Fed.",
+        "short": "Russian Fed.",
+        "trends": {
+            "x": 889,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 487.131,
+            "y": 103.757
+        },
+        "total": {
+            "x": 431.502,
+            "y": 93.399
+        }
+    },
+    {
+        "code": "SAU",
+        "name": "Saudi Arabia",
+        "short": "S. Ara.",
+        "trends": {
+            "x": 747.9,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 363.477,
+            "y": 235.208
+        },
+        "total": {
+            "x": 373.9,
+            "y": 228.629
+        }
+    },
+    {
+        "code": "SVK",
+        "name": "Slovakia",
+        "short": "Slovak.",
+        "trends": {
+            "x": 571.6,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 275.573,
+            "y": 53.604
+        },
+        "total": {
+            "x": 313.226,
+            "y": 153.092
+        }
+    },
+    {
+        "code": "SVN",
+        "name": "Slovenia",
+        "short": "Slo.",
+        "trends": {
+            "x": 536.4,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 314.757,
+            "y": 118.044
+        },
+        "total": {
+            "x": 304.137,
+            "y": 157.052
+        }
+    },
+    {
+        "code": "SWE",
+        "name": "Sweden",
+        "short": "Swe.",
+        "trends": {
+            "x": 536.4,
+            "y": 72.8
+        },
+        "percapita": {
+            "x": 302.112,
+            "y": 58.871
+        },
+        "total": {
+            "x": 318.708,
+            "y": 123.512
+        }
+    },
+    {
+        "code": "TUR",
+        "name": "Turkey",
+        "short": "Tur.",
+        "trends": {
+            "x": 677.4,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 412.694,
+            "y": 145.563
+        },
+        "total": {
+            "x": 365.264,
+            "y": 171.139
+        }
+    },
+    {
+        "code": "USA",
+        "name": "United States of America",
+        "short": "United States of America",
+        "trends": {
+            "x": 78,
+            "y": 143.3
+        },
+        "percapita": {
+            "x": 47.477,
+            "y": 166.329
+        },
+        "total": {
+            "x": 64.15,
+            "y": 167.618
+        }
+    },
+    {
+        "code": "ZAF",
+        "name": "South Africa",
+        "short": "S. Africa",
+        "trends": {
+            "x": 571.9,
+            "y": 636.9
+        },
+        "percapita": {
+            "x": 301.746,
+            "y": 354.849
+        },
+        "total": {
+            "x": 338.542,
+            "y": 355.396
+        }
+    },
+    {
+        "code": "ABW",
+        "name": "Aruba",
+        "short": "Aru.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "AFG",
+        "name": "Afghanistan",
+        "short": "Afg.",
+        "trends": {
+            "x": 818.5,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 436.17,
+            "y": 177.598
+        },
+        "total": {
+            "x": 471.343,
+            "y": 183.163
+        }
+    },
+    {
+        "code": "AGO",
+        "name": "Angola",
+        "short": "An.",
+        "trends": {
+            "x": 536.6,
+            "y": 566.4
+        },
+        "percapita": {
+            "x": 311.731,
+            "y": 309.485
+        },
+        "total": {
+            "x": 329.238,
+            "y": 303.617
+        }
+    },
+    {
+        "code": "ALB",
+        "name": "Albania",
+        "short": "Alb.",
+        "trends": {
+            "x": 536.4,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 289.389,
+            "y": 150.62
+        },
+        "total": {
+            "x": 327.215,
+            "y": 177.257
+        }
+    },
+    {
+        "code": "AND",
+        "name": "Andorra",
+        "short": "And.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "ARE",
+        "name": "United Arab Emirates",
+        "short": "U.A.E.",
+        "trends": {
+            "x": 783.2,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 507.362,
+            "y": 230.208
+        },
+        "total": {
+            "x": 408.246,
+            "y": 240.818
+        }
+    },
+    {
+        "code": "ARM",
+        "name": "Armenia",
+        "short": "Arm.",
+        "trends": {
+            "x": 747.9,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 374.291,
+            "y": 197.464
+        },
+        "total": {
+            "x": 385.587,
+            "y": 166.599
+        }
+    },
+    {
+        "code": "ATG",
+        "name": "Antigua and Barbuda",
+        "short": "A. and B.",
+        "trends": {
+            "x": 254.3,
+            "y": 213.8
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "AZE",
+        "name": "Azerbaijan",
+        "short": "Aze.",
+        "trends": {
+            "x": 747.9,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 409.076,
+            "y": 121.547
+        },
+        "total": {
+            "x": 395.14,
+            "y": 163.342
+        }
+    },
+    {
+        "code": "BDI",
+        "name": "Burundi",
+        "short": "Buru.",
+        "trends": {
+            "x": 642.3,
+            "y": 566.4
+        },
+        "percapita": {
+            "x": 341.243,
+            "y": 280.264
+        },
+        "total": {
+            "x": 360.387,
+            "y": 284
+        }
+    },
+    {
+        "code": "BEN",
+        "name": "Benin",
+        "short": "Benin",
+        "trends": {
+            "x": 501.1,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 261.585,
+            "y": 240.714
+        },
+        "total": {
+            "x": 289.83,
+            "y": 251.204
+        }
+    },
+    {
+        "code": "BFA",
+        "name": "Burkina Faso",
+        "short": "B.F.",
+        "trends": {
+            "x": 500.9,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 254.878,
+            "y": 264.878
+        },
+        "total": {
+            "x": 280.052,
+            "y": 243.715
+        }
+    },
+    {
+        "code": "BGD",
+        "name": "Bangladesh",
+        "short": "Bangl.",
+        "trends": {
+            "x": 924.2,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 504.531,
+            "y": 199.485
+        },
+        "total": {
+            "x": 517.741,
+            "y": 226.879
+        }
+    },
+    {
+        "code": "BHR",
+        "name": "Bahrain",
+        "short": "Bah.",
+        "trends": {
+            "x": 818.5,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 456.911,
+            "y": 208.294
+        },
+        "total": {
+            "x": 399.121,
+            "y": 217.901
+        }
+    },
+    {
+        "code": "BHS",
+        "name": "Bahamas",
+        "short": "Bah.",
+        "trends": {
+            "x": 148.5,
+            "y": 178.6
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "BIH",
+        "name": "Bosnia and Herzegovina",
+        "short": "B. and H.",
+        "trends": {
+            "x": 571.6,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 385.967,
+            "y": 159.147
+        },
+        "total": {
+            "x": 313.111,
+            "y": 163.059
+        }
+    },
+    {
+        "code": "BLR",
+        "name": "Belarus",
+        "short": "Bela.",
+        "trends": {
+            "x": 606.9,
+            "y": 143.3
+        },
+        "percapita": {
+            "x": 286.461,
+            "y": 209.952
+        },
+        "total": {
+            "x": 364.866,
+            "y": 118.497
+        }
+    },
+    {
+        "code": "BLZ",
+        "name": "Belize",
+        "short": "Belize",
+        "trends": {
+            "x": 78,
+            "y": 213.8
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "BOL",
+        "name": "Bolivia",
+        "short": "Bol.",
+        "trends": {
+            "x": 219.1,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 104.329,
+            "y": 305.376
+        },
+        "total": {
+            "x": 123.025,
+            "y": 316.618
+        }
+    },
+    {
+        "code": "BRB",
+        "name": "Barbados",
+        "short": "Barb.",
+        "trends": {
+            "x": 289.6,
+            "y": 249.1
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "BRN",
+        "name": "Brunei Darussalam",
+        "short": "Bru.",
+        "trends": {
+            "x": 994.7,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 596.368,
+            "y": 255.578
+        },
+        "total": {
+            "x": 576.719,
+            "y": 260.535
+        }
+    },
+    {
+        "code": "BTN",
+        "name": "Bhutan",
+        "short": "Bhu.",
+        "trends": {
+            "x": 924.2,
+            "y": 354.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "BWA",
+        "name": "Botswana",
+        "short": "Bots.",
+        "trends": {
+            "x": 571.9,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 347.604,
+            "y": 366.305
+        },
+        "total": {
+            "x": 344.63,
+            "y": 329.734
+        }
+    },
+    {
+        "code": "CAF",
+        "name": "Central African Rep.",
+        "short": "C.A.F.",
+        "trends": {
+            "x": 607.1,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 319.011,
+            "y": 276.095
+        },
+        "total": {
+            "x": 337.329,
+            "y": 258.095
+        }
+    },
+    {
+        "code": "CHE",
+        "name": "Switzerland",
+        "short": "Switz.",
+        "trends": {
+            "x": 501.1,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 287.833,
+            "y": 107.907
+        },
+        "total": {
+            "x": 286.141,
+            "y": 156.428
+        }
+    },
+    {
+        "code": "CHL",
+        "name": "Chile",
+        "short": "Chile",
+        "trends": {
+            "x": 183.8,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 98.155,
+            "y": 354.615
+        },
+        "total": {
+            "x": 116.988,
+            "y": 366.155
+        }
+    },
+    {
+        "code": "CIV",
+        "name": "Côte d’Ivoire",
+        "short": "Ivo. Co.",
+        "trends": {
+            "x": 430.7,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 243.263,
+            "y": 264.239
+        },
+        "total": {
+            "x": 267.351,
+            "y": 255.721
+        }
+    },
+    {
+        "code": "CMR",
+        "name": "Cameroon",
+        "short": "Cam.",
+        "trends": {
+            "x": 571.5,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 287.593,
+            "y": 245.246
+        },
+        "total": {
+            "x": 325.553,
+            "y": 256.156
+        }
+    },
+    {
+        "code": "COD",
+        "name": "Dem. Rep. of the Congo",
+        "short": "D.R.C.",
+        "trends": {
+            "x": 571.9,
+            "y": 531.2
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "COG",
+        "name": "Congo",
+        "short": "Congo",
+        "trends": {
+            "x": 536.6,
+            "y": 531.2
+        },
+        "percapita": {
+            "x": 312,
+            "y": 292.278
+        },
+        "total": {
+            "x": 324.444,
+            "y": 275.572
+        }
+    },
+    {
+        "code": "COL",
+        "name": "Colombia",
+        "short": "Col.",
+        "trends": {
+            "x": 183.8,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 70.679,
+            "y": 256.755
+        },
+        "total": {
+            "x": 91.87,
+            "y": 263.134
+        }
+    },
+    {
+        "code": "COM",
+        "name": "Comoros",
+        "short": "Como.",
+        "trends": {
+            "x": 748,
+            "y": 566.4
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "CPV",
+        "name": "Cabo Verde",
+        "short": "C. Verde",
+        "trends": {
+            "x": 395.3,
+            "y": 354.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "CRI",
+        "name": "Costa Rica",
+        "short": "Co. Rica",
+        "trends": {
+            "x": 113.3,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 49.616,
+            "y": 255.168
+        },
+        "total": {
+            "x": 71.515,
+            "y": 250.076
+        }
+    },
+    {
+        "code": "CUB",
+        "name": "Cuba",
+        "short": "Cuba",
+        "trends": {
+            "x": 148.5,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 73.24,
+            "y": 198.21
+        },
+        "total": {
+            "x": 94.772,
+            "y": 232.884
+        }
+    },
+    {
+        "code": "DJI",
+        "name": "Djibouti",
+        "short": "Dji.",
+        "trends": {
+            "x": 677.4,
+            "y": 460.6
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "DMA",
+        "name": "Dominica",
+        "short": "Domin.",
+        "trends": {
+            "x": 254.3,
+            "y": 284.3
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "DOM",
+        "name": "Dominican Rep.",
+        "short": "Dom. Rep.",
+        "trends": {
+            "x": 219.1,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 86.91,
+            "y": 223.52
+        },
+        "total": {
+            "x": 111.858,
+            "y": 231.954
+        }
+    },
+    {
+        "code": "DZA",
+        "name": "Algeria",
+        "short": "Alg.",
+        "trends": {
+            "x": 501.2,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 243.517,
+            "y": 246.808
+        },
+        "total": {
+            "x": 287.99,
+            "y": 211.359
+        }
+    },
+    {
+        "code": "ECU",
+        "name": "Ecuador",
+        "short": "Ecu.",
+        "trends": {
+            "x": 183.8,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 67.461,
+            "y": 276.252
+        },
+        "total": {
+            "x": 84.255,
+            "y": 279.844
+        }
+    },
+    {
+        "code": "EGY",
+        "name": "Egypt",
+        "short": "Egy.",
+        "trends": {
+            "x": 606.8,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 331.654,
+            "y": 230.601
+        },
+        "total": {
+            "x": 340.122,
+            "y": 221.39
+        }
+    },
+    {
+        "code": "ERI",
+        "name": "Eritrea",
+        "short": "Eri.",
+        "trends": {
+            "x": 642.1,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 366.891,
+            "y": 263.577
+        },
+        "total": {
+            "x": 383.885,
+            "y": 251.009
+        }
+    },
+    {
+        "code": "ETH",
+        "name": "Ethiopia",
+        "short": "Ethi.",
+        "trends": {
+            "x": 642.1,
+            "y": 460.7
+        },
+        "percapita": {
+            "x": 378.836,
+            "y": 264.115
+        },
+        "total": {
+            "x": 386.762,
+            "y": 262.837
+        }
+    },
+    {
+        "code": "FJI",
+        "name": "Fiji",
+        "short": "Fiji",
+        "trends": {
+            "x": 1171.1,
+            "y": 601.7
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "FSM",
+        "name": "Fed. States of Micronesia",
+        "short": "Micr.",
+        "trends": {
+            "x": 1135.8,
+            "y": 495.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "GAB",
+        "name": "Gabon",
+        "short": "Gabon",
+        "trends": {
+            "x": 536.5,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 289.594,
+            "y": 294.538
+        },
+        "total": {
+            "x": 313.663,
+            "y": 277.043
+        }
+    },
+    {
+        "code": "GEO",
+        "name": "Georgia",
+        "short": "Geo.",
+        "trends": {
+            "x": 712.7,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 362.622,
+            "y": 129.74
+        },
+        "total": {
+            "x": 385.797,
+            "y": 160.515
+        }
+    },
+    {
+        "code": "GHA",
+        "name": "Ghana",
+        "short": "Gha.",
+        "trends": {
+            "x": 465.8,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 261.267,
+            "y": 252.368
+        },
+        "total": {
+            "x": 276.504,
+            "y": 254.682
+        }
+    },
+    {
+        "code": "GIN",
+        "name": "Guinea",
+        "short": "Guinea",
+        "trends": {
+            "x": 430.7,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 225.052,
+            "y": 240.6
+        },
+        "total": {
+            "x": 259.285,
+            "y": 249.574
+        }
+    },
+    {
+        "code": "GMB",
+        "name": "Gambia",
+        "short": "Gamb.",
+        "trends": {
+            "x": 430.7,
+            "y": 390.1
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "GNB",
+        "name": "Guinea-Bissau",
+        "short": "Gui.-B.",
+        "trends": {
+            "x": 395.4,
+            "y": 425.4
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "GNQ",
+        "name": "Equatorial Guinea",
+        "short": "Eq. Gui.",
+        "trends": {
+            "x": 501.3,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 292.587,
+            "y": 268.581
+        },
+        "total": {
+            "x": 310.231,
+            "y": 270.771
+        }
+    },
+    {
+        "code": "GRD",
+        "name": "Grenada",
+        "short": "Gre.",
+        "trends": {
+            "x": 254.3,
+            "y": 319.6
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "GTM",
+        "name": "Guatemala",
+        "short": "Gua.",
+        "trends": {
+            "x": 42.8,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 33.175,
+            "y": 223.908
+        },
+        "total": {
+            "x": 58.155,
+            "y": 233.327
+        }
+    },
+    {
+        "code": "GUY",
+        "name": "Guyana",
+        "short": "Guy.",
+        "trends": {
+            "x": 254.3,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 119.959,
+            "y": 264.95
+        },
+        "total": {
+            "x": 133.675,
+            "y": 262.569
+        }
+    },
+    {
+        "code": "HKG",
+        "name": "Hong Kong SAR, China",
+        "short": "H.K.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "HND",
+        "name": "Honduras",
+        "short": "Hon.",
+        "trends": {
+            "x": 78,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 50.773,
+            "y": 208.531
+        },
+        "total": {
+            "x": 67.466,
+            "y": 235.406
+        }
+    },
+    {
+        "code": "HTI",
+        "name": "Haiti",
+        "short": "Haiti",
+        "trends": {
+            "x": 183.8,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 89.459,
+            "y": 208.699
+        },
+        "total": {
+            "x": 103.78,
+            "y": 230.341
+        }
+    },
+    {
+        "code": "IRN",
+        "name": "Islamic Rep. of Iran",
+        "short": "Iran",
+        "trends": {
+            "x": 783.2,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 415.709,
+            "y": 173.475
+        },
+        "total": {
+            "x": 445.257,
+            "y": 199.365
+        }
+    },
+    {
+        "code": "IRQ",
+        "name": "Iraq",
+        "short": "Iraq",
+        "trends": {
+            "x": 747.9,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 384.996,
+            "y": 132.355
+        },
+        "total": {
+            "x": 394.198,
+            "y": 181.09
+        }
+    },
+    {
+        "code": "ISR",
+        "name": "Israel",
+        "short": "Isr.",
+        "trends": {
+            "x": 677.4,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 346.602,
+            "y": 100.96
+        },
+        "total": {
+            "x": 355.366,
+            "y": 200.526
+        }
+    },
+    {
+        "code": "JAM",
+        "name": "Jamaica",
+        "short": "Jam.",
+        "trends": {
+            "x": 148.5,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 68.531,
+            "y": 217.987
+        },
+        "total": {
+            "x": 86.134,
+            "y": 229.971
+        }
+    },
+    {
+        "code": "JOR",
+        "name": "Jordan",
+        "short": "Jor.",
+        "trends": {
+            "x": 712.7,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 331.068,
+            "y": 212.059
+        },
+        "total": {
+            "x": 370.161,
+            "y": 203.831
+        }
+    },
+    {
+        "code": "KAZ",
+        "name": "Kazakhstan",
+        "short": "Kaz.",
+        "trends": {
+            "x": 889,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 446.672,
+            "y": 127.955
+        },
+        "total": {
+            "x": 426.703,
+            "y": 143.074
+        }
+    },
+    {
+        "code": "KEN",
+        "name": "Kenya",
+        "short": "Ken.",
+        "trends": {
+            "x": 642.3,
+            "y": 531.2
+        },
+        "percapita": {
+            "x": 354.402,
+            "y": 264.655
+        },
+        "total": {
+            "x": 380.864,
+            "y": 279.659
+        }
+    },
+    {
+        "code": "KGZ",
+        "name": "Kyrgyzstan",
+        "short": "Kyr.",
+        "trends": {
+            "x": 853.7,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 463.354,
+            "y": 172.092
+        },
+        "total": {
+            "x": 447.889,
+            "y": 169.694
+        }
+    },
+    {
+        "code": "KHM",
+        "name": "Cambodia",
+        "short": "Camb.",
+        "trends": {
+            "x": 994.7,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 563.18,
+            "y": 228.843
+        },
+        "total": {
+            "x": 564.359,
+            "y": 242.878
+        }
+    },
+    {
+        "code": "KIR",
+        "name": "Kiribati",
+        "short": "Kiri.",
+        "trends": {
+            "x": 1206.4,
+            "y": 531.2
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "KNA",
+        "name": "Saint Kitts and Nevis",
+        "short": "Kna.",
+        "trends": {
+            "x": 219.1,
+            "y": 249.1
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "KWT",
+        "name": "Kuwait",
+        "short": "Ku.",
+        "trends": {
+            "x": 783.2,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 372.987,
+            "y": 298.763
+        },
+        "total": {
+            "x": 414.9,
+            "y": 184.059
+        }
+    },
+    {
+        "code": "LAO",
+        "name": "Lao People's Dem. Rep.",
+        "short": "Laos",
+        "trends": {
+            "x": 994.7,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 539.613,
+            "y": 205.484
+        },
+        "total": {
+            "x": 538.133,
+            "y": 215.439
+        }
+    },
+    {
+        "code": "LBN",
+        "name": "Lebanon",
+        "short": "Leb.",
+        "trends": {
+            "x": 677.4,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 255.099,
+            "y": 190.173
+        },
+        "total": {
+            "x": 367.006,
+            "y": 192.713
+        }
+    },
+    {
+        "code": "LBR",
+        "name": "Liberia",
+        "short": "Libe.",
+        "trends": {
+            "x": 465.9,
+            "y": 495.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "LBY",
+        "name": "Libya",
+        "short": "Lib.",
+        "trends": {
+            "x": 571.7,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 282.037,
+            "y": 175.228
+        },
+        "total": {
+            "x": 319.839,
+            "y": 207.691
+        }
+    },
+    {
+        "code": "LCA",
+        "name": "Saint Lucia",
+        "short": "St. L.",
+        "trends": {
+            "x": 254.3,
+            "y": 249.1
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "LIE",
+        "name": "Liechtenstein",
+        "short": "Lie.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "LKA",
+        "name": "Sri Lanka",
+        "short": "Sri L.",
+        "trends": {
+            "x": 889,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 483.928,
+            "y": 261.57
+        },
+        "total": {
+            "x": 511.183,
+            "y": 254.87
+        }
+    },
+    {
+        "code": "LSO",
+        "name": "Lesotho",
+        "short": "Les.",
+        "trends": {
+            "x": 607.1,
+            "y": 672.2
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MAC",
+        "name": "Macao SAR, China",
+        "short": "Macao",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MAR",
+        "name": "Morocco",
+        "short": "Mor.",
+        "trends": {
+            "x": 466,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 226.218,
+            "y": 212.554
+        },
+        "total": {
+            "x": 267.232,
+            "y": 206.728
+        }
+    },
+    {
+        "code": "MCO",
+        "name": "Monaco",
+        "short": "Mo.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MDA",
+        "name": "Rep. of Moldova",
+        "short": "Mold.",
+        "trends": {
+            "x": 642.2,
+            "y": 213.8
+        },
+        "percapita": {
+            "x": 322.294,
+            "y": 94.427
+        },
+        "total": {
+            "x": 351.325,
+            "y": 150.882
+        }
+    },
+    {
+        "code": "MDG",
+        "name": "Madagascar",
+        "short": "Mada.",
+        "trends": {
+            "x": 748,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 383.425,
+            "y": 331.713
+        },
+        "total": {
+            "x": 400.585,
+            "y": 322.947
+        }
+    },
+    {
+        "code": "SYC",
+        "name": "Seychelles",
+        "short": "Seych.",
+        "trends": {
+            "x": 748,
+            "y": 521.7
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MDV",
+        "name": "Maldives",
+        "short": "Mald.",
+        "trends": {
+            "x": 853.7,
+            "y": 495.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MHL",
+        "name": "Marshall Islands",
+        "short": "Mar. Is.",
+        "trends": {
+            "x": 1171.1,
+            "y": 495.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MKD",
+        "name": "North Macedonia",
+        "short": "Mac.",
+        "trends": {
+            "x": 606.9,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 288.151,
+            "y": 131.046
+        },
+        "total": {
+            "x": 332.773,
+            "y": 177.439
+        }
+    },
+    {
+        "code": "MLI",
+        "name": "Mali",
+        "short": "Mali",
+        "trends": {
+            "x": 536.5,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 227.361,
+            "y": 226.95
+        },
+        "total": {
+            "x": 274.024,
+            "y": 230.088
+        }
+    },
+    {
+        "code": "MMR",
+        "name": "Myanmar",
+        "short": "Mya.",
+        "trends": {
+            "x": 959.5,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 518.358,
+            "y": 197.598
+        },
+        "total": {
+            "x": 520.349,
+            "y": 206.574
+        }
+    },
+    {
+        "code": "MNE",
+        "name": "Montenegro",
+        "short": "Mont.",
+        "trends": {
+            "x": 571.6,
+            "y": 319.6
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "MNG",
+        "name": "Mongolia",
+        "short": "Mon.",
+        "trends": {
+            "x": 924.2,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 488.068,
+            "y": 141.418
+        },
+        "total": {
+            "x": 507.41,
+            "y": 183.33
+        }
+    },
+    {
+        "code": "MOZ",
+        "name": "Mozambique",
+        "short": "Moz.",
+        "trends": {
+            "x": 642.3,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 353.874,
+            "y": 331.099
+        },
+        "total": {
+            "x": 372.403,
+            "y": 322.688
+        }
+    },
+    {
+        "code": "MRT",
+        "name": "Mauritania",
+        "short": "Mau.",
+        "trends": {
+            "x": 501.3,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 210.035,
+            "y": 213.201
+        },
+        "total": {
+            "x": 256.968,
+            "y": 221.305
+        }
+    },
+    {
+        "code": "MUS",
+        "name": "Mauritius",
+        "short": "Maur.",
+        "trends": {
+            "x": 783.2,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 409.804,
+            "y": 320.501
+        },
+        "total": {
+            "x": 426.48,
+            "y": 326.988
+        }
+    },
+    {
+        "code": "MWI",
+        "name": "Malawi",
+        "short": "Mala.",
+        "trends": {
+            "x": 607.1,
+            "y": 566.4
+        },
+        "percapita": {
+            "x": 341.508,
+            "y": 300.257
+        },
+        "total": {
+            "x": 370.485,
+            "y": 308.86
+        }
+    },
+    {
+        "code": "MYS",
+        "name": "Malaysia",
+        "short": "Mal.",
+        "trends": {
+            "x": 959.5,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 547.665,
+            "y": 251.991
+        },
+        "total": {
+            "x": 541.661,
+            "y": 262.679
+        }
+    },
+    {
+        "code": "NAM",
+        "name": "Namibia",
+        "short": "Nam.",
+        "trends": {
+            "x": 536.6,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 306.781,
+            "y": 328.575
+        },
+        "total": {
+            "x": 329.377,
+            "y": 333.656
+        }
+    },
+    {
+        "code": "NER",
+        "name": "Niger",
+        "short": "Niger",
+        "trends": {
+            "x": 571.7,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 273.862,
+            "y": 241.296
+        },
+        "total": {
+            "x": 304.166,
+            "y": 229.993
+        }
+    },
+    {
+        "code": "NGA",
+        "name": "Nigeria",
+        "short": "Nig.",
+        "trends": {
+            "x": 536.6,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 273.684,
+            "y": 254.332
+        },
+        "total": {
+            "x": 306.503,
+            "y": 251.781
+        }
+    },
+    {
+        "code": "NIC",
+        "name": "Nicaragua",
+        "short": "Nic.",
+        "trends": {
+            "x": 78,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 49.035,
+            "y": 238.375
+        },
+        "total": {
+            "x": 68.988,
+            "y": 242.853
+        }
+    },
+    {
+        "code": "NOR",
+        "name": "Norway",
+        "short": "Nor.",
+        "trends": {
+            "x": 501.1,
+            "y": 72.8
+        },
+        "percapita": {
+            "x": 243.114,
+            "y": 67.311
+        },
+        "total": {
+            "x": 277.126,
+            "y": 114.144
+        }
+    },
+    {
+        "code": "NPL",
+        "name": "Nepal",
+        "short": "Nep.",
+        "trends": {
+            "x": 889,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 493.217,
+            "y": 183.358
+        },
+        "total": {
+            "x": 502.584,
+            "y": 202.428
+        }
+    },
+    {
+        "code": "NRU",
+        "name": "Nauru",
+        "short": "Nauru",
+        "trends": {
+            "x": 1171.1,
+            "y": 531.2
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "NZL",
+        "name": "New Zealand",
+        "short": "N.Z.",
+        "trends": {
+            "x": 1065.3,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 655.991,
+            "y": 367.888
+        },
+        "total": {
+            "x": 676.351,
+            "y": 379.508
+        }
+    },
+    {
+        "code": "OMN",
+        "name": "Oman",
+        "short": "Oman",
+        "trends": {
+            "x": 747.9,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 347.886,
+            "y": 163.434
+        },
+        "total": {
+            "x": 412.274,
+            "y": 220.768
+        }
+    },
+    {
+        "code": "PAK",
+        "name": "Pakistan",
+        "short": "Pak.",
+        "trends": {
+            "x": 853.7,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 479.736,
+            "y": 175.244
+        },
+        "total": {
+            "x": 482.038,
+            "y": 203.06
+        }
+    },
+    {
+        "code": "PAN",
+        "name": "Panama",
+        "short": "Pan.",
+        "trends": {
+            "x": 148.5,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 67.809,
+            "y": 237.44
+        },
+        "total": {
+            "x": 78.332,
+            "y": 253.171
+        }
+    },
+    {
+        "code": "PER",
+        "name": "Peru",
+        "short": "Peru",
+        "trends": {
+            "x": 183.8,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 76.681,
+            "y": 294.838
+        },
+        "total": {
+            "x": 93.53,
+            "y": 298.474
+        }
+    },
+    {
+        "code": "PHL",
+        "name": "Philippines",
+        "short": "Phil.",
+        "trends": {
+            "x": 1065.3,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 581.472,
+            "y": 222.799
+        },
+        "total": {
+            "x": 608.285,
+            "y": 242.076
+        }
+    },
+    {
+        "code": "PLW",
+        "name": "Palau",
+        "short": "Palau",
+        "trends": {
+            "x": 1100.6,
+            "y": 495.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "PNG",
+        "name": "Papua New Guinea",
+        "short": "Pap. N.G.",
+        "trends": {
+            "x": 1030,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 630.545,
+            "y": 280.039
+        },
+        "total": {
+            "x": 650.752,
+            "y": 291.127
+        }
+    },
+    {
+        "code": "PRK",
+        "name": "Dem. People's Rep. of Korea",
+        "short": "N. Kor.",
+        "trends": {
+            "x": 994.7,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 551.376,
+            "y": 154.568
+        },
+        "total": {
+            "x": 571.102,
+            "y": 183.721
+        }
+    },
+    {
+        "code": "PRY",
+        "name": "Paraguay",
+        "short": "Para.",
+        "trends": {
+            "x": 219.1,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 127.072,
+            "y": 317.017
+        },
+        "total": {
+            "x": 140.811,
+            "y": 338.836
+        }
+    },
+    {
+        "code": "QAT",
+        "name": "Qatar",
+        "short": "Qatar",
+        "trends": {
+            "x": 818.5,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 438.818,
+            "y": 272.514
+        },
+        "total": {
+            "x": 408.493,
+            "y": 202.843
+        }
+    },
+    {
+        "code": "RWA",
+        "name": "Rwanda",
+        "short": "Rwa.",
+        "trends": {
+            "x": 607.1,
+            "y": 531.2
+        },
+        "percapita": {
+            "x": 340.978,
+            "y": 272.631
+        },
+        "total": {
+            "x": 360.316,
+            "y": 279.556
+        }
+    },
+    {
+        "code": "SDN",
+        "name": "Sudan",
+        "short": "Sud.",
+        "trends": {
+            "x": 607.1,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 333.127,
+            "y": 247.46
+        },
+        "total": {
+            "x": 345.289,
+            "y": 243.626
+        }
+    },
+    {
+        "code": "SEN",
+        "name": "Senegal",
+        "short": "Sen.",
+        "trends": {
+            "x": 465.9,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 214.51,
+            "y": 227.857
+        },
+        "total": {
+            "x": 247.653,
+            "y": 237.942
+        }
+    },
+    {
+        "code": "SGP",
+        "name": "Singapore",
+        "short": "Sin.",
+        "trends": {
+            "x": 959.5,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 529.671,
+            "y": 283.207
+        },
+        "total": {
+            "x": 549.162,
+            "y": 282.407
+        }
+    },
+    {
+        "code": "SLB",
+        "name": "Solomon Islands",
+        "short": "Solo. Is.",
+        "trends": {
+            "x": 1135.8,
+            "y": 566.4
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "SLE",
+        "name": "Sierra Leone",
+        "short": "S. Leone",
+        "trends": {
+            "x": 395.4,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 213.724,
+            "y": 242.508
+        },
+        "total": {
+            "x": 253.162,
+            "y": 253.369
+        }
+    },
+    {
+        "code": "SLV",
+        "name": "El Salvador",
+        "short": "El Sal.",
+        "trends": {
+            "x": 42.8,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 47.204,
+            "y": 222.832
+        },
+        "total": {
+            "x": 60.103,
+            "y": 241.067
+        }
+    },
+    {
+        "code": "SOM",
+        "name": "Somalia",
+        "short": "Som.",
+        "trends": {
+            "x": 677.4,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 393.228,
+            "y": 252.342
+        },
+        "total": {
+            "x": 401.819,
+            "y": 266.59
+        }
+    },
+    {
+        "code": "SRB",
+        "name": "Serbia",
+        "short": "Ser.",
+        "trends": {
+            "x": 571.6,
+            "y": 249.1
+        },
+        "percapita": {
+            "x": 308.692,
+            "y": 242.485
+        },
+        "total": {
+            "x": 324.625,
+            "y": 167.632
+        }
+    },
+    {
+        "code": "SSD",
+        "name": "South Sudan",
+        "short": null,
+        "trends": {
+            "x": 607.1,
+            "y": 460.6
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "STP",
+        "name": "Sao Tome and Principe",
+        "short": "S.T. and P.",
+        "trends": {
+            "x": 466,
+            "y": 531.2
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "SUR",
+        "name": "Suriname",
+        "short": "Suri.",
+        "trends": {
+            "x": 289.6,
+            "y": 390.1
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "SWZ",
+        "name": "Eswatini",
+        "short": "Eswatini",
+        "trends": {
+            "x": 607.1,
+            "y": 636.9
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "SYR",
+        "name": "Syrian Arab Rep.",
+        "short": "Syr.",
+        "trends": {
+            "x": 712.7,
+            "y": 354.9
+        },
+        "percapita": {
+            "x": 379.429,
+            "y": 181.199
+        },
+        "total": {
+            "x": 376.918,
+            "y": 193.673
+        }
+    },
+    {
+        "code": "TCA",
+        "name": "Turks and Caicos Islands",
+        "short": "Tca.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "TCD",
+        "name": "Chad",
+        "short": "Chad",
+        "trends": {
+            "x": 571.9,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 312.732,
+            "y": 262.468
+        },
+        "total": {
+            "x": 331.001,
+            "y": 238.939
+        }
+    },
+    {
+        "code": "TGO",
+        "name": "Togo",
+        "short": "Togo",
+        "trends": {
+            "x": 466,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 268.141,
+            "y": 266.343
+        },
+        "total": {
+            "x": 283.989,
+            "y": 252.962
+        }
+    },
+    {
+        "code": "THA",
+        "name": "Thailand",
+        "short": "Tha.",
+        "trends": {
+            "x": 959.5,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 543.843,
+            "y": 224.711
+        },
+        "total": {
+            "x": 544.318,
+            "y": 233.921
+        }
+    },
+    {
+        "code": "TJK",
+        "name": "Tajikistan",
+        "short": "Taj.",
+        "trends": {
+            "x": 853.7,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 461.069,
+            "y": 156.271
+        },
+        "total": {
+            "x": 455.033,
+            "y": 174.489
+        }
+    },
+    {
+        "code": "TKM",
+        "name": "Turkmenistan",
+        "short": "Turkm.",
+        "trends": {
+            "x": 818.5,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 408.667,
+            "y": 211.483
+        },
+        "total": {
+            "x": 415.098,
+            "y": 166.515
+        }
+    },
+    {
+        "code": "TLS",
+        "name": "Timor-Leste",
+        "short": "T.L.",
+        "trends": {
+            "x": 994.7,
+            "y": 531.2
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "TON",
+        "name": "Tonga",
+        "short": "Tonga",
+        "trends": {
+            "x": 1206.4,
+            "y": 601.7
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "TTO",
+        "name": "Trinidad and Tobago",
+        "short": "T.",
+        "trends": {
+            "x": 219.1,
+            "y": 319.6
+        },
+        "percapita": {
+            "x": 136.687,
+            "y": 223.544
+        },
+        "total": {
+            "x": 132.085,
+            "y": 247.667
+        }
+    },
+    {
+        "code": "TUN",
+        "name": "Tunisia",
+        "short": "Tuni.",
+        "trends": {
+            "x": 536.5,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 314.632,
+            "y": 193.242
+        },
+        "total": {
+            "x": 306.3,
+            "y": 198.838
+        }
+    },
+    {
+        "code": "TWN",
+        "name": "Taiwan",
+        "short": "Tw.",
+        "trends": {
+            "x": 1065.3,
+            "y": 390.1
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "TZA",
+        "name": "United Rep. of Tanzania",
+        "short": "Tanz.",
+        "trends": {
+            "x": 677.5,
+            "y": 566.4
+        },
+        "percapita": {
+            "x": 339.57,
+            "y": 290.02
+        },
+        "total": {
+            "x": 372.879,
+            "y": 293.903
+        }
+    },
+    {
+        "code": "UGA",
+        "name": "Uganda",
+        "short": "Ug.",
+        "trends": {
+            "x": 642.4,
+            "y": 495.9
+        },
+        "percapita": {
+            "x": 342.215,
+            "y": 263.268
+        },
+        "total": {
+            "x": 366.501,
+            "y": 271.48
+        }
+    },
+    {
+        "code": "UKR",
+        "name": "Ukraine",
+        "short": "Ukr.",
+        "trends": {
+            "x": 606.9,
+            "y": 178.6
+        },
+        "percapita": {
+            "x": 311.585,
+            "y": 145.272
+        },
+        "total": {
+            "x": 368.635,
+            "y": 140.936
+        }
+    },
+    {
+        "code": "URY",
+        "name": "Uruguay",
+        "short": "Uru.",
+        "trends": {
+            "x": 254.3,
+            "y": 460.6
+        },
+        "percapita": {
+            "x": 135.459,
+            "y": 345.439
+        },
+        "total": {
+            "x": 152.665,
+            "y": 355.596
+        }
+    },
+    {
+        "code": "UZB",
+        "name": "Uzbekistan",
+        "short": "Uzb.",
+        "trends": {
+            "x": 818.5,
+            "y": 284.3
+        },
+        "percapita": {
+            "x": 442.743,
+            "y": 161.059
+        },
+        "total": {
+            "x": 433.952,
+            "y": 167.699
+        }
+    },
+    {
+        "code": "VCT",
+        "name": "Saint Vincent and the Grenadines",
+        "short": "Vct.",
+        "trends": {
+            "x": 219.1,
+            "y": 284.3
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "VEN",
+        "name": "Venezuela",
+        "short": "Ven.",
+        "trends": {
+            "x": 219.1,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 93.764,
+            "y": 247.682
+        },
+        "total": {
+            "x": 114.125,
+            "y": 258.574
+        }
+    },
+    {
+        "code": "VGB",
+        "name": "British Virgin Islands",
+        "short": "Br. V. Is.",
+        "trends": null,
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "VNM",
+        "name": "Viet Nam",
+        "short": "Viet.",
+        "trends": {
+            "x": 1030,
+            "y": 390.1
+        },
+        "percapita": {
+            "x": 564.93,
+            "y": 211.888
+        },
+        "total": {
+            "x": 583.217,
+            "y": 243.525
+        }
+    },
+    {
+        "code": "VUT",
+        "name": "Vanuatu",
+        "short": "Van.",
+        "trends": {
+            "x": 1171.1,
+            "y": 601.7
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "WSM",
+        "name": "Samoa",
+        "short": "Samoa",
+        "trends": {
+            "x": 1206.4,
+            "y": 566.4
+        },
+        "percapita": null,
+        "total": null
+    },
+    {
+        "code": "YEM",
+        "name": "Yemen",
+        "short": "Yemen",
+        "trends": {
+            "x": 712.7,
+            "y": 425.4
+        },
+        "percapita": {
+            "x": 391.754,
+            "y": 239.632
+        },
+        "total": {
+            "x": 405.708,
+            "y": 257.539
+        }
+    },
+    {
+        "code": "ZMB",
+        "name": "Zambia",
+        "short": "Zambia",
+        "trends": {
+            "x": 571.9,
+            "y": 566.4
+        },
+        "percapita": {
+            "x": 331.193,
+            "y": 302.272
+        },
+        "total": {
+            "x": 354.234,
+            "y": 308.552
+        }
+    },
+    {
+        "code": "ZWE",
+        "name": "Zimbabwe",
+        "short": "Zimb.",
+        "trends": {
+            "x": 607.1,
+            "y": 601.7
+        },
+        "percapita": {
+            "x": 337.666,
+            "y": 315.31
+        },
+        "total": {
+            "x": 356.551,
+            "y": 323.582
+        }
+    }
+]
