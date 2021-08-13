@@ -64,8 +64,8 @@
                     "value": 76
                 }
             ],
-            "posX": 620,
-            "posY": 150,
+            "posX": 640,
+            "posY": 75,
             "numCountries": 45,
             "totalValue": 984.4000000000024
         },
@@ -133,8 +133,8 @@
                     "value": 52.10000000000001
                 }
             ],
-            "posX": 370,
-            "posY": 105,
+            "posX": 365,
+            "posY": 45,
             "numCountries": 53,
             "totalValue": 843.6000000000023
         },
@@ -202,8 +202,8 @@
                     "value": 61.500000000000014
                 }
             ],
-            "posX": 280,
-            "posY": 210,
+            "posX": 310,
+            "posY": 150,
             "numCountries": 53,
             "totalValue": 2049.199999999997
         },
@@ -271,8 +271,8 @@
                     "value": 13.899999999999997
                 }
             ],
-            "posX": 85,
-            "posY": 240,
+            "posX": 60,
+            "posY": 160,
             "numCountries": 36,
             "totalValue": 630.0000000000008
         },
@@ -340,8 +340,8 @@
                     "value": 14.4
                 }
             ],
-            "posX": 440,
-            "posY": 210,
+            "posX": 470,
+            "posY": 150,
             "numCountries": 12,
             "totalValue": 541.9999999999999
         },
@@ -410,12 +410,12 @@
                 }
             ],
             "posX": 60,
-            "posY": 145,
+            "posY": 85,
             "numCountries": 2,
             "totalValue": 15.1
         }
     ],
     "scale_width": 800,
-    "scale_height": 500,
+    "scale_height": 350,
     "type": "sectors"
 }

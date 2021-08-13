@@ -15,6 +15,7 @@
     var pos: string;
     var textShiftX: number;
     var textShiftY: number;
+
     const textWidth = 250;
 
     interface StyleCss {
@@ -141,7 +142,7 @@
     <div class="line line-after"></div>
 </div>
 {:else}
-<div class="annotation" 
+<div class="just-text" 
     bind:this={el}>
     <div class="text" style="transform: translate({x}px, {y}px);" bind:this={textEl}>
         {@html text}
@@ -149,7 +150,12 @@
 </div>
 {/if}
 <style>
-
+    .just-text{
+        position: absolute;
+        pointer-events: none;
+        height: auto !important;
+        width: 0;
+    }
     .annotation {
         display: flex;
         position: absolute;
