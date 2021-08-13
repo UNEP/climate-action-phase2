@@ -35,6 +35,7 @@
 	import TopNav from 'src/components/nav/TopNav.svelte';
 	import Footer from './components/nav/Footer.svelte';
 	import text from 'src/text.json';
+  import BarChart from './components/charts/BarChart.svelte';
 
   const content: Content[] = text.article;
 
@@ -46,6 +47,10 @@
   };
 
 </script>
+
+<div>
+  <BarChart/>
+</div>
 
 <TopNav />
 <main>
