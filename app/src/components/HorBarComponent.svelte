@@ -28,8 +28,8 @@
         return {
             id: d.id,
             value: d.rate
-        }
-    })
+        };
+    });
 
     const extract = (item) => item.name;
     const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit. Mauris mattis posuere faucibus.`;
@@ -42,7 +42,7 @@
         timesPM25: 0,
         totalDeaths: 0,
         deathRatio: 0
-    }
+    };
  
     function updateSelectedCountry(event, detail) {
         events = [...events, { event, detail }];
@@ -55,6 +55,13 @@
             currentCountry.totalDeaths = healthData.find(c => c.id === newID).deaths;
             currentCountry.deathRatio = healthData.find(c => c.id === newID).rate;
         }
+        else{
+            currentCountry.id = "";
+            currentCountry.PM25country = 0;
+            currentCountry.timesPM25= 0;
+            currentCountry.totalDeaths= 0;
+            currentCountry.deathRatio = 0;
+        }
     }
 
     $: PM25commentary = ` µg/m<sup>3</sup> <br>each person's annual mean exposure <br>—` + currentCountry.timesPM25 + ` times WHO's guideline.`;
@@ -65,7 +72,7 @@
 <section class="viz wide">
     <h2 class='narrow'>{@html head}</h2>
 
-    <div class="search">
+    <div>
         <Typeahead 
             data={countries} 
             {extract} 
@@ -106,12 +113,6 @@
         </div>
     </div>
 
-    <div>
-        <BarChart></BarChart>
-    </div>
-
-
-
 </section>
 
 <style>
@@ -151,4 +152,5 @@
         display: inline-flex;
         font-size: 0.875rem;
     }
+    
 </style>

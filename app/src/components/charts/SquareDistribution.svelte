@@ -3,7 +3,6 @@
 </script>
 
 <script lang="ts">
-import { select } from "d3-selection";
 import type {CountryDataSquare} from 'src/components/HorBarComponent.svelte';
 
     const width = 450;
@@ -39,7 +38,7 @@ import type {CountryDataSquare} from 'src/components/HorBarComponent.svelte';
         id: selectedCountry,
         value: data.find(c=>c.id === selectedCountry).value,
         relevantCountryColor: colorFunction(data.find(c=>c.id === selectedCountry).value)
-    }
+    };
 
 </script>
 
@@ -64,18 +63,18 @@ import type {CountryDataSquare} from 'src/components/HorBarComponent.svelte';
             {/if}
         {/each}
         <g id="ID" class="region2">
-            <rect
-                id = {relevantCountry.id}
-                class= "selectedCountry"
-                width= {relevantTileWidth}
-                height= {relevantTileHeight}
-                x={findXlocation(relevantCountry.value)}
-                y=4
-                rx="10"
-                ry="3"
-                filter="none"
-                style = "--theme-color: {colorFunction(relevantCountry.value)}"
-            />
+             <rect
+                   id = {relevantCountry.id}
+                 class= "selectedCountry"
+                 width= {relevantTileWidth}
+                 height= {relevantTileHeight}
+                 x={findXlocation(relevantCountry.value)}
+                 y=4
+                 rx="10"
+                 ry="3"
+                 filter="none"
+                 style = "--theme-color: {colorFunction(relevantCountry.value)}"
+             />
         </g>
     </svg>
 </div>
