@@ -9,7 +9,7 @@
     import Typeahead from "svelte-typeahead";
     import countries from 'src/data/countryDictionary.json';
     import BarChart from 'src/components/charts/BarChart.svelte';
-    import ColoredSquareDistribution from 'src/components/charts/coloredSquareDistribution.svelte';
+    import ColoredSquareDistribution from 'src/components/charts/SquareDistribution.svelte';
     import fuels from 'src/data/fuels.json';
     import sectors from 'src/data/sectors.json';
     import pm25data from 'src/data/pm25.json';
@@ -56,7 +56,6 @@
             currentCountry.deathRatio = healthData.find(c => c.id === newID).rate;
         }
     }
-
 
     $: PM25commentary = ` µg/m<sup>3</sup> <br>each person's annual mean exposure <br>—` + currentCountry.timesPM25 + ` times WHO's guideline.`;
     $: PMtimesCommentary = ` deaths per 100,000 people <br>attributable to fine particle pollution in 2017 <br>(` + currentCountry.totalDeaths + ` in total in the country).`;
@@ -105,6 +104,10 @@
             </div>
 
         </div>
+    </div>
+
+    <div>
+        <BarChart></BarChart>
     </div>
 
 
