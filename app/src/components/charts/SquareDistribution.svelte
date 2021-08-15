@@ -66,16 +66,16 @@ import type {CountryDataSquare} from 'src/components/FinalSummary.svelte';
         {/each}
         <g id="ID" class="region2">
              <rect
-                   id = {relevantCountry.id}
-                 class= "selectedCountry"
-                 width= {relevantTileWidth}
-                 height= {relevantTileHeight}
-                 x={findXlocation(relevantCountry.value)}
-                 y=4
-                 rx="10"
-                 ry="3"
-                 filter="none"
-                 style = "--theme-color: {colorFunction(relevantCountry.value)}"
+                id = {relevantCountry.id}
+                class= "selectedCountry"
+                width= {relevantTileWidth}
+                height= {relevantTileHeight}
+                x={findXlocation(relevantCountry.value)}
+                y=4
+                rx="10"
+                ry="3"
+                filter="none"
+                style = "--theme-color: {colorFunction(relevantCountry.value)}"
              />
         </g>
     </svg>

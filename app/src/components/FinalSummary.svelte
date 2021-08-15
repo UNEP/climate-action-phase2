@@ -3,6 +3,12 @@
         id: string,
         value: number
     }
+
+    export interface CategoryStackedBar {
+        categoryName: string,
+        value: number
+    }
+
 </script>
 
 <script lang="ts">
@@ -15,6 +21,14 @@
     import pm25data from 'src/data/pm25.json';
     import healthData from 'src/data/health.json';
 
+    $: currentCountry = {
+        id: "USA",
+        PM25country: 0,
+        timesPM25: 0,
+        totalDeaths: 0,
+        deathRatio: 0
+    };
+
     let countryPM25Data: CountryDataSquare[] = pm25data
     .map(d => {
         return {
@@ -25,42 +39,66 @@
 
     let countryHealthData: CountryDataSquare[] = healthData
     .map(d => {
-        return {
+         return {
             id: d.id,
             value: d.rate
         };
     });
 
+    $: countrySectorsData = generateSectorsData(currentCountry.id);
+    $: countryFuelsData = generateFuelsData(currentCountry.id);
+    //$: countryDeathsData = generateDeathsData(currentCountry.id);
+
+    let countrySelected = false;
+
+    function generateSectorsData(countryID: string){
+        let array = [];
+        let CountryInfoSectors = sectors.find(c => c.id === currentCountry.id);
+        for (const sectorAttribute in CountryInfoSectors){
+            if (sectorAttribute != "id"){
+                let sector = {categoryName : sectorAttribute, value: CountryInfoSectors[sectorAttribute]};
+                array.push(sector);
+            }  
+        }
+        return array;
+    }
+
+    function generateFuelsData(countryID: string){
+        let array = [];
+        let CountryInfoFuels = fuels.find(c => c.id === currentCountry.id);
+        for (const fuelAttribute in CountryInfoFuels){
+            if (fuelAttribute != "id"){
+                let sector = {categoryName : fuelAttribute, value: CountryInfoFuels[fuelAttribute]};
+                array.push(sector);
+            }  
+        }
+        return array;
+    }
+    
     const extract = (item) => item.name;
     const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit. Mauris mattis posuere faucibus.`;
 
     let events = [];
 
-    $: currentCountry = {
-        id: "USA",
-        PM25country: 0,
-        timesPM25: 0,
-        totalDeaths: 0,
-        deathRatio: 0
-    };
- 
     function updateSelectedCountry(event, detail) {
         events = [...events, { event, detail }];
         if (event === "select"){
             let newID = detail.original.id;
             currentCountry.id = newID;
-            console.log(detail.original.id);
             currentCountry.PM25country = pm25data.find(c => c.id === newID).pm25;
             currentCountry.timesPM25 = parseFloat((currentCountry.PM25country/10).toFixed(1));
             currentCountry.totalDeaths = healthData.find(c => c.id === newID).deaths;
             currentCountry.deathRatio = healthData.find(c => c.id === newID).rate;
+            //generateSectorsData(newID);
+            countrySelected = true;
         }
         else{
-            currentCountry.id = "";
+            currentCountry.id = "USA";
             currentCountry.PM25country = 0;
             currentCountry.timesPM25= 0;
             currentCountry.totalDeaths= 0;
             currentCountry.deathRatio = 0;
+            countrySelected = false;
         }
     }
 
@@ -85,33 +123,57 @@
 
     </div>
 
-    <div class="summary">
-        <div class="narrow">
-            <p><span class="bigger-text">{currentCountry.PM25country}</span>{@html PM25commentary}</p>
+    {#if countrySelected}
 
-            <div>
-                <ColoredSquareDistribution
-                    data = {countryPM25Data}
-                    selectedCountry = {currentCountry.id}
-                    selectedDataset = "pm25"
-                />
+        <div class="summary">
+            <div class="narrow">
+                <p><span class="bigger-text">{currentCountry.PM25country}</span>{@html PM25commentary}</p>
+
+                <div>
+                    <ColoredSquareDistribution
+                        data = {countryPM25Data}
+                        selectedCountry = {currentCountry.id}
+                        selectedDataset = "pm25"
+                    />
+                </div>
+
             </div>
 
-        </div>
+            <div class="right-narrow">
+                <p><span class="bigger-text">{currentCountry.deathRatio}</span>{@html PMtimesCommentary}</p>
 
-        <div class="right-narrow">
-            <p><span class="bigger-text">{currentCountry.deathRatio}</span>{@html PMtimesCommentary}</p>
+                <div>
+                    <ColoredSquareDistribution
+                        data = {countryHealthData}
+                        selectedCountry = {currentCountry.id}
+                        selectedDataset = "health"
+                    />
+                </div>
 
-            <div>
-                <ColoredSquareDistribution
-                    data = {countryHealthData}
-                    selectedCountry = {currentCountry.id}
-                    selectedDataset = "health"
-                />
             </div>
-
         </div>
-    </div>
+
+        <div class="BarChart">
+            <BarChart
+                data = {countrySectorsData}
+                selectedDataset = "deaths"
+            />
+        </div>
+
+        <div class="BarChart">
+            <BarChart
+                data = {countrySectorsData}
+                selectedDataset = "sectors"
+            />
+        </div>
+
+        <div class="BarChart">
+            <BarChart
+                data = {countryFuelsData}
+                selectedDataset = "fuels"
+            />
+        </div>
+    {/if}
 
 </section>
 
