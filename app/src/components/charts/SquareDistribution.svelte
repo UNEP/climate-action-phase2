@@ -34,7 +34,7 @@ import type {CountryDataSquare} from 'src/components/FinalSummary.svelte';
         return countryValue * (width-4) / maxValue;
     }
 
-    let maxValue = findMaxValue(data);
+    $: maxValue = findMaxValue(data);
 
     $: relevantCountry = {
         id: selectedCountry,

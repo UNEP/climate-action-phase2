@@ -89,7 +89,6 @@
             currentCountry.timesPM25 = parseFloat((currentCountry.PM25country/10).toFixed(1));
             currentCountry.totalDeaths = healthData.find(c => c.id === newID).deaths;
             currentCountry.deathRatio = healthData.find(c => c.id === newID).rate;
-            //generateSectorsData(newID);
             countrySelected = true;
         }
         else{

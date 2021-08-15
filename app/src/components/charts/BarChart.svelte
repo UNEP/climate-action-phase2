@@ -13,6 +13,9 @@
     export var selectedDataset: string;
 
     $: tiles = data;
+    $: console.log(data);
+    $: console.log("Tiles --> " + JSON.stringify(tiles));
+    //$: redrawBarChart(data);
 
     const colorFunction = (d: string) => selectedDataset === "sectors" ? colorSectors(d) : colorFuels(d);
 
