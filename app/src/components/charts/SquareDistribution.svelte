@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-import type {CountryDataSquare} from 'src/components/HorBarComponent.svelte';
+import type {CountryDataSquare} from 'src/components/FinalSummary.svelte';
 
     const width = 450;
     const height = 100;
@@ -11,6 +11,8 @@ import type {CountryDataSquare} from 'src/components/HorBarComponent.svelte';
     const normalTileHeight = 20;
     const relevantTileWidth = 5;
     const relevantTileHeight = 34;
+    const xBorderRadius = 10;
+    const yBorderRadius = 3;
 
     export var selectedCountry: string;
     export var data: CountryDataSquare[];
@@ -54,8 +56,8 @@ import type {CountryDataSquare} from 'src/components/HorBarComponent.svelte';
                         height= {d.id === selectedCountry ? relevantTileHeight : normalTileHeight}
                         x={findXlocation(d.value)}
                         y=10
-                        rx="10"
-                        ry="3"
+                        rx={xBorderRadius}
+                        ry={yBorderRadius}
                         filter="none"
                         style = "--theme-color: {colorFunction(d.value)}"
                     />

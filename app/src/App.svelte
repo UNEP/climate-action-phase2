@@ -35,7 +35,7 @@
 	import TopNav from 'src/components/nav/TopNav.svelte';
 	import Footer from './components/nav/Footer.svelte';
 	import text from 'src/text.json';
-  import HorBarComponent from './components/HorBarComponent.svelte';
+  import FinalSummary from './components/FinalSummary.svelte';
 
   const content: Content[] = text.article;
 
@@ -54,7 +54,7 @@
 <main>
   <article>
     <div>
-      <HorBarComponent/>
+      <FinalSummary/>
     </div>
     {#each content as block}
       {#if components[block.type]}
