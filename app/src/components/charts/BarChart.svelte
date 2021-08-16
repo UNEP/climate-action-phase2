@@ -1,11 +1,6 @@
-<script lang="ts" context="module">
-    import {colorSectors, colorFuels} from 'src/App.svelte';
-</script>
-
 <script lang="ts">
-    import * as d3 from 'src/d3';
-    import type {CategoryStackedBar} from 'src/components/FinalSummary.svelte';
     import Annotation from '../maps/Annotation.svelte';
+    import {colorSectors, colorFuels} from 'src/App.svelte';
 
     const width = 950;
     const height = 125;
@@ -26,14 +21,18 @@
     }
 
     function commentaryByDataset(dataset: string){
+
+        //For now, these sentences are only there to show how it should look like
         if (dataset === "deaths"){
             return `Most deaths are due to <b>{mostdeaths}</b>. Another significant causes are: {more}.`;
         }
         else if (dataset === "fuels"){
-            return `Most of that PM2.5 in comes from <b>{mostfuel}</b> —<b>{mostfuelvalue}</b> of the <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the mean value for the region.`;
+            return `Most of that PM2.5 in comes from <b>{mostfuel}</b> —<b>{mostfuelvalue}</b> of the 
+            <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the mean value for the region.`;
         }
         else {
-            return `<b>{mostsector}</b> is the top contributor to the fine particle pollution levels —<b>{mostsectorvalue}</b> of the <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the regional mean.`;
+            return `<b>{mostsector}</b> is the top contributor to the fine particle pollution levels 
+            —<b>{mostsectorvalue}</b> of the <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the regional mean.`;
         }
     }
 
@@ -72,6 +71,9 @@
         return (x);
     }
 
+    /*This function has data as a parameter so whenever data changes, this function is called
+    Not the best solution, but it works
+    */
     function redrawBarChart(data: {categoryName: string, value: number}[]){
         totalValue = calculateTotalSum();
         sum_width_categories = 0;
@@ -103,19 +105,19 @@
     <p>{@html commentary}</p>
 </div>
 
-<div>
-    {#if showInformation}
-        <Annotation
+{#if showInformation}
+    <div>
+         <Annotation
             x={annotationPositions.find(a => a.name === currentCategory.categoryName).x}
             y={90}
             text={generateAnnotation()}
-            radius={0}
+             radius={0}
             justText={true}
             canvasWidth={width}
             canvasHeight={height}
         />
-    {/if}
-</div>
+    </div>
+{/if}
 
 <div class="svg" {width} {height}>
     <svg id="barchart" {width} {height}>

@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-import type {CountryDataSquare} from 'src/components/FinalSummary.svelte';
+import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
 
     const width = 450;
     const height = 100;
@@ -12,7 +12,7 @@ import type {CountryDataSquare} from 'src/components/FinalSummary.svelte';
     const relevantTileWidth = 5;
     const relevantTileHeight = 34;
     const xBorderRadius = 10;
-    const yBorderRadius = 3;
+    const yBorderRadius = 5;
 
     export var selectedCountry: string;
     export var data: CountryDataSquare[];

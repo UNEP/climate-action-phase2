@@ -3,12 +3,6 @@
         id: string,
         value: number
     }
-
-    export interface CategoryStackedBar {
-        categoryName: string,
-        value: number
-    }
-
 </script>
 
 <script lang="ts">
@@ -23,7 +17,7 @@
     import healthData from 'src/data/health.json';
 
     $: currentCountry = {
-        id: "USA",
+        id: "",
         PM25country: 0,
         timesPM25: 0,
         totalDeaths: 0,
@@ -105,7 +99,7 @@
             countrySelected = true;
         }
         else{
-            currentCountry.id = "USA";
+            currentCountry.id = "";
             currentCountry.PM25country = 0;
             currentCountry.timesPM25= 0;
             currentCountry.totalDeaths= 0;
@@ -114,15 +108,18 @@
         }
     }
 
-    $: PM25commentary = ` µg/m<sup>3</sup> <br>each person's annual mean exposure <br>—` + currentCountry.timesPM25 + ` times WHO's guideline.`;
-    $: PMtimesCommentary = ` deaths per 100,000 people <br>attributable to fine particle pollution in 2017 <br>(` + currentCountry.totalDeaths + ` in total in the country).`;
+    $: PM25commentary = ` µg/m<sup>3</sup> <br>each person's annual mean exposure <br>—` 
+    + currentCountry.timesPM25 + ` times WHO's guideline.`;
+
+    $: PMtimesCommentary = ` deaths per 100,000 people <br>attributable to fine particle 
+    pollution in 2017 <br>(` + currentCountry.totalDeaths + ` in total in the country).`;
 
 </script>
 
 <section class="viz wide">
     <h2 class='narrow'>{@html head}</h2>
 
-    <div>
+    <div class="searchBar">
         <Typeahead 
             data={countries} 
             {extract} 
@@ -198,19 +195,21 @@
     .bigger-text {
         font-size: 200%;
     }
-    :global([data-svelte-typeahead]) {
+
+    .searchBar :global([data-svelte-typeahead]) {
         margin: 0rem;
         width: 450px;
         margin-top: 30px;
         z-index: 1000;
+        background-color: #f9f9f9;
     }
 
-    :global([data-svelte-search] input:focus) {
+    .searchBar :global([data-svelte-search] input:focus) {
         outline-width: 0px;
         background-color: #f9f9f9;
     }
 
-    :global([data-svelte-search] input) {
+    .searchBar :global([data-svelte-search] input) {
         width: 100%;
         padding: 0.5rem 0.75rem;
         background: #f9f9f9;
@@ -221,7 +220,7 @@
         border-bottom-width: 2px;
     }
 
-    :global([data-svelte-search] label) {
+    .searchBar :global([data-svelte-search] label) {
         margin-bottom: 0.25rem;
         display: inline-flex;
         font-size: 0.875rem;
