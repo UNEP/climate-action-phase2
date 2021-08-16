@@ -50,7 +50,7 @@
 			labels = {legendOptions[data].labels}
 			type = {'categorical'}
 		/>
-	</div>	
+	</div>
 
 	<div bind:clientWidth={width} >
 		<TreemapSvg
