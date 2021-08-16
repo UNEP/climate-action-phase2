@@ -28,6 +28,9 @@
         text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
+      hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed to an average of 
+                                            <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}
+                                            </strong> the WHO guideline.`,
       colorFn: (d: CountryDataPoint) => colorPM25(d.value),
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -42,6 +45,8 @@
         text: `<strong>Each square is a country</strong>, sized by the total 
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
+      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
+                                            deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
       colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
@@ -57,8 +62,6 @@
                 number of <strong>deaths caused by small particle pollution</strong>.`
       },
       colorFn: (d: CountryDataPoint) => {
-  
-        //"linear-gradient(to bottom,green " + pYes + "%, orange " + pYes + "% " + pAlmost + "%, red " + pAlmost + "% "+ pNo + "%, yellow " + pNo +"%)"
         return  "linear-gradient(to bottom, #0074B2 " + d.pYes + "%," +
                 "#5A93B4 " + d.pYes + "% " + d.pAlmost + "%," +
                 "#BABABA " + d.pAlmost + "% "+ d.pNo + "%," +
@@ -70,9 +73,6 @@
       domain: [1300, 1300 / (740/420)],
     }
   };
-
-  let dsParam = data === "pm25" ? datasetParams.policies : datasetParams.health;
-  let selectedDataset = data === "pm25" ? countries : deaths_data;
   
   const policiesLoockup = createLookup(policies, d => d.id, d => d);
   
@@ -111,18 +111,7 @@
             }
         })
   }
-  
-  function hoverTextFunction(d: CountryDataPoint){
-    if (data === "pm25"){
-      return `In <strong>${d.name}</strong>, people are exposed to an average of 
-      <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}</strong> the WHO guideline.`;
-    }
-    else{
-      return `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
-      deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
-    }
-  }
-  
+
   let width;
   $: height = width * (data === 'pm25' ? .55 : .62);
   
@@ -133,9 +122,9 @@
 
   <div class="right-narrow" >
     <Legend
-      title = {dsParam.legendTitle}
+      title = {datasetParams[data].legendTitle}
       colors = {datasetParams[data].color.range()}
-      labels = {dsParam.legendDomain}
+      labels = {datasetParams[data].legendDomain}
       type = {'sequential'}
   />
   </div>
@@ -146,7 +135,7 @@
       domain={datasetParams[data].domain}
       categoryFn={() => null}
       colorFn={datasetParams[data].colorFn}
-      hoverTextFn={d => hoverTextFunction(d)}
+      hoverTextFn={datasetParams[data].hoverTextFn}
       nodeSize={datasetParams[data].nodeSize}
       helpText={datasetParams[data].help}
     />
