@@ -129,7 +129,7 @@
     x={referenceRegion.x}
     y={referenceRegion.y}
     text={source}
-    radius={0}
+    radius={2}
     forceTopWherePossible={true}
     canvasWidth={width}
     canvasHeight={height}
@@ -139,7 +139,7 @@
     x={currentRegion.x + currentLeaf.x0 + ((currentLeaf.x1 - currentLeaf.x0) / 2)}
     y={currentRegion.y + currentLeaf.y0}
     text={showConcreteType? showCurrentLeaf(currentLeaf.data.type, currentLeaf.data.value) : showHoverText()}
-    radius={0} forceTopWherePossible={true}
+    radius={2} forceTopWherePossible={true}
     canvasWidth={width} canvasHeight={height}
   />
 {/if}
@@ -153,7 +153,7 @@
       x={region.nameX}
       y={region.nameY}
       text={region.region}
-      radius={0}
+      radius={2}
       justText={true}
       canvasWidth={width}
       canvasHeight={height}
