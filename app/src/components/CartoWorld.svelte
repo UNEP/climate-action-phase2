@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-  export enum Datasets {
+  enum Datasets {
     pm25  = 0, health =  1, policies = 2
   }
 </script>
@@ -9,7 +9,7 @@
   import type { TextBlock } from 'src/types';
   import pm25data from 'src/data/pm25_coords.json';
   import countries from 'src/data/countries.json';
-  import policies from 'src/data/policiesData.json'
+  import policies from 'src/data/policiesData.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "src/components/common/Legend.svelte";
@@ -30,11 +30,13 @@
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized by the annual mean levels
-        of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+        text: `<strong>Each square is a country</strong>, sized 
+              by the annual mean levels of <strong>small particular
+              matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
-      hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed to an average of 
-                                            <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}
+      hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed 
+                                            to an average of <strong>${d.value} μg/m<sup>3</sup>
+                                            </strong> a year —<strong>${(d.value/10).toFixed(1)}
                                             </strong> the WHO guideline.`,
       colorFn: (d: CountryDataPoint) => colorPM25(d.value),
       color: colorPM25,
@@ -47,11 +49,13 @@
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: `<strong>Each square is a country</strong>, sized by the total
-        number of <strong>deaths caused by small particle pollution</strong>.`
+        text: `<strong>Each square is a country</strong>, 
+              sized by the total number of <strong>deaths 
+              caused by small particle pollution</strong>.`
       },
-      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
-                                            deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
+      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle 
+                                            pollution caused <strong>${d.value} deaths</strong> 
+                                            in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
       colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
@@ -63,15 +67,16 @@
       nodeSize: 16,
       help: {
           code: "JPN",
-          text: `<strong>Each square is a country</strong>, sized by the total 
-                number of <strong>deaths caused by small particle pollution</strong>.`
+          text: `<strong>Each square is a country</strong>, 
+                sized by the total number of <strong>deaths 
+                caused by small particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>`,
       colorFn: (d: CountryDataPoint) => {
         return  "linear-gradient(to bottom, #0074B2 " + d.pYes + "%," +
                 "#5A93B4 " + d.pYes + "% " + d.pAlmost + "%," +
                 "#BABABA " + d.pAlmost + "% "+ d.pNo + "%," +
-                "#E6E6E6 " + d.pNo +"%)"
+                "#E6E6E6 " + d.pNo +"%)";
       },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
@@ -79,45 +84,46 @@
       domain: [1300, 1300 / (740/420)],
     }
   };
-  
-  const policiesLoockup = createLookup(policies, d => d.id, d => d);
-  
+
+  const policiesLookup = createLookup(policies, d => d.id, d => d);
+  const countryNameDictionaryLookup = createLookup(countryNameDictionary, d => d.id, d => d)
+
   let datasets = {
     [Datasets.pm25]: pm25data
         .map(d => {
             return {
-              name: countryNameDictionary.find(c => c.id === d.id).name,
-              short: countryNameDictionary.find(c => c.id === d.id).name,
+              name: countryNameDictionaryLookup[d.id].name,
+              short: countryNameDictionaryLookup[d.id].name,
               code: d.id,
               x: d.x,
               y: d.y,
               value: d.pm25,
-            }
+            };
         }),
     [Datasets.health]: deaths_data
         .map(d => {
             return {
-              name: countryNameDictionary.find(c => c.id === d.id).name,
-              short: countryNameDictionary.find(c => c.id === d.id).name,
+              name: countryNameDictionaryLookup[d.id].name,
+              short: countryNameDictionaryLookup[d.id].name,
               code: d.id,
               x: d.x,
               y: d.y,
               value: d.deaths,
               rate: d.rate
-            }
+            };
         }),
     [Datasets.policies]: countries
-        .filter((d) => policiesLoockup[d.code])
+        .filter((d) => policiesLookup[d.code])
         .map(d => {
-            return { 
-              ...d, 
-              ...d.trends, 
-              value: 5, 
-              ...policiesLoockup[d.code] 
-            }
+            return {
+              ...d,
+              ...d.trends,
+              value: 5,
+              ...policiesLookup[d.code]
+            };
         })
-  }
-  
+  };
+
 </script>
 
 <section class="viz wide">
