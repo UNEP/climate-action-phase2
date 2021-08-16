@@ -18,6 +18,7 @@
     import ColoredSquareDistribution from 'src/components/charts/SquareDistribution.svelte';
     import fuels from 'src/data/fuels.json';
     import sectors from 'src/data/sectors.json';
+    import deathsdata from 'src/data/deathDatabase.json';
     import pm25data from 'src/data/pm25.json';
     import healthData from 'src/data/health.json';
 
@@ -47,13 +48,13 @@
 
     $: countrySectorsData = generateSectorsData(currentCountry.id);
     $: countryFuelsData = generateFuelsData(currentCountry.id);
-    //$: countryDeathsData = generateDeathsData(currentCountry.id);
+    $: countryDeathsData = generateDeathsData(currentCountry.id);
 
     let countrySelected = false;
 
     function generateSectorsData(countryID: string){
         let array = [];
-        let CountryInfoSectors = sectors.find(c => c.id === currentCountry.id);
+        let CountryInfoSectors = sectors.find(c => c.id === countryID);
         for (const sectorAttribute in CountryInfoSectors){
             if (sectorAttribute != "id"){
                 let sector = {categoryName : sectorAttribute, value: CountryInfoSectors[sectorAttribute]};
@@ -65,11 +66,23 @@
 
     function generateFuelsData(countryID: string){
         let array = [];
-        let CountryInfoFuels = fuels.find(c => c.id === currentCountry.id);
+        let CountryInfoFuels = fuels.find(c => c.id === countryID);
         for (const fuelAttribute in CountryInfoFuels){
             if (fuelAttribute != "id"){
                 let sector = {categoryName : fuelAttribute, value: CountryInfoFuels[fuelAttribute]};
                 array.push(sector);
+            }  
+        }
+        return array;
+    }
+
+    function generateDeathsData(countryID: string){
+        let array = [];
+        let CountryInfoDeaths = deathsdata.find(c => c.id === countryID);
+        for (const deathAttribute in CountryInfoDeaths){
+            if (deathAttribute != "id"){
+                let deathCause = {categoryName : deathAttribute, value: CountryInfoDeaths[deathAttribute]};
+                array.push(deathCause);
             }  
         }
         return array;
@@ -154,7 +167,7 @@
 
         <div class="BarChart">
             <BarChart
-                data = {countrySectorsData}
+                data = {countryDeathsData}
                 selectedDataset = "deaths"
             />
         </div>

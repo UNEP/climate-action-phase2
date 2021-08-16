@@ -5,6 +5,7 @@
 <script lang="ts">
     import * as d3 from 'src/d3';
     import type {CategoryStackedBar} from 'src/components/FinalSummary.svelte';
+    import Annotation from '../maps/Annotation.svelte';
 
     const width = 950;
     const height = 125;
@@ -45,19 +46,30 @@
     $: sortDataByValue(tiles);   
 
     let totalValue = calculateTotalSum();
-
     let sum_width_categories = 0;
     let showInformation = false;
     let currentCategory = null;
+
+    let annotationPositions = [];
+
+    function generateTextPosition(tile: {categoryName: string, value: number}, x: number, width: number){
+        let label = {
+            name: tile.categoryName,
+            x: x + width/2
+        };
+        return label;
+    }
 
     function calculateCategoricalWidth(value: number){
         return value * width / totalValue;
     }
 
-    function calculateX(value: number){
-        let widthOfCurrentCategory = calculateCategoricalWidth(value);
+    function calculateX(tile: {categoryName: string, value: number}){
+        let widthOfCurrentCategory = calculateCategoricalWidth(tile.value);
         sum_width_categories += widthOfCurrentCategory;
-        return (sum_width_categories - widthOfCurrentCategory);
+        let x = sum_width_categories - widthOfCurrentCategory;
+        annotationPositions.push(generateTextPosition(tile,x,widthOfCurrentCategory));
+        return (x);
     }
 
     function redrawBarChart(data: {categoryName: string, value: number}[]){
@@ -65,6 +77,20 @@
         sum_width_categories = 0;
         showInformation = false;
         currentCategory = null;
+        annotationPositions = [];
+    }
+
+    function generateAnnotation(){
+        let annotation = currentCategory.categoryName + `: ` + currentCategory.value + ` `;
+
+        if (selectedDataset === "deaths"){
+            annotation += `deaths`;
+        }
+        else{
+            annotation += `µg/m<sup>3</sup>`;
+        }
+
+        return annotation;
     }
 
     $: commentary = commentaryByDataset(selectedDataset);
@@ -77,6 +103,20 @@
     <p>{@html commentary}</p>
 </div>
 
+<div>
+    {#if showInformation}
+        <Annotation
+            x={annotationPositions.find(a => a.name === currentCategory.categoryName).x}
+            y={90}
+            text={generateAnnotation()}
+            radius={0}
+            justText={true}
+            canvasWidth={width}
+            canvasHeight={height}
+        />
+    {/if}
+</div>
+
 <div class="svg" {width} {height}>
     <svg id="barchart" {width} {height}>
         {#each tiles as tile}
@@ -86,7 +126,7 @@
                     class="tile"
                     width= {calculateCategoricalWidth(tile.value)}
                     height= 85
-                    x={calculateX(tile.value)}
+                    x={calculateX(tile)}
                     y=0
                     rx="0"
                     ry="0"
