@@ -1,6 +1,5 @@
 <script lang="ts" context="module">
   import type { HierarchyRectangularNode } from 'd3-hierarchy';
-  import Annotation from 'src/components/maps/Annotation.svelte'
 
   interface HierarchicalDatum {
     value?: number;
@@ -31,21 +30,15 @@
   };
 </script>
 <script lang="ts">
+  import Annotation from 'src/components/maps/Annotation.svelte';
   import * as d3 from 'src/d3';
   import {colorSectors, colorFuels} from 'src/App.svelte';
   import type { CartoRegionData } from 'src/types';
 
-
-  interface HierarchicalDatum {
-    value?: number;
-    type?: string;
-    types?: HierarchicalDatum[];
-  };
-
   interface Position{
     x: number,
     y: number
-  };
+  }
 
   export let data: CartoRegionData;
   export let width: number;
@@ -78,12 +71,12 @@
     return showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>" + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
   }
   $:{
-  
+
     regions = data.regions.map(region => {
-      
+
       const convertX = (val: number) => width * val / data.scale_width;
       const convertY = (val: number) => height * val / data.scale_height;
-    
+
 
       const hierarchy = d3.hierarchy<HierarchicalDatum>(region, node => node.types)
         .sum(node => node.value || 0)
@@ -94,8 +87,7 @@
           mapPropotions(region.totalValue / region.numCountries),
           mapPropotions(region.totalValue / region.numCountries)
         ])
-        .padding(2)
-        (hierarchy);
+        .padding(2)(hierarchy);
 
 
       const background = {
@@ -104,7 +96,7 @@
         borderLeft: 2,
         borderRight: 2,
         color: "#f9f9f9",
-        
+
       };
       return {
         leaves : treemap.leaves(),
@@ -123,7 +115,7 @@
                 convertX(region.posY) - 20
       };
     });
-    
+
     referenceRegion = {
       x: regions[4].x + regions[4].width / 2,
       y: regions[4].y
@@ -210,9 +202,9 @@
           {/each}
         </g>
       </g>
-    {/each} 
+    {/each}
   </svg>
-  
+
 </div>
 
 <style>
