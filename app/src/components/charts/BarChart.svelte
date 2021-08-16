@@ -13,9 +13,6 @@
     export var selectedDataset: string;
 
     $: tiles = data;
-    $: console.log(data);
-    $: console.log("Tiles --> " + JSON.stringify(tiles));
-    //$: redrawBarChart(data);
 
     const colorFunction = (d: string) => selectedDataset === "sectors" ? colorSectors(d) : colorFuels(d);
 
@@ -63,7 +60,15 @@
         return (sum_width_categories - widthOfCurrentCategory);
     }
 
+    function redrawBarChart(data: {categoryName: string, value: number}[]){
+        totalValue = calculateTotalSum();
+        sum_width_categories = 0;
+        showInformation = false;
+        currentCategory = null;
+    }
+
     $: commentary = commentaryByDataset(selectedDataset);
+    $: redrawBarChart(data);
 
 </script>
 
