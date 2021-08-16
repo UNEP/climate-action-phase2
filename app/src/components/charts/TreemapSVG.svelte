@@ -44,7 +44,7 @@
   export let width: number;
   export let height: number;
   export let source: string;
-  export const showRegionName: boolean = true;
+  export let showRegionName: boolean = true;
 
   let referenceRegion : Position;
 
