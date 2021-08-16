@@ -8,7 +8,7 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import pm25data from 'src/data/pm25_coords.json';
   import countries from 'src/data/countries.json';
-  import policies from 'src/data/policiesData.json'
+  import policies from 'src/data/policiesData.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "./common/Legend.svelte";
@@ -25,10 +25,10 @@
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
+        text: `<strong>Each square is a country</strong>, sized by the annual mean levels
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
-      hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed to an average of 
+      hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed to an average of
                                             <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value/10).toFixed(1)}
                                             </strong> the WHO guideline.`,
       colorFn: (d: CountryDataPoint) => colorPM25(d.value),
@@ -42,10 +42,10 @@
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: `<strong>Each square is a country</strong>, sized by the total 
+        text: `<strong>Each square is a country</strong>, sized by the total
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
-      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
+      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value}
                                             deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
       colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
       color: colorHealth,
@@ -58,14 +58,14 @@
       nodeSize: 16,
       help: {
           code: "JPN",
-          text: `<strong>Each square is a country</strong>, sized by the total 
+          text: `<strong>Each square is a country</strong>, sized by the total
                 number of <strong>deaths caused by small particle pollution</strong>.`
       },
       colorFn: (d: CountryDataPoint) => {
         return  "linear-gradient(to bottom, #0074B2 " + d.pYes + "%," +
                 "#5A93B4 " + d.pYes + "% " + d.pAlmost + "%," +
                 "#BABABA " + d.pAlmost + "% "+ d.pNo + "%," +
-                "#E6E6E6 " + d.pNo +"%)"
+                "#E6E6E6 " + d.pNo +"%)";
       },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
@@ -73,9 +73,9 @@
       domain: [1300, 1300 / (740/420)],
     }
   };
-  
+
   const policiesLoockup = createLookup(policies, d => d.id, d => d);
-  
+
   let datasets = {
     [Datasets.pm25]: pm25data
         .map(d => {
@@ -86,7 +86,7 @@
               x: d.x,
               y: d.y,
               value: d.pm25,
-            }
+            };
         }),
     [Datasets.health]: deaths_data
         .map(d => {
@@ -98,23 +98,23 @@
               y: d.y,
               value: d.deaths,
               rate: d.rate
-            }
+            };
         }),
     [Datasets.policies]: countries
         .filter((d) => policiesLoockup[d.code])
         .map(d => {
-            return { 
-              ...d, 
-              ...d.trends, 
-              value: 5, 
-              ...policiesLoockup[d.code] 
-            }
+            return {
+              ...d,
+              ...d.trends,
+              value: 5,
+              ...policiesLoockup[d.code]
+            };
         })
-  }
+  };
 
   let width;
   $: height = width * (data === 'pm25' ? .55 : .62);
-  
+
 </script>
 
 <section class="viz wide">
