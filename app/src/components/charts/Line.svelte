@@ -3,19 +3,19 @@
 	import PointInteractive from '../common/PointInteractive.svelte';
 	import {line} from 'd3-shape';
 	import {scaleTime, scaleLinear} from 'd3-scale';
-	import {max, extent, bisector} from 'd3-array'
-    
+	import {max, extent, bisector} from 'd3-array';
+
     export let data;
 	export let margin = {top: 20, right: 5, bottom: 20, left: 5};
 	export let options;
 	let {key, format, color, layout, title, desc, curve } = options;
 
 	let datum, width, height;
-		
+
 	$: x = scaleTime()
 		.domain(extent(data, d => d[key.x]))
 		.range([margin.left, width - margin.right]);
-	
+
 	$: y = scaleLinear()
 		.domain([0, max(data, d => d[key.y])])
 		.range([height - margin.bottom - margin.top, margin.top]);
@@ -32,17 +32,17 @@
 		const index = x.invert(mX);
 		const i = bisector(d => d[key.x]).center(_data, index);
 		datum = _data[i];
-	}
+	};
 
-	const leave = (m) => {
+	const leave = () => {
 		datum = null;
-	}
+	};
 
-</script> 
+</script>
 
 <div class='graphic {layout}' bind:clientWidth={width} bind:clientHeight={height}>
 {#if width}
-<svg xmlns:svg='https://www.w3.org/2000/svg' 
+<svg xmlns:svg='https://www.w3.org/2000/svg'
 	viewBox='0 0 {width} {height}'
 	{width}
 	{height}
@@ -56,7 +56,7 @@
 	<title id='title'>{title}</title>
 	<desc id='desc'>{desc}</desc>
 	<g>
-		<path 
+		<path
 			d={path(data)}
 			stroke={color}
 			fill='none'
@@ -67,7 +67,7 @@
 	<Axis {width} {height} {margin} scale={x} position='bottom' format={format.x} />
 
 	<PointInteractive {datum} {format} {x} {y} {key} {width} />
-	
+
 </svg>
 {/if}
 </div>

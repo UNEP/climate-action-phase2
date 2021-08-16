@@ -6,13 +6,14 @@
 <script lang="ts">
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
+  import type { TextBlock } from 'src/types';
   import pm25data from 'src/data/pm25_coords.json';
   import countries from 'src/data/countries.json';
   import policies from 'src/data/policiesData.json'
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
-  import Legend from "./common/Legend.svelte";
-  import type { TextBlock } from 'src/types';
+  import Legend from "src/components/common/Legend.svelte";
+  import ScrollableX from 'src/components/common/ScrollableX.svelte';
   import { colorPM25, colorHealth } from "src/App.svelte";
   import {createLookup} from 'src/util';
 
@@ -20,12 +21,16 @@
   export var head:string;
   export var text:TextBlock[];
 
+  let clientWidth: number;
+  $: width = Math.max(clientWidth, 700);
+  $: height = width * (data === 'pm25' ? .55 : .62);
+
   const datasetParams = {
     pm25: {
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized by the annual mean levels 
+        text: `<strong>Each square is a country</strong>, sized by the annual mean levels
         of <strong>small particular matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
       hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed to an average of 
@@ -42,7 +47,7 @@
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: `<strong>Each square is a country</strong>, sized by the total 
+        text: `<strong>Each square is a country</strong>, sized by the total
         number of <strong>deaths caused by small particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle pollution caused <strong>${d.value} 
@@ -61,6 +66,7 @@
           text: `<strong>Each square is a country</strong>, sized by the total 
                 number of <strong>deaths caused by small particle pollution</strong>.`
       },
+      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>`,
       colorFn: (d: CountryDataPoint) => {
         return  "linear-gradient(to bottom, #0074B2 " + d.pYes + "%," +
                 "#5A93B4 " + d.pYes + "% " + d.pAlmost + "%," +
@@ -111,9 +117,6 @@
             }
         })
   }
-
-  let width;
-  $: height = width * (data === 'pm25' ? .55 : .62);
   
 </script>
 
