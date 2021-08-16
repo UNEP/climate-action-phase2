@@ -40,43 +40,30 @@
         };
     });
 
-    $: countrySectorsData = generateSectorsData(currentCountry.id);
-    $: countryFuelsData = generateFuelsData(currentCountry.id);
-    $: countryDeathsData = generateDeathsData(currentCountry.id);
+    $: countrySectorsData = generateData(currentCountry.id, "sectors");
+    $: countryFuelsData = generateData(currentCountry.id, "fuels");
+    $: countryDeathsData = generateData(currentCountry.id, "deaths");
 
     let countrySelected = false;
 
-    function generateSectorsData(countryID: string){
-        let array = [];
-        let CountryInfoSectors = sectors.find(c => c.id === countryID);
-        for (const sectorAttribute in CountryInfoSectors){
-            if (sectorAttribute != "id"){
-                let sector = {categoryName : sectorAttribute, value: CountryInfoSectors[sectorAttribute]};
-                array.push(sector);
-            }  
+    function generateData(countryID: string, selectedDB: string){
+        let DB = [];
+        if (selectedDB === "sectors"){
+            DB = sectors;
         }
-        return array;
-    }
-
-    function generateFuelsData(countryID: string){
-        let array = [];
-        let CountryInfoFuels = fuels.find(c => c.id === countryID);
-        for (const fuelAttribute in CountryInfoFuels){
-            if (fuelAttribute != "id"){
-                let sector = {categoryName : fuelAttribute, value: CountryInfoFuels[fuelAttribute]};
-                array.push(sector);
-            }  
+        else if (selectedDB === "fuels"){
+            DB = fuels;
         }
-        return array;
-    }
+        else {
+            DB = deathsdata;
+        }
 
-    function generateDeathsData(countryID: string){
         let array = [];
-        let CountryInfoDeaths = deathsdata.find(c => c.id === countryID);
-        for (const deathAttribute in CountryInfoDeaths){
-            if (deathAttribute != "id"){
-                let deathCause = {categoryName : deathAttribute, value: CountryInfoDeaths[deathAttribute]};
-                array.push(deathCause);
+        let CountryInfo = DB.find(c => c.id === countryID);
+        for (const Attribute in CountryInfo){
+            if (Attribute != "id"){
+                let tile = {categoryName : Attribute, value: CountryInfo[Attribute]};
+                array.push(tile);
             }  
         }
         return array;
