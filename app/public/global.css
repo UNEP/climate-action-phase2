@@ -76,9 +76,42 @@ p, ul {
 	width: 100%;
 }
 
-@media screen and (min-width: 48rem) {
-	html, body { font-size: 100%; }
-	p, h1, h2, h3, h4, select { 
+.narrow {
+	width:66%;
+	padding-right:34%;
+}
+
+.right-narrow {
+	width:100%;
+	max-width: 40rem;
+	display: block;
+	margin: 1rem 0;
+}
+
+.fs {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.logo { width: 6.2rem; }
+.top { margin-top: 1.5rem; }
+.hidden {
+    position: absolute!important;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+}
+
+sup, sub { line-height: 0; }
+
+@media screen and (min-width: 58rem) {
+
+	html, body { font-size: 100%;}
+
+	p, h1, h2, h3, h4, select {
 		margin-left: 0;
 		margin-right: 0;
 	}
