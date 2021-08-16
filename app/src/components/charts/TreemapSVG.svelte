@@ -27,7 +27,7 @@
     region: string,
     nameX: number,
     nameY: number
-  };
+  }
 </script>
 <script lang="ts">
   import Annotation from 'src/components/maps/Annotation.svelte';
@@ -61,15 +61,15 @@
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
 
   let showHoverText = () => {
-    
-    return "Most of the PM 2.5 in <b>" + currentRegion.region + "</b> comes from <b>" + currentRegion.mostPollutingType + 
+
+    return "Most of the PM 2.5 in <b>" + currentRegion.region + "</b> comes from <b>" + currentRegion.mostPollutingType +
     "</b> —<b>" + currentRegion.mostPollutingValue.toFixed(2) + "</b> of the <b>" +
     currentRegion.totalPollutingValue.toFixed(2) + "</b> µg/m<sup>3</sup>";
-  }
+  };
 
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
-    return showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>" + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
-  }
+    return showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>" + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>";
+  };
   $:{
 
     regions = data.regions.map(region => {
@@ -110,7 +110,7 @@
         mostPollutingType : treemap.children[0].data.type,
         region: region.region,
         nameX: convertX(region.posX),
-        nameY: region.region === "Latin America + Caribbean"? 
+        nameY: region.region === "Latin America + Caribbean"?
                 convertX(region.posY) + mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft:
                 convertX(region.posY) - 20
       };
@@ -119,7 +119,7 @@
     referenceRegion = {
       x: regions[4].x + regions[4].width / 2,
       y: regions[4].y
-    }
+    };
   }
 </script>
 
@@ -135,7 +135,7 @@
     canvasHeight={height}
   />
 {:else}
-  <Annotation 
+  <Annotation
     x={currentRegion.x + currentLeaf.x0 + ((currentLeaf.x1 - currentLeaf.x0) / 2)}
     y={currentRegion.y + currentLeaf.y0}
     text={showConcreteType? showCurrentLeaf(currentLeaf.data.type, currentLeaf.data.value) : showHoverText()}
@@ -144,9 +144,9 @@
   />
 {/if}
 </div>
-  
+
   {#if showRegionName}
-    
+
   <div class="text">
     {#each regions as region}
     <Annotation
@@ -178,12 +178,12 @@
           rx="2"
           ry="2"
           filter="none"
-          on:mouseenter={()=>{showInformation = false; currentRegion = region; currentLeaf = region.leaves[0]}}
-          on:mouseout={()=>{showInformation = true}}
-          on:blur={()=>{showInformation = true}}
+          on:mouseenter={()=>{showInformation = false; currentRegion = region; currentLeaf = region.leaves[0];}}
+          on:mouseout={()=>{showInformation = true;}}
+          on:blur={()=>{showInformation = true;}}
           style="fill: {region.background.color};"
         />
-        
+
         <g id={region.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
           {#each region.leaves as leaf}
           <rect
@@ -195,9 +195,9 @@
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseenter={()=>{currentRegion = region; leaf.data.type !== region.mostPollutingType? showConcreteType = true: showConcreteType = false; currentLeaf = leaf; showInformation = false}}
-            on:mouseout={()=>{showInformation = true;  showConcreteType=false}}
-            on:blur={()=>{showInformation = true; showConcreteType=false}}
+            on:mouseenter={()=>{currentRegion = region; leaf.data.type !== region.mostPollutingType? showConcreteType = true: showConcreteType = false; currentLeaf = leaf; showInformation = false;}}
+            on:mouseout={()=>{showInformation = true;  showConcreteType=false;}}
+            on:blur={()=>{showInformation = true; showConcreteType=false;}}
           />
           {/each}
         </g>
