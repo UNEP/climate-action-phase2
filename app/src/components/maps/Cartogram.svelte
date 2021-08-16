@@ -88,7 +88,6 @@
   let cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
     const r = radius(d.value);
-    console.log(d);
     return {
       ...d,
 
