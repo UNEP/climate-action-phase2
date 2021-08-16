@@ -1,8 +1,3 @@
-<script lang="ts" context="module">
-  enum Datasets {
-    pm25  = 0, health =  1, policies = 2
-  }
-</script>
 <script lang="ts">
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
@@ -13,13 +8,16 @@
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "src/components/common/Legend.svelte";
-  import ScrollableX from 'src/components/common/ScrollableX.svelte';
   import { colorPM25, colorHealth } from "src/App.svelte";
   import {createLookup} from 'src/util';
 
   export var data:string;
   export var head:string;
   export var text:TextBlock[];
+
+  enum Datasets {
+    pm25  = 0, health =  1, policies = 2
+  }
 
   let clientWidth: number;
   $: width = Math.max(clientWidth, 700);
@@ -30,14 +28,16 @@
       nodeSize: 11,
       help: {
         code: "CPV",
-        text: `<strong>Each square is a country</strong>, sized 
-              by the annual mean levels of <strong>small particular
-              matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+        text:
+        `<strong>Each square is a country</strong>, sized
+         by the annual mean levels of <strong>small particular
+         matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
-      hoverTextFn: (d: CountryDataPoint) => `In <strong>${d.name}</strong>, people are exposed 
-                                            to an average of <strong>${d.value} μg/m<sup>3</sup>
-                                            </strong> a year —<strong>${(d.value/10).toFixed(1)}
-                                            </strong> the WHO guideline.`,
+      hoverTextFn: (d: CountryDataPoint) =>
+      `In <strong>${d.name}</strong>, people are exposed
+       to an average of <strong>${d.value} μg/m<sup>3</sup>
+      </strong> a year —<strong>${(d.value/10).toFixed(1)}
+      </strong> the WHO guideline.`,
       colorFn: (d: CountryDataPoint) => colorPM25(d.value),
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -49,13 +49,15 @@
       nodeSize: 73,
       help: {
         code: "BRA",
-        text: `<strong>Each square is a country</strong>, 
-              sized by the total number of <strong>deaths 
-              caused by small particle pollution</strong>.`
+        text:
+        `<strong>Each square is a country</strong>,
+        sized by the total number of <strong>deaths
+        caused by small particle pollution</strong>.`
       },
-      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>, small particle 
-                                            pollution caused <strong>${d.value} deaths</strong> 
-                                            in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
+      hoverTextFn: (d:CountryDataPoint) =>
+      `In <strong>${d.name}</strong>, small particle
+      pollution caused <strong>${d.value} deaths</strong>
+      in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
       colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
@@ -67,16 +69,19 @@
       nodeSize: 16,
       help: {
           code: "JPN",
-          text: `<strong>Each square is a country</strong>, 
-                sized by the total number of <strong>deaths 
-                caused by small particle pollution</strong>.`
+          text:
+          `<strong>Each square is a country</strong>,
+           sized by the total number of <strong>deaths
+           caused by small particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>`,
       colorFn: (d: CountryDataPoint) => {
-        return  "linear-gradient(to bottom, #0074B2 " + d.pYes + "%," +
-                "#5A93B4 " + d.pYes + "% " + d.pAlmost + "%," +
-                "#BABABA " + d.pAlmost + "% "+ d.pNo + "%," +
-                "#E6E6E6 " + d.pNo +"%)";
+        return  (
+          `linear-gradient(to bottom, #0074B2 ${d.pYes} %,
+          #5A93B4 ${d.pYes}% ${d.pAlmost}%,
+          #BABABA ${d.pAlmost} % ${d.pNo}%,
+          #E6E6E6 ${d.pNo}%)`
+        );
       },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
