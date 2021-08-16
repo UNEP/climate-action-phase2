@@ -45,6 +45,9 @@
   //     return {a: d.anchor, label: d.menu}
   //   }
   // });
+	import text from 'src/text.json';
+
+  const content: Content[] = text.article;
 
   const components = {
     'carto-world': CartoWorld,
@@ -52,6 +55,7 @@
     'intro': Intro,
     'text': Text,
     // 'menu': Menu
+
   };
 
 </script>
@@ -61,14 +65,12 @@
   <article>
     {#each content as block}
       {#if components[block.type]}
-        <svelte:component this={components[block.type]} {...block}  />
-      {:else}
+        <svelte:component this={components[block.type]} {...block} />
         <div>Missing component for '{block.type}'</div>
-      {/if}
     {/each}
   </article>
 </main>
-
+<Footer />
 <style>
-	
+
 </style>

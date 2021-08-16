@@ -1,10 +1,10 @@
 <script>
 	import Axis from '../common/Axis.svelte';
-	import Tooltip from '../common/Tooltip.svelte'
-	import {scaleSqrt, scaleTime, scaleLinear} from 'd3-scale';
-	import {extent} from 'd3-array'
-    import { Delaunay } from 'd3-delaunay'
-    
+	import Tooltip from '../common/Tooltip.svelte';
+	import {scaleSqrt, scaleLinear} from 'd3-scale';
+	import {extent} from 'd3-array';
+    import { Delaunay } from 'd3-delaunay';
+
     export let data;
 	export let margin = {top: 20, right: 5, bottom: 20, left: 5};
 	export let format;
@@ -16,16 +16,16 @@
 
 	let datum, width, height, tooltipOptions, tip;
 
-	data.sort((a,b) => a[key.size] - b[key.size])
+	data.sort((a,b) => a[key.size] - b[key.size]);
 
 	$: x = scaleLinear()
 		.domain(extent(data, d => d[key.x]))
 		.range([margin.left, width - margin.right]);
-	
+
 	$: y = scaleLinear()
 		.domain(extent(data, d => d[key.y]))
         .range([height - margin.bottom - margin.top, margin.top]);
-        
+
     $: size = scaleSqrt()
 		.domain(extent(data, d => d[key.size]))
 		.range([3, (width > 640) ? 30 : width / 15]);
@@ -41,18 +41,18 @@
 		tip = (datum !== undefined)
 			?``
 			:``;
-		tooltipOptions = {x: mX, y: mY, tip: tip, visible: visible}
-	}
+		tooltipOptions = {x: mX, y: mY, tip: tip, visible: visible};
+	};
 
-	const leave = (m) => {
-		tooltipOptions = {x: -1000, y: -1000, tip: '', visible: false}
-	}
-	
+	const leave = () => {
+		tooltipOptions = {x: -1000, y: -1000, tip: '', visible: false};
+	};
+
 </script>
 
 <div class='graphic {layout}' bind:clientWidth={width} bind:clientHeight={height}>
 {#if width}
-<svg xmlns:svg='https://www.w3.org/2000/svg' 
+<svg xmlns:svg='https://www.w3.org/2000/svg'
 	viewBox='0 0 {width} {height}'
 	{width}
 	{height}
@@ -67,7 +67,7 @@
 	<desc id='desc'>{desc}</desc>
 	<g>
 		{#each data as d}
-		<circle 
+		<circle
 			cx={x(d[key.x])}
 			cy={y(d[key.y])}
 			r={size(d[key.size])}
@@ -79,7 +79,7 @@
 		/>
 		{/each}
 		{#each data as d}
-		<circle 
+		<circle
 			cx={x(d[key.x])}
 			cy={y(d[key.y])}
 			r={size(d[key.size])}
@@ -102,10 +102,6 @@
 </div>
 
 <style>
-	path {
-		fill:none;
-		stroke-width: 2;
-	}
 	.hover {
 		fill:none;
 		stroke-width:2px;

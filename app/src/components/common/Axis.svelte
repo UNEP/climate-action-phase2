@@ -6,8 +6,8 @@
   export let position;
   export let format;
   export let time;
-	
-	$: nTicks = (position === 'bottom' || position === 'top' ) 
+
+	$: nTicks = (position === 'bottom' || position === 'top' )
 		? width / 50
     : height / 50;
 
@@ -17,11 +17,11 @@
     ? `translate(0, ${margin.top})`
     : position === 'left'
     ? `translate(${margin.left}, 0)`
-    : `translate(0, ${margin.right})`
+    : `translate(0, ${margin.right})`;
 
   $: ticks = scale.ticks((!time)? nTicks : time)
     .map(d => ({value: format(d), offset: scale(d)}));
-    
+
   $: anchor = (x) => {
 		switch(true) {
 			case x < 20:
@@ -29,9 +29,9 @@
 			case x  > width - 40:
 				return 'end';
 			default:
-				return 'middle'
+				return 'middle';
 		}
-	}
+	};
 </script>
 
 <g class='axis' {transform} pointer-events='none'>

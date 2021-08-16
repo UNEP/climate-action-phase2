@@ -1,0 +1,421 @@
+{
+    "regions": [
+        {
+            "region": "Asia + Pacific",
+            "types": [
+                {
+                    "type": "waste",
+                    "value": 43.50000000000001
+                },
+                {
+                    "type": "windblowndust",
+                    "value": 91.50000000000003
+                },
+                {
+                    "type": "solvents",
+                    "value": 1.2
+                },
+                {
+                    "type": "intlshipping",
+                    "value": 10.899999999999999
+                },
+                {
+                    "type": "transport",
+                    "value": 68.30000000000001
+                },
+                {
+                    "type": "residential",
+                    "value": 181.59999999999994
+                },
+                {
+                    "type": "othercombustion",
+                    "value": 13.899999999999999
+                },
+                {
+                    "type": "commercial",
+                    "value": 10.299999999999999
+                },
+                {
+                    "type": "remainingsources",
+                    "value": 184.29999999999998
+                },
+                {
+                    "type": "industry",
+                    "value": 100.60000000000001
+                },
+                {
+                    "type": "otherfires",
+                    "value": 33.6
+                },
+                {
+                    "type": "agrwasteburning",
+                    "value": 5.6000000000000005
+                },
+                {
+                    "type": "energy",
+                    "value": 90.69999999999996
+                },
+                {
+                    "type": "agriculture",
+                    "value": 72.4
+                },
+                {
+                    "type": "afciddust",
+                    "value": 76
+                }
+            ],
+            "posX": 640,
+            "posY": 120,
+            "numCountries": 45,
+            "totalValue": 984.4000000000024
+        },
+        {
+            "region": "Europe",
+            "types": [
+                {
+                    "type": "waste",
+                    "value": 20.399999999999995
+                },
+                {
+                    "type": "windblowndust",
+                    "value": 177.1
+                },
+                {
+                    "type": "solvents",
+                    "value": -0.6
+                },
+                {
+                    "type": "intlshipping",
+                    "value": 16.400000000000002
+                },
+                {
+                    "type": "transport",
+                    "value": 69.39999999999999
+                },
+                {
+                    "type": "residential",
+                    "value": 113.30000000000001
+                },
+                {
+                    "type": "othercombustion",
+                    "value": 12.099999999999998
+                },
+                {
+                    "type": "commercial",
+                    "value": 11.399999999999993
+                },
+                {
+                    "type": "remainingsources",
+                    "value": 62.90000000000002
+                },
+                {
+                    "type": "industry",
+                    "value": 56.7
+                },
+                {
+                    "type": "otherfires",
+                    "value": 11.699999999999996
+                },
+                {
+                    "type": "agrwasteburning",
+                    "value": 7.3
+                },
+                {
+                    "type": "energy",
+                    "value": 114
+                },
+                {
+                    "type": "agriculture",
+                    "value": 119.4
+                },
+                {
+                    "type": "afciddust",
+                    "value": 52.10000000000001
+                }
+            ],
+            "posX": 365,
+            "posY": 90,
+            "numCountries": 53,
+            "totalValue": 843.6000000000023
+        },
+        {
+            "region": "Africa",
+            "types": [
+                {
+                    "type": "waste",
+                    "value": 27.599999999999998
+                },
+                {
+                    "type": "windblowndust",
+                    "value": 1112.9000000000003
+                },
+                {
+                    "type": "solvents",
+                    "value": -0.30000000000000004
+                },
+                {
+                    "type": "intlshipping",
+                    "value": 14.899999999999995
+                },
+                {
+                    "type": "transport",
+                    "value": 59.19999999999999
+                },
+                {
+                    "type": "residential",
+                    "value": 153.8
+                },
+                {
+                    "type": "othercombustion",
+                    "value": 7.4
+                },
+                {
+                    "type": "commercial",
+                    "value": 11.699999999999996
+                },
+                {
+                    "type": "remainingsources",
+                    "value": 147.8
+                },
+                {
+                    "type": "industry",
+                    "value": 53.30000000000002
+                },
+                {
+                    "type": "otherfires",
+                    "value": 282.9000000000001
+                },
+                {
+                    "type": "agrwasteburning",
+                    "value": 15.099999999999996
+                },
+                {
+                    "type": "energy",
+                    "value": 83.80000000000004
+                },
+                {
+                    "type": "agriculture",
+                    "value": 17.599999999999998
+                },
+                {
+                    "type": "afciddust",
+                    "value": 61.500000000000014
+                }
+            ],
+            "posX": 310,
+            "posY": 195,
+            "numCountries": 53,
+            "totalValue": 2049.199999999997
+        },
+        {
+            "region": "Latin America + Caribbean",
+            "types": [
+                {
+                    "type": "waste",
+                    "value": 19.799999999999997
+                },
+                {
+                    "type": "windblowndust",
+                    "value": 152.5
+                },
+                {
+                    "type": "solvents",
+                    "value": 0
+                },
+                {
+                    "type": "intlshipping",
+                    "value": 15.500000000000002
+                },
+                {
+                    "type": "transport",
+                    "value": 37.4
+                },
+                {
+                    "type": "residential",
+                    "value": 66.1
+                },
+                {
+                    "type": "othercombustion",
+                    "value": 3.9
+                },
+                {
+                    "type": "commercial",
+                    "value": 2.3000000000000003
+                },
+                {
+                    "type": "remainingsources",
+                    "value": 162.1
+                },
+                {
+                    "type": "industry",
+                    "value": 47.1
+                },
+                {
+                    "type": "otherfires",
+                    "value": 48.89999999999999
+                },
+                {
+                    "type": "agrwasteburning",
+                    "value": 3.600000000000001
+                },
+                {
+                    "type": "energy",
+                    "value": 36.7
+                },
+                {
+                    "type": "agriculture",
+                    "value": 20.2
+                },
+                {
+                    "type": "afciddust",
+                    "value": 13.899999999999997
+                }
+            ],
+            "posX": 60,
+            "posY": 205,
+            "numCountries": 36,
+            "totalValue": 630.0000000000008
+        },
+        {
+            "region": "West Asia",
+            "types": [
+                {
+                    "type": "waste",
+                    "value": 11.400000000000002
+                },
+                {
+                    "type": "windblowndust",
+                    "value": 311.70000000000005
+                },
+                {
+                    "type": "solvents",
+                    "value": -0.7
+                },
+                {
+                    "type": "intlshipping",
+                    "value": 3
+                },
+                {
+                    "type": "transport",
+                    "value": 33.300000000000004
+                },
+                {
+                    "type": "residential",
+                    "value": 7.300000000000002
+                },
+                {
+                    "type": "othercombustion",
+                    "value": 1
+                },
+                {
+                    "type": "commercial",
+                    "value": 1.5
+                },
+                {
+                    "type": "remainingsources",
+                    "value": 10.200000000000001
+                },
+                {
+                    "type": "industry",
+                    "value": 30.499999999999996
+                },
+                {
+                    "type": "otherfires",
+                    "value": 0.5
+                },
+                {
+                    "type": "agrwasteburning",
+                    "value": 0.8
+                },
+                {
+                    "type": "energy",
+                    "value": 93.59999999999998
+                },
+                {
+                    "type": "agriculture",
+                    "value": 23.499999999999996
+                },
+                {
+                    "type": "afciddust",
+                    "value": 14.4
+                }
+            ],
+            "posX": 470,
+            "posY": 195,
+            "numCountries": 12,
+            "totalValue": 541.9999999999999
+        },
+        {
+            "region": "North America",
+            "types": [
+                {
+                    "type": "waste",
+                    "value": 0.30000000000000004
+                },
+                {
+                    "type": "windblowndust",
+                    "value": 0.30000000000000004
+                },
+                {
+                    "type": "solvents",
+                    "value": 0
+                },
+                {
+                    "type": "intlshipping",
+                    "value": 0.30000000000000004
+                },
+                {
+                    "type": "transport",
+                    "value": 1.9
+                },
+                {
+                    "type": "residential",
+                    "value": 1.8
+                },
+                {
+                    "type": "othercombustion",
+                    "value": 0.8
+                },
+                {
+                    "type": "commercial",
+                    "value": 0.30000000000000004
+                },
+                {
+                    "type": "remainingsources",
+                    "value": 1.6
+                },
+                {
+                    "type": "industry",
+                    "value": 1.7000000000000002
+                },
+                {
+                    "type": "otherfires",
+                    "value": 2.2
+                },
+                {
+                    "type": "agrwasteburning",
+                    "value": 0.1
+                },
+                {
+                    "type": "energy",
+                    "value": 1.7000000000000002
+                },
+                {
+                    "type": "agriculture",
+                    "value": 1.7000000000000002
+                },
+                {
+                    "type": "afciddust",
+                    "value": 0.4
+                }
+            ],
+            "posX": 60,
+            "posY": 130,
+            "numCountries": 2,
+            "totalValue": 15.1
+        }
+    ],
+    "scale_width": 800,
+    "scale_height": 400,
+    "type": "sectors"
+}

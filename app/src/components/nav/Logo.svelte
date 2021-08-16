@@ -1,22 +1,9 @@
 <script>
-	import UNEPLogoBlue from '../assets/unep50.svg'
-	import UNEPLogoWhite from '../assets/unep50white.svg'
+	import UNEPLogoBlue from 'src/assets/unep50.svg';
+	import UNEPLogoWhite from 'src/assets/unep50white.svg';
   export let color;
 </script>
 
 <div class="logo">
-	{#if color === 'white'}
-	{@html UNEPLogoWhite}
-	{:else}
-	{@html UNEPLogoBlue}
-	{/if}
+	<img src={!color || color === 'blue' ? UNEPLogoBlue : UNEPLogoWhite} alt='Logo of the United Nations Environment Programme | 50 year anniversary'>
 </div>
-
-<style>
-
-	.logo {
-		width: 11rem;
-		transition: height .5s;
-	}
-
-</style>
