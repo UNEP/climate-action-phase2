@@ -99,7 +99,7 @@
     + currentCountry.timesPM25 + ` times WHO's guideline.`;
 
     $: PMtimesCommentary = ` deaths per 100,000 people <br>attributable to fine particle 
-    pollution in 2017 <br>(` + currentCountry.totalDeaths + ` in total in the country).`;
+    pollution in 2017 <br>(` + currentCountry.totalDeaths.toLocaleString('en-US') + ` in total in the country).`;
 
 </script>
 

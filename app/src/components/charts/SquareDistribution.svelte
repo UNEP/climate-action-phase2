@@ -12,7 +12,7 @@ import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
     const relevantTileWidth = 5;
     const relevantTileHeight = 34;
     const xBorderRadius = 10;
-    const yBorderRadius = 5;
+    const yBorderRadius = 2;
 
     export var selectedCountry: string;
     export var data: CountryDataSquare[];

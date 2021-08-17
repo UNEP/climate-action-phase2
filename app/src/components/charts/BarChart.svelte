@@ -10,7 +10,56 @@
 
     $: tiles = data;
 
+    //This will change when we have the new color palette
     const colorFunction = (d: string) => selectedDataset === "sectors" ? colorSectors(d) : colorFuels(d);
+
+    const categoryDictionary = {
+        sector: {
+            'waste': 'Waste',
+            'windblowndust': 'Windblown dust',
+            'solvents' : 'Solvents',
+            'intlshipping': 'International shipping',
+            'transport': 'Transport',
+            'residential': 'Residential',
+            'othercombustion': 'Other combustion',
+            'commercial': 'Commercial',
+            'remainingsources': 'Remaining sources',
+            'industry': 'Industry',
+            'otherfires': 'Other fires',
+            'agrwasteburning': 'Agr. waste burning',
+            'energy': 'Energy',
+            'agriculture': 'Agriculture',
+            'afciddust': 'AFCID dust'
+        },
+        fuel: {
+            'solidbio': 'Solid bio',
+            'process': 'Process',
+            'coal': 'Coal',
+            'liquid': 'Liquid'
+        },
+        disease: {
+            'COPD': 'Chronic obstructive pulmonary disease',
+            'DM': 'Diabetes mellitus type 2',
+            'IHD': 'Ischemic heart disease',
+            'LC': 'Lung cancer',
+            'LRI': 'Lower respiratory infections',
+            'Stroke': 'Stroke',
+            'PTB': 'Pulmonary Tuberculosis',
+            'LBW': 'Low birth weight'
+        }
+    };
+
+    function categoryTranslator(category: string){
+        if (selectedDataset === "fuels"){
+            return categoryDictionary.fuel[category];
+        }
+        else if (selectedDataset === "sectors"){
+            return categoryDictionary.sector[category];
+        }
+        else {
+            return categoryDictionary.disease[category];
+        }
+    }
 
     function calculateTotalSum(){
         let sum = 0;
@@ -20,11 +69,14 @@
         return sum;
     }
 
+    function generateDeathsCommentary(){
+
+    }
+
     function commentaryByDataset(dataset: string){
 
-        //For now, these sentences are only there to show how it should look like
         if (dataset === "deaths"){
-            return `Most deaths are due to <b>{mostdeaths}</b>. Another significant causes are: {more}.`;
+            return `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>. Another significant causes are: {more}.`;
         }
         else if (dataset === "fuels"){
             return `Most of that PM2.5 in comes from <b>{mostfuel}</b> —<b>{mostfuelvalue}</b> of the 
@@ -83,7 +135,7 @@
     }
 
     function generateAnnotation(){
-        let annotation = currentCategory.categoryName + `: ` + currentCategory.value + ` `;
+        let annotation = categoryTranslator(currentCategory.categoryName) + `: ` + currentCategory.value.toLocaleString('en-US') + ` `;
 
         if (selectedDataset === "deaths"){
             annotation += `deaths`;
@@ -106,7 +158,7 @@
 </div>
 
 {#if showInformation}
-    <div>
+    <div class="annotation-text">
          <Annotation
             x={annotationPositions.find(a => a.name === currentCategory.categoryName).x}
             y={90}
@@ -144,5 +196,9 @@
 </div>
 
 <style>
+
+    .annotation-text {
+        
+    }
 
 </style>
