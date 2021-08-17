@@ -31,7 +31,7 @@ import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
     }
 
     function findXlocation(countryValue: number){
-        return countryValue * (width-4) / maxValue;
+        return countryValue * (width-10) / maxValue;
     }
 
     $: maxValue = findMaxValue(data);

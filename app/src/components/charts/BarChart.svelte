@@ -70,13 +70,56 @@
     }
 
     function generateDeathsCommentary(){
+        let commentary: string;
+        let _50percent = (50/100 * totalValue);
 
+        if (tiles[0].value >= _50percent){
+            commentary = `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
+        }
+        else {
+            let _25percent = (15/100 * totalValue);
+            let keepSearching = true;
+            let i = 0;
+            let leadingCauses = [];
+            while (keepSearching && i < tiles.length){
+                if (tiles[i].value >= _25percent){
+                    leadingCauses.push(tiles[i].categoryName);
+                    i++;
+                }
+                else { keepSearching = false; }
+            }
+            
+            if (leadingCauses.length == 1){
+                commentary = `The leading cause of death is: <b>` + categoryTranslator(leadingCauses[0]) + `</b>.`;
+            }
+
+            else if (leadingCauses.length > 1){
+                commentary = `The leading causes of death are: <b>`;
+                let a = 0;
+                while (a < leadingCauses.length){
+                    commentary += categoryTranslator(leadingCauses[a]);
+                    if (a == leadingCauses.length-1){
+                        commentary += `</b> and <b> `;
+                    }
+                    else if (a == leadingCauses.length){
+                        commentary += `</b>.`;
+                    }
+                    else{
+                        commentary += `</b>, `;
+                    }
+                    a++;
+                }
+            }
+
+        }
+        return commentary;
     }
 
     function commentaryByDataset(dataset: string){
 
         if (dataset === "deaths"){
-            return `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>. Another significant causes are: {more}.`;
+            //return `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>. Another significant causes are: {more}.`;
+            return generateDeathsCommentary();
         }
         else if (dataset === "fuels"){
             return `Most of that PM2.5 in comes from <b>{mostfuel}</b> —<b>{mostfuelvalue}</b> of the 
@@ -132,6 +175,7 @@
         showInformation = false;
         currentCategory = null;
         annotationPositions = [];
+        commentary = commentaryByDataset(selectedDataset);
     }
 
     function generateAnnotation(){
