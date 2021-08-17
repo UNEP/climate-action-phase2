@@ -7,9 +7,7 @@
     y: number;
     value: number;
     rate: number;
-    pNo: number;
-    pYes: number;
-    pAlmost: number;
+    data: any;
   }
 </script>
 

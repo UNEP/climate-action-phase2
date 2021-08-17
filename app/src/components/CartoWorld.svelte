@@ -8,20 +8,64 @@
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorPM25, colorHealth } from "src/App.svelte";
+  import { colorPM25, colorHealth, colorPolices } from "src/App.svelte";
   import {createLookup} from 'src/util';
 
   export var data:string;
   export var head:string;
   export var text:TextBlock[];
 
+  interface PoliciesData{
+    name : string;
+    id : string;
+    "ind-1" : number;
+    "tra-1" : number;
+    "tra-2" : number;
+    "waste-1" : number;
+    "a1-1" : number;
+    pYes : number;
+    pNo : number;
+    pAlmost : number
+  }
+
+  data = "policies";
   enum Datasets {
     pm25  = 0, health =  1, policies = 2
   }
 
-  let clientWidth: number;
-  $: width = Math.max(clientWidth, 700);
+  enum PoliciesStatus {
+    Yes = 1, No = 2, Almost = 3, NoData = 4
+  }
+
+
+  let width;
   $: height = width * (data === 'pm25' ? .55 : .62);
+
+  const policiesHoverText = (data : PoliciesData) : string => {
+    console.log(data);
+    let hasPolicies = false;
+    let hoverText = `<strong>${data.name}</strong> has policies for: `;
+    if(data['ind-1'] == PoliciesStatus.Yes || data['ind-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Clean production incentives</strong>`; hasPolicies = true; }
+    if(data['ind-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+
+    if(data['tra-1'] == PoliciesStatus.Yes || data['tra-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Vehicle emissions standards</strong>`; hasPolicies = true; }
+    if(data['tra-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+
+    if(data['tra-2'] == PoliciesStatus.Yes || data['tra-2'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Fuel Sulphur content</strong>`; hasPolicies = true; }
+    if(data['tra-2'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+
+    if(data['waste-1'] == PoliciesStatus.Yes || data['waste-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Solid Waste Burning</strong>`; hasPolicies = true; }
+    if(data['waste-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+
+    if(data['res-1'] == PoliciesStatus.Yes || data['res-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Incentives for residential cooking and heating</strong>`; hasPolicies = true; }
+    if(data['res-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+
+    if(data['aq-1'] == PoliciesStatus.Yes || data['aq-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Air quality standards</strong>`; hasPolicies = true; }
+    if(data['aq-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+
+    if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`
+    return hoverText
+  }
 
   const datasetParams = {
     pm25: {
@@ -42,6 +86,7 @@
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
       legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
+      legendType: 'sequential',
       domain: [700, 400]
     },
 
@@ -62,6 +107,7 @@
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
+      legendType: 'sequential',
       domain: [700, 400]
     },
 
@@ -74,18 +120,19 @@
            sized by the total number of <strong>deaths
            caused by small particle pollution</strong>.`
       },
-      hoverTextFn: (d:CountryDataPoint) => `In <strong>${d.name}</strong>`,
+      hoverTextFn: (d:CountryDataPoint) => policiesHoverText(d.data as PoliciesData),
       colorFn: (d: CountryDataPoint) => {
         return  (
-          `linear-gradient(to bottom, #0074B2 ${d.pYes} %,
-          #5A93B4 ${d.pYes}% ${d.pAlmost}%,
-          #BABABA ${d.pAlmost} % ${d.pNo}%,
-          #E6E6E6 ${d.pNo}%)`
+          `linear-gradient(to bottom, ${colorPolices(PoliciesStatus.Yes.toString())} ${d.data.pYes}%,
+          ${colorPolices(PoliciesStatus.Almost.toString())} ${d.data.pYes}% ${d.data.pAlmost}%,
+          ${colorPolices(PoliciesStatus.No.toString())} ${d.data.pAlmost}% ${d.data.pNo}%,
+          ${colorPolices(PoliciesStatus.NoData.toString())} ${d.data.pNo}%)`
         );
       },
-      color: colorHealth,
+      color: colorPolices,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
-      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
+      legendDomain: ["Has Policies", "Has no policies", "Could be better", "No data"],
+      legendType: 'categorical',
       domain: [1300, 1300 / (740/420)],
     }
   };
@@ -124,7 +171,7 @@
               ...d,
               ...d.trends,
               value: 5,
-              ...policiesLookup[d.code]
+              data : policiesLookup[d.code]
             };
         })
   };
@@ -139,7 +186,7 @@
       title = {datasetParams[data].legendTitle}
       colors = {datasetParams[data].color.range()}
       labels = {datasetParams[data].legendDomain}
-      type = {'sequential'}
+      type = {datasetParams[data].legendType}
   />
   </div>
 
