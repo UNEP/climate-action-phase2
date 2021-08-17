@@ -70,21 +70,24 @@
     }
 
     function generateDeathsCommentary(){
+        
         let commentary: string;
         let _50percent = (50/100 * totalValue);
+        let lastProcessedDisease = 0;
 
+        //FIRST SENTENCE
         if (tiles[0].value >= _50percent){
             commentary = `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
+            lastProcessedDisease = 1;
         }
         else {
-            let _25percent = (15/100 * totalValue);
+            let _25percent = (25/100 * totalValue);
             let keepSearching = true;
-            let i = 0;
             let leadingCauses = [];
-            while (keepSearching && i < tiles.length){
-                if (tiles[i].value >= _25percent){
-                    leadingCauses.push(tiles[i].categoryName);
-                    i++;
+            while (keepSearching && lastProcessedDisease < tiles.length){
+                if (tiles[lastProcessedDisease].value >= _25percent){
+                    leadingCauses.push(tiles[lastProcessedDisease].categoryName);
+                    lastProcessedDisease++;
                 }
                 else { keepSearching = false; }
             }
@@ -93,32 +96,80 @@
                 commentary = `The leading cause of death is: <b>` + categoryTranslator(leadingCauses[0]) + `</b>.`;
             }
 
-            else if (leadingCauses.length > 1){
+            else if (leadingCauses.length == 0){
+                commentary = `An important cause of death is: <b>` + categoryTranslator(tiles[0].categoryName) + `</b>.`;
+                lastProcessedDisease++;
+            }
+
+            else {
                 commentary = `The leading causes of death are: <b>`;
                 let a = 0;
                 while (a < leadingCauses.length){
                     commentary += categoryTranslator(leadingCauses[a]);
-                    if (a == leadingCauses.length-1){
-                        commentary += `</b> and <b> `;
+                    if (a == leadingCauses.length-2){
+                        commentary += `</b> and <b>`;
                     }
-                    else if (a == leadingCauses.length){
+                    else if (a == leadingCauses.length-1){
                         commentary += `</b>.`;
                     }
                     else{
-                        commentary += `</b>, `;
+                        commentary += `</b>, <b>`;
                     }
                     a++;
                 }
             }
-
         }
+
+        //SECOND SENTENCE
+        let y = lastProcessedDisease;
+        let _12_5_percent = (12.5/100 * totalValue);
+        let keepSearching = true;
+        let relevantCauses = [];
+
+        while (keepSearching && y < tiles.length){
+            if (tiles[y].value >= _12_5_percent){
+                relevantCauses.push(tiles[y].categoryName);
+                y++;
+            }
+            else { keepSearching = false; }
+        }
+
+        if (relevantCauses.length == 1){
+            commentary += ` Another significant cause is: <b>` + categoryTranslator(relevantCauses[0]) + `</b>.`;
+        }
+
+        else if (relevantCauses.length == 0){
+            commentary += ``;
+        } 
+
+        else{
+            commentary += ` Other significant causes are: <b>`;
+            let b = 0;
+            while (b < relevantCauses.length){
+                commentary += categoryTranslator(relevantCauses[b]);
+                if (b == relevantCauses.length-2){
+                    commentary += `</b> and <b> `;
+                }
+                else if (b == relevantCauses.length-1){
+                    commentary += `</b>.`;
+                }
+                else{
+                    commentary += `</b>, <b>`;
+                }
+                b++;
+            }
+        }
+
         return commentary;
     }
 
-    function commentaryByDataset(dataset: string){
+    function generateSectorsCommentary(){
+        return `<b>${categoryTranslator(tiles[0].categoryName)}</b> is the top contributor to the fine particle pollution levels 
+            —<b>${tiles[0].value}</b> of the <b>${totalValue}</b> µg/m<sup>3</sup>. A lot more than the regional mean.`;
+    }
 
+    function commentaryByDataset(dataset: string){
         if (dataset === "deaths"){
-            //return `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>. Another significant causes are: {more}.`;
             return generateDeathsCommentary();
         }
         else if (dataset === "fuels"){
@@ -126,8 +177,7 @@
             <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the mean value for the region.`;
         }
         else {
-            return `<b>{mostsector}</b> is the top contributor to the fine particle pollution levels 
-            —<b>{mostsectorvalue}</b> of the <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the regional mean.`;
+            return generateSectorsCommentary();
         }
     }
 
@@ -240,9 +290,5 @@
 </div>
 
 <style>
-
-    .annotation-text {
-        
-    }
 
 </style>
