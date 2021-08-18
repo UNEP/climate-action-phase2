@@ -16,7 +16,7 @@
     .range(['#407aa9','#faba26','#62b048','#333333']);
 
   export const colorPM25 = scaleThreshold<number, string>()
-    .domain([...new Array(7)].map((d,i) => (i+1)*10))
+    .domain([...new Array(7)].map((d,i) => (i + 1) * 10))
     .range(['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080']);
 
   export const colorHealth = scaleThreshold<number, string>()
@@ -35,6 +35,7 @@
   import TopNav from 'src/components/nav/TopNav.svelte';
   import Footer from './components/nav/Footer.svelte';
   import text from 'src/text.json';
+  import Menu from './components/nav/Menu.svelte';
 
   const content: Content[] = text.article;
 
@@ -43,6 +44,7 @@
     'carto-region': CartoRegion,
     'intro': Intro,
     'text': Text,
+    "menu": Menu,
   };
 
 </script>

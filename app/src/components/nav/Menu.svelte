@@ -4,15 +4,22 @@
     label: string;
   }
 
-  export let menu: MenuNav[];
+  export let options: MenuNav[];
+
+  const hasValidOptions = options instanceof Array;
+
 </script>
 
 <nav class="sections-menu" role="navigation">
-  <ul class='menu sections'>
-    {#each menu as i}
-      <li>{@html i.label}</li>
-    {/each}
-  </ul>
+  {#if hasValidOptions}
+    <ul class='menu sections'>
+      {#each options as i}
+        <li><a href={i.a}>{@html i.label}</a></li>
+      {/each}
+    </ul>
+  {:else}
+    <div>Menu: Invalid options</div>
+  {/if}
 </nav>
 
 <style>
@@ -21,5 +28,6 @@
     margin:0;
     max-width: 10rem;
     top:0;
+    right: 100%;
   }
 </style>
