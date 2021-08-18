@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { HierarchyRectangularNode } from 'd3-hierarchy';
+  import Annotation from 'src/components/maps/Annotation.svelte';
 
   interface HierarchicalDatum {
     value?: number;
@@ -25,12 +26,9 @@
     mostPollutingValue: number,
     mostPollutingType: string,
     region: string,
-    nameX: number,
-    nameY: number
   }
 </script>
 <script lang="ts">
-  import Annotation from 'src/components/maps/Annotation.svelte';
   import * as d3 from 'src/d3';
   import {colorSectors, colorFuels} from 'src/App.svelte';
   import type { CartoRegionData } from 'src/types';
@@ -43,7 +41,6 @@
   export let data: CartoRegionData;
   export let width: number;
   export let height: number;
-  export let showRegionName: boolean = true;
 
   let referenceRegion : Position;
 
@@ -59,16 +56,6 @@
 
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
 
-  let showHoverText = () => {
-
-    return "Most of the PM 2.5 in <b>" + currentRegion.region + "</b> comes from <b>" + currentRegion.mostPollutingType +
-    "</b> —<b>" + currentRegion.mostPollutingValue.toFixed(2) + "</b> of the <b>" +
-    currentRegion.totalPollutingValue.toFixed(2) + "</b> µg/m<sup>3</sup>";
-  };
-
-  let showCurrentLeaf = (currentType:string, currentValue:number) => {
-    return showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>" + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>";
-  };
   $:{
 
     regions = data.regions.map(region => {
@@ -97,6 +84,7 @@
         color: "#f9f9f9",
 
       };
+
       return {
         leaves : treemap.leaves(),
         background,
@@ -116,8 +104,8 @@
     });
 
     referenceRegion = {
-      x: regions[4].x + regions[4].width / 2,
-      y: regions[4].y
+      x: regions[2].x + regions[2].width / 2,
+      y: regions[2].y
     };
   }
 </script>
@@ -133,34 +121,26 @@
     canvasWidth={width}
     canvasHeight={height}
   />
-
-{:else}
-  <Annotation
-    x={currentRegion.x + currentLeaf.x0 + ((currentLeaf.x1 - currentLeaf.x0) / 2)}
-    y={currentRegion.y + currentLeaf.y0}
-    text={showConcreteType? showCurrentLeaf(currentLeaf.data.type, currentLeaf.data.value) : showHoverText()}
-    radius={2} forceTopWherePossible={true}
+  {:else}
+  <Annotation x={currentRegion.x}
+    y={currentRegion.y}
+    text="Most of the PM2.5 in <strong>{currentRegion.region}</strong> comes from <strong>{currentRegion.mostPollutingType}</strong> —<strong>{currentRegion.mostPollutingValue.toFixed(2)}</strong> of the <strong>{currentRegion.totalPollutingValue.toFixed(2)}<strong> µg/m<sup>3</sup>"
+    radius={0} forceTopWherePossible={true}
     canvasWidth={width} canvasHeight={height}
   />
-{/if}
-</div>
-
-  {#if showRegionName}
-
-  <div class="text">
-    {#each regions as region}
-    <Annotation
-      x={region.nameX}
-      y={region.nameY}
-      text={region.region}
-      radius={2}
-      justText={true}
-      canvasWidth={width}
-      canvasHeight={height}
-    />
-    {/each}
-  </div>
   {/if}
+</div>
+  {#if showConcreteType}
+  <Annotation
+    x={currentRegion.x + currentLeaf.x1 + 5}
+    y={currentRegion.y + currentLeaf.y0}
+    text="{currentLeaf.data.type} {currentLeaf.data.value.toFixed(2)} µg/m<sup>3</sup>"
+    radius={0}
+    justText={true}
+    canvasWidth={width}
+    canvasHeight={height}
+  />
+{/if}
 <div class="svg" {width} {height}>
   <svg id="treemapCartogram" {width} {height}>
     <filter id="shadow" x="-10%">
@@ -178,6 +158,7 @@
           rx="2"
           ry="2"
           filter="none"
+          on:mouseenter={()=>{showInformation = false; currentRegion = region;}}
           on:mouseout={()=>{showInformation = true;}}
           on:blur={()=>{showInformation = true;}}
           style="fill: {region.background.color};"
@@ -193,8 +174,8 @@
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseenter={()=>{currentRegion = region; leaf.data.type !== region.mostPollutingType? showConcreteType = true: showConcreteType = false; currentLeaf = leaf; showInformation = false;}}
-            on:mouseout={()=>{showInformation = true;  showConcreteType=false;}}
+            on:mouseenter={()=>{currentRegion = region; showInformation = false; currentLeaf = leaf; showConcreteType = true;}}
+            on:mouseout={()=>{showInformation = true; showConcreteType=false;}}
             on:blur={()=>{showInformation = true; showConcreteType=false;}}
           />
           {/each}

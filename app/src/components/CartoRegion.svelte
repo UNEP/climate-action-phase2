@@ -65,7 +65,7 @@
   </div>
 
   {#each text as t}
-  <p class='col-text'>{@html t.p}</p>
+    <p class='col-text'>{@html t.p}</p>
   {/each}
 
 </section>

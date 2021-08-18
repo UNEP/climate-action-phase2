@@ -62,6 +62,3 @@
   </article>
 </main>
 <Footer />
-<style>
-
-</style>

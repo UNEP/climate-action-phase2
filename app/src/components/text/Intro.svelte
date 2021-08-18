@@ -57,4 +57,5 @@ export let breadcrumbs;
     opacity: .68;
   }
   li a:hover { opacity:1; }
+  p { margin: 0; }
 </style>

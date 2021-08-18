@@ -178,12 +178,12 @@
 
     .annotation--right .line,
     .annotation--left .line {
-        border-top: 1px solid black;
+        border-top: 1px solid #bbbbbb;
         height: 0;
     }
     .annotation--above .line,
     .annotation--below .line {
-        border-left: 1px solid black;
+        border-left: 1px solid #bbbbbb;
         width: 0;
     }
 

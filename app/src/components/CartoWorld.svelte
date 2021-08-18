@@ -69,11 +69,11 @@
   function hoverTextFunction(d: CountryDataPoint){
     if (data === "pm25"){
       return `In <strong>${d.name}</strong>, people are exposed to an average of
-      <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`;
+        <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`;
     }
     else{
       return `In <strong>${d.name}</strong>, fine particle pollution caused <strong>${d.value}
-      deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
+        deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
     }
   }
 </script>
