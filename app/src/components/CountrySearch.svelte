@@ -16,6 +16,11 @@
     import pm25data from 'src/data/pm25.json';
     import healthData from 'src/data/health.json';
 
+    const maxNumSearchResults = 5;
+
+    let countriesToBeFiltered = ["AIA","VGB","CYM","CUW","SWZ","FLK","FRO",
+    "GIB","VAT","JEY","LIE","MSR","NCL","NFK","PCN","SHN","SPM","TCA","ESH"];
+
     $: currentCountry = {
         id: "",
         PM25country: 0,
@@ -68,8 +73,16 @@
         }
         return array;
     }
+
+    function toFilter(countryID:string){
+        if (countriesToBeFiltered.find(c => c === countryID) != null){
+            return true;
+        }
+        else return false;
+    }
     
     const extract = (item) => item.name;
+    const filter = (item) => toFilter(item.id);
     const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit. Mauris mattis posuere faucibus.`;
 
     let events = [];
@@ -110,9 +123,10 @@
         <Typeahead 
             data={countries} 
             {extract} 
+            {filter}
             on:select={(e) => updateSelectedCountry("select", e.detail)}
             on:clear={(e) => updateSelectedCountry("clear", e.detail)}
-            limit={5}
+            limit={maxNumSearchResults}
             placeholder={ `Search a country`}
             hideLabel>
         </Typeahead>
@@ -160,6 +174,7 @@
             <BarChart
                 data = {countrySectorsData}
                 selectedDataset = "sectors"
+                selectedCountry = {currentCountry.id}
             />
         </div>
 
@@ -198,13 +213,14 @@
 
     .searchBar :global([data-svelte-search] input) {
         width: 100%;
-        padding: 0.5rem 0.75rem;
+        padding: 0.5rem 0rem;
         background: #f9f9f9;
-        font-size: 1rem;
+        font-size: 1.25rem;
         border: 0;
         border-radius: 0;
         border: 0px solid #e5e5e5;
         border-bottom-width: 2px;
+        font-family: Roboto;
     }
 
     .searchBar :global([data-svelte-search] label) {

@@ -1,17 +1,21 @@
 <script lang="ts">
     import Annotation from '../maps/Annotation.svelte';
     import {colorSectors, colorFuels} from 'src/App.svelte';
+    import regionalData from 'src/data/sectoralBDData.json';
+    import regionDictionary from 'src/data/regionDictionary.json';
 
     const width = 950;
     const height = 125;
+    const tileHeight = 85;
 
     export var data: {categoryName: string, value: number}[];
     export var selectedDataset: string;
+    export var selectedCountry: string = null;
 
     $: tiles = data;
 
     //This will change when we have the new color palette
-    const colorFunction = (d: string) => selectedDataset === "sectors" ? colorSectors(d) : colorFuels(d);
+    const colorFunction = (d: string) => selectedDataset === "fuels" ? colorFuels(d) : colorSectors(d);
 
     const categoryDictionary = {
         sector: {
@@ -164,8 +168,32 @@
     }
 
     function generateSectorsCommentary(){
+        console.log(selectedCountry);
+        let regionName = regionDictionary.find(c => c.id === selectedCountry).region;
+        let regionMean = regionalData.regions.find(r => r.region === regionName).types.find(t => t.type === (tiles[0].categoryName)).value;
+        let comparisonText: string;
+
+        if (regionMean < tiles[0].value){
+            comparisonText = `More than the mean value for the region`;
+        }
+
         return `<b>${categoryTranslator(tiles[0].categoryName)}</b> is the top contributor to the fine particle pollution levels 
-            —<b>${tiles[0].value}</b> of the <b>${totalValue}</b> µg/m<sup>3</sup>. A lot more than the regional mean.`;
+        —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>. Regional mean --> <b>${regionMean.toFixed(1)}</b>`;
+    }
+
+    function generateFuelsCommentary(){
+
+        let commentary: string;
+        let _50percent = (50/100 * totalValue);
+
+        if (tiles[0].value >= _50percent){
+            commentary = `Most of that PM2.5 in comes from <b>${categoryTranslator(tiles[0].categoryName)}</b> —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>.`;
+            return commentary;
+        }
+        else {
+            commentary = `An important sum of the total fine particle pollution value comes from <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
+            return commentary;
+        }
     }
 
     function commentaryByDataset(dataset: string){
@@ -173,8 +201,7 @@
             return generateDeathsCommentary();
         }
         else if (dataset === "fuels"){
-            return `Most of that PM2.5 in comes from <b>{mostfuel}</b> —<b>{mostfuelvalue}</b> of the 
-            <b>{totalpollution}</b> µg/m<sup>3</sup>. A lot more than the mean value for the region.`;
+            return generateFuelsCommentary();
         }
         else {
             return generateSectorsCommentary();
@@ -199,7 +226,8 @@
     function generateTextPosition(tile: {categoryName: string, value: number}, x: number, width: number){
         let label = {
             name: tile.categoryName,
-            x: x + width/2
+            //x: x + width/2
+            x: x
         };
         return label;
     }
@@ -255,9 +283,9 @@
     <div class="annotation-text">
          <Annotation
             x={annotationPositions.find(a => a.name === currentCategory.categoryName).x}
-            y={90}
+            y={tileHeight + 5}
             text={generateAnnotation()}
-             radius={0}
+            radius={0}
             justText={true}
             canvasWidth={width}
             canvasHeight={height}
@@ -273,11 +301,11 @@
                     id = {tile.categoryName}
                     class="tile"
                     width= {calculateCategoricalWidth(tile.value)}
-                    height= 85
+                    height= {tileHeight}
                     x={calculateX(tile)}
                     y=0
-                    rx="0"
-                    ry="0"
+                    rx="15"
+                    ry="1"
                     filter="none"
                     style= "fill: {colorFunction(tile.categoryName)}; outline: none;"
                     on:mouseenter={()=>{showInformation = true; currentCategory = tile;}}
