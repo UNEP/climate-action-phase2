@@ -61,8 +61,7 @@
         value: data === "pm25" ? d.pm25 : d.deaths,
         rate: data === "health" ? d.rate : null
       };
-    }
-  );
+    });
 
   const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
 
