@@ -17,13 +17,8 @@ export interface Content {
   type: string;
   head: string;
   text: TextBlock[];
-  menu: string;
-  anchor: string;
-}
-
-export interface MenuNav {
-  a: string;
-  label: string;
+  menu?: string;
+  anchor?: string;
 }
 
 interface Region {

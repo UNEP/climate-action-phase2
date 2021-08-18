@@ -26,26 +26,15 @@
 </script>
 
 <script lang="ts">
-	import { scaleOrdinal, scaleThreshold } from 'd3-scale';
-	import type { Content } from 'src/types';
-  // import type { MenuNav } from 'src/types';
-	import CartoWorld from 'src/components/CartoWorld.svelte';
-	import CartoRegion from 'src/components/CartoRegion.svelte';
-	import Intro from 'src/components/text/Intro.svelte';
-	import Text from 'src/components/text/Text.svelte';
-	import TopNav from 'src/components/nav/TopNav.svelte';
-	import Footer from './components/nav/Footer.svelte';
-  // import Menu from './components/nav/Menu.svelte';
-	import text from 'src/text.json';
-
-  const content: Content[] = text.article;
-  // const menu: MenuNav[] = text.article.map(d => {
-  //   console.log(d.anchor)
-  //   if(d.anchor !== undefined ) {
-  //     return {a: d.anchor, label: d.menu}
-  //   }
-  // });
-	import text from 'src/text.json';
+  import { scaleOrdinal, scaleThreshold } from 'd3-scale';
+  import type { Content } from 'src/types';
+  import CartoWorld from 'src/components/CartoWorld.svelte';
+  import CartoRegion from 'src/components/CartoRegion.svelte';
+  import Intro from 'src/components/text/Intro.svelte';
+  import Text from 'src/components/text/Text.svelte';
+  import TopNav from 'src/components/nav/TopNav.svelte';
+  import Footer from './components/nav/Footer.svelte';
+  import text from 'src/text.json';
 
   const content: Content[] = text.article;
 
@@ -54,8 +43,6 @@
     'carto-region': CartoRegion,
     'intro': Intro,
     'text': Text,
-    // 'menu': Menu
-
   };
 
 </script>
@@ -66,7 +53,9 @@
     {#each content as block}
       {#if components[block.type]}
         <svelte:component this={components[block.type]} {...block} />
+      {:else}
         <div>Missing component for '{block.type}'</div>
+      {/if}
     {/each}
   </article>
 </main>
