@@ -90,15 +90,15 @@
         background,
         x : convertX(region.posX),
         y : convertY(region.posY),
-        width: mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft,
-        height: mapPropotions(treemap.value/region.numCountries) + background.borderBottom + background.borderTop,
-        totalPollutingValue : treemap.value/region.numCountries,
+        width: mapPropotions(treemap.value / region.numCountries) + background.borderRight + background.borderLeft,
+        height: mapPropotions(treemap.value / region.numCountries) + background.borderBottom + background.borderTop,
+        totalPollutingValue : treemap.value / region.numCountries,
         mostPollutingValue : treemap.children[0].data.value,
         mostPollutingType : treemap.children[0].data.type,
         region: region.region,
         nameX: convertX(region.posX),
         nameY: region.region === "Latin America + Caribbean" ?
-          convertX(region.posY) + mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft :
+          convertX(region.posY) + mapPropotions(treemap.value / region.numCountries) + background.borderRight + background.borderLeft :
           convertX(region.posY) - 20
       };
     });
@@ -167,7 +167,7 @@
           {#each region.leaves as leaf}
           <rect
             class="tile leaf"
-            fill={data.type === "sectors"? colorSectors(leaf.data.type): colorFuels(leaf.data.type)}
+            fill={data.type === "sectors" ? colorSectors(leaf.data.type) : colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
             x={region.x + leaf.x0}
@@ -175,8 +175,8 @@
             rx="2"
             ry="2"
             on:mouseenter={()=>{currentRegion = region; showInformation = false; currentLeaf = leaf; showConcreteType = true;}}
-            on:mouseout={()=>{showInformation = true; showConcreteType=false;}}
-            on:blur={()=>{showInformation = true; showConcreteType=false;}}
+            on:mouseout={()=>{showInformation = true; showConcreteType = false;}}
+            on:blur={()=>{showInformation = true; showConcreteType = false;}}
           />
           {/each}
         </g>
