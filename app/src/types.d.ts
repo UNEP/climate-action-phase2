@@ -17,6 +17,8 @@ export interface Content {
   type: string;
   head: string;
   text: TextBlock[];
+  menu?: string;
+  anchor?: string;
 }
 
 interface Region {

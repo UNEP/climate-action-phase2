@@ -41,11 +41,10 @@
   export let data: CartoRegionData;
   export let width: number;
   export let height: number;
-  export let source: string;
 
   let referenceRegion : Position;
 
-  const mapPropotions =  (val) => Math.sqrt(val) * width * 0.03;
+  const mapPropotions = (val) => Math.sqrt(val) * width * 0.03;
 
   let regions : RegionTreemapData[];
 
@@ -96,7 +95,11 @@
         totalPollutingValue : treemap.value/region.numCountries,
         mostPollutingValue : treemap.children[0].data.value,
         mostPollutingType : treemap.children[0].data.type,
-        region: region.region
+        region: region.region,
+        nameX: convertX(region.posX),
+        nameY: region.region === "Latin America + Caribbean" ?
+          convertX(region.posY) + mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft :
+          convertX(region.posY) - 20
       };
     });
 
@@ -112,8 +115,8 @@
   <Annotation
     x={referenceRegion.x}
     y={referenceRegion.y}
-    text="Squares are sized based on <strong>how much each {data.type === "sectors" ? 'sector' : 'fuel'}</strong> contributed to the mean annual levels of PM2.5 in that <strong>region</strong>"
-    radius={0}
+    text="Squares are sized based on <strong>how much each {data.type === "sectors" ? 'sector' : 'fuel'}</strong> contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>"
+    radius={2}
     forceTopWherePossible={true}
     canvasWidth={width}
     canvasHeight={height}

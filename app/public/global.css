@@ -105,7 +105,7 @@ p, ul {
     word-wrap: normal;
 }
 
-sup { line-height: 0; }
+sup, sub { line-height: 0; }
 
 @media screen and (min-width: 58rem) {
 
