@@ -35,99 +35,103 @@
     $: radiusY = 100 * radius / canvasHeight;
 
     $: {
-        if (forceTopWherePossible) {
-            if (yPerc < 15) {
-                pos = xPerc > 50  ? 'left' : 'right';
-            } else {
-                pos = 'above';
-            }
+      if (forceTopWherePossible) {
+        if (yPerc < 15) {
+          pos = xPerc > 50 ? 'left' : 'right';
+        } else {
+          pos = 'above';
         }
-        else {
-            const horizontal = xPerc > 65 || xPerc < 35;
-            if (horizontal) {
-                pos = xPerc > 50  ? 'left' : 'right';
-            } else {
-                pos = yPerc < 20 ? 'below' : 'above';
-            }
+      }
+      else {
+        const horizontal = xPerc > 65 || xPerc < 35;
+        if (horizontal) {
+          pos = xPerc > 50 ? 'left' : 'right';
+        } else {
+          pos = yPerc < 20 ? 'below' : 'above';
         }
+      }
     }
 
     $: {
-        textShiftX = null;
-        textShiftY = null;
-        if (pos === 'left') {
-            style = {
-                right: 100 - (xPerc - radiusX),
-                top: yPerc,
-            };
+      textShiftX = null;
+      textShiftY = null;
+      if (pos === 'left') {
+        style = {
+          right: 100 - (xPerc - radiusX),
+          top: yPerc,
+        };
 
-        }
-        else if (pos === 'right') {
-            style = {
-                left: xPerc + radiusX,
-                top: yPerc,
-            };
-        }
-        else if (pos === 'above') {
-            const topPaddingPx = 5;
-            const topMin = 100 * (topPaddingPx / canvasHeight);
-            style = {
-                left: xPerc,
-                top: forceTopWherePossible ? topMin : Math.max(topMin, yPerc - radiusY - 40),
-                bottom: 100 - (yPerc - radiusY)
-            };
+      }
+      else if (pos === 'right') {
+        style = {
+          left: xPerc + radiusX,
+          top: yPerc,
+        };
+      }
+      else if (pos === 'above') {
+        const topPaddingPx = 5;
+        const topMin = 100 * (topPaddingPx / canvasHeight);
+        style = {
+          left: xPerc,
+          top: forceTopWherePossible ? topMin : Math.max(topMin, yPerc - radiusY - 40),
+          bottom: 100 - (yPerc - radiusY)
+        };
 
-        }
-        else if (pos === 'below') {
-            style = {
-                left: xPerc,
-                top: yPerc + radiusY,
-                bottom: Math.max(0, 100 - yPerc - 50)
-            };
-        }
+      }
+      else if (pos === 'below') {
+        style = {
+          left: xPerc,
+          top: yPerc + radiusY,
+          bottom: Math.max(0, 100 - yPerc - 50)
+        };
+      }
 
-        if (pos === 'left' || pos === 'right') {
-            const yShiftFactor = 25;
-            if (yPerc < yShiftFactor) {
-                textShiftY = -50 + ((yShiftFactor-yPerc) * (50/yShiftFactor));
-            }
-            else if (yPerc > (100-yShiftFactor)) {
-                const _y = yShiftFactor - (100 - yPerc);
-                textShiftY = -50 + (_y * (50/yShiftFactor));
-            }
-            else {
-                textShiftY = -50;
-            }
+      if (pos === 'left' || pos === 'right') {
+        const yShiftFactor = 25;
+        if (yPerc < yShiftFactor) {
+          textShiftY = -50 + ((yShiftFactor - yPerc) * (50 / yShiftFactor));
         }
-        else if (pos === 'above' || pos === 'below') {
-            const leftPaddingPx = 5;
-            const leftPadding = (100 * leftPaddingPx/canvasWidth);
-            const _textShiftX  = clamp(-(textWidthPerc/3), -xPerc + leftPadding, (100 - xPerc) - textWidthPerc);
-            textShiftX = 100 * _textShiftX / textWidthPerc;
+        else if (yPerc > (100 - yShiftFactor)) {
+          const _y = yShiftFactor - (100 - yPerc);
+          textShiftY = -50 + (_y * (50 / yShiftFactor));
         }
+        else {
+          textShiftY = -50;
+        }
+      }
+      else if (pos === 'above' || pos === 'below') {
+        const leftPaddingPx = 5;
+        const leftPadding = (100 * leftPaddingPx / canvasWidth);
+        const _textShiftX = clamp(
+          -(textWidthPerc / 3),
+          -xPerc + leftPadding,
+          (100 - xPerc) - textWidthPerc
+        );
+        textShiftX = 100 * _textShiftX / textWidthPerc;
+      }
     }
 
     var style: StyleCss;
 
     function calcStyle(style: StyleCss) {
-        const dimProps = ['left', 'top', 'bottom', 'right', 'width', 'height'];
+      const dimProps = ['left', 'top', 'bottom', 'right', 'width', 'height'];
 
-        const dimStr = dimProps
-            .filter(prop => style[prop] !== undefined)
-            .map(prop => `${prop}: ${style[prop]}%; `)
-            .join('');
+      const dimStr = dimProps
+        .filter(prop => style[prop] !== undefined)
+        .map(prop => `${prop}: ${style[prop]}%; `)
+        .join('');
 
-        const transformStr = `transform: ${style.transform};`;
-        return dimStr + transformStr;
+      const transformStr = `transform: ${style.transform};`;
+      return dimStr + transformStr;
     }
 
 
     $: styleStr = style ? calcStyle(style) : '';
     var textStyleStr: string;
     $: {
-        const translateX = textShiftX !== null ? `translateX(${textShiftX}%)` : '';
-        const translateY = textShiftY !== null ? `translateY(${textShiftY}%)` : '';
-        textStyleStr = (translateX || translateY) ? `transform: ${translateX} ${translateY};` : '';
+      const translateX = textShiftX !== null ? `translateX(${textShiftX}%)` : '';
+      const translateY = textShiftY !== null ? `translateY(${textShiftY}%)` : '';
+      textStyleStr = (translateX || translateY) ? `transform: ${translateX} ${translateY};` : '';
     }
 
 </script>
@@ -142,7 +146,7 @@
     <div class="line line-after"></div>
 </div>
 {:else}
-<div class="just-text" 
+<div class="just-text"
     bind:this={el}>
     <div class="text" style="transform: translate({x}px, {y}px);" bind:this={textEl}>
         {@html text}
@@ -178,12 +182,12 @@
 
     .annotation--right .line,
     .annotation--left .line {
-        border-top: 1px solid black;
+        border-top: 1px solid #bbbbbb;
         height: 0;
     }
     .annotation--above .line,
     .annotation--below .line {
-        border-left: 1px solid black;
+        border-left: 1px solid #bbbbbb;
         width: 0;
     }
 

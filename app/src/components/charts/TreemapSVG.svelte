@@ -34,6 +34,7 @@
   import * as d3 from 'src/d3';
   import {colorSectors, colorFuels} from 'src/App.svelte';
   import type { CartoRegionData } from 'src/types';
+  import { afterUpdate } from 'svelte';
 
   interface Position{
     x: number,
@@ -127,15 +128,15 @@
       return {
         leaves : treemap.leaves(),
         background,
-        x : posX,
-        y : posY,
+        x : convertX(region.posX),
+        y : convertY(region.posY),
         width: mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft,
         height: mapPropotions(treemap.value/region.numCountries) + background.borderBottom + background.borderTop,
         totalPollutingValue : treemap.value/region.numCountries,
         mostPollutingValue : treemap.children[0].data.value,
         mostPollutingType : treemap.children[0].data.type,
         region: region.region,
-        nameX: posX,
+        nameX: convertX(region.posX),
         nameY: region.region === "Latin America + Caribbean"?
                 convertX(region.posY) + mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft:
                 convertX(region.posY) - 20
@@ -215,7 +216,7 @@
         <g id={region.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
           {#each region.leaves as leaf}
           <rect
-            class="tile leaf"
+            class="tile leaf {leaf.data.type}"
             fill={data.type === "sectors"? colorSectors(leaf.data.type): colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
@@ -234,15 +235,19 @@
 
     {#each legendTypeParams as current}
           <rect
-            class="leaf-legend"
-            fill={data.type === "sectors"? colorSectors(current.type): colorFuels(current.type)}
-            width={current.width}
-            height={current.height}
-            x={current.x}
-            y={current.y}
-            rx="2"
-            ry="2"
-          />
+          class="leaf-legend"
+          fill={data.type === "sectors"? colorSectors(current.type): colorFuels(current.type)}
+          width={current.width}
+          height={current.height}
+          x={current.x}
+          y={current.y}
+          rx="2"
+          ry="2"
+          cx="0"
+          cy="0"
+          >
+
+          </rect>
     {/each}
   </svg>
 

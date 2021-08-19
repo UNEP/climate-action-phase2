@@ -60,9 +60,14 @@
   function resize() {
     if (containerEl) {
       resizing = true;
-      const containerStyle = getComputedStyle(containerEl);
-      containerWidth = containerEl.clientWidth - parseFloat(containerStyle.paddingLeft) - parseFloat(containerStyle.paddingRight);
-      containerHeight = containerEl.clientHeight - parseFloat(containerStyle.paddingTop) - parseFloat(containerStyle.paddingBottom);
+      const ctrStyle = getComputedStyle(containerEl);
+
+      const xPadding = parseFloat(ctrStyle.paddingLeft) + parseFloat(ctrStyle.paddingRight);
+      const yPadding = parseFloat(ctrStyle.paddingTop) - parseFloat(ctrStyle.paddingBottom);
+
+      containerWidth = containerEl.clientWidth - xPadding;
+      containerHeight = containerEl.clientHeight - yPadding;
+
       const scale = Math.min(containerWidth / originalWidth, containerHeight / originalHeight);
       targetWidth = originalWidth * scale;
       targetHeight = originalHeight * scale;
@@ -74,16 +79,16 @@
   $: clientWidth && throttledResize();
 
   $: radius = d3.scaleSqrt()
-  .domain([0, largestVal])
-  .range([0, nodeSize]);
+    .domain([0, largestVal])
+    .range([0, nodeSize]);
 
   $: xScale = d3.scaleLinear()
-  .domain([0, domain[0]])
-  .range([0, targetWidth]);
+    .domain([0, domain[0]])
+    .range([0, targetWidth]);
 
   $: yScale = d3.scaleLinear()
-  .domain([0, domain[1]])
-  .range([0, targetHeight]);
+    .domain([0, domain[1]])
+    .range([0, targetHeight]);
 
   let cartogramData: CartogramDataPoint[];
   $: cartogramData = data.map(d => {
@@ -93,7 +98,7 @@
 
       category: categoryFn(d),
       left: xScale(d.x - r),
-      top: yScale(d.y- r),
+      top: yScale(d.y - r),
 
       // width height should be the same if the aspect is correct
       width: xScale(r * 2),
@@ -161,8 +166,8 @@
   $: helpCountry = helpText ? cartogramData.find(d => d.code === helpText.code) : null;
 
   $: helpAnnotation = helpCountry && {
-    x: helpCountry.left + helpCountry.width/2,
-    y: helpCountry.top + helpCountry.height/2,
+    x: helpCountry.left + helpCountry.width / 2,
+    y: helpCountry.top + helpCountry.height / 2,
     radius: 2 + helpCountry.width / 2,
     html: helpText.text,
     class: 'help'

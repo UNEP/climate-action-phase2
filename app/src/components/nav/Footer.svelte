@@ -1,19 +1,19 @@
 <script>
     import Logo from "./Logo.svelte";
     const footerMenu = [
-        {label: '© UNEP'},
-        {label: 'Terms of Use', a: 'https://www.unep.org/node/18424/'},
-        {label: 'Privacy', a: 'https://www.unep.org/node/28178/'},
-        {label: 'Report a project concern', a: 'https://www.unep.org/about-un-environment/why-does-un-environment-matter/un-environment-project-concern'},
+      {label: '© UNEP'},
+      {label: 'Terms of Use', a: 'https://www.unep.org/node/18424/'},
+      {label: 'Privacy', a: 'https://www.unep.org/node/28178/'},
+      {label: 'Report a project concern', a: 'https://www.unep.org/about-un-environment/why-does-un-environment-matter/un-environment-project-concern'},
     ];
 
     const socialMenu = [
-        {label: 'facebook-official', a: 'https://www.facebook.com/unep'},
-        {label: 'twitter', a: 'https://twitter.com/UNEP'},
-        {label: 'linkedin', a: 'https://www.linkedin.com/company/unep/'},
-        {label: 'instagram', a: 'https://www.instagram.com/unep/'},
-        {label: 'youtube', a: 'https://www.youtube.com/unenvironmentprogramme'},
-        {label: 'weibo', a: 'https://www.weibo.com/unepandyou?is_hot=1'}
+      {label: 'facebook-official', a: 'https://www.facebook.com/unep'},
+      {label: 'twitter', a: 'https://twitter.com/UNEP'},
+      {label: 'linkedin', a: 'https://www.linkedin.com/company/unep/'},
+      {label: 'instagram', a: 'https://www.instagram.com/unep/'},
+      {label: 'youtube', a: 'https://www.youtube.com/unenvironmentprogramme'},
+      {label: 'weibo', a: 'https://www.weibo.com/unepandyou?is_hot=1'}
     ];
 </script>
 
@@ -39,7 +39,7 @@
   </footer>
 
 <style>
-  .footer { 
+  .footer {
       background-color: #00abf1;
       padding-top: 2rem;
       margin-top: 2rem;
@@ -61,7 +61,7 @@
     color:#FFFFFFBB;
     font-weight: 400;
   }
-  .social li { 
+  .social li {
     line-height: 1rem;
 		font-size: .85rem;
 		padding: 0 .18rem;

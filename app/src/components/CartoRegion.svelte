@@ -1,8 +1,8 @@
 <script lang="ts">
   import TreemapSvg from 'src/components/charts/TreemapSVG.svelte';
-  import {sectoralBD, differentFuels} from  'src/data';
+  import {sectoralBD, differentFuels} from 'src/data';
   import Legend from 'src/components/common/Legend.svelte';
-	import { colorFuels, colorSectors } from "src/App.svelte";
+  import { colorFuels, colorSectors } from "src/App.svelte";
 
   interface Text {
     p : string;
@@ -13,7 +13,9 @@
   export let text : Text[];
   export let source : string;
 
-	const legendOptions = {
+  let selected: number;
+
+  const legendOptions = {
     sectors: {
       title: "Contribution of each <b>sector</b> to small particle pollution",
       labels: ['Windblown dust','Residential','International shipping','Transport','Commercial','Industry','AFCID dust',
@@ -25,20 +27,19 @@
     },
 
     fuel: {
-      title: "Contribution of each <b>type of fuel</b> to small particle pollution",
+      title: "Contribution of each <b>type of fuel</b> to fine particle pollution",
       labels: ['Process','Liquid','Solid bio','Coal'],
       selectionDictionary: ['process', 'liquid', 'solidbio', 'coal'],
 			colors: colorFuels.range()
     }
   };
 
-  const currentData = data === "sectors" ? sectoralBD: data === "fuel"? differentFuels : null;
+  const currentData = data === "sectors" ? sectoralBD : data === "fuel" ? differentFuels : null;
 
   const scaleRate = currentData.scale_height / currentData.scale_width;
 
-  let width = 100;
-  let height;
-
+  let clientWidth: number;
+  $: width = Math.max(clientWidth, 700);
   $: height = width * scaleRate;
 
   let legendElementSelectedIndex = -1;
@@ -53,7 +54,7 @@
 </script>
 
 <section class='viz wide'>
-	<h2 class='narrow'>{@html head}</h2>
+  <h2 class='narrow'>{@html head}</h2>
 
 	<div class='right-narrow' >
 		<Legend
@@ -75,8 +76,8 @@
 		/>
 	</div>
 
-	{#each text as t}
-	<p class='col-text'>{t.p}</p>
-	{/each}
+  {#each text as t}
+    <p class='col-text'>{@html t.p}</p>
+  {/each}
 
 </section>

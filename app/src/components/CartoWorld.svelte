@@ -269,7 +269,7 @@ import ScrollableX from "./common/ScrollableX.svelte";
   </ScrollableX>
 
   {#each text as t}
-    <p class='col-text'>{t.p}</p>
-	{/each}
+    <p class='col-text'>{@html t.p}</p>
+  {/each}
 
 </section>
