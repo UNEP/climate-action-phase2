@@ -5,10 +5,10 @@ import dataSource from './icons_data-source.svg';
 import embed from './icons_embed.svg';
 
 export default {
-    dataSource,
-    embed,
-    arrows: {
-        right: arrowRight,
-        left: arrowLeft
-    },
+  dataSource,
+  embed,
+  arrows: {
+    right: arrowRight,
+    left: arrowLeft
+  },
 };
