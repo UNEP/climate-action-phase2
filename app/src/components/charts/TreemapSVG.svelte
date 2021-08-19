@@ -56,6 +56,21 @@
 
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
 
+  const getRegionHoverText = (r: RegionTreemapData) => {
+    return (
+      `Most of the PM 2.5 in <b>${r.region}</b> comes from <b>${r.mostPollutingType}` +
+      `</b> —<b>${r.mostPollutingValue.toFixed(2)}</b> of the <b>` +
+      `${r.totalPollutingValue.toFixed(2)}</b> µg/m<sup>3</sup>`
+    );
+  };
+
+  const getLeafHoverText = (leaf: HierarchyRectangularNode<HierarchicalDatum>) => {
+    return (
+      ` — while <b>${leaf.data.type}</b> accounts for ` +
+      `<b>${leaf.data.value.toFixed(2)}</b> µg/m<sup>3</sup>`
+    );
+  };
+
   $:{
 
     regions = data.regions.map(region => {
@@ -85,20 +100,25 @@
 
       };
 
+      const borderX = background.borderRight + background.borderLeft;
+      const borderY = background.borderBottom + background.borderTop;
+
       return {
         leaves : treemap.leaves(),
         background,
         x : convertX(region.posX),
         y : convertY(region.posY),
-        width: mapPropotions(treemap.value / region.numCountries) + background.borderRight + background.borderLeft,
-        height: mapPropotions(treemap.value / region.numCountries) + background.borderBottom + background.borderTop,
+        width:
+          mapPropotions(treemap.value / region.numCountries) + borderX,
+        height:
+          mapPropotions(treemap.value / region.numCountries) + borderY,
         totalPollutingValue : treemap.value / region.numCountries,
         mostPollutingValue : treemap.children[0].data.value,
         mostPollutingType : treemap.children[0].data.type,
         region: region.region,
         nameX: convertX(region.posX),
         nameY: region.region === "Latin America + Caribbean" ?
-          convertX(region.posY) + mapPropotions(treemap.value / region.numCountries) + background.borderRight + background.borderLeft :
+          convertX(region.posY) + mapPropotions(treemap.value / region.numCountries) + borderX :
           convertX(region.posY) - 20
       };
     });
@@ -108,6 +128,12 @@
       y: regions[2].y
     };
   }
+
+  const getHelpText = (dataType: string) => (
+    `Squares are sized based on <strong>how much each ${dataType}</strong> ` +
+    `contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>`
+  );
+
 </script>
 
 <div class="text">
@@ -115,32 +141,25 @@
   <Annotation
     x={referenceRegion.x}
     y={referenceRegion.y}
-    text="Squares are sized based on <strong>how much each {data.type === "sectors" ? 'sector' : 'fuel'}</strong> contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>"
+    text={getHelpText(data.type === "sectors" ? 'sector' : 'fuel')}
     radius={2}
     forceTopWherePossible={true}
     canvasWidth={width}
     canvasHeight={height}
   />
   {:else}
-  <Annotation x={currentRegion.x}
-    y={currentRegion.y}
-    text="Most of the PM2.5 in <strong>{currentRegion.region}</strong> comes from <strong>{currentRegion.mostPollutingType}</strong> —<strong>{currentRegion.mostPollutingValue.toFixed(2)}</strong> of the <strong>{currentRegion.totalPollutingValue.toFixed(2)}<strong> µg/m<sup>3</sup>"
+  <Annotation
+    x={currentRegion.x + currentLeaf.x0 + ((currentLeaf.x1 - currentLeaf.x0) / 2)}
+    y={currentRegion.y + currentLeaf.y0}
+    text={showConcreteType
+      ? getRegionHoverText(currentRegion) + getLeafHoverText(currentLeaf)
+      : getRegionHoverText(currentRegion)
+    }
     radius={0} forceTopWherePossible={true}
     canvasWidth={width} canvasHeight={height}
   />
   {/if}
 </div>
-  {#if showConcreteType}
-  <Annotation
-    x={currentRegion.x + currentLeaf.x1 + 5}
-    y={currentRegion.y + currentLeaf.y0}
-    text="{currentLeaf.data.type} {currentLeaf.data.value.toFixed(2)} µg/m<sup>3</sup>"
-    radius={0}
-    justText={true}
-    canvasWidth={width}
-    canvasHeight={height}
-  />
-{/if}
 <div class="svg" {width} {height}>
   <svg id="treemapCartogram" {width} {height}>
     <filter id="shadow" x="-10%">
@@ -158,7 +177,7 @@
           rx="2"
           ry="2"
           filter="none"
-          on:mouseenter={()=>{showInformation = false; currentRegion = region;}}
+          on:mouseenter={()=>{showInformation = false; currentRegion = region; currentLeaf = region.leaves[0]; }}
           on:mouseout={()=>{showInformation = true;}}
           on:blur={()=>{showInformation = true;}}
           style="fill: {region.background.color};"
