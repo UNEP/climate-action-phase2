@@ -12,6 +12,7 @@
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import type { TextBlock} from 'src/types';
   import type { RGB } from 'src/util'
+import ScrollableX from "./common/ScrollableX.svelte";
 
   export var data:string;
   export var head:string;
@@ -251,20 +252,21 @@
       bind:selected = {legendElementSelectedIndex}
     />
   </div>
-
-  <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-    <Cartogram
-      data={datasets[Datasets[data]]}
-      domain={datasetParams[data].domain}
-      categoryFn={() => null}
-      colorFn={datasetParams[data].colorFn}
-      hoverTextFn={datasetParams[data].hoverTextFn}
-      nodeSize={datasetParams[data].nodeSize}
-      helpText={datasetParams[data].help}
-      {legendElementSelected}
-      dataType = {data}
-    />
-  </div>
+  <ScrollableX>
+    <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
+      <Cartogram
+        data={datasets[Datasets[data]]}
+        domain={datasetParams[data].domain}
+        categoryFn={() => null}
+        colorFn={datasetParams[data].colorFn}
+        hoverTextFn={datasetParams[data].hoverTextFn}
+        nodeSize={datasetParams[data].nodeSize}
+        helpText={datasetParams[data].help}
+        {legendElementSelected}
+        dataType = {data}
+      />
+    </div>
+  </ScrollableX>
 
   {#each text as t}
     <p class='col-text'>{t.p}</p>
