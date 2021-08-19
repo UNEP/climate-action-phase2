@@ -56,20 +56,14 @@
 
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
 
-  const getRegionHoverText = (r: RegionTreemapData) => {
-    return (
-      `Most of the PM 2.5 in <b>${r.region}</b> comes from <b>${r.mostPollutingType}` +
-      `</b> —<b>${r.mostPollutingValue.toFixed(2)}</b> of the <b>` +
-      `${r.totalPollutingValue.toFixed(2)}</b> µg/m<sup>3</sup>`
-    );
-  };
+  const getRegionHoverText = (r: RegionTreemapData) =>
+    `Most of the PM 2.5 in <b>${r.region}</b> comes from <b>${r.mostPollutingType}` +
+    `</b> —<b>${r.mostPollutingValue.toFixed(2)}</b> of the <b>` +
+    `${r.totalPollutingValue.toFixed(2)}</b> µg/m<sup>3</sup>`;
 
-  const getLeafHoverText = (leaf: HierarchyRectangularNode<HierarchicalDatum>) => {
-    return (
-      ` — while <b>${leaf.data.type}</b> accounts for ` +
-      `<b>${leaf.data.value.toFixed(2)}</b> µg/m<sup>3</sup>`
-    );
-  };
+  const getLeafHoverText = (leaf: HierarchyRectangularNode<HierarchicalDatum>) =>
+    ` — while <b>${leaf.data.type}</b> accounts for ` +
+    `<b>${leaf.data.value.toFixed(2)}</b> µg/m<sup>3</sup>`;
 
   $:{
 
@@ -129,10 +123,9 @@
     };
   }
 
-  const getHelpText = (dataType: string) => (
+  const getHelpText = (dataType: string) =>
     `Squares are sized based on <strong>how much each ${dataType}</strong> ` +
-    `contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>`
-  );
+    `contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>`;
 
 </script>
 
