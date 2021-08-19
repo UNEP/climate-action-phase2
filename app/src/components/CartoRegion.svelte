@@ -3,6 +3,7 @@
   import {sectoralBD, differentFuels} from 'src/data';
   import Legend from 'src/components/common/Legend.svelte';
   import { colorFuels, colorSectors } from "src/App.svelte";
+  import ScrollableX from './common/ScrollableX.svelte';
 
   interface Text {
     p : string;
@@ -36,10 +37,10 @@
 
   const scaleRate = currentData.scale_height / currentData.scale_width;
 
-  let width = 100;
-  let height;
-
+  let clientWidth: number;
+  $: width = Math.max(clientWidth, 700);
   $: height = width * scaleRate;
+
 
 </script>
 
@@ -56,12 +57,15 @@
     />
   </div>
 
-  <div bind:clientWidth={width} >
-    <TreemapSvg
-      data={currentData}
-      {width}
-      {height}
-    />
+  <div class="scroll-container" bind:clientWidth={clientWidth}>
+    <ScrollableX>
+      <div class="treemap-container" style="width:{width}px; height:{height}px">
+      <TreemapSvg
+        data={currentData}
+        width={width}
+        height={height}
+      />
+    </ScrollableX>
   </div>
 
   {#each text as t}
