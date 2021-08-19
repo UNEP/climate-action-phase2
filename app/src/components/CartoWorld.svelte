@@ -11,8 +11,8 @@
 
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import type { TextBlock} from 'src/types';
-  import type { RGB } from 'src/util'
-import ScrollableX from "./common/ScrollableX.svelte";
+  import type { RGB } from 'src/util';
+  import ScrollableX from "./common/ScrollableX.svelte";
 
   export var data:string;
   export var head:string;
@@ -32,7 +32,7 @@ import ScrollableX from "./common/ScrollableX.svelte";
   }
 
   enum Datasets {
-    pm25  = 0, health =  1, policies = 2
+    pm25 = 0, health = 1, policies = 2
   }
 
   enum PoliciesStatus {
@@ -68,10 +68,10 @@ import ScrollableX from "./common/ScrollableX.svelte";
     if(data['aq-1'] == PoliciesStatus.Yes || data['aq-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Air quality standards</strong>`; hasPolicies = true; }
     if(data['aq-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`
+    if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`;
 
     return hoverText;
-  }
+  };
 
   const datasetParams = {
     pm25: {
@@ -84,13 +84,13 @@ import ScrollableX from "./common/ScrollableX.svelte";
          matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
       hoverTextFn: (d: CountryDataPoint) =>
-      `In <strong>${d.name}</strong>, people are exposed
+        `In <strong>${d.name}</strong>, people are exposed
        to an average of <strong>${d.value} μg/m<sup>3</sup>
-      </strong> a year —<strong>${(d.value/10).toFixed(1)}
+      </strong> a year —<strong>${(d.value / 10).toFixed(1)}
       </strong> the WHO guideline.`,
       colorFn: (d: CountryDataPoint) => colorPM25(d.value),
       categoryFn: (d) => {
-        return colorPM25(d.value)
+        return colorPM25(d.value);
       },
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -110,13 +110,10 @@ import ScrollableX from "./common/ScrollableX.svelte";
         caused by small particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) =>
-      `In <strong>${d.name}</strong>, small particle
+        `In <strong>${d.name}</strong>, small particle
       pollution caused <strong>${d.value} deaths</strong>
       in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
       colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
-      categoryFn: () => {
-
-      },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
@@ -128,8 +125,8 @@ import ScrollableX from "./common/ScrollableX.svelte";
     policies: {
       nodeSize: 16,
       help: {
-          code: "JPN",
-          text:
+        code: "JPN",
+        text:
           `<strong>Each square is a country</strong>,
            sized by the total number of <strong>deaths
            caused by small particle pollution</strong>.`
@@ -147,24 +144,24 @@ import ScrollableX from "./common/ScrollableX.svelte";
         let noDataOpacity = "0.0";
 
         switch(les){
-          case "y":
-            yesOpacity = "1";
-            break;
-          case "n":
-            noOpacity = "1";
-            break;
-          case "cbb":
-            almostOpacity = "1";
-            break;
-          case "nd":
-            noDataOpacity = "1";
-            break;
-          default:
-            yesOpacity = "1";
-            noOpacity = "1";
-            almostOpacity = "1";
-            noDataOpacity = "1";
-            break;
+        case "y":
+          yesOpacity = "1";
+          break;
+        case "n":
+          noOpacity = "1";
+          break;
+        case "cbb":
+          almostOpacity = "1";
+          break;
+        case "nd":
+          noDataOpacity = "1";
+          break;
+        default:
+          yesOpacity = "1";
+          noOpacity = "1";
+          almostOpacity = "1";
+          noDataOpacity = "1";
+          break;
         }
 
         return (
@@ -174,53 +171,50 @@ import ScrollableX from "./common/ScrollableX.svelte";
           rgb(${noData.r},${noData.g} ,${noData.b}, ${noDataOpacity}) ${d.data.pNo}%)`
         );
       },
-      categoryFn: () => {
-
-      },
       color: colorPolices,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
       legendDomain: ["Has Policies", "Has no policies", "Could be better", "No data"],
       legendDictionary: ["y", "n", "cbb", "nd"],
       legendType: 'categorical',
-      domain: [1300, 1300 / (740/420)],
+      domain: [1300, 1300 / (740 / 420)],
     }
   };
 
   let datasets = {
 
     [Datasets.pm25]: pm25data
-        .map(d => {
-            return {
-              name: countryNameDictionaryLookup[d.id].name,
-              short: countryNameDictionaryLookup[d.id].name,
-              code: d.id,
-              x: d.x,
-              y: d.y,
-              value: d.pm25,
-            };
-        }),
+      .map(d => {
+        return {
+          name: countryNameDictionaryLookup[d.id].name,
+          short: countryNameDictionaryLookup[d.id].name,
+          code: d.id,
+          x: d.x,
+          y: d.y,
+          value: d.pm25,
+        };
+      }),
     [Datasets.health]: deaths_data
-        .map(d => {
-            return {
-              name: countryNameDictionaryLookup[d.id].name,
-              short: countryNameDictionaryLookup[d.id].name,
-              code: d.id,
-              x: d.x,
-              y: d.y,
-              value: d.deaths,
-              rate: d.rate
-            };
-        }),
+      .map(d => {
+        return {
+          name: countryNameDictionaryLookup[d.id].name,
+          short: countryNameDictionaryLookup[d.id].name,
+          code: d.id,
+          x: d.x,
+          y: d.y,
+          value: d.deaths,
+          rate: d.rate
+        };
+      }),
     [Datasets.policies]: countries
-        .filter((d) => policiesLookup[d.code])
-        .map(d => {
-            return {
-              ...d,
-              ...d.trends,
-              value: 5,
-              data : policiesLookup[d.code]
-            };
-        })
+      .filter((d) => policiesLookup[d.code])
+      .map(d => {
+        return {
+          ...d,
+          ...d.trends,
+          value: 5,
+          data : policiesLookup[d.code]
+        };
+      })
   };
 
   $: {
@@ -231,7 +225,10 @@ import ScrollableX from "./common/ScrollableX.svelte";
       legendElementSelectedIndex < datasetParams[data].legendDictionary.length &&
       legendElementSelectedIndex != null
     ){
-      if(data !== "policies") legendElementSelected = datasetParams[data].color(datasetParams[data].legendDictionary[legendElementSelectedIndex]);
+      if(data !== "policies")
+        legendElementSelected =
+          datasetParams[data].
+            color(datasetParams[data].legendDictionary[legendElementSelectedIndex]);
       else legendElementSelected = datasetParams[data].legendDictionary[legendElementSelectedIndex];
     }
   }

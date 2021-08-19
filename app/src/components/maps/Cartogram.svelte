@@ -22,6 +22,11 @@
     top: number;
     width: number;
     height: number;
+    lastState: number;
+  }
+
+  enum CartogramTileState{
+    noFilter = 0, shadow = 1, opacity = 2
   }
 
   export var data: CountryDataPoint[];
@@ -103,19 +108,20 @@
       // width height should be the same if the aspect is correct
       width: xScale(r * 2),
       height: yScale(r * 2),
+      lastState: CartogramTileState.noFilter
     };
   });
 
   $: calcStyle = (d: CartogramDataPoint) => {
     const styles = [
-    `left: ${d.left}px`,
-    `top: ${d.top}px`,
-    `width: ${d.width}px`,
-    `height: ${d.height}px`,
-    `background: ${colorFn(d, legendElementSelected)};`
+      `left: ${d.left}px`,
+      `top: ${d.top}px`,
+      `width: ${d.width}px`,
+      `height: ${d.height}px`,
+      `background: ${colorFn(d, legendElementSelected)};`
     ];
     return styles.join(';');
-  }
+  };
 
   window.setTimeout(() => {
     resize();
@@ -186,20 +192,24 @@
 
   $: data && fadeInHelpText();
 
-  $: currentClass = (d) => {
+  $: currentClass = (d : CartogramDataPoint) => {
+
     let aux = "";
-    if (legendElementSelected === colorFn(d) && dataType !== 'policies')
-      aux += "legendView ";
-    else if (legendElementSelected !== "" && dataType !== 'policies')
-      aux += "legendNoView ";
-    else if (dataType !== 'policies')
-      aux += "standardView ";
-    else if (legendElementSelected !== "" && dataType === 'policies')
+
+    if (legendElementSelected === colorFn(d)){
+      aux += "placeShadow ";
+    }
+    else if (legendElementSelected !== colorFn(d) && legendElementSelected !== ""){
+      aux += "placeOpacity ";
+    }
+
+    if (legendElementSelected !== "" && dataType === 'policies')
       aux += "policiesLegendView ";
     else if (dataType === 'policies')
-      aux += "policies "
+      aux += "policies ";
+
     return aux;
-  }
+  };
 </script>
 
 <div class="cartogram" bind:this={containerEl}
@@ -208,6 +218,9 @@
   class:cartogram-resizing={resizing}
   on:touchstart={clearHoverState}
 >
+<filter id="shadow" x="+100px">
+  <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.9"></feDropShadow>
+</filter>
   {#if loaded}
     <div class="countries">
       {#each cartogramData as d (d.code)}
@@ -315,75 +328,38 @@
     border-color :#bbbbbb !important;
   }
 
-  .legendView {
-    border-width:0.25pt;
-    border-style:solid;
-    border-color:transparent;
-    transform: scale(1);
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: popupType .2s forwards;
-    z-index: 2;
+  .placeOpacity {
+    opacity: 0.5;
   }
 
-  @keyframes popupType {
-    to {
-
-      border-color: rgb(151, 151, 151);;
-      transform: scale(1.3);
-    }
-  }
-
-  .legendNoView {
-    transform: scale(1);
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: fadeout 1s forwards;
-    z-index: 1;
-  }
-
-  @keyframes fadeout {
-    to {
-      transform: scale(0.8);
-    }
-  }
-
-  .standardView {
-    transform: scale(0.8);
-    animation: standard 1s forwards;
-    transform-box: fill-box;
-    transform-origin: center;
-    z-index: 1;
+  .placeShadow {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 1);
   }
 
 
   .policies {
     animation: standard 1s forwards;
-    transform-box: fill-box;
-    transform-origin: center;
-    z-index: 1;
-  }
-  @keyframes standard {
-    to {
-      transform: scale(1);
-      border-color: transparent;
-    }
   }
 
   .policiesLegendView {
     animation: policiesLegend 1s forwards;
-    transform-box: fill-box;
-    transform-origin: center;
     border-style: solid;
     border-color: transparent;
     border-width: 1px;
-    z-index: 1;
   }
+
+
   @keyframes policiesLegend {
     to {
       border-color: black;
-      transform: scale(1);
     }
   }
 
+  @keyframes standard {
+    to {
+      opacity: 1;
+      border-color: transparent;
+      box-shadow: none;
+    }
+  }
 </style>
