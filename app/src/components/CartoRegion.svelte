@@ -73,3 +73,9 @@
   {/each}
 
 </section>
+
+<style>
+  .treemap-container {
+    position: relative;
+  }
+</style>
