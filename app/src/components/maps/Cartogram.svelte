@@ -57,9 +57,14 @@
   function resize() {
     if (containerEl) {
       resizing = true;
-      const containerStyle = getComputedStyle(containerEl);
-      containerWidth = containerEl.clientWidth - parseFloat(containerStyle.paddingLeft) - parseFloat(containerStyle.paddingRight);
-      containerHeight = containerEl.clientHeight - parseFloat(containerStyle.paddingTop) - parseFloat(containerStyle.paddingBottom);
+      const ctrStyle = getComputedStyle(containerEl);
+
+      const xPadding = parseFloat(ctrStyle.paddingLeft) + parseFloat(ctrStyle.paddingRight);
+      const yPadding = parseFloat(ctrStyle.paddingTop) - parseFloat(ctrStyle.paddingBottom);
+
+      containerWidth = containerEl.clientWidth - xPadding;
+      containerHeight = containerEl.clientHeight - yPadding;
+
       const scale = Math.min(containerWidth / originalWidth, containerHeight / originalHeight);
       targetWidth = originalWidth * scale;
       targetHeight = originalHeight * scale;

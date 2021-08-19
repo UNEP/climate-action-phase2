@@ -102,7 +102,11 @@
       else if (pos === 'above' || pos === 'below') {
         const leftPaddingPx = 5;
         const leftPadding = (100 * leftPaddingPx / canvasWidth);
-        const _textShiftX = clamp(-(textWidthPerc / 3), -xPerc + leftPadding, (100 - xPerc) - textWidthPerc);
+        const _textShiftX = clamp(
+          -(textWidthPerc / 3),
+          -xPerc + leftPadding,
+          (100 - xPerc) - textWidthPerc
+        );
         textShiftX = 100 * _textShiftX / textWidthPerc;
       }
     }

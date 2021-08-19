@@ -19,9 +19,9 @@
     sectors: {
       title: "Contribution of each <b>sector</b> to fine particle pollution",
       labels: [
-        'Windblown dust','Residential','International shipping','Transport','Commercial','Industry','AFCID dust',
-        'Other combustion','Remaining sources','Other fires','Agr. waste burning','Agriculture',
-        'Waste','Solvents','Energy'
+        'Windblown dust','Residential','International shipping','Transport','Commercial',
+        'Industry','AFCID dust','Other combustion','Remaining sources','Other fires',
+        'Agr. waste burning','Agriculture','Waste','Solvents','Energy'
       ],
       colors: colorSectors.range()
     },

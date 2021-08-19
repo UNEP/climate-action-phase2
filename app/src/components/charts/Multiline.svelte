@@ -17,7 +17,10 @@
 
   let datum, width, height;
 
-  const _data = key.y.map( (key, i) => data.map(d => ({x: d.time, y: d[key], key:key, color: color[i]} )));
+  const _data = key.y
+    .map( (key, i) => data
+      .map(d => ({x: d.time, y: d[key], key:key, color: color[i]} ))
+    );
 
   $: x = scaleTime()
     .domain(extent(_data.flat(), d => d.x))

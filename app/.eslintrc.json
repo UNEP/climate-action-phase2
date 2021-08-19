@@ -27,6 +27,13 @@
     "no-irregular-whitespace": "error",
     "no-tabs": "error",
     "indent": ["error", 2],
+    "max-len": ["error", {
+      "code": 100,
+      "ignoreUrls": true,
+      "ignoreTemplateLiterals": true,
+      "ignoreRegExpLiterals": true
+
+    }],
     "no-multi-spaces": "error",
     "space-infix-ops": "error",
     "space-unary-ops": [
