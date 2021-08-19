@@ -45,6 +45,7 @@
   export let height: number;
   export let source: string;
   export let showRegionName: boolean = true;
+  export let legendElementSelected: string = "";
 
   let referenceRegion : Position;
 
@@ -60,6 +61,8 @@
 
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
 
+  let legendTypeParams = [];
+
   let showHoverText = () => {
 
     return "Most of the PM 2.5 in <b>" + currentRegion.region + "</b> comes from <b>" + currentRegion.mostPollutingType +
@@ -70,7 +73,9 @@
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
     return showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>" + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>";
   };
+
   $:{
+    legendTypeParams = [];
 
     regions = data.regions.map(region => {
 
@@ -98,18 +103,39 @@
         color: "#f9f9f9",
 
       };
+
+      let posX = convertX(region.posX);
+      let posY = convertY(region.posY);
+
+      treemap.leaves().forEach((e) => {
+
+        if (e.data.type === legendElementSelected){
+          let currentLeaf = {
+            x: posX + e.x0,
+            y: posY + e.y0,
+            width: e.x1 - e.x0,
+            height: e.y1 - e.y0,
+            type: e.data.type
+          }
+
+          legendTypeParams.push(currentLeaf);
+        }
+      });
+
+
+
       return {
         leaves : treemap.leaves(),
         background,
-        x : convertX(region.posX),
-        y : convertY(region.posY),
+        x : posX,
+        y : posY,
         width: mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft,
         height: mapPropotions(treemap.value/region.numCountries) + background.borderBottom + background.borderTop,
         totalPollutingValue : treemap.value/region.numCountries,
         mostPollutingValue : treemap.children[0].data.value,
         mostPollutingType : treemap.children[0].data.type,
         region: region.region,
-        nameX: convertX(region.posX),
+        nameX: posX,
         nameY: region.region === "Latin America + Caribbean"?
                 convertX(region.posY) + mapPropotions(treemap.value/region.numCountries) + background.borderRight + background.borderLeft:
                 convertX(region.posY) - 20
@@ -121,6 +147,7 @@
       y: regions[4].y
     };
   }
+
 </script>
 
 <div class="text">
@@ -167,6 +194,7 @@
       <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.4"></feDropShadow>
     </filter>
     {#each regions as region}
+
       <g id={region.region.replace(/\s/g, '').replace('+','-') + "-group"} class="region">
         <rect
           id = {region.region.replace(/\s/g, '').replace('+','-') + "-background"}
@@ -203,6 +231,19 @@
         </g>
       </g>
     {/each}
+
+    {#each legendTypeParams as current}
+          <rect
+            class="leaf-legend"
+            fill={data.type === "sectors"? colorSectors(current.type): colorFuels(current.type)}
+            width={current.width}
+            height={current.height}
+            x={current.x}
+            y={current.y}
+            rx="2"
+            ry="2"
+          />
+    {/each}
   </svg>
 
 </div>
@@ -221,4 +262,22 @@
   .region:hover{
     filter: url("#shadow");
   }
+
+  .leaf-legend {
+    stroke: transparent;
+    stroke-width:0.5;
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: popupType .2s forwards;
+  }
+
+  @keyframes popupType {
+    to {
+      stroke: black;
+      transform: scale(1.3);
+    }
+  }
+
+
 </style>

@@ -29,10 +29,12 @@
   export var domain: [number, number];
   export var helpText: {code: string, text: string} = null;
   export var categoryFn: (code: CountryDataPoint) => string;
-  export var colorFn: (code: CountryDataPoint) => string;
+  export var colorFn: (code: CountryDataPoint, legendElementSelected?:string) => string;
   export var hoverTextFn: (country: CountryDataPoint) => string;
   export var onHoverFn: (country: CountryDataPoint) => void = () => null;
   export var hideLabels = false;
+  export var legendElementSelected = "";
+  export var dataType: string;
 
   let containerEl: Element;
   let loaded = false;
@@ -99,13 +101,13 @@
     };
   });
 
-  function calcStyle(d: CartogramDataPoint) {
+  $: calcStyle = (d: CartogramDataPoint) => {
     const styles = [
     `left: ${d.left}px`,
     `top: ${d.top}px`,
     `width: ${d.width}px`,
     `height: ${d.height}px`,
-    `background: ${colorFn(d)};`
+    `background: ${colorFn(d, legendElementSelected)};`
     ];
     return styles.join(';');
   }
@@ -179,6 +181,20 @@
 
   $: data && fadeInHelpText();
 
+  $: currentClass = (d) => {
+    let aux = "";
+    if (legendElementSelected === colorFn(d) && dataType !== 'policies')
+      aux += "legendView ";
+    else if (legendElementSelected !== "" && dataType !== 'policies')
+      aux += "legendNoView ";
+    else if (dataType !== 'policies')
+      aux += "standardView ";
+    else if (legendElementSelected !== "" && dataType === 'policies')
+      aux += "policiesLegendView ";
+    else if (dataType === 'policies')
+      aux += "policies "
+    return aux;
+  }
 </script>
 
 <div class="cartogram" bind:this={containerEl}
@@ -191,15 +207,17 @@
     <div class="countries">
       {#each cartogramData as d (d.code)}
         {#if d.x && d.y}
-          <div class="country bg--{d.category}"
-            style={calcStyle(d)}
+          <div
+            class="country {currentClass(d)}"
+            style={ calcStyle(d)}
             data-code={d.code}
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
           >
-            {#if !hideLabels && d.width > 50}
-              <span class="country-text">{d.short}</span>
-            {/if}
+
+          {#if !hideLabels && d.width > 50}
+            <span class="country-text">{d.short}</span>
+          {/if}
           </div>
         {/if}
       {/each}
@@ -273,54 +291,6 @@
     transition: opacity 0s;
     z-index: 3;
   }
-  .hover-chart {
-    position: absolute;
-    width: 200px;
-    box-sizing: border-box;
-    pointer-events: none !important;
-    cursor: none;
-    background: #EAEAEA;
-    padding: 5px;
-    box-shadow: 0px 0px 0px 0px #00000018;
-    visibility: hidden;
-    border: 1px solid #E7E7E7;
-    transform: translate(-50%, -50%) scale(0.3);
-    transform-origin: 50% 50%;
-    z-index: 3;
-  }
-
-  .hover-chart--show {
-    visibility: visible;
-    box-shadow: 0px 0px 15px 0px #00000018;
-    transition: box-shadow 100ms, transform 20ms ease-in;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .hover-chart :global(svg) {
-    width: 100%;
-  }
-
-  .help {
-    opacity: 0;
-  }
-
-  .help-show {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
-
-  .help-text {
-    position: absolute;
-    width: 180px;
-    padding-bottom: 5px;
-    z-index: 2;
-  }
-
-  .help-line {
-    position: absolute;
-    z-index: 1;
-    border-left: 1px solid #dfdfdf;
-  }
 
   .annotation-container {
     opacity: 1;
@@ -340,6 +310,75 @@
     border-color :#bbbbbb !important;
   }
 
+  .legendView {
+    border-width:0.25pt;
+    border-style:solid;
+    border-color:transparent;
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: popupType .2s forwards;
+    z-index: 2;
+  }
 
+  @keyframes popupType {
+    to {
+
+      border-color: rgb(151, 151, 151);;
+      transform: scale(1.3);
+    }
+  }
+
+  .legendNoView {
+    transform: scale(1);
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: fadeout 1s forwards;
+    z-index: 1;
+  }
+
+  @keyframes fadeout {
+    to {
+      transform: scale(0.8);
+    }
+  }
+
+  .standardView {
+    transform: scale(0.8);
+    animation: standard 1s forwards;
+    transform-box: fill-box;
+    transform-origin: center;
+    z-index: 1;
+  }
+
+
+  .policies {
+    animation: standard 1s forwards;
+    transform-box: fill-box;
+    transform-origin: center;
+    z-index: 1;
+  }
+  @keyframes standard {
+    to {
+      transform: scale(1);
+      border-color: transparent;
+    }
+  }
+
+  .policiesLegendView {
+    animation: policiesLegend 1s forwards;
+    transform-box: fill-box;
+    transform-origin: center;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 1px;
+    z-index: 1;
+  }
+  @keyframes policiesLegend {
+    to {
+      border-color: black;
+      transform: scale(1);
+    }
+  }
 
 </style>
