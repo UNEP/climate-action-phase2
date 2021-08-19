@@ -53,7 +53,7 @@
       colors = {legendOptions[data].colors}
       labels = {legendOptions[data].labels}
       type = {'categorical'}
-      bind:selected
+      bind:selected={selected}
     />
   </div>
 
@@ -73,3 +73,9 @@
   {/each}
 
 </section>
+
+<style>
+  .treemap-container {
+    position: relative;
+  }
+</style>

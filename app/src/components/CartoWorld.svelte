@@ -1,15 +1,15 @@
 <script lang="ts">
   import type { TextBlock } from 'src/types';
-  import pm25data from 'src/data/pm25_coords.json';
+  import dataPm25 from 'src/data/pm25_coords.json';
   import countryNameDictionary from 'src/data/countryDictionary.json';
-  import deaths_data from 'src/data/death_coords.json';
+  import dataDeaths from 'src/data/death_coords.json';
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import Legend from "src/components/common/Legend.svelte";
   import ScrollableX from 'src/components/common/ScrollableX.svelte';
   import { colorPM25, colorHealth } from "src/App.svelte";
 
-  export var data:string;
+  export var data : "pm25" | "health";
   export var head:string;
   export var text:TextBlock[];
 
@@ -19,8 +19,9 @@
   $: width = Math.max(clientWidth, 700);
   $: height = width * (data === 'pm25' ? .55 : .62);
 
-  const datasetParams = {
+  const datasets = {
     pm25: {
+      data: dataPm25,
       nodeSize: 11,
       help: {
         code: "CPV",
@@ -28,12 +29,18 @@
           `<strong>Each square is a country</strong>, sized by the annual mean levels
           of <strong>fine particles PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       },
+      colorParam: 'value',
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"]
+      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
+      hoverText: (d: CountryDataPoint) =>
+        `In <strong>${d.name}</strong>, people are exposed to an average of
+        <strong>${d.value} μg/m<sup>3</sup></strong> a year —
+        <strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`
     },
 
     health: {
+      data: dataDeaths,
       nodeSize: 73,
       help: {
         code: "BRA",
@@ -41,16 +48,19 @@
           `<strong>Each square is a country</strong>, sized by the total
           number of <strong>deaths caused by fine particle pollution</strong>.`
       },
+      colorParam: 'rate',
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by fine particle pollution`,
-      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"]
+      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
+      hoverText: (d: CountryDataPoint) =>
+        `In <strong>${d.name}</strong>, fine particle pollution caused <strong>${d.value}
+        deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`
     }
   };
 
-  let dsParam = data === "pm25" ? datasetParams.pm25 : datasetParams.health;
-  let selectedDataset = data === "pm25" ? pm25data : deaths_data;
+  let dataset = datasets[data];
 
-  let cartogramData: CountryDataPoint[] = selectedDataset
+  let cartogramData: CountryDataPoint[] = dataset.data
     .map(d => {
       return {
         name: countryNameDictionary.find(c => c.id === d.id).name,
@@ -63,18 +73,6 @@
       };
     });
 
-  const colorFunction = (d: CountryDataPoint) => dsParam.color(data === "pm25" ? d.value : d.rate);
-
-  function hoverTextFunction(d: CountryDataPoint){
-    if (data === "pm25"){
-      return `In <strong>${d.name}</strong>, people are exposed to an average of
-        <strong>${d.value} μg/m<sup>3</sup></strong> a year —<strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`;
-    }
-    else{
-      return `In <strong>${d.name}</strong>, fine particle pollution caused <strong>${d.value}
-        deaths</strong> in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`;
-    }
-  }
 </script>
 
 <section class="viz wide">
@@ -82,9 +80,9 @@
 
   <div class="right-narrow" >
     <Legend
-      title = {dsParam.legendTitle}
-      colors = {dsParam.color.range()}
-      labels = {dsParam.legendDomain}
+      title = {dataset.legendTitle}
+      colors = {dataset.color.range()}
+      labels = {dataset.legendDomain}
       type = {'sequential'}
       bind:selected
   />
@@ -97,10 +95,10 @@
           data={cartogramData}
           domain={[700, 400]}
           categoryFn={() => null}
-          colorFn={d => colorFunction(d)}
-          hoverTextFn={d => hoverTextFunction(d)}
-          nodeSize={dsParam.nodeSize}
-          helpText={{code: dsParam.help.code, text: dsParam.help.text}}
+          colorFn={d => dataset.color(d[dataset.colorParam])}
+          hoverTextFn={dataset.hoverText}
+          nodeSize={dataset.nodeSize}
+          helpText={{code: dataset.help.code, text: dataset.help.text}}
         />
       </div>
     </ScrollableX>
