@@ -1,4 +1,19 @@
 <script lang="ts" context="module">
+
+  interface PoliciesLookup{
+    name: string;
+    id: string;
+    "ind-1": number;
+    "tra-1": number;
+    "tra-2": number;
+    "waste-1": number;
+    "res-1": number;
+    "aq-1": number;
+    pYes: number;
+    pNo: number;
+    pAlmost: number;
+  }
+
   export interface CountryDataPoint {
     name: string;
     short: string;
@@ -7,8 +22,9 @@
     y: number;
     value: number;
     rate?: number;
-    data?: any;
+    data?: PoliciesLookup;
   }
+
 </script>
 
 <script lang="ts">

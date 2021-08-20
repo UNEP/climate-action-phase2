@@ -31,7 +31,7 @@
          matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
       }
     }
-  }
+  };
   const legendOptions = {
     sectors: {
       title: "Contribution of each <b>sector</b> to small particle pollution",
