@@ -3,14 +3,35 @@
   import {sectoralBD, differentFuels} from 'src/data';
   import Legend from 'src/components/common/Legend.svelte';
   import { colorFuels, colorSectors } from "src/App.svelte";
+  import ScrollableX from './common/ScrollableX.svelte';
   interface Text {
     p : string;
+  }
+  enum TreemapType{
+    fuel = 0, sectors = 1
   }
   export let data : string;
   export let head : string;
   export let text : Text[];
-  export let source : string;
 
+  const treemapParams = {
+    [TreemapType.fuel] : {
+      help: {
+        text:
+        `<strong>Each big square is a world region</strong>, sized
+         by the annual mean levels of <strong>small particular
+         matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+      }
+    },
+    [TreemapType.sectors] : {
+      help: {
+        text:
+        `<strong>Each big square is a world region</strong>, sized
+         by the annual mean levels of <strong>small particular
+         matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+      }
+    }
+  }
   const legendOptions = {
     sectors: {
       title: "Contribution of each <b>sector</b> to small particle pollution",
@@ -69,19 +90,28 @@
       bind:selected = {legendElementSelectedIndex}
 		/>
 	</div>
-
-	<div bind:clientWidth={clientWidth} >
-		<TreemapSvg
-			data={currentData}
-			{width}
-			{height}
-			{source}
-      legendElementSelected = {legendElementSelected}
-		/>
-	</div>
+  <div class="scroll-container" bind:clientWidth={clientWidth}>
+    <ScrollableX>
+      <div class="treemap-container" style="width:{width}px; height:{height}px">
+        <TreemapSvg
+          data={currentData}
+          {width}
+          {height}
+          source = {treemapParams[TreemapType[data]].help.text}
+          legendElementSelected = {legendElementSelected}
+        />
+      </div>
+    </ScrollableX>
+  </div>
 
   {#each text as t}
     <p class='col-text'>{@html t.p}</p>
   {/each}
 
 </section>
+
+<style>
+  .treemap-container {
+    position: relative;
+  }
+</style>
