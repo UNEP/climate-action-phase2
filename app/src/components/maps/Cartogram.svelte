@@ -15,7 +15,6 @@
   import * as d3 from 'src/d3';
   import { throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
-  import { fade } from 'svelte/transition';
 
   interface CartogramDataPoint extends CountryDataPoint {
     category: string;
@@ -209,17 +208,6 @@
     return aux;
   };
 
-  let foo = (e, d) => {
-    d3.select(d.code).style('background','red');
-    console.log("s")
-    const styles = [
-      `left: ${d.left}px`,
-      `top: ${d.top}px`,
-      `width: ${d.width}px`,
-      `height: ${d.height}px`, ]
-
-    return styles.join(';');
-  }
 </script>
 
 <div class="cartogram" bind:this={containerEl}
