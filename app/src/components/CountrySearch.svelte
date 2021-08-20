@@ -18,7 +18,7 @@
 
     const maxNumSearchResults = 5;
 
-    let countriesToBeFiltered = ["AIA","VGB","CYM","CUW","SWZ","FLK","FRO",
+    const countriesToBeFiltered = ["AIA","VGB","CYM","CUW","SWZ","FLK","FRO",
     "GIB","VAT","JEY","LIE","MSR","NCL","NFK","PCN","SHN","SPM","TCA","ESH"];
 
     $: currentCountry = {
@@ -182,6 +182,7 @@
             <BarChart
                 data = {countryFuelsData}
                 selectedDataset = "fuels"
+                selectedCountry = {currentCountry.id}
             />
         </div>
     {/if}

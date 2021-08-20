@@ -3,10 +3,14 @@
     import {colorSectors, colorFuels} from 'src/App.svelte';
     import regionalData from 'src/data/sectoralBDData.json';
     import regionDictionary from 'src/data/regionDictionary.json';
+    import meanSectorRegions from 'src/data/regionalMean_sectors.json';
+    import meanFuelRegions from 'src/data/regionalMean_fuels.json';
 
+    
     const width = 950;
     const height = 125;
     const tileHeight = 85;
+    const similarityRange = 2;
 
     export var data: {categoryName: string, value: number}[];
     export var selectedDataset: string;
@@ -73,113 +77,100 @@
         return sum;
     }
 
-    function generateDeathsCommentary(){
+
+    function generateDeathPhrase(text: {sentence1: string, sentence2: string}, numSentence: number, lastProcessed: number, percent: number){
         
         let commentary: string;
-        let _50percent = (50/100 * totalValue);
-        let lastProcessedDisease = 0;
-
-        //FIRST SENTENCE
-        if (tiles[0].value >= _50percent){
-            commentary = `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
-            lastProcessedDisease = 1;
-        }
-        else {
-            let _25percent = (25/100 * totalValue);
-            let keepSearching = true;
-            let leadingCauses = [];
-            while (keepSearching && lastProcessedDisease < tiles.length){
-                if (tiles[lastProcessedDisease].value >= _25percent){
-                    leadingCauses.push(tiles[lastProcessedDisease].categoryName);
-                    lastProcessedDisease++;
-                }
-                else { keepSearching = false; }
-            }
-            
-            if (leadingCauses.length == 1){
-                commentary = `The leading cause of death is: <b>` + categoryTranslator(leadingCauses[0]) + `</b>.`;
-            }
-
-            else if (leadingCauses.length == 0){
-                commentary = `An important cause of death is: <b>` + categoryTranslator(tiles[0].categoryName) + `</b>.`;
-                lastProcessedDisease++;
-            }
-
-            else {
-                commentary = `The leading causes of death are: <b>`;
-                let a = 0;
-                while (a < leadingCauses.length){
-                    commentary += categoryTranslator(leadingCauses[a]);
-                    if (a == leadingCauses.length-2){
-                        commentary += `</b> and <b>`;
-                    }
-                    else if (a == leadingCauses.length-1){
-                        commentary += `</b>.`;
-                    }
-                    else{
-                        commentary += `</b>, <b>`;
-                    }
-                    a++;
-                }
-            }
-        }
-
-        //SECOND SENTENCE
-        let y = lastProcessedDisease;
-        let _12_5_percent = (12.5/100 * totalValue);
         let keepSearching = true;
-        let relevantCauses = [];
-
-        while (keepSearching && y < tiles.length){
-            if (tiles[y].value >= _12_5_percent){
-                relevantCauses.push(tiles[y].categoryName);
-                y++;
+        let leadingCauses = [];
+        while (keepSearching && lastProcessed < tiles.length){
+            if (tiles[lastProcessed].value >= percent){
+                leadingCauses.push(tiles[lastProcessed].categoryName);
+                lastProcessed++;
             }
             else { keepSearching = false; }
         }
-
-        if (relevantCauses.length == 1){
-            commentary += ` Another significant cause is: <b>` + categoryTranslator(relevantCauses[0]) + `</b>.`;
+            
+        if (leadingCauses.length == 1){
+            if (numSentence === 1){
+                commentary = `The leading cause of death is: <b>` + categoryTranslator(leadingCauses[0]) + `</b>.`;
+            }
+            else {
+                commentary = ` Another significant cause is: <b>` + categoryTranslator(leadingCauses[0]) + `</b>.`;
+            }
         }
 
-        else if (relevantCauses.length == 0){
-            commentary += ``;
-        } 
+        else if (leadingCauses.length == 0){
+            if (numSentence === 1){
+                commentary = `An important cause of death is: <b>` + categoryTranslator(tiles[0].categoryName) + `</b>.`;
+            }
+            else {
+                commentary = ``;
+            }
+            lastProcessed++;
+        }
 
-        else{
-            commentary += ` Other significant causes are: <b>`;
-            let b = 0;
-            while (b < relevantCauses.length){
-                commentary += categoryTranslator(relevantCauses[b]);
-                if (b == relevantCauses.length-2){
-                    commentary += `</b> and <b> `;
+        else {
+            if (numSentence === 1){
+                commentary = `The leading causes of death are: <b>`;
+            }
+            else{
+                commentary = ` Other significant causes are: <b>`;
+            }
+
+            let a = 0;
+            while (a < leadingCauses.length){
+                commentary += categoryTranslator(leadingCauses[a]);
+                if (a == leadingCauses.length-2){
+                    commentary += `</b> and <b>`;
                 }
-                else if (b == relevantCauses.length-1){
+                else if (a == leadingCauses.length-1){
                     commentary += `</b>.`;
                 }
                 else{
                     commentary += `</b>, <b>`;
                 }
-                b++;
+                a++;
             }
         }
+        
+        if (numSentence === 1){ text.sentence1 = commentary; } 
+        else { text.sentence2 = commentary; }
 
-        return commentary;
+        return lastProcessed;
+    }
+
+
+    function generateDeathsCommentary(){
+        let text = {
+            sentence1: '',
+            sentence2: ''
+        };
+
+        let lastProcessed = 0;
+        let _50percent = (50/100 * totalValue);
+        let _25percent = (25/100 * totalValue);
+        let _12_5_percent = (12.5/100 * totalValue);
+
+        if (tiles[0].value >= _50percent){ //If there is a predominant cause of death
+            text.sentence1 = `Most deaths are due to <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
+            lastProcessed = 1;
+        }
+        else {
+            lastProcessed = generateDeathPhrase(text, 1, lastProcessed, _25percent);
+        }
+        generateDeathPhrase(text, 2, lastProcessed, _12_5_percent);
+        return (text.sentence1 + text.sentence2);
     }
 
     function generateSectorsCommentary(){
-        console.log(selectedCountry);
-        let regionName = regionDictionary.find(c => c.id === selectedCountry).region;
-        let regionMean = regionalData.regions.find(r => r.region === regionName).types.find(t => t.type === (tiles[0].categoryName)).value;
-        let comparisonText: string;
+        let comparisonText = comparisonRegionalMean(tiles[0].value, findRegionalMean("sectors", tiles[0].categoryName, selectedCountry));
+        let text = `<b>${categoryTranslator(tiles[0].categoryName)}</b> is the top contributor to the fine particle pollution levels 
+        —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>.`;
 
-        if (regionMean < tiles[0].value){
-            comparisonText = `More than the mean value for the region`;
-        }
-
-        return `<b>${categoryTranslator(tiles[0].categoryName)}</b> is the top contributor to the fine particle pollution levels 
-        —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>. Regional mean --> <b>${regionMean.toFixed(1)}</b>`;
+        return text + comparisonText;
     }
+
 
     function generateFuelsCommentary(){
 
@@ -188,11 +179,46 @@
 
         if (tiles[0].value >= _50percent){
             commentary = `Most of that PM2.5 in comes from <b>${categoryTranslator(tiles[0].categoryName)}</b> —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>.`;
-            return commentary;
+            return commentary + comparisonRegionalMean(tiles[0].value, findRegionalMean("fuels", tiles[0].categoryName, selectedCountry));
         }
         else {
             commentary = `An important sum of the total fine particle pollution value comes from <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
-            return commentary;
+            return commentary + comparisonRegionalMean(tiles[0].value, findRegionalMean("fuels", tiles[0].categoryName, selectedCountry));
+        }
+    }
+
+    function findRegionalMean(type: string, category:string, countryID: string){
+        let region = regionDictionary.find(r => r.id === countryID).region;
+        if (type === "fuels"){
+            return meanFuelRegions.find(r => r.region === region)
+            .fuelValues.find(c => c.fuel === category).value;
+        }
+        else {
+            return meanSectorRegions.find(r => r.region === region)
+            .sectorValues.find(c => c.sector === category).value;
+        }
+    }
+
+
+    function comparisonRegionalMean(countryValue: number, regionalMean: number){
+        if ((countryValue > regionalMean - similarityRange) && (countryValue < regionalMean + similarityRange)){ //SIMILAR VALUE TO REGIONAL MEAN
+            return ` Similar to the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
+        }
+        else if (countryValue < regionalMean){ // LESS THAN REGIONAL MEAN
+            if (countryValue < regionalMean/2){
+                return ` Far lower than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
+            }
+            else {
+                return ` Lower than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
+            }
+        }
+        else { //GREATER THAN REGIONAL MEAN
+            if (countryValue > regionalMean*2){
+                return ` A lot more than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
+            }
+            else {
+                return ` Higher than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
+            }
         }
     }
 
@@ -223,10 +249,9 @@
 
     let annotationPositions = [];
 
-    function generateTextPosition(tile: {categoryName: string, value: number}, x: number, width: number){
+    function generateTextPosition(tile: {categoryName: string, value: number}, x: number){
         let label = {
             name: tile.categoryName,
-            //x: x + width/2
             x: x
         };
         return label;
@@ -240,7 +265,7 @@
         let widthOfCurrentCategory = calculateCategoricalWidth(tile.value);
         sum_width_categories += widthOfCurrentCategory;
         let x = sum_width_categories - widthOfCurrentCategory;
-        annotationPositions.push(generateTextPosition(tile,x,widthOfCurrentCategory));
+        annotationPositions.push(generateTextPosition(tile,x));
         return (x);
     }
 
