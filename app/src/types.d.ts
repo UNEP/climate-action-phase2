@@ -36,3 +36,5 @@ export interface CartoRegionData {
   scale_height: number;
   type: string;
 }
+
+export type PolicyDomain = 'Has policies' | 'Has no policies' | 'Could be better' | 'No data';

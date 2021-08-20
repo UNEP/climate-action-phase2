@@ -33,6 +33,7 @@
       "ignoreRegExpLiterals": true
 
     }],
+    "eqeqeq": ["error", "always"],
     "no-multi-spaces": "error",
     "space-infix-ops": "error",
     "space-unary-ops": [

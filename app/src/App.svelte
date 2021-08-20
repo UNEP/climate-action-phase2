@@ -26,15 +26,15 @@
       '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
     ]);
 
-  export const colorPolices = scaleOrdinal<string>()
-    .domain(['1','2','3','4'])
+  export const colorPolices = scaleOrdinal<PolicyDomain, string>()
+    .domain(['Has policies', 'Has no policies', 'Could be better', 'No data'])
     .range(['#0074B2','#BABABA','#5A93B4','#E6E6E6']);
 
 </script>
 
 <script lang="ts">
   import { scaleOrdinal, scaleThreshold } from 'd3-scale';
-  import type { Content } from 'src/types';
+  import type { Content, PolicyDomain } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
   import CartoRegion from 'src/components/CartoRegion.svelte';
   import Intro from 'src/components/text/Intro.svelte';
