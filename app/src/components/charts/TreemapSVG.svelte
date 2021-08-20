@@ -134,10 +134,6 @@
     };
   }
 
-  const getHelpText = (dataType: string) =>
-    `Squares are sized based on <strong>how much each ${dataType}</strong> ` +
-    `contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>`;
-
 </script>
 
 <div class="text">

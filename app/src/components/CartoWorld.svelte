@@ -116,7 +116,7 @@
       legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
       legendDictionary: [0,10,20,30,40,50,60,70],
       legendType: 'sequential',
-      domain: [700, 400]  as [number, number],
+      domain: [700, 400] as [number, number],
       hoverText: (d: CountryDataPoint) =>
         `In <strong>${d.name}</strong>, people are exposed to an average of
         <strong>${d.value} μg/m<sup>3</sup></strong> a year —
@@ -143,7 +143,7 @@
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
       legendDictionary: [10,20,30,40,50,60,70,80,90,100],
       legendType: 'sequential',
-      domain: [700, 400]  as [number, number]
+      domain: [700, 400] as [number, number]
     },
 
     policies: {
