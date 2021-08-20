@@ -14,7 +14,7 @@
   import type { RGB } from 'src/util';
   import ScrollableX from "./common/ScrollableX.svelte";
 
-  export var data:string;
+  export var data : "pm25" | "health" | "policies";
   export var head:string;
   export var text:TextBlock[];
 
@@ -30,7 +30,6 @@
     pNo : number;
     pAlmost : number
   }
-
   enum Datasets {
     pm25 = 0, health = 1, policies = 2
   }
@@ -50,22 +49,40 @@
 
     let hasPolicies = false;
     let hoverText = `<strong>${data.name}</strong> has policies for: `;
-    if(data['ind-1'] == PoliciesStatus.Yes || data['ind-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Clean production incentives</strong>`; hasPolicies = true; }
+    if(data['ind-1'] == PoliciesStatus.Yes || data['ind-1'] == PoliciesStatus.Almost) {
+      hoverText += `<br/><strong>─ Clean production incentives</strong>`;
+      hasPolicies = true;
+    }
     if(data['ind-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['tra-1'] == PoliciesStatus.Yes || data['tra-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Vehicle emissions standards</strong>`; hasPolicies = true; }
+    if(data['tra-1'] == PoliciesStatus.Yes || data['tra-1'] == PoliciesStatus.Almost) {
+      hoverText += `<br/><strong>─ Vehicle emissions standards</strong>`;
+      hasPolicies = true;
+    }
     if(data['tra-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['tra-2'] == PoliciesStatus.Yes || data['tra-2'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Fuel Sulphur content</strong>`; hasPolicies = true; }
+    if(data['tra-2'] == PoliciesStatus.Yes || data['tra-2'] == PoliciesStatus.Almost) {
+      hoverText += `<br/><strong>─ Fuel Sulphur content</strong>`;
+      hasPolicies = true;
+    }
     if(data['tra-2'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['waste-1'] == PoliciesStatus.Yes || data['waste-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Solid Waste Burning</strong>`; hasPolicies = true; }
+    if(data['waste-1'] == PoliciesStatus.Yes || data['waste-1'] == PoliciesStatus.Almost) {
+      hoverText += `<br/><strong>─ Solid Waste Burning</strong>`;
+      hasPolicies = true;
+    }
     if(data['waste-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['res-1'] == PoliciesStatus.Yes || data['res-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Incentives for residential cooking and heating</strong>`; hasPolicies = true; }
+    if(data['res-1'] == PoliciesStatus.Yes || data['res-1'] == PoliciesStatus.Almost) {
+      hoverText += `<br/><strong>─ Incentives for residential cooking and heating</strong>`;
+      hasPolicies = true;
+    }
     if(data['res-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['aq-1'] == PoliciesStatus.Yes || data['aq-1'] == PoliciesStatus.Almost) { hoverText += `<br/><strong>─ Air quality standards</strong>`; hasPolicies = true; }
+    if(data['aq-1'] == PoliciesStatus.Yes || data['aq-1'] == PoliciesStatus.Almost) {
+      hoverText += `<br/><strong>─ Air quality standards</strong>`;
+      hasPolicies = true;
+    }
     if(data['aq-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
     if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`;
@@ -75,6 +92,7 @@
 
   const datasetParams = {
     pm25: {
+      data: pm25data,
       nodeSize: 11,
       help: {
         code: "CPV",
@@ -92,15 +110,21 @@
       categoryFn: (d) => {
         return colorPM25(d.value);
       },
+      colorParam: 'value',
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
       legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
       legendDictionary: [0,10,20,30,40,50,60,70],
       legendType: 'sequential',
-      domain: [700, 400]
+      domain: [700, 400]  as [number, number],
+      hoverText: (d: CountryDataPoint) =>
+        `In <strong>${d.name}</strong>, people are exposed to an average of
+        <strong>${d.value} μg/m<sup>3</sup></strong> a year —
+        <strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`
     },
 
     health: {
+      data: deaths_data,
       nodeSize: 73,
       help: {
         code: "BRA",
@@ -119,7 +143,7 @@
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
       legendDictionary: [10,20,30,40,50,60,70,80,90,100],
       legendType: 'sequential',
-      domain: [700, 400]
+      domain: [700, 400]  as [number, number]
     },
 
     policies: {
@@ -165,10 +189,15 @@
         }
 
         return (
-          `linear-gradient(to bottom, rgb(${yes.r},${yes.g} ,${yes.b}, ${yesOpacity}) ${d.data.pYes}%,
-          rgb(${almost.r},${almost.g} ,${almost.b}, ${almostOpacity}) ${d.data.pYes}% ${d.data.pAlmost}%,
-          rgb(${no.r},${no.g} ,${no.b}, ${noOpacity}) ${d.data.pAlmost}% ${d.data.pNo}%,
-          rgb(${noData.r},${noData.g} ,${noData.b}, ${noDataOpacity}) ${d.data.pNo}%)`
+          `linear-gradient(to bottom,
+          rgb(${yes.r},${yes.g} ,${yes.b},
+          ${yesOpacity}) ${d.data.pYes}%,
+          rgb(${almost.r},${almost.g} ,${almost.b}, ${almostOpacity})
+          ${d.data.pYes}% ${d.data.pAlmost}%,
+          rgb(${no.r},${no.g} ,${no.b}, ${noOpacity})
+          ${d.data.pAlmost}% ${d.data.pNo}%,
+          rgb(${noData.r},${noData.g} ,${noData.b},
+          ${noDataOpacity}) ${d.data.pNo}%)`
         );
       },
       color: colorPolices,
@@ -176,7 +205,7 @@
       legendDomain: ["Has Policies", "Has no policies", "Could be better", "No data"],
       legendDictionary: ["y", "n", "cbb", "nd"],
       legendType: 'categorical',
-      domain: [1300, 1300 / (740 / 420)],
+      domain: [1300, (1300 / (740 / 420))] as [number, number],
     }
   };
 
@@ -190,7 +219,7 @@
           code: d.id,
           x: d.x,
           y: d.y,
-          value: d.pm25,
+          value: d.pm25
         };
       }),
     [Datasets.health]: deaths_data
@@ -219,7 +248,6 @@
 
   $: {
     legendElementSelected = "";
-
     if(
       legendElementSelectedIndex >= 0 &&
       legendElementSelectedIndex < datasetParams[data].legendDictionary.length &&

@@ -38,8 +38,11 @@
   };
   const currentData = data === "sectors" ? sectoralBD : data === "fuel" ? differentFuels : null;
   const scaleRate = currentData.scale_height / currentData.scale_width;
-  let clientWidth: number;
+  let clientWidth: number = 0;
+  let width: number;
+  let height: number;
   $: width = Math.max(clientWidth, 700);
+
   $: height = width * scaleRate;
   let legendElementSelectedIndex = -1;
   let legendElementSelected = "";
@@ -50,9 +53,7 @@
     )
       legendElementSelected =
         (legendOptions[data].selectionDictionary[legendElementSelectedIndex] + "")
-          .toLocaleLowerCase()
-          .replaceAll('.', '')
-          .replaceAll(' ', '');
+          .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
   }
 </script>
 
@@ -69,7 +70,7 @@
 		/>
 	</div>
 
-	<div bind:clientWidth={width} >
+	<div bind:clientWidth={clientWidth} >
 		<TreemapSvg
 			data={currentData}
 			{width}

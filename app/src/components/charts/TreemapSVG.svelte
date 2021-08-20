@@ -98,7 +98,6 @@
             height: e.y1 - e.y0,
             type: e.data.type
           };
-          console.log(e);
           legendTypeParams.push(currentLeaf);
         }
       });
@@ -134,6 +133,11 @@
       y: regions[4].y
     };
   }
+
+  const getHelpText = (dataType: string) =>
+    `Squares are sized based on <strong>how much each ${dataType}</strong> ` +
+    `contributed to the mean annual levels of PM<sub>2.5</sub> in that <strong>region</strong>`;
+
 </script>
 
 <div class="text">

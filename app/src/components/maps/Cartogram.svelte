@@ -6,8 +6,8 @@
     x: number;
     y: number;
     value: number;
-    rate: number;
-    data: any;
+    rate?: number;
+    data?: any;
   }
 </script>
 
@@ -15,6 +15,7 @@
   import * as d3 from 'src/d3';
   import { throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
+  import { fade } from 'svelte/transition';
 
   interface CartogramDataPoint extends CountryDataPoint {
     category: string;
@@ -22,11 +23,6 @@
     top: number;
     width: number;
     height: number;
-    lastState: number;
-  }
-
-  enum CartogramTileState{
-    noFilter = 0, shadow = 1, opacity = 2
   }
 
   export var data: CountryDataPoint[];
@@ -107,8 +103,7 @@
 
       // width height should be the same if the aspect is correct
       width: xScale(r * 2),
-      height: yScale(r * 2),
-      lastState: CartogramTileState.noFilter
+      height: yScale(r * 2)
     };
   });
 
@@ -118,7 +113,7 @@
       `top: ${d.top}px`,
       `width: ${d.width}px`,
       `height: ${d.height}px`,
-      `background: ${colorFn(d, legendElementSelected)};`
+      `background: ${colorFn(d, legendElementSelected)};`,
     ];
     return styles.join(';');
   };
@@ -196,20 +191,35 @@
 
     let aux = "";
 
-    if (legendElementSelected === colorFn(d)){
+    if (
+      (legendElementSelected === colorFn(d) && dataType != 'policies')
+      ||
+      (legendElementSelected !== "" && dataType === 'policies')
+    ){
       aux += "placeShadow ";
     }
-    else if (legendElementSelected !== colorFn(d) && legendElementSelected !== ""){
+    else if (
+      legendElementSelected !== colorFn(d) &&
+      legendElementSelected !== "" &&
+      dataType != 'policies'
+    ){
       aux += "placeOpacity ";
     }
 
-    if (legendElementSelected !== "" && dataType === 'policies')
-      aux += "policiesLegendView ";
-    else if (dataType === 'policies')
-      aux += "policies ";
-
     return aux;
   };
+
+  let foo = (e, d) => {
+    d3.select(d.code).style('background','red');
+    console.log("s")
+    const styles = [
+      `left: ${d.left}px`,
+      `top: ${d.top}px`,
+      `width: ${d.width}px`,
+      `height: ${d.height}px`, ]
+
+    return styles.join(';');
+  }
 </script>
 
 <div class="cartogram" bind:this={containerEl}
@@ -225,9 +235,9 @@
     <div class="countries">
       {#each cartogramData as d (d.code)}
         {#if d.x && d.y}
-          <div
+          <div id={d.code}
             class="country {currentClass(d)}"
-            style={ calcStyle(d)}
+            style={calcStyle(d)}
             data-code={d.code}
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
@@ -333,33 +343,6 @@
   }
 
   .placeShadow {
-    box-shadow: 0 3px 10px rgb(0 0 0 / 1);
-  }
-
-
-  .policies {
-    animation: standard 1s forwards;
-  }
-
-  .policiesLegendView {
-    animation: policiesLegend 1s forwards;
-    border-style: solid;
-    border-color: transparent;
-    border-width: 1px;
-  }
-
-
-  @keyframes policiesLegend {
-    to {
-      border-color: black;
-    }
-  }
-
-  @keyframes standard {
-    to {
-      opacity: 1;
-      border-color: transparent;
-      box-shadow: none;
-    }
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   }
 </style>

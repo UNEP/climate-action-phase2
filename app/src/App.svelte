@@ -53,7 +53,6 @@
     'text': Text,
     "menu": Menu,
   };
-
 </script>
 
 <TopNav />

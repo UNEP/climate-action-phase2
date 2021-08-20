@@ -15,8 +15,8 @@ export type TextBlock = Record<TextBlockType, string>;
 
 export interface Content {
   type: string;
-  head: string;
-  text: TextBlock[];
+  head?: string;
+  text?: TextBlock[];
   menu?: string;
   anchor?: string;
 }
