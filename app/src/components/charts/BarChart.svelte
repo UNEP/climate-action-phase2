@@ -1,7 +1,6 @@
 <script lang="ts">
     import Annotation from '../maps/Annotation.svelte';
     import {colorSectors, colorFuels} from 'src/App.svelte';
-    import regionalData from 'src/data/sectoralBDData.json';
     import regionDictionary from 'src/data/regionDictionary.json';
     import meanSectorRegions from 'src/data/regionalMean_sectors.json';
     import meanFuelRegions from 'src/data/regionalMean_fuels.json';
@@ -12,11 +11,11 @@
     const tileHeight = 85;
     const similarityRange = 2;
 
-    export var data: {categoryName: string, value: number}[];
+    export var tiles: {categoryName: string, value: number}[];
     export var selectedDataset: string;
     export var selectedCountry: string = null;
 
-    $: tiles = data;
+    //$: tiles = data;
 
     //This will change when we have the new color palette
     const colorFunction = (d: string) => selectedDataset === "fuels" ? colorFuels(d) : colorSectors(d);
@@ -71,7 +70,7 @@
 
     function calculateTotalSum(){
         let sum = 0;
-        data.forEach(d => {
+        tiles.forEach(d => {
             sum += d.value;
         });
         return sum;
@@ -178,11 +177,15 @@
         let _50percent = (50/100 * totalValue);
 
         if (tiles[0].value >= _50percent){
-            commentary = `Most of that PM2.5 in comes from <b>${categoryTranslator(tiles[0].categoryName)}</b> —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>.`;
+            commentary = `Most of that PM2.5 in comes from <b>${categoryTranslator(tiles[0].categoryName)}
+            </b> —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>.`;
+            
             return commentary + comparisonRegionalMean(tiles[0].value, findRegionalMean("fuels", tiles[0].categoryName, selectedCountry));
         }
         else {
-            commentary = `An important sum of the total fine particle pollution value comes from <b>${categoryTranslator(tiles[0].categoryName)}</b>.`;
+            commentary = `An important sum of the total fine particle pollution value comes from <b>${categoryTranslator(tiles[0].categoryName)}
+            </b> —<b>${tiles[0].value.toFixed(1)}</b> of the <b>${totalValue.toFixed(1)}</b> µg/m<sup>3</sup>.`;
+            
             return commentary + comparisonRegionalMean(tiles[0].value, findRegionalMean("fuels", tiles[0].categoryName, selectedCountry));
         }
     }
@@ -234,8 +237,8 @@
         }
     }
 
-    function sortDataByValue(data){
-        data.sort(function(a, b) {
+    function sortDataByValue(tiles){
+        tiles.sort(function(a, b) {
             return b.value - a.value;
         });
     }
@@ -272,7 +275,7 @@
     /*This function has data as a parameter so whenever data changes, this function is called
     Not the best solution, but it works
     */
-    function redrawBarChart(data: {categoryName: string, value: number}[]){
+    function redrawBarChart(tiles: {categoryName: string, value: number}[]){
         totalValue = calculateTotalSum();
         sum_width_categories = 0;
         showInformation = false;
@@ -295,7 +298,7 @@
     }
 
     $: commentary = commentaryByDataset(selectedDataset);
-    $: redrawBarChart(data);
+    $: redrawBarChart(tiles);
 
 </script>
 

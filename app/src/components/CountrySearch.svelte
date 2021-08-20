@@ -165,14 +165,14 @@
 
         <div class="BarChart">
             <BarChart
-                data = {countryDeathsData}
+                tiles = {countryDeathsData}
                 selectedDataset = "deaths"
             />
         </div>
 
         <div class="BarChart">
             <BarChart
-                data = {countrySectorsData}
+                tiles = {countrySectorsData}
                 selectedDataset = "sectors"
                 selectedCountry = {currentCountry.id}
             />
@@ -180,7 +180,7 @@
 
         <div class="BarChart">
             <BarChart
-                data = {countryFuelsData}
+                tiles = {countryFuelsData}
                 selectedDataset = "fuels"
                 selectedCountry = {currentCountry.id}
             />
