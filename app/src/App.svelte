@@ -35,7 +35,8 @@
 	import TopNav from 'src/components/nav/TopNav.svelte';
 	import Footer from './components/nav/Footer.svelte';
 	import text from 'src/text.json';
-  import FinalSummary from './components/CountrySearch.svelte';
+  import FinalSummary from 'src/components/CountrySearch.svelte';
+  import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
 
   const content: Content[] = text.article;
 
@@ -44,6 +45,7 @@
     'carto-region': CartoRegion,
     'intro': Intro,
     'text': Text,
+    'methodology': MethodologySourcesText
   };
 
 </script>
