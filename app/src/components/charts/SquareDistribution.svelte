@@ -4,6 +4,7 @@
 
 <script lang="ts">
 import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
+import { createLookup } from "src/util";
 
     const width = 450;
     const height = 100;
@@ -13,12 +14,15 @@ import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
     const relevantTileHeight = 34;
     const xBorderRadius = 10;
     const yBorderRadius = 2;
+    const endingTileMargin = 10;
 
     export var selectedCountry: string;
     export var data: CountryDataSquare[];
     export var selectedDataset: string;
 
     const colorFunction = (d: number) => selectedDataset === "pm25" ? colorPM25(d) : colorHealth(d);
+
+    const dataLookUp = createLookup(data, d => d.id, d => d);
 
     function findMaxValue(data: CountryDataSquare[]){
         let max = 0;
@@ -31,15 +35,15 @@ import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
     }
 
     function findXlocation(countryValue: number){
-        return countryValue * (width-10) / maxValue;
+        return countryValue * (width-endingTileMargin) / maxValue;
     }
 
     $: maxValue = findMaxValue(data);
 
     $: relevantCountry = {
         id: selectedCountry,
-        value: data.find(c=>c.id === selectedCountry).value,
-        relevantCountryColor: colorFunction(data.find(c=>c.id === selectedCountry).value)
+        value: dataLookUp[selectedCountry].value,
+        relevantCountryColor: colorFunction(dataLookUp[selectedCountry].value)
     };
 
 </script>

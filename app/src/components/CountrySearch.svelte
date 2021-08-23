@@ -15,11 +15,19 @@
     import deathsdata from 'src/data/deathDatabase.json';
     import pm25data from 'src/data/pm25.json';
     import healthData from 'src/data/health.json';
-
-    const maxNumSearchResults = 5;
+    import { createLookup } from "src/util";
 
     const countriesToBeFiltered = ["AIA","VGB","CYM","CUW","SWZ","FLK","FRO",
     "GIB","VAT","JEY","LIE","MSR","NCL","NFK","PCN","SHN","SPM","TCA","ESH"];
+
+    const CTBF_lookUp = createLookup(countriesToBeFiltered, c => c, c => c);
+    const pm25LookUp = createLookup(pm25data, p => p.id, p => p);
+    const healthLookUp = createLookup(healthData, h => h.id, h => h);
+    const deathsLookUp = createLookup(deathsdata, d => d.id, d => d);
+    const fuelsLookUp = createLookup(fuels, f => f.id, f => f);
+    const sectorsLookUp = createLookup(sectors, s => s.id, s => s);
+
+    const maxNumSearchResults = 5;
 
     $: currentCountry = {
         id: "",
@@ -52,22 +60,20 @@
     let countrySelected = false;
 
     function generateData(countryID: string, selectedDB: string){
-        let DB = [];
+        let countryInfo;
         if (selectedDB === "sectors"){
-            DB = sectors;
+            countryInfo = sectorsLookUp[countryID];
         }
         else if (selectedDB === "fuels"){
-            DB = fuels;
+            countryInfo = fuelsLookUp[countryID];
         }
         else {
-            DB = deathsdata;
+            countryInfo = deathsLookUp[countryID];
         }
-
         let array = [];
-        let CountryInfo = DB.find(c => c.id === countryID);
-        for (const Attribute in CountryInfo){
+        for (const Attribute in countryInfo){
             if (Attribute != "id"){
-                let tile = {categoryName : Attribute, value: CountryInfo[Attribute]};
+                let tile = {categoryName : Attribute, value: countryInfo[Attribute]};
                 array.push(tile);
             }  
         }
@@ -75,7 +81,8 @@
     }
 
     function toFilter(countryID:string){
-        if (countriesToBeFiltered.find(c => c === countryID) != null){
+
+        if (CTBF_lookUp[countryID] != null){
             return true;
         }
         else return false;
@@ -92,10 +99,10 @@
         if (event === "select"){
             let newID = detail.original.id;
             currentCountry.id = newID;
-            currentCountry.PM25country = pm25data.find(c => c.id === newID).pm25;
+            currentCountry.PM25country = pm25LookUp[newID].pm25;
             currentCountry.timesPM25 = parseFloat((currentCountry.PM25country/10).toFixed(1));
-            currentCountry.totalDeaths = healthData.find(c => c.id === newID).deaths;
-            currentCountry.deathRatio = healthData.find(c => c.id === newID).rate;
+            currentCountry.totalDeaths = healthLookUp[newID].deaths;
+            currentCountry.deathRatio = healthLookUp[newID].rate;
             countrySelected = true;
         }
         else{
@@ -117,6 +124,7 @@
 </script>
 
 <section class="viz wide">
+
     <h2 class='narrow'>{@html head}</h2>
 
     <div class="searchBar">

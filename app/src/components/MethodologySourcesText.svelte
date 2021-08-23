@@ -4,7 +4,7 @@
     export var text: TextBlock[];
 
     var height = 500;
-    var width = 700;
+    var width = 800;
 
     const numTexts = text.length;
 
@@ -18,8 +18,8 @@
     {#each text as t}
         <p class='info-text'>{@html t.p}</p>
         {#if t !== text[numTexts-1]}
-            <svg height="5" width="700">
-                <line x1="50" y1="0" x2="650" y2="0" style="stroke:#BEBEBE;stroke-width:2.5" />
+            <svg height="5" width={width}>
+                <line x1="50" y1="0" x2={width - 50} y2="0" style="stroke:#BEBEBE;stroke-width:2.5" />
             </svg>
         {/if}
 	{/each}
@@ -28,7 +28,7 @@
 <style>
  
     .infoSquare {
-        padding:.8rem 2rem;
+        padding:1rem 7rem;
         margin-top:2rem;
         background-color:#E8E8E8;
         overflow: auto;

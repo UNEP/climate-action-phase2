@@ -4,20 +4,19 @@
     import regionDictionary from 'src/data/regionDictionary.json';
     import meanSectorRegions from 'src/data/regionalMean_sectors.json';
     import meanFuelRegions from 'src/data/regionalMean_fuels.json';
+    import { createLookup } from 'src/util';
 
     
     const width = 950;
     const height = 125;
     const tileHeight = 85;
-    const similarityRange = 2;
+    const similarityRange = 1;
+    const regionLookUp = createLookup(regionDictionary, r => r.id, r => r.region);
 
     export var tiles: {categoryName: string, value: number}[];
     export var selectedDataset: string;
     export var selectedCountry: string = null;
 
-    //$: tiles = data;
-
-    //This will change when we have the new color palette
     const colorFunction = (d: string) => selectedDataset === "fuels" ? colorFuels(d) : colorSectors(d);
 
     const categoryDictionary = {
@@ -191,7 +190,7 @@
     }
 
     function findRegionalMean(type: string, category:string, countryID: string){
-        let region = regionDictionary.find(r => r.id === countryID).region;
+        let region = regionLookUp[countryID];
         if (type === "fuels"){
             return meanFuelRegions.find(r => r.region === region)
             .fuelValues.find(c => c.fuel === category).value;
@@ -204,10 +203,10 @@
 
 
     function comparisonRegionalMean(countryValue: number, regionalMean: number){
-        if ((countryValue > regionalMean - similarityRange) && (countryValue < regionalMean + similarityRange)){ //SIMILAR VALUE TO REGIONAL MEAN
+        if ((countryValue > regionalMean - similarityRange) && (countryValue < regionalMean + similarityRange)){
             return ` Similar to the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
         }
-        else if (countryValue < regionalMean){ // LESS THAN REGIONAL MEAN
+        else if (countryValue < regionalMean){
             if (countryValue < regionalMean/2){
                 return ` Far lower than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
             }
@@ -215,7 +214,7 @@
                 return ` Lower than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
             }
         }
-        else { //GREATER THAN REGIONAL MEAN
+        else {
             if (countryValue > regionalMean*2){
                 return ` A lot more than the regional mean (<b>${regionalMean}</b> µg/m<sup>3</sup>).`;
             }
@@ -243,7 +242,19 @@
         });
     }
 
-    $: sortDataByValue(tiles);   
+    function redrawBarChart(){
+        totalValue = calculateTotalSum();
+        sum_width_categories = 0;
+        showInformation = false;
+        currentCategory = null;
+        annotationPositions = [];
+        commentary = commentaryByDataset(selectedDataset);
+    }
+
+    function reloadData(tiles: {categoryName: string, value: number}[]){
+        sortDataByValue(tiles);
+        redrawBarChart();
+    }
 
     let totalValue = calculateTotalSum();
     let sum_width_categories = 0;
@@ -272,18 +283,6 @@
         return (x);
     }
 
-    /*This function has data as a parameter so whenever data changes, this function is called
-    Not the best solution, but it works
-    */
-    function redrawBarChart(tiles: {categoryName: string, value: number}[]){
-        totalValue = calculateTotalSum();
-        sum_width_categories = 0;
-        showInformation = false;
-        currentCategory = null;
-        annotationPositions = [];
-        commentary = commentaryByDataset(selectedDataset);
-    }
-
     function generateAnnotation(){
         let annotation = categoryTranslator(currentCategory.categoryName) + `: ` + currentCategory.value.toLocaleString('en-US') + ` `;
 
@@ -298,7 +297,7 @@
     }
 
     $: commentary = commentaryByDataset(selectedDataset);
-    $: redrawBarChart(tiles);
+    $: reloadData(tiles);
 
 </script>
 
