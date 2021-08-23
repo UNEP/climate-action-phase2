@@ -3,12 +3,8 @@
     export var head: string;
     export var text: TextBlock[];
 
-    var height = 500;
-    var width = 800;
-
+    const width = 800;
     const numTexts = text.length;
-
-    console.log("IM HERE");
 
 </script>
 
@@ -17,7 +13,7 @@
 
     {#each text as t}
         <p class='info-text'>{@html t.p}</p>
-        {#if t !== text[numTexts-1]}
+        {#if t !== text[numTexts - 1]}
             <svg height="5" width={width}>
                 <line x1="50" y1="0" x2={width - 50} y2="0" style="stroke:#BEBEBE;stroke-width:2.5" />
             </svg>

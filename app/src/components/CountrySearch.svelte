@@ -18,7 +18,7 @@
     import { createLookup } from "src/util";
 
     const countriesToBeFiltered = ["AIA","VGB","CYM","CUW","SWZ","FLK","FRO",
-    "GIB","VAT","JEY","LIE","MSR","NCL","NFK","PCN","SHN","SPM","TCA","ESH"];
+      "GIB","VAT","JEY","LIE","MSR","NCL","NFK","PCN","SHN","SPM","TCA","ESH"];
 
     const CTBF_lookUp = createLookup(countriesToBeFiltered, c => c, c => c);
     const pm25LookUp = createLookup(pm25data, p => p.id, p => p);
@@ -30,28 +30,22 @@
     const maxNumSearchResults = 5;
 
     $: currentCountry = {
-        id: "",
-        PM25country: 0,
-        timesPM25: 0,
-        totalDeaths: 0,
-        deathRatio: 0
+      id: "",
+      PM25country: 0,
+      timesPM25: 0,
+      totalDeaths: 0,
+      deathRatio: 0
     };
 
     let countryPM25Data: CountryDataSquare[] = pm25data
-    .map(d => {
-        return {
-            id: d.id,
-            value: d.pm25
-        };
-    });
+      .map(d => {
+        return { id: d.id, value: d.pm25 };
+      });
 
     let countryHealthData: CountryDataSquare[] = healthData
-    .map(d => {
-         return {
-            id: d.id,
-            value: d.rate
-        };
-    });
+      .map(d => {
+        return { id: d.id, value: d.rate };
+      });
 
     $: countrySectorsData = generateData(currentCountry.id, "sectors");
     $: countryFuelsData = generateData(currentCountry.id, "fuels");
@@ -60,66 +54,65 @@
     let countrySelected = false;
 
     function generateData(countryID: string, selectedDB: string){
-        let countryInfo;
-        if (selectedDB === "sectors"){
-            countryInfo = sectorsLookUp[countryID];
-        }
-        else if (selectedDB === "fuels"){
-            countryInfo = fuelsLookUp[countryID];
-        }
-        else {
-            countryInfo = deathsLookUp[countryID];
-        }
-        let array = [];
-        for (const Attribute in countryInfo){
-            if (Attribute != "id"){
-                let tile = {categoryName : Attribute, value: countryInfo[Attribute]};
-                array.push(tile);
-            }  
-        }
-        return array;
+      let countryInfo;
+      if (selectedDB === "sectors"){
+        countryInfo = sectorsLookUp[countryID];
+      }
+      else if (selectedDB === "fuels"){
+        countryInfo = fuelsLookUp[countryID];
+      }
+      else {
+        countryInfo = deathsLookUp[countryID];
+      }
+      let array = [];
+      for (const Attribute in countryInfo){
+        if (Attribute !== "id"){
+          let tile = {categoryName : Attribute, value: countryInfo[Attribute]};
+          array.push(tile);
+        }  
+      }
+      return array;
     }
 
     function toFilter(countryID:string){
-
-        if (CTBF_lookUp[countryID] != null){
-            return true;
-        }
-        else return false;
+      if (CTBF_lookUp[countryID] !== null){ return true; }
+      else { return false; }
     }
     
     const extract = (item) => item.name;
     const filter = (item) => toFilter(item.id);
-    const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit. Mauris mattis posuere faucibus.`;
+    const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
+     Mauris mattis posuere faucibus.`;
 
     let events = [];
 
     function updateSelectedCountry(event, detail) {
-        events = [...events, { event, detail }];
-        if (event === "select"){
-            let newID = detail.original.id;
-            currentCountry.id = newID;
-            currentCountry.PM25country = pm25LookUp[newID].pm25;
-            currentCountry.timesPM25 = parseFloat((currentCountry.PM25country/10).toFixed(1));
-            currentCountry.totalDeaths = healthLookUp[newID].deaths;
-            currentCountry.deathRatio = healthLookUp[newID].rate;
-            countrySelected = true;
-        }
-        else{
-            currentCountry.id = "";
-            currentCountry.PM25country = 0;
-            currentCountry.timesPM25= 0;
-            currentCountry.totalDeaths= 0;
-            currentCountry.deathRatio = 0;
-            countrySelected = false;
-        }
+      events = [...events, { event, detail }];
+      if (event === "select"){
+        let newID = detail.original.id;
+        currentCountry.id = newID;
+        currentCountry.PM25country = pm25LookUp[newID].pm25;
+        currentCountry.timesPM25 = parseFloat((currentCountry.PM25country / 10).toFixed(1));
+        currentCountry.totalDeaths = healthLookUp[newID].deaths;
+        currentCountry.deathRatio = healthLookUp[newID].rate;
+        countrySelected = true;
+      }
+      else{
+        currentCountry.id = "";
+        currentCountry.PM25country = 0;
+        currentCountry.timesPM25 = 0;
+        currentCountry.totalDeaths = 0;
+        currentCountry.deathRatio = 0;
+        countrySelected = false;
+      }
     }
 
     $: PM25commentary = ` µg/m<sup>3</sup> <br>each person's annual mean exposure <br>—` 
     + currentCountry.timesPM25 + ` times WHO's guideline.`;
 
     $: PMtimesCommentary = ` deaths per 100,000 people <br>attributable to fine particle 
-    pollution in 2017 <br>(` + currentCountry.totalDeaths.toLocaleString('en-US') + ` in total in the country).`;
+    pollution in 2017 <br>(` + currentCountry.totalDeaths.toLocaleString('en-US')
+    + ` in total in the country).`;
 
 </script>
 

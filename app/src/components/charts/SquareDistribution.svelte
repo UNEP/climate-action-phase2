@@ -3,55 +3,56 @@
 </script>
 
 <script lang="ts">
-import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
-import { createLookup } from "src/util";
 
-    const width = 450;
-    const height = 100;
-    const normalTileWidth = 3;
-    const normalTileHeight = 20;
-    const relevantTileWidth = 5;
-    const relevantTileHeight = 34;
-    const xBorderRadius = 10;
-    const yBorderRadius = 2;
-    const endingTileMargin = 10;
+  import type {CountryDataSquare} from 'src/components/CountrySearch.svelte';
+  import { createLookup } from "src/util";
 
-    export var selectedCountry: string;
-    export var data: CountryDataSquare[];
-    export var selectedDataset: string;
+  const width = 450;
+  const height = 100;
+  const normalTileWidth = 3;
+  const normalTileHeight = 20;
+  const relevantTileWidth = 5;
+  const relevantTileHeight = 34;
+  const xBorderRadius = 10;
+  const yBorderRadius = 2;
+  const endingTileMargin = 10;
 
-    const colorFunction = (d: number) => selectedDataset === "pm25" ? colorPM25(d) : colorHealth(d);
+  export var selectedCountry: string;
+  export var data: CountryDataSquare[];
+  export var selectedDataset: string;
 
-    const dataLookUp = createLookup(data, d => d.id, d => d);
+  const colorFunction = (d: number) => selectedDataset === "pm25" ? colorPM25(d) : colorHealth(d);
 
-    function findMaxValue(data: CountryDataSquare[]){
-        let max = 0;
-        data.forEach(c => {
-            if (c.value > max){
-                max = c.value;
-            }
-        });
-        return max;
-    }
+  const dataLookUp = createLookup(data, d => d.id, d => d);
 
-    function findXlocation(countryValue: number){
-        return countryValue * (width-endingTileMargin) / maxValue;
-    }
+  function findMaxValue(data: CountryDataSquare[]){
+    let max = 0;
+    data.forEach(c => {
+      if (c.value > max){
+        max = c.value;
+      }
+    });
+    return max;
+  }
 
-    $: maxValue = findMaxValue(data);
+  function findXlocation(countryValue: number){
+    return countryValue * (width - endingTileMargin) / maxValue;
+  }
 
-    $: relevantCountry = {
-        id: selectedCountry,
-        value: dataLookUp[selectedCountry].value,
-        relevantCountryColor: colorFunction(dataLookUp[selectedCountry].value)
-    };
+  $: maxValue = findMaxValue(data);
+
+  $: relevantCountry = {
+    id: selectedCountry,
+    value: dataLookUp[selectedCountry].value,
+    relevantCountryColor: colorFunction(dataLookUp[selectedCountry].value)
+  };
 
 </script>
 
 <div>
     <svg id="barchart" {width} {height}>
         {#each data as d}
-            {#if d.value != null && d.id != selectedCountry}
+            {#if d.value !== null && d.id !== selectedCountry}
                 <g id="ID" class="region">
                     <rect
                         id = {d.id}
