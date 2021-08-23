@@ -7,18 +7,17 @@
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "src/components/common/Legend.svelte";
   import { colorPM25, colorHealth, colorPolices } from "src/App.svelte";
-  import {createLookup, hexToRgb} from 'src/util';
+  import {createLookup} from 'src/util';
 
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
-  import type { TextBlock} from 'src/types';
-  import type { RGB } from 'src/util';
+  import type { TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
 
   export var data : "pm25" | "health" | "policies";
-  export var head:string;
-  export var text:TextBlock[];
+  export var head: string;
+  export var text: TextBlock[];
 
-  interface PoliciesData{
+  interface PoliciesData {
     name : string;
     id : string;
     "ind-1" : number;
@@ -28,10 +27,7 @@
     "a1-1" : number;
     pYes : number;
     pNo : number;
-    pAlmost : number
-  }
-  enum Datasets {
-    pm25 = 0, health = 1, policies = 2
+    pAlmost : number;
   }
 
   enum PoliciesStatus {
@@ -40,50 +36,53 @@
 
   const policiesLookup = createLookup(policies, d => d.id, d => d);
   const countryNameDictionaryLookup = createLookup(countryNameDictionary, d => d.id, d => d);
-  let legendElementSelectedIndex = -1;
-  let legendElementSelected = "";
+  let legendElementSelectedIndex: number = null;
   let width : number;
   let height : number;
+
+  let rerender: () => void;
+
+  $: legendIsHovered = legendElementSelectedIndex !== null;
 
   const policiesHoverText = (data : PoliciesData) : string => {
 
     let hasPolicies = false;
     let hoverText = `<strong>${data.name}</strong> has policies for: `;
-    if(data['ind-1'] == PoliciesStatus.Yes || data['ind-1'] == PoliciesStatus.Almost) {
+    if(data['ind-1'] === PoliciesStatus.Yes || data['ind-1'] === PoliciesStatus.Almost) {
       hoverText += `<br/><strong>─ Clean production incentives</strong>`;
       hasPolicies = true;
     }
-    if(data['ind-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['ind-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['tra-1'] == PoliciesStatus.Yes || data['tra-1'] == PoliciesStatus.Almost) {
+    if(data['tra-1'] === PoliciesStatus.Yes || data['tra-1'] === PoliciesStatus.Almost) {
       hoverText += `<br/><strong>─ Vehicle emissions standards</strong>`;
       hasPolicies = true;
     }
-    if(data['tra-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['tra-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['tra-2'] == PoliciesStatus.Yes || data['tra-2'] == PoliciesStatus.Almost) {
+    if(data['tra-2'] === PoliciesStatus.Yes || data['tra-2'] === PoliciesStatus.Almost) {
       hoverText += `<br/><strong>─ Fuel Sulphur content</strong>`;
       hasPolicies = true;
     }
-    if(data['tra-2'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['tra-2'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['waste-1'] == PoliciesStatus.Yes || data['waste-1'] == PoliciesStatus.Almost) {
+    if(data['waste-1'] === PoliciesStatus.Yes || data['waste-1'] === PoliciesStatus.Almost) {
       hoverText += `<br/><strong>─ Solid Waste Burning</strong>`;
       hasPolicies = true;
     }
-    if(data['waste-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['waste-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['res-1'] == PoliciesStatus.Yes || data['res-1'] == PoliciesStatus.Almost) {
+    if(data['res-1'] === PoliciesStatus.Yes || data['res-1'] === PoliciesStatus.Almost) {
       hoverText += `<br/><strong>─ Incentives for residential cooking and heating</strong>`;
       hasPolicies = true;
     }
-    if(data['res-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['res-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
-    if(data['aq-1'] == PoliciesStatus.Yes || data['aq-1'] == PoliciesStatus.Almost) {
+    if(data['aq-1'] === PoliciesStatus.Yes || data['aq-1'] === PoliciesStatus.Almost) {
       hoverText += `<br/><strong>─ Air quality standards</strong>`;
       hasPolicies = true;
     }
-    if(data['aq-1'] == PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['aq-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
 
     if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`;
 
@@ -91,8 +90,19 @@
   };
 
   const datasetParams = {
+
     pm25: {
-      data: pm25data,
+      data: pm25data.map(d => {
+        return {
+          name: countryNameDictionaryLookup[d.id].name,
+          short: countryNameDictionaryLookup[d.id].name,
+          code: d.id,
+          x: d.x,
+          y: d.y,
+          value: d.pm25,
+          color: colorPM25(d.pm25)
+        };
+      }),
       nodeSize: 11,
       help: {
         code: "CPV",
@@ -106,11 +116,14 @@
        to an average of <strong>${d.value} μg/m<sup>3</sup>
       </strong> a year —<strong>${(d.value / 10).toFixed(1)}
       </strong> the WHO guideline.`,
-      colorFn: (d: CountryDataPoint) => colorPM25(d.value),
-      categoryFn: (d) => {
-        return colorPM25(d.value);
+      classesFn: (d : CountryDataPoint) => {
+        if (!legendIsHovered) {
+          return [];
+        } else {
+          const isSelected = colorPM25.range().indexOf(d.color) === legendElementSelectedIndex;
+          return [isSelected ? 'country--shadow' : 'country--hide'];
+        }
       },
-      colorParam: 'value',
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
       legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
@@ -124,7 +137,18 @@
     },
 
     health: {
-      data: deaths_data,
+      data: deaths_data.map(d => {
+        return {
+          name: countryNameDictionaryLookup[d.id].name,
+          short: countryNameDictionaryLookup[d.id].name,
+          code: d.id,
+          x: d.x,
+          y: d.y,
+          value: d.deaths,
+          rate: d.rate,
+          color: colorHealth(d.rate)
+        };
+      }),
       nodeSize: 73,
       help: {
         code: "BRA",
@@ -137,7 +161,14 @@
         `In <strong>${d.name}</strong>, small particle
       pollution caused <strong>${d.value} deaths</strong>
       in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
-      colorFn: (d: CountryDataPoint) => colorHealth(d.rate),
+      classesFn: (d : CountryDataPoint) => {
+        if (!legendIsHovered) {
+          return [];
+        } else {
+          const isSelected = colorHealth.range().indexOf(d.color) === legendElementSelectedIndex;
+          return [isSelected ? 'country--shadow' : 'country--hide'];
+        }
+      },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
@@ -147,6 +178,16 @@
     },
 
     policies: {
+      data: countries
+        .filter((d) => policiesLookup[d.code])
+        .map(d => {
+          return {
+            ...d,
+            ...d.trends,
+            value: 5,
+            data : policiesLookup[d.code]
+          };
+        }),
       nodeSize: 16,
       help: {
         code: "JPN",
@@ -156,114 +197,37 @@
            caused by small particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) => policiesHoverText(d.data as PoliciesData),
-      colorFn: (d: CountryDataPoint, les: string) => {
+      colorFn: (d: CountryDataPoint) => {
+        let policiesData = d.data as PoliciesData;
+        const colors = colorPolices.range();
+        const gradients = [
+          { color: colors[0], start: 0, end: policiesData.pYes },
+          { color: colors[1], start: policiesData.pYes, end: policiesData.pAlmost },
+          { color: colors[2], start: policiesData.pAlmost, end: policiesData.pNo },
+          { color: colors[3], start: policiesData.pNo, end: 100 },
+        ];
 
-        let yes : RGB = hexToRgb(colorPolices(PoliciesStatus.Yes.toString()));
-        let no : RGB = hexToRgb(colorPolices(PoliciesStatus.No.toString()));
-        let almost : RGB = hexToRgb(colorPolices(PoliciesStatus.Almost.toString()));
-        let noData : RGB = hexToRgb(colorPolices(PoliciesStatus.NoData.toString()));
-        let yesOpacity = "0.0";
-        let noOpacity = "0.0";
-        let almostOpacity = "0.0";
-        let noDataOpacity = "0.0";
+        const gradientStrs = gradients.map((g, i) => {
+          const hide = legendIsHovered && legendElementSelectedIndex !== i;
+          return `${g.color}${hide ? '00' : 'ff'} ${g.start}% ${g.end}%`;
+        });
 
-        switch(les){
-        case "y":
-          yesOpacity = "1";
-          break;
-        case "n":
-          noOpacity = "1";
-          break;
-        case "cbb":
-          almostOpacity = "1";
-          break;
-        case "nd":
-          noDataOpacity = "1";
-          break;
-        default:
-          yesOpacity = "1";
-          noOpacity = "1";
-          almostOpacity = "1";
-          noDataOpacity = "1";
-          break;
-        }
-
-        return (
-          `linear-gradient(to bottom,
-          rgb(${yes.r},${yes.g} ,${yes.b},
-          ${yesOpacity}) ${d.data.pYes}%,
-          rgb(${almost.r},${almost.g} ,${almost.b}, ${almostOpacity})
-          ${d.data.pYes}% ${d.data.pAlmost}%,
-          rgb(${no.r},${no.g} ,${no.b}, ${noOpacity})
-          ${d.data.pAlmost}% ${d.data.pNo}%,
-          rgb(${noData.r},${noData.g} ,${noData.b},
-          ${noDataOpacity}) ${d.data.pNo}%)`
-        );
+        return `linear-gradient(to bottom, ${gradientStrs.join(', ')})`;
       },
+      classesFn: () => legendElementSelectedIndex !== null ? ['country--shadow'] : [],
       color: colorPolices,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
-      legendDomain: ["Has Policies", "Has no policies", "Could be better", "No data"],
-      legendDictionary: ["y", "n", "cbb", "nd"],
+      legendDomain: colorPolices.domain(),
       legendType: 'categorical',
-      domain: [1300, (1300 / (740 / 420))] as [number, number],
+      domain: [1300, (1300 / (740 / 420))] as [number, number]
     }
   };
 
-  let datasets = {
-
-    [Datasets.pm25]: pm25data
-      .map(d => {
-        return {
-          name: countryNameDictionaryLookup[d.id].name,
-          short: countryNameDictionaryLookup[d.id].name,
-          code: d.id,
-          x: d.x,
-          y: d.y,
-          value: d.pm25
-        };
-      }),
-    [Datasets.health]: deaths_data
-      .map(d => {
-        return {
-          name: countryNameDictionaryLookup[d.id].name,
-          short: countryNameDictionaryLookup[d.id].name,
-          code: d.id,
-          x: d.x,
-          y: d.y,
-          value: d.deaths,
-          rate: d.rate
-        };
-      }),
-    [Datasets.policies]: countries
-      .filter((d) => policiesLookup[d.code])
-      .map(d => {
-        return {
-          ...d,
-          ...d.trends,
-          value: 5,
-          data : policiesLookup[d.code]
-        };
-      })
-  };
-
-  $: {
-    legendElementSelected = "";
-    if(
-      legendElementSelectedIndex >= 0 &&
-      legendElementSelectedIndex < datasetParams[data].legendDictionary.length &&
-      legendElementSelectedIndex != null
-    ){
-      if(data !== "policies")
-        legendElementSelected =
-          datasetParams[data].
-            color(datasetParams[data].legendDictionary[legendElementSelectedIndex]);
-      else legendElementSelected = datasetParams[data].legendDictionary[legendElementSelectedIndex];
-    }
-  }
-
+  // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
+  $: legendElementSelectedIndex !== undefined && rerender && rerender();
   $: height = width * (data === 'pm25' ? .55 : .62);
 
-  </script>
+</script>
 
 <section class="viz wide">
   <h2 class='narrow'>{@html head}</h2>
@@ -279,17 +243,7 @@
   </div>
   <ScrollableX>
     <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-      <Cartogram
-        data={datasets[Datasets[data]]}
-        domain={datasetParams[data].domain}
-        categoryFn={() => null}
-        colorFn={datasetParams[data].colorFn}
-        hoverTextFn={datasetParams[data].hoverTextFn}
-        nodeSize={datasetParams[data].nodeSize}
-        helpText={datasetParams[data].help}
-        {legendElementSelected}
-        dataType = {data}
-      />
+      <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
     </div>
   </ScrollableX>
 

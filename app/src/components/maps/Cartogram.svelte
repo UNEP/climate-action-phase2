@@ -1,19 +1,5 @@
 <script lang="ts" context="module">
 
-  interface PoliciesLookup{
-    name: string;
-    id: string;
-    "ind-1": number;
-    "tra-1": number;
-    "tra-2": number;
-    "waste-1": number;
-    "res-1": number;
-    "aq-1": number;
-    pYes: number;
-    pNo: number;
-    pAlmost: number;
-  }
-
   export interface CountryDataPoint {
     name: string;
     short: string;
@@ -22,7 +8,9 @@
     y: number;
     value: number;
     rate?: number;
-    data?: PoliciesLookup;
+    color?: string;
+    // waiting for svelte to add support for generics
+    data?: any; /* eslint-disable-line @typescript-eslint/no-explicit-any */
   }
 
 </script>
@@ -44,13 +32,13 @@
   export var nodeSize = 100;
   export var domain: [number, number];
   export var helpText: {code: string, text: string} = null;
-  export var categoryFn: (code: CountryDataPoint) => string;
-  export var colorFn: (code: CountryDataPoint, legendElementSelected?:string) => string;
-  export var hoverTextFn: (country: CountryDataPoint) => string;
-  export var onHoverFn: (country: CountryDataPoint) => void = () => null;
+  export var categoryFn: (c: CountryDataPoint) => string = undefined;
+  export var colorFn: (c: CountryDataPoint) => string = undefined;
+  export var classesFn: (c: CountryDataPoint) => string[] = () => [];
+  export var hoverTextFn: (c: CountryDataPoint) => string;
+  export var onHoverFn: (c: CountryDataPoint) => void = () => null;
   export var hideLabels = false;
-  export var legendElementSelected = "";
-  export var dataType: string;
+  export const rerenderFn: () => void = () => cartogramData = cartogramData;
 
   let containerEl: Element;
   let loaded = false;
@@ -112,7 +100,7 @@
     return {
       ...d,
 
-      category: categoryFn(d),
+      category: categoryFn ? categoryFn(d) : null,
       left: xScale(d.x - r),
       top: yScale(d.y - r),
 
@@ -128,7 +116,7 @@
       `top: ${d.top}px`,
       `width: ${d.width}px`,
       `height: ${d.height}px`,
-      `background: ${colorFn(d, legendElementSelected)};`,
+      `background: ${d.color ? d.color : colorFn(d)};`,
     ];
     return styles.join(';');
   };
@@ -202,28 +190,6 @@
 
   $: data && fadeInHelpText();
 
-  $: currentClass = (d : CartogramDataPoint) => {
-
-    let aux = "";
-
-    if (
-      (legendElementSelected === colorFn(d) && dataType != 'policies')
-      ||
-      (legendElementSelected !== "" && dataType === 'policies')
-    ){
-      aux += "placeShadow ";
-    }
-    else if (
-      legendElementSelected !== colorFn(d) &&
-      legendElementSelected !== "" &&
-      dataType != 'policies'
-    ){
-      aux += "placeOpacity ";
-    }
-
-    return aux;
-  };
-
 </script>
 
 <div class="cartogram" bind:this={containerEl}
@@ -240,7 +206,7 @@
       {#each cartogramData as d (d.code)}
         {#if d.x && d.y}
           <div id={d.code}
-            class="country {currentClass(d)}"
+            class="country {classesFn(d).join(' ')}"
             style={calcStyle(d)}
             data-code={d.code}
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
@@ -342,11 +308,11 @@
     border-color :#bbbbbb !important;
   }
 
-  .placeOpacity {
+  .country--hide {
     opacity: 0.5;
   }
 
-  .placeShadow {
+  .country--shadow {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   }
 </style>

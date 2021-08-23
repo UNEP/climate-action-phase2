@@ -27,7 +27,7 @@
     ]);
 
   export const colorPolices = scaleOrdinal<string>()
-    .domain(['1','2','3','4'])
+    .domain(['Has policies', 'Has no policies', 'Could be better', 'No data'])
     .range(['#0074B2','#BABABA','#5A93B4','#E6E6E6']);
 
 </script>
