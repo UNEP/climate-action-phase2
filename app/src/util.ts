@@ -79,3 +79,9 @@ export function getXRandom<T>(data: T[], x: number): T[] {
   }
   return items;
 }
+
+export interface RGB{
+    r: number,
+    g: number,
+    b: number
+}

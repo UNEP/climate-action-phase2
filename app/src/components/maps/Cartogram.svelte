@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+
   export interface CountryDataPoint {
     name: string;
     short: string;
@@ -6,8 +7,12 @@
     x: number;
     y: number;
     value: number;
-    rate: number;
+    rate?: number;
+    color?: string;
+    // waiting for svelte to add support for generics
+    data?: any; /* eslint-disable-line @typescript-eslint/no-explicit-any */
   }
+
 </script>
 
 <script lang="ts">
@@ -27,11 +32,13 @@
   export var nodeSize = 100;
   export var domain: [number, number];
   export var helpText: {code: string, text: string} = null;
-  export var categoryFn: (code: CountryDataPoint) => string;
-  export var colorFn: (code: CountryDataPoint) => string;
-  export var hoverTextFn: (country: CountryDataPoint) => string;
-  export var onHoverFn: (country: CountryDataPoint) => void = () => null;
+  export var categoryFn: (c: CountryDataPoint) => string = undefined;
+  export var colorFn: (c: CountryDataPoint) => string = undefined;
+  export var classesFn: (c: CountryDataPoint) => string[] = () => [];
+  export var hoverTextFn: (c: CountryDataPoint) => string;
+  export var onHoverFn: (c: CountryDataPoint) => void = () => null;
   export var hideLabels = false;
+  export const rerenderFn: () => void = () => cartogramData = cartogramData;
 
   let containerEl: Element;
   let loaded = false;
@@ -93,26 +100,26 @@
     return {
       ...d,
 
-      category: categoryFn(d),
+      category: categoryFn ? categoryFn(d) : null,
       left: xScale(d.x - r),
       top: yScale(d.y - r),
 
       // width height should be the same if the aspect is correct
       width: xScale(r * 2),
-      height: yScale(r * 2),
+      height: yScale(r * 2)
     };
   });
 
-  function calcStyle(d: CartogramDataPoint) {
+  $: calcStyle = (d: CartogramDataPoint) => {
     const styles = [
       `left: ${d.left}px`,
       `top: ${d.top}px`,
       `width: ${d.width}px`,
       `height: ${d.height}px`,
-      `background-color: ${colorFn(d)};`
+      `background: ${d.color ? d.color : colorFn(d)};`,
     ];
     return styles.join(';');
-  }
+  };
 
   window.setTimeout(() => {
     resize();
@@ -191,19 +198,24 @@
   class:cartogram-resizing={resizing}
   on:touchstart={clearHoverState}
 >
+<filter id="shadow" x="+100px">
+  <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.9"></feDropShadow>
+</filter>
   {#if loaded}
     <div class="countries">
       {#each cartogramData as d (d.code)}
         {#if d.x && d.y}
-          <div class="country bg--{d.category}"
+          <div id={d.code}
+            class="country {classesFn(d).join(' ')}"
             style={calcStyle(d)}
             data-code={d.code}
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
           >
-            {#if !hideLabels && d.width > 50}
-              <span class="country-text">{d.short}</span>
-            {/if}
+
+          {#if !hideLabels && d.width > 50}
+            <span class="country-text">{d.short}</span>
+          {/if}
           </div>
         {/if}
       {/each}
@@ -277,54 +289,6 @@
     transition: opacity 0s;
     z-index: 3;
   }
-  .hover-chart {
-    position: absolute;
-    width: 200px;
-    box-sizing: border-box;
-    pointer-events: none !important;
-    cursor: none;
-    background: #EAEAEA;
-    padding: 5px;
-    box-shadow: 0px 0px 0px 0px #00000018;
-    visibility: hidden;
-    border: 1px solid #E7E7E7;
-    transform: translate(-50%, -50%) scale(0.3);
-    transform-origin: 50% 50%;
-    z-index: 3;
-  }
-
-  .hover-chart--show {
-    visibility: visible;
-    box-shadow: 0px 0px 15px 0px #00000018;
-    transition: box-shadow 100ms, transform 20ms ease-in;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  .hover-chart :global(svg) {
-    width: 100%;
-  }
-
-  .help {
-    opacity: 0;
-  }
-
-  .help-show {
-    opacity: 1;
-    transition: opacity 200ms;
-  }
-
-  .help-text {
-    position: absolute;
-    width: 180px;
-    padding-bottom: 5px;
-    z-index: 2;
-  }
-
-  .help-line {
-    position: absolute;
-    z-index: 1;
-    border-left: 1px solid #dfdfdf;
-  }
 
   .annotation-container {
     opacity: 1;
@@ -344,4 +308,11 @@
     border-color :#bbbbbb !important;
   }
 
+  .country--hide {
+    opacity: 0.5;
+  }
+
+  .country--shadow {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+  }
 </style>

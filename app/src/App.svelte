@@ -26,6 +26,10 @@
       '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
     ]);
 
+  export const colorPolices = scaleOrdinal<string>()
+    .domain(['Has policies', 'Has no policies', 'Could be better', 'No data'])
+    .range(['#0074B2','#BABABA','#5A93B4','#E6E6E6']);
+
 </script>
 
 <script lang="ts">
@@ -49,7 +53,6 @@
     'text': Text,
     "menu": Menu,
   };
-
 </script>
 
 <TopNav />
