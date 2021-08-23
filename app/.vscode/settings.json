@@ -1,0 +1,11 @@
+{
+    "eslint.validate": [
+        "svelte",
+        "typescript",
+        "javascript",
+        "ts"
+    ],
+    "editor.trimAutoWhitespace": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+}

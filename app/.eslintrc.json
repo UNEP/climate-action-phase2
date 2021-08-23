@@ -1,4 +1,5 @@
 {
+  "root": true,
   "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
@@ -20,7 +21,27 @@
     }
   ],
   "rules": {
-    "semi": "error"
+    "semi": "error",
+    "no-mixed-spaces-and-tabs": "error",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "no-irregular-whitespace": "error",
+    "no-tabs": "error",
+    "indent": ["error", 2],
+    "max-len": ["error", {
+      "code": 100,
+      "ignoreUrls": true,
+      "ignoreRegExpLiterals": true
+
+    }],
+    "eqeqeq": ["error", "always"],
+    "no-multi-spaces": "error",
+    "space-infix-ops": "error",
+    "space-unary-ops": [
+      "error", {
+        "words": true,
+        "nonwords": false
+      }
+    ]
   },
   "settings": {
     "svelte3/typescript": true

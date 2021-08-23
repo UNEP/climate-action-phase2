@@ -16,27 +16,33 @@
     .range(['#407aa9','#faba26','#62b048','#333333']);
 
   export const colorPM25 = scaleThreshold<number, string>()
-    .domain([...new Array(7)].map((d,i) => (i+1)*10))
+    .domain([...new Array(7)].map((d,i) => (i + 1) * 10))
     .range(['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080']);
 
   export const colorHealth = scaleThreshold<number, string>()
     .domain([10,20,30,40,50,60,70,80,100])
-    .range(['#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877', '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382']);
+    .range([
+      '#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877',
+      '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
+    ]);
+
+  export const colorPolices = scaleOrdinal<string>()
+    .domain(['Has policies', 'Has no policies', 'Could be better', 'No data'])
+    .range(['#0074B2','#BABABA','#5A93B4','#E6E6E6']);
 
 </script>
 
 <script lang="ts">
-	import { scaleOrdinal, scaleThreshold } from 'd3-scale';
-	import type { Content } from 'src/types';
-	import CartoWorld from 'src/components/CartoWorld.svelte';
-	import CartoRegion from 'src/components/CartoRegion.svelte';
-	import Intro from 'src/components/text/Intro.svelte';
-	import Text from 'src/components/text/Text.svelte';
-	import TopNav from 'src/components/nav/TopNav.svelte';
-	import Footer from './components/nav/Footer.svelte';
-	import text from 'src/text.json';
-  import FinalSummary from 'src/components/CountrySearch.svelte';
-  import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
+  import { scaleOrdinal, scaleThreshold } from 'd3-scale';
+  import type { Content } from 'src/types';
+  import CartoWorld from 'src/components/CartoWorld.svelte';
+  import CartoRegion from 'src/components/CartoRegion.svelte';
+  import Intro from 'src/components/text/Intro.svelte';
+  import Text from 'src/components/text/Text.svelte';
+  import TopNav from 'src/components/nav/TopNav.svelte';
+  import Footer from './components/nav/Footer.svelte';
+  import text from 'src/text.json';
+  import Menu from './components/nav/Menu.svelte';
 
   const content: Content[] = text.article;
 
@@ -45,19 +51,13 @@
     'carto-region': CartoRegion,
     'intro': Intro,
     'text': Text,
-    'methodology': MethodologySourcesText
+    "menu": Menu,
   };
-
 </script>
-
-
 
 <TopNav />
 <main>
   <article>
-    <div>
-      <FinalSummary/>
-    </div>
     {#each content as block}
       {#if components[block.type]}
         <svelte:component this={components[block.type]} {...block} />
@@ -68,6 +68,3 @@
   </article>
 </main>
 <Footer />
-<style>
-
-</style>

@@ -20,8 +20,8 @@
                     "value": 124.49999999999997
                 }
             ],
-            "posX": 620,
-            "posY": 150,
+            "posX": 640,
+            "posY": 120,
             "numCountries": 45,
             "totalValue": 986.9000000000003
         },
@@ -45,8 +45,8 @@
                     "value": 140.2
                 }
             ],
-            "posX": 370,
-            "posY": 105,
+            "posX": 365,
+            "posY": 90,
             "numCountries": 53,
             "totalValue": 843.3000000000002
         },
@@ -70,8 +70,8 @@
                     "value": 120.40000000000003
                 }
             ],
-            "posX": 280,
-            "posY": 210,
+            "posX": 310,
+            "posY": 195,
             "numCountries": 53,
             "totalValue": 2048.900000000001
         },
@@ -95,8 +95,8 @@
                     "value": 90.7
                 }
             ],
-            "posX": 85,
-            "posY": 240,
+            "posX": 60,
+            "posY": 205,
             "numCountries": 36,
             "totalValue": 631.4000000000001
         },
@@ -120,8 +120,8 @@
                     "value": 116.6
                 }
             ],
-            "posX": 440,
-            "posY": 210,
+            "posX": 470,
+            "posY": 195,
             "numCountries": 12,
             "totalValue": 541.9
         },
@@ -146,12 +146,12 @@
                 }
             ],
             "posX": 60,
-            "posY": 145,
+            "posY": 130,
             "numCountries": 2,
             "totalValue": 14.699999999999998
         }
     ],
     "scale_width": 800,
-    "scale_height": 500,
+    "scale_height": 400,
     "type": "fuel"
 }
