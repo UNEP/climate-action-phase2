@@ -6,7 +6,7 @@
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorPM25, colorHealth, colorPolices } from "src/App.svelte";
+  import { colorPM25, colorHealth, colorPolices } from "src/colors";
   import {createLookup} from 'src/util';
 
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";

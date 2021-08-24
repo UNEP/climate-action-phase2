@@ -29,7 +29,7 @@
 <script lang="ts">
   import Annotation from 'src/components/maps/Annotation.svelte';
   import * as d3 from 'src/d3';
-  import {colorSectors, colorFuels} from 'src/App.svelte';
+  import {colorSectors, colorFuels} from 'src/colors';
   import type { CartoRegionData } from 'src/types';
 
   interface Position{

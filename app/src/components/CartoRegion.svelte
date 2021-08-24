@@ -2,7 +2,7 @@
   import TreemapSvg from 'src/components/charts/TreemapSVG.svelte';
   import {sectoralBD, differentFuels} from 'src/data';
   import Legend from 'src/components/common/Legend.svelte';
-  import { colorFuels, colorSectors } from "src/App.svelte";
+  import { colorFuels, colorSectors } from "src/colors";
   import ScrollableX from './common/ScrollableX.svelte';
   interface Text {
     p : string;
