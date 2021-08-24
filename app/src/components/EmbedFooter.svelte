@@ -1,6 +1,6 @@
 <script lang="ts">
   import svgs from '../svg';
-  import BaseFooter from './ComponentFooter.svelte';
+  import BaseFooter from 'src/components/ChartFooter.svelte';
   export var embed: string;
 
   var showEmbedCode: boolean = false;
@@ -34,7 +34,7 @@
 <BaseFooter icon={svgs.embed}>
   <slot slot="text">
     {#if !showEmbedCode}
-      <a href="hola" on:click={click}>Want to embed the visualizations?</a>
+      <a href="EmbedCode" on:click={click}>Want to embed the visualizations?</a>
       {/if}
   </slot>
   <div slot="content" class="input-container">
