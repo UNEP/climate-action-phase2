@@ -12,6 +12,7 @@
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
   import type { TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
+  import EmbedFooter from "./EmbedFooter.svelte";
 
   export var data : "pm25" | "health" | "policies";
   export var head: string;
@@ -93,9 +94,10 @@
 
     pm25: {
       data: pm25data.map(d => {
+        console.log(d.id);
         return {
           name: countryNameDictionaryLookup[d.id].name,
-          short: countryNameDictionaryLookup[d.id].name,
+          short: countryNameDictionaryLookup[d.id].short,
           code: d.id,
           x: d.x,
           y: d.y,
@@ -140,7 +142,7 @@
       data: deaths_data.map(d => {
         return {
           name: countryNameDictionaryLookup[d.id].name,
-          short: countryNameDictionaryLookup[d.id].name,
+          short: countryNameDictionaryLookup[d.id].short,
           code: d.id,
           x: d.x,
           y: d.y,
@@ -247,8 +249,21 @@
     </div>
   </ScrollableX>
 
+  <div class="footer">
+    <EmbedFooter
+      embed = "LOL">
+    </EmbedFooter>
+  </div>
+
   {#each text as t}
     <p class='col-text'>{@html t.p}</p>
   {/each}
 
 </section>
+
+<style>
+  .footer {
+    margin-bottom: 30px;
+    margin-top: -4rem;
+  }
+</style>
