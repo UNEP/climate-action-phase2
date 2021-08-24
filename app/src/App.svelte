@@ -8,8 +8,11 @@
   import Footer from './components/nav/Footer.svelte';
   import text from 'src/text.json';
   import Menu from './components/nav/Menu.svelte';
+  import BaseEmbed from './components/BaseEmbed.svelte';
 
   const content: Content[] = text.article;
+  export var embed: string;
+  const embedBlock = embed && content.find(b => b.embed === embed);
 
   const components = {
     'carto-world': CartoWorld,
@@ -20,16 +23,24 @@
   };
 </script>
 
-<TopNav />
-<main>
-  <article>
-    {#each content as block}
-      {#if components[block.type]}
-        <svelte:component this={components[block.type]} {...block} />
-      {:else}
-        <div>Missing component for '{block.type}'</div>
-      {/if}
-    {/each}
-  </article>
-</main>
-<Footer />
+{#if embedBlock}
+  <BaseEmbed header='test'>
+    <div slot="viz" class="cartogram-pane">
+      <svelte:component this={components[embedBlock.type]} {...embedBlock} />
+    </div>
+  </BaseEmbed>
+{:else}
+  <TopNav />
+  <main>
+    <article>
+      {#each content as block}
+        {#if components[block.type]}
+          <svelte:component this={components[block.type]} {...block} />
+        {:else}
+          <div>Missing component for '{block.type}'</div>
+        {/if}
+      {/each}
+    </article>
+  </main>
+  <Footer />
+{/if}

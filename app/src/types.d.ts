@@ -19,6 +19,7 @@ export interface Content {
   text?: TextBlock[];
   menu?: string;
   anchor?: string;
+  embed?: string;
 }
 
 interface Region {
