@@ -4,6 +4,7 @@
   import Legend from 'src/components/common/Legend.svelte';
   import { colorFuels, colorSectors } from "src/App.svelte";
   import ScrollableX from './common/ScrollableX.svelte';
+
   interface Text {
     p : string;
   }
@@ -77,8 +78,7 @@
           .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
   }
 </script>
-
-<section class='viz wide'>
+<section class='viz wide' id={data}>
   <h2 class='narrow'>{@html head}</h2>
 
 	<div class='right-narrow' >

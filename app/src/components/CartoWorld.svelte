@@ -228,27 +228,25 @@
   $: height = width * (data === 'pm25' ? .55 : .62);
 
 </script>
+  <section id="{data}" class="viz wide">
+    <h2 class='narrow'>{@html head}</h2>
 
-<section class="viz wide">
-  <h2 class='narrow'>{@html head}</h2>
-
-  <div class="right-narrow" >
-    <Legend
-      title = {datasetParams[data].legendTitle}
-      colors = {datasetParams[data].color.range()}
-      labels = {datasetParams[data].legendDomain}
-      type = {datasetParams[data].legendType}
-      bind:selected = {legendElementSelectedIndex}
-    />
-  </div>
-  <ScrollableX>
-    <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-      <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
+    <div class="right-narrow" >
+      <Legend
+        title = {datasetParams[data].legendTitle}
+        colors = {datasetParams[data].color.range()}
+        labels = {datasetParams[data].legendDomain}
+        type = {datasetParams[data].legendType}
+        bind:selected = {legendElementSelectedIndex}
+      />
     </div>
-  </ScrollableX>
+    <ScrollableX>
+      <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
+        <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
+      </div>
+    </ScrollableX>
 
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
-
-</section>
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+  </section>

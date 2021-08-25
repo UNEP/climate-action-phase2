@@ -53,18 +53,19 @@
     'text': Text,
     "menu": Menu,
   };
+
 </script>
 
-<TopNav />
-<main>
-  <article>
-    {#each content as block}
-      {#if components[block.type]}
-        <svelte:component this={components[block.type]} {...block} />
-      {:else}
-        <div>Missing component for '{block.type}'</div>
-      {/if}
-    {/each}
-  </article>
-</main>
-<Footer />
+  <TopNav />
+  <main>
+    <article>
+      {#each content as block}
+        {#if components[block.type]}
+          <svelte:component this={components[block.type]} {...block}/>
+        {:else}
+          <div>Missing component for '{block.type}'</div>
+        {/if}
+      {/each}
+    </article>
+  </main>
+  <Footer/>
