@@ -1,16 +1,10 @@
 <script lang="ts">
   import IframeResizingContainer from 'src/components/IframeResizingContainer.svelte';
   import Logo from './nav/Logo.svelte';
-
-  export var header: string;
-
 </script>
 
 <IframeResizingContainer>
   <div class="container">
-
-    <h1>{header}</h1>
-
     <div class="content">
 
       <slot name="legend" />
@@ -67,12 +61,6 @@
     margin-top:0;
   }
 
-  h1 {
-    font-size: 22px;
-    line-height: 28px;
-    margin-top: 0;
-  }
-
   .viz-pane {
     position: relative;
   }
@@ -124,7 +112,7 @@
 
 
   @media (min-width: 1100px) {
-    .content, h1 {
+    .content {
       margin-left:12px;
     }
 

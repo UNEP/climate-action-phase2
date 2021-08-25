@@ -24,7 +24,7 @@
 </script>
 
 {#if embedBlock}
-  <BaseEmbed header='test'>
+  <BaseEmbed>
     <div slot="viz" class="cartogram-pane">
       <svelte:component this={components[embedBlock.type]} {...embedBlock} />
     </div>
