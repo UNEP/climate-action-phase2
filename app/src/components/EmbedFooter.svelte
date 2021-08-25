@@ -59,7 +59,11 @@
       outline: 1px solid #555;
       outline-width: 0px;
       background: #f6f6f6;
+      border: 1px solid #999;
+      border-radius: 2px;
+      padding: .4em;
   }
+
   .visible {
       visibility: visible;
   }
