@@ -43,6 +43,7 @@
   import Footer from './components/nav/Footer.svelte';
   import text from 'src/text.json';
   import Menu from './components/nav/Menu.svelte';
+  import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
 
   const content: Content[] = text.article;
 
@@ -52,6 +53,7 @@
     'intro': Intro,
     'text': Text,
     "menu": Menu,
+    'methodology': MethodologySourcesText
   };
 
 </script>
