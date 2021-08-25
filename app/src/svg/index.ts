@@ -4,11 +4,11 @@ import arrowLeft from './arrow-left.svg';
 import dataSource from './icons_data-source.svg';
 import embed from './icons_embed.svg';
 
-import iconData from './icons_data.svg';
-import iconDeaths from './icons_deaths.svg';
-import iconFuels from './icons_fuels.svg';
-import iconPM25 from './icons_pm25.svg';
-import iconSectors from './icons_sectors.svg';
+import data from './icons_data.svg';
+import deaths from './icons_deaths.svg';
+import fuels from './icons_fuels.svg';
+import pm25 from './icons_pm25.svg';
+import sectors from './icons_sectors.svg';
 
 export default {
   dataSource,
@@ -17,9 +17,11 @@ export default {
     right: arrowRight,
     left: arrowLeft
   },
-  iconData,
-  iconDeaths,
-  iconFuels,
-  iconPM25,
-  iconSectors
+  menu : {
+    data,
+    deaths,
+    fuels,
+    pm25,
+    sectors
+  }
 };

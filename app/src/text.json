@@ -37,32 +37,32 @@
       "options": [
         {
           "a": "pm25",
-          "icon": "iconPM25",
+          "icon": "pm25",
           "label": "PM2.5 levels"
         },
         {
           "a": "sectors",
-          "icon": "iconSectors",
+          "icon": "sectors",
           "label": "Origin sectors"
         },
         {
           "a": "fuel",
-          "icon": "iconFuels",
+          "icon": "fuels",
           "label": "Fuel sources"
         },
         {
           "a": "health",
-          "icon": "iconDeaths",
+          "icon": "deaths",
           "label": "Deaths"
         },
         {
           "a": "policies",
-          "icon": "iconData",
+          "icon": "data",
           "label": "Policies"
         },
         {
           "a": "methodology",
-          "icon": "iconData",
+          "icon": "data",
           "label": "Data"
         }
       ]

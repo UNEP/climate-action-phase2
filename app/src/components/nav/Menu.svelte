@@ -27,19 +27,19 @@
 <nav class="sections-menu" role="navigation" id="main-menu">
   {#if hasValidOptions}
     <ul class='menu sections'>
-      {#each options as i}
-        <li class={i.a === 'pm25' ? "active" : ""}>
+      {#each options as option}
+        <li class={option.a === 'pm25' ? "active" : ""}>
 
-          <a href='#{i.a}'
+          <a href='#{option.a}'
             on:click={animateScroll.scrollTo({
-              element: '#' + i.a,
+              element: '#' + option.a,
               onStart: () => ms.dissableUpdate(),
               onDone: () => { ms.enableUpdate(); ms.tick(); }
             })}
           >
             <div class="menu-option">
-              <div class="icon">{@html svg[i.icon]}</div>
-              <div class="text">{i.label}</div>
+              <div class="icon">{@html svg.menu[option.icon]}</div>
+              <div class="text">{option.label}</div>
             </div>
           </a>
 
@@ -55,7 +55,6 @@
 
   .sections-menu {
     float: left;
-    padding: 20px;
     position: sticky;
     margin:0;
     max-width: 10rem;
@@ -64,43 +63,44 @@
     z-index: 6;
     pointer-events: all;
   }
+
   .sections-menu ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #f1f1f1;
-    border: 1px solid #555
+    background-color: #f9f9f9;
+    border: 2px solid #dbdbdb
   }
+
   li:last-child{
     border-bottom: none;
   }
-
 
   li a{
     display: block;
     height: 100%;
     border-bottom: none;
   }
+
   li {
     width: 100%;
-    height: 40px;
-    border-bottom: 1px solid #555;
+    height: 45px;
+    border-bottom: 2px solid #dbdbdb;
   }
 
   .icon {
-    width: 25px;
-    height: 25px;
-    margin-top: 7.5px;
-    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
     z-index: 2;
     float: left;
   }
 
   .text {
     float: left;
-    margin-top: 9px;
-
+    padding-top: 12.5px;
+    padding-left: 10px;
+    color: #808080;
   }
 
   .menu-option {
@@ -108,12 +108,26 @@
   }
 
   .active{
-    color: white;
-    background-color: black;
+    background-color: #181818;
+  }
+
+  li:hover:not(.active) :global(svg *){
+    stroke: #e5e5e5;
+  }
+
+  li:hover:not(.active)  .text{
+    color: #e5e5e5;
   }
 
   li:hover:not(.active) {
     background-color: #555;
-    color: white;
+  }
+
+  .active .icon :global(svg *){
+    stroke: #e5e5e5;
+  }
+
+  .active .text {
+    color: #e5e5e5;
   }
 </style>
