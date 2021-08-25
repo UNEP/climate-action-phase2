@@ -13,6 +13,7 @@
   export let data : string;
   export let head : string;
   export let text : Text[];
+  export let embed : boolean = true;
 
   const treemapParams = {
     [TreemapType.fuel] : {
@@ -103,10 +104,12 @@
       </div>
     </ScrollableX>
   </div>
-
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
+  
+  {#if !embed}
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+  {/if}
 
 </section>
 

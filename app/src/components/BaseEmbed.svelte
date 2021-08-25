@@ -4,7 +4,7 @@
 </script>
 
 <IframeResizingContainer>
-  <div class="container">
+  <div class="container" style= "display: block">
     <div class="content">
 
       <slot name="legend" />
@@ -13,14 +13,14 @@
         <slot name="viz" />
       </div>
 
-      <div class="logo">
-        <Logo />
-        <div  class="copy">
-          <p>
-            To explore more about the climate emergency and
-            the effects on the planet visit
-            <b><a href="https://www.unep.org/">unep.org</a></b>
-          </p>
+      <div class="footer-embed">
+        <div class="logo">
+          <Logo />
+        </div>
+  
+        <div class="text-unep-endorsement">
+          <p>The boundaries and names shown, and the designations used on 
+            this map do not imply official endorsement or acceptance by the United Nations.</p>
         </div>
       </div>
 
@@ -40,29 +40,61 @@
     font-size: 24px;
   }
 
+  .container :global(.embed-additional-text) {
+    max-width: 20%;
+    display:flex;
+    position: absolute;
+  }
+
+  .container :global(.cartogram) {
+    display: flex;
+    padding: 0 0 0;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0 0 0;
+    margin-top: 0%;
+  }
+
+  .container :global(.Legend) {
+    display: flex;
+    position: absolute;
+  }
+
+  .container :global(.cartogram-pane) {
+    padding-left: 0;
+    margin: 0 0 0;
+  }
+
+  .footer-embed {
+    display: flex;
+  }
+
+  p {
+    font-weight:400;
+    padding-left: 20%;
+    color:dimgray;
+    display:flex;
+    text-align: right;
+    padding-right: 20%;
+  }
+
   .container {
     padding: 20px 20px 0;
-    max-width: 1100px;
+    max-width: 100%;
+    padding-left: 0px;
+    margin: 0px 0px 0;
     margin: auto;
     overflow-x: hidden;
+    position:relative;
   }
 
   .content {
     position: relative;
   }
 
-  .copy {
-    font-size: 18px;
-    line-height: 1.5;
-    font-weight: 300;
-  }
-
-  p {
-    margin-top:0;
-  }
-
   .viz-pane {
     position: relative;
+    margin-left: 0%;
   }
 
   .logo {
@@ -82,29 +114,15 @@
   @media (min-width: 800px) {
 
     .viz-pane {
-      margin-left: 25%;
-    }
-    .copy {
-      position: absolute;
-      top: 30px;
-      left: 0;
-      width: 20%;
-      min-width: 180px;
-    }
-
-    p {
-      margin-top:10px;
+      margin-left: 0%;
     }
 
     .container {
-      padding: 20px 12px 0;
+      padding: 0px 12px 0;
     }
   }
 
   @media (max-width: 600px) {
-    .copy {
-      font-size: 14px;
-    }
     .container {
       padding: 20px 12px 0;
     }

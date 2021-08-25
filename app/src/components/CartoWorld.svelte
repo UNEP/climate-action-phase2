@@ -16,6 +16,7 @@
   export var data : "pm25" | "health" | "policies";
   export var head: string;
   export var text: TextBlock[];
+  export var embed: boolean = true;
 
   interface PoliciesData {
     name : string;
@@ -230,6 +231,7 @@
 </script>
 
 <section class="viz wide">
+
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >
@@ -241,14 +243,27 @@
       bind:selected = {legendElementSelectedIndex}
     />
   </div>
+
+  {#if embed}
+    <div class="embed-additional-text">
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
   <ScrollableX>
     <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
       <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
     </div>
   </ScrollableX>
 
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
+  {#if embed === false}
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+  {/if}
 
 </section>
