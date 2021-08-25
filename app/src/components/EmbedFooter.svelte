@@ -52,10 +52,10 @@
       align-items: center;
   }
   input {
-      visibility: hidden;
+      display: none;
       margin: 0;
       font-size: 13px;
-      width: 300px;
+      width: 250px;
       outline: 1px solid #555;
       outline-width: 0px;
       background: #f6f6f6;
@@ -65,6 +65,6 @@
   }
 
   .visible {
-      visibility: visible;
+      display: block;
   }
 </style>
