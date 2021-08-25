@@ -1,6 +1,6 @@
 <script lang="ts">
   import svgs from '../svg';
-  import BaseFooter from 'src/components/ChartFooter.svelte';
+  import ChartFooter from 'src/components/ChartFooter.svelte';
   export var embed: string;
 
   var showEmbedCode: boolean = false;
@@ -31,7 +31,7 @@
 
 </script>
 
-<BaseFooter icon={svgs.embed}>
+<ChartFooter icon={svgs.embed}>
   <slot slot="text">
     {#if !showEmbedCode}
       <a href="EmbedCode" on:click={click}>Want to embed the visualizations?</a>
@@ -44,7 +44,7 @@
       class:visible={showEmbedCode}
       value="<script async src='{embedScript}' data-embed='{embed}'></script>" />
   </div>
-</BaseFooter>
+</ChartFooter>
 
 <style>
   .input-container {
