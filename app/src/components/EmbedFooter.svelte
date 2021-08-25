@@ -38,11 +38,11 @@
       {/if}
   </slot>
   <div slot="content" class="input-container">
-      <input type="text" bind:this={inputEl} readonly={true}
-          on:click={selectAll}
-          on:blur={reset}
-          class:visible={showEmbedCode}
-          value="<script async src='{embedScript}' data-embed='{embed}'></script>" />
+    <input type="text" bind:this={inputEl} readonly={true}
+      on:click={selectAll}
+      on:blur={reset}
+      class:visible={showEmbedCode}
+      value="<script async src='{embedScript}' data-embed='{embed}'></script>" />
   </div>
 </BaseFooter>
 
