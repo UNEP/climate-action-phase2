@@ -1,19 +1,16 @@
 <script lang="ts">
-  import ScrollableX from 'src/components/common/ScrollableX.svelte';
   export var icon: string;
 </script>
 
 <footer >
   <div class="footer-content">
-      <ScrollableX>
-          <div class="datasource">
-              <div class="datasource-icon">{@html icon}</div>
-              <span class="datasource-text">
-                  <slot name="text" />
-              </span>
-              <slot name="content"/>
-          </div>
-      </ScrollableX>
+        <div class="datasource">
+            <div class="datasource-icon">{@html icon}</div>
+            <span class="datasource-text">
+                <slot name="text" />
+            </span>
+            <slot name="content"/>
+        </div>
   </div>
 </footer>
 
