@@ -4,13 +4,11 @@
 
 <footer >
   <div class="footer-content">
-        <div class="datasource">
-            <div class="datasource-icon">{@html icon}</div>
-            <span class="datasource-text">
-                <slot name="text" />
-            </span>
-            <slot name="content"/>
-        </div>
+    <div class="footer-icon">{@html icon}</div>
+    <span class="footer-text">
+        <slot name="text" />
+    </span>
+    <slot name="content"/>
   </div>
 </footer>
 
@@ -20,9 +18,6 @@
   }
   .footer-content {
       max-width: 1100px;
-  }
-
-  .datasource {
       height: 50px;
       font-size: 16px;
       display: flex;
@@ -32,28 +27,18 @@
       white-space: nowrap;
   }
 
-  .datasource .datasource-text {
-      padding-right: 10px;
-  }
-
-  .datasource-icon {
+  .footer-icon {
       flex: 0 0 28px;
       padding-left: 0px;
       margin-right: 6px;
       position: relative;
       top: 2px;
   }
-  .datasource-icon :global(svg *) {
+  .footer-icon :global(svg *) {
       stroke: #666666;
   }
   @media (max-width: 700px) {
-      .datasource {
-          height: 40px;
-          font-size: 14px;
-          color:#333;
-      }
-
-      .datasource-icon {
+      .footer-icon {
           flex: 0 0 20px;
           top: 0;
       }
