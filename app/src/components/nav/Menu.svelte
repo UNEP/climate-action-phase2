@@ -9,54 +9,178 @@
   import MenuSpy from "src/components/nav/menuspy";
   import { onMount } from "svelte";
   import * as animateScroll from "svelte-scrollto";
-
   export let options: MenuNav[];
 
+  import type {MenuSpyParams} from 'src/components/nav/menuspy';
+
   const hasValidOptions = options instanceof Array;
-
-
   var elm : Element;
   var ms : MenuSpy;
+  var msParams  :  MenuSpyParams = {
+    menuItemSelector : 'div[href^="#"]',
+    activeClass: 'active',
+    threshold: 600,
+    enableLocationHash: false,
+    hashTimeout: 0,
+    callback: null
+  }
 
   onMount(() => {
     elm = document.querySelector('#main-menu');
-    ms = new MenuSpy(elm);
+    ms = new MenuSpy(elm, msParams);
   });
+
 </script>
 
-<nav class="sections-menu" role="navigation" id="main-menu">
+<nav class="mainnavbuttons" id="main-menu">
   {#if hasValidOptions}
-    <ul class='menu sections'>
       {#each options as option}
-        <li class={option.a === 'pm25' ? "active" : ""}>
-
-          <a href='#{option.a}'
-            on:click={animateScroll.scrollTo({
+        <button
+          class={option.a === 'pm25' ? "active" : ""}
+          on:click=
+          {
+            animateScroll.scrollTo({
               element: '#' + option.a,
+              offset: -75,
               onStart: () => ms.dissableUpdate(),
               onDone: () => { ms.enableUpdate(); ms.tick(); }
-            })}
-          >
-            <div class="menu-option">
-              <div class="icon">{@html svg.menu[option.icon]}</div>
+            })
+          }
+        >
+
+          <div class="buttoncontent" href='#{option.a}' id= "{option.a}div">
+            <div class="icon">{@html svg.menu[option.icon]}</div>
+            <div class="text-container">
               <div class="text">{option.label}</div>
             </div>
-          </a>
+          </div>
 
-        </li>
+        </button>
       {/each}
-    </ul>
   {:else}
     <div>Menu: Invalid options</div>
   {/if}
 </nav>
 
+
 <style>
 
-  .sections-menu {
-    float: left;
+  .mainnavbuttons {
     position: sticky;
-    margin:0;
+    top:0;
+    left: 100%;
+    z-index: 6;
+    width: 200px;
+    border-top: 1px solid #DCDCDC;
+    float: left;
+  }
+  button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #DCDCDC;
+    border-right: 2px solid #DCDCDC;
+    border-left: 2px solid #DCDCDC;
+    cursor: default;
+  }
+
+
+  .buttoncontent {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+  }
+
+
+
+  .text-container {
+    padding-left: 10px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  .icon {
+    float: left;
+    width: 48px;
+    height: 48px;
+    padding: 8px;
+    box-sizing: border-box;
+    z-index: 2;
+  }
+
+  button:hover:not(.active) :global(svg *){
+    stroke: #e5e5e5;
+  }
+
+  button:hover:not(.active)  .text{
+    color: #e5e5e5;
+  }
+
+  button:hover:not(.active) {
+    background-color: #555;
+  }
+  button:not(.active){
+    cursor: pointer;
+  }
+  .active .icon :global(svg *){
+    stroke: #e5e5e5;
+  }
+
+  .active .text {
+    color: #e5e5e5;
+  }
+
+  .active{
+    background-color: #181818;
+  }
+
+
+  @media (max-width: 1400px) {
+
+
+    .text-container{
+      display: none;
+    }
+    .active .text-container{
+      display: flex;
+    }
+    .mainnavbuttons {
+        display: flex;
+        float: none;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        border-top: none;
+        border-left: 1px solid #DCDCDC;
+    }
+
+    button {
+        flex-grow: 0;
+        flex-shrink: 1;
+        flex-basis: 50px;
+        transition: flex 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+        border-top: 1px solid #DCDCDC;
+        border-left:none;
+    }
+
+    button.active {
+        flex-grow: 1;
+    }
+
+    button .buttoncontent {
+        width: 100% !important;
+        transition: background-color 300ms, border-color 300ms;
+    }
+  }
+</style>
+<!--<style>
+
+  .mainnavbuttons {
+    position: sticky;
+
     max-width: 10rem;
     top:0;
     left: 100%;
@@ -64,29 +188,10 @@
     pointer-events: all;
   }
 
-  .sections-menu ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
+
+  button {
     background-color: #f9f9f9;
-    border: 2px solid #dbdbdb
-  }
-
-  li:last-child{
-    border-bottom: none;
-  }
-
-  li a{
-    display: block;
-    height: 100%;
-    border-bottom: none;
-  }
-
-  li {
-    width: 100%;
-    height: 45px;
-    border-bottom: 2px solid #dbdbdb;
+    border: 2px solid #dbdbdb;
   }
 
   .icon {
@@ -97,29 +202,23 @@
   }
 
   .text {
-    float: left;
-    padding-top: 12.5px;
-    padding-left: 10px;
+    width: 100%;
     color: #808080;
-  }
-
-  .menu-option {
-    display: block;
   }
 
   .active{
     background-color: #181818;
   }
 
-  li:hover:not(.active) :global(svg *){
+  button:hover:not(.active) :global(svg *){
     stroke: #e5e5e5;
   }
 
-  li:hover:not(.active)  .text{
+  button:hover:not(.active)  .text{
     color: #e5e5e5;
   }
 
-  li:hover:not(.active) {
+  button:hover:not(.active) {
     background-color: #555;
   }
 
@@ -130,4 +229,5 @@
   .active .text {
     color: #e5e5e5;
   }
-</style>
+
+</style>-->

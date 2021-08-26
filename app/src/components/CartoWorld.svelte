@@ -94,7 +94,6 @@
 
     pm25: {
       data: pm25data.map(d => {
-        console.log(d.id);
         return {
           name: countryNameDictionaryLookup[d.id].name,
           short: countryNameDictionaryLookup[d.id].short,

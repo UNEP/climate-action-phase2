@@ -1,4 +1,4 @@
-interface MenuSpyParams {
+export interface MenuSpyParams {
     menuItemSelector: string;
     activeClass: string;
     threshold: number;
@@ -40,7 +40,7 @@ class MenuSpy {
       const defaults : MenuSpyParams = {
         menuItemSelector   : 'a[href^="#"]',
         activeClass        : 'active',
-        threshold          : 0,
+        threshold          : 15,
         enableLocationHash : true,
         hashTimeout        : 600,
         callback           : null,
@@ -80,7 +80,7 @@ class MenuSpy {
       this.scrollItems = this.menuItems.map((elm) => {
         const target = elm.dataset.target ?
           document.querySelector(elm.dataset.target) :
-          document.getElementById(elm.hash.slice(1));
+          document.getElementById(elm.getAttribute('href').slice(1));
         if (target) {
           const offset = Math.floor(utils.getOffset(target).top);
           return { elm, target, offset } as CacheItem ;
