@@ -16,14 +16,14 @@
   const hasValidOptions = options instanceof Array;
   var elm : Element;
   var ms : MenuSpy;
-  var msParams  :  MenuSpyParams = {
+  var msParams : MenuSpyParams = {
     menuItemSelector : 'div[href^="#"]',
     activeClass: 'active',
     threshold: 600,
     enableLocationHash: false,
     hashTimeout: 0,
     callback: null
-  }
+  };
 
   onMount(() => {
     elm = document.querySelector('#main-menu');
@@ -146,7 +146,17 @@
     }
     .active .text-container{
       display: flex;
+
     }
+
+    .text{
+      opacity: 0;
+    }
+    .active .text{
+      opacity: 1;
+      animation: fadeIn 1.5s forwards;
+    }
+
     .mainnavbuttons {
         display: flex;
         float: none;
@@ -161,7 +171,7 @@
         flex-grow: 0;
         flex-shrink: 1;
         flex-basis: 50px;
-        transition: flex 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+        transition: flex 1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
         border-top: 1px solid #DCDCDC;
         border-left:none;
     }
@@ -175,59 +185,9 @@
         transition: background-color 300ms, border-color 300ms;
     }
   }
+
+  @keyframes fadeIn{
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
 </style>
-<!--<style>
-
-  .mainnavbuttons {
-    position: sticky;
-
-    max-width: 10rem;
-    top:0;
-    left: 100%;
-    z-index: 6;
-    pointer-events: all;
-  }
-
-
-  button {
-    background-color: #f9f9f9;
-    border: 2px solid #dbdbdb;
-  }
-
-  .icon {
-    width: 40px;
-    height: 40px;
-    z-index: 2;
-    float: left;
-  }
-
-  .text {
-    width: 100%;
-    color: #808080;
-  }
-
-  .active{
-    background-color: #181818;
-  }
-
-  button:hover:not(.active) :global(svg *){
-    stroke: #e5e5e5;
-  }
-
-  button:hover:not(.active)  .text{
-    color: #e5e5e5;
-  }
-
-  button:hover:not(.active) {
-    background-color: #555;
-  }
-
-  .active .icon :global(svg *){
-    stroke: #e5e5e5;
-  }
-
-  .active .text {
-    color: #e5e5e5;
-  }
-
-</style>-->
