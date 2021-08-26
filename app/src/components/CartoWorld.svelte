@@ -16,7 +16,7 @@
   export var data : "pm25" | "health" | "policies";
   export var head: string;
   export var text: TextBlock[];
-  export var embed: boolean = true;
+  export var embed: boolean = false;
 
   interface PoliciesData {
     name : string;
