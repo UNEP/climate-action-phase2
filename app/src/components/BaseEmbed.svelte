@@ -41,9 +41,20 @@
   }
 
   .container :global(.embed-additional-text) {
-    max-width: 20%;
+    max-width: 300px;
     display:flex;
     position: absolute;
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+
+  .container :global(.embed-additional-text-2) {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    border: 3px solid #73AD21;
   }
 
   .container :global(.cartogram) {
@@ -52,7 +63,18 @@
     padding-bottom: 0px;
     padding-top: 0px;
     margin: 0 0 0;
-    margin-top: 0%;
+    margin-top: 120px;
+    margin-bottom: 0px;
+  }
+
+  .container :global(.svg) {
+    display: flex;
+    padding: 0 0 0;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin: 0 0 0;
+    margin-top: 120px;
+    margin-bottom: 0px;
   }
 
   .container :global(.Legend) {
@@ -63,6 +85,12 @@
   .container :global(.cartogram-pane) {
     padding-left: 0;
     margin: 0 0 0;
+  }
+
+  
+  .container :global(.narrow) {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 
   .footer-embed {

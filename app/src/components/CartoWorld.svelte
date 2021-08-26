@@ -244,7 +244,7 @@
     />
   </div>
 
-  {#if embed}
+  {#if embed && width > 400}
     <div class="embed-additional-text">
       <p>
         To explore more about the climate emergency and
@@ -259,6 +259,17 @@
       <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
     </div>
   </ScrollableX>
+
+  {#if embed && width > 400}
+    <div class="embed-additional-text-2">
+      <p>
+        To explore more about the climate emergency and
+        the PITO
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
 
   {#if embed === false}
     {#each text as t}

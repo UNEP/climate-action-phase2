@@ -91,6 +91,17 @@
       bind:selected = {legendElementSelectedIndex}
 		/>
 	</div>
+
+  {#if embed && width > 400}
+    <div class="embed-additional-text">
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
   <div class="scroll-container" bind:clientWidth={clientWidth}>
     <ScrollableX>
       <div class="treemap-container" style="width:{width}px; height:{height}px">
