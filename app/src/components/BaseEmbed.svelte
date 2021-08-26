@@ -13,13 +13,13 @@
         <slot name="viz" />
       </div>
 
-      <div class="footer-embed">
+      <div class="footer-embed wide">
         <div class="logo">
           <Logo />
         </div>
-  
+
         <div class="text-unep-endorsement">
-          <p>The boundaries and names shown, and the designations used on 
+          <p>The boundaries and names shown, and the designations used on
             this map do not imply official endorsement or acceptance by the United Nations.</p>
         </div>
       </div>
@@ -42,19 +42,26 @@
 
   .container :global(.embed-additional-text) {
     max-width: 300px;
-    display:flex;
     position: absolute;
     padding-top: 0px;
     margin-top: 0px;
   }
 
-  .container :global(.embed-additional-text-2) {
+  .container :global(.embed-additional-text--mobile) {
+    display: none;
     position: absolute;
-    top: 80px;
+    bottom: 0;
     right: 0;
-    width: 200px;
-    height: 100px;
-    border: 3px solid #73AD21;
+  }
+
+
+  @media (max-width: 700px) {
+    .container :global(.embed-additional-text--mobile) {
+      display: block;
+    }
+    .container :global(.embed-additional-text--desktop) {
+      display: none;
+    }
   }
 
   .container :global(.cartogram) {
@@ -63,7 +70,6 @@
     padding-bottom: 0px;
     padding-top: 0px;
     margin: 0 0 0;
-    margin-top: 120px;
     margin-bottom: 0px;
   }
 
@@ -87,7 +93,7 @@
     margin: 0 0 0;
   }
 
-  
+
   .container :global(.narrow) {
     padding-bottom: 0px;
     margin-bottom: 0px;
@@ -97,13 +103,19 @@
     display: flex;
   }
 
-  p {
-    font-weight:400;
-    padding-left: 20%;
-    color:dimgray;
-    display:flex;
+  .text-unep-endorsement p {
+    font-weight: 300;
+    color: dimgray;
     text-align: right;
-    padding-right: 20%;
+    float: right;
+    max-width: 600px;
+
+    /* TOGGLE ON MOBILE
+    text-align: left;
+    margin-top: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    padding-left: 20px; */
   }
 
   .container {
@@ -162,6 +174,10 @@
       margin-left:12px;
     }
 
+  }
+
+  .text-unep-endorsement {
+    flex-grow: 1;
   }
 
 </style>
