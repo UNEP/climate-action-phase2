@@ -1,10 +1,15 @@
 <script lang="ts">
   import IframeResizingContainer from 'src/components/IframeResizingContainer.svelte';
   import Logo from './nav/Logo.svelte';
+
+  let width: number;
+  let align = 'right';
+
+  $: width < 700 ? align = 'left' : align = 'right';
 </script>
 
 <IframeResizingContainer>
-  <div class="container" style= "display: block">
+  <div class="container" style= "display: block" bind:clientWidth={width}>
     <div class="content">
 
       <slot name="legend" />
@@ -19,9 +24,10 @@
         </div>
 
         <div class="text-unep-endorsement">
-          <p>The boundaries and names shown, and the designations used on
+          <p style="text-align: {align};">The boundaries and names shown, and the designations used on
             this map do not imply official endorsement or acceptance by the United Nations.</p>
         </div>
+
       </div>
 
     </div>
@@ -45,6 +51,7 @@
     position: absolute;
     padding-top: 0px;
     margin-top: 0px;
+    padding-bottom: 0px;
   }
 
   .container :global(.embed-additional-text--mobile) {
@@ -54,13 +61,22 @@
     right: 0;
   }
 
-
   @media (max-width: 700px) {
     .container :global(.embed-additional-text--mobile) {
       display: block;
     }
     .container :global(.embed-additional-text--desktop) {
       display: none;
+    }
+    
+    .text-unep-endorsement p{
+      text-align: left;
+      float: left;
+      margin-top: 0;
+      padding-top: 0px;
+      font-size: 14px;
+      line-height: 1.7;
+      padding-left: 20px; 
     }
   }
 
@@ -79,7 +95,6 @@
     padding-bottom: 0px;
     padding-top: 0px;
     margin: 0 0 0;
-    margin-top: 120px;
     margin-bottom: 0px;
   }
 
@@ -103,19 +118,12 @@
     display: flex;
   }
 
-  .text-unep-endorsement p {
+  .text-unep-endorsement p{
     font-weight: 300;
     color: dimgray;
     text-align: right;
     float: right;
     max-width: 600px;
-
-    /* TOGGLE ON MOBILE
-    text-align: left;
-    margin-top: 0;
-    font-size: 14px;
-    line-height: 1.7;
-    padding-left: 20px; */
   }
 
   .container {
@@ -174,10 +182,18 @@
       margin-left:12px;
     }
 
+    .text-unep-endorsement {
+      flex-grow: 1;
+    }
+
+    .text-unep-endorsement p{
+      font-weight: 300;
+      color: dimgray;
+      text-align: right;
+      float: right;
+      max-width: 600px;
+    }
   }
 
-  .text-unep-endorsement {
-    flex-grow: 1;
-  }
 
 </style>

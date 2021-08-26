@@ -38,6 +38,7 @@
   const policiesLookup = createLookup(policies, d => d.id, d => d);
   const countryNameDictionaryLookup = createLookup(countryNameDictionary, d => d.id, d => d);
   let legendElementSelectedIndex: number = null;
+  let clientWidth = 0;
   let width : number;
   let height : number;
   let cartogramAnnotation: boolean;
@@ -227,6 +228,9 @@
 
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
+  $: {
+    width = Math.max(clientWidth, 700);
+  }
   $: height = width * (data === 'pm25' ? .55 : .62);
 
 </script>
@@ -245,7 +249,7 @@
     />
   </div>
 
-  {#if embed && width > 400}
+  {#if embed}
     <div class="embed-additional-text embed-additional-text--desktop">
       <p>
         To explore more about the climate emergency and
@@ -253,7 +257,25 @@
         <b><a href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
+  {/if}
 
+  <div class="b" bind:clientWidth={clientWidth}>
+    <ScrollableX>
+      <div
+        style="width:{width}px; height:{height}px"
+        class="cartogram-container"
+        class:background={cartogramAnnotation}
+      >
+        <Cartogram
+          {...datasetParams[data]}
+          bind:rerenderFn={rerender}
+          bind:annotationShowing={cartogramAnnotation}
+          />
+      </div>
+    </ScrollableX>
+  </div>
+
+  {#if embed}
     <div class="embed-additional-text embed-additional-text--mobile">
       <p>
         To explore more about air pollution visit
@@ -262,20 +284,6 @@
     </div>
   {/if}
 
-  <ScrollableX>
-    <div
-      bind:clientWidth={width}
-      style="width:{width}px; height:{height}px"
-      class="cartogram-container"
-      class:background={cartogramAnnotation}
-    >
-      <Cartogram
-        {...datasetParams[data]}
-        bind:rerenderFn={rerender}
-        bind:annotationShowing={cartogramAnnotation}
-        />
-    </div>
-  </ScrollableX>
 
   {#if embed === false}
     {#each text as t}
