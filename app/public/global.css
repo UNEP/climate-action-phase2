@@ -125,30 +125,30 @@ sup, sub { line-height: 0; }
 	h3 { font-size: 1.25rem; }
 
 	.narrow {
-		width:30rem;
-		margin-left:0;
-		margin-right:3rem;
+		width: 30rem;
+		margin-left: 0;
+		margin-right: 3rem;
 		display: inline-block;
-		padding-right:0;
+		padding-right: 0;
 	}
 	.right-narrow {
-		width:calc(100% - 34rem);
+		width: calc(100% - 34rem);
 		display: inline-block;
 		vertical-align: top;
-		margin:0;
+		margin: 0;
 	}
 	.col {
-		width:48rem;
-		padding-right:calc(100% - 48rem);
+		width: 48rem;
+		padding-right: calc(100% - 48rem);
 	}
 	.col-text {
-		width:52rem;
-		padding-right:calc(100% - 52rem);
+		width: 52rem;
+		padding-right: calc(100% - 52rem);
 	}
 
 	.wide {
-		max-width:72rem;
-		margin-left:0;
+		max-width: 72rem;
+		margin-left: 0;
 	}
 
 	.logo { width: 11rem; }
@@ -160,7 +160,7 @@ sup, sub { line-height: 0; }
 		margin: 0 auto;
 	}
 	.wide {
-		width:72rem;
-		padding-right:calc(100% - 72rem);
+		width: 72rem;
+		padding-right: calc(100% - 72rem);
 	}
 }
