@@ -40,6 +40,7 @@
   let legendElementSelectedIndex: number = null;
   let width : number;
   let height : number;
+  let cartogramAnnotation: boolean;
 
   let rerender: () => void;
 
@@ -254,11 +255,6 @@
     </div>
   {/if}
 
-  <ScrollableX>
-    <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-      <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
-    </div>
-  </ScrollableX>
 
   {#if embed && width > 400}
     <div class="embed-additional-text-2">
@@ -270,6 +266,20 @@
     </div>
   {/if}
 
+  <ScrollableX>
+    <div
+      bind:clientWidth={width}
+      style="width:{width}px; height:{height}px"
+      class="cartogram-container"
+      class:background={cartogramAnnotation}
+    >
+      <Cartogram
+        {...datasetParams[data]}
+        bind:rerenderFn={rerender}
+        bind:annotationShowing={cartogramAnnotation}
+        />
+    </div>
+  </ScrollableX>
 
   {#if embed === false}
     {#each text as t}
@@ -277,4 +287,13 @@
     {/each}
   {/if}
 
-</section>
+
+<style>
+  .cartogram-container {
+    transition: 300ms background-color 700ms;
+  }
+  .background {
+    background-color: #f3f3f3;
+    transition: 150ms background-color;
+  }
+</style>
