@@ -246,21 +246,17 @@
   </div>
 
   {#if embed && width > 400}
-    <div class="embed-additional-text">
+    <div class="embed-additional-text embed-additional-text--desktop">
       <p>
         To explore more about the climate emergency and
         the effects on the planet visit
         <b><a href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
-  {/if}
 
-
-  {#if embed && width > 400}
-    <div class="embed-additional-text-2">
+    <div class="embed-additional-text embed-additional-text--mobile">
       <p>
-        To explore more about the climate emergency and
-        the PITO
+        To explore more about air pollution visit
         <b><a href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
@@ -287,6 +283,7 @@
     {/each}
   {/if}
 
+</section>
 
 <style>
   .cartogram-container {
