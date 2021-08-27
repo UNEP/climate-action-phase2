@@ -34,7 +34,7 @@
 
 <nav class="mainnavbuttons" id="main-menu">
   {#if hasValidOptions}
-      {#each options as option}
+      {#each options as option, i}
         <button
           class={option.a === 'pm25' ? "active" : ""}
           on:click=
@@ -42,7 +42,10 @@
             animateScroll.scrollTo({
               element: '#' + option.a,
               offset: -75,
-              onStart: () => ms.dissableUpdate(),
+              onStart: () => {
+                ms.activateItem(ms.scrollItems[i]);
+                ms.dissableUpdate();
+              },
               onDone: () => { ms.enableUpdate(); ms.tick(); }
             })
           }
@@ -149,7 +152,7 @@
 
     }
 
-    .text{
+    .text {
       opacity: 0;
     }
     .active .text{
