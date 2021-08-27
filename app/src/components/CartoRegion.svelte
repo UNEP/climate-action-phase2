@@ -102,13 +102,6 @@
         <b><a href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
-
-    <div class="embed-additional-text embed-additional-text--mobile">
-      <p>
-        To explore more about air pollution visit
-        <b><a href="https://www.unep.org/">unep.org</a></b>
-      </p>
-    </div>
   {/if}
 
   <div class="scroll-container" bind:clientWidth={clientWidth}>
@@ -125,7 +118,7 @@
       </div>
     </ScrollableX>
   </div>
-  
+
   {#if !embed}
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>

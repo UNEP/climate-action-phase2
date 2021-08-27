@@ -275,16 +275,6 @@
     </ScrollableX>
   </div>
 
-  {#if embed}
-    <div class="embed-additional-text embed-additional-text--mobile">
-      <p>
-        To explore more about air pollution visit
-        <b><a href="https://www.unep.org/">unep.org</a></b>
-      </p>
-    </div>
-  {/if}
-
-
   {#if embed === false}
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>

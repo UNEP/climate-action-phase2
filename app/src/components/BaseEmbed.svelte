@@ -4,6 +4,8 @@
 
   let width: number;
   let align = 'right';
+  let textHeight: number;
+  let logoWidth: number;
 
   $: width < 700 ? align = 'left' : align = 'right';
 </script>
@@ -18,12 +20,19 @@
         <slot name="viz" />
       </div>
 
+      <div style="position: absolute; bottom: {textHeight}px; margin-left: {logoWidth}px; padding-left: 20px;">
+        <p style="margin: 0; padding: 0;">
+          To explore more about air pollution visit
+          <b><a href="https://www.unep.org/">unep.org</a></b>
+        </p>
+      </div>
+
       <div class="footer-embed wide">
-        <div class="logo">
+        <div class="logo" bind:clientWidth={logoWidth}>
           <Logo />
         </div>
 
-        <div class="text-unep-endorsement">
+        <div class="text-unep-endorsement" bind:clientHeight={textHeight}>
           <p style="text-align: {align};">The boundaries and names shown, and the designations used on
             this map do not imply official endorsement or acceptance by the United Nations.</p>
         </div>
@@ -68,7 +77,7 @@
     .container :global(.embed-additional-text--desktop) {
       display: none;
     }
-    
+
     .text-unep-endorsement p{
       text-align: left;
       float: left;
@@ -76,7 +85,7 @@
       padding-top: 0px;
       font-size: 14px;
       line-height: 1.7;
-      padding-left: 20px; 
+      padding-left: 20px;
     }
   }
 
