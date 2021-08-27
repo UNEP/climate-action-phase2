@@ -282,15 +282,17 @@
   </div>
 
   {#if !embed}
-    {#each text as t}
-      <p class='col-text'>{@html t.p}</p>
-    {/each}
-
+  
     <div class="footer">
       <EmbedFooter
         embed = "embedCharts">
       </EmbedFooter>
     </div>
+
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+
   {/if}
 
 </section>
