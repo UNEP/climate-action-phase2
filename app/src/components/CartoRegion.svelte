@@ -149,7 +149,6 @@
   }
 
   .treemap-container {
-    position: relative;
     transition: 300ms background-color 700ms;
   }
   .background {
