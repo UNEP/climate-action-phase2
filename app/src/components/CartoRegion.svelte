@@ -126,14 +126,14 @@
       </div>
     </ScrollableX>
   </div>
-
-  <div class="footer">
-    <EmbedFooter
-      embed = {data}>
-    </EmbedFooter>
-  </div>
-
+  
   {#if !embed}
+    <div class="footer">
+      <EmbedFooter
+        embed = {data}>
+      </EmbedFooter>
+    </div>
+
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>
     {/each}
