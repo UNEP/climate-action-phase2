@@ -30,8 +30,10 @@
         {
           "p": "The UNEP Pollution Dashboard displays the global state of air pollution, its impact on human health and major sources, and progress countries are making to tackle the challenge."
         }
-      ],
-      "Type": "menu",
+      ]
+    },
+    {
+      "type": "menu",
       "options": [
         {
           "a": "pm25",
@@ -64,7 +66,7 @@
       "type": "carto-world",
       "anchor": "pm25",
       "menu": "Pollution levels",
-      "data": "pm2.5",
+      "data": "pm25",
       "embed": "pm25",
       "head": "<strong>Nine out of ten people</strong> in the world are exposed to levels of air pollutants that exceed what the World Health Organization considers too high",
       "text": [
