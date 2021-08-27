@@ -206,8 +206,8 @@
         const colors = colorPolices.range();
         const gradients = [
           { color: colors[0], start: 0, end: policiesData.pYes },
-          { color: colors[1], start: policiesData.pYes, end: policiesData.pAlmost },
-          { color: colors[2], start: policiesData.pAlmost, end: policiesData.pNo },
+          { color: colors[2], start: policiesData.pYes, end: policiesData.pAlmost },
+          { color: colors[1], start: policiesData.pAlmost, end: policiesData.pNo },
           { color: colors[3], start: policiesData.pNo, end: 100 },
         ];
 
