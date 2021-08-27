@@ -86,16 +86,14 @@
     border-right: 2px solid #DCDCDC;
     border-left: 2px solid #DCDCDC;
     cursor: default;
+    background-color:#f9f9f9;
   }
-
 
   .buttoncontent {
     width: 100%;
     height: 50px;
     box-sizing: border-box;
   }
-
-
 
   .text-container {
     padding-left: 10px;

@@ -153,7 +153,7 @@
           color: colorHealth(d.rate)
         };
       }),
-      nodeSize: 73,
+      nodeSize: 70,
       helpText: {
         code: "BLR",
         text:

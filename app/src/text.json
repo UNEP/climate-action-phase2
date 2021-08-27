@@ -46,11 +46,6 @@
           "label": "Origin sectors"
         },
         {
-          "a": "fuel",
-          "icon": "fuels",
-          "label": "Fuel sources"
-        },
-        {
           "a": "health",
           "icon": "deaths",
           "label": "Deaths"
@@ -95,22 +90,6 @@
       ]
     },
     {
-      "type": "carto-region",
-      "anchor": "fuel",
-      "menu": "Fuel sources",
-      "data": "fuel",
-      "embed": "fuel",
-      "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis.",
-      "text": [
-        {
-          "p": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis. Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-        },
-        {
-          "p": "Nulla a ipsum diam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.[a][b][c][d][e]"
-        }
-      ]
-    },
-    {
       "type": "carto-world",
       "anchor": "health",
       "menu": "Attributable deaths",
@@ -128,6 +107,7 @@
     },
     {
       "type": "methodology",
+      "anchor": "methodology",
       "head": "About the data",
       "text": [
         {
@@ -135,12 +115,6 @@
         },
         {
           "p": "The data for the sector and fuel sections was reaggregated from country data into UNEP regions —which are different from the ones used in the study."
-        },
-        {
-          "p": "Windblown dust, while a recognized source of PM<sub>2.5</sub> and health impacts in many parts of the world, was not included in the sector breakdown because it is primarily derived from natural sources.[f][g]"
-        },
-        {
-          "p": "Data for policy implementations comes from ..."
         }
       ]
     }

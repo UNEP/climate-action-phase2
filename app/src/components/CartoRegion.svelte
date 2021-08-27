@@ -152,7 +152,7 @@
     transition: 300ms background-color 700ms;
   }
   .background {
-    background-color: #f3f3f3;
+    background-color: #f9f9f9;
     transition: 150ms background-color;
   }
 </style>
