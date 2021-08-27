@@ -250,11 +250,18 @@
   </div>
 
   {#if embed}
-    <div class="embed-additional-text embed-additional-text--desktop">
+    <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
       <p>
         To explore more about the climate emergency and
         the effects on the planet visit
-        <b><a href="https://www.unep.org/">unep.org</a></b>
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+
+    <div class="embed-additional-text-mobile" class:hide={cartogramAnnotation}>
+      <p>
+        To explore more about air pollution visit
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
   {/if}
@@ -264,7 +271,6 @@
       <div
         style="width:{width}px; height:{height}px"
         class="cartogram-container"
-        class:background={cartogramAnnotation}
       >
         <Cartogram
           {...datasetParams[data]}
@@ -275,29 +281,35 @@
     </ScrollableX>
   </div>
 
-  {#if embed === false}
+  {#if !embed}
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>
     {/each}
   {/if}
 
-  <div class="footer">
-    <EmbedFooter
-      embed = "embedCharts">
-    </EmbedFooter>
-  </div>
+  {#if !embed}
+    <div class="footer">
+      <EmbedFooter
+        embed = "embedCharts">
+      </EmbedFooter>
+    </div>
+  {/if}
 
 </section>
 
-<style>
+<style lang="scss">
   .footer {
     margin-bottom: 30px;
   }
-  .cartogram-container {
-    transition: 300ms background-color 700ms;
-  }
-  .background {
-    background-color: #f3f3f3;
-    transition: 150ms background-color;
+  .embed-additional-text-mobile,
+  .embed-additional-text-desktop {
+    opacity: 1;
+    transition: 300ms opacity 700ms;
+    position: relative;
+    z-index: 1;
+    &.hide {
+      opacity: 0;
+      transition: 150ms opacity;
+    }
   }
 </style>

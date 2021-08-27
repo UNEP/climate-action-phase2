@@ -96,10 +96,17 @@
 	</div>
 
   {#if embed}
-    <div class="embed-additional-text embed-additional-text--desktop">
+    <div class="embed-additional-text-desktop">
       <p>
         To explore more about the climate emergency and
         the effects on the planet visit
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+
+    <div class="embed-additional-text-mobile">
+      <p>
+        To explore more about air pollution visit
         <b><a href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
