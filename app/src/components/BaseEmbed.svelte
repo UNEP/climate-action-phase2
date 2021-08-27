@@ -6,8 +6,13 @@
   let align = 'right';
   let textHeight: number;
   let logoWidth: number;
+  let mobileVersion : boolean;
 
-  $: width < 700 ? align = 'left' : align = 'right';
+  $: if(width < 700 ) {
+    align = 'left', mobileVersion = true;
+  } else {
+    align = 'right'; mobileVersion = false;
+  }
 </script>
 
 <IframeResizingContainer>
@@ -20,12 +25,14 @@
         <slot name="viz" />
       </div>
 
+      {#if mobileVersion}
       <div style="position: absolute; bottom: {textHeight}px; margin-left: {logoWidth}px; padding-left: 20px;">
         <p style="margin: 0; padding: 0;">
           To explore more about air pollution visit
           <b><a href="https://www.unep.org/">unep.org</a></b>
         </p>
       </div>
+      {/if}
 
       <div class="footer-embed wide">
         <div class="logo" bind:clientWidth={logoWidth}>
