@@ -143,8 +143,16 @@
 
   @media (max-width: 1400px) {
 
-    button:focus {
-      outline: 0 !important;
+    button:focus:not(:focus-visible):not(.active) :global(svg *){
+      stroke: #808080;
+    }
+
+    button:focus:not(:focus-visible):not(.active)  .text{
+      color: #000;
+    }
+
+    button:focus:not(:focus-visible):not(.active) {
+      background-color: #efefef;
     }
 
     .text-container{
