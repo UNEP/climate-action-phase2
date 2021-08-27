@@ -6,7 +6,7 @@
   import countryNameDictionary from 'src/data/countryDictionary.json';
   import deaths_data from 'src/data/death_coords.json';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorPM25, colorHealth, colorPolices } from "src/App.svelte";
+  import { colorPM25, colorHealth, colorPolices } from "src/colors";
   import {createLookup} from 'src/util';
 
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
@@ -17,6 +17,7 @@
   export var data : "pm25" | "health" | "policies";
   export var head: string;
   export var text: TextBlock[];
+  export var embed: boolean = false;
 
   interface PoliciesData {
     name : string;
@@ -38,8 +39,10 @@
   const policiesLookup = createLookup(policies, d => d.id, d => d);
   const countryNameDictionaryLookup = createLookup(countryNameDictionary, d => d.id, d => d);
   let legendElementSelectedIndex: number = null;
+  let clientWidth = 0;
   let width : number;
   let height : number;
+  let cartogramAnnotation: boolean;
 
   let rerender: () => void;
 
@@ -105,8 +108,8 @@
         };
       }),
       nodeSize: 11,
-      help: {
-        code: "CPV",
+      helpText: {
+        code: "JPN",
         text:
         `<strong>Each square is a country</strong>, sized
          by the annual mean levels of <strong>small particular
@@ -151,8 +154,8 @@
         };
       }),
       nodeSize: 73,
-      help: {
-        code: "BRA",
+      helpText: {
+        code: "BLR",
         text:
         `<strong>Each square is a country</strong>,
         sized by the total number of <strong>deaths
@@ -190,7 +193,7 @@
           };
         }),
       nodeSize: 16,
-      help: {
+      helpText: {
         code: "JPN",
         text:
           `<strong>Each square is a country</strong>,
@@ -203,8 +206,8 @@
         const colors = colorPolices.range();
         const gradients = [
           { color: colors[0], start: 0, end: policiesData.pYes },
-          { color: colors[1], start: policiesData.pYes, end: policiesData.pAlmost },
-          { color: colors[2], start: policiesData.pAlmost, end: policiesData.pNo },
+          { color: colors[2], start: policiesData.pYes, end: policiesData.pAlmost },
+          { color: colors[1], start: policiesData.pAlmost, end: policiesData.pNo },
           { color: colors[3], start: policiesData.pNo, end: 100 },
         ];
 
@@ -226,6 +229,9 @@
 
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
+  $: {
+    width = Math.max(clientWidth, 700);
+  }
   $: height = width * (data === 'pm25' ? .55 : .62);
 
 </script>
@@ -243,26 +249,67 @@
     />
   </div>
 
-  <ScrollableX>
-    <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
-      <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />
+  {#if embed}
+    <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
+      </p>
     </div>
-  </ScrollableX>
 
-  <div class="footer">
-    <EmbedFooter
-      embed = "LOL">
-    </EmbedFooter>
+    <div class="embed-additional-text-mobile" class:hide={cartogramAnnotation}>
+      <p>
+        To explore more about air pollution visit
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
+  <div class="b" bind:clientWidth={clientWidth}>
+    <ScrollableX>
+      <div
+        style="width:{width}px; height:{height}px"
+        class="cartogram-container"
+      >
+        <Cartogram
+          {...datasetParams[data]}
+          bind:rerenderFn={rerender}
+          bind:annotationShowing={cartogramAnnotation}
+          />
+      </div>
+    </ScrollableX>
   </div>
 
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
+  {#if !embed}
+  
+    <div class="footer">
+      <EmbedFooter
+        embed = "embedCharts">
+      </EmbedFooter>
+    </div>
+
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+
+  {/if}
 
 </section>
 
-<style>
+<style lang="scss">
   .footer {
     margin-bottom: 30px;
+  }
+  .embed-additional-text-mobile,
+  .embed-additional-text-desktop {
+    opacity: 1;
+    transition: 300ms opacity 700ms;
+    position: relative;
+    z-index: 1;
+    &.hide {
+      opacity: 0;
+      transition: 150ms opacity;
+    }
   }
 </style>

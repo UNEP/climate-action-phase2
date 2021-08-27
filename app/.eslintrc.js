@@ -1,4 +1,4 @@
-{
+module.exports = {
   "root": true,
   "parser": "@typescript-eslint/parser",
   "env": {
@@ -44,6 +44,7 @@
     ]
   },
   "settings": {
-    "svelte3/typescript": true
+    "svelte3/typescript": true,
+    "svelte3/ignore-styles": () => true
   }
-}
+};
