@@ -285,9 +285,7 @@
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>
     {/each}
-  {/if}
 
-  {#if !embed}
     <div class="footer">
       <EmbedFooter
         embed = "embedCharts">
