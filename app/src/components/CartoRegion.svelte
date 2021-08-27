@@ -2,7 +2,7 @@
   import TreemapSvg from 'src/components/charts/TreemapSVG.svelte';
   import {sectoralBD, differentFuels} from 'src/data';
   import Legend from 'src/components/common/Legend.svelte';
-  import { colorFuels, colorSectors } from "src/App.svelte";
+  import { colorFuels, colorSectors } from "src/colors";
   import ScrollableX from './common/ScrollableX.svelte';
 
   interface Text {
@@ -14,6 +14,9 @@
   export let data : string;
   export let head : string;
   export let text : Text[];
+  export let embed : boolean = true;
+
+  let cartogramAnnotation: boolean;
 
   const treemapParams = {
     [TreemapType.fuel] : {
@@ -90,28 +93,48 @@
       bind:selected = {legendElementSelectedIndex}
 		/>
 	</div>
+
+  {#if embed}
+    <div class="embed-additional-text embed-additional-text--desktop">
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
   <div class="scroll-container" bind:clientWidth={clientWidth}>
     <ScrollableX>
-      <div class="treemap-container" style="width:{width}px; height:{height}px">
+      <div class="treemap-container" style="width:{width}px; height:{height}px; "class:background={cartogramAnnotation}>
         <TreemapSvg
           data={currentData}
           {width}
           {height}
           source = {treemapParams[TreemapType[data]].help.text}
           legendElementSelected = {legendElementSelected}
+          bind:annotationShowing={cartogramAnnotation}
         />
       </div>
     </ScrollableX>
   </div>
 
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
+  {#if !embed}
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+  {/if}
 
 </section>
 
 <style>
+
   .treemap-container {
     position: relative;
+    transition: 300ms background-color 700ms;
+  }
+  .background {
+    background-color: #f3f3f3;
+    transition: 150ms background-color;
   }
 </style>

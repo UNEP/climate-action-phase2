@@ -29,7 +29,7 @@
 <script lang="ts">
   import Annotation from 'src/components/maps/Annotation.svelte';
   import * as d3 from 'src/d3';
-  import {colorSectors, colorFuels} from 'src/App.svelte';
+  import {colorSectors, colorFuels} from 'src/colors';
   import type { CartoRegionData } from 'src/types';
 
   interface Position{
@@ -42,6 +42,9 @@
   export let source: string;
   export let showRegionName: boolean = true;
   export let legendElementSelected: string = "";
+  export let annotationShowing: boolean = false;
+
+
   let referenceRegion : Position;
   const mapPropotions = (val) => Math.sqrt(val) * width * 0.03;
   let regions : RegionTreemapData[];
@@ -133,6 +136,8 @@
       y: regions[4].y
     };
   }
+
+  $: annotationShowing = !showInformation;
 
 </script>
 

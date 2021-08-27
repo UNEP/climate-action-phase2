@@ -72,6 +72,7 @@
       "anchor": "pm25",
       "menu": "Pollution levels",
       "data": "pm25",
+      "embed": "pm25",
       "head": "<strong>Nine out of ten people</strong> in the world are exposed to levels of air pollutants that exceed what the World Health Organization considers too much",
       "text": [
         {
@@ -87,6 +88,7 @@
       "anchor": "sectors",
       "menu": "Economic sectors",
       "data": "sectors",
+      "embed": "sectors",
       "head": "<strong>Residential</strong> pollution, mostly from generating electricity and heating for our homes, is the main <strong>human-made source</strong> of fine particles —although <strong>windblown dust</strong> is still the major source in Africa and West Asia",
       "text": [
         {
@@ -102,6 +104,7 @@
       "anchor": "fuel",
       "menu": "Fuel sources",
       "data": "fuel",
+      "embed": "fuel",
       "head": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pharetra neque vitae euismod sagittis.",
       "text": [
         {
@@ -117,6 +120,7 @@
       "anchor": "health",
       "menu": "Attributable deaths",
       "data": "health",
+      "embed": "health",
       "head": "Around <strong>four million people died in 2017</strong> from exposure to fine particles, with higher death rates in Asia and Eastern Europe",
       "text": [
         {
@@ -148,6 +152,12 @@
       "text": [
         {
           "p": "Data for PM<sub>2.5</sub> estimates, sectors and fuel sources, and attributable deaths comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales. <em>Nat Commun<em> <strong>12</strong>, 3594 (2021)"
+        },
+        {
+          "p": "For the regional figures in the sector and fuel sections we took country data and reaggregated it into UNEP regions —different to the ones used in the study."
+        },
+        {
+          "p": "Data for policy implementations comes from ..."
         }
       ]
     }
