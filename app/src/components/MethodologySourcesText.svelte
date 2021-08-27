@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { TextBlock } from 'src/types';
-  import ScrollableX from 'src/components/common/ScrollableX.svelte';
   export var head: string;
   export var text: TextBlock[];
 
@@ -8,7 +7,7 @@
   const numTexts = text.length;
 </script>
 
-<div class="infoSquare">
+<div class="infoSquare" id="methodology">
   <h2 class='narrow'>{@html head}</h2>
 
   {#each text as t}
