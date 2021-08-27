@@ -94,7 +94,6 @@
 
     pm25: {
       data: pm25data.map(d => {
-        console.log(d.id);
         return {
           name: countryNameDictionaryLookup[d.id].name,
           short: countryNameDictionaryLookup[d.id].short,
@@ -231,7 +230,7 @@
 
 </script>
 
-<section class="viz wide">
+<section id="{data}" class="viz wide">
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >
@@ -243,6 +242,7 @@
       bind:selected = {legendElementSelectedIndex}
     />
   </div>
+
   <ScrollableX>
     <div bind:clientWidth={width} style="width:{width}px; height:{height}px">
       <Cartogram {...datasetParams[data]} bind:rerenderFn={rerender} />

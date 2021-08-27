@@ -55,6 +55,7 @@
     "menu": Menu,
     'methodology': MethodologySourcesText
   };
+
 </script>
 
 <TopNav />
@@ -62,11 +63,11 @@
   <article>
     {#each content as block}
       {#if components[block.type]}
-        <svelte:component this={components[block.type]} {...block} />
+        <svelte:component this={components[block.type]} {...block}/>
       {:else}
         <div>Missing component for '{block.type}'</div>
       {/if}
     {/each}
   </article>
 </main>
-<Footer />
+<Footer/>
