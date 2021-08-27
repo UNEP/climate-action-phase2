@@ -72,7 +72,7 @@
     z-index: 6;
     width: 200px;
     border-top: 1px solid #DCDCDC;
-    float: left;
+    float: right;
   }
   button {
     width: 100%;
@@ -122,6 +122,7 @@
   button:hover:not(.active) {
     background-color: #555;
   }
+
   button:not(.active){
     cursor: pointer;
   }
@@ -138,8 +139,13 @@
   }
 
 
+
+
   @media (max-width: 1400px) {
 
+    button:focus {
+      outline: 0 !important;
+    }
 
     .text-container{
       display: none;
@@ -184,6 +190,14 @@
         width: 100% !important;
         transition: background-color 300ms, border-color 300ms;
     }
+  }
+
+  @media (max-width: 500px) {
+
+    .active .text-container{
+      display: none;
+    }
+
   }
 
   @keyframes fadeIn{

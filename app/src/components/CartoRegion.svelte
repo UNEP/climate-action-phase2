@@ -4,6 +4,7 @@
   import Legend from 'src/components/common/Legend.svelte';
   import { colorFuels, colorSectors } from "src/colors";
   import ScrollableX from './common/ScrollableX.svelte';
+  import EmbedFooter from './EmbedFooter.svelte';
 
   interface Text {
     p : string;
@@ -119,15 +120,26 @@
     </ScrollableX>
   </div>
 
+  <div class="footer">
+    <EmbedFooter
+      embed = {data}>
+    </EmbedFooter>
+  </div>
+
   {#if !embed}
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>
     {/each}
   {/if}
 
+
 </section>
 
 <style>
+
+  .footer {
+    margin-bottom: 30px;
+  }
 
   .treemap-container {
     position: relative;

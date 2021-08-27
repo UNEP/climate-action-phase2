@@ -9,6 +9,7 @@
   import text from 'src/text.json';
   import Menu from './components/nav/Menu.svelte';
   import BaseEmbed from './components/BaseEmbed.svelte';
+  import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
 
   const content: Content[] = text.article;
   export var embed: string;
@@ -20,6 +21,7 @@
     'intro': Intro,
     'text': Text,
     "menu": Menu,
+    'methodology': MethodologySourcesText
   };
 </script>
 

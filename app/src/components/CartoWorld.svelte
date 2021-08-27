@@ -283,13 +283,9 @@
 
   <div class="footer">
     <EmbedFooter
-      embed = "LOL">
+      embed = "embedCharts">
     </EmbedFooter>
   </div>
-
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
 
 </section>
 
