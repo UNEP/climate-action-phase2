@@ -68,11 +68,7 @@
       "menu": "Pollution levels",
       "data": "pm25",
       "embed": "pm25",
-<<<<<<< HEAD
-      "head": "<strong>Nine out of ten people</strong> in the world are exposed to levels of air pollutants that exceed what the World Health Organization considers too much",
-=======
       "head": "<strong>Nine out of ten people</strong> in the world are exposed to levels of air pollutants that exceed what the World Health Organization considers too high",
->>>>>>> main
       "text": [
         {
           "p": "Every breath you take, you suck in tiny particles that damage your lungs, heart, and brain causing a host of health problems. The most dangerous of these particles, which can be anything from soot to sulfates, are <strong>fine particles 2.5 microns</strong> or less in diameter —shortened as <strong>PM<sub>2.5</sub></strong>."
@@ -88,11 +84,7 @@
       "menu": "Economic sectors",
       "data": "sectors",
       "embed": "sectors",
-<<<<<<< HEAD
-      "head": "<strong>Residential</strong> pollution, mostly from generating electricity and heating for our homes, is the main <strong>human-made source</strong> of fine particles —although <strong>windblown dust</strong> is still the major source in Africa and West Asia",
-=======
       "head": "<strong>Residential</strong> pollution, mostly from cooking, heating and generating electricity for our homes, is the main <strong>human-made source</strong> of fine particles globally — although <strong>windblown dust</strong> is a major source in much of Africa and West Asia",
->>>>>>> main
       "text": [
         {
           "p": "Fine particles come from a wide range of sources, most of them from human activities like the burning of fossil fuels to generate electricity for homes and businesses and power, transportation, agriculture — a major source of methane and ammonia, and chemical and mining industries. Non-human sources are anything from volcanic eruptions, sea spray, and other natural processes."
@@ -124,26 +116,7 @@
       "menu": "Attributable deaths",
       "data": "health",
       "embed": "health",
-<<<<<<< HEAD
-      "head": "Around <strong>four million people died in 2017</strong> from exposure to fine particles, with higher death rates in Asia and Eastern Europe",
-      "text": [
-        {
-          "p": "Exposure to PM<sub>2.5</sub> reduced average global life expectancy at birth by approximately one year, in 2016. It is a major global health epidemic, causing one in nine of all deaths."
-        },
-        {
-          "p": "The three biggest killers linked to air pollution are stroke, heart disease, and lung disease and cancer. And high levels of fine particles also contribute to other illnesses, like diabetes, hinder cognitive development in children, and cause mental health problems."
-        }
-      ]
-    },
-    {
-      "type": "carto-world",
-      "anchor": "policies",
-      "menu": "Attributable deaths",
-      "data": "policies",
-      "head": "Around <strong>four million people died in 2017</strong> from exposure to fine particles, with higher death rates in Asia and Eastern Europe",
-=======
       "head": "Around <strong>four million people died in 2019</strong> from exposure to fine particulate air pollution, with the highest death rates occurring in Asia and Eastern Europe",
->>>>>>> main
       "text": [
         {
           "p": "Exposure to PM<sub>2.5</sub> reduced average global life expectancy by approximately one year in 2016. It is a major global health epidemic, causing one in nine deaths worldwide."
@@ -161,14 +134,10 @@
           "p": "Data for PM<sub>2.5</sub> estimates, sectors and fuel sources, and attributable deaths comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales. <em>Nat Commun<em> <strong>12</strong>, 3594 (2021)"
         },
         {
-<<<<<<< HEAD
-          "p": "For the regional figures in the sector and fuel sections we took country data and reaggregated it into UNEP regions —different to the ones used in the study."
-=======
           "p": "The data for the sector and fuel sections was reaggregated from country data into UNEP regions —which are different from the ones used in the study."
         },
         {
           "p": "Windblown dust, while a recognized source of PM<sub>2.5</sub> and health impacts in many parts of the world, was not included in the sector breakdown because it is primarily derived from natural sources.[f][g]"
->>>>>>> main
         },
         {
           "p": "Data for policy implementations comes from ..."
