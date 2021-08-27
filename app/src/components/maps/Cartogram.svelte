@@ -170,6 +170,8 @@
 
   $: helpCountry = helpText ? cartogramData.find(d => d.code === helpText.code) : null;
 
+  $: console.log(helpText, helpCountry, cartogramData);
+
   $: helpAnnotation = helpCountry && {
     x: helpCountry.left + helpCountry.width / 2,
     y: helpCountry.top + helpCountry.height / 2,
@@ -189,7 +191,7 @@
 
   $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
 
-  $: annotationShowing = annotation && !hideAnnotation;
+  $: annotationShowing = annotation && !hideAnnotation && annotation !== helpAnnotation;
 
   $: data && fadeInHelpText();
 

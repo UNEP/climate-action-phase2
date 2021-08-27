@@ -108,8 +108,8 @@
         };
       }),
       nodeSize: 11,
-      help: {
-        code: "CPV",
+      helpText: {
+        code: "JPN",
         text:
         `<strong>Each square is a country</strong>, sized
          by the annual mean levels of <strong>small particular
@@ -154,8 +154,8 @@
         };
       }),
       nodeSize: 73,
-      help: {
-        code: "BRA",
+      helpText: {
+        code: "BLR",
         text:
         `<strong>Each square is a country</strong>,
         sized by the total number of <strong>deaths
@@ -193,7 +193,7 @@
           };
         }),
       nodeSize: 16,
-      help: {
+      helpText: {
         code: "JPN",
         text:
           `<strong>Each square is a country</strong>,
