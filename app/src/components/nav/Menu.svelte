@@ -111,18 +111,6 @@
     z-index: 2;
   }
 
-  button:hover:not(.active) :global(svg *){
-    stroke: #e5e5e5;
-  }
-
-  button:hover:not(.active)  .text{
-    color: #e5e5e5;
-  }
-
-  button:hover:not(.active) {
-    background-color: #555;
-  }
-
   button:not(.active){
     cursor: pointer;
   }
@@ -140,20 +128,21 @@
 
 
 
+  @media (hover : hover) and (pointer : fine){
+    button:hover:not(.active) :global(svg *){
+      stroke: #e5e5e5;
+    }
+
+    button:hover:not(.active)  .text{
+      color: #e5e5e5;
+    }
+
+    button:hover:not(.active) {
+      background-color: #555;
+    }
+  }
 
   @media (max-width: 1400px) {
-
-    button:focus:not(:focus-visible):not(.active) :global(svg *){
-      stroke: #808080;
-    }
-
-    button:focus:not(:focus-visible):not(.active)  .text{
-      color: #000;
-    }
-
-    button:focus:not(:focus-visible):not(.active) {
-      background-color: #efefef;
-    }
 
     .text-container{
       display: none;
