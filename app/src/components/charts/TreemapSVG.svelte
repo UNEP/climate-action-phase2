@@ -21,6 +21,7 @@
     totalPollutingValue: number,
     mostPollutingValue: number,
     mostPollutingType: string,
+    numCountries: number,
     region: string,
     nameX: number,
     nameY: number
@@ -65,7 +66,7 @@
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
     return (
       showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>"
-      + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
+      + (currentValue / currentRegion.numCountries).toFixed(2) + "</b> µg/m<sup>3</sup>"
     );
   };
   $:{
@@ -118,8 +119,9 @@
           background.borderBottom + background.borderTop
         ),
         totalPollutingValue : treemap.value / region.numCountries,
-        mostPollutingValue : treemap.children[0].data.value,
+        mostPollutingValue : treemap.children[0].data.value / region.numCountries,
         mostPollutingType : treemap.children[0].data.type,
+        numCountries : region.numCountries,
         region: region.region,
         nameX: convertX(region.posX),
         nameY: region.region === "Latin America + Caribbean" ?
