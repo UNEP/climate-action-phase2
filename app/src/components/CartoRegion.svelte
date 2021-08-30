@@ -62,6 +62,18 @@
       colors: colorFuels.range()
     }
   };
+
+
+  const pairLabels: {[key: string]: string} = {};
+  let cont = 0;
+
+  legendOptions[data].selectionDictionary.forEach(element => {
+    const key = element;
+    pairLabels[key] = legendOptions[data].labels[cont];
+    cont++;
+  });
+
+
   const currentData = data === "sectors" ? sectoralBD : data === "fuel" ? differentFuels : null;
   const scaleRate = currentData.scale_height / currentData.scale_width;
   let clientWidth: number = 0;
@@ -121,12 +133,13 @@
           {height}
           source = {treemapParams[TreemapType[data]].help.text}
           legendElementSelected = {legendElementSelected}
+          labels = {pairLabels}
           bind:annotationShowing={cartogramAnnotation}
         />
       </div>
     </ScrollableX>
   </div>
-  
+
   {#if !embed}
     <div class="footer">
       <EmbedFooter

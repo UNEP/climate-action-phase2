@@ -44,6 +44,7 @@
   export let showRegionName: boolean = true;
   export let legendElementSelected: string = "";
   export let annotationShowing: boolean = false;
+  export let labels : {[key: string]: string};
 
 
   let referenceRegion : Position;
@@ -58,14 +59,14 @@
     return (
       "Most of the PM 2.5 in <b>"
       + currentRegion.region + "</b> comes from <b>"
-      + currentRegion.mostPollutingType +
+      + labels[currentRegion.mostPollutingType] +
       "</b> —<b>" + currentRegion.mostPollutingValue.toFixed(2) + "</b> of the <b>" +
       currentRegion.totalPollutingValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
     );
   };
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
     return (
-      showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>"
+      showHoverText() + "— while <b>" + labels[currentType] + "</b> accounts for <b>"
       + (currentValue / currentRegion.numCountries).toFixed(2) + "</b> µg/m<sup>3</sup>"
     );
   };
