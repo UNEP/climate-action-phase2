@@ -56,17 +56,17 @@
   let legendTypeParams = [];
   let showHoverText = () => {
     return (
-      "Most of the PM 2.5 in <b>"
-      + currentRegion.region + "</b> comes from <b>"
-      + currentRegion.mostPollutingType +
-      "</b> —<b>" + currentRegion.mostPollutingValue.toFixed(2) + "</b> of the <b>" +
-      currentRegion.totalPollutingValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
+      `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
+      comes from <strong>${currentRegion.mostPollutingType}</strong>
+      —<strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong>
+      of the <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong>µg/m<sup>3</sup>.`
     );
   };
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
     return (
-      showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>"
-      + (currentValue / currentRegion.numCountries).toFixed(2) + "</b> µg/m<sup>3</sup>"
+      `<strong>${currentType}</strong> accounts for
+      <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
+      µg/m<sup>3</sup>. ${showHoverText()}`
     );
   };
   $:{
