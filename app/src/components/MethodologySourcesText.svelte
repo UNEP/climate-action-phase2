@@ -1,12 +1,14 @@
 <script lang="ts">
   import type { TextBlock } from 'src/types';
+  import SectionTitle from "src/components/SectionTitle.svelte";
+
   export var head: string;
   export var anchor: string;
   export var text: TextBlock[];
 </script>
 
 <section class="infoSquare" id={anchor}>
-  <h2 class='narrow'>{@html head}</h2>
+  <SectionTitle sectionTitle="sources"/>
   {#each text as t}
     <p class='info-text'>{@html t.p}</p>
   {/each}

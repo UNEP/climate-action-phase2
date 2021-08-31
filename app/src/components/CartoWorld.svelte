@@ -13,6 +13,7 @@
   import type { TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
+  import SectionTitle from "src/components/SectionTitle.svelte";
 
   export var data : "pm25" | "health" | "policies";
   export var head: string;
@@ -237,6 +238,9 @@
 </script>
 
 <section id="{data}" class="viz wide">
+
+  <SectionTitle sectionTitle={data}/>
+
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >

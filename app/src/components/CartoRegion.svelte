@@ -5,6 +5,7 @@
   import { colorFuels, colorSectors } from "src/colors";
   import ScrollableX from './common/ScrollableX.svelte';
   import EmbedFooter from './EmbedFooter.svelte';
+  import SectionTitle from "src/components/SectionTitle.svelte";
 
   interface Text {
     p : string;
@@ -95,6 +96,9 @@
   }
 </script>
 <section class='viz wide' id={data}>
+
+  <SectionTitle sectionTitle={data}/>
+
   <h2 class='narrow'>{@html head}</h2>
 
 	<div class='right-narrow' >
@@ -164,6 +168,7 @@
   .treemap-container {
     transition: 300ms background-color 700ms;
   }
+
   .background {
     background-color: #f9f9f9;
     transition: 150ms background-color;
