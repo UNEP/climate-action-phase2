@@ -41,6 +41,7 @@
           <svelte:component
             this={components[block.type]}
             {...block}
+            block={block}
             id={block.menu ? strToId(block.menu) : null}
             content={content}
             embed={false} />

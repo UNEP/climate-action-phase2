@@ -6,6 +6,7 @@
   import ScrollableX from './common/ScrollableX.svelte';
   import EmbedFooter from './EmbedFooter.svelte';
   import SectionTitle from "src/components/SectionTitle.svelte";
+  import type { Content } from 'src/types';
 
   interface Text {
     p : string;
@@ -15,6 +16,7 @@
   }
   export let data : string;
   export let id: string;
+  export var block: Content;
   export let head : string;
   export let text : Text[];
   export let embed : boolean = true;
@@ -98,7 +100,7 @@
 </script>
 <section class='viz wide' {id}>
 
-  <SectionTitle sectionTitle={data}/>
+  <SectionTitle {block} />
 
   <h2 class='narrow'>{@html head}</h2>
 
