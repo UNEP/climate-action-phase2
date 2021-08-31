@@ -33,6 +33,7 @@
     padding-left: 5px;
     font-size: 15px;
     font-weight: 550;
+    text-transform: uppercase;
   }
 
   .kicker-icon {
