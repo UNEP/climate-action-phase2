@@ -233,22 +233,6 @@
       </g>
     {/each}
 
-    {#each legendTypeParams as current}
-          <rect
-          class="leaf-legend"
-          fill={data.type === "sectors" ? colorSectors(current.type) : colorFuels(current.type)}
-          width={current.width}
-          height={current.height}
-          x={current.x}
-          y={current.y}
-          rx="2"
-          ry="2"
-          cx="0"
-          cy="0"
-          >
-
-          </rect>
-    {/each}
   </svg>
 
 </div>

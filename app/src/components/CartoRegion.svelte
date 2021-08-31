@@ -73,7 +73,7 @@
     cont++;
   });
 
-
+  console.log(legendOptions[data])
   const currentData = data === "sectors" ? sectoralBD : data === "fuel" ? differentFuels : null;
   const scaleRate = currentData.scale_height / currentData.scale_width;
   let clientWidth: number = 0;
@@ -167,5 +167,8 @@
   .background {
     background-color: #f9f9f9;
     transition: 150ms background-color;
+  }
+  .type--shadow{
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   }
 </style>

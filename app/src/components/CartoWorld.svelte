@@ -50,45 +50,43 @@
 
   const policiesHoverText = (data : PoliciesData) : string => {
 
-    let hasPolicies = false;
-    let hoverText = `<strong>${data.name}</strong> has policies for: `;
-    if(data['ind-1'] === PoliciesStatus.Yes || data['ind-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Clean production incentives</strong>`;
-      hasPolicies = true;
-    }
-    if(data['ind-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    let hasMet = [];
+    let onTrack = [];
+    let hoverText =  "";
 
-    if(data['tra-1'] === PoliciesStatus.Yes || data['tra-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Vehicle emissions standards</strong>`;
-      hasPolicies = true;
-    }
-    if(data['tra-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['ind-1'] === PoliciesStatus.Yes) hasMet.push(`Clean production incentives`);
+    else if(data['ind-1'] === PoliciesStatus.Almost) onTrack.push(`Clean production incentives`);
 
-    if(data['tra-2'] === PoliciesStatus.Yes || data['tra-2'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Fuel Sulphur content</strong>`;
-      hasPolicies = true;
-    }
-    if(data['tra-2'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['tra-1'] === PoliciesStatus.Yes) hasMet.push(`Vehicle emissions standards`);
+    else if(data['tra-1'] === PoliciesStatus.Almost) onTrack.push(`Vehicle emissions standards`);
 
-    if(data['waste-1'] === PoliciesStatus.Yes || data['waste-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Solid Waste Burning</strong>`;
-      hasPolicies = true;
-    }
-    if(data['waste-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['tra-2'] === PoliciesStatus.Yes) hasMet.push(`Fuel Sulphur content`);
+    else if(data['tra-2'] === PoliciesStatus.Almost) onTrack.push(`Fuel Sulphur content`);
 
-    if(data['res-1'] === PoliciesStatus.Yes || data['res-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Incentives for residential cooking and heating</strong>`;
-      hasPolicies = true;
-    }
-    if(data['res-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['waste-1'] === PoliciesStatus.Yes) hasMet.push(`Solid Waste Burning`);
+    else if(data['waste-1'] === PoliciesStatus.Almost) onTrack.push(`Solid Waste Burning`)
 
-    if(data['aq-1'] === PoliciesStatus.Yes || data['aq-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Air quality standards</strong>`;
-      hasPolicies = true;
-    }
-    if(data['aq-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    if(data['res-1'] === PoliciesStatus.Yes) hasMet.push(`Incentives for residential cooking and heating`)
+    else if(data['res-1'] === PoliciesStatus.Almost) onTrack.push(`Incentives for residential cooking and heating`);
 
-    if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`;
+    if(data['aq-1'] === PoliciesStatus.Yes) hasMet.push(`Air quality standards`);
+    else if(data['aq-1'] === PoliciesStatus.Almost) onTrack.push(`Air quality standards`);
+
+
+
+    if(hasMet.length === 0 && onTrack.length === 0) hoverText += `<strong>${data.name}</strong> has no met`;
+    else if (hasMet.length > 0) {
+      hoverText += `<strong>${data.name}</strong> has met <strong>${hasMet.length === 1? "this target" :  "these targets"}</strong>: `;
+      hoverText += hasMet.join(', ');
+
+      if (onTrack.length > 0){
+        hoverText += `<br>And it's on track to meet ${onTrack.length === 1? "this" :  "these"}</strong>: `;
+        hoverText += onTrack.join(', ');
+      }
+    }else{
+      hoverText += `<strong>${data.name}</strong> has on track to met <strong>${hasMet.length === 1? "this target" :  "these targets"}</strong>: `;
+      hoverText += onTrack.join(', ');
+    }
 
     return hoverText;
   };
@@ -282,7 +280,7 @@
   </div>
 
   {#if !embed}
-  
+
     <div class="footer">
       <EmbedFooter
         embed = "embedCharts">
