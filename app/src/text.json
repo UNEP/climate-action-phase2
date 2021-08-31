@@ -31,29 +31,7 @@
       ]
     },
     {
-      "type": "menu",
-      "options": [
-        {
-          "a": "pm25",
-          "icon": "pm25",
-          "label": "Current state"
-        },
-        {
-          "a": "sectors",
-          "icon": "sectors",
-          "label": "Sources per sector"
-        },
-        {
-          "a": "health",
-          "icon": "deaths",
-          "label": "Impact"
-        },
-        {
-          "a": "methodology",
-          "icon": "data",
-          "label": "Data"
-        }
-      ]
+      "type": "menu"
     },
     {
       "type": "carto-world",
