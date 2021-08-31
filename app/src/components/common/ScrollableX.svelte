@@ -56,8 +56,8 @@
 
 <svelte:window on:resize={update} on:mousemove={drag} on:mouseup={endDrag} />
 
-<div class="scrollable" class:scrollable-dragging={dragging} class:scrollable-enabled={isScrollable}>
-  <div class="scrollable-content"  on:scroll={onscroll} bind:this={el} on:mousedown={startDrag}>
+<div class="scrollable" class:scrollable-dragging={dragging} class:scrollable-enabled={isScrollable} on:mousedown={startDrag}>
+  <div class="scrollable-content" on:scroll={onscroll} bind:this={el} >
     <slot />
   </div>
 

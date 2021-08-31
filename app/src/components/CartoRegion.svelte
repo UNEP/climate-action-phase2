@@ -162,6 +162,8 @@
   }
 
   .treemap-container {
+    position: relative;
+    overflow: hidden;
     transition: 300ms background-color 700ms;
   }
   .background {
