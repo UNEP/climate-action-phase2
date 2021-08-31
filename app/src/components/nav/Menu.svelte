@@ -73,13 +73,13 @@
     top:0;
     left: 100%;
     z-index: 6;
-    width: 200px;
+    width: 210px;
     border-top: 1px solid #DCDCDC;
     float: right;
   }
   button {
     width: 100%;
-    height: 50px;
+    height: 48px;
     border: none;
     outline: none;
     border-bottom: 2px solid #DCDCDC;
@@ -91,23 +91,24 @@
 
   .buttoncontent {
     width: 100%;
-    height: 50px;
+    height: 48px;
     box-sizing: border-box;
   }
 
   .text-container {
-    padding-left: 10px;
-    height: 48px;
+    padding-left: 0;
+    height: 46px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
+    text-align: left;
   }
 
   .icon {
     float: left;
-    width: 48px;
-    height: 48px;
-    padding: 8px;
+    width: 44px;
+    height: 44px;
+    padding: 4px;
     box-sizing: border-box;
     z-index: 2;
   }
