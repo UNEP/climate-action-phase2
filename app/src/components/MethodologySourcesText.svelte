@@ -2,12 +2,11 @@
   import type { TextBlock } from 'src/types';
   import SectionTitle from "src/components/SectionTitle.svelte";
 
-  export var head: string;
-  export var anchor: string;
+  export var id: string;
   export var text: TextBlock[];
 </script>
 
-<section class="infoSquare" id={anchor}>
+<section class="infoSquare" {id}>
   <SectionTitle sectionTitle="sources"/>
   {#each text as t}
     <p class='info-text'>{@html t.p}</p>

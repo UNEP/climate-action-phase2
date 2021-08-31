@@ -14,6 +14,7 @@
     fuel = 0, sectors = 1
   }
   export let data : string;
+  export let id: string;
   export let head : string;
   export let text : Text[];
   export let embed : boolean = true;
@@ -95,7 +96,7 @@
           .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
   }
 </script>
-<section class='viz wide' id={data}>
+<section class='viz wide' {id}>
 
   <SectionTitle sectionTitle={data}/>
 

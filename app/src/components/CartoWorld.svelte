@@ -16,6 +16,7 @@
   import SectionTitle from "src/components/SectionTitle.svelte";
 
   export var data : "pm25" | "health" | "policies";
+  export var id: string;
   export var head: string;
   export var text: TextBlock[];
   export var embed: boolean = false;
@@ -237,7 +238,7 @@
 
 </script>
 
-<section id="{data}" class="viz wide">
+<section {id} class="viz wide">
 
   <SectionTitle sectionTitle={data}/>
 
@@ -286,7 +287,7 @@
   </div>
 
   {#if !embed}
-  
+
     <div class="footer">
       <EmbedFooter
         embed = "embedCharts">
