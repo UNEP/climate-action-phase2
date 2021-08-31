@@ -87,11 +87,14 @@
   $: {
     if(
       legendElementSelectedIndex >= 0 &&
-      legendElementSelectedIndex < legendOptions[data].selectionDictionary.length
+      legendElementSelectedIndex < legendOptions[data].selectionDictionary.length &&
+      legendElementSelectedIndex != null
     )
       legendElementSelected =
         (legendOptions[data].selectionDictionary[legendElementSelectedIndex] + "")
           .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
+    else legendElementSelected = "null";
+    console.log(legendElementSelectedIndex)
   }
 </script>
 <section class='viz wide' id={data}>

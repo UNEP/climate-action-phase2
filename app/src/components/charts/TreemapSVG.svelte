@@ -206,7 +206,7 @@
         <g id={region.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
           {#each region.leaves as leaf}
           <rect
-            class="tile leaf {leaf.data.type} {legendElementSelected ===  "undefined" ? "" : legendElementSelected === leaf.data.type? "leaf--shadow" : "leaf--hide"}"
+            class="tile leaf {leaf.data.type} {legendElementSelected ===  "null" ? "" : legendElementSelected === leaf.data.type? "leaf--shadow" : "leaf--hide"}"
             fill={data.type === "sectors" ? colorSectors(leaf.data.type) : colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
@@ -253,6 +253,7 @@
   }
 
   .leaf--shadow {
-    box-shadow: 0 3px 10px rgb(0 0 0 / 1);
+    filter: drop-shadow( 0 0 3px rgba(0, 0, 0, 1));
+
   }
 </style>
