@@ -21,6 +21,7 @@
     totalPollutingValue: number,
     mostPollutingValue: number,
     mostPollutingType: string,
+    numCountries: number,
     region: string,
     nameX: number,
     nameY: number
@@ -29,7 +30,7 @@
 <script lang="ts">
   import Annotation from 'src/components/maps/Annotation.svelte';
   import * as d3 from 'src/d3';
-  import {colorSectors, colorFuels} from 'src/App.svelte';
+  import {colorSectors, colorFuels} from 'src/colors';
   import type { CartoRegionData } from 'src/types';
 
   interface Position{
@@ -42,6 +43,10 @@
   export let source: string;
   export let showRegionName: boolean = true;
   export let legendElementSelected: string = "";
+  export let annotationShowing: boolean = false;
+  export let labels : {[key: string]: string};
+
+
   let referenceRegion : Position;
   const mapPropotions = (val) => Math.sqrt(val) * width * 0.03;
   let regions : RegionTreemapData[];
@@ -52,17 +57,17 @@
   let legendTypeParams = [];
   let showHoverText = () => {
     return (
-      "Most of the PM 2.5 in <b>"
-      + currentRegion.region + "</b> comes from <b>"
-      + currentRegion.mostPollutingType +
-      "</b> —<b>" + currentRegion.mostPollutingValue.toFixed(2) + "</b> of the <b>" +
-      currentRegion.totalPollutingValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
+      `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
+      comes from <strong>${labels[currentRegion.mostPollutingType]}</strong>
+      —<strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong>
+      of the <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
     );
   };
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
     return (
-      showHoverText() + "— while <b>" + currentType + "</b> accounts for <b>"
-      + currentValue.toFixed(2) + "</b> µg/m<sup>3</sup>"
+      `<strong>${labels[currentType]}</strong> accounts for
+      <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
+       µg/m<sup>3</sup>. ${showHoverText()}`
     );
   };
   $:{
@@ -115,8 +120,9 @@
           background.borderBottom + background.borderTop
         ),
         totalPollutingValue : treemap.value / region.numCountries,
-        mostPollutingValue : treemap.children[0].data.value,
+        mostPollutingValue : treemap.children[0].data.value / region.numCountries,
         mostPollutingType : treemap.children[0].data.type,
+        numCountries : region.numCountries,
         region: region.region,
         nameX: convertX(region.posX),
         nameY: region.region === "Latin America + Caribbean" ?
@@ -133,6 +139,8 @@
       y: regions[4].y
     };
   }
+
+  $: annotationShowing = !showInformation;
 
 </script>
 

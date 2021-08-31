@@ -2,8 +2,10 @@
   import TreemapSvg from 'src/components/charts/TreemapSVG.svelte';
   import {sectoralBD, differentFuels} from 'src/data';
   import Legend from 'src/components/common/Legend.svelte';
-  import { colorFuels, colorSectors } from "src/App.svelte";
+  import { colorFuels, colorSectors } from "src/colors";
   import ScrollableX from './common/ScrollableX.svelte';
+  import EmbedFooter from './EmbedFooter.svelte';
+
   interface Text {
     p : string;
   }
@@ -13,6 +15,9 @@
   export let data : string;
   export let head : string;
   export let text : Text[];
+  export let embed : boolean = true;
+
+  let cartogramAnnotation: boolean;
 
   const treemapParams = {
     [TreemapType.fuel] : {
@@ -57,6 +62,18 @@
       colors: colorFuels.range()
     }
   };
+
+
+  const pairLabels: {[key: string]: string} = {};
+  let cont = 0;
+
+  legendOptions[data].selectionDictionary.forEach(element => {
+    const key = element;
+    pairLabels[key] = legendOptions[data].labels[cont];
+    cont++;
+  });
+
+
   const currentData = data === "sectors" ? sectoralBD : data === "fuel" ? differentFuels : null;
   const scaleRate = currentData.scale_height / currentData.scale_width;
   let clientWidth: number = 0;
@@ -77,8 +94,7 @@
           .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
   }
 </script>
-
-<section class='viz wide'>
+<section class='viz wide' id={data}>
   <h2 class='narrow'>{@html head}</h2>
 
 	<div class='right-narrow' >
@@ -90,28 +106,66 @@
       bind:selected = {legendElementSelectedIndex}
 		/>
 	</div>
+
+  {#if embed}
+    <div class="embed-additional-text-desktop">
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+
+    <div class="embed-additional-text-mobile">
+      <p>
+        To explore more about air pollution visit
+        <b><a href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
   <div class="scroll-container" bind:clientWidth={clientWidth}>
     <ScrollableX>
-      <div class="treemap-container" style="width:{width}px; height:{height}px">
+      <div class="treemap-container" style="width:{width}px; height:{height}px; "class:background={cartogramAnnotation}>
         <TreemapSvg
           data={currentData}
           {width}
           {height}
           source = {treemapParams[TreemapType[data]].help.text}
           legendElementSelected = {legendElementSelected}
+          labels = {pairLabels}
+          bind:annotationShowing={cartogramAnnotation}
         />
       </div>
     </ScrollableX>
   </div>
 
-  {#each text as t}
-    <p class='col-text'>{@html t.p}</p>
-  {/each}
+  {#if !embed}
+    <div class="footer">
+      <EmbedFooter
+        embed = {data}>
+      </EmbedFooter>
+    </div>
+
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
+  {/if}
+
 
 </section>
 
 <style>
+
+  .footer {
+    margin-bottom: 30px;
+  }
+
   .treemap-container {
-    position: relative;
+    transition: 300ms background-color 700ms;
+  }
+  .background {
+    background-color: #f9f9f9;
+    transition: 150ms background-color;
   }
 </style>

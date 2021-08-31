@@ -39,6 +39,7 @@
   export var onHoverFn: (c: CountryDataPoint) => void = () => null;
   export var hideLabels = false;
   export const rerenderFn: () => void = () => cartogramData = cartogramData;
+  export var annotationShowing: boolean = false;
 
   let containerEl: Element;
   let loaded = false;
@@ -187,6 +188,8 @@
   $: annotation = countryAnnotation || helpAnnotation;
 
   $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
+
+  $: annotationShowing = annotation && !hideAnnotation && annotation !== helpAnnotation;
 
   $: data && fadeInHelpText();
 

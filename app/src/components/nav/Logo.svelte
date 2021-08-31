@@ -2,7 +2,7 @@
   import UNEPLogoBlue from 'src/assets/unep50.svg';
   import UNEPLogoWhite from 'src/assets/unep50white.svg';
 
-  export let color;
+  export let color = undefined;
 </script>
 
 <div class="logo">
