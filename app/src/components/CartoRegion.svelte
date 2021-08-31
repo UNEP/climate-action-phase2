@@ -19,7 +19,7 @@
   export var block: Content;
   export let head : string;
   export let text : Text[];
-  export let embed : boolean = true;
+  export let embed = false;
 
   let cartogramAnnotation: boolean;
 
@@ -100,7 +100,9 @@
 </script>
 <section class='viz wide' {id}>
 
-  <SectionTitle {block} />
+  {#if !embed}
+    <SectionTitle {block} />
+  {/if}
 
   <h2 class='narrow'>{@html head}</h2>
 

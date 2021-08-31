@@ -29,7 +29,12 @@
 {#if embedBlock}
   <BaseEmbed>
     <div slot="viz" class="cartogram-pane">
-      <svelte:component this={components[embedBlock.type]} content={content} {...embedBlock}/>
+      <svelte:component
+        this={components[embedBlock.type]}
+        {...embedBlock}
+        content={content}
+        block={embedBlock}
+      />
     </div>
   </BaseEmbed>
 {:else}
@@ -44,7 +49,8 @@
             block={block}
             id={block.menu ? strToId(block.menu) : null}
             content={content}
-            embed={false} />
+            embed={false}
+          />
         {:else}
           <div>Missing component for '{block.type}'</div>
         {/if}

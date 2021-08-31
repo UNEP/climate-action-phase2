@@ -20,7 +20,7 @@
   export var block: Content;
   export var head: string;
   export var text: TextBlock[];
-  export var embed: boolean = false;
+  export var embed = false;
 
   interface PoliciesData {
     name : string;
@@ -241,7 +241,9 @@
 
 <section {id} class="viz wide">
 
-  <SectionTitle {block}/>
+  {#if !embed}
+    <SectionTitle {block} />
+  {/if}
 
   <h2 class='narrow'>{@html head}</h2>
 
