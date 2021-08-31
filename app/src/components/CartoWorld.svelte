@@ -163,7 +163,7 @@
       },
       hoverTextFn: (d:CountryDataPoint) =>
         `In <strong>${d.name}</strong>, small particle
-      pollution caused <strong>${d.value} deaths</strong>
+      pollution caused <strong>${d.value.toLocaleString('en-US')} deaths</strong>
       in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
       classesFn: (d : CountryDataPoint) => {
         if (!legendIsHovered) {
