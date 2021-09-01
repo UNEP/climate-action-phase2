@@ -244,7 +244,6 @@
             on:focus={() => onMouseClick(d)}
             on:blur={() => {focused = false; onMouseLeaveCountry();}}
           >
-
           {#if !hideLabels && d.width > 50}
             <span class="country-text">{d.short}</span>
           {/if}
