@@ -7,6 +7,7 @@ export interface Meta {
   title: string;
   url: string;
   description: string;
+  keywords: string;
 }
 
 type TextBlockType = "p";

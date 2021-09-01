@@ -248,10 +248,12 @@
       classesFn: (d : CountryDataPoint) => {
         let policiesData = d.data as PoliciesData;
         let policiesCont =
-          [(policiesData.pYes),
-          (policiesData.pAlmost - policiesData.pYes),
-          (policiesData.pNo - policiesData.pAlmost),
-          (100 - policiesData.pNo)];
+          [
+            (policiesData.pYes),
+            (policiesData.pAlmost - policiesData.pYes),
+            (policiesData.pNo - policiesData.pAlmost),
+            (100 - policiesData.pNo)
+          ];
 
         return legendElementSelectedIndex !== null &&
                 policiesCont[legendElementSelectedIndex] !== 0 ? ['country--shadow'] : [];

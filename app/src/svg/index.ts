@@ -9,6 +9,7 @@ import deaths from './icons_deaths.svg';
 import fuels from './icons_fuels.svg';
 import pm25 from './icons_pm25.svg';
 import sectors from './icons_sectors.svg';
+import policies from './icons_policies.svg';
 
 export default {
   dataSource,
@@ -22,6 +23,7 @@ export default {
     deaths,
     fuels,
     pm25,
-    sectors
+    sectors,
+    policies
   }
 };

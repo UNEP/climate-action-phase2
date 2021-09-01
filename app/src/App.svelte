@@ -1,9 +1,10 @@
 <script lang="ts">
-  import type { Content } from 'src/types';
+  import type { Content, Meta } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
   import CartoRegion from 'src/components/CartoRegion.svelte';
   import Intro from 'src/components/text/Intro.svelte';
   import Text from 'src/components/text/Text.svelte';
+  import Metadata from 'src/components/Metadata.svelte';
   import TopNav from 'src/components/nav/TopNav.svelte';
   import Footer from './components/nav/Footer.svelte';
   import text from 'src/text.json';
@@ -13,6 +14,8 @@
   import { strToId } from './util';
 
   const content: Content[] = text.article;
+  const meta: Meta = text.meta;
+  
   export var embed: string;
   const embedBlock = embed && content.find(b => b.embed === embed);
 
@@ -25,7 +28,7 @@
     'methodology': MethodologySourcesText
   };
 </script>
-
+<Metadata {...meta} />
 {#if embedBlock}
   <BaseEmbed>
     <div slot="viz" class="cartogram-pane">
