@@ -186,5 +186,10 @@
 
   .leaf--shadow {
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+  .treemap-container :global(.annotation .text) {
+    background: #f9f9f9;
+    border-radius: 4px;
+    padding: 0 1px 5px;
   }
+
 </style>
