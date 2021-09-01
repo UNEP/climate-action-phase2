@@ -20,7 +20,8 @@
   export var block: Content;
   export var head: string;
   export var text: TextBlock[];
-  export var embed = false;
+  export var embed: string;
+  export var isEmbed = false;
 
   interface PoliciesData {
     name : string;
@@ -274,7 +275,7 @@
 
 <section {id} class="viz wide">
 
-  {#if !embed}
+  {#if !isEmbed}
     <SectionTitle {block} />
   {/if}
 
@@ -290,7 +291,7 @@
     />
   </div>
 
-  {#if embed}
+  {#if isEmbed}
     <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
       <p>
         To explore more about the climate emergency and
@@ -307,7 +308,7 @@
     </div>
   {/if}
 
-  <div class="b" bind:clientWidth={clientWidth}>
+  <div class="breakout-on-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
       <div
         style="width:{width}px; height:{height}px"
@@ -322,12 +323,10 @@
     </ScrollableX>
   </div>
 
-  {#if !embed}
+  {#if !isEmbed}
 
     <div class="footer">
-      <EmbedFooter
-        embed = "embedCharts">
-      </EmbedFooter>
+      <EmbedFooter {embed} />
     </div>
 
     {#each text as t}
@@ -339,6 +338,13 @@
 </section>
 
 <style lang="scss">
+
+  @media screen and (max-width: 600px) {
+    .breakout-on-mobile {
+      margin: 0 -2rem;
+    }
+  }
+
   .footer {
     margin-bottom: 30px;
   }
@@ -353,4 +359,11 @@
       transition: 150ms opacity;
     }
   }
+  .cartogram-container :global(.annotation .text) {
+    background: #f9f9f9e0;
+    border-radius: 4px;
+    padding: 0 10px 5px;
+
+  }
+
 </style>
