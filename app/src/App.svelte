@@ -34,6 +34,7 @@
         {...embedBlock}
         content={content}
         block={embedBlock}
+        isEmbed={true}
       />
     </div>
   </BaseEmbed>
@@ -49,7 +50,6 @@
             block={block}
             id={block.menu ? strToId(block.menu) : null}
             content={content}
-            embed={false}
           />
         {:else}
           <div>Missing component for '{block.type}'</div>
