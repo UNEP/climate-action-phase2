@@ -89,20 +89,7 @@
         borderRight: 2,
         color: "#f9f9f9",
       };
-      let posX = convertX(region.posX);
-      let posY = convertY(region.posY);
-      treemap.leaves().forEach((e) => {
 
-        if (e.data.type === legendElementSelected){
-          let currentLeaf = {
-            x: posX + e.x0,
-            y: posY + e.y0,
-            width: e.x1 - e.x0,
-            height: e.y1 - e.y0,
-            type: e.data.type
-          };
-        }
-      });
       return {
         leaves : treemap.leaves(),
         background,
@@ -206,7 +193,10 @@
         <g id={region.region.replace(/\s/g, '').replace('+','-') + "-elements"}>
           {#each region.leaves as leaf}
           <rect
-            class="tile leaf {leaf.data.type} {legendElementSelected ===  "null" ? "" : legendElementSelected === leaf.data.type? "leaf--shadow" : "leaf--hide"}"
+            class="tile leaf {leaf.data.type}"
+            class:leaf--shadow={legendElementSelected === leaf.data.type}
+            class:leaf--hide={ legendElementSelected !== leaf.data.type &&
+                               legendElementSelected !== "null"}
             fill={data.type === "sectors" ? colorSectors(leaf.data.type) : colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
@@ -254,6 +244,5 @@
 
   .leaf--shadow {
     filter: drop-shadow( 0 0 3px rgba(0, 0, 0, 1));
-
   }
 </style>

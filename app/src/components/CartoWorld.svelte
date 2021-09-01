@@ -52,8 +52,8 @@
 
     let hasMet = [];
     let onTrack = [];
-    let noMet = []
-    let hoverText =  "";
+    let noMet = [];
+    let hoverText = "";
 
     if(data['ind-1'] === PoliciesStatus.Yes) hasMet.push(`Clean production incentives`);
     else if(data['ind-1'] === PoliciesStatus.Almost) onTrack.push(`Clean production incentives`);
@@ -71,32 +71,43 @@
     else if(data['waste-1'] === PoliciesStatus.Almost) onTrack.push(`Solid Waste Burning`);
     else if(data['waste-1'] === PoliciesStatus.No) noMet.push(`Solid Waste Burning`);
 
-    if(data['res-1'] === PoliciesStatus.Yes) hasMet.push(`Incentives for residential cooking and heating`);
-    else if(data['res-1'] === PoliciesStatus.Almost) onTrack.push(`Incentives for residential cooking and heating`);
-    else if(data['res-1'] === PoliciesStatus.No) noMet.push(`Incentives for residential cooking and heating`);
+    if(data['res-1'] === PoliciesStatus.Yes)
+      hasMet.push(`Incentives for residential cooking and heating`);
+    else if(data['res-1'] === PoliciesStatus.Almost)
+      onTrack.push(`Incentives for residential cooking and heating`);
+    else if(data['res-1'] === PoliciesStatus.No)
+      noMet.push(`Incentives for residential cooking and heating`);
 
-    if(data['aq-1'] === PoliciesStatus.Yes) hasMet.push(`Air quality standards`);
-    else if(data['aq-1'] === PoliciesStatus.Almost) onTrack.push(`Air quality standards`);
-    else if(data['aq-1'] === PoliciesStatus.No) noMet.push(`Air quality standards`);
+    if(data['aq-1'] === PoliciesStatus.Yes)
+      hasMet.push(`Air quality standards`);
+    else if(data['aq-1'] === PoliciesStatus.Almost)
+      onTrack.push(`Air quality standards`);
+    else if(data['aq-1'] === PoliciesStatus.No)
+      noMet.push(`Air quality standards`);
 
 
     if (hasMet.length > 0) {
-      hoverText += `<strong>${data.name}</strong> has met <strong>${hasMet.length === 1? "this target" :  "these targets"}</strong>: `;
+      hoverText += `<strong>${data.name}</strong> has met <strong>
+                    ${hasMet.length === 1 ? "this target" : "these targets"}</strong>: `;
+
       hoverText += hasMet.join(', ');
       if (onTrack.length > 0){
-        hoverText += `<br>And it's on track to meet <strong>${onTrack.length === 1? "this" :  "these"}</strong>: `;
+        hoverText += `<br>And it's on track to meet <strong>
+                      ${onTrack.length === 1 ? "this" : "these"}</strong>: `;
         hoverText += onTrack.join(', ');
       }
     }
     else if(onTrack.length > 0){
-      hoverText += `<strong>${data.name}</strong> has on track to met <strong>${onTrack.length === 1? "this target" :  "these targets"}</strong>: `;
+      hoverText += `<strong>${data.name}</strong> has on track to met <strong>
+                    ${onTrack.length === 1 ? "this target" : "these targets"}</strong>: `;
       hoverText += onTrack.join(', ');
     }
     else if(noMet.length === 0) hoverText += `No data for <strong>${data.name}</strong>`;
     else {
       if(noMet.length === 6)hoverText += `<strong>${data.name}</strong> hasn't met any targets`;
       else {
-        hoverText += `<strong>${data.name}</strong> hasn't met any of the target for which we have data: `;
+        hoverText += `<strong>${data.name}</strong>
+                      hasn't met any of the target for which we have data: `;
         hoverText += noMet.join(', ');
       }
 
