@@ -56,6 +56,8 @@
   let annotation: AnnotationData;
   let hoveredForX = false;
 
+  let focused: boolean;
+
   $: largestVal = Math.max(...data.map(d => d.value));
 
   let clientWidth: number;
@@ -111,6 +113,13 @@
     };
   });
 
+  function compareDataPoint(a:CartogramDataPoint, b:CartogramDataPoint){
+    return a.y - b.y;
+  }
+
+  $: cartogramData.sort(compareDataPoint);
+  //cartogramData.sort()
+
   $: calcStyle = (d: CartogramDataPoint) => {
     const styles = [
       `left: ${d.left}px`,
@@ -139,6 +148,20 @@
   const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
 
   function onMouseEnterCountry(evt: MouseEvent, country: CartogramDataPoint) {
+    if (!focused){
+      onHoverFn(country);
+      helpTextFade = false;
+      _debouncedShowHelpText.cancel();
+      hoverData = {
+        country,
+        x: country.left + (country.width / 2),
+        y: country.top + (country.height / 2)
+      };
+      hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
+    }
+  }
+
+  function onMouseClick(country: CartogramDataPoint) {
     onHoverFn(country);
     helpTextFade = false;
     _debouncedShowHelpText.cancel();
@@ -151,8 +174,10 @@
   }
 
   function onMouseLeaveCountry() {
-    clearHoverState();
-    onHoverFn(null);
+    if (!focused){
+      clearHoverState();
+      onHoverFn(null);
+    }
   }
 
   function clearHoverState() {
@@ -212,8 +237,11 @@
             class="country {classesFn(d).join(' ')}"
             style={calcStyle(d)}
             data-code={d.code}
+            tabindex="0"
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
+            on:focus={() => {console.log("FOCUS"); onMouseClick(d);focused = true;}}
+            on:blur={() => {console.log("blur");focused = false;onMouseLeaveCountry();}}
           >
 
           {#if !hideLabels && d.width > 50}
@@ -262,6 +290,7 @@
     transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
     will-change: opacity, background-color, border-radius;
     background: grey;
+    outline-color: black;
   }
 
   .cartogram-resizing .country {
