@@ -211,8 +211,11 @@
         .filter((d) => policiesLookup[d.code])
         .map(d => {
           return {
-            ...d,
-            ...d.trends,
+            name: countryNameDictionaryLookup[d.code].name,
+            short: countryNameDictionaryLookup[d.code].short,
+            code: d.code,
+            x: d.x,
+            y: d.y,
             value: 5,
             data : policiesLookup[d.code]
           };
@@ -241,7 +244,17 @@
         });
         return `linear-gradient(to bottom, ${gradientStrs.join(', ')})`;
       },
-      classesFn: () => legendElementSelectedIndex !== null ? ['country--shadow'] : [],
+      classesFn: (d : CountryDataPoint) => {
+        let policiesData = d.data as PoliciesData;
+        let policiesCont =
+          [(policiesData.pYes),
+          (policiesData.pAlmost - policiesData.pYes),
+          (policiesData.pNo - policiesData.pAlmost),
+          (100 - policiesData.pNo)];
+
+        return legendElementSelectedIndex !== null &&
+                policiesCont[legendElementSelectedIndex] !== 0 ? ['country--shadow'] : [];
+      },
       color: colorPolices,
       legendTitle: `<strong>Actions taken towards cleaner air</strong>`,
       legendDomain: colorPolices.domain(),
