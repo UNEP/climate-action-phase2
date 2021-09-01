@@ -346,4 +346,11 @@
       transition: 150ms opacity;
     }
   }
+  .cartogram-container :global(.annotation .text) {
+    background: #f9f9f9e0;
+    border-radius: 4px;
+    padding: 0 10px 5px;
+
+  }
+
 </style>
