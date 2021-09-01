@@ -5,6 +5,8 @@
   import { colorFuels, colorSectors } from "src/colors";
   import ScrollableX from './common/ScrollableX.svelte';
   import EmbedFooter from './EmbedFooter.svelte';
+  import SectionTitle from "src/components/SectionTitle.svelte";
+  import type { Content } from 'src/types';
 
   interface Text {
     p : string;
@@ -13,9 +15,11 @@
     fuel = 0, sectors = 1
   }
   export let data : string;
+  export let id: string;
+  export var block: Content;
   export let head : string;
   export let text : Text[];
-  export let embed : boolean = true;
+  export let embed = false;
 
   let cartogramAnnotation: boolean;
 
@@ -94,7 +98,12 @@
           .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
   }
 </script>
-<section class='viz wide' id={data}>
+<section class='viz wide' {id}>
+
+  {#if !embed}
+    <SectionTitle {block} />
+  {/if}
+
   <h2 class='narrow'>{@html head}</h2>
 
 	<div class='right-narrow' >
@@ -166,6 +175,7 @@
     overflow: hidden;
     transition: 300ms background-color 700ms;
   }
+
   .background {
     background-color: #f9f9f9;
     transition: 150ms background-color;

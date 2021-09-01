@@ -1,19 +1,22 @@
 <script lang="ts">
-  interface MenuNav {
-    a: string;
-    label: string;
-    icon: string;
-  }
-
   import svg from 'src/svg';
   import MenuSpy from "src/components/nav/menuspy";
   import { onMount } from "svelte";
   import * as animateScroll from "svelte-scrollto";
-  export let options: MenuNav[];
-
   import type {MenuSpyParams} from 'src/components/nav/menuspy';
+  import type { Content } from 'src/types';
+  import { strToId } from 'src/util';
 
-  const hasValidOptions = options instanceof Array;
+  export let content: Content[];
+
+  const options = content
+    .filter(c => c.menu)
+    .map(c => ({
+      title: c.menu,
+      id: strToId(c.menu),
+      icon: c.icon
+    }));
+
   var elm : Element;
   var ms : MenuSpy;
   var msParams : MenuSpyParams = {
@@ -33,38 +36,32 @@
 </script>
 
 <nav class="mainnavbuttons" id="main-menu">
-  {#if hasValidOptions}
-      {#each options as option, i}
-        <button
-          class={option.a === 'pm25' ? "active" : ""}
-          on:click=
-          {
-            animateScroll.scrollTo({
-              element: '#' + option.a,
-              offset: -75,
-              onStart: () => {
-                ms.activateItem(ms.scrollItems[i]);
-                ms.dissableUpdate();
-              },
-              onDone: () => { ms.enableUpdate(); ms.tick(); }
-            })
-          }
-        >
+  {#each options as option, i}
+    <button
+      class={i === 0 ? "active" : ""}
+      on:click=
+      {
+        animateScroll.scrollTo({
+          element: `#${option.id}`,
+          offset: -75,
+          onStart: () => {
+            ms.activateItem(ms.scrollItems[i]);
+            ms.dissableUpdate();
+          },
+          onDone: () => { ms.enableUpdate(); ms.tick(); }
+        })
+      }
+    >
+      <div class="buttoncontent" href='#{option.id}' id="{option.id}div">
+        <div class="icon">{@html svg.menu[option.icon]}</div>
+        <div class="text-container">
+          <div class="text">{option.title}</div>
+        </div>
+      </div>
 
-          <div class="buttoncontent" href='#{option.a}' id= "{option.a}div">
-            <div class="icon">{@html svg.menu[option.icon]}</div>
-            <div class="text-container">
-              <div class="text">{option.label}</div>
-            </div>
-          </div>
-
-        </button>
-      {/each}
-  {:else}
-    <div>Menu: Invalid options</div>
-  {/if}
+    </button>
+  {/each}
 </nav>
-
 
 <style>
 

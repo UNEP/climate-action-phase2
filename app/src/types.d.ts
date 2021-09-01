@@ -18,7 +18,7 @@ export interface Content {
   head?: string;
   text?: TextBlock[];
   menu?: string;
-  anchor?: string;
+  icon?: string;
   embed?: string;
 }
 

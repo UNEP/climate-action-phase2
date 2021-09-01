@@ -10,6 +10,7 @@
   import Menu from './components/nav/Menu.svelte';
   import BaseEmbed from './components/BaseEmbed.svelte';
   import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
+  import { strToId } from './util';
 
   const content: Content[] = text.article;
   export var embed: string;
@@ -28,7 +29,12 @@
 {#if embedBlock}
   <BaseEmbed>
     <div slot="viz" class="cartogram-pane">
-      <svelte:component this={components[embedBlock.type]} {...embedBlock}/>
+      <svelte:component
+        this={components[embedBlock.type]}
+        {...embedBlock}
+        content={content}
+        block={embedBlock}
+      />
     </div>
   </BaseEmbed>
 {:else}
@@ -37,7 +43,14 @@
     <article>
       {#each content as block}
         {#if components[block.type]}
-          <svelte:component this={components[block.type]} {...block} embed={false} />
+          <svelte:component
+            this={components[block.type]}
+            {...block}
+            block={block}
+            id={block.menu ? strToId(block.menu) : null}
+            content={content}
+            embed={false}
+          />
         {:else}
           <div>Missing component for '{block.type}'</div>
         {/if}
