@@ -27,14 +27,22 @@
     hashTimeout: 0,
     callback: null
   };
+  let width: number;
+  let smallScreen: boolean;
 
   onMount(() => {
     elm = document.querySelector('#main-menu');
     ms = new MenuSpy(elm, msParams);
+    getScreen();
   });
+
+  function getScreen () { 
+    smallScreen = width < 1200;
+  }
 
 </script>
 
+<svelte:window bind:innerWidth={width} on:resize={getScreen}/>
 <nav class="mainnavbuttons" id="main-menu">
   {#each options as option, i}
     <button
@@ -43,7 +51,7 @@
       {
         animateScroll.scrollTo({
           element: `#${option.id}`,
-          offset: -75,
+          offset: smallScreen ? -24 : 24,
           onStart: () => {
             ms.activateItem(ms.scrollItems[i]);
             ms.dissableUpdate();
