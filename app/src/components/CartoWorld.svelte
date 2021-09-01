@@ -10,14 +10,17 @@
   import {createLookup} from 'src/util';
 
   import type {CountryDataPoint} from "src/components/maps/Cartogram.svelte";
-  import type { TextBlock } from 'src/types';
+  import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
+  import SectionTitle from "src/components/SectionTitle.svelte";
 
   export var data : "pm25" | "health" | "policies";
+  export var id: string;
+  export var block: Content;
   export var head: string;
   export var text: TextBlock[];
-  export var embed: boolean = false;
+  export var embed = false;
 
   interface PoliciesData {
     name : string;
@@ -256,7 +259,12 @@
 
 </script>
 
-<section id="{data}" class="viz wide">
+<section {id} class="viz wide">
+
+  {#if !embed}
+    <SectionTitle {block} />
+  {/if}
+
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="right-narrow" >

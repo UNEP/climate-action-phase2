@@ -85,3 +85,10 @@ export interface RGB{
     g: number,
     b: number
 }
+
+export const strToId = (str: string): string => {
+  return str
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '');
+};
