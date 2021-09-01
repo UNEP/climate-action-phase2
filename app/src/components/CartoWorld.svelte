@@ -20,7 +20,8 @@
   export var block: Content;
   export var head: string;
   export var text: TextBlock[];
-  export var embed = false;
+  export var embed: string;
+  export var isEmbed = false;
 
   interface PoliciesData {
     name : string;
@@ -261,7 +262,7 @@
 
 <section {id} class="viz wide">
 
-  {#if !embed}
+  {#if !isEmbed}
     <SectionTitle {block} />
   {/if}
 
@@ -277,7 +278,7 @@
     />
   </div>
 
-  {#if embed}
+  {#if isEmbed}
     <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
       <p>
         To explore more about the climate emergency and
@@ -309,12 +310,10 @@
     </ScrollableX>
   </div>
 
-  {#if !embed}
+  {#if !isEmbed}
 
     <div class="footer">
-      <EmbedFooter
-        embed = "embedCharts">
-      </EmbedFooter>
+      <EmbedFooter {embed} />
     </div>
 
     {#each text as t}

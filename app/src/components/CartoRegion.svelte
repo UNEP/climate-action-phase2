@@ -19,7 +19,8 @@
   export var block: Content;
   export let head : string;
   export let text : Text[];
-  export let embed = false;
+  export let embed: string;
+  export let isEmbed = false;
 
   let cartogramAnnotation: boolean;
 
@@ -101,7 +102,7 @@
 </script>
 <section class='viz wide' {id}>
 
-  {#if !embed}
+  {#if !isEmbed}
     <SectionTitle {block} />
   {/if}
 
@@ -117,7 +118,7 @@
 		/>
 	</div>
 
-  {#if embed}
+  {#if isEmbed}
     <div class="embed-additional-text-desktop">
       <p>
         To explore more about the climate emergency and
@@ -150,11 +151,9 @@
     </ScrollableX>
   </div>
 
-  {#if !embed}
+  {#if !isEmbed}
     <div class="footer">
-      <EmbedFooter
-        embed = {data}>
-      </EmbedFooter>
+      <EmbedFooter {embed} />
     </div>
 
     {#each text as t}
