@@ -53,46 +53,68 @@
 
   const policiesHoverText = (data : PoliciesData) : string => {
 
-    let hasPolicies = false;
-    let hoverText = `<strong>${data.name}</strong> has policies for: `;
-    if(data['ind-1'] === PoliciesStatus.Yes || data['ind-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Clean production incentives</strong>`;
-      hasPolicies = true;
+    let hasMet = [];
+    let onTrack = [];
+    let noMet = [];
+    let hoverText = "";
+
+    if(data['ind-1'] === PoliciesStatus.Yes) hasMet.push(`Clean production incentives`);
+    else if(data['ind-1'] === PoliciesStatus.Almost) onTrack.push(`Clean production incentives`);
+    else if(data['ind-1'] === PoliciesStatus.No) noMet.push(`Clean production incentives`);
+
+    if(data['tra-1'] === PoliciesStatus.Yes) hasMet.push(`Vehicle emissions standards`);
+    else if(data['tra-1'] === PoliciesStatus.Almost) onTrack.push(`Vehicle emissions standards`);
+    else if(data['tra-1'] === PoliciesStatus.No) noMet.push(`Vehicle emissions standards`);
+
+    if(data['tra-2'] === PoliciesStatus.Yes) hasMet.push(`Fuel Sulphur content`);
+    else if(data['tra-2'] === PoliciesStatus.Almost) onTrack.push(`Fuel Sulphur content`);
+    else if(data['tra-2'] === PoliciesStatus.No) noMet.push(`Fuel Sulphur content`);
+
+    if(data['waste-1'] === PoliciesStatus.Yes) hasMet.push(`Solid Waste Burning`);
+    else if(data['waste-1'] === PoliciesStatus.Almost) onTrack.push(`Solid Waste Burning`);
+    else if(data['waste-1'] === PoliciesStatus.No) noMet.push(`Solid Waste Burning`);
+
+    if(data['res-1'] === PoliciesStatus.Yes)
+      hasMet.push(`Incentives for residential cooking and heating`);
+    else if(data['res-1'] === PoliciesStatus.Almost)
+      onTrack.push(`Incentives for residential cooking and heating`);
+    else if(data['res-1'] === PoliciesStatus.No)
+      noMet.push(`Incentives for residential cooking and heating`);
+
+    if(data['aq-1'] === PoliciesStatus.Yes)
+      hasMet.push(`Air quality standards`);
+    else if(data['aq-1'] === PoliciesStatus.Almost)
+      onTrack.push(`Air quality standards`);
+    else if(data['aq-1'] === PoliciesStatus.No)
+      noMet.push(`Air quality standards`);
+
+
+    if (hasMet.length > 0) {
+      hoverText += `<strong>${data.name}</strong> has met <strong>
+                    ${hasMet.length === 1 ? "this target" : "these targets"}</strong>: `;
+
+      hoverText += hasMet.join(', ');
+      if (onTrack.length > 0){
+        hoverText += `<br>And it's on track to meet <strong>
+                      ${onTrack.length === 1 ? "this" : "these"}</strong>: `;
+        hoverText += onTrack.join(', ');
+      }
     }
-    if(data['ind-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
-
-    if(data['tra-1'] === PoliciesStatus.Yes || data['tra-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Vehicle emissions standards</strong>`;
-      hasPolicies = true;
+    else if(onTrack.length > 0){
+      hoverText += `<strong>${data.name}</strong> has on track to met <strong>
+                    ${onTrack.length === 1 ? "this target" : "these targets"}</strong>: `;
+      hoverText += onTrack.join(', ');
     }
-    if(data['tra-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
+    else if(noMet.length === 0) hoverText += `No data for <strong>${data.name}</strong>`;
+    else {
+      if(noMet.length === 6)hoverText += `<strong>${data.name}</strong> hasn't met any targets`;
+      else {
+        hoverText += `<strong>${data.name}</strong>
+                      hasn't met any of the target for which we have data: `;
+        hoverText += noMet.join(', ');
+      }
 
-    if(data['tra-2'] === PoliciesStatus.Yes || data['tra-2'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Fuel Sulphur content</strong>`;
-      hasPolicies = true;
     }
-    if(data['tra-2'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
-
-    if(data['waste-1'] === PoliciesStatus.Yes || data['waste-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Solid Waste Burning</strong>`;
-      hasPolicies = true;
-    }
-    if(data['waste-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
-
-    if(data['res-1'] === PoliciesStatus.Yes || data['res-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Incentives for residential cooking and heating</strong>`;
-      hasPolicies = true;
-    }
-    if(data['res-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
-
-    if(data['aq-1'] === PoliciesStatus.Yes || data['aq-1'] === PoliciesStatus.Almost) {
-      hoverText += `<br/><strong>─ Air quality standards</strong>`;
-      hasPolicies = true;
-    }
-    if(data['aq-1'] === PoliciesStatus.Almost) hoverText += ` (Almost)`;
-
-    if(!hasPolicies) hoverText += `<br/><strong>─ No policies</strong>`;
-
     return hoverText;
   };
 
@@ -200,8 +222,7 @@
         code: "JPN",
         text:
           `<strong>Each square is a country</strong>,
-           sized by the total number of <strong>deaths
-           caused by small particle pollution</strong>.`
+          colored by the <strong>number of air quality targets met</strong> or on track.`
       },
       hoverTextFn: (d:CountryDataPoint) => policiesHoverText(d.data as PoliciesData),
       colorFn: (d: CountryDataPoint) => {
@@ -209,8 +230,8 @@
         const colors = colorPolices.range();
         const gradients = [
           { color: colors[0], start: 0, end: policiesData.pYes },
-          { color: colors[2], start: policiesData.pYes, end: policiesData.pAlmost },
-          { color: colors[1], start: policiesData.pAlmost, end: policiesData.pNo },
+          { color: colors[1], start: policiesData.pYes, end: policiesData.pAlmost },
+          { color: colors[2], start: policiesData.pAlmost, end: policiesData.pNo },
           { color: colors[3], start: policiesData.pNo, end: 100 },
         ];
 
@@ -218,12 +239,11 @@
           const hide = legendIsHovered && legendElementSelectedIndex !== i;
           return `${g.color}${hide ? '00' : 'ff'} ${g.start}% ${g.end}%`;
         });
-
         return `linear-gradient(to bottom, ${gradientStrs.join(', ')})`;
       },
       classesFn: () => legendElementSelectedIndex !== null ? ['country--shadow'] : [],
       color: colorPolices,
-      legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
+      legendTitle: `<strong>Actions taken towards cleaner air</strong>`,
       legendDomain: colorPolices.domain(),
       legendType: 'categorical',
       domain: [1300, (1300 / (740 / 420))] as [number, number]

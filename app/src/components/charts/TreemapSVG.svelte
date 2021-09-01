@@ -54,7 +54,6 @@
   let showConcreteType = false;
   let currentRegion : RegionTreemapData;
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
-  let legendTypeParams = [];
   let showHoverText = () => {
     return (
       `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
@@ -71,7 +70,6 @@
     );
   };
   $:{
-    legendTypeParams = [];
     regions = data.regions.map(region => {
       const convertX = (val: number) => width * val / data.scale_width;
       const convertY = (val: number) => height * val / data.scale_height;
@@ -91,21 +89,7 @@
         borderRight: 2,
         color: "#f9f9f9",
       };
-      let posX = convertX(region.posX);
-      let posY = convertY(region.posY);
-      treemap.leaves().forEach((e) => {
 
-        if (e.data.type === legendElementSelected){
-          let currentLeaf = {
-            x: posX + e.x0,
-            y: posY + e.y0,
-            width: e.x1 - e.x0,
-            height: e.y1 - e.y0,
-            type: e.data.type
-          };
-          legendTypeParams.push(currentLeaf);
-        }
-      });
       return {
         leaves : treemap.leaves(),
         background,
@@ -210,6 +194,9 @@
           {#each region.leaves as leaf}
           <rect
             class="tile leaf {leaf.data.type}"
+            class:leaf--shadow={legendElementSelected === leaf.data.type}
+            class:leaf--hide={ legendElementSelected !== leaf.data.type &&
+                               legendElementSelected !== "null"}
             fill={data.type === "sectors" ? colorSectors(leaf.data.type) : colorFuels(leaf.data.type)}
             width={leaf.x1 - leaf.x0}
             height={leaf.y1 - leaf.y0}
@@ -232,23 +219,6 @@
         </g>
       </g>
     {/each}
-
-    {#each legendTypeParams as current}
-          <rect
-          class="leaf-legend"
-          fill={data.type === "sectors" ? colorSectors(current.type) : colorFuels(current.type)}
-          width={current.width}
-          height={current.height}
-          x={current.x}
-          y={current.y}
-          rx="2"
-          ry="2"
-          cx="0"
-          cy="0"
-          >
-
-          </rect>
-    {/each}
   </svg>
 
 </div>
@@ -258,6 +228,7 @@
     stroke: transparent;
     stroke-linecap: butt;
     stroke-width: 0.5;
+    transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
   }
   .leaf:hover {
     stroke: black;
@@ -267,18 +238,11 @@
   .region:hover{
     filter: drop-shadow( 0 0 3px rgba(0, 0, 0, 1));
   }
-  .leaf-legend {
-    stroke: transparent;
-    stroke-width:0.5;
-    transform: scale(1);
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: popupType .2s forwards;
+  .leaf--hide {
+    opacity: 0.2;
   }
-  @keyframes popupType {
-    to {
-      stroke: black;
-      transform: scale(1.3);
-    }
+
+  .leaf--shadow {
+    filter: drop-shadow( 0 0 3px rgba(0, 0, 0, 1));
   }
 </style>

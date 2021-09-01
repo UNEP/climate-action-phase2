@@ -77,7 +77,6 @@
     cont++;
   });
 
-
   const currentData = data === "sectors" ? sectoralBD : data === "fuel" ? differentFuels : null;
   const scaleRate = currentData.scale_height / currentData.scale_width;
   let clientWidth: number = 0;
@@ -91,11 +90,13 @@
   $: {
     if(
       legendElementSelectedIndex >= 0 &&
-      legendElementSelectedIndex < legendOptions[data].selectionDictionary.length
+      legendElementSelectedIndex < legendOptions[data].selectionDictionary.length &&
+      legendElementSelectedIndex !== null
     )
       legendElementSelected =
         (legendOptions[data].selectionDictionary[legendElementSelectedIndex] + "")
           .toLocaleLowerCase().replaceAll('.', '').replaceAll(' ', '');
+    else legendElementSelected = "null";
   }
 </script>
 <section class='viz wide' {id}>
@@ -179,5 +180,12 @@
   .background {
     background-color: #f9f9f9;
     transition: 150ms background-color;
+  }
+  .leaf--hide {
+    opacity: 0.5;
+  }
+
+  .leaf--shadow {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   }
 </style>

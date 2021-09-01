@@ -90,7 +90,7 @@
     vertical-align:-0.1rem;
   }
   .cat-item {
-    margin-right: 1.25rem;
+    margin-right: 0;
   }
   .selected-cat {
     background-color: #FFF;

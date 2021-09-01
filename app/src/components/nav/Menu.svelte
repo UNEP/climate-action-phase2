@@ -72,7 +72,6 @@
     z-index: 6;
     width: 210px;
     border-top: 1px solid #DCDCDC;
-    float: right;
   }
   button {
     width: 100%;
@@ -141,7 +140,7 @@
     }
   }
 
-  @media (max-width: 1400px) {
+  @media (max-width: 1200px) {
 
     .text-container{
       display: none;
@@ -162,7 +161,7 @@
     .mainnavbuttons {
         display: flex;
         float: none;
-        left: 0;
+        right: 0;
         width: 100%;
         margin: 0;
         border-top: none;
@@ -195,7 +194,11 @@
     }
 
   }
-
+  @media (min-width: 1200px){
+    .mainnavbuttons {
+      height: 0;
+    }
+  }
   @keyframes fadeIn{
     from { opacity: 0;}
     to { opacity: 1;}
