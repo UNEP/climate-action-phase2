@@ -165,7 +165,6 @@
 </section>
 
 <style>
-
   .footer {
     margin-bottom: 30px;
   }
@@ -180,12 +179,7 @@
     background-color: #f9f9f9;
     transition: 150ms background-color;
   }
-  .leaf--hide {
-    opacity: 0.5;
-  }
 
-  .leaf--shadow {
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   .treemap-container :global(.annotation .text) {
     background: #f9f9f9;
     border-radius: 4px;
