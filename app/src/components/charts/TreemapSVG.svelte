@@ -54,6 +54,16 @@
   let showConcreteType = false;
   let currentRegion : RegionTreemapData;
   let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
+
+  let updateInformation =
+  (cregion : RegionTreemapData, leaf:HierarchyRectangularNode<HierarchicalDatum>) => {
+    currentRegion = cregion;
+    leaf.data.type !== cregion.mostPollutingType ?
+      showConcreteType = true :
+      showConcreteType = false;
+    currentLeaf = leaf;
+    showInformation = false;
+  };
   let showHoverText = () => {
     return (
       `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
@@ -204,14 +214,8 @@
             y={region.y + leaf.y0}
             rx="2"
             ry="2"
-            on:mouseenter={()=>{
-              currentRegion =
-              region; leaf.data.type !== region.mostPollutingType ?
-                showConcreteType = true :
-                showConcreteType = false;
-              currentLeaf = leaf;
-              showInformation = false;}
-              }
+            on:mouseenter={()=>{updateInformation(region, leaf);}}
+            on:focus={()=>{updateInformation(region, leaf);}}
             on:mouseout={()=>{showInformation = true; showConcreteType = false;}}
             on:blur={()=>{showInformation = true; showConcreteType = false;}}
           />
@@ -229,11 +233,14 @@
     stroke-linecap: butt;
     stroke-width: 0.5;
     transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
+    outline-color: black;
   }
-  .leaf:hover {
-    stroke: black;
-    stroke-width:1.5;
-    transition: .3s stroke;
+  @media (hover : hover) and (pointer : fine) {
+    .leaf:hover {
+      stroke: black;
+      stroke-width:1.5;
+      transition: .3s stroke;
+    }
   }
   .region:hover{
     filter: drop-shadow( 0 0 3px rgba(0, 0, 0, 1));
@@ -245,4 +252,5 @@
   .leaf--shadow {
     filter: drop-shadow( 0 0 3px rgba(0, 0, 0, 1));
   }
+
 </style>
