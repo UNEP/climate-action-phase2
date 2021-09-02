@@ -46,11 +46,4 @@
     stroke: black;
   }
 
-  @media (max-width: 700px) {
-    .kicker-icon {
-      flex: 0 0 20px;
-      top: 0;
-    }
-  }
-
 </style>
