@@ -122,9 +122,9 @@
           (
             convertX(region.posY) +
             mapPropotions(treemap.value / region.numCountries) +
-            background.borderRight + background.borderLeft
+            background.borderRight + background.borderLeft + 5
           ) :
-          convertX(region.posY) - 20
+          convertX(region.posY) - 25
       };
     });
     referenceRegion = {
@@ -166,7 +166,7 @@
     <Annotation
       x={region.nameX}
       y={region.nameY}
-      text={region.region}
+      text={region.region.replace('+','and')}
       radius={2}
       justText={true}
       canvasWidth={width}
