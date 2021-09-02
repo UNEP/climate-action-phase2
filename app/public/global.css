@@ -13,7 +13,7 @@ body {
   font-style: normal;
 }
 
-article, .page-header {
+article, .page-header, .footer-content {
   max-width: 75rem;
   margin: 0 1rem;
 }
@@ -23,7 +23,7 @@ article, .page-header {
 }
 
 @media (min-width: 400px) {
-  article, .page-header {
+  article, .page-header, .footer-content {
     margin: 0 2rem;
   }
   .margin-breakout-mobile {
@@ -143,7 +143,7 @@ sup, sub { line-height: 0; }
     margin-right: 0;
   }
 
-  article, .page-header {
+  article, .page-header, .footer-content {
     margin-left: 3.75rem;
     margin-right: 1.5rem;
   }
@@ -191,7 +191,7 @@ sup, sub { line-height: 0; }
 }
 
 @media (min-width: 1200px){
-  article, .page-header {
+  article, .page-header, .footer-content {
     padding-right: 220px;
   }
 }
@@ -200,7 +200,7 @@ sup, sub { line-height: 0; }
   article {
     margin: 0 auto;
   }
-  .page-header {
+  .page-header, .footer-content {
     margin-left: auto;
     margin-right: auto;
   }
