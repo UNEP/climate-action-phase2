@@ -238,6 +238,7 @@
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
             on:focus={() => onMouseClick(d)}
+            on:click={() => onMouseClick(d)}
             on:blur={() => onMouseLeaveCountry()}
           >
           {#if !hideLabels && d.width > 150}
