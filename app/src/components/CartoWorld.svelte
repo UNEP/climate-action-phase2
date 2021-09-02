@@ -14,6 +14,7 @@
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
   import SectionTitle from "src/components/SectionTitle.svelte";
+  
 
   export var data : "pm25" | "health" | "policies";
   export var id: string;
@@ -179,7 +180,7 @@
           color: colorHealth(d.rate)
         };
       }),
-      nodeSize: 70,
+      nodeSize: 80,
       helpText: {
         code: "BLR",
         text:
