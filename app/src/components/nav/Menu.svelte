@@ -130,7 +130,7 @@
   }
 
   .active .text {
-    color: #e5e5e5;
+    color: #e0e0e0;
   }
 
   .active{
@@ -167,53 +167,72 @@
       opacity: 0;
     }
     .active .text{
-      opacity: 1;
-      animation: fadeIn 1.5s forwards;
+      opacity: 0;
+      animation: fadeIn 300ms forwards;
+      animation-delay: 150ms;
     }
 
     .mainnavbuttons {
-        display: flex;
-        float: none;
-        right: 0;
-        width: 100%;
-        margin: 0;
-        border-top: none;
-        border-left: 1px solid #DCDCDC;
+      display: flex;
+      float: none;
+      right: 0;
+      width: 100%;
+      border-top: none;
+      border-left: 1px solid #DCDCDC;
     }
 
     button {
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: 50px;
-        transition: flex 1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
-        border-top: 1px solid #DCDCDC;
-        border-left:none;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: 50px;
+      transition: flex 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+      border-top: 1px solid #DCDCDC;
+      border-left:none;
     }
 
     button.active {
-        flex-grow: 1;
+      flex-grow: 1;
     }
 
     button .buttoncontent {
-        width: 100% !important;
-        transition: background-color 300ms, border-color 300ms;
+      width: 100% !important;
+      transition: background-color 300ms, border-color 300ms;
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
+    .mainnavbuttons {
+      width: auto;
+      left: auto;
+    }
+  }
 
+  @media (max-width: 319px) {
     .active .text-container{
       display: none;
     }
+  }
+  @media (max-width: 400px) {
 
+    button {
+      flex-basis: 44px;
+    }
+    .icon {
+      width: 30px;
+      height: 30px;
+      margin: 7px 7px;
+    }
+    .text {
+      font-size: 0.9rem;
+    }
   }
   @media (min-width: 1200px){
     .mainnavbuttons {
       height: 0;
     }
   }
-  @keyframes fadeIn{
-    from { opacity: 0;}
-    to { opacity: 1;}
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 </style>
