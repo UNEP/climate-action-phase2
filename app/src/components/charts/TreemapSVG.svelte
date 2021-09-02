@@ -65,17 +65,28 @@
 
   let showHoverText = () => {
     return (
-      `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
-      comes from <strong>${labels[currentRegion.mostPollutingType]}</strong>
+      `The largest contributing sector in <strong>${currentRegion.region}</strong>
+      is <strong>${labels[currentRegion.mostPollutingType]}</strong>
       — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
       of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
     );
   };
-  let showCurrentLeaf = (currentType:string, currentValue:number) => {
+
+  let showHoverTextAfter = () => {
+    return (
+      `The largest contributing sector is <strong>${labels[currentRegion.mostPollutingType]}</strong>
+      — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
+      of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
+    );
+  };
+  
+  let showCurrentLeaf = (
+    currentType:string,
+    currentValue:number) => {
     return (
       `<strong>${labels[currentType]}</strong> accounts for
-      <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
-       µg/m<sup>3</sup>. ${showHoverText()}`
+       <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
+       µg/m<sup>3</sup> in <strong>${currentRegion.region}</strong>. ${showHoverTextAfter()}`
     );
   };
   $:{

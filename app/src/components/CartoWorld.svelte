@@ -139,14 +139,13 @@
         code: "JPN",
         text:
         `<strong>Each square is a country</strong>, sized
-         by the annual mean levels of <strong>small particular
-         matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+         by the annual mean levels of <strong>fine particular
+         matter PM<sub>2.5</sub></strong>, measured in µg/m<sup>3</sup>.`
       },
       hoverTextFn: (d: CountryDataPoint) =>
-        `In <strong>${d.name}</strong>, people are exposed
-       to an average of <strong>${d.value} μg/m<sup>3</sup>
-      </strong> a year —<strong>${(d.value / 10).toFixed(1)}
-      </strong> the WHO guideline.`,
+        `In <strong>${d.name}</strong>, people are exposed to an average of
+        <strong>${d.value} μg/m<sup>3</sup></strong> a year —
+        <strong>${(d.value / 10).toFixed(1)}</strong> times the WHO guideline.`,
       classesFn: (d : CountryDataPoint) => {
         if (!legendIsHovered) {
           return [];
@@ -201,7 +200,7 @@
         }
       },
       color: colorHealth,
-      legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
+      legendTitle: `<strong>Deaths per 100,000 people</strong> caused by fine particle pollution`,
       legendDomain: ["20","40","60","80","100"],
       legendType: 'sequential',
       domain: [700, 400] as [number, number]
