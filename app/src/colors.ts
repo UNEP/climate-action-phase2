@@ -21,9 +21,8 @@ export const colorPM25 = scaleThreshold<number, string>()
     ,'#912787', '#800080']);
 
 export const colorHealth = scaleThreshold<number, string>()
-  .domain([10,20,30,40,50,60,70,80,90,100])
-  .range(['#facc6e', '#f0b971', '#e5a774', '#d89677', '#ca8679', '#bb767b'
-    , '#aa677c', '#98587e', '#854b7f', '#703e81', '#583382']);
+  .domain([20,40,60,80,100])
+  .range(['#facc6e', '#df9f75', '#bb767b', '#8f527f', '#583382']);
 
 
 export const colorPolices = scaleOrdinal<string>()
