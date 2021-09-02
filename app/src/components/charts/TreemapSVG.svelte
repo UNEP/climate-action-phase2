@@ -168,6 +168,7 @@
       y: (currentLeaf.y1 - currentLeaf.y0) / 2
     }}
     topClamp={pxAboveScreenTop}
+    forceTopWherePossible
     canvasWidth={width} canvasHeight={height}
   />
 {/if}
