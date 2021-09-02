@@ -183,7 +183,7 @@
   .treemap-container :global(.annotation .text) {
     background: #f9f9f9;
     border-radius: 4px;
-    padding: 0 1px 5px;
+    padding: 0 10px 5px;
   }
 
 </style>
