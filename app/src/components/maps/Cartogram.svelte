@@ -56,8 +56,6 @@
   let annotation: AnnotationData;
   let hoveredForX = false;
 
-  let focused = false;
-
   $: largestVal = Math.max(...data.map(d => d.value));
 
   let clientWidth: number;
@@ -164,7 +162,6 @@
       y: country.top + (country.height / 2)
     };
     hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
-    focused = true;
   }
 
   function onMouseLeaveCountry() {
@@ -233,7 +230,7 @@
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
             on:focus={() => onMouseClick(d)}
-            on:blur={() => {focused = false; onMouseLeaveCountry();}}
+            on:blur={() => onMouseLeaveCountry()}
           >
           {#if !hideLabels && d.width > 150}
             <span class="country-text">{d.short}</span>
