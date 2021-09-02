@@ -153,6 +153,12 @@
     }
   }
 
+  @media (min-width: 1200px) and (max-width: 1800px) {
+    .mainnavbuttons {
+      margin-right: -215px;
+    }
+  }
+
   @media (max-width: 1200px) {
 
     .text-container{

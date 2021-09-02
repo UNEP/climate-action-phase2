@@ -14,7 +14,7 @@ body {
 }
 
 article, nav {
-  max-width: 87.5rem;
+  max-width: 75rem;
   margin: 0 1rem;
 }
 
@@ -24,7 +24,6 @@ article, nav {
 
 @media (min-width: 400px) {
   article, nav {
-    max-width: 87.5rem;
     margin: 0 2rem;
   }
   .margin-breakout-mobile {
@@ -42,6 +41,7 @@ article, nav {
 .inner-nav { margin: 0; }
 
 article, section { position:relative; }
+
 .viz { padding: 2rem 0;}
 
 p, h1, h2, h3, h4, select, ul {
@@ -178,11 +178,14 @@ sup, sub { line-height: 0; }
 }
 
 @media screen and (min-width: 95.25rem) {
-  article, nav {
-    margin: 0 auto;
-  }
   .wide {
     width: 72rem;
     padding-right: calc(100% - 72rem);
+  }
+}
+
+@media (min-width: 1200px){
+  article {
+    margin-right: 220px;
   }
 }
