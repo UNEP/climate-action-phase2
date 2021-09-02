@@ -229,7 +229,7 @@
     <div class="countries">
       {#each cartogramData as d (d.code)}
         {#if d.x && d.y}
-          <div id={d.code}
+          <div
             class="country {classesFn(d).join(' ')}"
             style={calcStyle(d)}
             data-code={d.code}
