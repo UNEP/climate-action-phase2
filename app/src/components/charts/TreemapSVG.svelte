@@ -67,8 +67,8 @@
     return (
       `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
       comes from <strong>${labels[currentRegion.mostPollutingType]}</strong>
-      —<strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong>
-      of the <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
+      — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
+      of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
     );
   };
   let showCurrentLeaf = (currentType:string, currentValue:number) => {

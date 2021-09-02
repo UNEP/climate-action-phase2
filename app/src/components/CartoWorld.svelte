@@ -163,7 +163,7 @@
       hoverText: (d: CountryDataPoint) =>
         `In <strong>${d.name}</strong>, people are exposed to an average of
         <strong>${d.value} μg/m<sup>3</sup></strong> a year —
-        <strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`
+        <strong>${(d.value / 10).toFixed(1)}</strong> times the WHO guideline.`
     },
 
     health: {
@@ -185,12 +185,12 @@
         text:
         `<strong>Each square is a country</strong>,
         sized by the total number of <strong>deaths
-        caused by small particle pollution</strong>.`
+        caused by fine particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) =>
-        `In <strong>${d.name}</strong>, small particle
+        `In <strong>${d.name}</strong>, fine particle
       pollution caused <strong>${d.value.toLocaleString('en-US')} deaths</strong>
-      in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
+      in 2017 — or <strong>${d.rate} per 100,000 people</strong>.`,
       classesFn: (d : CountryDataPoint) => {
         if (!legendIsHovered) {
           return [];
