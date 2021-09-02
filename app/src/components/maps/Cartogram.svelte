@@ -143,17 +143,17 @@
   const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
 
   function onMouseEnterCountry(evt: MouseEvent, country: CartogramDataPoint) {
-    if (!focused){
-      onHoverFn(country);
-      helpTextFade = false;
-      _debouncedShowHelpText.cancel();
-      hoverData = {
-        country,
-        x: country.left + (country.width / 2),
-        y: country.top + (country.height / 2)
-      };
-      hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
-    }
+    //if (!focused){
+    onHoverFn(country);
+    helpTextFade = false;
+    _debouncedShowHelpText.cancel();
+    hoverData = {
+      country,
+      x: country.left + (country.width / 2),
+      y: country.top + (country.height / 2)
+    };
+    hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
+    //}
   }
 
   function onMouseClick(country: CartogramDataPoint) {
@@ -170,10 +170,10 @@
   }
 
   function onMouseLeaveCountry() {
-    if (!focused){
-      clearHoverState();
-      onHoverFn(null);
-    }
+    //if (!focused){
+    clearHoverState();
+    onHoverFn(null);
+    //}
   }
 
   function clearHoverState() {
@@ -239,7 +239,7 @@
             on:focus={() => onMouseClick(d)}
             on:blur={() => {focused = false; onMouseLeaveCountry();}}
           >
-          {#if !hideLabels && d.width > 50}
+          {#if !hideLabels && d.width > 150}
             <span class="country-text">{d.short}</span>
           {/if}
           </div>
