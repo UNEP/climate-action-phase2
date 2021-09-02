@@ -307,7 +307,7 @@
     </div>
   {/if}
 
-  <div class="breakout-on-mobile" bind:clientWidth={clientWidth}>
+  <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
       <div
         style="width:{width}px; height:{height}px"
@@ -338,12 +338,6 @@
 
 <style lang="scss">
 
-  @media screen and (max-width: 600px) {
-    .breakout-on-mobile {
-      margin: 0 -2rem;
-    }
-  }
-
   .footer {
     margin-bottom: 30px;
   }
@@ -358,6 +352,11 @@
       transition: 150ms opacity;
     }
   }
+
+  .cartogram-container {
+    overflow: hidden;
+  }
+
   .cartogram-container :global(.annotation .text) {
     background: #f9f9f9e0;
     border-radius: 4px;
