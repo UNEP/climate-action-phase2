@@ -153,7 +153,7 @@
     }
   }
 
-  @media (min-width: 1200px) and (max-width: 1800px) {
+  @media (min-width: 1200px) {
     .mainnavbuttons {
       margin-right: -215px;
     }
