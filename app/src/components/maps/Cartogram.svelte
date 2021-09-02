@@ -143,7 +143,6 @@
   const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
 
   function onMouseEnterCountry(evt: MouseEvent, country: CartogramDataPoint) {
-    //if (!focused){
     onHoverFn(country);
     helpTextFade = false;
     _debouncedShowHelpText.cancel();
@@ -153,7 +152,6 @@
       y: country.top + (country.height / 2)
     };
     hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
-    //}
   }
 
   function onMouseClick(country: CartogramDataPoint) {
@@ -170,10 +168,8 @@
   }
 
   function onMouseLeaveCountry() {
-    //if (!focused){
     clearHoverState();
     onHoverFn(null);
-    //}
   }
 
   function clearHoverState() {
