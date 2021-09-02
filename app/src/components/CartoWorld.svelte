@@ -361,6 +361,11 @@
       transition: 150ms opacity;
     }
   }
+
+  .cartogram-container {
+    overflow: hidden;
+  }
+
   .cartogram-container :global(.annotation .text) {
     background: #f9f9f9e0;
     border-radius: 4px;
