@@ -7,7 +7,7 @@
   export let block: Content;
 </script>
 
-<section class="infoSquare" {id}>
+<section class="infoSquare margin-breakout-mobile" {id}>
   <SectionTitle {block} />
   {#each text as t}
     <p class='info-text'>{@html t.p}</p>
@@ -16,7 +16,6 @@
 
 <style>
   .infoSquare {
-    margin: 0 -2rem;
     padding: 1rem 2rem;
     background-color:#E8E8E8;
     overflow: auto;

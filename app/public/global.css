@@ -15,7 +15,28 @@ body {
 
 article, nav {
   max-width: 87.5rem;
-  margin: 0 2rem;
+  margin: 0 1rem;
+}
+
+.margin-breakout-mobile {
+  margin: 0 -1rem;
+}
+
+@media (min-width: 400px) {
+  article, nav {
+    max-width: 87.5rem;
+    margin: 0 2rem;
+  }
+  .margin-breakout-mobile {
+    margin: 0 -2rem;
+  }
+}
+
+
+@media (min-width: 600px) {
+  .margin-breakout-mobile {
+    margin: initial;
+  }
 }
 
 .inner-nav { margin: 0; }

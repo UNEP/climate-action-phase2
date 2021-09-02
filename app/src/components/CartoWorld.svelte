@@ -310,7 +310,7 @@
     </div>
   {/if}
 
-  <div class="breakout-on-mobile" bind:clientWidth={clientWidth}>
+  <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
       <div
         style="width:{width}px; height:{height}px"
@@ -340,12 +340,6 @@
 </section>
 
 <style lang="scss">
-
-  @media screen and (max-width: 600px) {
-    .breakout-on-mobile {
-      margin: 0 -2rem;
-    }
-  }
 
   .footer {
     margin-bottom: 30px;

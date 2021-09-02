@@ -135,7 +135,7 @@
     </div>
   {/if}
 
-  <div class="scroll-container" bind:clientWidth={clientWidth}>
+  <div class="scroll-container margin-breakout-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
       <div class="treemap-container" style="width:{width}px; height:{height}px; "class:background={cartogramAnnotation}>
         <TreemapSvg

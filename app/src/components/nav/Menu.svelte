@@ -43,7 +43,7 @@
 </script>
 
 <svelte:window bind:innerWidth={width} on:resize={getScreen}/>
-<nav class="mainnavbuttons" id="main-menu">
+<nav class="mainnavbuttons margin-breakout-mobile" id="main-menu">
   {#each options as option, i}
     <button
       class={i === 0 ? "active" : ""}
