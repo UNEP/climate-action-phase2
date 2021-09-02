@@ -202,8 +202,7 @@
       },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
-      legendDomain: ["20", "40", "60","80","100"],
-      
+      legendDomain: ["20","40","60","80","100"],
       legendType: 'sequential',
       domain: [700, 400] as [number, number]
     },
