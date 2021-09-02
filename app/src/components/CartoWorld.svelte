@@ -247,16 +247,16 @@
       },
       classesFn: (d : CountryDataPoint) => {
         let policiesData = d.data as PoliciesData;
-        let policiesCont =
-          [
-            (policiesData.pYes),
-            (policiesData.pAlmost - policiesData.pYes),
-            (policiesData.pNo - policiesData.pAlmost),
-            (100 - policiesData.pNo)
-          ];
+        let policiesCont = [
+          policiesData.pYes,
+          policiesData.pAlmost - policiesData.pYes,
+          policiesData.pNo - policiesData.pAlmost,
+          100 - policiesData.pNo
+        ];
 
-        return legendElementSelectedIndex !== null &&
-                policiesCont[legendElementSelectedIndex] !== 0 ? ['country--shadow'] : [];
+        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] !== 0;
+
+        return hasValue ? ['country--shadow'] : [];
       },
       color: colorPolices,
       legendTitle: `<strong>Actions taken towards cleaner air</strong>`,
