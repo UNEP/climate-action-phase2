@@ -32,7 +32,7 @@
     margin-bottom: 0;
     padding-left: 5px;
     font-size: 15px;
-    font-weight: 550;
+    font-weight: 400;
     text-transform: uppercase;
   }
 

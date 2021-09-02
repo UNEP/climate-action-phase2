@@ -299,7 +299,7 @@
 
   .country-text {
     color: white;
-    font-weight: 500;
+    font-weight: 400;
     font-size: .85rem;
     position: absolute;
     top: 50%;
