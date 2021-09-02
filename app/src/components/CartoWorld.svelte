@@ -14,6 +14,7 @@
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
   import SectionTitle from "src/components/SectionTitle.svelte";
+  
 
   export var data : "pm25" | "health" | "policies";
   export var id: string;
@@ -156,14 +157,14 @@
       },
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
-      legendDictionary: [0,10,20,30,40,50,60,70],
+      legendDomain: ["x1", "2", "3", "4", "5", "6", "7", "8"],
+      
       legendType: 'sequential',
       domain: [700, 400] as [number, number],
       hoverText: (d: CountryDataPoint) =>
         `In <strong>${d.name}</strong>, people are exposed to an average of
         <strong>${d.value} μg/m<sup>3</sup></strong> a year —
-        <strong>${(d.value / 10).toFixed(1)}</strong> the WHO guideline.`
+        <strong>${(d.value / 10).toFixed(1)}</strong> times the WHO guideline.`
     },
 
     health: {
@@ -179,18 +180,18 @@
           color: colorHealth(d.rate)
         };
       }),
-      nodeSize: 70,
+      nodeSize: 80,
       helpText: {
-        code: "BLR",
+        code: "GEO",
         text:
         `<strong>Each square is a country</strong>,
         sized by the total number of <strong>deaths
-        caused by small particle pollution</strong>.`
+        caused by fine particle pollution</strong>.`
       },
       hoverTextFn: (d:CountryDataPoint) =>
-        `In <strong>${d.name}</strong>, small particle
+        `In <strong>${d.name}</strong>, fine particle
       pollution caused <strong>${d.value.toLocaleString('en-US')} deaths</strong>
-      in 2017 —or <strong>${d.rate} per 100,000 people</strong>.`,
+      in 2017 — or <strong>${d.rate} per 100,000 people</strong>.`,
       classesFn: (d : CountryDataPoint) => {
         if (!legendIsHovered) {
           return [];
@@ -201,8 +202,8 @@
       },
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
-      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
-      legendDictionary: [10,20,30,40,50,60,70,80,90,100],
+      legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "90", "100"],
+      
       legendType: 'sequential',
       domain: [700, 400] as [number, number]
     },
@@ -253,9 +254,7 @@
           policiesData.pNo - policiesData.pAlmost,
           100 - policiesData.pNo
         ];
-
-        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] !== 0;
-
+        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] > 0;
         return hasValue ? ['country--shadow'] : [];
       },
       color: colorPolices,
@@ -265,7 +264,6 @@
       domain: [1300, (1300 / (740 / 420))] as [number, number]
     }
   };
-
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
   $: {

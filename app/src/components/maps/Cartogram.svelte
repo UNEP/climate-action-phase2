@@ -56,8 +56,6 @@
   let annotation: AnnotationData;
   let hoveredForX = false;
 
-  let focused = false;
-
   $: largestVal = Math.max(...data.map(d => d.value));
 
   let clientWidth: number;
@@ -143,17 +141,15 @@
   const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
 
   function onMouseEnterCountry(evt: MouseEvent, country: CartogramDataPoint) {
-    if (!focused){
-      onHoverFn(country);
-      helpTextFade = false;
-      _debouncedShowHelpText.cancel();
-      hoverData = {
-        country,
-        x: country.left + (country.width / 2),
-        y: country.top + (country.height / 2)
-      };
-      hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
-    }
+    onHoverFn(country);
+    helpTextFade = false;
+    _debouncedShowHelpText.cancel();
+    hoverData = {
+      country,
+      x: country.left + (country.width / 2),
+      y: country.top + (country.height / 2)
+    };
+    hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
   }
 
   function onMouseClick(country: CartogramDataPoint) {
@@ -166,14 +162,11 @@
       y: country.top + (country.height / 2)
     };
     hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
-    focused = true;
   }
 
   function onMouseLeaveCountry() {
-    if (!focused){
-      clearHoverState();
-      onHoverFn(null);
-    }
+    clearHoverState();
+    onHoverFn(null);
   }
 
   function clearHoverState() {
@@ -245,9 +238,9 @@
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
             on:focus={() => onMouseClick(d)}
-            on:blur={() => {focused = false; onMouseLeaveCountry();}}
+            on:blur={() => onMouseLeaveCountry()}
           >
-          {#if !hideLabels && d.width > 50}
+          {#if !hideLabels && d.width > 150}
             <span class="country-text">{d.short}</span>
           {/if}
           </div>

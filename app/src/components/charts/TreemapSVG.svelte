@@ -67,8 +67,8 @@
     return (
       `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
       comes from <strong>${labels[currentRegion.mostPollutingType]}</strong>
-      —<strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong>
-      of the <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
+      — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
+      of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
     );
   };
   let showCurrentLeaf = (currentType:string, currentValue:number) => {
@@ -122,9 +122,9 @@
           (
             convertX(region.posY) +
             mapPropotions(treemap.value / region.numCountries) +
-            background.borderRight + background.borderLeft
+            background.borderRight + background.borderLeft + 5
           ) :
-          convertX(region.posY) - 20
+          convertX(region.posY) - 25
       };
     });
     referenceRegion = {
@@ -181,7 +181,7 @@
     <Annotation
       x={region.nameX}
       y={region.nameY}
-      text={region.region}
+      text={region.region.replace('+','and')}
       radius={2}
       justText={true}
       canvasWidth={width}
