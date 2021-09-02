@@ -253,9 +253,7 @@
           policiesData.pNo - policiesData.pAlmost,
           100 - policiesData.pNo
         ];
-
-        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] !== 0;
-
+        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] > 0;
         return hasValue ? ['country--shadow'] : [];
       },
       color: colorPolices,
@@ -265,7 +263,6 @@
       domain: [1300, (1300 / (740 / 420))] as [number, number]
     }
   };
-
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
   $: {
@@ -310,7 +307,7 @@
     </div>
   {/if}
 
-  <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
+  <div class="breakout-on-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
       <div
         style="width:{width}px; height:{height}px"
@@ -341,6 +338,12 @@
 
 <style lang="scss">
 
+  @media screen and (max-width: 600px) {
+    .breakout-on-mobile {
+      margin: 0 -2rem;
+    }
+  }
+
   .footer {
     margin-bottom: 30px;
   }
@@ -355,11 +358,6 @@
       transition: 150ms opacity;
     }
   }
-
-  .cartogram-container {
-    overflow: hidden;
-  }
-
   .cartogram-container :global(.annotation .text) {
     background: #f9f9f9e0;
     border-radius: 4px;
