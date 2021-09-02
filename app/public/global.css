@@ -13,7 +13,7 @@ body {
   font-style: normal;
 }
 
-article, nav {
+article, .page-header {
   max-width: 75rem;
   margin: 0 1rem;
 }
@@ -23,7 +23,7 @@ article, nav {
 }
 
 @media (min-width: 400px) {
-  article, nav {
+  article, .page-header {
     margin: 0 2rem;
   }
   .margin-breakout-mobile {
@@ -115,8 +115,14 @@ p, ul {
   padding: 0;
 }
 
-.logo { width: 6.2rem; }
-.top { margin-top: 1.5rem; }
+.logo {
+  width: 6.2rem;
+}
+
+.page-header {
+  margin-top: 1.5rem;
+}
+
 .hidden {
     position: absolute!important;
     overflow: hidden;
@@ -137,7 +143,7 @@ sup, sub { line-height: 0; }
     margin-right: 0;
   }
 
-  article, nav {
+  article, .page-header {
     margin-left: 3.75rem;
     margin-right: 1.5rem;
   }
@@ -174,7 +180,7 @@ sup, sub { line-height: 0; }
   }
 
   .logo { width: 11rem; }
-  .top { margin-top: 2rem; }
+  .page-header { margin-top: 2rem; }
 }
 
 @media screen and (min-width: 95.25rem) {
@@ -185,7 +191,17 @@ sup, sub { line-height: 0; }
 }
 
 @media (min-width: 1200px){
+  article, .page-header {
+    padding-right: 220px;
+  }
+}
+
+@media (min-width: 1560px){
   article {
-    margin-right: 220px;
+    margin: 0 auto;
+  }
+  .page-header {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
