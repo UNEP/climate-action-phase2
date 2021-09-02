@@ -16,10 +16,16 @@
 
 <style>
   .infoSquare {
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     background-color:#E8E8E8;
     overflow: auto;
     max-width: 800px;
+  }
+
+  @media (min-width: 400px) {
+    .infoSquare {
+      padding: 1rem 2rem;
+    }
   }
 
   .info-text {
