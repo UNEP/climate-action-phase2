@@ -206,15 +206,23 @@
     html: hoverTextFn(hoverData.country)
   };
 
-  $: annotation = countryAnnotation || helpAnnotation;
-
+  $: haveContainerDims = containerWidth > 0 && containerHeight > 0;
+  $: annotation = haveContainerDims ? (countryAnnotation || helpAnnotation) : undefined;
   $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
 
   $: annotationShowing = annotation && !hideAnnotation && annotation !== helpAnnotation;
 
   $: data && fadeInHelpText();
 
+  let pxAboveScreenTop: number = 0;
+  const onWindowScroll = () => {
+    const top = containerEl.getBoundingClientRect().top - 50;
+    pxAboveScreenTop = top < 0 ? Math.abs(top) : 0;
+  };
+
 </script>
+
+<svelte:window on:scroll={onWindowScroll} />
 
 <div class="cartogram" bind:this={containerEl}
   bind:clientWidth={clientWidth}
@@ -254,7 +262,8 @@
       class:annotation-hide={hideAnnotation} class:annotation-help={annotation.class === "help"}
     >
     <Annotation x={annotation.x} y={annotation.y} text={annotation.html}
-      radius={annotation.radius} forceTopWherePossible
+      radius={annotation.radius} forceTopWherePossible={annotation === helpAnnotation}
+      topClamp={annotation === helpAnnotation ? 0 : pxAboveScreenTop}
       canvasWidth={containerWidth} canvasHeight={containerHeight}
     />
     </div>

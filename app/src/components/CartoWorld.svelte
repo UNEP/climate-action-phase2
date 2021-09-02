@@ -364,7 +364,6 @@
     background: #f9f9f9e0;
     border-radius: 4px;
     padding: 0 10px 5px;
-
   }
 
 </style>

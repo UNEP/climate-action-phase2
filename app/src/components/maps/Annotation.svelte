@@ -6,9 +6,13 @@
   export var x: number;
   export var y: number;
   export var text: string;
-  export var radius: number;
+  export var radius: number | {x: number, y: number};
   export var forceTopWherePossible: boolean = false;
   export var justText: boolean = false;
+  export var topClamp: number = 0;
+
+  const noDims = !(canvasHeight > 0) || !(canvasWidth > 0);
+  if (noDims) throw new Error('Annotation created with no canvas dims');
 
   var textEl: HTMLElement;
   var el: HTMLElement;
@@ -28,11 +32,19 @@
       transform?: string;
   }
 
-  $: textWidthPerc = 100 * textWidth / canvasWidth;
-  $: xPerc = (x / canvasWidth) * 100;
-  $: yPerc = (y / canvasHeight) * 100;
-  $: radiusX = 100 * radius / canvasWidth;
-  $: radiusY = 100 * radius / canvasHeight;
+  $: limitedCanvasHeight = canvasHeight - topClamp;
+  const perc = (a,b) => 100 * (a / b);
+  const topPaddingPx = 5;
+  const leftPaddingPx = 5;
+
+  $: leftPadding = perc(leftPaddingPx, canvasWidth);
+  $: topClampPerc = perc(topClamp, canvasHeight);
+  $: xPerc = perc(x, canvasWidth);
+  $: yPerc = perc(y - topClamp, limitedCanvasHeight);
+  $: radiusX = perc(typeof radius === 'number' ? radius : radius.x, canvasWidth);
+  $: radiusY = perc(typeof radius === 'number' ? radius : radius.y, limitedCanvasHeight);
+  $: topMin = perc(topPaddingPx, limitedCanvasHeight);
+  $: textWidthPerc = canvasWidth && perc(textWidth, canvasHeight);
 
   $: {
     if (forceTopWherePossible) {
@@ -43,8 +55,10 @@
       }
     }
     else {
-      const horizontal = xPerc > 65 || xPerc < 35;
-      if (horizontal) {
+      if (yPerc < 5) {
+        pos = 'below';
+      }
+      else if (xPerc > 65 || xPerc < 35) {
         pos = xPerc > 50 ? 'left' : 'right';
       } else {
         pos = yPerc < 20 ? 'below' : 'above';
@@ -69,8 +83,6 @@
       };
     }
     else if (pos === 'above') {
-      const topPaddingPx = 5;
-      const topMin = 100 * (topPaddingPx / canvasHeight);
       style = {
         left: xPerc,
         top: forceTopWherePossible ? topMin : Math.max(topMin, yPerc - radiusY - 40),
@@ -87,21 +99,17 @@
     }
 
     if (pos === 'left' || pos === 'right') {
-      const yShiftFactor = 25;
-      if (yPerc < yShiftFactor) {
-        textShiftY = -50 + ((yShiftFactor - yPerc) * (50 / yShiftFactor));
+      if (yPerc < 10) {
+        textShiftY = 0;
       }
-      else if (yPerc > (100 - yShiftFactor)) {
-        const _y = yShiftFactor - (100 - yPerc);
-        textShiftY = -50 + (_y * (50 / yShiftFactor));
+      else if (yPerc > 90) {
+        textShiftY = -100;
       }
       else {
         textShiftY = -50;
       }
     }
     else if (pos === 'above' || pos === 'below') {
-      const leftPaddingPx = 5;
-      const leftPadding = (100 * leftPaddingPx / canvasWidth);
       const _textShiftX = clamp(
         -(textWidthPerc / 3),
         -xPerc + leftPadding,
@@ -137,13 +145,15 @@
 </script>
 
 {#if !justText}
-<div class="annotation annotation--{pos}" style={styleStr}
-    bind:this={el}>
-    <div class="line line-before"></div>
-    <div class="text" style={textStyleStr} bind:this={textEl}>
-        {@html text}
-    </div>
-    <div class="line line-after"></div>
+<div class="canvas-limiter" style="top: {topClampPerc}%; height: {perc(limitedCanvasHeight, canvasHeight)}%">
+  <div class="annotation annotation--{pos}" style={styleStr}
+      bind:this={el}>
+      <div class="line line-before"></div>
+      <div class="text" style={textStyleStr} bind:this={textEl}>
+          {@html text}
+      </div>
+      <div class="line line-after"></div>
+  </div>
 </div>
 {:else}
 <div class="just-text"
@@ -154,6 +164,13 @@
 </div>
 {/if}
 <style>
+  .canvas-limiter {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+  }
   .just-text{
     position: absolute;
     pointer-events: none;
