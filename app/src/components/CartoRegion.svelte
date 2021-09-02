@@ -29,27 +29,28 @@
       help: {
         text:
         `<strong>Each big square is a world region</strong>, sized
-         by the annual mean levels of <strong>small particular
-         matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+         by the annual mean levels of <strong>fine particular
+         matter PM<sub>2.5</sub></strong>, measured in µg/m<sup>3</sup>.`
       }
     },
     [TreemapType.sectors] : {
       help: {
         text:
-        `<strong>Each big square is a world region</strong>, sized
-         by the annual mean levels of <strong>small particular
-         matter PM2.5</strong>, measured in µg/m<sup>3</sup>.`
+        `<strong>Each big square is a world region</strong>, colored by
+         contributing sector and sized by the annual mean levels of
+         <strong>fine particular matter PM<sub>2.5</sub></strong>,
+         measured in µg/m<sup>3</sup>.`
       }
     }
   };
   const legendOptions = {
     sectors: {
-      title: "Contribution of each <b>sector</b> to small particle pollution",
+      title: "Contribution of each <b>sector</b> to fine particle pollution",
       labels: [
         'Windblown dust','Residential','International shipping',
-        'Transport','Commercial','Industry','AFCID dust',
-        'Other combustion','Remaining sources','Other fires',
-        'Agr. waste burning','Agriculture',
+        'Transport','Commercial','Industry','Anthropogenic fugitive, combustion and industrial dust',
+        'Other combustion','Remaining sources','Landscape fires',
+        'Agricultural waste burning','Agriculture',
         'Waste','Solvents','Energy'
       ],
       selectionDictionary: [
