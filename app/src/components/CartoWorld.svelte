@@ -253,9 +253,7 @@
           policiesData.pNo - policiesData.pAlmost,
           100 - policiesData.pNo
         ];
-
-        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] !== 0;
-
+        const hasValue = legendIsHovered && policiesCont[legendElementSelectedIndex] > 0;
         return hasValue ? ['country--shadow'] : [];
       },
       color: colorPolices,
@@ -265,7 +263,6 @@
       domain: [1300, (1300 / (740 / 420))] as [number, number]
     }
   };
-
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
   $: {
