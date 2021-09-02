@@ -1,5 +1,5 @@
 <script lang="ts">
-  import svg from 'src/svg';
+  import svg, {alignment} from 'src/svg';
   import MenuSpy from "src/components/nav/menuspy";
   import { onMount } from "svelte";
   import * as animateScroll from "svelte-scrollto";
@@ -36,7 +36,7 @@
     getScreen();
   });
 
-  function getScreen () { 
+  function getScreen () {
     smallScreen = width < 1200;
   }
 
@@ -61,7 +61,7 @@
       }
     >
       <div class="buttoncontent" href='#{option.id}' id="{option.id}div">
-        <div class="icon">{@html svg.menu[option.icon]}</div>
+        <div class="icon" style={alignment[option.icon] || ''}>{@html svg.menu[option.icon]}</div>
         <div class="text-container">
           <div class="text">{option.title}</div>
         </div>
@@ -81,39 +81,44 @@
     width: 210px;
     border-top: 1px solid #DCDCDC;
   }
+
   button {
     width: 100%;
-    height: 48px;
+    height: 44px;
     border: none;
     outline: none;
+    padding: 0;
     border-bottom: 2px solid #DCDCDC;
     border-right: 2px solid #DCDCDC;
     border-left: 2px solid #DCDCDC;
     cursor: default;
     background-color:#f9f9f9;
+    box-sizing: content-box;
   }
 
   .buttoncontent {
     width: 100%;
-    height: 48px;
+    height: 100%;
+    height: 100%;
     box-sizing: border-box;
+    align-items: center;
   }
 
   .text-container {
     padding-left: 0;
-    height: 46px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
     text-align: left;
+    margin-left: 10px;
+    height: 100%;
   }
 
   .icon {
     float: left;
-    width: 44px;
-    height: 44px;
-    padding: 4px;
-    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    margin: 4px 7px;
     z-index: 2;
   }
 

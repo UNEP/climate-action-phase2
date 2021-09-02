@@ -1,12 +1,12 @@
 <script lang="ts">
-  import svg from 'src/svg';
+  import svg, { alignment } from 'src/svg';
   import type { Content } from 'src/types';
 
   export let block: Content;
 
 </script>
 <div class="kicker">
-  <div class="kicker-icon">{@html svg.menu[block.icon]}</div>
+  <div class="kicker-icon"  style={alignment[block.icon] || ''}>{@html svg.menu[block.icon]}</div>
   <div class="kicker-text">
     {@html block.menu}
   </div>
@@ -28,8 +28,6 @@
   }
 
   .kicker-text {
-    padding-bottom: 0;
-    margin-bottom: 0;
     padding-left: 5px;
     font-size: 15px;
     font-weight: 400;
@@ -37,12 +35,8 @@
   }
 
   .kicker-icon {
-    padding-left: 0px;
-    margin-bottom: 13px;
     margin-right: 4px;
     position: relative;
-    margin-left: 0px;
-    float: left;
     width: 36px;
     height: 36px;
     box-sizing: border-box;
