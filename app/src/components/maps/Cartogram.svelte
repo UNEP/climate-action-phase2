@@ -113,12 +113,7 @@
     };
   });
 
-  function compareDataPoint(a:CartogramDataPoint, b:CartogramDataPoint){
-    return a.y - b.y;
-  }
-
-  $: cartogramData.sort(compareDataPoint);
-  //cartogramData.sort()
+  $: cartogramData.sort((a,b) => a.y - b.y);
 
   $: calcStyle = (d: CartogramDataPoint) => {
     const styles = [
