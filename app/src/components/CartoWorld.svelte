@@ -156,8 +156,8 @@
       },
       color: colorPM25,
       legendTitle: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-      legendDomain: ["x1", "2", "3", "4", "5", "6", "7"],
-      legendDictionary: [0,10,20,30,40,50,60,70],
+      legendDomain: ["x1", "2", "3", "4", "5", "6", "7", "8"],
+      
       legendType: 'sequential',
       domain: [700, 400] as [number, number],
       hoverText: (d: CountryDataPoint) =>
@@ -202,7 +202,7 @@
       color: colorHealth,
       legendTitle: `<strong>Deaths per 100,000 people</strong> caused by small particle pollution`,
       legendDomain: ["10", "20", "30", "40", "50", "60", "70", "80", "100"],
-      legendDictionary: [10,20,30,40,50,60,70,80,90,100],
+      
       legendType: 'sequential',
       domain: [700, 400] as [number, number]
     },
