@@ -182,7 +182,7 @@
       }),
       nodeSize: 80,
       helpText: {
-        code: "BLR",
+        code: "GEO",
         text:
         `<strong>Each square is a country</strong>,
         sized by the total number of <strong>deaths
