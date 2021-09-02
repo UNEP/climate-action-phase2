@@ -5,8 +5,9 @@
     type?: string;
     types?: HierarchicalDatum[];
   }
+  type RegionLeaf = HierarchyRectangularNode<HierarchicalDatum>;
   export interface RegionTreemapData {
-    leaves: HierarchyRectangularNode<HierarchicalDatum>[],
+    leaves: RegionLeaf[],
     background: {
       borderTop: number,
       borderBottom: number,
@@ -52,18 +53,16 @@
   let regions : RegionTreemapData[];
   let showInformation = true;
   let showConcreteType = false;
-  let currentRegion : RegionTreemapData;
-  let currentLeaf : HierarchyRectangularNode<HierarchicalDatum>;
+  let currentRegion: RegionTreemapData;
+  let currentLeaf: RegionLeaf;
 
-  let updateInformation =
-  (cregion : RegionTreemapData, leaf:HierarchyRectangularNode<HierarchicalDatum>) => {
+  let updateInformation = (cregion : RegionTreemapData, leaf: RegionLeaf) => {
     currentRegion = cregion;
-    leaf.data.type !== cregion.mostPollutingType ?
-      showConcreteType = true :
-      showConcreteType = false;
+    showConcreteType = leaf.data.type !== cregion.mostPollutingType;
     currentLeaf = leaf;
     showInformation = false;
   };
+
   let showHoverText = () => {
     return (
       `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>

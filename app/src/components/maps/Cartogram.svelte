@@ -113,12 +113,7 @@
     };
   });
 
-  function compareDataPoint(a:CartogramDataPoint, b:CartogramDataPoint){
-    return a.y - b.y;
-  }
-
-  $: cartogramData.sort(compareDataPoint);
-  //cartogramData.sort()
+  $: cartogramData.sort((a,b) => a.y - b.y);
 
   $: calcStyle = (d: CartogramDataPoint) => {
     const styles = [
@@ -299,7 +294,7 @@
 
   .country-text {
     color: white;
-    font-weight: 500;
+    font-weight: 400;
     font-size: .85rem;
     position: absolute;
     top: 50%;

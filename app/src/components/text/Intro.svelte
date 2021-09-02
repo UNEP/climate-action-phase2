@@ -50,7 +50,7 @@ export let breadcrumbs;
     content: '/';
     margin-left:.4rem;
   }
-  li:last-child { font-weight: 800; }
+  li:last-child { font-weight: 700; }
   li a {
     border: none;
     transition: opacity .3s;

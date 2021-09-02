@@ -1,5 +1,5 @@
 <script lang="ts">
-  import svg from 'src/svg';
+  import svg, {alignment} from 'src/svg';
   import MenuSpy from "src/components/nav/menuspy";
   import { onMount } from "svelte";
   import * as animateScroll from "svelte-scrollto";
@@ -36,14 +36,14 @@
     getScreen();
   });
 
-  function getScreen () { 
+  function getScreen () {
     smallScreen = width < 1200;
   }
 
 </script>
 
 <svelte:window bind:innerWidth={width} on:resize={getScreen}/>
-<nav class="mainnavbuttons" id="main-menu">
+<nav class="mainnavbuttons margin-breakout-mobile" id="main-menu">
   {#each options as option, i}
     <button
       class={i === 0 ? "active" : ""}
@@ -61,7 +61,7 @@
       }
     >
       <div class="buttoncontent" href='#{option.id}' id="{option.id}div">
-        <div class="icon">{@html svg.menu[option.icon]}</div>
+        <div class="icon" style={alignment[option.icon] || ''}>{@html svg.menu[option.icon]}</div>
         <div class="text-container">
           <div class="text">{option.title}</div>
         </div>
@@ -81,39 +81,44 @@
     width: 210px;
     border-top: 1px solid #DCDCDC;
   }
+
   button {
     width: 100%;
-    height: 48px;
+    height: 44px;
     border: none;
     outline: none;
+    padding: 0;
     border-bottom: 2px solid #DCDCDC;
     border-right: 2px solid #DCDCDC;
     border-left: 2px solid #DCDCDC;
     cursor: default;
     background-color:#f9f9f9;
+    box-sizing: content-box;
   }
 
   .buttoncontent {
     width: 100%;
-    height: 48px;
+    height: 100%;
+    height: 100%;
     box-sizing: border-box;
+    align-items: center;
   }
 
   .text-container {
     padding-left: 0;
-    height: 46px;
     display: flex;
     align-items: center;
     box-sizing: border-box;
     text-align: left;
+    margin-left: 10px;
+    height: 100%;
   }
 
   .icon {
     float: left;
-    width: 44px;
-    height: 44px;
-    padding: 4px;
-    box-sizing: border-box;
+    width: 36px;
+    height: 36px;
+    margin: 4px 7px;
     z-index: 2;
   }
 
@@ -125,7 +130,7 @@
   }
 
   .active .text {
-    color: #e5e5e5;
+    color: #e0e0e0;
   }
 
   .active{
@@ -162,53 +167,72 @@
       opacity: 0;
     }
     .active .text{
-      opacity: 1;
-      animation: fadeIn 1.5s forwards;
+      opacity: 0;
+      animation: fadeIn 300ms forwards;
+      animation-delay: 150ms;
     }
 
     .mainnavbuttons {
-        display: flex;
-        float: none;
-        right: 0;
-        width: 100%;
-        margin: 0;
-        border-top: none;
-        border-left: 1px solid #DCDCDC;
+      display: flex;
+      float: none;
+      right: 0;
+      width: 100%;
+      border-top: none;
+      border-left: 1px solid #DCDCDC;
     }
 
     button {
-        flex-grow: 0;
-        flex-shrink: 1;
-        flex-basis: 50px;
-        transition: flex 1s cubic-bezier(0.190, 1.000, 0.220, 1.000);
-        border-top: 1px solid #DCDCDC;
-        border-left:none;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: 50px;
+      transition: flex 500ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+      border-top: 1px solid #DCDCDC;
+      border-left:none;
     }
 
     button.active {
-        flex-grow: 1;
+      flex-grow: 1;
     }
 
     button .buttoncontent {
-        width: 100% !important;
-        transition: background-color 300ms, border-color 300ms;
+      width: 100% !important;
+      transition: background-color 300ms, border-color 300ms;
     }
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
+    .mainnavbuttons {
+      width: auto;
+      left: auto;
+    }
+  }
 
+  @media (max-width: 319px) {
     .active .text-container{
       display: none;
     }
+  }
+  @media (max-width: 400px) {
 
+    button {
+      flex-basis: 44px;
+    }
+    .icon {
+      width: 30px;
+      height: 30px;
+      margin: 7px 7px;
+    }
+    .text {
+      font-size: 0.9rem;
+    }
   }
   @media (min-width: 1200px){
     .mainnavbuttons {
       height: 0;
     }
   }
-  @keyframes fadeIn{
-    from { opacity: 0;}
-    to { opacity: 1;}
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 </style>

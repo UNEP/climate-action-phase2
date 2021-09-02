@@ -11,6 +11,11 @@ import pm25 from './icons_pm25.svg';
 import sectors from './icons_sectors.svg';
 import policies from './icons_policies.svg';
 
+export const alignment = {
+  pm25: 'transform: translateY(-7%)',
+  sectors: 'transform: translateY(-8%)',
+};
+
 export default {
   dataSource,
   embed,
