@@ -98,8 +98,8 @@
         .sort((a,b) => b.value - a.value);
       const treemap = d3.treemap<HierarchicalDatum>()
         .size([
-          mapPropotions(region.totalValue / region.numCountries),
-          mapPropotions(region.totalValue / region.numCountries)
+          mapPropotions(region.totalValue ),
+          mapPropotions(region.totalValue)
         ])
         .padding(2)(hierarchy);
       const background = {
@@ -116,15 +116,15 @@
         x : convertX(region.posX),
         y : convertY(region.posY),
         width: (
-          mapPropotions(treemap.value / region.numCountries) +
+          mapPropotions(treemap.value) +
           background.borderRight + background.borderLeft
         ),
         height: (
-          mapPropotions(treemap.value / region.numCountries) +
+          mapPropotions(treemap.value) +
           background.borderBottom + background.borderTop
         ),
-        totalPollutingValue : treemap.value / region.numCountries,
-        mostPollutingValue : treemap.children[0].data.value / region.numCountries,
+        totalPollutingValue : treemap.value,
+        mostPollutingValue : treemap.children[0].data.value,
         mostPollutingType : treemap.children[0].data.type,
         numCountries : region.numCountries,
         region: region.region,
@@ -132,7 +132,7 @@
         nameY: region.region === "Latin America + Caribbean" ?
           (
             convertX(region.posY) +
-            mapPropotions(treemap.value / region.numCountries) +
+            mapPropotions(treemap.value) +
             background.borderRight + background.borderLeft + 5
           ) :
           convertX(region.posY) - 25
