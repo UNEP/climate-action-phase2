@@ -289,16 +289,14 @@
     />
   </div>
 
-  {#if isEmbed}
-    {#if embed !== "policies"}
-      <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
-        <p>
-          To explore more about the climate emergency and
-          the effects on the planet visit
-          <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
-        </p>
-      </div>
-    {/if}
+  {#if isEmbed && embed !== "policies"}
+    <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
   {/if}
 
   <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
@@ -316,16 +314,14 @@
     </ScrollableX>
   </div>
 
-  {#if isEmbed}
-    {#if embed === "policies"}
-      <div class="embed-additional-text-desktop-policies" class:hide={cartogramAnnotation}>
-        <p>
-          To explore more about the climate emergency and
-          the effects on the planet visit
-          <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
-        </p>
-      </div>
-    {/if}
+  {#if isEmbed && embed === "policies"}
+    <div class="embed-additional-text-desktop-policies" class:hide={cartogramAnnotation}>
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
   {/if}
 
   {#if !isEmbed}
@@ -348,18 +344,7 @@
     margin-bottom: 30px;
   }
 
-  .embed-additional-text-desktop {
-    opacity: 1;
-    transition: 300ms opacity 700ms;
-    position: relative;
-    z-index: 1;
-    &.hide {
-      opacity: 0;
-      transition: 150ms opacity;
-    }
-  }
-
-  .embed-additional-text-desktop-policies {
+  .embed-additional-text-desktop, .embed-additional-text-desktop-policies{
     opacity: 1;
     transition: 300ms opacity 700ms;
     position: relative;
