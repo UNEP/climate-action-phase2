@@ -15,7 +15,8 @@
       </div>
 
       <div class="footer-embed wide">
-        <div class="logo">
+        <div class="logo" >
+          <a style="border-bottom: none" target="_blank" href="https://www.unep.org/">
           <Logo />
         </div>
 
