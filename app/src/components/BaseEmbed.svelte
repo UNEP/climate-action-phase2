@@ -62,6 +62,13 @@
       margin: 0;
       padding: 0;
     }
+    
+    :global(.embed-additional-text-desktop-policies) {
+      display: none;
+      max-width: 300px;
+      position: absolute;
+      margin-top: -12rem;
+    }
   }
 
   .footer-embed {
@@ -106,11 +113,10 @@
   @media (min-width: 58rem) {
     .container {
       padding-left: 20px;
-
-      :global(.embed-additional-text-mobile) {
-        display: none;
-      }
       :global(.embed-additional-text-desktop) {
+        display: block;
+      }
+      :global(.embed-additional-text-desktop-policies) {
         display: block;
       }
     };
