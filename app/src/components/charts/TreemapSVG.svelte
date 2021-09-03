@@ -212,7 +212,7 @@
     <pattern id="hash--windblown" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
       <rect width="4" height="4" transform="translate(0,0)" fill="#faba26"></rect>
       <rect width="2.4" height="4" transform="translate(0,0)" fill="#f9f9f9"></rect>
-	  </pattern>
+    </pattern>
   </defs>
     {#each regions as region}
 
