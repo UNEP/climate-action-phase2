@@ -62,17 +62,6 @@
       margin: 0;
       padding: 0;
     }
-
-    :global(.embed-additional-text-mobile) {
-      position: absolute;
-      bottom: 1rem;
-      padding-left: 20px;
-      left: 6.2rem;
-      :global(p) {
-        margin: 0;
-        padding: 0;
-      }
-    }
   }
 
   .footer-embed {

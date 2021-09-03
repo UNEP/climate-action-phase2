@@ -298,12 +298,7 @@
       </p>
     </div>
 
-    <div class="embed-additional-text-mobile" class:hide={cartogramAnnotation}>
-      <p>
-        To explore more about air pollution visit
-        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
-      </p>
-    </div>
+    
   {/if}
 
   <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
