@@ -118,8 +118,7 @@
     .text-unep-endorsement {
       flex-grow: 1;
       p {
-        text-align: right;
-        float: right;
+        padding-top: 10px;
         font-size: 16px;
       }
     }
