@@ -16,15 +16,14 @@ export const colorFuels = scaleOrdinal<string>()
   .range(['#407aa9','#faba26','#62b048','#333333']);
 
 export const colorPM25 = scaleThreshold<number, string>()
-  .domain([...new Array(7)].map((d,i) => (i + 1) * 10))
-  .range(['#ffbeb3','#eda6ac','#dc8ea5','#ca769e','#b85f97','#a5468f','#932b88','#800080']);
+  .domain([...new Array(8)].map((d,i) => (i + 1) * 10))
+  .range(['#ffbeb3', '#f0a9ad', '#e094a7', '#d07fa1', '#c16b9b', '#b15694', '#a1408e'
+    ,'#912787', '#800080']);
 
 export const colorHealth = scaleThreshold<number, string>()
-  .domain([10,20,30,40,50,60,70,80,100])
-  .range([
-    '#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877',
-    '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
-  ]);
+  .domain([20,40,60,80,100,120])
+  .range(['#facc6e', '#e5a774', '#ca8679', '#aa677c', '#854b7f', '#583382']);
+
 
 export const colorPolices = scaleOrdinal<string>()
   .domain(['Target met', 'On track', 'Not met', 'No data'])

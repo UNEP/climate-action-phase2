@@ -13,8 +13,8 @@ body {
   font-style: normal;
 }
 
-article, nav {
-  max-width: 87.5rem;
+article, .page-header, .footer-content {
+  max-width: 75rem;
   margin: 0 1rem;
 }
 
@@ -23,8 +23,7 @@ article, nav {
 }
 
 @media (min-width: 400px) {
-  article, nav {
-    max-width: 87.5rem;
+  article, .page-header, .footer-content {
     margin: 0 2rem;
   }
   .margin-breakout-mobile {
@@ -42,6 +41,7 @@ article, nav {
 .inner-nav { margin: 0; }
 
 article, section { position:relative; }
+
 .viz { padding: 2rem 0;}
 
 p, h1, h2, h3, h4, select, ul {
@@ -115,8 +115,14 @@ p, ul {
   padding: 0;
 }
 
-.logo { width: 6.2rem; }
-.top { margin-top: 1.5rem; }
+.logo {
+  width: 6.2rem;
+}
+
+.page-header {
+  margin-top: 1.5rem;
+}
+
 .hidden {
     position: absolute!important;
     overflow: hidden;
@@ -137,7 +143,7 @@ sup, sub { line-height: 0; }
     margin-right: 0;
   }
 
-  article, nav {
+  article, .page-header, .footer-content {
     margin-left: 3.75rem;
     margin-right: 1.5rem;
   }
@@ -174,15 +180,28 @@ sup, sub { line-height: 0; }
   }
 
   .logo { width: 11rem; }
-  .top { margin-top: 2rem; }
+  .page-header { margin-top: 2rem; }
 }
 
 @media screen and (min-width: 95.25rem) {
-  article, nav {
-    margin: 0 auto;
-  }
   .wide {
     width: 72rem;
     padding-right: calc(100% - 72rem);
+  }
+}
+
+@media (min-width: 1200px){
+  article, .page-header, .footer-content {
+    padding-right: 220px;
+  }
+}
+
+@media (min-width: 1560px){
+  article {
+    margin: 0 auto;
+  }
+  .page-header, .footer-content {
+    margin-left: auto;
+    margin-right: auto;
   }
 }

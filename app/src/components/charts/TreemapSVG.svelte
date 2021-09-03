@@ -65,17 +65,28 @@
 
   let showHoverText = () => {
     return (
-      `Most of the PM<sub>2.5</sub> in <strong>${currentRegion.region}</strong>
-      comes from <strong>${labels[currentRegion.mostPollutingType]}</strong>
-      —<strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong>
-      of the <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
+      `The largest contributing sector in <strong>${currentRegion.region}</strong>
+      is <strong>${labels[currentRegion.mostPollutingType]}</strong>
+      — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
+      of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
     );
   };
-  let showCurrentLeaf = (currentType:string, currentValue:number) => {
+
+  let showHoverTextAfter = () => {
+    return (
+      `The largest contributing sector is <strong>${labels[currentRegion.mostPollutingType]}</strong>
+      — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
+      of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
+    );
+  };
+  
+  let showCurrentLeaf = (
+    currentType:string,
+    currentValue:number) => {
     return (
       `<strong>${labels[currentType]}</strong> accounts for
-      <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
-       µg/m<sup>3</sup>. ${showHoverText()}`
+       <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
+       µg/m<sup>3</sup> in <strong>${currentRegion.region}</strong>. ${showHoverTextAfter()}`
     );
   };
   $:{
@@ -135,25 +146,40 @@
 
   $: annotationShowing = !showInformation;
 
+  let containerEl: Element;
+  let pxAboveScreenTop: number = 0;
+  const onWindowScroll = () => {
+    const top = containerEl.getBoundingClientRect().top - 50;
+    pxAboveScreenTop = top < 0 ? Math.abs(top) : 0;
+  };
+
+
 </script>
 
-<div class="text">
+<svelte:window on:scroll={onWindowScroll} />
+
+<div class="text" bind:this={containerEl}>
 {#if showInformation}
   <Annotation
     x={referenceRegion.x}
     y={referenceRegion.y}
     text={source}
     radius={2}
-    forceTopWherePossible={true}
+    forceTopWherePossible
     canvasWidth={width}
     canvasHeight={height}
   />
 {:else}
   <Annotation
     x={currentRegion.x + currentLeaf.x0 + ((currentLeaf.x1 - currentLeaf.x0) / 2)}
-    y={currentRegion.y + currentLeaf.y0}
+    y={currentRegion.y + currentLeaf.y0 + ((currentLeaf.y1 - currentLeaf.y0) / 2)}
     text={showConcreteType ? showCurrentLeaf(currentLeaf.data.type, currentLeaf.data.value) : showHoverText()}
-    radius={2} forceTopWherePossible={true}
+    radius={{
+      x: (currentLeaf.x1 - currentLeaf.x0) / 2,
+      y: (currentLeaf.y1 - currentLeaf.y0) / 2
+    }}
+    topClamp={pxAboveScreenTop}
+    forceTopWherePossible
     canvasWidth={width} canvasHeight={height}
   />
 {/if}
