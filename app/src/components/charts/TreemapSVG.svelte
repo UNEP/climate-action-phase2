@@ -80,8 +80,6 @@
     );
   };
 
-  
-  
   let showCurrentLeaf = (
     currentType:string,
     currentValue:number) => {
@@ -209,11 +207,11 @@
       <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.4"></feDropShadow>
     </filter>
     <defs>
-    <pattern id="hash--windblown" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="4" height="4" transform="translate(0,0)" fill="#faba26"></rect>
-      <rect width="2.4" height="4" transform="translate(0,0)" fill="#f9f9f9"></rect>
-    </pattern>
-  </defs>
+      <pattern id="hash--windblown" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="4" height="4" transform="translate(0,0)" fill="#faba26"></rect>
+        <rect width="2.4" height="4" transform="translate(0,0)" fill="#f9f9f9"></rect>
+      </pattern>
+    </defs>
     {#each regions as region}
 
       <g id={region.region.replace(/\s/g, '').replace('+','-') + "-group"} class="region">
