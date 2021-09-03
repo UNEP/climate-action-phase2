@@ -86,7 +86,8 @@
     return (
       `<strong>${labels[currentType]}</strong> accounts for
        <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
-       µg/m<sup>3</sup> in <strong>${currentRegion.region.replace('+','and')}</strong>. ${showHoverTextAfter()}`
+       µg/m<sup>3</sup> in <strong>${currentRegion.region.replace('+','and')}</strong>. 
+       ${showHoverTextAfter()}`
     );
   };
   $:{
