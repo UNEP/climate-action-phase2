@@ -139,8 +139,8 @@
       };
     });
     referenceRegion = {
-      x: regions[4].x + regions[4].width / 2,
-      y: regions[4].y
+      x: regions[5].x + regions[5].width / 2,
+      y: regions[5].y
     };
   }
 
