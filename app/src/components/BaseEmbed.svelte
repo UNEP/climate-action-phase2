@@ -15,7 +15,8 @@
       </div>
 
       <div class="footer-embed wide">
-        <div class="logo">
+        <div class="logo" >
+          <a style="border-bottom: none" target="_blank" href="https://www.unep.org/">
           <Logo />
         </div>
 
@@ -61,16 +62,12 @@
       margin: 0;
       padding: 0;
     }
-
-    :global(.embed-additional-text-mobile) {
+    
+    :global(.embed-additional-text-desktop-policies) {
+      display: none;
+      max-width: 300px;
       position: absolute;
-      bottom: 1rem;
-      padding-left: 20px;
-      left: 6.2rem;
-      :global(p) {
-        margin: 0;
-        padding: 0;
-      }
+      margin-top: -12rem;
     }
   }
 
@@ -116,11 +113,10 @@
   @media (min-width: 58rem) {
     .container {
       padding-left: 20px;
-
-      :global(.embed-additional-text-mobile) {
-        display: none;
-      }
       :global(.embed-additional-text-desktop) {
+        display: block;
+      }
+      :global(.embed-additional-text-desktop-policies) {
         display: block;
       }
     };
@@ -128,8 +124,7 @@
     .text-unep-endorsement {
       flex-grow: 1;
       p {
-        text-align: right;
-        float: right;
+        padding-top: 10px;
         font-size: 16px;
       }
     }
