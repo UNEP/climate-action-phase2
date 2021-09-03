@@ -289,18 +289,11 @@
     />
   </div>
 
-  {#if isEmbed}
+  {#if isEmbed && embed !== "policies"}
     <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
       <p>
         To explore more about the climate emergency and
         the effects on the planet visit
-        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
-      </p>
-    </div>
-
-    <div class="embed-additional-text-mobile" class:hide={cartogramAnnotation}>
-      <p>
-        To explore more about air pollution visit
         <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
@@ -321,6 +314,16 @@
     </ScrollableX>
   </div>
 
+  {#if isEmbed && embed === "policies"}
+    <div class="embed-additional-text-desktop-policies" class:hide={cartogramAnnotation}>
+      <p>
+        To explore more about the climate emergency and
+        the effects on the planet visit
+        <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
+      </p>
+    </div>
+  {/if}
+
   {#if !isEmbed}
 
     <div class="footer">
@@ -340,8 +343,8 @@
   .footer {
     margin-bottom: 30px;
   }
-  .embed-additional-text-mobile,
-  .embed-additional-text-desktop {
+
+  .embed-additional-text-desktop, .embed-additional-text-desktop-policies{
     opacity: 1;
     transition: 300ms opacity 700ms;
     position: relative;

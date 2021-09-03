@@ -47,17 +47,17 @@
     sectors: {
       title: "Contribution of each <b>sector</b> to fine particle pollution",
       labels: [
-        'Windblown dust','Residential','International shipping',
-        'Transport','Commercial','Industry','Anthropogenic fugitive, combustion and industrial dust',
+        'Residential','Transport','International shipping',
+        'Industry','Commercial','Anthropogenic fugitive, combustion and industrial dust',
         'Other combustion','Remaining sources','Landscape fires',
         'Agricultural waste burning','Agriculture',
-        'Waste','Solvents','Energy'
+        'Waste','Solvents','Energy','Windblown dust'
       ],
       selectionDictionary: [
-        'windblowndust', 'residential', 'intlshipping', 'transport',
-        'commercial', 'industry', 'afciddust', 'othercombustion',
+        'residential', 'transport', 'intlshipping',
+        'industry', 'commercial', 'afciddust', 'othercombustion',
         'remainingsources', 'otherfires', 'agrwasteburning', 'agriculture',
-        'waste', 'solvents', 'energy'
+        'waste', 'solvents', 'energy','windblowndust'
       ],
       colors: colorSectors.range()
     },
@@ -124,13 +124,6 @@
       <p>
         To explore more about the climate emergency and
         the effects on the planet visit
-        <b><a href="https://www.unep.org/">unep.org</a></b>
-      </p>
-    </div>
-
-    <div class="embed-additional-text-mobile">
-      <p>
-        To explore more about air pollution visit
         <b><a href="https://www.unep.org/">unep.org</a></b>
       </p>
     </div>
