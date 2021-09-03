@@ -65,7 +65,7 @@
 
   let showHoverText = () => {
     return (
-      `The largest contributing sector in <strong>${currentRegion.region}</strong>
+      `The largest contributing sector in <strong>${currentRegion.region.replace('+','and')}</strong>
       is <strong>${labels[currentRegion.mostPollutingType]}</strong>
       — <strong>${currentRegion.mostPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>
       of the total <strong>${currentRegion.totalPollutingValue.toFixed(2)}</strong> µg/m<sup>3</sup>.`
@@ -86,7 +86,7 @@
     return (
       `<strong>${labels[currentType]}</strong> accounts for
        <strong>${(currentValue / currentRegion.numCountries).toFixed(2)}</strong>
-       µg/m<sup>3</sup> in <strong>${currentRegion.region}</strong>. ${showHoverTextAfter()}`
+       µg/m<sup>3</sup> in <strong>${currentRegion.region.replace('+','and')}</strong>. ${showHoverTextAfter()}`
     );
   };
   $:{
