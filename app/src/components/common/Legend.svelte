@@ -40,7 +40,24 @@
     on:mouseover={() => selected = i}
     on:focus={() => selected = i}
   >
-      <div class="cat-symbol" style="background-color: {c};"/>{labels[i]}
+      <div 
+        class="cat-symbol"
+        style="background-color: {c !== 'url(#hash--windblown)' ? c : ''};
+        background-size: {c !== 'url(#hash--windblown)' ? '' : '5.66px 5.66px'};
+        background-image: {c !== 'url(#hash--windblown)'
+          ? ''
+          : `linear-gradient(
+              135deg,
+              #faba26 25%,
+              #f9f9f9 25%,
+              #f9f9f9 50%,
+              #faba26 50%,
+              #faba26 75%,
+              #f9f9f9 75%,
+              #f9f9f9 100%
+            )`
+        }"
+      />{labels[i]}
     </li>
   {/each}
 </ul>

@@ -2,13 +2,13 @@ import { scaleOrdinal, scaleThreshold } from 'd3-scale';
 
 export const colorSectors = scaleOrdinal<string>()
   .domain([
-    'windblowndust','residential','intlshipping','transport','commercial','industry','afciddust',
+    'residential','transport','intlshipping','industry','commercial','afciddust',
     'othercombustion','remainingsources','otherfires','agrwasteburning','agriculture',
-    'waste','solvents','energy'
+    'waste','solvents','energy','windblowndust'
   ])
   .range([
-    '#faba26','#407aa9','#9b7ccc','#811494','#ff9c9c','#ab4867','#b3b3b3','#8c8c8c','#666666',
-    '#333333','#62b048','#1b6e29','#bd8e71','#854f38','#ff8a18'
+    '#407aa9','#811494','#9b7ccc','#ab4867','#ff9c9c','#b3b3b3','#8c8c8c',
+    '#666666','#333333','#62b048','#1b6e29','#bd8e71','#854f38','#ff8a18','url(#hash--windblown)'
   ]);
 
 export const colorFuels = scaleOrdinal<string>()
