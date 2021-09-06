@@ -30,6 +30,8 @@
 
   .info-text {
     color:#505050;
+    padding-bottom:0!important;
+    font-size: 1.125rem;
   }
 
   @media (min-width: 58rem) {

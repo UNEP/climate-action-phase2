@@ -58,7 +58,7 @@
       "head": "<strong>Residential</strong> pollution — mostly from cooking, heating and generating electricity for our homes — and <strong>transportation</strong> are significant <strong>sources</strong> of fine particles. <strong>Windblown dust</strong> is a major source of particles in much of Africa and West Asia.",
       "text": [
         {
-          "p": "The fine particles that pollute our air mostly come from human activities such as burning fossil fuels to generate electricity, transportation, waste burning, agriculture — a major source of methane and ammonia — and the chemical and mining industries. Natural sources include volcanic eruptions, sea spray, soil dust and lightning. Agriculture is also a major source of methane and ammonia, which lead to the development of tropospheric ozone."
+          "p": "The fine particles that pollute our air mostly come from human activities such as burning fossil fuels to generate electricity and transportation, waste burning, agriculture and the chemical and mining industries. Natural sources include volcanic eruptions, sea spray, soil dust and lightning. Agriculture is also a major source of methane and ammonia, which lead to the development of tropospheric ozone."
         },
         {
           "p": "In developing countries, reliance on wood and other solid fuels, like raw coal for cooking and heating, and the use of kerosene for lighting, increases air pollution in homes. Household air pollution is also a large source of outdoor air pollution in many countries."
@@ -110,10 +110,10 @@
       "head": "About the data",
       "text": [
         {
-          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
+          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong>  and <strong>attributable deaths</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
         },
         {
-          "p": "Data for <strong>sectors breakdown</strong> and <strong>attributable deaths</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\" rel=\"noopener\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
+          "p": "Data for <strong>sectors breakdown</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\" rel=\"noopener\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
         },
         {
           "p": "The data for the <strong>sector section</strong> was reaggregated from country data into UNEP regions, which are different from the ones used in the study."
