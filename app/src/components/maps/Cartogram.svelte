@@ -221,7 +221,7 @@
   bind:clientWidth={clientWidth}
   class:cartogram-country-hover={hoverData}
   class:cartogram-resizing={resizing}
-  on:touchstart={clearHoverState}
+  
 >
 <filter id="shadow" x="+100px">
   <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.9"></feDropShadow>
