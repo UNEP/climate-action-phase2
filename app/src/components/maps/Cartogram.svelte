@@ -241,7 +241,7 @@
             on:click={() => onMouseClick(d)}
             on:blur={() => onMouseLeaveCountry()}
           >
-          {#if !hideLabels && d.width > 150}
+          {#if !hideLabels && d.width > 100}
             <span class="country-text">{d.short}</span>
           {/if}
           </div>
