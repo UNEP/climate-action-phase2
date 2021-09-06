@@ -92,7 +92,7 @@
       "head": "More governments are introducing <strong>policies to improve air quality</strong> but barriers to progress include slow implementation and capacity gaps.",
       "text": [
         {
-          "p": "UNEP's Actions on Air Quality report found progress in all major polluting sectors over the past five years but noted there were <strong>large gaps in implementation, financing, capacity, and monitoring of air quality</strong>. Policies take time to have an impact on air pollution — and be noted in monitoring — and deeper changes may be needed in places where air pollution is a major issue.[a][b][c][d]"
+          "p": "<a href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">UNEP's Actions on Air Quality report</a> found progress in all major polluting sectors over the past five years but noted there were <strong>large gaps in implementation, financing, capacity, and monitoring of air quality</strong>. Policy measures create a framework for long-term improvements in air quality but they can take time to show results. In the most polluted areas, other measures, such as traffic bans or road closures, might also be needed."
         },
         {
           "p": "Developed countries have greatly improved air quality in recent years but many developing countries, still reliant on wood and other solid fuels for cooking and heating, lag behind. They need support and guidance to access knowledge, tools and resources to tackle air quality."
@@ -110,16 +110,16 @@
       "head": "About the data",
       "text": [
         {
-          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
+          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
         },
         {
-          "p": "Data for <strong>sectors breakdown</strong> and <strong>attributable deaths</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
+          "p": "Data for <strong>sectors breakdown</strong> and <strong>attributable deaths</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\" rel=\"noopener\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
         },
         {
           "p": "The data for the <strong>sector section</strong> was reaggregated from country data into UNEP regions, which are different from the ones used in the study."
         },
         {
-          "p": "Data for policy implementations comes from <a href=\"href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">Actions on Air Quality: A Global Summary of Policies and Programmes to Reduce Air Pollution. UNEP, 2021</a>."
+          "p": "Data for policy implementations comes from <a href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">Actions on Air Quality: A Global Summary of Policies and Programmes to Reduce Air Pollution. UNEP, 2021</a>."
         },
         {
           "p": "<em>The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.</em>"
@@ -132,9 +132,5 @@
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "Air pollution, health and air pollution, pm2.5"
-  },
-  "a": [],
-  "b": [],
-  "c": [],
-  "d": []
+  }
 }
