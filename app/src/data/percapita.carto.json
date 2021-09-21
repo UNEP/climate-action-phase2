@@ -1,0 +1,1244 @@
+{
+  "nodeSize": 27,
+  "width": 700,
+  "height": 400,
+  "valueKey": "emissions_percapita",
+  "data": [
+    {
+      "id": "ARE",
+      "emissions_percapita": 26.94,
+      "x": 451.107,
+      "y": 196.004
+    },
+    {
+      "id": "AFG",
+      "emissions_percapita": 0.92,
+      "x": 497.426,
+      "y": 144.176
+    },
+    {
+      "id": "ATG",
+      "emissions_percapita": 7.39,
+      "x": 244.651,
+      "y": 148.237
+    },
+    {
+      "id": "AIA",
+      "emissions_percapita": 2.21,
+      "x": 239.912,
+      "y": 186.973
+    },
+    {
+      "id": "ALB",
+      "emissions_percapita": 3.03,
+      "x": 369.219,
+      "y": 162.548
+    },
+    {
+      "id": "ARM",
+      "emissions_percapita": 2.94,
+      "x": 433.865,
+      "y": 120.984
+    },
+    {
+      "id": "AGO",
+      "emissions_percapita": 2.91,
+      "x": 378.126,
+      "y": 261.497
+    },
+    {
+      "id": "ARG",
+      "emissions_percapita": 8.87,
+      "x": 241.475,
+      "y": 329.529
+    },
+    {
+      "id": "AUT",
+      "emissions_percapita": 9.96,
+      "x": 338.61,
+      "y": 124.702
+    },
+    {
+      "id": "AUS",
+      "emissions_percapita": 27.67,
+      "x": 583.423,
+      "y": 290.622
+    },
+    {
+      "id": "ABW",
+      "emissions_percapita": 9.57,
+      "x": 195.39,
+      "y": 190.239
+    },
+    {
+      "id": "AZE",
+      "emissions_percapita": 5.63,
+      "x": 448.955,
+      "y": 118.917
+    },
+    {
+      "id": "BIH",
+      "emissions_percapita": 8.72,
+      "x": 359.875,
+      "y": 107.789
+    },
+    {
+      "id": "BRB",
+      "emissions_percapita": 11.77,
+      "x": 249.928,
+      "y": 169.65
+    },
+    {
+      "id": "BGD",
+      "emissions_percapita": 1.37,
+      "x": 521.214,
+      "y": 169.017
+    },
+    {
+      "id": "BEL",
+      "emissions_percapita": 11.82,
+      "x": 286.303,
+      "y": 114.298
+    },
+    {
+      "id": "BFA",
+      "emissions_percapita": 1.45,
+      "x": 341.892,
+      "y": 201.676
+    },
+    {
+      "id": "BGR",
+      "emissions_percapita": 8.57,
+      "x": 417.453,
+      "y": 110.221
+    },
+    {
+      "id": "BHR",
+      "emissions_percapita": 29.12,
+      "x": 475.328,
+      "y": 155.085
+    },
+    {
+      "id": "BDI",
+      "emissions_percapita": 0.46,
+      "x": 404.791,
+      "y": 238.284
+    },
+    {
+      "id": "BEN",
+      "emissions_percapita": 1.31,
+      "x": 350.98,
+      "y": 210.903
+    },
+    {
+      "id": "BMU",
+      "emissions_percapita": 7.49,
+      "x": 225.542,
+      "y": 135.184
+    },
+    {
+      "id": "BRN",
+      "emissions_percapita": 28.83,
+      "x": 574.225,
+      "y": 216.101
+    },
+    {
+      "id": "BOL",
+      "emissions_percapita": 4.83,
+      "x": 224.712,
+      "y": 270.379
+    },
+    {
+      "id": "BRA",
+      "emissions_percapita": 5.97,
+      "x": 245.819,
+      "y": 269.039
+    },
+    {
+      "id": "BHS",
+      "emissions_percapita": 8.32,
+      "x": 180.799,
+      "y": 162.8
+    },
+    {
+      "id": "BTN",
+      "emissions_percapita": 3.06,
+      "x": 519.787,
+      "y": 155.736
+    },
+    {
+      "id": "BWA",
+      "emissions_percapita": 40.41,
+      "x": 384.856,
+      "y": 289.263
+    },
+    {
+      "id": "BLR",
+      "emissions_percapita": 15.24,
+      "x": 411.544,
+      "y": 66.945
+    },
+    {
+      "id": "BLZ",
+      "emissions_percapita": 2.47,
+      "x": 178.613,
+      "y": 178.594
+    },
+    {
+      "id": "CAN",
+      "emissions_percapita": 21.69,
+      "x": 203.665,
+      "y": 94.433
+    },
+    {
+      "id": "COD",
+      "emissions_percapita": 0.53,
+      "x": 386.118,
+      "y": 252.418
+    },
+    {
+      "id": "CAF",
+      "emissions_percapita": 2.21,
+      "x": 382.605,
+      "y": 231.362
+    },
+    {
+      "id": "COG",
+      "emissions_percapita": 3.11,
+      "x": 381.685,
+      "y": 243.149
+    },
+    {
+      "id": "CHE",
+      "emissions_percapita": 6.26,
+      "x": 340.773,
+      "y": 104.927
+    },
+    {
+      "id": "CIV",
+      "emissions_percapita": 1.14,
+      "x": 333.35,
+      "y": 204.495
+    },
+    {
+      "id": "COK",
+      "emissions_percapita": 2.75,
+      "x": 51.196,
+      "y": 280.722
+    },
+    {
+      "id": "CHL",
+      "emissions_percapita": 6.6,
+      "x": 225.747,
+      "y": 310.113
+    },
+    {
+      "id": "CMR",
+      "emissions_percapita": 2.12,
+      "x": 361.44,
+      "y": 201.5
+    },
+    {
+      "id": "CHN",
+      "emissions_percapita": 9.35,
+      "x": 515.937,
+      "y": 138.777
+    },
+    {
+      "id": "COL",
+      "emissions_percapita": 3.49,
+      "x": 194.78,
+      "y": 228.429
+    },
+    {
+      "id": "CRI",
+      "emissions_percapita": 2.65,
+      "x": 162.228,
+      "y": 201.911
+    },
+    {
+      "id": "CUB",
+      "emissions_percapita": 4.5,
+      "x": 201.679,
+      "y": 158.331
+    },
+    {
+      "id": "CPV",
+      "emissions_percapita": 2.25,
+      "x": 298.52,
+      "y": 188.197
+    },
+    {
+      "id": "CYP",
+      "emissions_percapita": 6.78,
+      "x": 376.128,
+      "y": 127.232
+    },
+    {
+      "id": "CZE",
+      "emissions_percapita": 12.15,
+      "x": 366.08,
+      "y": 85.416
+    },
+    {
+      "id": "DEU",
+      "emissions_percapita": 11.37,
+      "x": 336.349,
+      "y": 84.429
+    },
+    {
+      "id": "DJI",
+      "emissions_percapita": 2.15,
+      "x": 428.452,
+      "y": 232.931
+    },
+    {
+      "id": "DNK",
+      "emissions_percapita": 8.88,
+      "x": 345.186,
+      "y": 62.342
+    },
+    {
+      "id": "DMA",
+      "emissions_percapita": 2.65,
+      "x": 228.34,
+      "y": 182.453
+    },
+    {
+      "id": "DOM",
+      "emissions_percapita": 3.32,
+      "x": 219.56,
+      "y": 167.905
+    },
+    {
+      "id": "DZA",
+      "emissions_percapita": 6,
+      "x": 340.607,
+      "y": 165.538
+    },
+    {
+      "id": "ECU",
+      "emissions_percapita": 4.37,
+      "x": 192.414,
+      "y": 242.57
+    },
+    {
+      "id": "EST",
+      "emissions_percapita": 18.55,
+      "x": 405.692,
+      "y": 20.444
+    },
+    {
+      "id": "EGY",
+      "emissions_percapita": 3.44,
+      "x": 360.249,
+      "y": 177.264
+    },
+    {
+      "id": "ESH",
+      "emissions_percapita": 1.58,
+      "x": 320.785,
+      "y": 166.521
+    },
+    {
+      "id": "ERI",
+      "emissions_percapita": 1.24,
+      "x": 418.887,
+      "y": 231.756
+    },
+    {
+      "id": "ESP",
+      "emissions_percapita": 7.53,
+      "x": 299.48,
+      "y": 136.074
+    },
+    {
+      "id": "ETH",
+      "emissions_percapita": 1.51,
+      "x": 418.505,
+      "y": 240.528
+    },
+    {
+      "id": "FIN",
+      "emissions_percapita": 13.89,
+      "x": 378.022,
+      "y": 27.568
+    },
+    {
+      "id": "FJI",
+      "emissions_percapita": 2.81,
+      "x": 680.169,
+      "y": 269.229
+    },
+    {
+      "id": "FLK",
+      "emissions_percapita": 62.7,
+      "x": 261.123,
+      "y": 366.704
+    },
+    {
+      "id": "FRO",
+      "emissions_percapita": 0.56,
+      "x": 351.024,
+      "y": 83.168
+    },
+    {
+      "id": "FRA",
+      "emissions_percapita": 6.98,
+      "x": 318.36,
+      "y": 135.733
+    },
+    {
+      "id": "GAB",
+      "emissions_percapita": 7.94,
+      "x": 365.478,
+      "y": 235.782
+    },
+    {
+      "id": "GBR",
+      "emissions_percapita": 8.56,
+      "x": 324.583,
+      "y": 62.522
+    },
+    {
+      "id": "GRD",
+      "emissions_percapita": 3.08,
+      "x": 228.152,
+      "y": 194.683
+    },
+    {
+      "id": "GEO",
+      "emissions_percapita": 4.03,
+      "x": 420.172,
+      "y": 92.84
+    },
+    {
+      "id": "GUF",
+      "emissions_percapita": 3.3,
+      "x": 266.078,
+      "y": 223.771
+    },
+    {
+      "id": "GHA",
+      "emissions_percapita": 1.29,
+      "x": 333.595,
+      "y": 212.81
+    },
+    {
+      "id": "GIB",
+      "emissions_percapita": 17.4,
+      "x": 442.566,
+      "y": 163.926
+    },
+    {
+      "id": "GRL",
+      "emissions_percapita": 9.72,
+      "x": 276.744,
+      "y": 65.761
+    },
+    {
+      "id": "GMB",
+      "emissions_percapita": 1.03,
+      "x": 307.869,
+      "y": 192.35
+    },
+    {
+      "id": "GIN",
+      "emissions_percapita": 1.66,
+      "x": 324.528,
+      "y": 200.997
+    },
+    {
+      "id": "GLP",
+      "emissions_percapita": 6.14,
+      "x": 254.072,
+      "y": 190.263
+    },
+    {
+      "id": "GNQ",
+      "emissions_percapita": 6.37,
+      "x": 346.746,
+      "y": 224.082
+    },
+    {
+      "id": "GRC",
+      "emissions_percapita": 7.91,
+      "x": 395.105,
+      "y": 126.549
+    },
+    {
+      "id": "GTM",
+      "emissions_percapita": 2.04,
+      "x": 168.508,
+      "y": 189.553
+    },
+    {
+      "id": "GNB",
+      "emissions_percapita": 1.57,
+      "x": 315.067,
+      "y": 200.879
+    },
+    {
+      "id": "GUY",
+      "emissions_percapita": 6.42,
+      "x": 233.14,
+      "y": 251.513
+    },
+    {
+      "id": "HKG",
+      "emissions_percapita": 6.87,
+      "x": 551.785,
+      "y": 164.258
+    },
+    {
+      "id": "HND",
+      "emissions_percapita": 2.21,
+      "x": 179.185,
+      "y": 189.747
+    },
+    {
+      "id": "HRV",
+      "emissions_percapita": 6.1,
+      "x": 358.282,
+      "y": 126.791
+    },
+    {
+      "id": "HTI",
+      "emissions_percapita": 1.29,
+      "x": 208.741,
+      "y": 170.183
+    },
+    {
+      "id": "HUN",
+      "emissions_percapita": 6.78,
+      "x": 398.104,
+      "y": 107.585
+    },
+    {
+      "id": "IDN",
+      "emissions_percapita": 3.48,
+      "x": 564.953,
+      "y": 241.119
+    },
+    {
+      "id": "IRL",
+      "emissions_percapita": 13.92,
+      "x": 285.33,
+      "y": 89.499
+    },
+    {
+      "id": "ISR",
+      "emissions_percapita": 10.2,
+      "x": 378.004,
+      "y": 179.929
+    },
+    {
+      "id": "IND",
+      "emissions_percapita": 2.56,
+      "x": 499.56,
+      "y": 167.688
+    },
+    {
+      "id": "IRQ",
+      "emissions_percapita": 6.59,
+      "x": 413.967,
+      "y": 129.462
+    },
+    {
+      "id": "IRN",
+      "emissions_percapita": 10.28,
+      "x": 445.44,
+      "y": 138.436
+    },
+    {
+      "id": "ISL",
+      "emissions_percapita": 15.07,
+      "x": 300.982,
+      "y": 59.391
+    },
+    {
+      "id": "ITA",
+      "emissions_percapita": 7.18,
+      "x": 379.564,
+      "y": 107.328
+    },
+    {
+      "id": "JAM",
+      "emissions_percapita": 3.6,
+      "x": 197.672,
+      "y": 172.672
+    },
+    {
+      "id": "JOR",
+      "emissions_percapita": 3.61,
+      "x": 382.303,
+      "y": 161.147
+    },
+    {
+      "id": "JPN",
+      "emissions_percapita": 10.62,
+      "x": 575.193,
+      "y": 139.017
+    },
+    {
+      "id": "KEN",
+      "emissions_percapita": 1.81,
+      "x": 417.526,
+      "y": 250.074
+    },
+    {
+      "id": "KGZ",
+      "emissions_percapita": 3.35,
+      "x": 496.213,
+      "y": 120.184
+    },
+    {
+      "id": "KHM",
+      "emissions_percapita": 2.31,
+      "x": 546.346,
+      "y": 194.302
+    },
+    {
+      "id": "KIR",
+      "emissions_percapita": 0.64,
+      "x": 17.178,
+      "y": 236.402
+    },
+    {
+      "id": "COM",
+      "emissions_percapita": 0.76,
+      "x": 427.601,
+      "y": 257.57
+    },
+    {
+      "id": "KNA",
+      "emissions_percapita": 4.88,
+      "x": 213.993,
+      "y": 182.285
+    },
+    {
+      "id": "PRK",
+      "emissions_percapita": 2.09,
+      "x": 545.673,
+      "y": 123.983
+    },
+    {
+      "id": "KOR",
+      "emissions_percapita": 13.92,
+      "x": 550.988,
+      "y": 142.168
+    },
+    {
+      "id": "KWT",
+      "emissions_percapita": 32.97,
+      "x": 408.673,
+      "y": 173.89
+    },
+    {
+      "id": "CYM",
+      "emissions_percapita": 8.82,
+      "x": 191.124,
+      "y": 211.365
+    },
+    {
+      "id": "KAZ",
+      "emissions_percapita": 20.29,
+      "x": 442.791,
+      "y": 78.375
+    },
+    {
+      "id": "LAO",
+      "emissions_percapita": 2.24,
+      "x": 533.178,
+      "y": 176.625
+    },
+    {
+      "id": "LBN",
+      "emissions_percapita": 5,
+      "x": 417.217,
+      "y": 146.406
+    },
+    {
+      "id": "LCA",
+      "emissions_percapita": 2.71,
+      "x": 232.075,
+      "y": 170.585
+    },
+    {
+      "id": "LKA",
+      "emissions_percapita": 1.71,
+      "x": 528.676,
+      "y": 208.381
+    },
+    {
+      "id": "LBR",
+      "emissions_percapita": 0.84,
+      "x": 325.781,
+      "y": 212.082
+    },
+    {
+      "id": "LSO",
+      "emissions_percapita": 1.31,
+      "x": 396.082,
+      "y": 315.167
+    },
+    {
+      "id": "LTU",
+      "emissions_percapita": 8.29,
+      "x": 388.027,
+      "y": 50.496
+    },
+    {
+      "id": "LUX",
+      "emissions_percapita": 18.32,
+      "x": 312.926,
+      "y": 111.754
+    },
+    {
+      "id": "LVA",
+      "emissions_percapita": 6.75,
+      "x": 407.209,
+      "y": 44.366
+    },
+    {
+      "id": "LBY",
+      "emissions_percapita": 10.99,
+      "x": 342.086,
+      "y": 185.672
+    },
+    {
+      "id": "MAR",
+      "emissions_percapita": 2.42,
+      "x": 310.661,
+      "y": 151.35
+    },
+    {
+      "id": "MDA",
+      "emissions_percapita": 3.22,
+      "x": 434.128,
+      "y": 108.334
+    },
+    {
+      "id": "MDG",
+      "emissions_percapita": 1.2,
+      "x": 430.967,
+      "y": 274.637
+    },
+    {
+      "id": "MKD",
+      "emissions_percapita": 5,
+      "x": 401.368,
+      "y": 146.404
+    },
+    {
+      "id": "MLI",
+      "emissions_percapita": 1.72,
+      "x": 325.725,
+      "y": 184.317
+    },
+    {
+      "id": "MMR",
+      "emissions_percapita": 2.48,
+      "x": 511.102,
+      "y": 167.772
+    },
+    {
+      "id": "MNG",
+      "emissions_percapita": 15.25,
+      "x": 516.254,
+      "y": 114.362
+    },
+    {
+      "id": "MAC",
+      "emissions_percapita": 2.15,
+      "x": 550.985,
+      "y": 178.826
+    },
+    {
+      "id": "MTQ",
+      "emissions_percapita": 6.75,
+      "x": 252.202,
+      "y": 208.114
+    },
+    {
+      "id": "MRT",
+      "emissions_percapita": 2.87,
+      "x": 314.746,
+      "y": 177.318
+    },
+    {
+      "id": "MLT",
+      "emissions_percapita": 4.87,
+      "x": 324.154,
+      "y": 152.832
+    },
+    {
+      "id": "MUS",
+      "emissions_percapita": 3.7,
+      "x": 449.961,
+      "y": 272.517
+    },
+    {
+      "id": "MDV",
+      "emissions_percapita": 2.19,
+      "x": 485.841,
+      "y": 233.911
+    },
+    {
+      "id": "MWI",
+      "emissions_percapita": 0.61,
+      "x": 409.553,
+      "y": 267.074
+    },
+    {
+      "id": "MEX",
+      "emissions_percapita": 6.12,
+      "x": 158.594,
+      "y": 169.391
+    },
+    {
+      "id": "MYS",
+      "emissions_percapita": 10.37,
+      "x": 544.71,
+      "y": 211.039
+    },
+    {
+      "id": "MOZ",
+      "emissions_percapita": 0.93,
+      "x": 410.162,
+      "y": 273.868
+    },
+    {
+      "id": "NAM",
+      "emissions_percapita": 4.69,
+      "x": 355.563,
+      "y": 284.95
+    },
+    {
+      "id": "NCL",
+      "emissions_percapita": 21.64,
+      "x": 648.044,
+      "y": 283.797
+    },
+    {
+      "id": "NER",
+      "emissions_percapita": 1.61,
+      "x": 351.394,
+      "y": 201.891
+    },
+    {
+      "id": "NGA",
+      "emissions_percapita": 1.71,
+      "x": 360.698,
+      "y": 211.673
+    },
+    {
+      "id": "NIC",
+      "emissions_percapita": 3.07,
+      "x": 174.448,
+      "y": 201.498
+    },
+    {
+      "id": "NLD",
+      "emissions_percapita": 12.28,
+      "x": 312.522,
+      "y": 84.912
+    },
+    {
+      "id": "NOR",
+      "emissions_percapita": 13.82,
+      "x": 333.868,
+      "y": 39.108
+    },
+    {
+      "id": "NPL",
+      "emissions_percapita": 1.46,
+      "x": 508.969,
+      "y": 157.364
+    },
+    {
+      "id": "NZL",
+      "emissions_percapita": 18.28,
+      "x": 619.051,
+      "y": 328.015
+    },
+    {
+      "id": "OMN",
+      "emissions_percapita": 24.88,
+      "x": 416.324,
+      "y": 210.506
+    },
+    {
+      "id": "PAN",
+      "emissions_percapita": 4.21,
+      "x": 173.454,
+      "y": 215.127
+    },
+    {
+      "id": "PER",
+      "emissions_percapita": 2.8,
+      "x": 198.194,
+      "y": 256.066
+    },
+    {
+      "id": "PYF",
+      "emissions_percapita": 2.62,
+      "x": 65.384,
+      "y": 271.952
+    },
+    {
+      "id": "PNG",
+      "emissions_percapita": 0.94,
+      "x": 621.829,
+      "y": 243.739
+    },
+    {
+      "id": "PHL",
+      "emissions_percapita": 2.05,
+      "x": 575.321,
+      "y": 192.522
+    },
+    {
+      "id": "PAK",
+      "emissions_percapita": 2.14,
+      "x": 499.099,
+      "y": 153.217
+    },
+    {
+      "id": "POL",
+      "emissions_percapita": 10.38,
+      "x": 366.774,
+      "y": 62.15
+    },
+    {
+      "id": "SPM",
+      "emissions_percapita": 13.15,
+      "x": 259.026,
+      "y": 114.184
+    },
+    {
+      "id": "PRI",
+      "emissions_percapita": 1.31,
+      "x": 238.777,
+      "y": 196.707
+    },
+    {
+      "id": "PRT",
+      "emissions_percapita": 6.79,
+      "x": 280.721,
+      "y": 135.363
+    },
+    {
+      "id": "PLW",
+      "emissions_percapita": 58.15,
+      "x": 618.367,
+      "y": 209.273
+    },
+    {
+      "id": "PRY",
+      "emissions_percapita": 6.03,
+      "x": 238.219,
+      "y": 286.827
+    },
+    {
+      "id": "QAT",
+      "emissions_percapita": 66.14,
+      "x": 496.331,
+      "y": 200.996
+    },
+    {
+      "id": "REU",
+      "emissions_percapita": 3.88,
+      "x": 445.841,
+      "y": 286.442
+    },
+    {
+      "id": "ROU",
+      "emissions_percapita": 5.67,
+      "x": 386.557,
+      "y": 89.527
+    },
+    {
+      "id": "SRB",
+      "emissions_percapita": 8.1,
+      "x": 365.545,
+      "y": 146.323
+    },
+    {
+      "id": "RUS",
+      "emissions_percapita": 15.53,
+      "x": 473.758,
+      "y": 83.856
+    },
+    {
+      "id": "RWA",
+      "emissions_percapita": 0.55,
+      "x": 399.077,
+      "y": 240.115
+    },
+    {
+      "id": "SAU",
+      "emissions_percapita": 22.49,
+      "x": 383.02,
+      "y": 209.684
+    },
+    {
+      "id": "SLB",
+      "emissions_percapita": 0.51,
+      "x": 651.034,
+      "y": 252.029
+    },
+    {
+      "id": "SYC",
+      "emissions_percapita": 10.43,
+      "x": 451.34,
+      "y": 239.665
+    },
+    {
+      "id": "SDN",
+      "emissions_percapita": 2.37,
+      "x": 393.651,
+      "y": 231.54
+    },
+    {
+      "id": "SWE",
+      "emissions_percapita": 6.9,
+      "x": 355.93,
+      "y": 41.733
+    },
+    {
+      "id": "SGP",
+      "emissions_percapita": 10.54,
+      "x": 544.504,
+      "y": 233.507
+    },
+    {
+      "id": "SHN",
+      "emissions_percapita": 4.36,
+      "x": 325.921,
+      "y": 287.856
+    },
+    {
+      "id": "SVN",
+      "emissions_percapita": 9.28,
+      "x": 344.984,
+      "y": 146.289
+    },
+    {
+      "id": "SVK",
+      "emissions_percapita": 8.06,
+      "x": 388.076,
+      "y": 70.476
+    },
+    {
+      "id": "SLE",
+      "emissions_percapita": 0.85,
+      "x": 318.678,
+      "y": 209.335
+    },
+    {
+      "id": "SEN",
+      "emissions_percapita": 1.5,
+      "x": 316.304,
+      "y": 191.653
+    },
+    {
+      "id": "SOM",
+      "emissions_percapita": 1.99,
+      "x": 433.313,
+      "y": 243.483
+    },
+    {
+      "id": "SUR",
+      "emissions_percapita": 5.43,
+      "x": 251.313,
+      "y": 225.476
+    },
+    {
+      "id": "STP",
+      "emissions_percapita": 1.23,
+      "x": 351.442,
+      "y": 237.142
+    },
+    {
+      "id": "SLV",
+      "emissions_percapita": 1.85,
+      "x": 158.252,
+      "y": 190.991
+    },
+    {
+      "id": "SYR",
+      "emissions_percapita": 2.41,
+      "x": 428.641,
+      "y": 132.83
+    },
+    {
+      "id": "SWZ",
+      "emissions_percapita": 2.16,
+      "x": 411.838,
+      "y": 293.668
+    },
+    {
+      "id": "TCA",
+      "emissions_percapita": 5.2,
+      "x": 207.885,
+      "y": 142.719
+    },
+    {
+      "id": "TCD",
+      "emissions_percapita": 1.48,
+      "x": 362.235,
+      "y": 189.566
+    },
+    {
+      "id": "TGO",
+      "emissions_percapita": 1.1,
+      "x": 342.699,
+      "y": 210.156
+    },
+    {
+      "id": "THA",
+      "emissions_percapita": 5.78,
+      "x": 532.319,
+      "y": 190.575
+    },
+    {
+      "id": "TJK",
+      "emissions_percapita": 1.8,
+      "x": 494.59,
+      "y": 131.714
+    },
+    {
+      "id": "TLS",
+      "emissions_percapita": 1.08,
+      "x": 585.465,
+      "y": 250.11
+    },
+    {
+      "id": "TKM",
+      "emissions_percapita": 22.23,
+      "x": 473.483,
+      "y": 120.517
+    },
+    {
+      "id": "TUN",
+      "emissions_percapita": 3.66,
+      "x": 356.09,
+      "y": 163.755
+    },
+    {
+      "id": "TON",
+      "emissions_percapita": 1.95,
+      "x": 22.837,
+      "y": 280.58
+    },
+    {
+      "id": "TUR",
+      "emissions_percapita": 6.52,
+      "x": 384.472,
+      "y": 145.351
+    },
+    {
+      "id": "TTO",
+      "emissions_percapita": 37.38,
+      "x": 222.281,
+      "y": 221.805
+    },
+    {
+      "id": "TZA",
+      "emissions_percapita": 1.43,
+      "x": 411.328,
+      "y": 259.51
+    },
+    {
+      "id": "UKR",
+      "emissions_percapita": 6.59,
+      "x": 403.984,
+      "y": 89.423
+    },
+    {
+      "id": "UGA",
+      "emissions_percapita": 1.1,
+      "x": 406.618,
+      "y": 231.55
+    },
+    {
+      "id": "USA",
+      "emissions_percapita": 20.14,
+      "x": 184.415,
+      "y": 135.388
+    },
+    {
+      "id": "URY",
+      "emissions_percapita": 11.65,
+      "x": 249.312,
+      "y": 307.311
+    },
+    {
+      "id": "UZB",
+      "emissions_percapita": 5.6,
+      "x": 448.946,
+      "y": 102.185
+    },
+    {
+      "id": "VCT",
+      "emissions_percapita": 2.22,
+      "x": 216.38,
+      "y": 195.564
+    },
+    {
+      "id": "VEN",
+      "emissions_percapita": 8.17,
+      "x": 214.239,
+      "y": 252.59
+    },
+    {
+      "id": "VGB",
+      "emissions_percapita": 5.51,
+      "x": 224.249,
+      "y": 153.064
+    },
+    {
+      "id": "VNM",
+      "emissions_percapita": 3.59,
+      "x": 558.681,
+      "y": 190.985
+    },
+    {
+      "id": "VUT",
+      "emissions_percapita": 2.26,
+      "x": 658.348,
+      "y": 262.363
+    },
+    {
+      "id": "WSM",
+      "emissions_percapita": 1.85,
+      "x": 18.035,
+      "y": 262.246
+    },
+    {
+      "id": "YEM",
+      "emissions_percapita": 1.2,
+      "x": 437.519,
+      "y": 217.872
+    },
+    {
+      "id": "ZAF",
+      "emissions_percapita": 10.52,
+      "x": 380.515,
+      "y": 322.134
+    },
+    {
+      "id": "ZMB",
+      "emissions_percapita": 1.47,
+      "x": 396.858,
+      "y": 260.306
+    },
+    {
+      "id": "ZWE",
+      "emissions_percapita": 1.86,
+      "x": 411.486,
+      "y": 282.597
+    }
+  ]
+}

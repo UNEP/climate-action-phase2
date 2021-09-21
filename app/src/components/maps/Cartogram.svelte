@@ -1,49 +1,108 @@
 <script lang="ts" context="module">
 
-  export interface CountryDataPoint {
-    name: string;
-    short: string;
-    code: string;
+  type DataPoint<V extends string> = {
+    [key in V]: number;
+  } & {
+    id: string;
     x: number;
     y: number;
-    value: number;
-    rate?: number;
     color?: string;
-    // waiting for svelte to add support for generics
-    data?: any; /* eslint-disable-line @typescript-eslint/no-explicit-any */
+  }
+
+  export interface CartogramData<T extends string> {
+    nodeSize: number;
+    width: number;
+    height: number;
+    valueKey: T;
+    data: DataPoint<T>[];
+  }
+
+  interface CountryMetadata {
+    id: string;
+    name: string;
+    short: string;
   }
 
 </script>
 
 <script lang="ts">
   import * as d3 from 'src/d3';
-  import { throttle, trailingDebounce } from 'src/util';
+  import { createLookup, throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
 
-  interface CartogramDataPoint extends CountryDataPoint {
-    category: string;
-    left: number;
-    top: number;
-    width: number;
-    height: number;
+  type T = $$Generic<string>;
+
+  class CartogramDataPoint {
+    data: DataPoint<T>;
+    valueKey: string;
+    _left: number;
+    _r: number;
+    _top: number;
+    _height: number;
+    _width: number;
+    metadata: CountryMetadata;
+
+    constructor(data: DataPoint<T>, valueKey: string) {
+      this.data = data;
+      this.valueKey = valueKey;
+      this.metadata = countryMetadataLookup[this.data.id]
+        || { id: this.data.id, short: 'UNKNOWN', name: 'UNKNOWN' };
+
+      if (!countryMetadataLookup[this.data.id]) {
+        console.warn(`Missing country metadata for ${this.data.id}`);
+      }
+    }
+
+    get value() { return this.data[this.valueKey]; }
+    get id() { return this.data.id }
+    get x() { return this.data.x }
+    get y() { return this.data.y }
+
+    get short() { return this.metadata.short; }
+    get name() { return this.metadata.name; }
+    get hoverText() { return hoverTextFn(this) }
+
+    get r() { return this._r = this._r || radius(this.value); }
+    get left() { return this._left = this._left || xScale(this.x - this.r); }
+    get top() { return this._top = this._top || yScale(this.y - this.r); }
+    get width() { return this._width = this._width || xScale(this.r * 2); }
+    get height() { return this._height = this._height || yScale(this.r * 2); }
+
+    get category() { return categoryFn(this); }
+    get color() { return this.data.color || colorFn(this) }
+    get classes() { return classesFn(this); }
+
+    get style() {
+      const styles = [
+        `left: ${this.left}px`,
+        `top: ${this.top}px`,
+        `width: ${this.width}px`,
+        `height: ${this.height}px`,
+        `background: ${this.color};`,
+      ];
+      return styles.join(';');
+    }
   }
 
-  export var data: CountryDataPoint[];
-  export var nodeSize = 100;
-  export var domain: [number, number];
-  export var helpText: {code: string, text: string} = null;
-  export var categoryFn: (c: CountryDataPoint) => string = undefined;
-  export var colorFn: (c: CountryDataPoint) => string = undefined;
-  export var classesFn: (c: CountryDataPoint) => string[] = () => [];
-  export var hoverTextFn: (c: CountryDataPoint) => string;
-  export var onHoverFn: (c: CountryDataPoint) => void = () => null;
-  export var hideLabels = false;
+  export let dataset: CartogramData<T>;
+  export let countries: CountryMetadata[];
+  export let helpText: {code: string, text: string} = null;
+  export let categoryFn: (c: CartogramDataPoint) => string = undefined;
+  export let colorFn: (c: CartogramDataPoint) => string = undefined;
+  export let classesFn: (c: CartogramDataPoint) => string[] = () => [];
+  export let hoverTextFn: (c: CartogramDataPoint) => string;
+  export let onHoverFn: (c: CartogramDataPoint) => void = () => null;
+  export let hideLabels = false;
   export const rerenderFn: () => void = () => cartogramData = cartogramData;
-  export var annotationShowing: boolean = false;
+  export let annotationShowing: boolean = false;
 
   let containerEl: Element;
   let loaded = false;
 
+  const countryMetadataLookup = createLookup(countries, d => d.id, d => d);
+
+  const { data, nodeSize, valueKey } = dataset;
+  const domain = [dataset.width, dataset.height];
   // used to scale to container el
   const originalWidth = domain[0];
   const originalHeight = domain[1];
@@ -56,7 +115,7 @@
   let annotation: AnnotationData;
   let hoveredForX = false;
 
-  $: largestVal = Math.max(...data.map(d => d.value));
+  $: largestVal = Math.max(...data.map(d => d[valueKey]));
 
   let clientWidth: number;
   let containerWidth: number;
@@ -95,34 +154,12 @@
     .domain([0, domain[1]])
     .range([0, targetHeight]);
 
+  $: dimsChanged = radius && xScale && yScale;
+
   let cartogramData: CartogramDataPoint[];
-  $: cartogramData = data.map(d => {
-    const r = radius(d.value);
-    return {
-      ...d,
-
-      category: categoryFn ? categoryFn(d) : null,
-      left: xScale(d.x - r),
-      top: yScale(d.y - r),
-
-      // width height should be the same if the aspect is correct
-      width: xScale(r * 2),
-      height: yScale(r * 2)
-    };
-  });
-
-  $: cartogramData.sort((a,b) => a.y - b.y);
-
-  $: calcStyle = (d: CartogramDataPoint) => {
-    const styles = [
-      `left: ${d.left}px`,
-      `top: ${d.top}px`,
-      `width: ${d.width}px`,
-      `height: ${d.height}px`,
-      `background: ${d.color ? d.color : colorFn(d)};`,
-    ];
-    return styles.join(';');
-  };
+  $: cartogramData = dimsChanged && data
+    .map(d => new CartogramDataPoint(d, dataset.valueKey))
+    .sort((a,b) => a.y - b.y);
 
   window.setTimeout(() => {
     resize();
@@ -182,7 +219,7 @@
     _debouncedShowHelpText();
   }
 
-  $: helpCountry = helpText ? cartogramData.find(d => d.code === helpText.code) : null;
+  $: helpCountry = helpText ? cartogramData.find(d => d.id === helpText.code) : null;
 
   $: helpAnnotation = helpCountry && {
     x: helpCountry.left + helpCountry.width / 2,
@@ -196,7 +233,7 @@
     x: hoverData.x,
     y: hoverData.y,
     radius: 2 + hoverData.country.width / 2,
-    html: hoverTextFn(hoverData.country)
+    html: hoverData.country.hoverText
   };
 
   $: haveContainerDims = containerWidth > 0 && containerHeight > 0;
@@ -227,12 +264,12 @@
 </filter>
   {#if loaded}
     <div class="countries">
-      {#each cartogramData as d (d.code)}
+      {#each cartogramData as d (d.id)}
         {#if d.x && d.y}
           <div
-            class="country {classesFn(d).join(' ')}"
-            style={calcStyle(d)}
-            data-code={d.code}
+            class="country {d.classes}"
+            style={d.style}
+            data-code={d.id}
             tabindex="0"
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
