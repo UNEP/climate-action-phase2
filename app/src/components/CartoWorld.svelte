@@ -50,10 +50,12 @@
         dataset: datasets.cartoworld.percapita as CartogramData<'emissions_percapita'>,
         countries: datasets.countries,
         helpText: {
-            code: "CAN",
-            text: "Each square represents a country, scaled by its per capita emissions"
+          code: "CAN",
+          text: "Each square represents a country, scaled by its per capita emissions"
         },
-        hoverTextFn: c => `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} tonnes of GHG per capita in ${datasets.endYear}`,
+        hoverTextFn: c =>
+          `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
+          `tonnes of GHG per capita in ${datasets.endYear}`,
         colorFn: d => colorPM25(d.value),
       },
       legend: {
@@ -63,7 +65,7 @@
         type: 'sequential',
       }
     }
-  }
+  };
 
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
