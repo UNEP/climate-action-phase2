@@ -20,7 +20,7 @@
           "label": "Pollution Action Note"
         }
       ],
-      "head": "Pollution Action Note – Data you need to know",
+      "head": "Climate Action Note – Data you need to know",
       "text": [
         {
           "p": "Air pollution is the greatest environmental threat to public health globally and accounts for an estimated 7 million premature deaths every year. Air pollution and climate change are closely linked as all major pollutants have an impact on the climate and most share common sources with greenhouse gases. Improving our air quality will bring health, more net development and environmental benefits, along with mitigating climate change."
@@ -35,70 +35,40 @@
     },
     {
       "type": "carto-world",
-      "menu": "Current state",
-      "icon": "pm25",
-      "data": "pm25",
-      "embed": "pm25",
-      "head": "<strong>Nine out of ten people</strong> worldwide breathe air containing levels of pollutants that exceed World Health Organization limits.",
+      "menu": "Emissions",
+      "icon": "ghg",
+      "data": "ghg",
+      "embed": "ghg",
+      "head": "GHG emissions are changing our climate and choking our world",
       "text": [
         {
-          "p": "With every breath we take, we suck in tiny particles that can damage our lungs, hearts and brains and cause a host of other health problems. The most dangerous of these particles, which can include anything from soot to sulfates, are <strong>fine particles 2.5 microns</strong> or less in diameter — shortened as <strong>PM<sub>2.5</sub></strong>."
-        },
-        {
-          "p": "Even though air pollution is a global problem, it disproportionately affects those living in developing nations and particularly the most vulnerable, such as women and children."
-        }
-      ]
-    },
-    {
-      "type": "carto-region",
-      "menu": "Sources per sector",
-      "icon": "sectors",
-      "data": "sectors",
-      "embed": "sectors",
-      "head": "<strong>Residential</strong> pollution — mostly from cooking, heating and generating electricity for our homes — and <strong>transportation</strong> are significant <strong>sources</strong> of fine particles. <strong>Windblown dust</strong> is a major source of particles in much of Africa and West Asia.",
-      "text": [
-        {
-          "p": "The fine particles that pollute our air mostly come from human activities such as burning fossil fuels to generate electricity and transportation, waste burning, agriculture and the chemical and mining industries. Natural sources include volcanic eruptions, sea spray, soil dust and lightning. Agriculture is also a major source of methane and ammonia, which lead to the development of tropospheric ozone."
-        },
-        {
-          "p": "In developing countries, reliance on wood and other solid fuels, like raw coal for cooking and heating, and the use of kerosene for lighting, increases air pollution in homes. Household air pollution is also a large source of outdoor air pollution in many countries."
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ]
     },
     {
       "type": "carto-world",
-      "anchor": "health",
-      "menu": "Impact",
-      "icon": "deaths",
-      "data": "health",
-      "embed": "health",
-      "head": "Around <strong>four million people died in 2019</strong> from exposure to fine particulate outdoor air pollution, with the highest death rates occurring in Asia and Eastern Europe.",
+      "menu": "Per capita",
+      "icon": "percapita",
+      "data": "percapita",
+      "embed": "percapita",
+      "head": "Our individual carbon footprints vary wildly; wealth is a key factor",
       "text": [
         {
-          "p": "Air pollution is a major global health concern and causes one in nine deaths worldwide. Exposure to PM<sub>2.5</sub> reduced average global life expectancy by approximately one year in 2016."
-        },
-        {
-          "p": "The deadliest illnesses linked to PM<sub>2.5</sub> air pollution are stroke, heart disease, lung disease and cancer. High levels of fine particles also contribute to other illnesses, such as diabetes, and have been associated with impairing cognitive development in children and exacerbating mental health problems."
+          "p": "The wealthiest 1 per cent of the global population produce more than twice the emissions of the poorest 50 per cent. As developing countries grow their economies, they need financial assistance and technical support to transition to low-carbon, resilient strategies. It is possible to reduce emissions and grow economies. For example the energy sector can cut emissions by 12.5 gigatonnes annually by switching to renewable energy and being more efficient with the power it consumes."
         }
       ]
     },
     {
-      "type": "carto-world",
-      "anchor": "policies",
-      "menu": "Policy actions",
-      "icon": "policies",
-      "data": "policies",
-      "embed": "policies",
-      "head": "More governments are introducing <strong>policies to improve air quality</strong> but barriers to progress include slow implementation and capacity gaps.",
+      "type": "trends",
+      "menu": "Trends",
+      "icon": "trends",
+      "data": "trends",
+      "embed": "trends",
+      "head": "Some countries are making progress but all nations need to step up",
       "text": [
         {
-          "p": "<a href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">UNEP's Actions on Air Quality report</a> found progress in all major polluting sectors over the past five years but noted there were <strong>large gaps in implementation, financing, capacity, and monitoring of air quality</strong>. Policy measures create a framework for long-term improvements in air quality but they can take time to show results. In the most polluted areas, other measures, such as traffic bans or road closures, might also be needed."
-        },
-        {
-          "p": "Developed countries have greatly improved air quality in recent years but many developing countries, still reliant on wood and other solid fuels for cooking and heating, lag behind. They need support and guidance to access knowledge, tools and resources to tackle air quality."
-        },
-        {
-          "p": "As the world starts to emerge from the pandemic, governments must prioritise policies that lay the foundations for a green, inclusive recovery. This will not be possible without tackling air pollution. Countries need to work together on sustainable transport, renewable energy production and use, and waste management. Businesses need to innovate and we must all reduce our carbon footprints."
+          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
         }
       ]
     },
