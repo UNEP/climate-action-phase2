@@ -1,15 +1,10 @@
-import type {CartoRegionData} from '../types';
-import {default as sectoralBDData} from './sectoralBDData.json';
-import {default as differentFuelsData } from './differentFuels.json';
+import { default as percapita } from './percapita.carto.json';
+import { default as countries } from './countryDictionary.json';
 
-const data = {
-  sectoralBD : sectoralBDData,
-  differentFuels : differentFuelsData
+export default {
+  countries,
+  cartoworld: {
+    percapita
+  },
+  endYear: 2015
 };
-
-function getMockData<DatumType>(dataset) {
-  return data[dataset] as DatumType;
-}
-
-export const sectoralBD = getMockData<CartoRegionData>('sectoralBD');
-export const differentFuels = getMockData<CartoRegionData>('differentFuels');
