@@ -1,4 +1,4 @@
-import { scaleOrdinal, scaleThreshold } from 'd3-scale';
+import { scaleOrdinal, scaleThreshold } from './d3';
 
 export const colorSectors = scaleOrdinal<string>()
   .domain([
