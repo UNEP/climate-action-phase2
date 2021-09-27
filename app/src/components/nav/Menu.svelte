@@ -1,11 +1,12 @@
 <script lang="ts">
-  import svg, {alignment} from 'src/svg';
+  import { alignment } from 'src/svg';
   import MenuSpy from "src/components/nav/menuspy";
   import { onMount } from "svelte";
   import * as animateScroll from "svelte-scrollto";
   import type {MenuSpyParams} from 'src/components/nav/menuspy';
   import type { Content } from 'src/types';
   import { strToId } from 'src/util';
+  import Icon from '../Icon.svelte';
 
   export let content: Content[];
 
@@ -14,7 +15,7 @@
     .map(c => ({
       title: c.menu,
       id: strToId(c.menu),
-      icon: c.icon
+      icon: c.menuicon || c.icon
     }));
 
   var elm : Element;
@@ -61,7 +62,9 @@
       }
     >
       <div class="buttoncontent" href='#{option.id}' id="{option.id}div">
-        <div class="icon" style={alignment[option.icon] || ''}>{@html svg.menu[option.icon]}</div>
+        <div class="icon" style={alignment[option.icon] || ''}>
+          <Icon name={option.icon} />
+        </div>
         <div class="text-container">
           <div class="text">{option.title}</div>
         </div>

@@ -1,14 +1,17 @@
 <script lang="ts">
-  import svg, { alignment } from 'src/svg';
+  import { alignment } from 'src/svg';
   import type { Content } from 'src/types';
+  import Icon from './Icon.svelte';
 
   export let block: Content;
 
 </script>
 <div class="kicker">
-  <div class="kicker-icon"  style={alignment[block.icon] || ''}>{@html svg.menu[block.icon]}</div>
+  <div class="kicker-icon"  style={alignment[block.icon] || ''}>
+    <Icon name={block.icon} />
+  </div>
   <div class="kicker-text">
-    {@html block.menu}
+    {@html block.title }
   </div>
 </div>
 

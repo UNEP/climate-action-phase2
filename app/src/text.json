@@ -35,8 +35,10 @@
     },
     {
       "type": "carto-world",
-      "menu": "Emissions",
-      "icon": "ghg",
+      "title": "Emissions",
+      "icon": "stateoftheclimate.emissions",
+      "menu": "State of the climate",
+      "menuicon": "stateoftheclimate.main",
       "data": "ghg",
       "embed": "ghg",
       "head": "GHG emissions are changing our climate and choking our world",
@@ -48,8 +50,8 @@
     },
     {
       "type": "carto-world",
-      "menu": "Per capita",
-      "icon": "percapita",
+      "title": "Per capita",
+      "icon": "stateoftheclimate.percapita",
       "data": "percapita",
       "embed": "percapita",
       "head": "Our individual carbon footprints vary wildly; wealth is a key factor",
@@ -61,8 +63,8 @@
     },
     {
       "type": "trends",
-      "menu": "Trends",
-      "icon": "trends",
+      "title": "Trends",
+      "icon": "stateoftheclimate.trends",
       "data": "trends",
       "embed": "trends",
       "head": "Some countries are making progress but all nations need to step up",
@@ -74,10 +76,9 @@
     },
     {
       "type": "methodology",
-      "anchor": "methodology",
+      "title": "Data and notes",
       "menu": "Data and notes",
       "icon": "data",
-      "head": "About the data",
       "text": [
         {
           "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong>  and <strong>attributable deaths</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
