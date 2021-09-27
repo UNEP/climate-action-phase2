@@ -1,0 +1,826 @@
+[
+  {
+    "code": "AFG",
+    "emissions2015": 31.15
+  },
+  {
+    "code": "ALB",
+    "emissions2015": 8.87
+  },
+  {
+    "code": "DZA",
+    "emissions2015": 239.42
+  },
+  {
+    "code": "AGO",
+    "emissions2015": 81.03
+  },
+  {
+    "code": "AIA",
+    "emissions2015": 0.03
+  },
+  {
+    "code": "ATG",
+    "emissions2015": 0.74
+  },
+  {
+    "code": "ARG",
+    "emissions2015": 385.22
+  },
+  {
+    "code": "ARM",
+    "emissions2015": 8.57
+  },
+  {
+    "code": "ABW",
+    "emissions2015": 1
+  },
+  {
+    "code": "AUS",
+    "emissions2015": 658.59
+  },
+  {
+    "code": "AUT",
+    "emissions2015": 86.44
+  },
+  {
+    "code": "AZE",
+    "emissions2015": 54.18
+  },
+  {
+    "code": "BHS",
+    "emissions2015": 3.22
+  },
+  {
+    "code": "BHR",
+    "emissions2015": 39.95
+  },
+  {
+    "code": "BGD",
+    "emissions2015": 221.48
+  },
+  {
+    "code": "BRB",
+    "emissions2015": 3.35
+  },
+  {
+    "code": "BLR",
+    "emissions2015": 144.58
+  },
+  {
+    "code": "BEL",
+    "emissions2015": 133.45
+  },
+  {
+    "code": "BLZ",
+    "emissions2015": 0.89
+  },
+  {
+    "code": "BEN",
+    "emissions2015": 13.88
+  },
+  {
+    "code": "BMU",
+    "emissions2015": 0.46
+  },
+  {
+    "code": "BTN",
+    "emissions2015": 2.41
+  },
+  {
+    "code": "BOL",
+    "emissions2015": 51.83
+  },
+  {
+    "code": "BIH",
+    "emissions2015": 30.82
+  },
+  {
+    "code": "BWA",
+    "emissions2015": 89.28
+  },
+  {
+    "code": "BRA",
+    "emissions2015": 1229.25
+  },
+  {
+    "code": "VGB",
+    "emissions2015": 0.17
+  },
+  {
+    "code": "BRN",
+    "emissions2015": 12.04
+  },
+  {
+    "code": "BGR",
+    "emissions2015": 61.47
+  },
+  {
+    "code": "BFA",
+    "emissions2015": 26.29
+  },
+  {
+    "code": "BDI",
+    "emissions2015": 4.65
+  },
+  {
+    "code": "KHM",
+    "emissions2015": 35.82
+  },
+  {
+    "code": "CMR",
+    "emissions2015": 48.44
+  },
+  {
+    "code": "CAN",
+    "emissions2015": 779.87
+  },
+  {
+    "code": "CPV",
+    "emissions2015": 1.2
+  },
+  {
+    "code": "CYM",
+    "emissions2015": 0.53
+  },
+  {
+    "code": "CAF",
+    "emissions2015": 10.03
+  },
+  {
+    "code": "TCD",
+    "emissions2015": 20.76
+  },
+  {
+    "code": "CHL",
+    "emissions2015": 117.19
+  },
+  {
+    "code": "CHN",
+    "emissions2015": 13067.69
+  },
+  {
+    "code": "COL",
+    "emissions2015": 168.37
+  },
+  {
+    "code": "COM",
+    "emissions2015": 0.59
+  },
+  {
+    "code": "COG",
+    "emissions2015": 15.53
+  },
+  {
+    "code": "COK",
+    "emissions2015": 0.05
+  },
+  {
+    "code": "CRI",
+    "emissions2015": 12.76
+  },
+  {
+    "code": "CIV",
+    "emissions2015": 26.33
+  },
+  {
+    "code": "HRV",
+    "emissions2015": 25.83
+  },
+  {
+    "code": "CUB",
+    "emissions2015": 51.54
+  },
+  {
+    "code": "CUW",
+    "emissions2015": 7.58
+  },
+  {
+    "code": "CYP",
+    "emissions2015": 7.88
+  },
+  {
+    "code": "CZE",
+    "emissions2015": 128.88
+  },
+  {
+    "code": "COG",
+    "emissions2015": 40.48
+  },
+  {
+    "code": "DNK",
+    "emissions2015": 50.53
+  },
+  {
+    "code": "DJI",
+    "emissions2015": 1.99
+  },
+  {
+    "code": "DMA",
+    "emissions2015": 0.19
+  },
+  {
+    "code": "DOM",
+    "emissions2015": 34.97
+  },
+  {
+    "code": "ECU",
+    "emissions2015": 70.62
+  },
+  {
+    "code": "EGY",
+    "emissions2015": 322.74
+  },
+  {
+    "code": "SLV",
+    "emissions2015": 11.66
+  },
+  {
+    "code": "GNQ",
+    "emissions2015": 7.48
+  },
+  {
+    "code": "ERI",
+    "emissions2015": 6.03
+  },
+  {
+    "code": "EST",
+    "emissions2015": 24.39
+  },
+  {
+    "code": "SWZ",
+    "emissions2015": 2.85
+  },
+  {
+    "code": "ETH",
+    "emissions2015": 150.84
+  },
+  {
+    "code": "FLK",
+    "emissions2015": 0.18
+  },
+  {
+    "code": "FRO",
+    "emissions2015": 0.03
+  },
+  {
+    "code": "FJI",
+    "emissions2015": 2.51
+  },
+  {
+    "code": "FIN",
+    "emissions2015": 76.15
+  },
+  {
+    "code": "FRA",
+    "emissions2015": 449.74
+  },
+  {
+    "code": "GUF",
+    "emissions2015": 0.89
+  },
+  {
+    "code": "PYF",
+    "emissions2015": 0.73
+  },
+  {
+    "code": "GAB",
+    "emissions2015": 15.33
+  },
+  {
+    "code": "GEO",
+    "emissions2015": 15.94
+  },
+  {
+    "code": "DEU",
+    "emissions2015": 928.69
+  },
+  {
+    "code": "GHA",
+    "emissions2015": 35.57
+  },
+  {
+    "code": "GIB",
+    "emissions2015": 0.6
+  },
+  {
+    "code": "GRC",
+    "emissions2015": 88.71
+  },
+  {
+    "code": "GRL",
+    "emissions2015": 0.55
+  },
+  {
+    "code": "GRD",
+    "emissions2015": 0.33
+  },
+  {
+    "code": "GLP",
+    "emissions2015": 2.76
+  },
+  {
+    "code": "GTM",
+    "emissions2015": 33.15
+  },
+  {
+    "code": "GIN",
+    "emissions2015": 20.12
+  },
+  {
+    "code": "GNB",
+    "emissions2015": 2.78
+  },
+  {
+    "code": "GUY",
+    "emissions2015": 4.93
+  },
+  {
+    "code": "HTI",
+    "emissions2015": 13.83
+  },
+  {
+    "code": "HND",
+    "emissions2015": 19.82
+  },
+  {
+    "code": "HUN",
+    "emissions2015": 66.34
+  },
+  {
+    "code": "ISL",
+    "emissions2015": 4.98
+  },
+  {
+    "code": "IND",
+    "emissions2015": 3346.95
+  },
+  {
+    "code": "IDN",
+    "emissions2015": 897.16
+  },
+  {
+    "code": "IRN",
+    "emissions2015": 815.65
+  },
+  {
+    "code": "IRQ",
+    "emissions2015": 238.15
+  },
+  {
+    "code": "IRL",
+    "emissions2015": 65.4
+  },
+  {
+    "code": "ISR",
+    "emissions2015": 82.24
+  },
+  {
+    "code": "ITA",
+    "emissions2015": 427.52
+  },
+  {
+    "code": "JAM",
+    "emissions2015": 10.34
+  },
+  {
+    "code": "JPN",
+    "emissions2015": 1359.55
+  },
+  {
+    "code": "JOR",
+    "emissions2015": 33.03
+  },
+  {
+    "code": "KAZ",
+    "emissions2015": 360.13
+  },
+  {
+    "code": "KEN",
+    "emissions2015": 85.57
+  },
+  {
+    "code": "KIR",
+    "emissions2015": 0.07
+  },
+  {
+    "code": "KWT",
+    "emissions2015": 129.78
+  },
+  {
+    "code": "KGZ",
+    "emissions2015": 19.66
+  },
+  {
+    "code": "LAO",
+    "emissions2015": 14.93
+  },
+  {
+    "code": "LVA",
+    "emissions2015": 13.45
+  },
+  {
+    "code": "LBN",
+    "emissions2015": 29.28
+  },
+  {
+    "code": "LSO",
+    "emissions2015": 2.86
+  },
+  {
+    "code": "LBR",
+    "emissions2015": 3.8
+  },
+  {
+    "code": "LBY",
+    "emissions2015": 68.53
+  },
+  {
+    "code": "LTU",
+    "emissions2015": 24.29
+  },
+  {
+    "code": "LUX",
+    "emissions2015": 10.38
+  },
+  {
+    "code": "MAC",
+    "emissions2015": 1.29
+  },
+  {
+    "code": "MDG",
+    "emissions2015": 29.04
+  },
+  {
+    "code": "MWI",
+    "emissions2015": 10.77
+  },
+  {
+    "code": "MYS",
+    "emissions2015": 318.52
+  },
+  {
+    "code": "MDV",
+    "emissions2015": 0.92
+  },
+  {
+    "code": "MLI",
+    "emissions2015": 30.01
+  },
+  {
+    "code": "MLT",
+    "emissions2015": 2.08
+  },
+  {
+    "code": "MTQ",
+    "emissions2015": 2.61
+  },
+  {
+    "code": "MRT",
+    "emissions2015": 11.99
+  },
+  {
+    "code": "MUS",
+    "emissions2015": 4.66
+  },
+  {
+    "code": "MEX",
+    "emissions2015": 770.32
+  },
+  {
+    "code": "MDA",
+    "emissions2015": 13.09
+  },
+  {
+    "code": "MNG",
+    "emissions2015": 45.39
+  },
+  {
+    "code": "MAR",
+    "emissions2015": 84.1
+  },
+  {
+    "code": "MOZ",
+    "emissions2015": 25.97
+  },
+  {
+    "code": "MMR",
+    "emissions2015": 129.73
+  },
+  {
+    "code": "NAM",
+    "emissions2015": 11.38
+  },
+  {
+    "code": "NPL",
+    "emissions2015": 41.81
+  },
+  {
+    "code": "NLD",
+    "emissions2015": 207.93
+  },
+  {
+    "code": "NCL",
+    "emissions2015": 5.82
+  },
+  {
+    "code": "NZL",
+    "emissions2015": 84.38
+  },
+  {
+    "code": "NIC",
+    "emissions2015": 18.67
+  },
+  {
+    "code": "NER",
+    "emissions2015": 31.99
+  },
+  {
+    "code": "NGA",
+    "emissions2015": 309.91
+  },
+  {
+    "code": "PRK",
+    "emissions2015": 52.86
+  },
+  {
+    "code": "MKD",
+    "emissions2015": 10.4
+  },
+  {
+    "code": "NOR",
+    "emissions2015": 71.86
+  },
+  {
+    "code": "OMN",
+    "emissions2015": 104.5
+  },
+  {
+    "code": "PAK",
+    "emissions2015": 405.4
+  },
+  {
+    "code": "PLW",
+    "emissions2015": 1.24
+  },
+  {
+    "code": "PAN",
+    "emissions2015": 16.7
+  },
+  {
+    "code": "PNG",
+    "emissions2015": 7.45
+  },
+  {
+    "code": "PRY",
+    "emissions2015": 40.01
+  },
+  {
+    "code": "PER",
+    "emissions2015": 87.74
+  },
+  {
+    "code": "PHL",
+    "emissions2015": 208.42
+  },
+  {
+    "code": "POL",
+    "emissions2015": 397.27
+  },
+  {
+    "code": "PRT",
+    "emissions2015": 70.7
+  },
+  {
+    "code": "PRI",
+    "emissions2015": 4.83
+  },
+  {
+    "code": "QAT",
+    "emissions2015": 164.12
+  },
+  {
+    "code": "REU",
+    "emissions2015": 3.35
+  },
+  {
+    "code": "ROU",
+    "emissions2015": 112.79
+  },
+  {
+    "code": "RUS",
+    "emissions2015": 2233.88
+  },
+  {
+    "code": "RWA",
+    "emissions2015": 6.4
+  },
+  {
+    "code": "SHN",
+    "emissions2015": 0.02
+  },
+  {
+    "code": "KNA",
+    "emissions2015": 0.26
+  },
+  {
+    "code": "LCA",
+    "emissions2015": 0.48
+  },
+  {
+    "code": "SPM",
+    "emissions2015": 0.08
+  },
+  {
+    "code": "VCT",
+    "emissions2015": 0.24
+  },
+  {
+    "code": "WSM",
+    "emissions2015": 0.36
+  },
+  {
+    "code": "STP",
+    "emissions2015": 0.24
+  },
+  {
+    "code": "SAU",
+    "emissions2015": 709.79
+  },
+  {
+    "code": "SEN",
+    "emissions2015": 22.47
+  },
+  {
+    "code": "SRB",
+    "emissions2015": 76.75
+  },
+  {
+    "code": "SYC",
+    "emissions2015": 0.98
+  },
+  {
+    "code": "SLE",
+    "emissions2015": 6.18
+  },
+  {
+    "code": "SGP",
+    "emissions2015": 58.37
+  },
+  {
+    "code": "SVK",
+    "emissions2015": 43.84
+  },
+  {
+    "code": "SVN",
+    "emissions2015": 19.25
+  },
+  {
+    "code": "SLB",
+    "emissions2015": 0.3
+  },
+  {
+    "code": "SOM",
+    "emissions2015": 27.72
+  },
+  {
+    "code": "ZAF",
+    "emissions2015": 581.47
+  },
+  {
+    "code": "KOR",
+    "emissions2015": 704.27
+  },
+  {
+    "code": "ESP",
+    "emissions2015": 349.44
+  },
+  {
+    "code": "LKA",
+    "emissions2015": 35.47
+  },
+  {
+    "code": "SDN",
+    "emissions2015": 119.56
+  },
+  {
+    "code": "SUR",
+    "emissions2015": 3
+  },
+  {
+    "code": "SWE",
+    "emissions2015": 67.36
+  },
+  {
+    "code": "CHE",
+    "emissions2015": 52.11
+  },
+  {
+    "code": "SYR",
+    "emissions2015": 45.12
+  },
+  {
+    "code": "TJK",
+    "emissions2015": 15.43
+  },
+  {
+    "code": "TZA",
+    "emissions2015": 76.97
+  },
+  {
+    "code": "THA",
+    "emissions2015": 397.11
+  },
+  {
+    "code": "GMB",
+    "emissions2015": 2.04
+  },
+  {
+    "code": "TLS",
+    "emissions2015": 1.34
+  },
+  {
+    "code": "TGO",
+    "emissions2015": 8.19
+  },
+  {
+    "code": "TON",
+    "emissions2015": 0.21
+  },
+  {
+    "code": "TTO",
+    "emissions2015": 50.84
+  },
+  {
+    "code": "TUN",
+    "emissions2015": 41.24
+  },
+  {
+    "code": "TUR",
+    "emissions2015": 510.29
+  },
+  {
+    "code": "TKM",
+    "emissions2015": 123.7
+  },
+  {
+    "code": "TCA",
+    "emissions2015": 0.18
+  },
+  {
+    "code": "UGA",
+    "emissions2015": 44.3
+  },
+  {
+    "code": "UKR",
+    "emissions2015": 294.19
+  },
+  {
+    "code": "ARE",
+    "emissions2015": 246.61
+  },
+  {
+    "code": "GBR",
+    "emissions2015": 559.64
+  },
+  {
+    "code": "USA",
+    "emissions2015": 6444.4
+  },
+  {
+    "code": "URY",
+    "emissions2015": 39.96
+  },
+  {
+    "code": "UZB",
+    "emissions2015": 173.54
+  },
+  {
+    "code": "VUT",
+    "emissions2015": 0.6
+  },
+  {
+    "code": "VEN",
+    "emissions2015": 254.4
+  },
+  {
+    "code": "VNM",
+    "emissions2015": 335.55
+  },
+  {
+    "code": "ESH",
+    "emissions2015": 0.83
+  },
+  {
+    "code": "YEM",
+    "emissions2015": 32.39
+  },
+  {
+    "code": "ZMB",
+    "emissions2015": 23.77
+  },
+  {
+    "code": "ZWE",
+    "emissions2015": 29.3
+  }
+]
