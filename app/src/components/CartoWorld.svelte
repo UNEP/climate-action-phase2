@@ -41,10 +41,31 @@
   };
 
   interface Datasets {
+    ghg: Dataset<'emissions2015'>,
     percapita: Dataset<'emissions_percapita'>,
   }
 
   const datasetParams: Datasets = {
+    ghg: {
+      cartogram: {
+        dataset: datasets.cartoworld.ghg as CartogramData<'emissions2015'>,
+        countries: datasets.countries,
+        helpText: {
+          code: "CAN",
+          text: "Each square represents a country, scaled by its per capita emissions"
+        },
+        hoverTextFn: c =>
+          `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
+          `tonnes of GHG in ${datasets.endYear}`,
+        colorFn: d => colorPM25(d.value),
+      },
+      legend: {
+        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        colors: colorPM25.range(),
+        labels: ["x1", "2", "3", "4", "5", "6", "7", "8"],
+        type: 'sequential',
+      }
+    },
     percapita: {
       cartogram: {
         dataset: datasets.cartoworld.percapita as CartogramData<'emissions_percapita'>,
