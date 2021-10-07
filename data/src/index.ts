@@ -10,9 +10,17 @@ const outputJSONData = (filename: string, data: any) => {
   fs.writeFileSync(outfile, dataStr);
 }
 
-const mapped = ghg.map(row => ({
+const ghgMapped = ghg.map(row => ({
   code: row.code,
   emissions2015: row.emissions['2015']
 }))
 
-outputJSONData('ghg.json', mapped);
+const trendsMapped = ghg.map(row => ({
+  code: row.code,
+  size: 1,
+  emissions: row.emissions
+}))
+
+
+outputJSONData('ghg.json', ghgMapped);
+outputJSONData('trends.json', trendsMapped);

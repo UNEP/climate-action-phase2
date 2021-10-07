@@ -9,8 +9,11 @@
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
   import SectionTitle from "src/components/SectionTitle.svelte";
+  import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
+  import type { TrendsInputDataPoint } from "./maps/TrendsNode.svelte";
+  import { CartogramDataPoint } from "./maps/CartogramTypes";
 
-  export var data : "ghg" | "percapita" | "trends";
+  export var data : keyof Datasets;
   export var id: string;
   export var block: Content;
   export var head: string;
@@ -26,7 +29,6 @@
 
   let rerender: () => void;
 
-  // $: legendIsHovered = legendElementSelectedIndex !== null;
 
   type LegendProps = {
     title: string;
@@ -35,19 +37,21 @@
     type: string;
   }
 
-  type Dataset<T extends string> = {
-    cartogram: Cartogram<T>['$$prop_def'];
+  type Dataset<T extends string, CDP extends CartogramDataPoint<T> = CartogramDataPoint<T>> = {
+    cartogram: Cartogram<CDP>['$$prop_def'];
     legend: LegendProps;
   };
 
   interface Datasets {
     ghg: Dataset<'emissions2015'>,
     percapita: Dataset<'emissions_percapita'>,
+    trends: Dataset<'size', TrendsCartogramDataPoint<'size'>>,
   }
 
   const datasetParams: Datasets = {
     ghg: {
       cartogram: {
+        NodeClass: CartogramDataPoint,
         dataset: datasets.cartoworld.ghg as CartogramData<'emissions2015'>,
         countries: datasets.countries,
         helpText: {
@@ -68,6 +72,7 @@
     },
     percapita: {
       cartogram: {
+        NodeClass: CartogramDataPoint,
         dataset: datasets.cartoworld.percapita as CartogramData<'emissions_percapita'>,
         countries: datasets.countries,
         helpText: {
@@ -77,6 +82,25 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG per capita in ${datasets.endYear}`,
+        colorFn: d => colorPM25(d.value),
+      },
+      legend: {
+        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        colors: colorPM25.range(),
+        labels: ["x1", "2", "3", "4", "5", "6", "7", "8"],
+        type: 'sequential',
+      }
+    },
+    trends: {
+      cartogram: {
+        NodeClass: TrendsCartogramDataPoint,
+        NodeComponent: TrendsNode,
+        dataset: datasets.cartoworld.trends as CartogramData<'size', TrendsInputDataPoint<'size'>>,
+        countries: datasets.countries,
+        helpText: {
+          code: "IRN",
+          text: "Each tile represents individual country trends in greenhouse gas emissions"
+        },
         colorFn: d => colorPM25(d.value),
       },
       legend: {
@@ -95,6 +119,8 @@
     width = Math.max(clientWidth, 700);
   }
   $: height = width * 0.62;
+
+  $: selectedDataset = datasetParams[data];
 
 </script>
 
@@ -130,8 +156,8 @@
           style="width:{width}px; height:{height}px"
           class="cartogram-container"
         >
-          <Cartogram
-            {...datasetParams[data].cartogram}
+          <svelte:component this={Cartogram}
+            {...selectedDataset.cartogram}
             bind:rerenderFn={rerender}
             bind:annotationShowing={cartogramAnnotation}
             />

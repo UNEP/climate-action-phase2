@@ -53,11 +53,16 @@ export function createLookup<T, Y>
   return lookup;
 }
 
-export function displayVal(val: number, dp: number = null): string {
-  if (dp === null) return val.toLocaleString();
+function getDynamicDp(val: number): number {
+  if (val < 10) return 2;
+  else if (val < 100) return 1;
+  else return 0;
+}
 
+export function displayVal(val: number, dp: number = getDynamicDp(val)): string {
   const multiplier = Math.pow(10, dp);
-  return (Math.round(val * multiplier) / multiplier).toLocaleString();
+  return (Math.round(val * multiplier) / multiplier)
+    .toLocaleString(undefined, {minimumFractionDigits: dp});
 }
 
 export function getRandom<T>(data: T[]): T {
@@ -91,4 +96,11 @@ export const strToId = (str: string): string => {
     .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '');
+};
+
+// export const range = (from: number, to: number) => {
+
+// }
+export const range = (from: number, to: number): number[] => {
+  return [...new Array(to - from)].map((_, i) => from + i);
 };

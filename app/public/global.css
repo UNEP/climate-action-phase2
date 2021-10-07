@@ -213,3 +213,9 @@ sup, sub { line-height: 0; }
     margin-right: auto;
   }
 }
+
+
+.stroke--stable { stroke: #BEC7CD; }
+.stroke--falling { stroke: #00AACC; }
+.stroke--climbing { stroke: #FDCC4D; }
+.stroke--climbing-fast { stroke: #FD7D2E; }

@@ -24,7 +24,16 @@ module.exports = {
     "semi": "error",
     "no-mixed-spaces-and-tabs": "error",
     "@typescript-eslint/no-inferrable-types": "off",
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
     "no-irregular-whitespace": "error",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "no-tabs": "error",
     "indent": ["error", 2],
     "max-len": ["error", {

@@ -63,7 +63,6 @@ export const alignment = {
 };
 
 export const getIcon = (iconStr: string): string => {
-  console.log(iconStr);
   // fetches nested icons using dot notation
   // e.g: "menu.data" -> icons['menu']['data']
   type Icons = string | {[id: string]: Icons};

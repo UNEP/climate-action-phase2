@@ -18,6 +18,7 @@
 
   const components = {
     'carto-world': CartoWorld,
+    'trends': CartoWorld,
     'intro': Intro,
     'text': Text,
     "menu": Menu,

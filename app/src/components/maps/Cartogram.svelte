@@ -1,26 +1,18 @@
 <script lang="ts" context="module">
+  import type {
+    CartogramConstructor, CartogramDataPoint, CountryMetadata, ExtractInputDataType,
+    ExtractValueKey, InputDataPoint, Transforms } from "./CartogramTypes";
+  import CartogramNode from "./CartogramNode.svelte";
 
-  type DataPoint<V extends string> = {
-    [key in V]: number;
-  } & {
-    id: string;
-    x: number;
-    y: number;
-    color?: string;
-  }
-
-  export interface CartogramData<T extends string> {
+  export interface CartogramData<
+    VK extends string,
+    IDP extends InputDataPoint<VK> = InputDataPoint<VK>
+  > {
     nodeSize: number;
     width: number;
     height: number;
-    valueKey: T;
-    data: DataPoint<T>[];
-  }
-
-  interface CountryMetadata {
-    id: string;
-    name: string;
-    short: string;
+    valueKey: VK;
+    data: IDP[];
   }
 
 </script>
@@ -29,70 +21,23 @@
   import * as d3 from 'src/d3';
   import { createLookup, throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
+  import type { SvelteComponent } from "svelte";
 
-  type T = $$Generic<string>;
+  type CDP = $$Generic<CartogramDataPoint<any, any>>;
 
-  class CartogramDataPoint {
-    data: DataPoint<T>;
-    valueKey: string;
-    _left: number;
-    _r: number;
-    _top: number;
-    _height: number;
-    _width: number;
-    metadata: CountryMetadata;
+  type VK = ExtractValueKey<CDP>;
+  type IDP = ExtractInputDataType<CDP>;
 
-    constructor(data: DataPoint<T>, valueKey: string) {
-      this.data = data;
-      this.valueKey = valueKey;
-      this.metadata = countryMetadataLookup[this.data.id]
-        || { id: this.data.id, short: 'UNKNOWN', name: 'UNKNOWN' };
-
-      if (!countryMetadataLookup[this.data.id]) {
-        console.warn(`Missing country metadata for ${this.data.id}`);
-      }
-    }
-
-    get value() { return this.data[this.valueKey]; }
-    get id() { return this.data.id }
-    get x() { return this.data.x }
-    get y() { return this.data.y }
-
-    get short() { return this.metadata.short; }
-    get name() { return this.metadata.name; }
-    get hoverText() { return hoverTextFn(this) }
-
-    get r() { return this._r = this._r || radius(this.value); }
-    get left() { return this._left = this._left || xScale(this.x - this.r); }
-    get top() { return this._top = this._top || yScale(this.y - this.r); }
-    get width() { return this._width = this._width || xScale(this.r * 2); }
-    get height() { return this._height = this._height || yScale(this.r * 2); }
-
-    get category() { return categoryFn(this); }
-    get color() { return this.data.color || colorFn(this) }
-    get classes() { return classesFn(this); }
-
-    get style() {
-      const styles = [
-        `left: ${this.left}px`,
-        `top: ${this.top}px`,
-        `width: ${this.width}px`,
-        `height: ${this.height}px`,
-        `background: ${this.color};`,
-      ];
-      return styles.join(';');
-    }
-  }
-
-  export let dataset: CartogramData<T>;
+  export let dataset: CartogramData<VK, IDP>;
   export let countries: CountryMetadata[];
   export let helpText: {code: string, text: string} = null;
-  export let categoryFn: (c: CartogramDataPoint) => string = undefined;
-  export let colorFn: (c: CartogramDataPoint) => string = undefined;
-  export let classesFn: (c: CartogramDataPoint) => string[] = () => [];
-  export let hoverTextFn: (c: CartogramDataPoint) => string;
-  export let onHoverFn: (c: CartogramDataPoint) => void = () => null;
-  export let hideLabels = false;
+  export let NodeClass: { new(input: CartogramConstructor<CDP>): CDP };
+  export let categoryFn: Transforms<CDP>['categoryFn'] = () => '';
+  export let colorFn: Transforms<CDP>['colorFn'] = undefined;
+  export let classesFn: Transforms<CDP>['classesFn'] = () => [];
+  export let hoverTextFn: Transforms<CDP>['hoverTextFn'] = undefined;
+  export let onHoverFn: (c: CDP) => void = () => null;
+  export let NodeComponent: typeof SvelteComponent = CartogramNode;
   export const rerenderFn: () => void = () => cartogramData = cartogramData;
   export let annotationShowing: boolean = false;
 
@@ -110,10 +55,9 @@
   let targetHeight: number = originalHeight;
   let resizing = false;
   let hoverTimeout: number;
-  let hoverData: {x: number, y: number, country: CartogramDataPoint} = null;
+  let hoverData: {x: number, y: number, country: CDP} = null;
   let helpTextFade = false;
   let annotation: AnnotationData;
-  let hoveredForX = false;
 
   $: largestVal = Math.max(...data.map(d => d[valueKey]));
 
@@ -156,9 +100,14 @@
 
   $: dimsChanged = radius && xScale && yScale;
 
-  let cartogramData: CartogramDataPoint[];
+  let cartogramData: CDP[];
   $: cartogramData = dimsChanged && data
-    .map(d => new CartogramDataPoint(d, dataset.valueKey))
+    .map(d => new NodeClass({
+      data: d,
+      valueKey: dataset.valueKey,
+      transforms: { colorFn, categoryFn, hoverTextFn, classesFn, xScale, yScale, radius },
+      metadata: countryMetadataLookup[d.id] || { id: d.id, short: 'UNKNOWN', name: 'UNKNOWN' }
+    }))
     .sort((a,b) => a.y - b.y);
 
   window.setTimeout(() => {
@@ -177,7 +126,7 @@
 
   const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
 
-  function onMouseEnterCountry(evt: MouseEvent, country: CartogramDataPoint) {
+  function onMouseEnterCountry(evt: MouseEvent, country: CDP) {
     onHoverFn(country);
     helpTextFade = false;
     _debouncedShowHelpText.cancel();
@@ -186,10 +135,9 @@
       x: country.left + (country.width / 2),
       y: country.top + (country.height / 2)
     };
-    hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
   }
 
-  function onMouseClick(country: CartogramDataPoint) {
+  function onMouseClick(country: CDP) {
     onHoverFn(country);
     helpTextFade = false;
     _debouncedShowHelpText.cancel();
@@ -198,7 +146,6 @@
       x: country.left + (country.width / 2),
       y: country.top + (country.height / 2)
     };
-    hoverTimeout = window.setTimeout(() => hoveredForX = true, 350);
   }
 
   function onMouseLeaveCountry() {
@@ -208,7 +155,6 @@
 
   function clearHoverState() {
     hoverData = null;
-    hoveredForX = false;
     window.clearTimeout(hoverTimeout);
     hoverTimeout = null;
     fadeInHelpText();
@@ -266,20 +212,16 @@
     <div class="countries">
       {#each cartogramData as d (d.id)}
         {#if d.x && d.y}
-          <div
-            class="country {d.classes}"
-            style={d.style}
-            data-code={d.id}
-            tabindex="0"
+          <svelte:component this={NodeComponent}
+            {d}
+            canvasWidth={targetWidth}
+            canvasHeight={targetHeight}
+            hovered={hoverData && hoverData.country === d}
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
             on:focus={() => onMouseClick(d)}
             on:blur={() => onMouseLeaveCountry()}
-          >
-          {#if !hideLabels && d.width > 100}
-            <span class="country-text">{d.short}</span>
-          {/if}
-          </div>
+          />
         {/if}
       {/each}
     </div>
@@ -314,47 +256,6 @@
     transform: rotateY(0.001deg);
   }
 
-  .country {
-    position: absolute;
-    border-radius: 4px;
-    cursor: pointer;
-    opacity: 1;
-    z-index: 2;
-    transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
-    will-change: opacity, background-color, border-radius;
-    background: grey;
-    outline-color: black;
-  }
-
-  .cartogram-resizing .country {
-    transition: none;
-  }
-
-  .country-text {
-    color: white;
-    font-weight: 400;
-    font-size: .85rem;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    width: min(100%, 50px);
-    margin: auto;
-    transform: translateY(-50%);
-    text-align: center;
-  }
-
-  .cartogram-country-hover .country:not(:hover) {
-    opacity: 0.65;
-    transition: opacity 0.05s;
-  }
-
-  .cartogram-country-hover .country:hover {
-    opacity: 0.999;
-    transition: opacity 0s;
-    z-index: 3;
-  }
-
   .annotation-container {
     opacity: 1;
     pointer-events: none;
@@ -371,13 +272,5 @@
 
   .annotation-container :global(.line) {
     border-color :#bbbbbb !important;
-  }
-
-  .country--hide {
-    opacity: 0.5;
-  }
-
-  .country--shadow {
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
   }
 </style>
