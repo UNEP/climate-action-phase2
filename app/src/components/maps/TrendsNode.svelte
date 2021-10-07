@@ -146,8 +146,8 @@
     .country:hover & {
       transition: width 100ms, height 100ms, box-shadow 100ms;
       box-shadow: 0px 0px 8px 1px #00000040;
-      width: 200%;
-      height: 200%;
+      width: 150%;
+      height: 150%;
     }
   }
 
