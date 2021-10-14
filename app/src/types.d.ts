@@ -3,6 +3,11 @@ export interface Footer {
   label; string;
 }
 
+export interface GDocs {
+  article: Content[];
+  meta: Meta;
+}
+
 export interface Meta {
   title: string;
   url: string;

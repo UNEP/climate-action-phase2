@@ -1,0 +1,107 @@
+{
+  "article": [
+    {
+      "type": "intro",
+      "breadcrumbs": [
+        {
+          "a": "https://www.unep.org/",
+          "label": "Home"
+        },
+        {
+          "a": "https://www.unep.org/explore-topics",
+          "label": "Explore Topics"
+        },
+        {
+          "a": "https://www.unep.org/explore-topics/air",
+          "label": "Air"
+        },
+        {
+          "a": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
+          "label": "Pollution Action Note"
+        }
+      ],
+      "head": "Climate Action Note – Climate action progress",
+      "text": [
+        {
+          "p": "Air pollution is the greatest environmental threat to public health globally and accounts for an estimated 7 million premature deaths every year. Air pollution and climate change are closely linked as all major pollutants have an impact on the climate and most share common sources with greenhouse gases. Improving our air quality will bring health, more net development and environmental benefits, along with mitigating climate change."
+        },
+        {
+          "p": "The UNEP Pollution Dashboard displays the global state of air pollution, major sources, the impact on human health and national efforts to tackle this critical issue."
+        }
+      ]
+    },
+    {
+      "type": "menu"
+    },
+    {
+      "type": "carto-world",
+      "title": "Emissions",
+      "icon": "stateoftheclimate.emissions",
+      "menu": "State of the climate",
+      "menuicon": "stateoftheclimate.main",
+      "data": "ghg",
+      "embed": "ghg",
+      "head": "GHG emissions are changing our climate and choking our world",
+      "text": [
+        {
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
+        }
+      ]
+    },
+    {
+      "type": "carto-world",
+      "title": "Per capita",
+      "icon": "stateoftheclimate.percapita",
+      "data": "percapita",
+      "embed": "percapita",
+      "head": "Our individual carbon footprints vary wildly; wealth is a key factor",
+      "text": [
+        {
+          "p": "The wealthiest 1 per cent of the global population produce more than twice the emissions of the poorest 50 per cent. As developing countries grow their economies, they need financial assistance and technical support to transition to low-carbon, resilient strategies. It is possible to reduce emissions and grow economies. For example the energy sector can cut emissions by 12.5 gigatonnes annually by switching to renewable energy and being more efficient with the power it consumes."
+        }
+      ]
+    },
+    {
+      "type": "trends",
+      "title": "Trends",
+      "icon": "stateoftheclimate.trends",
+      "data": "trends",
+      "embed": "trends",
+      "head": "Some countries are making progress but all nations need to step up",
+      "text": [
+        {
+          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
+        }
+      ]
+    },
+    {
+      "type": "methodology",
+      "title": "Data and notes",
+      "menu": "Data and notes",
+      "icon": "data",
+      "text": [
+        {
+          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong>  and <strong>attributable deaths</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
+        },
+        {
+          "p": "Data for <strong>sectors breakdown</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\" rel=\"noopener\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
+        },
+        {
+          "p": "The data for the <strong>sector section</strong> was reaggregated from country data into UNEP regions, which are different from the ones used in the study."
+        },
+        {
+          "p": "Data for policy implementations comes from <a href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">Actions on Air Quality: A Global Summary of Policies and Programmes to Reduce Air Pollution. UNEP, 2021</a>."
+        },
+        {
+          "p": "<em>The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.</em>"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "title": "Air Pollution Note – Data you need to know",
+    "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
+    "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
+    "keywords": "Air pollution, health and air pollution, pm2.5"
+  }
+}
