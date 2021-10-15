@@ -9,6 +9,7 @@
   import BaseEmbed from './components/BaseEmbed.svelte';
   import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
   import { strToId } from './util';
+  import CartoTemperature from './components/CartoTemperature.svelte';
 
   export var gdocs: GDocs;
   export var embed: string;
@@ -18,6 +19,7 @@
 
   const components = {
     'carto-world': CartoWorld,
+    'carto-temperature' : CartoTemperature,
     'trends': CartoWorld,
     'intro': Intro,
     'text': Text,
