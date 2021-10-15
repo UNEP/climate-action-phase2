@@ -55,48 +55,45 @@
 <section {id} class="viz wide">
 
   {#if !isEmbed}
-      <SectionTitle {block} />
+    <SectionTitle {block} />
   {/if}
 
   <h2 class='narrow'>{@html block.head}</h2>
 
   <div class="right-narrow" >
     {#if selectedSectionStr === "Land temperature"}
-    <div class="legend">
+      <div class="legend">
         <p class="legend-text">Colder</p>
         <div class="legend-scale">{@html svg.legends.land}</div>
         <p class="legend-text">Warmer than the avg. for the 2000s</p>
-    </div>
+      </div>
     {:else if selectedSectionStr === "Ocean temperature"}
-    <div class="legend">
+      <div class="legend">
         <p class="legend-text">Cold</p>
         <div class="legend-scale">{@html svg.legends.sea}</div>
         <p class="legend-text">Warm</p>
-    </div>
+      </div>
     {/if}
   </div>
 
 
   <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
-      <div
-        style="width:{width}px; height:{height}px"
-        class="cartogram-container"
-      >
+      <div class="cartogram-container" style="width:{width}px; height:{height}px">
         <div class="container">
           <div class="title {selectedSectionStr === 'Ocean temperature' ? 'white' : ''}">
-              {@html block.imgtitle}
+            {@html block.imgtitle}
           </div>
           <div class="aimg-container">
-              <AnnotatedMedia src={block.src} alt={block.alt} video={block.src === 'fire.mp4'}
-                  annotations={selectedSection.annotations} onChangeAnnotation={onChangeAnnotation}
-              />
+            <AnnotatedMedia src={block.src} alt={block.alt} video={block.src === 'fire.mp4'}
+              annotations={selectedSection.annotations} onChangeAnnotation={onChangeAnnotation}
+            />
           </div>
 
           <div class="inline-annotation">
-              {#each selectedSection.annotations as annotation}
+            {#each selectedSection.annotations as annotation}
               <div class:visible={selectedAnnotation === annotation}>{annotation.text}</div>
-              {/each}
+            {/each}
           </div>
         </div>
       </div>
@@ -105,13 +102,13 @@
 
   {#if !isEmbed}
 
-      <div class="footer">
-        <EmbedFooter {embed} />
-      </div>
+    <div class="footer">
+      <EmbedFooter {embed} />
+    </div>
 
-      {#each text as t}
-        <p class='col-text'>{@html t.p}</p>
-      {/each}
+    {#each text as t}
+      <p class='col-text'>{@html t.p}</p>
+    {/each}
 
   {/if}
 
