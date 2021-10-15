@@ -1,15 +1,14 @@
 <script lang="ts">
   import type { MediaAnnotation } from "./maps/AnnotatedMedia.svelte";
-  import type { copy as Copy } from '../data';
   import type { Content, TextBlock } from 'src/types';
-  import { copy } from '../data';
+  import { annotations } from '../data';
   import svg from '../svg';
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
   import SectionTitle from "src/components/SectionTitle.svelte";
   import AnnotatedMedia from "./maps/AnnotatedMedia.svelte";
 
-  type InputAnnotation = typeof Copy.happening.surface.annotation[0];
+  type InputAnnotation = typeof annotations.surface[0];
   function mapAnnotation(input: InputAnnotation): MediaAnnotation {
     const coords = (input.coords || '').split(',');
     if (!input.text || coords.length !== 2) return null;
@@ -31,13 +30,13 @@
 
   const sections: {[section: string]: {annotations: MediaAnnotation[]}} = {
     "Land temperature": {
-      annotations: copy.happening.surface.annotation.map(mapAnnotation).filter(a => a)
+      annotations: annotations.surface.map(mapAnnotation).filter(a => a)
     },
     "Ocean temperature": {
-      annotations: copy.happening.ocean.annotation.map(mapAnnotation).filter(a => a)
+      annotations: annotations.ocean.map(mapAnnotation).filter(a => a)
     },
     "Fires": {
-      annotations: copy.happening.fire.annotation.map(mapAnnotation).filter(a => a)
+      annotations: annotations.fire.map(mapAnnotation).filter(a => a)
     }
   };
   $: selectedSection = sections[selectedSectionStr];
