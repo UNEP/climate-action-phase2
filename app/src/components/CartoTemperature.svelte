@@ -19,10 +19,9 @@
     };
   }
 
-
   export var isEmbed = false;
   export var embed: string;
-  export var block: Content;
+  export var block: Content.AnnotatedImage;
   export var id: string;
   export var text: TextBlock[];
 
@@ -30,8 +29,7 @@
   let width : number;
   let clientWidth = 0;
 
-  const sections:
-  {[section: string]: {annotations: MediaAnnotation[]}} = {
+  const sections: {[section: string]: {annotations: MediaAnnotation[]}} = {
     "Land temperature": {
       annotations: copy.happening.surface.annotation.map(mapAnnotation).filter(a => a)
     },

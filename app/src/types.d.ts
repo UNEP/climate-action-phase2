@@ -30,6 +30,16 @@ export interface Content {
   embed?: string;
 }
 
+namespace Content {
+  export interface AnnotatedImage extends Content {
+    src: string;
+    imgtitle: string;
+    alt: string;
+    head: string;
+  }
+}
+
+
 interface Region {
   posX: number;
   posY: number;
