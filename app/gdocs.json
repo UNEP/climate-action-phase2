@@ -1,6 +1,14 @@
 [
   {
     "id": "1L6vjie7weEgLPqxG7sNlJxh69hjx8DJOdmGl_Xvx8Gk",
-    "dest": "src/text.json"
+    "dest": "src/stateoftheclimate.json"
+  },
+  {
+    "id": "1In7zx_tolkefWHsIPjUVrsKMvhlkCgHQtU_hQ7b6bz4",
+    "dest": "src/whatshappening.json"
+  },
+  {
+    "id": "1UU2psv-Hy-J44GraLTiO1KTmb62QmiYe_YDjWxwO-io",
+    "dest": "src/climateactionprogress.json"
   }
 ]

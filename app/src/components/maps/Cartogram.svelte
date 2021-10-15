@@ -216,7 +216,6 @@
             {d}
             canvasWidth={targetWidth}
             canvasHeight={targetHeight}
-            hovered={hoverData && hoverData.country === d}
             on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
             on:mouseleave={() => onMouseLeaveCountry()}
             on:focus={() => onMouseClick(d)}
