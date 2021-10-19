@@ -2,75 +2,12 @@
 
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
+  import countryTableData from 'src/data/countryTableData.json';
 
   export var data : "GHG" | "Risk";
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
-
-  var row = [];
-  $: row.push(r);
-  $: row.push(r2);
-  $: row.push(r3);
-  $: row.push(r4);
-  $: row.push(r5);
-  $: row.push(r6);
-
-
-  var r = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "Brazil",
-    emissions2015: 164,
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
-
-  var r2 = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "Spain",
-    emissions2015: 164,
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
-
-  var r3 = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "United Kingdom",
-    emissions2015: 164,
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
-
-  var r4 = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "France",
-    emissions2015: 164,
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
-
-  var r5 = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "Germany",
-    emissions2015: 164,
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
-
-  var r6 = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "Italy",
-    emissions2015: 164,
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
-
 
   var current = 'country';
 
@@ -79,9 +16,40 @@
   }
 
 
-  const maxNumSearchResults = 5;
-
+  const maxNumSearchResults = 6;
   const extract = (item) => item.name;
+
+  var events = [];
+
+  function updateSelectedCountry(event, detail){
+    events = [...events, { event, detail }];
+    if (event === "select"){
+      let newID = detail.original.id;
+      console.log(newID);
+    }
+
+    else {
+      currentCountry = null;
+    }
+  }
+
+  var currentCountry = {
+    desc: "It has had one of the biggest increases in GHG \
+    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+    country: "Brazil",
+    ID: "BRA",
+    emissions2015: "164\n million tonnes of GHG",
+    asPctOfGlobal: 2.18,
+    perCapita: 23.45
+  };
+
+  const emissions2015Comment = 'million tonnes of GHG';
+  const globalPCTComment = `<t style="font-size:16px;">%</t>`;
+  const perCapitaComment = `tonnes<br> of GHG`;
+
+  function change(e, result, index){
+    console.log(result, index);
+  }
 
 </script>
 
@@ -89,11 +57,17 @@
 
 <div class="searchBar">
   <Typeahead 
+    let:result
+    let:index
     data={countries} 
     {extract}
     limit={maxNumSearchResults}
     placeholder={ `Search a country`}
-    hideLabel>
+    hideLabel
+    on:select={(e) => updateSelectedCountry("select", e.detail)}
+    on:clear={(e) => updateSelectedCountry("clear", e.detail)}
+    >
+    {change("noth", result.original, index)}
   </Typeahead>
 </div>
 
@@ -102,7 +76,7 @@
   <div class="header" class:selected="{current === 'country'}"
       on:click={() => current = 'country'}>
     <span>
-      <strong>COUNTRY</strong>
+      <br>COUNTRY
     </span>
   </div>
 
@@ -114,7 +88,7 @@
   <div class="header" class:selected="{current === 'trend'}"
     on:click={() => current = 'trend'}>
     <span>
-      <strong>TREND</strong>
+      <br>TREND
     </span>
   </div>
 
@@ -122,7 +96,7 @@
     on:click={() => current = 'emissions2015'}
     style="text-align:right;">
     <span>
-      <strong>2015 EMISSIONS</strong>
+      2015 EMISSIONS
     </span>
   </div>
 
@@ -131,7 +105,7 @@
     on:click={() => current = 'globalpct'}
     style="text-align:right;">
     <span>
-      <strong>AS PCT OF GLOBAL</strong>
+      AS PCT OF GLOBAL
     </span>
   </div>
 
@@ -139,28 +113,30 @@
     on:click={() => current = 'percapita'}
     style="text-align:right;">
     <span>
-      <strong>PER CAPITA</strong>
+      PER<br>CAPITA
     </span>
   </div>
 
-  {#each row as loco, i (loco)}
-    <span>
-      <b>{loco.country}</b>
+  {#each countryTableData as row}
+    <span style="font-size: 24px;">
+      <b>{row.name}</b>
+    </span>
+    <span class="description">
+      {row.desc}
     </span>
     <span>
-      {loco.desc}
+      {row.name}
     </span>
-    <span>
-      {loco.country}
+    <span class="rowNumber">
+      {row.emissions2015}
+      <p class="numberDescriptor">{emissions2015Comment}</p>
     </span>
-    <span style="text-align:right;">
-      {loco.emissions2015}
+    <span class="rowNumber">
+      {row.globalPCT}{@html globalPCTComment}
     </span>
-    <span style="text-align:right;">
-      {loco.asPctOfGlobal}
-    </span>
-    <span style="text-align:right;">
-      {loco.perCapita}
+    <span class="rowNumber">
+      {row.perCapita}
+      <p class="numberDescriptor">{@html perCapitaComment}</p>
     </span>
   {/each}
 </div>
@@ -171,8 +147,28 @@
     <b>Show all countries</b>
   </button>
 
-
 <style>
+
+
+.description {
+  font-weight: 100;
+}
+
+.rowNumber {
+  font-weight: 100;
+  font-size: 24px;
+  text-align: right;
+}
+
+.numberDescriptor {
+  color: #818181;
+  font-weight: 500;
+  text-align: right;
+  font-size: 16px;
+  margin: 0%;
+  padding: 0;
+  padding-left: 18px;
+}
 
 .showMoreButton {
   background-color: #111111;
@@ -186,6 +182,7 @@
 
 .selected {
   border-color: black !important;
+  font-weight: 700;
 }
 
 .header {
@@ -243,8 +240,8 @@
   }
 
   .grid > span {
-    margin-top: 20px;
-    padding-bottom: 20px;
+    margin-top: 15px;
+    padding-bottom: 15px;
     border-left: 0px solid black;
     border-bottom: 1px solid #cccccc;
   }

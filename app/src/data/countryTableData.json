@@ -1,0 +1,84 @@
+[
+
+  {
+    "id": "ARG",
+    "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+    "name": "Argentina",
+    "emissions2015": 164,
+    "globalPCT": 2.18,
+    "perCapita": 23.45
+ },
+
+ {
+  "id": "BRA",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "Brazil",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "FRA",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "France",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "AUS",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "Australia",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "ESP",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "Spain",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "GBR",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "United Kingdom",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "GRC",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "Greece",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "DEU",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "Germany",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+},
+
+{
+  "id": "ITA",
+  "desc": "It has had one of the biggest increases in GHG emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
+  "name": "Italy",
+  "emissions2015": 164,
+  "globalPCT": 2.18,
+  "perCapita": 23.45
+}
+
+]
