@@ -3,13 +3,19 @@
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
   import countryTableData from 'src/data/countryTableData.json';
+  import { createLookup } from 'src/util';
 
   export var data : "GHG" | "Risk";
+
+
+  const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
+
+  var selectedDatabase = data === "GHG" ? countryTableData : null;
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
 
-  var current = 'country';
+  var currentSortingHeader = 'country';
 
   function showMoreButtonClicked(){
     console.log("SHOW MORE BUTTON CLICKED!");
@@ -18,7 +24,6 @@
 
   const maxNumSearchResults = 6;
   const extract = (item) => item.name;
-
   var events = [];
 
   function updateSelectedCountry(event, detail){
@@ -27,27 +32,33 @@
       let newID = detail.original.id;
       console.log(newID);
     }
-
-    else {
-      currentCountry = null;
-    }
   }
 
-  var currentCountry = {
-    desc: "It has had one of the biggest increases in GHG \
-    emissions -422% since 1990. Today, it accounts for 0.33% of global emissions.",
-    country: "Brazil",
-    ID: "BRA",
-    emissions2015: "164\n million tonnes of GHG",
-    asPctOfGlobal: 2.18,
-    perCapita: 23.45
-  };
 
   const emissions2015Comment = 'million tonnes of GHG';
   const globalPCTComment = `<t style="font-size:16px;">%</t>`;
   const perCapitaComment = `tonnes<br> of GHG`;
 
+  let results = [];
+
   function change(e, result, index){
+    if (index === 0){
+      results = [];
+      var loco = countryTableLookUp[result.id];
+      console.log(countryTableLookUp[result.id]);
+      if (loco !== undefined){
+        results.push(countryTableLookUp[result.id]);
+      }
+    }
+
+    else {
+      var loco2 = countryTableLookUp[result.id];
+      console.log(countryTableLookUp[result.id]);
+      if (loco2 !== undefined){
+        results.push(countryTableLookUp[result.id]);
+      }
+    }
+
     console.log(result, index);
   }
 
@@ -66,6 +77,7 @@
     hideLabel
     on:select={(e) => updateSelectedCountry("select", e.detail)}
     on:clear={(e) => updateSelectedCountry("clear", e.detail)}
+    on:keydown
     >
     {change("noth", result.original, index)}
   </Typeahead>
@@ -73,27 +85,27 @@
 
 
 <div class="grid">
-  <div class="header" class:selected="{current === 'country'}"
-      on:click={() => current = 'country'}>
+  <div class="header" class:selected="{currentSortingHeader === 'country'}"
+      on:click={() => currentSortingHeader = 'country'}>
     <span>
       <br>COUNTRY
     </span>
   </div>
 
-  <div class="header" class:selected="{current === 'description'}"
-    on:click={() => current = 'description'}>
+  <div class="header" class:selected="{currentSortingHeader === 'description'}"
+    on:click={() => currentSortingHeader = 'description'}>
     <span></span>
   </div>
 
-  <div class="header" class:selected="{current === 'trend'}"
-    on:click={() => current = 'trend'}>
+  <div class="header" class:selected="{currentSortingHeader === 'trend'}"
+    on:click={() => currentSortingHeader = 'trend'}>
     <span>
       <br>TREND
     </span>
   </div>
 
-  <div class="header" class:selected="{current === 'emissions2015'}"
-    on:click={() => current = 'emissions2015'}
+  <div class="header" class:selected="{currentSortingHeader === 'emissions2015'}"
+    on:click={() => currentSortingHeader = 'emissions2015'}
     style="text-align:right;">
     <span>
       2015 EMISSIONS
@@ -101,23 +113,23 @@
   </div>
 
   
-  <div class="header" class:selected="{current === 'globalpct'}"
-    on:click={() => current = 'globalpct'}
+  <div class="header" class:selected="{currentSortingHeader === 'globalpct'}"
+    on:click={() => currentSortingHeader = 'globalpct'}
     style="text-align:right;">
     <span>
       AS PCT OF GLOBAL
     </span>
   </div>
 
-  <div class="header" class:selected="{current === 'percapita'}"
-    on:click={() => current = 'percapita'}
+  <div class="header" class:selected="{currentSortingHeader === 'percapita'}"
+    on:click={() => currentSortingHeader = 'percapita'}
     style="text-align:right;">
     <span>
       PER<br>CAPITA
     </span>
   </div>
 
-  {#each countryTableData as row}
+  {#each results as row}
     <span style="font-size: 24px;">
       <b>{row.name}</b>
     </span>
