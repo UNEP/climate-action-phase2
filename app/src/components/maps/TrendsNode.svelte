@@ -103,9 +103,7 @@
 </script>
 
 <div
-  class="country testing {d.classes}"
-  style={d.style}
-  data-code={d.id}
+  class="country {d.classes}"
   tabindex="0"
   on:mouseenter
   on:mouseleave={onMouseLeaveCountry}
@@ -159,13 +157,14 @@
 
   .country {
     position: absolute;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     opacity: 1;
     z-index: 2;
     padding: 2px;
     transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
     will-change: opacity, background-color, border-radius;
-    background: grey;
     outline-color: black;
     &:hover {
       z-index: 10;

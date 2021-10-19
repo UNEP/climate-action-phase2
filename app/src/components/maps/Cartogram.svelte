@@ -212,15 +212,22 @@
     <div class="countries">
       {#each cartogramData as d (d.id)}
         {#if d.x && d.y}
-          <svelte:component this={NodeComponent}
-            {d}
-            canvasWidth={targetWidth}
-            canvasHeight={targetHeight}
-            on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
-            on:mouseleave={() => onMouseLeaveCountry()}
-            on:focus={() => onMouseClick(d)}
-            on:blur={() => onMouseLeaveCountry()}
-          />
+          <div
+            class="node"
+            style={d.style}
+            data-code={d.id}
+          >
+            <svelte:component this={NodeComponent}
+              {d}
+              canvasWidth={targetWidth}
+              canvasHeight={targetHeight}
+              on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
+              on:mouseleave={() => onMouseLeaveCountry()}
+              on:focus={() => onMouseClick(d)}
+              on:blur={() => onMouseLeaveCountry()}
+            />
+
+          </div>
         {/if}
       {/each}
     </div>
@@ -242,6 +249,11 @@
 </div>
 
 <style>
+
+  .node {
+    position: absolute;
+  }
+
   .cartogram {
     transform-origin: 0 0;
     height: 100%;

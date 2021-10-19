@@ -79,9 +79,8 @@ export class CartogramDataPoint<
       `left: ${this.left}px`,
       `top: ${this.top}px`,
       `width: ${this.width}px`,
-      `height: ${this.height}px`,
-      `background: ${this.color};`,
+      `height: ${this.height}px`
     ];
-    return styles.join(';');
+    return styles.join(';') + ';';
   }
 }

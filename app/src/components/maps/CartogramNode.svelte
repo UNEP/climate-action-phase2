@@ -5,8 +5,6 @@
 
 <div
   class="country {d.classes}"
-  style={d.style}
-  data-code={d.id}
   tabindex="0"
   on:mouseenter
   on:mouseleave
@@ -21,6 +19,8 @@
 <style lang="scss">
   .country {
     position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 4px;
     cursor: pointer;
     opacity: 1;
