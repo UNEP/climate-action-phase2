@@ -8,26 +8,33 @@
   export var data : "GHG" | "Risk";
 
   const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
-  const numCountriesByDefault = 6;
+  const numMainCountriesTable = 6;
+  const maxNumSearchResults = 6;
+  const extract = (item) => item.name;
+  const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
+    Mauris mattis posuere faucibus.`;
+  const emissions2015Comment = 'million tonnes of GHG';
+  const globalPCTComment = `<t style="font-size:16px;">%</t>`;
+  const perCapitaComment = `tonnes<br> of GHG`;
 
   var selectedDatabase = data === "GHG" ? countryTableData : null;
 
   var buttonMode: "First" | "Search" | "All";
-  var buttonTextOptions = {"All": "Show all countries", "First": "Show only main"};
-
   buttonMode = "All";
+  var buttonTextOptions = {"All": "Show all countries", "First": "Show only main"};
   var buttonText = buttonTextOptions[buttonMode];
 
   var tableMode : "First" | "Search" | "All";
   tableMode = "First";
 
-  const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
-    Mauris mattis posuere faucibus.`;
+  var sortingMethod: 'Ascending' | 'Descending';
+  sortingMethod = 'Descending';
 
   var currentSortingHeader = 'country';
-  var sortingMethod: 'Ascending' | 'Descending';
 
-  sortingMethod = 'Descending';
+  let results = selectedDatabase;
+  showFirstTables(currentSortingHeader);
+
 
   function howManyButtonClicked(){
     if (buttonMode === "All"){
@@ -44,6 +51,7 @@
       showFirstTables(currentSortingHeader);
     }
   }
+
 
   function sortByHeader(sortingColumn){
     var arrayResults = results;
@@ -85,14 +93,14 @@
     results = arrayResults;
   }
 
+
   function showFirstTables(sortingColumn){
     sortByHeader(sortingColumn);
-    results = results.slice(0,numCountriesByDefault);
+    results = results.slice(0,numMainCountriesTable);
   }
 
 
   function reorder(selectedHeader){
-
     if (currentSortingHeader !== selectedHeader){
       currentSortingHeader = selectedHeader;
       sortingMethod = 'Descending';
@@ -110,14 +118,11 @@
       results = selectedDatabase;
       showFirstTables(currentSortingHeader);
     }
-
-    else { // "All" & "Search"
+    else {
       sortByHeader(currentSortingHeader);
     }
   }
 
-  const maxNumSearchResults = 6;
-  const extract = (item) => item.name;
 
   function clearSearchBar(){
     buttonMode = "All";
@@ -127,32 +132,29 @@
     showFirstTables(currentSortingHeader);
   }
 
-  const emissions2015Comment = 'million tonnes of GHG';
-  const globalPCTComment = `<t style="font-size:16px;">%</t>`;
-  const perCapitaComment = `tonnes<br> of GHG`;
 
-  let results = selectedDatabase;
-  showFirstTables(currentSortingHeader);
-
-  function inputSearchBar(result, index){
+  function getResultFromSearch(result, index){
     if (index === 0){
       tableMode = "Search";
       buttonMode = "Search";
       results = [];
       var firstResult = countryTableLookUp[result.id];
-      if (firstResult !== undefined){
+      if (firstResult !== undefined){ //Because we dont have final database
         results.push(firstResult);
       }
     }
     else {
       var countryResult = countryTableLookUp[result.id];
-      if (countryResult !== undefined){
+      if (countryResult !== undefined){ //Because we dont have final database
         results.push(countryResult);
       }
     }
+    sortByHeader(currentSortingHeader);
   }
 
+
 </script>
+
 
 <h2 class='narrow'>{@html head}</h2>
 
@@ -167,7 +169,7 @@
     hideLabel
     on:clear={() => clearSearchBar()}
     >
-    {inputSearchBar(result.original, index)}
+    {getResultFromSearch(result.original, index)}
   </Typeahead>
 </div>
 
