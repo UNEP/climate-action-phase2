@@ -7,59 +7,94 @@
 
   export var data : "GHG" | "Risk";
 
-
   const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
+  const numCountriesByDefault = 6;
 
   var selectedDatabase = data === "GHG" ? countryTableData : null;
+
+  var buttonMode: "All" | "First";
+  var buttonTextOptions = {"All": "Show all countries", "First": "Show only main"};
+
+  buttonMode = "All";
+  var buttonText = buttonTextOptions[buttonMode];
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
 
   var currentSortingHeader = 'country';
+  
 
-  function showMoreButtonClicked(){
-    console.log("SHOW MORE BUTTON CLICKED!");
-  }
-
-
-  const maxNumSearchResults = 6;
-  const extract = (item) => item.name;
-  var events = [];
-
-  function updateSelectedCountry(event, detail){
-    events = [...events, { event, detail }];
-    if (event === "select"){
-      let newID = detail.original.id;
-      console.log(newID);
+  function howManyButtonClicked(){
+    if (buttonMode === "All"){
+      buttonMode = "First";
+      tableMode = "All";
+      buttonText = buttonTextOptions[buttonMode];
+      sortAllByHeader(currentSortingHeader);
+    }
+    else {
+      buttonMode = "All";
+      tableMode = "First";
+      buttonText = buttonTextOptions[buttonMode];
+      showFirstTables(currentSortingHeader);
     }
   }
 
+  function sortAllByHeader(sortingColumn){
+    var arrayResults = selectedDatabase;
+    if (sortingColumn === "country"){
+      arrayResults.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    else if (sortingColumn === "emissions2015"){
+      arrayResults.sort((a, b) => a.emissions2015 - b.emissions2015);
+    }
+    else if (sortingColumn === "globalpct"){
+      arrayResults.sort((a, b) => a.globalPCT - b.globalPCT);
+    }
+    else if (sortingColumn === "percapita"){
+      arrayResults.sort((a, b) => a.perCapita - b.perCapita);
+    }
+    results = arrayResults;
+  }
+
+  function showFirstTables(sortingColumn){
+    sortAllByHeader(sortingColumn);
+    results = results.slice(0,numCountriesByDefault);
+  }
+
+  const maxNumSearchResults = 6;
+  const extract = (item) => item.name;
+
+  function clearSearchBar(){
+    tableMode = "First";
+    results = selectedDatabase;
+  }
 
   const emissions2015Comment = 'million tonnes of GHG';
   const globalPCTComment = `<t style="font-size:16px;">%</t>`;
   const perCapitaComment = `tonnes<br> of GHG`;
 
-  let results = [];
+  let results = selectedDatabase;
+  showFirstTables(currentSortingHeader);
 
-  function change(e, result, index){
+  var tableMode : "First" | "Search" | "All";
+  tableMode = "First";
+
+
+  function inputSearchBar(result, index){
     if (index === 0){
+      tableMode = "Search";
       results = [];
-      var loco = countryTableLookUp[result.id];
-      console.log(countryTableLookUp[result.id]);
-      if (loco !== undefined){
-        results.push(countryTableLookUp[result.id]);
+      var firstResult = countryTableLookUp[result.id];
+      if (firstResult !== undefined){
+        results.push(firstResult);
       }
     }
-
     else {
-      var loco2 = countryTableLookUp[result.id];
-      console.log(countryTableLookUp[result.id]);
-      if (loco2 !== undefined){
-        results.push(countryTableLookUp[result.id]);
+      var countryResult = countryTableLookUp[result.id];
+      if (countryResult !== undefined){
+        results.push(countryResult);
       }
     }
-
-    console.log(result, index);
   }
 
 </script>
@@ -75,11 +110,9 @@
     limit={maxNumSearchResults}
     placeholder={ `Search a country`}
     hideLabel
-    on:select={(e) => updateSelectedCountry("select", e.detail)}
-    on:clear={(e) => updateSelectedCountry("clear", e.detail)}
-    on:keydown
+    on:clear={() => clearSearchBar()}
     >
-    {change("noth", result.original, index)}
+    {inputSearchBar(result.original, index)}
   </Typeahead>
 </div>
 
@@ -155,8 +188,8 @@
 
   <button 
     class="showMoreButton"
-    on:click="{showMoreButtonClicked}">
-    <b>Show all countries</b>
+    on:click="{howManyButtonClicked}">
+    <b>{buttonText}</b>
   </button>
 
 <style>
@@ -213,6 +246,10 @@
     margin-top: 30px;
     z-index: 1000;
     background-color: #f9f9f9;
+  }
+
+  .searchBar :global([data-svelte-typeahead] ul) {
+    visibility: hidden;
   }
 
   .searchBar :global([data-svelte-search] input:focus) {
