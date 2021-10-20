@@ -12,17 +12,22 @@
 
   var selectedDatabase = data === "GHG" ? countryTableData : null;
 
-  var buttonMode: "All" | "First";
+  var buttonMode: "First" | "Search" | "All";
   var buttonTextOptions = {"All": "Show all countries", "First": "Show only main"};
 
   buttonMode = "All";
   var buttonText = buttonTextOptions[buttonMode];
 
+  var tableMode : "First" | "Search" | "All";
+  tableMode = "First";
+
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
 
   var currentSortingHeader = 'country';
-  
+  var sortingMethod: 'Ascending' | 'Descending';
+
+  sortingMethod = 'Descending';
 
   function howManyButtonClicked(){
     if (buttonMode === "All"){
@@ -42,17 +47,41 @@
   function sortAllByHeader(sortingColumn){
     var arrayResults = selectedDatabase;
     if (sortingColumn === "country"){
-      arrayResults.sort((a, b) => a.name.localeCompare(b.name));
+      if (sortingMethod === 'Ascending'){
+        arrayResults.sort((a, b) => a.name.localeCompare(b.name));
+      }
+      else {
+        arrayResults.sort((a, b) => b.name.localeCompare(a.name));
+      }
+
     }
     else if (sortingColumn === "emissions2015"){
-      arrayResults.sort((a, b) => a.emissions2015 - b.emissions2015);
+      if (sortingMethod === 'Ascending'){
+        arrayResults.sort((a, b) => a.emissions2015 - b.emissions2015);
+      }
+      else{
+        arrayResults.sort((a, b) => b.emissions2015 - a.emissions2015);
+      }
     }
+
     else if (sortingColumn === "globalpct"){
-      arrayResults.sort((a, b) => a.globalPCT - b.globalPCT);
+      if (sortingMethod === 'Ascending'){
+        arrayResults.sort((a, b) => a.globalPCT - b.globalPCT);
+      }
+      else{
+        arrayResults.sort((a, b) => b.globalPCT - a.globalPCT);
+      }
     }
+
     else if (sortingColumn === "percapita"){
-      arrayResults.sort((a, b) => a.perCapita - b.perCapita);
+      if (sortingMethod === 'Ascending'){
+        arrayResults.sort((a, b) => a.perCapita - b.perCapita);
+      }
+      else{
+        arrayResults.sort((a, b) => b.perCapita - a.perCapita);
+      }
     }
+
     results = arrayResults;
   }
 
@@ -61,12 +90,38 @@
     results = results.slice(0,numCountriesByDefault);
   }
 
+  function reorder(selectedHeader){
+
+    if (currentSortingHeader !== selectedHeader){
+      currentSortingHeader = selectedHeader;
+      sortingMethod = 'Descending';
+    }
+
+    else {
+      if (sortingMethod === 'Descending'){
+        sortingMethod = 'Ascending';
+      }
+      else {
+        sortingMethod = 'Descending';
+      }
+    }
+
+    if (tableMode === "All"){
+      sortAllByHeader(currentSortingHeader);
+    }
+    else {
+      showFirstTables(currentSortingHeader);
+    }
+  }
+
   const maxNumSearchResults = 6;
   const extract = (item) => item.name;
 
   function clearSearchBar(){
+    buttonMode = "All";
+    buttonText = buttonTextOptions[buttonMode];
     tableMode = "First";
-    results = selectedDatabase;
+    showFirstTables(currentSortingHeader);
   }
 
   const emissions2015Comment = 'million tonnes of GHG';
@@ -76,13 +131,10 @@
   let results = selectedDatabase;
   showFirstTables(currentSortingHeader);
 
-  var tableMode : "First" | "Search" | "All";
-  tableMode = "First";
-
-
   function inputSearchBar(result, index){
     if (index === 0){
       tableMode = "Search";
+      buttonMode = "Search";
       results = [];
       var firstResult = countryTableLookUp[result.id];
       if (firstResult !== undefined){
@@ -119,7 +171,7 @@
 
 <div class="grid">
   <div class="header" class:selected="{currentSortingHeader === 'country'}"
-      on:click={() => currentSortingHeader = 'country'}>
+      on:click={() => reorder('country')}>
     <span>
       <br>COUNTRY
     </span>
@@ -138,7 +190,7 @@
   </div>
 
   <div class="header" class:selected="{currentSortingHeader === 'emissions2015'}"
-    on:click={() => currentSortingHeader = 'emissions2015'}
+    on:click={() => reorder('emissions2015')}
     style="text-align:right;">
     <span>
       2015 EMISSIONS
@@ -147,7 +199,7 @@
 
   
   <div class="header" class:selected="{currentSortingHeader === 'globalpct'}"
-    on:click={() => currentSortingHeader = 'globalpct'}
+    on:click={() => reorder('globalpct')}
     style="text-align:right;">
     <span>
       AS PCT OF GLOBAL
@@ -155,7 +207,7 @@
   </div>
 
   <div class="header" class:selected="{currentSortingHeader === 'percapita'}"
-    on:click={() => currentSortingHeader = 'percapita'}
+    on:click={() => reorder('percapita')}
     style="text-align:right;">
     <span>
       PER<br>CAPITA
@@ -186,11 +238,13 @@
   {/each}
 </div>
 
-  <button 
-    class="showMoreButton"
-    on:click="{howManyButtonClicked}">
-    <b>{buttonText}</b>
-  </button>
+  {#if buttonMode !== "Search"}
+    <button 
+      class="showMoreButton"
+      on:click="{howManyButtonClicked}">
+      <b>{buttonText}</b>
+    </button>
+  {/if}
 
 <style>
 
