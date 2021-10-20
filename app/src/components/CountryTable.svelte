@@ -34,7 +34,8 @@
       buttonMode = "First";
       tableMode = "All";
       buttonText = buttonTextOptions[buttonMode];
-      sortAllByHeader(currentSortingHeader);
+      results = selectedDatabase;
+      sortByHeader(currentSortingHeader);
     }
     else {
       buttonMode = "All";
@@ -44,8 +45,8 @@
     }
   }
 
-  function sortAllByHeader(sortingColumn){
-    var arrayResults = selectedDatabase;
+  function sortByHeader(sortingColumn){
+    var arrayResults = results;
     if (sortingColumn === "country"){
       if (sortingMethod === 'Ascending'){
         arrayResults.sort((a, b) => a.name.localeCompare(b.name));
@@ -81,14 +82,14 @@
         arrayResults.sort((a, b) => b.perCapita - a.perCapita);
       }
     }
-
     results = arrayResults;
   }
 
   function showFirstTables(sortingColumn){
-    sortAllByHeader(sortingColumn);
+    sortByHeader(sortingColumn);
     results = results.slice(0,numCountriesByDefault);
   }
+
 
   function reorder(selectedHeader){
 
@@ -96,7 +97,6 @@
       currentSortingHeader = selectedHeader;
       sortingMethod = 'Descending';
     }
-
     else {
       if (sortingMethod === 'Descending'){
         sortingMethod = 'Ascending';
@@ -105,13 +105,7 @@
         sortingMethod = 'Descending';
       }
     }
-
-    if (tableMode === "All"){
-      sortAllByHeader(currentSortingHeader);
-    }
-    else {
-      showFirstTables(currentSortingHeader);
-    }
+    sortByHeader(currentSortingHeader);
   }
 
   const maxNumSearchResults = 6;
@@ -121,6 +115,7 @@
     buttonMode = "All";
     buttonText = buttonTextOptions[buttonMode];
     tableMode = "First";
+    results = selectedDatabase;
     showFirstTables(currentSortingHeader);
   }
 
