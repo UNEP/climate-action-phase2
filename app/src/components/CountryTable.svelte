@@ -105,7 +105,15 @@
         sortingMethod = 'Descending';
       }
     }
-    sortByHeader(currentSortingHeader);
+
+    if (tableMode === "First"){
+      results = selectedDatabase;
+      showFirstTables(currentSortingHeader);
+    }
+
+    else { // "All" & "Search"
+      sortByHeader(currentSortingHeader);
+    }
   }
 
   const maxNumSearchResults = 6;
