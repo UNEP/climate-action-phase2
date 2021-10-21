@@ -3,7 +3,7 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorPM25 } from "src/colors";
+  import { colorNDC, colorPM25 } from "src/colors";
   import { displayVal} from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
@@ -46,6 +46,7 @@
     ghg: Dataset<'emissions2015'>,
     percapita: Dataset<'emissions_percapita'>,
     trends: Dataset<'size', TrendsCartogramDataPoint<'size'>>,
+    ndc: Dataset<'ghg'>,
   }
 
   const datasetParams: Datasets = {
@@ -107,6 +108,25 @@
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
         colors: colorPM25.range(),
         labels: ["x1", "2", "3", "4", "5", "6", "7", "8"],
+        type: 'sequential',
+      }
+    },
+    ndc: {
+      cartogram: {
+        NodeClass: CartogramDataPoint,
+        dataset: datasets.cartoworld.ndc as CartogramData<'ghg'>,
+        countries: datasets.countries,
+        helpText: {
+          code: "CAN",
+          text: "Each square represents a country, scaled by its per capita emissions"
+        },
+        hoverTextFn: c => c.data.label,
+        colorFn: d => colorNDC(d.data.colorValue),
+      },
+      legend: {
+        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        colors: colorNDC.range(),
+        labels: colorNDC.domain(),
         type: 'sequential',
       }
     }

@@ -11,6 +11,9 @@ export type InputDataPoint<VK extends string> = {
   color?: string;
 } & {
   [key in VK]: number;
+} & {
+  colorValue?: string;
+  label?: string;
 }
 
 export interface Transforms<CDP extends CartogramDataPoint<any, any>> {
