@@ -11,6 +11,7 @@
   import SectionTitle from "src/components/SectionTitle.svelte";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import type { TrendsInputDataPoint } from "./maps/TrendsNode.svelte";
+  import type { InputDataPoint } from "./maps/CartogramTypes";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
 
   export var data : keyof Datasets;
@@ -37,6 +38,11 @@
     type: string;
   }
 
+  interface NDCDataPoint extends InputDataPoint<'ghg'> {
+    label: string,
+    colorValue: string;
+  }
+
   type Dataset<T extends string, CDP extends CartogramDataPoint<T> = CartogramDataPoint<T>> = {
     cartogram: Cartogram<CDP>['$$prop_def'];
     legend: LegendProps;
@@ -46,7 +52,7 @@
     ghg: Dataset<'emissions2015'>,
     percapita: Dataset<'emissions_percapita'>,
     trends: Dataset<'size', TrendsCartogramDataPoint<'size'>>,
-    ndc: Dataset<'ghg'>,
+    ndc: Dataset<'ghg', CartogramDataPoint<'ghg', NDCDataPoint>>,
   }
 
   const datasetParams: Datasets = {
@@ -114,7 +120,7 @@
     ndc: {
       cartogram: {
         NodeClass: CartogramDataPoint,
-        dataset: datasets.cartoworld.ndc as CartogramData<'ghg'>,
+        dataset: datasets.cartoworld.ndc as CartogramData<'ghg', NDCDataPoint>,
         countries: datasets.countries,
         helpText: {
           code: "CAN",
