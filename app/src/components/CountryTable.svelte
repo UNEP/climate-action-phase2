@@ -44,7 +44,7 @@
 
   var objectArray = Object.entries(trendData);
   objectArray.forEach(([key, value]) => {
-    var newEntry = {year: key, value: value};
+    var newEntry = {"year": key, value: value};
     trendData2.push(newEntry);
   });
 
@@ -390,11 +390,6 @@
     </span>
   </div>
 
-  <div class="header" class:selected="{currentSortingHeader === 'description'}"
-    on:click={() => currentSortingHeader = 'description'}>
-    <span></span>
-  </div>
-
   <div class="header" class:selected="{currentSortingHeader === 'trend'}"
     on:click={() => currentSortingHeader = 'trend'}>
     <span>
@@ -429,13 +424,17 @@
 
   {#each results as row}
     <span style="font-size: 24px;">
-      <b>{row.name}</b>
-    </span>
-    <span class="description">
-      {row.desc}
+      <div id="a">
+        <b>{row.name}</b>
+      </div>
+
+      <div id="b">
+       {row.desc}
+      </div>
+
     </span>
     <span>
-      <MiniLineChart data={trendData3} {category}/>
+      <MiniLineChart data={trendData2} {category}/>
     </span>
     <span class="rowNumber">
       {row.emissions2015}
@@ -461,6 +460,13 @@
 
 <style>
 
+#a {
+  width: 35%;
+}
+
+#b{
+  width: 65%;
+}
 
 .description {
   font-weight: 100;
@@ -549,7 +555,7 @@
 
   .grid {
     display: grid;
-    grid-template-columns: 20% 30% 20% 10% 10% 10%;
+    grid-template-columns: 50% 20% 10% 10% 10%;
     border-top: 0px solid black;
     border-bottom: 0px solid #e5e5e5;
     border-right: 0px solid black;
