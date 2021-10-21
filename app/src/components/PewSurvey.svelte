@@ -60,14 +60,6 @@
         detailChartPosition.y = offset.height - 150;
       }
 
-      if (pos.x < 92) {
-        detailChartPosition.x = 92;
-      }
-
-      if (pos.y < 32) {
-        detailChartPosition.y = 32;
-      }
-
     }
 
     const nameOverrides = {
