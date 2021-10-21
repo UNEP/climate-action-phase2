@@ -42,7 +42,7 @@
     function selectCountry(selection:Array<any>, pos:{x:number, y:number}) {
 
       offset = {
-        x: container.getBoundingClientRect().x,
+        x: container.getBoundingClientRect().x ,
         y: container.getBoundingClientRect().y,
         width: container.getBoundingClientRect().width,
         height: container.getBoundingClientRect().height
@@ -52,13 +52,8 @@
       hover = true;
 
       detailChartPosition = pos;
-
-      if (pos.x > offset.width - 200) {
-        detailChartPosition.x = offset.width - 200;
-      }
-      if (pos.y > offset.height - 150) {
-        detailChartPosition.y = offset.height - 150;
-      }
+      detailChartPosition.x = detailChartPosition.x - 75;
+      detailChartPosition.y = detailChartPosition.y;
 
     }
 
