@@ -6,6 +6,8 @@
   export let data: TimeseriesDataPoint[];
   export let category: string;
 
+  console.log(data);
+
   const startYear = data[0].year;
   const endYear = data[data.length - 1].year;
   const topPadding = 30;

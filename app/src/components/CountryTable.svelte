@@ -2,8 +2,12 @@
 
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
+  import TimeseriesDataPoint from 'src/data';
   import countryTableData from 'src/data/countryTableData.json';
+  import trendsData from 'src/data/trends.carto.json';
   import { createLookup } from 'src/util';
+  import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
+
 
   export var data : "GHG" | "Risk";
 
@@ -35,6 +39,209 @@
   let results = selectedDatabase;
   showFirstTables(currentSortingHeader);
 
+  var trendData = trendsData.data.find(e => e.id === "ESP").emissions;
+  var trendData2 = [];
+
+  var objectArray = Object.entries(trendData);
+  objectArray.forEach(([key, value]) => {
+    var newEntry = {year: key, value: value};
+    trendData2.push(newEntry);
+  });
+
+  var category = "climbing-fast";
+
+
+  var trendData3 = [
+    {
+      "year": 1970,
+      "value": 0
+    },
+    {
+      "year": 1971,
+      "value": 0.01
+    },
+    {
+      "year": 1972,
+      "value": 0.01
+    },
+    {
+      "year": 1973,
+      "value": 0.01
+    },
+    {
+      "year": 1974,
+      "value": 0.01
+    },
+    {
+      "year": 1975,
+      "value": 0.01
+    },
+    {
+      "year": 1976,
+      "value": 0.01
+    },
+    {
+      "year": 1977,
+      "value": 0.01
+    },
+    {
+      "year": 1978,
+      "value": 0.01
+    },
+    {
+      "year": 1979,
+      "value": 0.01
+    },
+    {
+      "year": 1980,
+      "value": 0.01
+    },
+    {
+      "year": 1981,
+      "value": 0.01
+    },
+    {
+      "year": 1982,
+      "value": 0.01
+    },
+    {
+      "year": 1983,
+      "value": 0.01
+    },
+    {
+      "year": 1984,
+      "value": 0.01
+    },
+    {
+      "year": 1985,
+      "value": 0.01
+    },
+    {
+      "year": 1986,
+      "value": 0.01
+    },
+    {
+      "year": 1987,
+      "value": 0.01
+    },
+    {
+      "year": 1988,
+      "value": 0.01
+    },
+    {
+      "year": 1989,
+      "value": 0.01
+    },
+    {
+      "year": 1990,
+      "value": 0.01
+    },
+    {
+      "year": 1991,
+      "value": 0.01
+    },
+    {
+      "year": 1992,
+      "value": 0.01
+    },
+    {
+      "year": 1993,
+      "value": 0.01
+    },
+    {
+      "year": 1994,
+      "value": 0.01
+    },
+    {
+      "year": 1995,
+      "value": 0.01
+    },
+    {
+      "year": 1996,
+      "value": 0.01
+    },
+    {
+      "year": 1997,
+      "value": 0.01
+    },
+    {
+      "year": 1998,
+      "value": 0.01
+    },
+    {
+      "year": 1999,
+      "value": 0.01
+    },
+    {
+      "year": 2000,
+      "value": 0.02
+    },
+    {
+      "year": 2001,
+      "value": 0.02
+    },
+    {
+      "year": 2002,
+      "value": 0.02
+    },
+    {
+      "year": 2003,
+      "value": 0.02
+    },
+    {
+      "year": 2004,
+      "value": 0.02
+    },
+    {
+      "year": 2005,
+      "value": 0.01
+    },
+    {
+      "year": 2006,
+      "value": 0.01
+    },
+    {
+      "year": 2007,
+      "value": 0.04
+    },
+    {
+      "year": 2008,
+      "value": 0.07
+    },
+    {
+      "year": 2009,
+      "value": 0.08
+    },
+    {
+      "year": 2010,
+      "value": 0.12
+    },
+    {
+      "year": 2011,
+      "value": 0.12
+    },
+    {
+      "year": 2012,
+      "value": 0.2
+    },
+    {
+      "year": 2013,
+      "value": 0.2
+    },
+    {
+      "year": 2014,
+      "value": 0.18
+    },
+    {
+      "year": 2015,
+      "value": 0.18
+    }
+];
+
+
+
+
+
 
   function howManyButtonClicked(){
     if (buttonMode === "All"){
@@ -53,6 +260,7 @@
   }
 
 
+  //TOO MUCH REPETITIVE CODE
   function sortByHeader(sortingColumn){
     var arrayResults = results;
     if (sortingColumn === "country"){
@@ -227,7 +435,7 @@
       {row.desc}
     </span>
     <span>
-      {row.name}
+      <MiniLineChart data={trendData3} {category}/>
     </span>
     <span class="rowNumber">
       {row.emissions2015}
