@@ -42,7 +42,7 @@
     function selectCountry(selection:Array<any>, pos:{x:number, y:number}) {
 
       offset = {
-        x: container.getBoundingClientRect().x ,
+        x: container.getBoundingClientRect().x,
         y: container.getBoundingClientRect().y,
         width: container.getBoundingClientRect().width,
         height: container.getBoundingClientRect().height
