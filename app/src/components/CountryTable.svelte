@@ -2,16 +2,15 @@
 
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
-  import TimeseriesDataPoint from 'src/data';
   import countryTableData from 'src/data/countryTableData.json';
   import trendsData from 'src/data/trends.carto.json';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
 
-
   export var data : "GHG" | "Risk";
 
   const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
+
   const numMainCountriesTable = 6;
   const maxNumSearchResults = 6;
   const extract = (item) => item.name;
@@ -39,208 +38,41 @@
   let results = selectedDatabase;
   showFirstTables(currentSortingHeader);
 
-  var trendData = trendsData.data.find(e => e.id === "ESP").emissions;
-  var trendData2 = [];
+  //TREND DATA GENERATION 
+  var countryDataArray = trendsData.data;
+  var countryEmissions = [];
 
-  var objectArray = Object.entries(trendData);
-  objectArray.forEach(([key, value]) => {
-    var newEntry = {"year": key, value: value};
-    trendData2.push(newEntry);
-  });
+  for (let i = 0; i < countryDataArray.length; i++){
+    let emissionsArray = Object.entries(countryDataArray[i].emissions);
+    let entries = [];
+    let baseValue = 0;
+    let lastValue = 0;
+    emissionsArray.forEach(([key, value]) => {
+      let yearEntry = {year: parseInt(key), value: value};
+      if (yearEntry.year === 1990){
+        baseValue = value;
+      }
+      else if (yearEntry.year === 2015){
+        lastValue = value;
+      }
+      entries.push(yearEntry);
+    });
+    let cat = getCategory(baseValue, lastValue);
+    const newCountry = {id:countryDataArray[i].id, emissions: entries, category: cat};
+    countryEmissions.push(newCountry);
+  }
 
-  var category = "climbing-fast";
+  const countryTrendLookUp = createLookup(countryEmissions, c => c.id, c => c);
 
-
-  var trendData3 = [
-    {
-      "year": 1970,
-      "value": 0
-    },
-    {
-      "year": 1971,
-      "value": 0.01
-    },
-    {
-      "year": 1972,
-      "value": 0.01
-    },
-    {
-      "year": 1973,
-      "value": 0.01
-    },
-    {
-      "year": 1974,
-      "value": 0.01
-    },
-    {
-      "year": 1975,
-      "value": 0.01
-    },
-    {
-      "year": 1976,
-      "value": 0.01
-    },
-    {
-      "year": 1977,
-      "value": 0.01
-    },
-    {
-      "year": 1978,
-      "value": 0.01
-    },
-    {
-      "year": 1979,
-      "value": 0.01
-    },
-    {
-      "year": 1980,
-      "value": 0.01
-    },
-    {
-      "year": 1981,
-      "value": 0.01
-    },
-    {
-      "year": 1982,
-      "value": 0.01
-    },
-    {
-      "year": 1983,
-      "value": 0.01
-    },
-    {
-      "year": 1984,
-      "value": 0.01
-    },
-    {
-      "year": 1985,
-      "value": 0.01
-    },
-    {
-      "year": 1986,
-      "value": 0.01
-    },
-    {
-      "year": 1987,
-      "value": 0.01
-    },
-    {
-      "year": 1988,
-      "value": 0.01
-    },
-    {
-      "year": 1989,
-      "value": 0.01
-    },
-    {
-      "year": 1990,
-      "value": 0.01
-    },
-    {
-      "year": 1991,
-      "value": 0.01
-    },
-    {
-      "year": 1992,
-      "value": 0.01
-    },
-    {
-      "year": 1993,
-      "value": 0.01
-    },
-    {
-      "year": 1994,
-      "value": 0.01
-    },
-    {
-      "year": 1995,
-      "value": 0.01
-    },
-    {
-      "year": 1996,
-      "value": 0.01
-    },
-    {
-      "year": 1997,
-      "value": 0.01
-    },
-    {
-      "year": 1998,
-      "value": 0.01
-    },
-    {
-      "year": 1999,
-      "value": 0.01
-    },
-    {
-      "year": 2000,
-      "value": 0.02
-    },
-    {
-      "year": 2001,
-      "value": 0.02
-    },
-    {
-      "year": 2002,
-      "value": 0.02
-    },
-    {
-      "year": 2003,
-      "value": 0.02
-    },
-    {
-      "year": 2004,
-      "value": 0.02
-    },
-    {
-      "year": 2005,
-      "value": 0.01
-    },
-    {
-      "year": 2006,
-      "value": 0.01
-    },
-    {
-      "year": 2007,
-      "value": 0.04
-    },
-    {
-      "year": 2008,
-      "value": 0.07
-    },
-    {
-      "year": 2009,
-      "value": 0.08
-    },
-    {
-      "year": 2010,
-      "value": 0.12
-    },
-    {
-      "year": 2011,
-      "value": 0.12
-    },
-    {
-      "year": 2012,
-      "value": 0.2
-    },
-    {
-      "year": 2013,
-      "value": 0.2
-    },
-    {
-      "year": 2014,
-      "value": 0.18
-    },
-    {
-      "year": 2015,
-      "value": 0.18
-    }
-];
-
-
-
-
+  function getCategory(baseValue, lastValue) {
+    let diff = (lastValue - baseValue) / baseValue;
+    if (Math.abs(diff) < 0.25)
+      return 'stable';
+    else if (diff < -0.25) 
+      return 'falling';
+    else 
+      return 'climbing-fast';
+  }
 
 
   function howManyButtonClicked(){
@@ -366,7 +198,7 @@
 
 <h2 class='narrow'>{@html head}</h2>
 
-<div class="searchBar">
+<div class="search-bar">
   <Typeahead 
     let:result
     let:index
@@ -423,62 +255,79 @@
   </div>
 
   {#each results as row}
-    <span style="font-size: 24px;">
-      <div id="a">
-        <b>{row.name}</b>
-      </div>
+    <span class="country-span">
+      <div class="country-column">
 
-      <div id="b">
-       {row.desc}
-      </div>
+        <div class="country-name">
+          {row.name}
+        </div>
 
+        <div class="country-description">
+          {row.desc}
+        </div>
+
+      </div>
     </span>
+
     <span>
-      <MiniLineChart data={trendData2} {category}/>
+      <MiniLineChart data={countryTrendLookUp[row.id].emissions} category={countryTrendLookUp[row.id].category}/>
     </span>
-    <span class="rowNumber">
+    <span class="row-number">
       {row.emissions2015}
-      <p class="numberDescriptor">{emissions2015Comment}</p>
+      <p class="number-descriptor">{emissions2015Comment}</p>
     </span>
-    <span class="rowNumber">
+    <span class="row-number">
       {row.globalPCT}{@html globalPCTComment}
     </span>
-    <span class="rowNumber">
+    <span class="row-number">
       {row.perCapita}
-      <p class="numberDescriptor">{@html perCapitaComment}</p>
+      <p class="number-descriptor">{@html perCapitaComment}</p>
     </span>
   {/each}
 </div>
 
   {#if buttonMode !== "Search"}
     <button 
-      class="showMoreButton"
+      class="show-more-button"
       on:click="{howManyButtonClicked}">
       <b>{buttonText}</b>
     </button>
   {/if}
 
+  <div style="padding-bottom:60px"></div>
+
 <style>
 
-#a {
-  width: 35%;
+
+.country-span {
+  width: 100%;
+  display: table;
 }
 
-#b{
-  width: 65%;
+.country-column{
+  display: table-row;
 }
 
-.description {
-  font-weight: 100;
+.country-name {
+  width: 35%; 
+  display: table-cell; 
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.rowNumber {
+.country-description {
+  display: table-cell;
+  font-weight: 100; 
+  font-size: 16px;
+}
+
+.row-number {
   font-weight: 100;
   font-size: 24px;
   text-align: right;
 }
 
-.numberDescriptor {
+.number-descriptor {
   color: #818181;
   font-weight: 500;
   text-align: right;
@@ -488,7 +337,7 @@
   padding-left: 18px;
 }
 
-.showMoreButton {
+.show-more-button {
   background-color: #111111;
   font-size: 16px;
   color: white;
@@ -509,11 +358,11 @@
   cursor: pointer;
 }
 
-.searchBar :global([data-svelte-typeahead] mark){
+.search-bar :global([data-svelte-typeahead] mark){
   background-color: aqua;
 }
 
-.searchBar :global([data-svelte-typeahead]) {
+.search-bar :global([data-svelte-typeahead]) {
     margin: 0rem;
     width: 50%;
     margin-top: 30px;
@@ -521,16 +370,16 @@
     background-color: #f9f9f9;
   }
 
-  .searchBar :global([data-svelte-typeahead] ul) {
+  .search-bar :global([data-svelte-typeahead] ul) {
     visibility: hidden;
   }
 
-  .searchBar :global([data-svelte-search] input:focus) {
+  .search-bar :global([data-svelte-search] input:focus) {
     outline-width: 0px;
     background-color: #f9f9f9;
   }
 
-  .searchBar :global([data-svelte-search] input) {
+  .search-bar :global([data-svelte-search] input) {
     width: 100%;
     padding: 0.5rem 0rem;
     background: #f9f9f9;
@@ -543,13 +392,13 @@
     font-weight: lighter;
   }
 
-  .searchBar :global([data-svelte-search] label) {
+  .search-bar :global([data-svelte-search] label) {
     margin-bottom: 0.25rem;
     display: inline-flex;
     font-size: 0.875rem;
   }
 
-  .searchBar {
+  .search-bar {
     padding-bottom: 50px;
   }
 
