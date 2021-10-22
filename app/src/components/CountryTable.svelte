@@ -5,9 +5,7 @@
   }
 </script>
 
-
 <script lang="ts">
-
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
   import countryTableData from 'src/data/countryTableData.json';
@@ -237,13 +235,15 @@
   </Typeahead>
 </div>
 
-
 <div class="grid">
   <div class="header" class:selected="{currentSortingHeader === 'country'}"
       on:click={() => reorder('country')}
       on:click={() => rerender()}>
     <span>
       <br>COUNTRY
+      {#if currentSortingHeader === 'country'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
     </span>
   </div>
 
@@ -251,6 +251,9 @@
     on:click={() => currentSortingHeader = 'trend'}>
     <span>
       <br>TREND
+      {#if currentSortingHeader === 'trend'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
     </span>
   </div>
 
@@ -258,6 +261,9 @@
     on:click={() => reorder('emissions2015')}
     style="text-align:right;">
     <span>
+      {#if currentSortingHeader === 'emissions2015'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
       2015 EMISSIONS
     </span>
   </div>
@@ -267,6 +273,9 @@
     on:click={() => reorder('globalpct')}
     style="text-align:right;">
     <span>
+      {#if currentSortingHeader === 'globalpct'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
       AS PCT OF GLOBAL
     </span>
   </div>
@@ -275,6 +284,9 @@
     on:click={() => reorder('percapita')}
     style="text-align:right;">
     <span>
+      {#if currentSortingHeader === 'percapita'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
       PER<br>CAPITA
     </span>
   </div>
@@ -302,7 +314,7 @@
       {:else}
         <DistributionTiles
           data = {climateRiskIndexData}
-          selectedCountry = {"BRA"}
+          selectedCountry = {row.id}
           selectedDataset = "ClimateRiskIndex"
           width2 = {widthDistribution}
           height2 = {50}
@@ -336,6 +348,28 @@
 
 <style>
 
+
+.arrow-down {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 3px;
+  margin-left: 6px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.arrow-up {
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: -3px;
+  margin-left: 6px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
 
 .country-span {
   width: 100%;
@@ -404,7 +438,6 @@
     margin: 0rem;
     width: 50%;
     margin-top: 30px;
-    z-index: 1000;
     background-color: #f9f9f9;
   }
 

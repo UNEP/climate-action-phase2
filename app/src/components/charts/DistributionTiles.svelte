@@ -24,6 +24,7 @@
   export var selectedDataset: "ClimateRiskIndex" | "RelativePosition";
   export var width2 : number;
   export var height2 : number;
+  export const rerenderFn: () => void = () => data = data;
 
   const colorFunction = (d: number) => colorGenerator(d);
 
@@ -54,10 +55,10 @@
 </script>
 
 <div>
-    <svg id="barchart" width={width2} height={height2}>
+    <svg viewBox="0 0 {width2} {height2}" id="barchart">
       {#each data as d}
           {#if d.value !== null && d.id !== selectedCountry}
-            <g id="ID" class="region">
+            <g id={d.id} class="region">
               <rect
                 id = {d.id}
                 class= "normalTile"
@@ -73,7 +74,7 @@
             </g>
           {/if}
       {/each}
-        <g id="ID" class="region2">
+        <g id={relevantCountry.id} class="region2">
           <rect
             id = {relevantCountry.id}
             class= "selectedCountry"
