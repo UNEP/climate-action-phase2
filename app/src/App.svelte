@@ -10,6 +10,7 @@
   import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
   import { strToId } from './util';
   import CartoTemperature from './components/CartoTemperature.svelte';
+  import CartoScroller from './components/CartoScroller.svelte';
 
   export var gdocs: GDocs;
   export var embed: string;
@@ -24,7 +25,8 @@
     'intro': Intro,
     'text': Text,
     "menu": Menu,
-    'methodology': MethodologySourcesText
+    'methodology': MethodologySourcesText,
+    'carto-scroller': CartoScroller
   };
 </script>
 {#if embedBlock}

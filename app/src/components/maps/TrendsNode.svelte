@@ -75,7 +75,6 @@
 
   }
 
-
 </script>
 
 <script lang="ts">
@@ -89,6 +88,9 @@
   export let d: TrendsCartogramDataPoint<VK>;
   export let canvasWidth: number;
   export let canvasHeight: number;
+  export let datasetSelected = true;
+  export let transitioning = false;
+
   let activeChart = false;
 
   const onClickCountry = () => {
@@ -110,6 +112,7 @@
   on:focus
   on:blur
   on:click={onClickCountry}
+  class:display={datasetSelected && !transitioning}
 >
 
   <div class="hover-chart"
@@ -122,7 +125,9 @@
       <MiniLineChart data={d.timeseries} category={d.category} />
   </div>
 
-  <svg viewBox="0 0 {d.width} {d.height}">
+  <svg
+    viewBox="0 0 {d.width} {d.height}"
+  >
     <path class="line stroke--{d.category}" d={d.path} />
   </svg>
 </div>
@@ -155,6 +160,16 @@
     pointer-events: none;
   }
 
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .country {
     position: absolute;
     width: 100%;
@@ -163,11 +178,19 @@
     opacity: 1;
     z-index: 2;
     padding: 2px;
-    transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
-    will-change: opacity, background-color, border-radius;
+    margin-top: -2px;
+    margin-left: -2px;
     outline-color: black;
     &:hover {
       z-index: 10;
+    }
+
+    display: none;
+    opacity: 0;
+
+    &.display {
+      display: block;
+      animation: 100ms ease-in 0ms 1 normal forwards running fadein;
     }
   }
 

@@ -4,7 +4,7 @@
     ExtractValueKey, InputDataPoint, Transforms } from "./CartogramTypes";
   import CartogramNode from "./CartogramNode.svelte";
 
-  export interface CartogramData<
+  export interface BaseCartogramData<
     VK extends string,
     IDP extends InputDataPoint<VK> = InputDataPoint<VK>
   > {
@@ -15,6 +15,15 @@
     data: IDP[];
   }
 
+  export interface CartogramData<
+    VK extends string,
+    IDP extends InputDataPoint<VK> = InputDataPoint<VK>
+  > extends BaseCartogramData<VK, IDP> {
+    NodeClass: { new(input: CartogramConstructor<CartogramDataPoint<VK, IDP>>):
+      CartogramDataPoint<VK, IDP> },
+    NodeComponent: typeof SvelteComponent
+  }
+
 </script>
 
 <script lang="ts">
@@ -22,44 +31,55 @@
   import { createLookup, throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
   import type { SvelteComponent } from "svelte";
+import { select } from "d3-selection";
 
-  type CDP = $$Generic<CartogramDataPoint<any, any>>;
+  type CD = CartogramData<string, InputDataPoint<string>>;
+  type CDP = CartogramDataPoint<string, InputDataPoint<string>>;
 
-  type VK = ExtractValueKey<CDP>;
-  type IDP = ExtractInputDataType<CDP>;
+  // type VK = ExtractValueKey<CDP>;
+  // type IDP = ExtractInputDataType<CDP>;
 
-  export let dataset: CartogramData<VK, IDP>;
+  export let dataset: CD | CD[];
+  export let selectedDatasetIndex = 0;
   export let countries: CountryMetadata[];
   export let helpText: {code: string, text: string} = null;
-  export let NodeClass: { new(input: CartogramConstructor<CDP>): CDP };
+  // export let NodeClass: { new(input: CartogramConstructor<CDP>): CDP };
   export let categoryFn: Transforms<CDP>['categoryFn'] = () => '';
   export let colorFn: Transforms<CDP>['colorFn'] = undefined;
   export let classesFn: Transforms<CDP>['classesFn'] = () => [];
   export let hoverTextFn: Transforms<CDP>['hoverTextFn'] = undefined;
   export let onHoverFn: (c: CDP) => void = () => null;
-  export let NodeComponent: typeof SvelteComponent = CartogramNode;
-  export const rerenderFn: () => void = () => cartogramData = cartogramData;
+  // export const rerenderFn: () => void = () => cartogramData = cartogramData;
   export let annotationShowing: boolean = false;
+
+  let datasets = dataset instanceof Array ? dataset : [dataset];
 
   let containerEl: Element;
   let loaded = false;
 
   const countryMetadataLookup = createLookup(countries, d => d.id, d => d);
 
-  const { data, nodeSize, valueKey } = dataset;
-  const domain = [dataset.width, dataset.height];
+  $: {
+    if (datasets[selectedDatasetIndex] === undefined) {
+      throw new Error(`Ivalid dataset index: ${selectedDatasetIndex}`);
+    }
+  }
+
+  // let data: typeof dataset.data;
+  // $: data = dataset.data;
+  // $: nodeSize = dataset.nodeSize;
+  // $: valueKey = dataset.valueKey;
+  // $: domain = [dataset.width, dataset.height];
   // used to scale to container el
-  const originalWidth = domain[0];
-  const originalHeight = domain[1];
-  let targetWidth: number = originalWidth;
-  let targetHeight: number = originalHeight;
+  const originalWidth = datasets[0].width;
+  const originalHeight = datasets[0].height;
+  let targetWidth = originalWidth;
+  let targetHeight = originalHeight;
   let resizing = false;
   let hoverTimeout: number;
   let hoverData: {x: number, y: number, country: CDP} = null;
   let helpTextFade = false;
   let annotation: AnnotationData;
-
-  $: largestVal = Math.max(...data.map(d => d[valueKey]));
 
   let clientWidth: number;
   let containerWidth: number;
@@ -86,29 +106,58 @@
   const throttledResize = throttle(resize, 100);
   $: clientWidth && throttledResize();
 
-  $: radius = d3.scaleSqrt()
-    .domain([0, largestVal])
-    .range([0, nodeSize]);
+  let transforms = datasets.map(_dataset => {
 
-  $: xScale = d3.scaleLinear()
-    .domain([0, domain[0]])
-    .range([0, targetWidth]);
+    const largestVal = Math.max(..._dataset.data.map(d => d[_dataset.valueKey]));
 
-  $: yScale = d3.scaleLinear()
-    .domain([0, domain[1]])
-    .range([0, targetHeight]);
+    const radius = d3.scaleSqrt()
+      .domain([0, largestVal])
+      .range([0, _dataset.nodeSize]);
 
-  $: dimsChanged = radius && xScale && yScale;
+    const xScale = d3.scaleLinear()
+      .domain([0, _dataset.width])
+      .range([0, targetWidth]);
 
-  let cartogramData: CDP[];
-  $: cartogramData = dimsChanged && data
-    .map(d => new NodeClass({
-      data: d,
-      valueKey: dataset.valueKey,
-      transforms: { colorFn, categoryFn, hoverTextFn, classesFn, xScale, yScale, radius },
-      metadata: countryMetadataLookup[d.id] || { id: d.id, short: 'UNKNOWN', name: 'UNKNOWN' }
-    }))
-    .sort((a,b) => a.y - b.y);
+    const yScale = d3.scaleLinear()
+      .domain([0, _dataset.height])
+      .range([0, targetHeight]);
+
+    return { colorFn, categoryFn, hoverTextFn, classesFn, xScale, yScale, radius };
+  });
+
+  let allCartogramData: CDP[][] = datasets.map((_dataset, i) => {
+    return _dataset.data
+      .map(d => new _dataset.NodeClass({
+        data: d,
+        valueKey: _dataset.valueKey,
+        transforms: transforms[i],
+        metadata: countryMetadataLookup[d.id] || { id: d.id, short: 'UNKNOWN', name: 'UNKNOWN' }
+      }))
+      .sort((a,b) => a.id > b.id ? -1 : 1);
+  });
+
+  let childNodes: {[id: string]: {
+    component: typeof SvelteComponent, data: CDP,
+    setActive?: () => void
+    setInactive?: () => void,
+    datasetIndex: number,
+    active: boolean
+  }[] } = {};
+  allCartogramData.forEach((_cartogramData, i) => {
+    _cartogramData.forEach(d => {
+      childNodes[d.id] = childNodes[d.id] || [];
+      childNodes[d.id].push({
+        component: datasets[i].NodeComponent,
+        data: d,
+        setActive: () => null,
+        setInactive: () => null,
+        active: i === selectedDatasetIndex,
+        datasetIndex: i
+      });
+    });
+  });
+
+  $: selectedCartogramData = allCartogramData[selectedDatasetIndex];
 
   window.setTimeout(() => {
     resize();
@@ -165,7 +214,8 @@
     _debouncedShowHelpText();
   }
 
-  $: helpCountry = helpText ? cartogramData.find(d => d.id === helpText.code) : null;
+  $: helpCountry = (helpText && selectedCartogramData)
+    ? selectedCartogramData.find(d => d.id === helpText.code) : null;
 
   $: helpAnnotation = helpCountry && {
     x: helpCountry.left + helpCountry.width / 2,
@@ -188,12 +238,28 @@
 
   $: annotationShowing = annotation && !hideAnnotation && annotation !== helpAnnotation;
 
-  $: data && fadeInHelpText();
+  // $: dataset.data && fadeInHelpText();
 
   let pxAboveScreenTop: number = 0;
   const onWindowScroll = () => {
     const top = containerEl.getBoundingClientRect().top - 50;
     pxAboveScreenTop = top < 0 ? Math.abs(top) : 0;
+  };
+
+  let transitioning = false;
+
+  let prevSelectedDatasetIndex = selectedDatasetIndex;
+  $: {
+    if (selectedDatasetIndex !== prevSelectedDatasetIndex) {
+      transitioning = true;
+    }
+    prevSelectedDatasetIndex = selectedDatasetIndex;
+  }
+
+  const ontransitionend = (evt: TransitionEvent) => {
+    if (evt.currentTarget === evt.target) {
+      transitioning = false;
+    }
   };
 
 </script>
@@ -210,23 +276,27 @@
 </filter>
   {#if loaded}
     <div class="countries">
-      {#each cartogramData as d (d.id)}
+      {#each selectedCartogramData as d (d.id)}
         {#if d.x && d.y}
           <div
             class="node"
             style={d.style}
             data-code={d.id}
+            on:transitionend={ontransitionend}
           >
-            <svelte:component this={NodeComponent}
-              {d}
-              canvasWidth={targetWidth}
-              canvasHeight={targetHeight}
-              on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
-              on:mouseleave={() => onMouseLeaveCountry()}
-              on:focus={() => onMouseClick(d)}
-              on:blur={() => onMouseLeaveCountry()}
-            />
-
+            {#each childNodes[d.id] as node}
+              <svelte:component this={node.component}
+                d={node.data}
+                canvasWidth={targetWidth}
+                canvasHeight={targetHeight}
+                datasetSelected={node.datasetIndex === selectedDatasetIndex}
+                {transitioning}
+                on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
+                on:mouseleave={() => onMouseLeaveCountry()}
+                on:focus={() => onMouseClick(d)}
+                on:blur={() => onMouseLeaveCountry()}
+              />
+            {/each}
           </div>
         {/if}
       {/each}
@@ -252,6 +322,7 @@
 
   .node {
     position: absolute;
+    transition: 300ms width 50ms, 300ms height 50ms, 300ms left 50ms, 300ms top 50ms;
   }
 
   .cartogram {
