@@ -11,8 +11,6 @@
       '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
     ]);
 
-  const width = 450;
-  const height = 100;
   const normalTileWidth = 3;
   const normalTileHeight = 20;
   const relevantTileWidth = 5;
@@ -23,7 +21,9 @@
 
   export var selectedCountry: string;
   export var data: CountryDataSquare[];
-  export var selectedDataset: "IndexClimateRisk" | "RelativePosition";
+  export var selectedDataset: "ClimateRiskIndex" | "RelativePosition";
+  export var width2 : number;
+  export var height2 : number;
 
   const colorFunction = (d: number) => colorGenerator(d);
 
@@ -40,7 +40,7 @@
   }
 
   function findXlocation(countryValue: number){
-    return countryValue * (width - endingTileMargin) / maxValue;
+    return countryValue * (width2 - endingTileMargin) / maxValue;
   }
 
   $: maxValue = findMaxValue(data);
@@ -54,7 +54,7 @@
 </script>
 
 <div>
-    <svg id="barchart" {width} {height}>
+    <svg id="barchart" width={width2} height={height2}>
       {#each data as d}
           {#if d.value !== null && d.id !== selectedCountry}
             <g id="ID" class="region">

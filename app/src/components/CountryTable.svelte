@@ -11,9 +11,11 @@
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
   import countryTableData from 'src/data/countryTableData.json';
+  import countryTableData2 from 'src/data/countryTableData2.json';
   import trendsData from 'src/data/trends.carto.json';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
+  import DistributionTiles from "src/components/charts/DistributionTiles.svelte";
 
   export var data : "GHG" | "Risk";
 
@@ -45,6 +47,19 @@
 
   let results = selectedDatabase;
   showFirstTables(currentSortingHeader);
+
+
+  //-------DISTRIBUTION TILES---------//
+
+  let climateRiskIndexData: CountryDataSquare[] = countryTableData2
+    .map(d => {
+      return { id: d.id, value: d.climateRiskIndex };
+    });
+
+  let widthDistribution = 225;
+
+
+
 
   //TREND DATA GENERATION 
   var countryDataArray = trendsData.data;
@@ -200,6 +215,7 @@
     sortByHeader(currentSortingHeader);
   }
 
+  let rerender: () => void;
 
 </script>
 
@@ -224,7 +240,8 @@
 
 <div class="grid">
   <div class="header" class:selected="{currentSortingHeader === 'country'}"
-      on:click={() => reorder('country')}>
+      on:click={() => reorder('country')}
+      on:click={() => rerender()}>
     <span>
       <br>COUNTRY
     </span>
@@ -277,8 +294,21 @@
       </div>
     </span>
 
-    <span>
-      <MiniLineChart data={countryTrendLookUp[row.id].emissions} category={countryTrendLookUp[row.id].category}/>
+    <span bind:clientWidth={widthDistribution}>
+      {#if data === "GHG"}
+        <MiniLineChart 
+          data={countryTrendLookUp[row.id].emissions} 
+          category={countryTrendLookUp[row.id].category}/>
+      {:else}
+        <DistributionTiles
+          data = {climateRiskIndexData}
+          selectedCountry = {"BRA"}
+          selectedDataset = "ClimateRiskIndex"
+          width2 = {widthDistribution}
+          height2 = {50}
+          bind:rerenderFn={rerender}
+          />
+      {/if}
     </span>
     <span class="row-number">
       {row.emissions2015}
