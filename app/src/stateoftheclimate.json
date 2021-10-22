@@ -99,11 +99,12 @@
       ]
     },
     {
-      "type": "table"
+      "type": "country-table",
+      "data": "GHG"
     },
     {
       "type": "country-table",
-      "data": "GHG"
+      "data": "Risk"
     },
     {
       "type": "methodology",

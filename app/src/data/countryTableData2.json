@@ -1,0 +1,66 @@
+[
+
+  {
+    "id": "ARG",
+    "climateRiskIndex": 62.82,
+    "deaths": 1400,
+    "economicLosses": 5600
+ },
+
+ {
+  "id": "BRA",
+  "climateRiskIndex": 42.82,
+  "deaths": 1050,
+  "economicLosses": 1300
+},
+
+{
+  "id": "FRA",
+  "climateRiskIndex": 22.82,
+  "deaths": 1008,
+  "economicLosses": 600
+},
+
+{
+  "id": "AUS",
+  "climateRiskIndex": 58.82,
+  "deaths": 3000,
+  "economicLosses": 900
+},
+
+{
+  "id": "ESP",
+  "climateRiskIndex": 78.82,
+  "deaths": 1306,
+  "economicLosses": 14000
+},
+
+{
+  "id": "GBR",
+  "climateRiskIndex": 79.82,
+  "deaths": 1030,
+  "economicLosses": 2450
+},
+
+{
+  "id": "GRC",
+  "climateRiskIndex": 90.82,
+  "deaths": 2500,
+  "economicLosses": 2500
+},
+
+{
+  "id": "DEU",
+  "climateRiskIndex": 10.82,
+  "deaths": 1001,
+  "economicLosses": 4070
+},
+
+{
+  "id": "ITA",
+  "climateRiskIndex": 12.82,
+  "deaths": 56,
+  "economicLosses": 3090
+}
+
+]

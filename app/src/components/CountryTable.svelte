@@ -1,3 +1,11 @@
+<script lang="ts" context="module">
+  export interface CountryDataSquare {
+      id: string,
+      value: number
+  }
+</script>
+
+
 <script lang="ts">
 
   import Typeahead from "svelte-typeahead";
@@ -20,7 +28,7 @@
   const globalPCTComment = `<t style="font-size:16px;">%</t>`;
   const perCapitaComment = `tonnes<br> of GHG`;
 
-  var selectedDatabase = data === "GHG" ? countryTableData : null;
+  var selectedDatabase = data === "GHG" ? countryTableData : countryTableData;
 
   var buttonMode: "First" | "Search" | "All";
   buttonMode = "All";
