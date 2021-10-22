@@ -31,7 +31,7 @@
   let rerender: () => void;
 
   let getGHGCategory = (countryName : string) => {
-    console.log(countryName);
+
     let trends = datasets.cartoworld.trends.data.find(d => d.id === countryName);
 
     if(trends !== undefined && 'emissions' in trends){
@@ -45,11 +45,7 @@
       else return 'Still climbing';
     }
 
-
-
-
-
-    return 'Stable since 1990';
+    console.error('Unexpected data');
   };
 
   type LegendProps = {
