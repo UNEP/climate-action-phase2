@@ -47,6 +47,12 @@
   showFirstTables(currentSortingHeader);
 
 
+  //------LINE CHART VALUES----------//
+
+  let widthLineChart = 225;
+  let heightLineChart = 100;
+
+
   //-------DISTRIBUTION TILES---------//
 
   let climateRiskIndexData: CountryDataSquare[] = countryTableData2
@@ -54,7 +60,7 @@
       return { id: d.id, value: d.climateRiskIndex };
     });
 
-  let widthDistribution = 225;
+  let widthDistribution = 10;
 
 
 
@@ -306,19 +312,19 @@
       </div>
     </span>
 
-    <span bind:clientWidth={widthDistribution}>
+    <span bind:clientWidth={widthLineChart}>
       {#if data === "GHG"}
         <MiniLineChart 
           data={countryTrendLookUp[row.id].emissions} 
-          category={countryTrendLookUp[row.id].category}/>
+          category={countryTrendLookUp[row.id].category}
+          />
       {:else}
         <DistributionTiles
           data = {climateRiskIndexData}
           selectedCountry = {row.id}
           selectedDataset = "ClimateRiskIndex"
-          width2 = {widthDistribution}
-          height2 = {50}
-          bind:rerenderFn={rerender}
+          width2 = {widthLineChart}
+          height2 = {heightLineChart}
           />
       {/if}
     </span>
