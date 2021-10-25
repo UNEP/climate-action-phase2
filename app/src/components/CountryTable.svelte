@@ -49,26 +49,12 @@
   let results = selectedDatabase;
   showFirstTables(currentSortingHeader);
 
-
-  //------LINE CHART VALUES----------//
-
   let widthLineChart = 225;
   let heightLineChart = 100;
-
-
-  //-------DISTRIBUTION TILES---------//
-
-  let climateRiskIndexData: CountryDataSquare[] = countryTableData2
-    .map(d => {
-      return { id: d.id, value: d.climateRiskIndex };
-    });
-
   let widthDistribution = 10;
 
 
 
-
-  //TREND DATA GENERATION 
   var countryEmissions = [];
   var countryDataArray = co2trends;
 
@@ -226,8 +212,6 @@
 
   let rerender: () => void;
 
-  console.log(results);
-
 </script>
 
 
@@ -248,222 +232,107 @@
   </Typeahead>
 </div>
 
-{#if data === "GHG"}
-
-  <div class="grid-ghg">
-    <div class="header" class:selected="{currentSortingHeader === 'country'}"
-        on:click={() => reorder('country')}
-        on:click={() => rerender()}>
-      <span>
-        <br>COUNTRY
-        {#if currentSortingHeader === 'country'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-      </span>
-    </div>
-
-    <div class="header" class:selected="{currentSortingHeader === 'trend'}"
-      on:click={() => currentSortingHeader = 'trend'}>
-      <span>
-        <br>TREND
-        {#if currentSortingHeader === 'trend'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-      </span>
-    </div>
-
-    <div class="header" class:selected="{currentSortingHeader === 'emissions2015'}"
-      on:click={() => reorder('emissions2015')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'emissions2015'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        2019 EMISSIONS
-      </span>
-    </div>
-
-    
-    <div class="header" class:selected="{currentSortingHeader === 'globalpct'}"
-      on:click={() => reorder('globalpct')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'globalpct'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        AS PCT OF GLOBAL
-      </span>
-    </div>
-
-    <div class="header" class:selected="{currentSortingHeader === 'percapita'}"
-      on:click={() => reorder('percapita')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'percapita'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        PER<br>CAPITA
-      </span>
-    </div>
-
-    {#each results as row}
-      <span class="country-span">
-        <div class="country-column">
-
-          <div class="country-name">
-            {row.name}
-          </div>
-
-          <div class="country-description">
-            {description}
-          </div>
-
-        </div>
-      </span>
-
-      <span bind:clientWidth={widthLineChart}>
-          <MiniLineChart 
-            data={countryTrendLookUp[row.id].emissions} 
-            category={countryTrendLookUp[row.id].category}
-            />
-      </span>
-
-      <span class="row-number">
-        {row.emissions2019}
-        <p class="number-descriptor">{emissions2015Comment}</p>
-      </span>
-      <span class="row-number">
-        {row.globalPct}{@html globalPCTComment}
-      </span>
-      <span class="row-number">
-        {row.percapita}
-        <p class="number-descriptor">{@html perCapitaComment}</p>
-      </span>
-    {/each}
+<div class="grid-ghg">
+  <div class="header" class:selected="{currentSortingHeader === 'country'}"
+      on:click={() => reorder('country')}
+      on:click={() => rerender()}>
+    <span>
+      <br>COUNTRY
+      {#if currentSortingHeader === 'country'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
+    </span>
   </div>
 
-{:else}
-<!--
-  <div class="grid-climate-risk">
-    <div class="header" class:selected="{currentSortingHeader === 'country'}"
-        on:click={() => reorder('country')}
-        on:click={() => rerender()}>
-      <span>
-        <br>COUNTRY
-        {#if currentSortingHeader === 'country'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-      </span>
-    </div>
+  <div class="header" class:selected="{currentSortingHeader === 'trend'}"
+    on:click={() => currentSortingHeader = 'trend'}>
+    <span>
+      <br>TREND
+      {#if currentSortingHeader === 'trend'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
+    </span>
+  </div>
 
-    <div class="header" class:selected="{currentSortingHeader === 'climateRisk'}"
-      on:click={() => currentSortingHeader = 'climateRisk'}>
-      <span>
-        <br>CLIMATE RISK INDEX RANK
-        {#if currentSortingHeader === 'climateRisk'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-      </span>
-    </div>
+  <div class="header" class:selected="{currentSortingHeader === 'emissions2015'}"
+    on:click={() => reorder('emissions2015')}
+    style="text-align:right;">
+    <span>
+      {#if currentSortingHeader === 'emissions2015'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
+      2019 EMISSIONS
+    </span>
+  </div>
 
-    <div class="header" class:selected="{currentSortingHeader === 'climateDeathsTotal'}"
-      on:click={() => reorder('climateDeathsTotal')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'climateDeathsTotal'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        TOTAL
-      </span>
-    </div>
+  
+  <div class="header" class:selected="{currentSortingHeader === 'globalpct'}"
+    on:click={() => reorder('globalpct')}
+    style="text-align:right;">
+    <span>
+      {#if currentSortingHeader === 'globalpct'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
+      AS PCT OF GLOBAL
+    </span>
+  </div>
 
-    <div class="header" class:selected="{currentSortingHeader === 'climateDeathsPopAdj'}"
-      on:click={() => reorder('climateDeathsPopAdj')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'climateDeathsPopAdj'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        POP. ADJ.
-      </span>
-    </div>
+  <div class="header" class:selected="{currentSortingHeader === 'percapita'}"
+    on:click={() => reorder('percapita')}
+    style="text-align:right;">
+    <span>
+      {#if currentSortingHeader === 'percapita'}
+        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+      {/if}
+      PER<br>CAPITA
+    </span>
+  </div>
 
-    
-    <div class="header" class:selected="{currentSortingHeader === 'economicLossesTotal'}"
-      on:click={() => reorder('economicLossesTotal')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'economicLossesTotal'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        TOTAL
-      </span>
-    </div>
+  {#each results as row}
+    <span class="country-span">
+      <div class="country-column">
 
-    <div class="header" class:selected="{currentSortingHeader === 'EconomicLossesGDP'}"
-      on:click={() => reorder('EconomicLossesGDP')}
-      style="text-align:right;">
-      <span>
-        {#if currentSortingHeader === 'EconomicLossesGDP'}
-          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-        {/if}
-        AS GDP PCT.
-      </span>
-    </div>
-
-
-    {#each results as row}
-      <span class="country-span">
-        <div class="country-column">
-
-          <div class="country-name">
-            {row.name}
-          </div>
-
-          <div class="country-description">
-            {description}
-          </div>
-
+        <div class="country-name">
+          {row.name}
         </div>
-      </span>
 
-      <div class="distribution-chart">
-        <span bind:clientWidth={widthLineChart}>
-          <DistributionTiles
-            data = {climateRiskIndexData}
-            selectedCountry = {row.id}
-            selectedDataset = "ClimateRiskIndex"
-            width2 = {widthLineChart}
-            height2 = {heightLineChart}
-          />
-        </span>
+        <div class="country-description">
+          {description}
+        </div>
+
       </div>
+    </span>
 
-      <span class="row-number">
-        {row.emissions2019}
-        <p class="number-descriptor">{emissions2015Comment}</p>
-      </span>
-      <span class="row-number">
-        {row.globalPct}{@html globalPCTComment}
-      </span>
-      <span class="row-number">
-        {row.percapita}
-        <p class="number-descriptor">{@html perCapitaComment}</p>
-      </span>
-    {/each}
-  </div>  
-  -->
-  {/if}
+    <span bind:clientWidth={widthLineChart}>
+        <MiniLineChart 
+          data={countryTrendLookUp[row.id].emissions} 
+          category={countryTrendLookUp[row.id].category}
+          />
+    </span>
 
-  {#if buttonMode !== "Search"}
-    <button 
-      class="show-more-button"
-      on:click="{howManyButtonClicked}">
-      <b>{buttonText}</b>
-    </button>
-  {/if}
+    <span class="row-number">
+      {row.emissions2019}
+      <p class="number-descriptor">{emissions2015Comment}</p>
+    </span>
+    <span class="row-number">
+      {row.globalPct}{@html globalPCTComment}
+    </span>
+    <span class="row-number">
+      {row.percapita}
+      <p class="number-descriptor">{@html perCapitaComment}</p>
+    </span>
+  {/each}
+</div>
 
-  <div style="padding-bottom:60px"></div>
+{#if buttonMode !== "Search"}
+  <button 
+    class="show-more-button"
+    on:click="{howManyButtonClicked}">
+    <b>{buttonText}</b>
+  </button>
+{/if}
+
+<div style="padding-bottom:60px"></div>
 
 <style>
 
@@ -504,16 +373,6 @@
   display: table-cell; 
   font-size: 24px;
   font-weight: bold;
-}
-
-.distribution-chart {
-  width: 55%; 
-  display: table-cell;
-}
-
-.climate-risk-number{
-  width: 22.5%; 
-  display: table-cell;
 }
 
 .country-description {
@@ -568,68 +427,53 @@
     width: 50%;
     margin-top: 30px;
     background-color: #f9f9f9;
-  }
+}
 
-  .search-bar :global([data-svelte-typeahead] ul) {
-    visibility: hidden;
-  }
+.search-bar :global([data-svelte-typeahead] ul) {
+  visibility: hidden;
+}
 
-  .search-bar :global([data-svelte-search] input:focus) {
-    outline-width: 0px;
-    background-color: #f9f9f9;
-  }
+.search-bar :global([data-svelte-search] input:focus) {
+  outline-width: 0px;
+  background-color: #f9f9f9;
+}
 
-  .search-bar :global([data-svelte-search] input) {
-    width: 100%;
-    padding: 0.5rem 0rem;
-    background: #f9f9f9;
-    font-size: 2rem;
-    border: 0;
-    border-radius: 0;
-    border: 0px solid #cccccc;
-    border-bottom-width: 2px;
-    font-family: Roboto;
-    font-weight: lighter;
-  }
+.search-bar :global([data-svelte-search] input) {
+  width: 100%;
+  padding: 0.5rem 0rem;
+  background: #f9f9f9;
+  font-size: 2rem;
+  border: 0;
+  border-radius: 0;
+  border: 0px solid #cccccc;
+  border-bottom-width: 2px;
+  font-family: Roboto;
+  font-weight: lighter;
+}
 
-  .search-bar :global([data-svelte-search] label) {
-    margin-bottom: 0.25rem;
-    display: inline-flex;
-    font-size: 0.875rem;
-  }
+.search-bar :global([data-svelte-search] label) {
+  margin-bottom: 0.25rem;
+  display: inline-flex;
+  font-size: 0.875rem;
+}
 
-  .search-bar {
-    padding-bottom: 50px;
-  }
+.search-bar {
+  padding-bottom: 50px;
+}
 
-  .grid-ghg {
-    display: grid;
-    grid-template-columns: 50% 20% 10% 10% 10%;
-    border-top: 0px solid black;
-    border-bottom: 0px solid #e5e5e5;
-    border-right: 0px solid black;
-  }
+.grid-ghg {
+  display: grid;
+  grid-template-columns: 50% 20% 10% 10% 10%;
+  border-top: 0px solid black;
+  border-bottom: 0px solid #e5e5e5;
+  border-right: 0px solid black;
+}
 
-  .grid-ghg > span {
-    margin-top: 15px;
-    padding-bottom: 15px;
-    border-left: 0px solid black;
-    border-bottom: 1px solid #cccccc;
-  }
-
-  .grid-climate-risk {
-    display: grid;
-    grid-template-columns: 20% 30% 12.5% 12.5% 12.5% 12.5%;
-    border-top: 0px solid black;
-    border-bottom: 0px solid #e5e5e5;
-    border-right: 0px solid black;
-  }
-
-  .grid-climate-risk > span {
-    margin-top: 15px;
-    padding-bottom: 15px;
-    border-left: 0px solid black;
-    border-bottom: 1px solid #cccccc;
-  }
+.grid-ghg > span {
+  margin-top: 15px;
+  padding-bottom: 15px;
+  border-left: 0px solid black;
+  border-bottom: 1px solid #cccccc;
+}
 
 </style>
