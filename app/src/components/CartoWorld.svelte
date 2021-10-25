@@ -30,25 +30,6 @@
 
   let rerender: () => void;
 
-  let getGHGCategory = (countryName : string) => {
-
-    let trends = datasets.cartoworld.trends.data.find(d => d.id === countryName);
-
-    if(trends === undefined) {
-      throw new Error(`Cannot find country trends data: ${countryName}`);
-    }
-
-    const { emissions } = trends;
-
-    const baseValue = emissions['1990'];
-    const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
-    const diff = (lastValue - baseValue) / baseValue;
-    // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-    if (Math.abs(diff) < 0.25) return 'Stable since 1990';
-    else if (diff < -0.25) return 'Decreased since 1990';
-    else return 'Still climbing';
-  };
-
   type LegendProps = {
     title: string;
     labels: string[];
@@ -86,7 +67,7 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG in ${datasets.endYear}`,
-        colorFn: d => colorGHG(getGHGCategory(d.id)),
+        colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown'),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -107,7 +88,7 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG per capita in ${datasets.endYear}`,
-        colorFn: d => colorGHG(getGHGCategory(d.id))
+        colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown')
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,

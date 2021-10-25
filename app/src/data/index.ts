@@ -1,14 +1,47 @@
+import { createLookup, Unpacked } from 'src/util';
 import { default as percapita } from './percapita.carto.json';
 import { default as ghg } from './ghg.carto.json';
 import { default as trends } from './trends.carto.json';
 import { default as countries } from './countryDictionary.json';
 import { default as ndc } from './ndc.carto.json';
 import { default as pew } from './pewsurvey.json';
+import { IS_DEV } from 'src/util/env';
 export {default as annotations } from './annotations.json';
 
 export interface TimeseriesDataPoint {
   year: number;
   value: number;
+}
+
+type TrendsDataPoint = Unpacked<typeof trends.data>;
+
+export const calcGHGCategory = (d: TrendsDataPoint): string => {
+  const { emissions } = d;
+  const baseValue = emissions['1990'];
+  const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
+  const diff = (lastValue - baseValue) / baseValue;
+  // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
+  if (Math.abs(diff) < 0.25) return 'Stable since 1990';
+  else if (diff < -0.25) return 'Decreased since 1990';
+  else return 'Still climbing';
+};
+
+const ghgCategories: {[id: string]: string} = {};
+trends.data.forEach(d => {
+  ghgCategories[d.id] = calcGHGCategory(d);
+});
+
+if (IS_DEV) {
+  // check data
+  const trendsLookup = createLookup(trends.data, d => d.id, d => d);
+  const missingTrends = new Set([
+    ...ghg.data.map(d => d.id).filter(id => !trendsLookup[id]),
+    ...percapita.data.map(d => d.id).filter(id => !trendsLookup[id])
+  ]);
+  if (missingTrends.size > 0) {
+    const countries = [...missingTrends].join(', ');
+    console.warn(`Missing trends data for: ${countries}`);
+  }
 }
 
 export default {
@@ -20,5 +53,6 @@ export default {
     trends,
   },
   pew,
-  endYear: 2015
+  endYear: 2015,
+  ghgCategories
 };

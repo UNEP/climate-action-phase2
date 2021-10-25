@@ -104,3 +104,5 @@ export const strToId = (str: string): string => {
 export const range = (from: number, to: number): number[] => {
   return [...new Array(to - from)].map((_, i) => from + i);
 };
+
+export type Unpacked<T> = T extends (infer U)[] ? U : T;
