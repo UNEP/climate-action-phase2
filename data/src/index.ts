@@ -15,17 +15,6 @@ const outputJSONData = (filename: string, data: any) => {
   fs.writeFileSync(outfile, dataStr);
 }
 
-// const ghgMapped = ghg.map(row => ({
-//   code: row.code,
-//   emissions2015: row.emissions['2015']
-// }))
-
-// const trendsMapped = ghg.map(row => ({
-//   code: row.code,
-//   size: 1,
-//   emissions: row.emissions
-// }));
-
 const foldData = (csv, not, as) => {
   const data = aq.fromCSV(String(csv))
     .fold(aq.not(not), {as:as});
@@ -57,8 +46,6 @@ const co2trendsMapped = [...new Set(folded_co2_totals.map(d => d.id))]
     }
   ))
 
-// outputJSONData('ghg.json', ghgMapped);
-// outputJSONData('trends.json', trendsMapped);
 outputJSONData('co2.json', co2Mapped);
 outputJSONData('co2trends.json', co2trendsMapped);
 outputJSONData('co2percapita.json', co2percapitaMapped);
