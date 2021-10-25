@@ -1,6 +1,7 @@
 [
 
   {
+    "name": "Argentina",
     "id": "ARG",
     "climateRiskIndex": 62.82,
     "deaths": 1400,
@@ -8,6 +9,7 @@
  },
 
  {
+  "name": "Brazil",
   "id": "BRA",
   "climateRiskIndex": 42.82,
   "deaths": 1050,
@@ -15,6 +17,7 @@
 },
 
 {
+  "name": "France",
   "id": "FRA",
   "climateRiskIndex": 22.82,
   "deaths": 1008,
@@ -22,6 +25,7 @@
 },
 
 {
+  "name": "Australia",
   "id": "AUS",
   "climateRiskIndex": 58.82,
   "deaths": 3000,
@@ -29,6 +33,7 @@
 },
 
 {
+  "name": "Spain",
   "id": "ESP",
   "climateRiskIndex": 78.82,
   "deaths": 1306,
@@ -36,6 +41,7 @@
 },
 
 {
+  "name": "United Kingdom",
   "id": "GBR",
   "climateRiskIndex": 79.82,
   "deaths": 1030,
@@ -43,6 +49,7 @@
 },
 
 {
+  "name": "Greece",
   "id": "GRC",
   "climateRiskIndex": 90.82,
   "deaths": 2500,
@@ -50,6 +57,7 @@
 },
 
 {
+  "name": "Germany",
   "id": "DEU",
   "climateRiskIndex": 10.82,
   "deaths": 1001,
@@ -57,6 +65,7 @@
 },
 
 {
+  "name": "Italy",
   "id": "ITA",
   "climateRiskIndex": 12.82,
   "deaths": 56,

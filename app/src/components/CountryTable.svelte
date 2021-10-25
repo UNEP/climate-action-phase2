@@ -18,6 +18,8 @@
   export var data : "GHG" | "Risk";
 
   const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
+  const countryTable2LookUp = createLookup(countryTableData2, d => d.id, d => d);
+
 
   const numMainCountriesTable = 6;
   const maxNumSearchResults = 6;
@@ -28,7 +30,7 @@
   const globalPCTComment = `<t style="font-size:16px;">%</t>`;
   const perCapitaComment = `tonnes<br> of GHG`;
 
-  var selectedDatabase = data === "GHG" ? countryTableData : countryTableData;
+  var selectedDatabase = data === "GHG" ? countryTableData : countryTableData2;
 
   var buttonMode: "First" | "Search" | "All";
   buttonMode = "All";
@@ -66,30 +68,33 @@
 
 
   //TREND DATA GENERATION 
-  var countryDataArray = trendsData.data;
   var countryEmissions = [];
+  if (data === 'GHG'){
+    var countryDataArray = trendsData.data;
 
-  for (let i = 0; i < countryDataArray.length; i++){
-    let emissionsArray = Object.entries(countryDataArray[i].emissions);
-    let entries = [];
-    let baseValue = 0;
-    let lastValue = 0;
-    emissionsArray.forEach(([key, value]) => {
-      let yearEntry = {year: parseInt(key), value: value};
-      if (yearEntry.year === 1990){
-        baseValue = value;
-      }
-      else if (yearEntry.year === 2015){
-        lastValue = value;
-      }
-      entries.push(yearEntry);
-    });
-    let cat = getCategory(baseValue, lastValue);
-    const newCountry = {id:countryDataArray[i].id, emissions: entries, category: cat};
-    countryEmissions.push(newCountry);
+    for (let i = 0; i < countryDataArray.length; i++){
+      let emissionsArray = Object.entries(countryDataArray[i].emissions);
+      let entries = [];
+      let baseValue = 0;
+      let lastValue = 0;
+      emissionsArray.forEach(([key, value]) => {
+        let yearEntry = {year: parseInt(key), value: value};
+        if (yearEntry.year === 1990){
+          baseValue = value;
+        }
+        else if (yearEntry.year === 2015){
+          lastValue = value;
+        }
+        entries.push(yearEntry);
+      });
+      let cat = getCategory(baseValue, lastValue);
+      const newCountry = {id:countryDataArray[i].id, emissions: entries, category: cat};
+      countryEmissions.push(newCountry);
+    }
   }
 
   const countryTrendLookUp = createLookup(countryEmissions, c => c.id, c => c);
+
 
   function getCategory(baseValue, lastValue) {
     let diff = (lastValue - baseValue) / baseValue;
@@ -201,21 +206,24 @@
 
 
   function getResultFromSearch(result, index){
-    if (index === 0){
-      tableMode = "Search";
-      buttonMode = "Search";
-      results = [];
-      var firstResult = countryTableLookUp[result.id];
-      if (firstResult !== undefined){ //Because we dont have final database
-        results.push(firstResult);
+    if (data === 'GHG'){
+      if (index === 0){
+        tableMode = "Search";
+        buttonMode = "Search";
+        results = [];
+        var firstResult = countryTableLookUp[result.id];
+        if (firstResult !== undefined){ //Because we dont have final database
+          results.push(firstResult);
+        }
+      }
+      else {
+        var countryResult = countryTableLookUp[result.id];
+        if (countryResult !== undefined){ //Because we dont have final database
+          results.push(countryResult);
+        }
       }
     }
-    else {
-      var countryResult = countryTableLookUp[result.id];
-      if (countryResult !== undefined){ //Because we dont have final database
-        results.push(countryResult);
-      }
-    }
+
     sortByHeader(currentSortingHeader);
   }
 
@@ -241,106 +249,216 @@
   </Typeahead>
 </div>
 
-<div class="grid">
-  <div class="header" class:selected="{currentSortingHeader === 'country'}"
-      on:click={() => reorder('country')}
-      on:click={() => rerender()}>
-    <span>
-      <br>COUNTRY
-      {#if currentSortingHeader === 'country'}
-        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-      {/if}
-    </span>
+{#if data === "GHG"}
+
+  <div class="grid-ghg">
+    <div class="header" class:selected="{currentSortingHeader === 'country'}"
+        on:click={() => reorder('country')}
+        on:click={() => rerender()}>
+      <span>
+        <br>COUNTRY
+        {#if currentSortingHeader === 'country'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+      </span>
+    </div>
+
+    <div class="header" class:selected="{currentSortingHeader === 'trend'}"
+      on:click={() => currentSortingHeader = 'trend'}>
+      <span>
+        <br>TREND
+        {#if currentSortingHeader === 'trend'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+      </span>
+    </div>
+
+    <div class="header" class:selected="{currentSortingHeader === 'emissions2015'}"
+      on:click={() => reorder('emissions2015')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'emissions2015'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        2015 EMISSIONS
+      </span>
+    </div>
+
+    
+    <div class="header" class:selected="{currentSortingHeader === 'globalpct'}"
+      on:click={() => reorder('globalpct')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'globalpct'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        AS PCT OF GLOBAL
+      </span>
+    </div>
+
+    <div class="header" class:selected="{currentSortingHeader === 'percapita'}"
+      on:click={() => reorder('percapita')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'percapita'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        PER<br>CAPITA
+      </span>
+    </div>
+
+    {#each results as row}
+      <span class="country-span">
+        <div class="country-column">
+
+          <div class="country-name">
+            {row.name}
+          </div>
+
+          <div class="country-description">
+            {row.desc}
+          </div>
+
+        </div>
+      </span>
+
+      <span bind:clientWidth={widthLineChart}>
+          <MiniLineChart 
+            data={countryTrendLookUp[row.id].emissions} 
+            category={countryTrendLookUp[row.id].category}
+            />
+      </span>
+
+      <span class="row-number">
+        {row.emissions2015}
+        <p class="number-descriptor">{emissions2015Comment}</p>
+      </span>
+      <span class="row-number">
+        {row.globalPCT}{@html globalPCTComment}
+      </span>
+      <span class="row-number">
+        {row.perCapita}
+        <p class="number-descriptor">{@html perCapitaComment}</p>
+      </span>
+    {/each}
   </div>
 
-  <div class="header" class:selected="{currentSortingHeader === 'trend'}"
-    on:click={() => currentSortingHeader = 'trend'}>
-    <span>
-      <br>TREND
-      {#if currentSortingHeader === 'trend'}
-        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-      {/if}
-    </span>
-  </div>
+{:else}
 
-  <div class="header" class:selected="{currentSortingHeader === 'emissions2015'}"
-    on:click={() => reorder('emissions2015')}
-    style="text-align:right;">
-    <span>
-      {#if currentSortingHeader === 'emissions2015'}
-        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-      {/if}
-      2015 EMISSIONS
-    </span>
-  </div>
+  <div class="grid-climate-risk">
+    <div class="header" class:selected="{currentSortingHeader === 'country'}"
+        on:click={() => reorder('country')}
+        on:click={() => rerender()}>
+      <span>
+        <br>COUNTRY
+        {#if currentSortingHeader === 'country'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+      </span>
+    </div>
 
-  
-  <div class="header" class:selected="{currentSortingHeader === 'globalpct'}"
-    on:click={() => reorder('globalpct')}
-    style="text-align:right;">
-    <span>
-      {#if currentSortingHeader === 'globalpct'}
-        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-      {/if}
-      AS PCT OF GLOBAL
-    </span>
-  </div>
+    <div class="header" class:selected="{currentSortingHeader === 'climateRisk'}"
+      on:click={() => currentSortingHeader = 'climateRisk'}>
+      <span>
+        <br>CLIMATE RISK INDEX RANK
+        {#if currentSortingHeader === 'climateRisk'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+      </span>
+    </div>
 
-  <div class="header" class:selected="{currentSortingHeader === 'percapita'}"
-    on:click={() => reorder('percapita')}
-    style="text-align:right;">
-    <span>
-      {#if currentSortingHeader === 'percapita'}
-        <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
-      {/if}
-      PER<br>CAPITA
-    </span>
-  </div>
+    <div class="header" class:selected="{currentSortingHeader === 'climateDeathsTotal'}"
+      on:click={() => reorder('climateDeathsTotal')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'climateDeathsTotal'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        TOTAL
+      </span>
+    </div>
 
-  {#each results as row}
-    <span class="country-span">
-      <div class="country-column">
+    <div class="header" class:selected="{currentSortingHeader === 'climateDeathsPopAdj'}"
+      on:click={() => reorder('climateDeathsPopAdj')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'climateDeathsPopAdj'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        POP. ADJ.
+      </span>
+    </div>
 
+    
+    <div class="header" class:selected="{currentSortingHeader === 'economicLossesTotal'}"
+      on:click={() => reorder('economicLossesTotal')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'economicLossesTotal'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        TOTAL
+      </span>
+    </div>
+
+    <div class="header" class:selected="{currentSortingHeader === 'EconomicLossesGDP'}"
+      on:click={() => reorder('EconomicLossesGDP')}
+      style="text-align:right;">
+      <span>
+        {#if currentSortingHeader === 'EconomicLossesGDP'}
+          <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
+        {/if}
+        AS GDP PCT.
+      </span>
+    </div>
+
+
+    {#each results as row}
+      <span>
         <div class="country-name">
           {row.name}
         </div>
+      </span>
 
-        <div class="country-description">
-          {row.desc}
+      <span class="country-span">
+        <div class="country-column">
+
+          <div class="distribution-chart">
+            <span bind:clientWidth={widthLineChart}>
+              <DistributionTiles
+                data = {climateRiskIndexData}
+                selectedCountry = {row.id}
+                selectedDataset = "ClimateRiskIndex"
+                width2 = {widthLineChart}
+                height2 = {heightLineChart}
+              />
+            </span>
+          </div>
+
+          <div class="climate-risk-number">
+            {row.climateRiskIndex}
+          </div>
+
         </div>
+      </span>
 
-      </div>
-    </span>
 
-    <span bind:clientWidth={widthLineChart}>
-      {#if data === "GHG"}
-        <MiniLineChart 
-          data={countryTrendLookUp[row.id].emissions} 
-          category={countryTrendLookUp[row.id].category}
-          />
-      {:else}
-        <DistributionTiles
-          data = {climateRiskIndexData}
-          selectedCountry = {row.id}
-          selectedDataset = "ClimateRiskIndex"
-          width2 = {widthLineChart}
-          height2 = {heightLineChart}
-          />
-      {/if}
-    </span>
-    <span class="row-number">
-      {row.emissions2015}
-      <p class="number-descriptor">{emissions2015Comment}</p>
-    </span>
-    <span class="row-number">
-      {row.globalPCT}{@html globalPCTComment}
-    </span>
-    <span class="row-number">
-      {row.perCapita}
-      <p class="number-descriptor">{@html perCapitaComment}</p>
-    </span>
-  {/each}
-</div>
+
+      <span class="row-number">
+        {row.emissions2015}
+        <p class="number-descriptor">{emissions2015Comment}</p>
+      </span>
+      <span class="row-number">
+        {row.globalPCT}{@html globalPCTComment}
+      </span>
+      <span class="row-number">
+        {row.perCapita}
+        <p class="number-descriptor">{@html perCapitaComment}</p>
+      </span>
+    {/each}
+  </div>  
+
+  {/if}
 
   {#if buttonMode !== "Search"}
     <button 
@@ -391,6 +509,16 @@
   display: table-cell; 
   font-size: 24px;
   font-weight: bold;
+}
+
+.distribution-chart {
+  width: 55%; 
+  display: table-cell;
+}
+
+.climate-risk-number{
+  width: 22.5%; 
+  display: table-cell;
 }
 
 .country-description {
@@ -479,7 +607,7 @@
     padding-bottom: 50px;
   }
 
-  .grid {
+  .grid-ghg {
     display: grid;
     grid-template-columns: 50% 20% 10% 10% 10%;
     border-top: 0px solid black;
@@ -487,7 +615,22 @@
     border-right: 0px solid black;
   }
 
-  .grid > span {
+  .grid-ghg > span {
+    margin-top: 15px;
+    padding-bottom: 15px;
+    border-left: 0px solid black;
+    border-bottom: 1px solid #cccccc;
+  }
+
+  .grid-climate-risk {
+    display: grid;
+    grid-template-columns: 20% 30% 12.5% 12.5% 12.5% 12.5%;
+    border-top: 0px solid black;
+    border-bottom: 0px solid #e5e5e5;
+    border-right: 0px solid black;
+  }
+
+  .grid-climate-risk > span {
     margin-top: 15px;
     padding-bottom: 15px;
     border-left: 0px solid black;
