@@ -22,6 +22,8 @@
     NodeClass: { new(input: CartogramConstructor<CDP>): CDP },
     NodeComponent: typeof SvelteComponent;
     hoverTextFn: Transforms<CDP>['hoverTextFn']
+    classesFn: Transforms<CDP>['classesFn']
+    colorFn: Transforms<CDP>['colorFn']
   }
 
 </script>
@@ -35,19 +37,13 @@
   type CD = CartogramData<string, InputDataPoint<string>>;
   type CDP = CartogramDataPoint<string, InputDataPoint<string>>;
 
-  // type VK = ExtractValueKey<CDP>;
-  // type IDP = ExtractInputDataType<CDP>;
-
   export let dataset: CD | CD[];
   export let selectedDatasetIndex = 0;
   export let countries: CountryMetadata[];
   export let helpText: {code: string, text: string} = null;
-  // export let NodeClass: { new(input: CartogramConstructor<CDP>): CDP };
   export let categoryFn: Transforms<CDP>['categoryFn'] = () => '';
-  export let colorFn: Transforms<CDP>['colorFn'] = undefined;
-  export let classesFn: Transforms<CDP>['classesFn'] = () => [];
   export let onHoverFn: (c: CDP) => void = () => null;
-  // export const rerenderFn: () => void = () => cartogramData = cartogramData;
+  export const rerenderFn: () => void = () => selectedCartogramData = selectedCartogramData;
   export let annotationShowing: boolean = false;
 
   let datasets = dataset instanceof Array ? dataset : [dataset];
@@ -63,11 +59,6 @@
     }
   }
 
-  // let data: typeof dataset.data;
-  // $: data = dataset.data;
-  // $: nodeSize = dataset.nodeSize;
-  // $: valueKey = dataset.valueKey;
-  // $: domain = [dataset.width, dataset.height];
   // used to scale to container el
   const originalWidth = datasets[0].width;
   const originalHeight = datasets[0].height;
@@ -82,27 +73,6 @@
   let clientWidth: number;
   let containerWidth: number;
   let containerHeight: number;
-
-  function resize() {
-    if (containerEl) {
-      resizing = true;
-      const ctrStyle = getComputedStyle(containerEl);
-
-      const xPadding = parseFloat(ctrStyle.paddingLeft) + parseFloat(ctrStyle.paddingRight);
-      const yPadding = parseFloat(ctrStyle.paddingTop) - parseFloat(ctrStyle.paddingBottom);
-
-      containerWidth = containerEl.clientWidth - xPadding;
-      containerHeight = containerEl.clientHeight - yPadding;
-
-      const scale = Math.min(containerWidth / originalWidth, containerHeight / originalHeight);
-      targetWidth = originalWidth * scale;
-      targetHeight = originalHeight * scale;
-      window.setTimeout(() => resizing = false);
-    }
-  }
-
-  const throttledResize = throttle(resize, 100);
-  $: clientWidth && throttledResize();
 
   let transforms = datasets.map(_dataset => {
 
@@ -120,7 +90,7 @@
       .domain([0, _dataset.height])
       .range([0, targetHeight]);
 
-    const hoverTextFn = _dataset.hoverTextFn;
+    const { hoverTextFn, classesFn, colorFn } = _dataset;
 
     return { colorFn, categoryFn, hoverTextFn, classesFn, xScale, yScale, radius };
   });
@@ -156,6 +126,38 @@
       });
     });
   });
+
+
+  function resize() {
+    if (containerEl) {
+      resizing = true;
+      const ctrStyle = getComputedStyle(containerEl);
+
+      const xPadding = parseFloat(ctrStyle.paddingLeft) + parseFloat(ctrStyle.paddingRight);
+      const yPadding = parseFloat(ctrStyle.paddingTop) - parseFloat(ctrStyle.paddingBottom);
+
+      containerWidth = containerEl.clientWidth - xPadding;
+      containerHeight = containerEl.clientHeight - yPadding;
+
+      const scale = Math.min(containerWidth / originalWidth, containerHeight / originalHeight);
+      targetWidth = originalWidth * scale;
+      targetHeight = originalHeight * scale;
+
+      transforms.forEach(({xScale, yScale}) => {
+        xScale.range([0, targetWidth]);
+        yScale.range([0, targetHeight]);
+      });
+      allCartogramData.forEach(_dataset => {
+        _dataset.forEach(d => d.clearDims());
+      });
+      rerenderFn();
+
+      window.setTimeout(() => resizing = false);
+    }
+  }
+
+  const throttledResize = throttle(resize, 100);
+  $: clientWidth && throttledResize();
 
   $: selectedCartogramData = allCartogramData[selectedDatasetIndex];
 
@@ -271,9 +273,6 @@
   class:cartogram-country-hover={hoverData}
   class:cartogram-resizing={resizing}
 >
-<filter id="shadow" x="+100px">
-  <feDropShadow dx="0" dy="0" stdDeviation="4" flood-opacity="0.9"></feDropShadow>
-</filter>
   {#if loaded}
     <div class="countries">
       {#each selectedCartogramData as d (d.id)}
@@ -322,7 +321,7 @@
 
   .node {
     position: absolute;
-    transition: 300ms width 50ms, 300ms height 50ms, 300ms left 50ms, 300ms top 50ms;
+    transition: 200ms width 50ms, 200ms height 50ms, 200ms left 50ms, 200ms top 50ms;
   }
 
   .cartogram {

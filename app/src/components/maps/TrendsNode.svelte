@@ -1,5 +1,6 @@
 <script lang="ts" context="module">
   import type { TimeseriesDataPoint } from 'src/data';
+  import { END_YEAR, START_YEAR } from 'src/data';
   import type { CartogramConstructor, InputDataPoint } from "./CartogramTypes";
   import * as d3 from 'src/d3';
   import { clamp, displayVal, range } from "src/util";
@@ -9,9 +10,7 @@
     emissions: {[year: number]: number};
   }
 
-  const startYear = 1970;
-  const endYear = 2015;
-  const years = range(startYear, endYear+1);
+  const years = range(START_YEAR, END_YEAR+1);
 
   export class TrendsCartogramDataPoint<VK extends string, IDP extends TrendsInputDataPoint<VK> = TrendsInputDataPoint<VK>> extends CartogramDataPoint<VK, IDP> {
     timeseries: TimeseriesDataPoint[];
@@ -22,7 +21,11 @@
       this.timeseries = years.map(year => ({
         year, value: input.data.emissions[year]
       }));
+    }
 
+    clearDims() {
+      CartogramDataPoint.prototype.clearDims.bind(this)();
+      this._path = undefined;
     }
 
     private generatePath(): string {
@@ -36,7 +39,7 @@
         .range([ this.height, 0 ]);
 
       const x = d3.scaleLinear()
-          .domain([startYear, endYear+1])
+          .domain([START_YEAR, END_YEAR+1])
           .range([ 0, this.width ]);
 
       const pathGenerator = d3.line<TimeseriesDataPoint>()
@@ -54,10 +57,6 @@
       return this._path;
     }
 
-    get color(): string {
-      return 'transparent';
-    }
-
     get category(): string {
       const baseValue = this.data.emissions['1990'];
       const lastValue = this.data.emissions['2015'];
@@ -69,7 +68,7 @@
     }
 
     get emissionsDisplayVal(): string {
-      const val = this.data.emissions[endYear];
+      const val = this.data.emissions[END_YEAR];
       return displayVal(val, val < 10 ? 1 : 0);
     }
 
@@ -105,7 +104,7 @@
 </script>
 
 <div
-  class="country {d.classes}"
+  class="country {d.classes.join(' ')}"
   tabindex="0"
   on:mouseenter
   on:mouseleave={onMouseLeaveCountry}
@@ -125,17 +124,15 @@
       <MiniLineChart data={d.timeseries} category={d.category} />
   </div>
 
-  <svg
-    viewBox="0 0 {d.width} {d.height}"
-  >
-    <path class="line stroke--{d.category}" d={d.path} />
+  <svg class="trend-chart" viewBox="0 0 {d.width} {d.height}" style="background-color: {d.color};">
+    <path class="line" d={d.path} />
   </svg>
 </div>
 
 <style lang="scss">
 
   svg {
-    background: #eaeaea;
+    // background: #eaeaea;
     stroke-width: 1.5px;
     position: absolute;
     left: 50%;
@@ -158,6 +155,7 @@
     fill: none;
     vector-effect: non-scaling-stroke;
     pointer-events: none;
+    stroke: white;
   }
 
 
@@ -175,22 +173,26 @@
     width: 100%;
     height: 100%;
     cursor: pointer;
-    opacity: 1;
     z-index: 2;
     padding: 2px;
     margin-top: -2px;
     margin-left: -2px;
     outline-color: black;
+    display: none;
+    opacity: 0;
+
     &:hover {
       z-index: 10;
     }
 
-    display: none;
-    opacity: 0;
-
     &.display {
       display: block;
       animation: 100ms ease-in 0ms 1 normal forwards running fadein;
+    }
+
+    &.fade .trend-chart {
+      opacity: 0.2;
+      transition: opacity 100ms linear;
     }
   }
 

@@ -28,3 +28,10 @@ export const colorHealth = scaleThreshold<number, string>()
 export const colorPolices = scaleOrdinal<string>()
   .domain(['Target met', 'On track', 'Not met', 'No data'])
   .range(['#0074B2', '#5A93B4', '#ffcf61', '#cacaca']);
+
+export const colorNetZero = scaleOrdinal<string>()
+  .domain([
+    'ACHIEVED', 'IN LAW', 'PROPOSED LEGISLATION',
+    'IN POLICY DOCUMENT', 'TARGET UNDER DISCUSSION'
+  ])
+  .range(['#30609e', '#4e8cb7', '#6cb7cf', '#fec200', '#f58c00']);

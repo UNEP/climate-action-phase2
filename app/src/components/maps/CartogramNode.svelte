@@ -9,7 +9,7 @@
 </script>
 
 <div
-  class="country {d.classes}"
+  class="country {d.classes.join(' ')}"
   style="background-color: {d.color};"
   class:active={datasetSelected || transitioning}
   tabindex="0"
@@ -37,7 +37,12 @@
 
     &:not(.active) {
       opacity: 0;
-      transition: opacity 100ms ease-in 0ms;
+      transition: opacity 100ms linear 100ms;
+    }
+
+    &.fade {
+      opacity: 0.5;
+      transition: opacity 100ms ease-in;
     }
   }
 
@@ -74,7 +79,7 @@
   }
 
   :global(.cartogram-country-hover) .country.active {
-    &:not(:hover) {
+    &:not(:hover):not(.fade) {
       opacity: 0.65;
       transition: opacity 0.05s;
     }

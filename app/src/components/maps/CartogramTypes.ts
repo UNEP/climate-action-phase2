@@ -1,3 +1,5 @@
+import type { ScaleLinear } from "d3-scale";
+
 export interface CountryMetadata {
   id: string;
   name: string;
@@ -19,8 +21,8 @@ export interface Transforms<CDP extends CartogramDataPoint<any, any>> {
   colorFn: (c: CDP) => string;
   classesFn: (c: CDP) => string[];
   radius: (v: number) => number;
-  xScale: (x: number) => number;
-  yScale: (y: number) => number;
+  xScale: ScaleLinear<number, number, never>;
+  yScale: ScaleLinear<number, number, never>;
 }
 
 export type ExtractValueKey<T> = T extends CartogramDataPoint<infer R, any> ? R : any;
@@ -56,6 +58,13 @@ export class CartogramDataPoint<
     this.transforms = input.transforms;
   }
 
+  clearDims() {
+    this._left = undefined;
+    this._top = undefined;
+    this._width = undefined;
+    this._height = undefined;
+  }
+
   get value() { return this.data[this.valueKey]; }
   get id() { return this.data.id; }
   get x() { return this.data.x; }
@@ -77,8 +86,10 @@ export class CartogramDataPoint<
   get height() { return this._height = this._height || this.transforms.yScale(this.r * 2); }
 
   get category() { return this.transforms.categoryFn(this); }
-  get color() { return this.data.color || this.transforms.colorFn(this); }
-  get classes() { return this.transforms.classesFn(this); }
+  get color() {
+    return this.data.color || (this.transforms.colorFn ? this.transforms.colorFn(this) : '');
+  }
+  get classes() { return this.transforms.classesFn ? this.transforms.classesFn(this) : []; }
 
   get style() {
     const styles = [
