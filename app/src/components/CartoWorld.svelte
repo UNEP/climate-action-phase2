@@ -34,18 +34,19 @@
 
     let trends = datasets.cartoworld.trends.data.find(d => d.id === countryName);
 
-    if(trends !== undefined && 'emissions' in trends){
-      let emissions = trends.emissions;
-      const baseValue = emissions['1990'];
-      const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
-      const diff = (lastValue - baseValue) / baseValue;
-      // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-      if (Math.abs(diff) < 0.25) return 'Stable since 1990';
-      else if (diff < -0.25) return 'Decreased since 1990';
-      else return 'Still climbing';
+    if(trends === undefined) {
+      throw new Error(`Cannot find country trends data: ${countryName}`);
     }
 
-    console.error('Unexpected data');
+    const { emissions } = trends;
+
+    const baseValue = emissions['1990'];
+    const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
+    const diff = (lastValue - baseValue) / baseValue;
+    // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
+    if (Math.abs(diff) < 0.25) return 'Stable since 1990';
+    else if (diff < -0.25) return 'Decreased since 1990';
+    else return 'Still climbing';
   };
 
   type LegendProps = {
