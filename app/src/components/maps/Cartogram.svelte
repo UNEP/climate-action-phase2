@@ -1,8 +1,7 @@
 <script lang="ts" context="module">
   import type {
-    CartogramConstructor, CartogramDataPoint, CountryMetadata, ExtractInputDataType,
-    ExtractValueKey, InputDataPoint, Transforms } from "./CartogramTypes";
-  import CartogramNode from "./CartogramNode.svelte";
+    CartogramConstructor, CartogramDataPoint, CountryMetadata,
+    InputDataPoint, Transforms } from "./CartogramTypes";
 
   export interface BaseCartogramData<
     VK extends string,
@@ -17,11 +16,12 @@
 
   export interface CartogramData<
     VK extends string,
-    IDP extends InputDataPoint<VK> = InputDataPoint<VK>
+    IDP extends InputDataPoint<VK> = InputDataPoint<VK>,
+    CDP extends CartogramDataPoint<VK, IDP> = CartogramDataPoint<VK, IDP>
   > extends BaseCartogramData<VK, IDP> {
-    NodeClass: { new(input: CartogramConstructor<CartogramDataPoint<VK, IDP>>):
-      CartogramDataPoint<VK, IDP> },
-    NodeComponent: typeof SvelteComponent
+    NodeClass: { new(input: CartogramConstructor<CDP>): CDP },
+    NodeComponent: typeof SvelteComponent;
+    hoverTextFn: Transforms<CDP>['hoverTextFn']
   }
 
 </script>
@@ -31,7 +31,6 @@
   import { createLookup, throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
   import type { SvelteComponent } from "svelte";
-import { select } from "d3-selection";
 
   type CD = CartogramData<string, InputDataPoint<string>>;
   type CDP = CartogramDataPoint<string, InputDataPoint<string>>;
@@ -47,7 +46,6 @@ import { select } from "d3-selection";
   export let categoryFn: Transforms<CDP>['categoryFn'] = () => '';
   export let colorFn: Transforms<CDP>['colorFn'] = undefined;
   export let classesFn: Transforms<CDP>['classesFn'] = () => [];
-  export let hoverTextFn: Transforms<CDP>['hoverTextFn'] = undefined;
   export let onHoverFn: (c: CDP) => void = () => null;
   // export const rerenderFn: () => void = () => cartogramData = cartogramData;
   export let annotationShowing: boolean = false;
@@ -121,6 +119,8 @@ import { select } from "d3-selection";
     const yScale = d3.scaleLinear()
       .domain([0, _dataset.height])
       .range([0, targetHeight]);
+
+    const hoverTextFn = _dataset.hoverTextFn;
 
     return { colorFn, categoryFn, hoverTextFn, classesFn, xScale, yScale, radius };
   });
@@ -225,7 +225,7 @@ import { select } from "d3-selection";
     class: 'help'
   };
 
-  $: countryAnnotation = hoverTextFn && hoverData && {
+  $: countryAnnotation = hoverData?.country.hoverText && {
     x: hoverData.x,
     y: hoverData.y,
     radius: 2 + hoverData.country.width / 2,

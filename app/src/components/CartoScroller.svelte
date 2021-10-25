@@ -37,6 +37,9 @@
         ...datasets.cartoworld.ghg as BaseCartogramData<'emissions2015'>,
         NodeComponent: CartogramNode,
         NodeClass: CartogramDataPoint,
+        hoverTextFn: c =>
+          `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
+          `tonnes of GHG in ${datasets.endYear}`,
       },
       {
         ...trends as any, // weird TS error here where it can't deal with union of mapped types
@@ -54,13 +57,9 @@
         code: "CAN",
         text: "Each square represents a country, scaled by its per capita emissions"
       },
-      hoverTextFn: c =>
-        `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-        `tonnes of GHG in ${datasets.endYear}`,
     },
     trends: {
-      helpText: null,
-      hoverTextFn: null
+      helpText: null
     }
   };
 

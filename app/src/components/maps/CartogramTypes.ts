@@ -45,6 +45,7 @@ export class CartogramDataPoint<
   _top: number;
   _height: number;
   _width: number;
+  _hoverText: string;
   metadata: CountryMetadata;
   transforms: Transforms<CartogramDataPoint<VK, IDP>>;
 
@@ -62,7 +63,12 @@ export class CartogramDataPoint<
 
   get short() { return this.metadata.short; }
   get name() { return this.metadata.name; }
-  get hoverText() { return this.transforms.hoverTextFn(this); }
+  get hoverText() {
+    if (this._hoverText === undefined) {
+      this._hoverText = this.transforms.hoverTextFn ? this.transforms.hoverTextFn(this) : null;
+    }
+    return this._hoverText;
+  }
 
   get r() { return this._r = this._r || this.transforms.radius(this.value); }
   get left() { return this._left = this._left || this.transforms.xScale(this.x - this.r); }
