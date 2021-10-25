@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Content, GDocs } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
+  import PewSurvey from 'src/components/PewSurvey.svelte';
   import Intro from 'src/components/text/Intro.svelte';
   import Text from 'src/components/text/Text.svelte';
   import TopNav from 'src/components/nav/TopNav.svelte';
@@ -12,6 +13,7 @@
   import CartoTemperature from './components/CartoTemperature.svelte';
   import CountryTable from './components/CountryTable.svelte';
 
+
   export var gdocs: GDocs;
   export var embed: string;
 
@@ -19,6 +21,7 @@
   const embedBlock = embed && content.find(b => b.embed === embed);
 
   const components = {
+    'pew-survey' : PewSurvey,
     'carto-world': CartoWorld,
     'carto-temperature' : CartoTemperature,
     'trends': CartoWorld,
