@@ -1,4 +1,3 @@
-import ghg from '../input/ghg.json';
 import fs from 'fs';
 import * as aq from 'arquero';
 import path from 'path';
@@ -42,7 +41,7 @@ const co2trendsMapped = [...new Set(folded_co2_totals.map(d => d.id))]
         folded_co2_totals
           .filter(_d => _d.id === d)
           .map(d => [d.year, d.emissions])
-      )  
+      )
     }
   ))
 
