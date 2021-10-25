@@ -8,18 +8,19 @@
 <script lang="ts">
   import Typeahead from "svelte-typeahead";
   import countries from 'src/data/countryDictionary.json';
-  import countryTableData from 'src/data/countryTableData.json';
   import countryTableData2 from 'src/data/countryTableData2.json';
   import co2trends from 'src/data/co2trends.json';
+  import co2data from 'src/data/co2data.json';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
   import DistributionTiles from "src/components/charts/DistributionTiles.svelte";
 
   export var data : "GHG" | "Risk";
 
-  const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
-  //const countryTable2LookUp = createLookup(countryTableData2, d => d.id, d => d);
+  const countryTableLookUp = createLookup(co2data, d => d.id, d => d);
 
+  const description = "It has had one of the biggest increases in GHG emissions\
+   -422% since 1990. Today, it accounts for 0.33% of global emissions.";
 
   const numMainCountriesTable = 6;
   const maxNumSearchResults = 6;
@@ -30,7 +31,7 @@
   const globalPCTComment = `<t style="font-size:16px;">%</t>`;
   const perCapitaComment = `tonnes<br> of GHG`;
 
-  var selectedDatabase = data === "GHG" ? countryTableData : countryTableData;
+  var selectedDatabase = data === "GHG" ? co2data : co2data;
 
   var buttonMode: "First" | "Search" | "All";
   buttonMode = "All";
@@ -136,28 +137,28 @@
     }
     else if (sortingColumn === "emissions2015"){
       if (sortingMethod === 'Ascending'){
-        arrayResults.sort((a, b) => a.emissions2015 - b.emissions2015);
+        arrayResults.sort((a, b) => a.emissions2019 - b.emissions2019);
       }
       else{
-        arrayResults.sort((a, b) => b.emissions2015 - a.emissions2015);
+        arrayResults.sort((a, b) => b.emissions2019 - a.emissions2019);
       }
     }
 
     else if (sortingColumn === "globalpct"){
       if (sortingMethod === 'Ascending'){
-        arrayResults.sort((a, b) => a.globalPCT - b.globalPCT);
+        arrayResults.sort((a, b) => a.globalPct - b.globalPct);
       }
       else{
-        arrayResults.sort((a, b) => b.globalPCT - a.globalPCT);
+        arrayResults.sort((a, b) => b.globalPct - a.globalPct);
       }
     }
 
     else if (sortingColumn === "percapita"){
       if (sortingMethod === 'Ascending'){
-        arrayResults.sort((a, b) => a.perCapita - b.perCapita);
+        arrayResults.sort((a, b) => a.percapita - b.percapita);
       }
       else{
-        arrayResults.sort((a, b) => b.perCapita - a.perCapita);
+        arrayResults.sort((a, b) => b.percapita - a.percapita);
       }
     }
     results = arrayResults;
@@ -204,21 +205,19 @@
 
 
   function getResultFromSearch(result, index){
-    if (data === 'GHG'){
-      if (index === 0){
-        tableMode = "Search";
-        buttonMode = "Search";
-        results = [];
-        var firstResult = countryTableLookUp[result.id];
-        if (firstResult !== undefined){ //Because we dont have final database
-          results.push(firstResult);
-        }
+    if (index === 0){
+      tableMode = "Search";
+      buttonMode = "Search";
+      results = [];
+      var firstResult = countryTableLookUp[result.id];
+      if (firstResult !== undefined){ //Because we dont have final database
+        results.push(firstResult);
       }
-      else {
-        var countryResult = countryTableLookUp[result.id];
-        if (countryResult !== undefined){ //Because we dont have final database
-          results.push(countryResult);
-        }
+    }
+    else {
+      var countryResult = countryTableLookUp[result.id];
+      if (countryResult !== undefined){ //Because we dont have final database
+        results.push(countryResult);
       }
     }
 
@@ -226,6 +225,8 @@
   }
 
   let rerender: () => void;
+
+  console.log(results);
 
 </script>
 
@@ -314,7 +315,7 @@
           </div>
 
           <div class="country-description">
-            {row.desc}
+            {description}
           </div>
 
         </div>
@@ -328,21 +329,21 @@
       </span>
 
       <span class="row-number">
-        {row.emissions2015}
+        {row.emissions2019}
         <p class="number-descriptor">{emissions2015Comment}</p>
       </span>
       <span class="row-number">
-        {row.globalPCT}{@html globalPCTComment}
+        {row.globalPct}{@html globalPCTComment}
       </span>
       <span class="row-number">
-        {row.perCapita}
+        {row.percapita}
         <p class="number-descriptor">{@html perCapitaComment}</p>
       </span>
     {/each}
   </div>
 
 {:else}
-
+<!--
   <div class="grid-climate-risk">
     <div class="header" class:selected="{currentSortingHeader === 'country'}"
         on:click={() => reorder('country')}
@@ -420,7 +421,7 @@
           </div>
 
           <div class="country-description">
-            {row.desc}
+            {description}
           </div>
 
         </div>
@@ -439,19 +440,19 @@
       </div>
 
       <span class="row-number">
-        {row.emissions2015}
+        {row.emissions2019}
         <p class="number-descriptor">{emissions2015Comment}</p>
       </span>
       <span class="row-number">
-        {row.globalPCT}{@html globalPCTComment}
+        {row.globalPct}{@html globalPCTComment}
       </span>
       <span class="row-number">
-        {row.perCapita}
+        {row.percapita}
         <p class="number-descriptor">{@html perCapitaComment}</p>
       </span>
     {/each}
   </div>  
-
+  -->
   {/if}
 
   {#if buttonMode !== "Search"}
