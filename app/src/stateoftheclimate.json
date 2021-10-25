@@ -107,10 +107,6 @@
       "data": "GHG"
     },
     {
-      "type": "country-table",
-      "data": "Risk"
-    },
-    {
       "type": "methodology",
       "title": "Data and notes",
       "menu": "Data and notes",
