@@ -10,7 +10,7 @@
   import countries from 'src/data/countryDictionary.json';
   import countryTableData from 'src/data/countryTableData.json';
   import countryTableData2 from 'src/data/countryTableData2.json';
-  import trendsData from 'src/data/trends.carto.json';
+  import co2trends from 'src/data/co2trends.json';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
   import DistributionTiles from "src/components/charts/DistributionTiles.svelte";
@@ -18,7 +18,7 @@
   export var data : "GHG" | "Risk";
 
   const countryTableLookUp = createLookup(countryTableData, d => d.id, d => d);
-  const countryTable2LookUp = createLookup(countryTableData2, d => d.id, d => d);
+  //const countryTable2LookUp = createLookup(countryTableData2, d => d.id, d => d);
 
 
   const numMainCountriesTable = 6;
@@ -30,7 +30,7 @@
   const globalPCTComment = `<t style="font-size:16px;">%</t>`;
   const perCapitaComment = `tonnes<br> of GHG`;
 
-  var selectedDatabase = data === "GHG" ? countryTableData : countryTableData2;
+  var selectedDatabase = data === "GHG" ? countryTableData : countryTableData;
 
   var buttonMode: "First" | "Search" | "All";
   buttonMode = "All";
@@ -69,28 +69,26 @@
 
   //TREND DATA GENERATION 
   var countryEmissions = [];
-  if (data === 'GHG'){
-    var countryDataArray = trendsData.data;
+  var countryDataArray = co2trends;
 
-    for (let i = 0; i < countryDataArray.length; i++){
-      let emissionsArray = Object.entries(countryDataArray[i].emissions);
-      let entries = [];
-      let baseValue = 0;
-      let lastValue = 0;
-      emissionsArray.forEach(([key, value]) => {
-        let yearEntry = {year: parseInt(key), value: value};
-        if (yearEntry.year === 1990){
-          baseValue = value;
-        }
-        else if (yearEntry.year === 2015){
-          lastValue = value;
-        }
-        entries.push(yearEntry);
-      });
-      let cat = getCategory(baseValue, lastValue);
-      const newCountry = {id:countryDataArray[i].id, emissions: entries, category: cat};
-      countryEmissions.push(newCountry);
-    }
+  for (let i = 0; i < countryDataArray.length; i++){
+    let emissionsArray = Object.entries(countryDataArray[i].emissions);
+    let entries = [];
+    let baseValue = 0;
+    let lastValue = 0;
+    emissionsArray.forEach(([key, value]) => {
+      let yearEntry = {year: parseInt(key), value: value};
+      if (yearEntry.year === 1990){
+        baseValue = value;
+      }
+      else if (yearEntry.year === 2019){
+        lastValue = value;
+      }
+      entries.push(yearEntry);
+    });
+    let cat = getCategory(baseValue, lastValue);
+    const newCountry = {id:countryDataArray[i].code, emissions: entries, category: cat};
+    countryEmissions.push(newCountry);
   }
 
   const countryTrendLookUp = createLookup(countryEmissions, c => c.id, c => c);
@@ -280,7 +278,7 @@
         {#if currentSortingHeader === 'emissions2015'}
           <i class="arrow-down" class:arrow-up="{sortingMethod === 'Ascending'}"></i>
         {/if}
-        2015 EMISSIONS
+        2019 EMISSIONS
       </span>
     </div>
 
@@ -414,35 +412,31 @@
 
 
     {#each results as row}
-      <span>
-        <div class="country-name">
-          {row.name}
-        </div>
-      </span>
-
       <span class="country-span">
         <div class="country-column">
 
-          <div class="distribution-chart">
-            <span bind:clientWidth={widthLineChart}>
-              <DistributionTiles
-                data = {climateRiskIndexData}
-                selectedCountry = {row.id}
-                selectedDataset = "ClimateRiskIndex"
-                width2 = {widthLineChart}
-                height2 = {heightLineChart}
-              />
-            </span>
+          <div class="country-name">
+            {row.name}
           </div>
 
-          <div class="climate-risk-number">
-            {row.climateRiskIndex}
+          <div class="country-description">
+            {row.desc}
           </div>
 
         </div>
       </span>
 
-
+      <div class="distribution-chart">
+        <span bind:clientWidth={widthLineChart}>
+          <DistributionTiles
+            data = {climateRiskIndexData}
+            selectedCountry = {row.id}
+            selectedDataset = "ClimateRiskIndex"
+            width2 = {widthLineChart}
+            height2 = {heightLineChart}
+          />
+        </span>
+      </div>
 
       <span class="row-number">
         {row.emissions2015}
