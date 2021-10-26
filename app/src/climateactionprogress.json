@@ -34,7 +34,57 @@
       "type": "menu"
     },
     {
-      "type": "carto-scroller"
+      "type": "carto-scrolly",
+      "title": "Emissions",
+      "icon": "stateoftheclimate.emissions",
+      "menu": "Scrolly Carto",
+      "menuicon": "stateoftheclimate.main",
+      "data": "ghg",
+      "embed": "ghg",
+      "head": "GHG emissions are changing our climate and choking our world",
+      "text": [
+        {
+          "p": "Net-zero target emissions cartogram by GHG emissions colored by NZT status"
+        },
+        {
+          "p": "Same, highlight biggest emitters"
+        },
+        {
+          "p": "Tilegram showing trend colored by NZT status"
+        },
+        {
+          "p": "Same highlighting trends"
+        }
+      ]
+    },
+    {
+      "type": "carto-world",
+      "title": "NDC",
+      "icon": "climateactionprogress.ndc",
+      "menu": "State of the climate",
+      "menuicon": "climateactionprogress.ndc",
+      "data": "ndc",
+      "embed": "ndc",
+      "head": "NDC BLA BLA BLA",
+      "text": [
+        {
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
+        }
+      ]
+    },
+    {
+      "type": "pew-survey",
+      "title": "Pew Survey",
+      "icon": "climateactionprogress.opinion",
+      "menu": "Pew Survey",
+      "menuicon": "climateactionprogress.opinion",
+      "embed": "survey",
+      "head": "PEW SURVEY BLA BLA BLA",
+      "text": [
+        {
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
+        }
+      ]
     },
     {
       "type": "methodology",

@@ -37,8 +37,8 @@
       "type": "carto-world",
       "title": "Emissions",
       "icon": "stateoftheclimate.emissions",
-      "menu": "State of the climate",
-      "menuicon": "stateoftheclimate.main",
+      "menu": "Total emissions",
+      "menuicon": "stateoftheclimate.emissions",
       "data": "ghg",
       "embed": "ghg",
       "head": "GHG emissions are changing our climate and choking our world",
@@ -46,12 +46,25 @@
         {
           "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
+      ],
+      "legend": [
+        {
+          "l": "Decreased since 1990"
+        },
+        {
+          "l": "Stable since 1990"
+        },
+        {
+          "l": "Still climbing"
+        }
       ]
     },
     {
       "type": "carto-world",
       "title": "Per capita",
       "icon": "stateoftheclimate.percapita",
+      "menu": "Per capita emissions",
+      "menuicon": "stateoftheclimate.percapita",
       "data": "percapita",
       "embed": "percapita",
       "head": "Our individual carbon footprints vary wildly; wealth is a key factor",
@@ -65,6 +78,8 @@
       "type": "trends",
       "title": "Trends",
       "icon": "stateoftheclimate.trends",
+      "menu": "Country trends",
+      "menuicon": "stateoftheclimate.trends",
       "data": "trends",
       "embed": "trends",
       "head": "Some countries are making progress but all nations need to step up",
@@ -73,6 +88,27 @@
           "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
         }
       ]
+    },
+    {
+      "type": "table",
+      "title": "By country",
+      "icon": "stateoftheclimate.trends",
+      "data": "ghgbycountry",
+      "embed": "ghgbycountry",
+      "head": "Some countries are making progress but all nations need to step up",
+      "text": [
+        {
+          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
+        }
+      ]
+    },
+    {
+      "type": "country-table",
+      "data": "GHG"
+    },
+    {
+      "type": "country-table",
+      "data": "Risk"
     },
     {
       "type": "methodology",
