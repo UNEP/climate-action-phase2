@@ -220,7 +220,7 @@
 
   .grid-table {
     display: grid;
-    grid-template-columns: 200px 1fr 0.5fr 120px 120px 120px;
+    grid-template-columns: 200px 1fr 180px 110px 110px 90px;
     row-gap: 10px;
     border-top: 0px solid black;
     border-bottom: 0px solid #e5e5e5;
@@ -259,6 +259,8 @@
   .cell-description {
     font-weight: 100;
     font-size: 16px;
+    line-height: 1.6;
+    max-width: 400px;
   }
 
   .cell-number {
@@ -355,6 +357,38 @@
         background-color: #f9f9f9;
       }
     }
+  }
+
+  // RESPONSIVELY DROP COLUMNS
+  // original column template is:
+  // grid-template-columns: 200px 1fr 180px 110px 110px 90px;
+
+  @media (max-width: 1250px) {
+    .header[data-name='As pct of global'], .cell-perc {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 1fr 180px 110px 90px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    .header[data-name=''], .cell-description {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 180px 110px 90px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .header[data-name='Per capita'], .cell-pcap {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 180px 110px;
+    }
+
   }
 
 </style>
