@@ -9,17 +9,16 @@
   import co2trends from 'src/data/co2trends.json';
   import co2data from 'src/data/co2data.json';
   import type { Unpacked } from 'src/util';
+  import { displayVal } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
+  import Icon from './Icon.svelte';
 
   const description = "It has had one of the biggest increases in GHG emissions\
    -422% since 1990. Today, it accounts for 0.33% of global emissions.";
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
-  const emissions2015Comment = 'million tonnes of GHG';
-  const globalPCTComment = `<t style="font-size:16px;">%</t>`;
-  const perCapitaComment = `tonnes<br> of GHG`;
 
   const ROW_LIMIT = 6;
 
@@ -164,12 +163,12 @@
         data-name={h.name}
         on:click={() => h.sortable && onClickHeader(h)}
       >
-        <span>
-          {h.name}
-          {#if sort && sort.column === h.name}
-            <i class="arrow-down" class:arrow-up={sort.asc}></i>
-          {/if}
-        </span>
+        <span>{h.name}</span>
+        {#if sort && sort.column === h.name}
+          <div class="sort-arrow" class:sort-arrow--asc={sort.asc}>
+            <Icon name='arrows.down' />
+          </div>
+        {/if}
       </div>
     {/each}
 
@@ -187,18 +186,16 @@
           />
         </div>
 
-        <div class="cell-number">
-          {row.emissions2019}
-          <p class="number-descriptor">{emissions2015Comment}</p>
+        <div class="cell-number cell-ghg">
+          {displayVal(row.emissions2019, 2)} <span>million tonnes of GHG</span>
         </div>
 
-        <div class="cell-number">
-          {row.globalPct}{@html globalPCTComment}
+        <div class="cell-number cell-perc">
+          {row.globalPct < 0.1 ? '<0.1' : row.globalPct.toFixed(1)}<span>%</span>
         </div>
 
-        <div class="cell-number">
-          {row.percapita}
-          <p class="number-descriptor">{@html perCapitaComment}</p>
+        <div class="cell-number cell-pcap">
+          {row.percapita} <span>tonnes of GHG</span>
         </div>
 
       </div>
@@ -223,33 +220,23 @@
 
   .grid-table {
     display: grid;
-    grid-template-columns: 200px 1fr 0.5fr 100px 100px 100px;
+    grid-template-columns: 200px 1fr 0.5fr 120px 120px 120px;
     row-gap: 10px;
     border-top: 0px solid black;
     border-bottom: 0px solid #e5e5e5;
     border-right: 0px solid black;
   }
 
-  .arrow-down {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 5px;
-    margin-bottom: 3px;
-    margin-left: 6px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
+  .sort-arrow {
+    width: 24px;
+    flex-shrink: 0;
+    position: relative;
+    top: 1px;
 
-  .arrow-up {
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 5px;
-    margin-bottom: -3px;
-    margin-left: 6px;
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
+    &.sort-arrow--asc {
+      transform-origin: 50% 42%;
+      transform: rotate(180deg);
+    }
   }
 
   .row {
@@ -262,10 +249,6 @@
 
   .cell-name, .cell-description {
     padding-right: 10px;
-  }
-
-  .cell-number {
-    padding-left: 10px;
   }
 
   .cell-name {
@@ -282,14 +265,28 @@
     font-weight: 100;
     font-size: 24px;
     text-align: right;
+    padding-left: 10px;
+    span {
+      color: #818181;
+      font-weight: 500;
+      text-align: right;
+      font-size: 16px;
+      margin: 0%;
+    }
   }
 
-  .number-descriptor {
-    color: #818181;
-    font-weight: 500;
-    text-align: right;
-    font-size: 16px;
-    margin: 0%;
+  .cell-pcap, .cell-ghg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 2px;
+
+    span {
+      font-size: 14px;
+      display: block;
+      line-height: 1.6;
+      width: 90px;
+    }
   }
 
   .show-more-button {
@@ -302,29 +299,40 @@
     cursor: pointer;
   }
 
-  .selected {
-    border-color: black !important;
-    font-weight: 700;
-  }
-
   .header {
     display: flex;
     border-bottom: 2px solid #cccccc;
     padding-bottom: 10px;
     align-items: flex-end;
-
-    > span {
-      flex: 1;
-    }
+    text-transform: uppercase;
+    position: relative;
 
     &.sortable {
       cursor: pointer;
+    }
+
+    &.selected {
+      border-color: black !important;
+      font-weight: 700;
     }
 
     &[data-name="2019 emissions"],
     &[data-name="As pct of global"],
     &[data-name="Per capita"] {
       text-align: right;
+      flex-direction: row-reverse;
+    }
+
+    &[data-name="Per capita"] span {
+      width: 60px;
+    }
+
+    &[data-name="As pct of global"] span {
+      width: 80px;
+    }
+
+    &[data-name="2019 emissions"] span {
+      width: 88px;
     }
   }
 
