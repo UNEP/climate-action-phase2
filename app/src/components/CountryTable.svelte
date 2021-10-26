@@ -6,79 +6,45 @@
 </script>
 
 <script lang="ts">
-  import co2trends from 'src/data/co2trends.json';
-  import co2data from 'src/data/co2data.json';
+  import CRIdata from 'src/data/cri.json';
   import type { Unpacked } from 'src/util';
   import { createLookup } from 'src/util';
-  import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
+  import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
 
-  const description = "It has had one of the biggest increases in GHG emissions\
-   -422% since 1990. Today, it accounts for 0.33% of global emissions.";
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
-  const emissions2015Comment = 'million tonnes of GHG';
-  const globalPCTComment = `<t style="font-size:16px;">%</t>`;
-  const perCapitaComment = `tonnes<br> of GHG`;
 
   const ROW_LIMIT = 6;
 
-  type RowData = Unpacked<typeof co2data>;
+  type RowData = Unpacked<typeof CRIdata>;
 
-  let sortedData = co2data;
+  let sortedData = CRIdata;
 
   let showAll = false;
+
+  let climateRiskIndexData: CountryDataSquare[] = CRIdata
+    .map(d => {
+      return { id: d.id, value: d.cri_score};
+    });
 
   let widthLineChart = 225;
   // let heightLineChart = 100;
   // let widthDistribution = 10;
 
-  let countryEmissions = [];
-  let countryDataArray = co2trends;
-
-  for (let i = 0; i < countryDataArray.length; i++){
-    let emissionsArray = Object.entries(countryDataArray[i].emissions);
-    let entries = [];
-    let baseValue = 0;
-    let lastValue = 0;
-    emissionsArray.forEach(([key, value]) => {
-      let yearEntry = {year: parseInt(key), value: value};
-      if (yearEntry.year === 1990){
-        baseValue = value;
-      }
-      else if (yearEntry.year === 2019){
-        lastValue = value;
-      }
-      entries.push(yearEntry);
-    });
-    let cat = getCategory(baseValue, lastValue);
-    const newCountry = {id:countryDataArray[i].code, emissions: entries, category: cat};
-    countryEmissions.push(newCountry);
-  }
-
-  const countryTrendLookUp = createLookup(countryEmissions, c => c.id, c => c);
-
-  function getCategory(baseValue, lastValue) {
-    let diff = (lastValue - baseValue) / baseValue;
-    if (Math.abs(diff) < 0.25)
-      return 'stable';
-    else if (diff < -0.25)
-      return 'falling';
-    else
-      return 'climbing-fast';
-  }
-
   type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
 
   const headers: Header[] = [
-    { name: 'Country', sortable: true, defaultSort: 'asc' },
-    { name: 'Trend', sortable: false },
-    { name: '2019 emissions', sortable: true },
-    { name: 'As pct of global', sortable: true },
-    { name: 'Per capita', sortable: true },
+    { name: 'COUNTRY', sortable: true, defaultSort: 'asc' },
+    { name: 'INDEX', sortable: true },
+    { name: 'RANK', sortable: true },
+    { name: 'TOTAL', sortable: true },
+    { name: 'POP.ADJ.', sortable: true },
+    { name: 'TOTAL2', sortable: true },
+    { name: 'AS GDP PCT.', sortable: true },
   ];
 
-  let sort: {column: string, asc: boolean} = {column: 'Country', asc: true};
+  let sort: {column: string, asc: boolean} = {column: 'COUNTRY', asc: true};
 
   const onClickHeader = (header: Header) => {
     if (header.name === sort.column) {
@@ -92,17 +58,28 @@
   };
 
   const getSortAsc = ({column}: typeof sort): RowData[] => {
-    if (column === 'Country') {
-      return [...co2data].sort((a,b) => a.name > b.name ? 1 : -1);
+    if (column === 'COUNTRY') {
+      return [...CRIdata].sort((a,b) => a.country > b.country ? 1 : -1);
     }
-    else if (column === '2019 emissions') {
-      return [...co2data].sort((a,b) => a.emissions2019 - b.emissions2019);
+    else if (column === 'INDEX') {
+      return [...CRIdata].sort((a,b) => a.cri_score - b.cri_score);
     }
-    else if (column === 'As pct of global') {
-      return [...co2data].sort((a,b) => a.globalPct - b.globalPct);
+    else if (column === 'RANK') {
+      return [...CRIdata].sort((a,b) => a.cri_rank - b.cri_rank);
     }
-    else if (column === 'Per capita') {
-      return [...co2data].sort((a,b) => a.percapita - b.percapita);
+    else if (column === 'TOTAL') {
+      return [...CRIdata].sort((a,b) => a.fatalities_in_2019 - b.fatalities_in_2019);
+    }
+    else if (column === 'POP.ADJ.') {
+      return [...CRIdata].sort((a,b) => a.fatalities_per_100000_inhabitants - 
+        b.fatalities_per_100000_inhabitants);
+    }
+    else if (column === 'TOTAL2') {
+      return [...CRIdata].sort((a,b) => a.losses_in_millions_usd - b.losses_in_millions_usd);
+    }
+    else if (column === 'AS GDP PCT.') {
+      return [...CRIdata].sort((a,b) => a.losses_per_unit_gdp_percentage -
+       b.losses_per_unit_gdp_percentage);
     }
   };
 
@@ -119,7 +96,7 @@
     return sortedData
       .map(d => ({
         id: d.id,
-        searchIndex: re.exec(d.name)?.index
+        searchIndex: re.exec(d.country)?.index
       }))
       .filter(d => d.searchIndex !== undefined)
       .sort((a, b) => a.searchIndex - b.searchIndex)
@@ -150,6 +127,22 @@
   <input bind:value={searchText} placeholder='Search a country' />
 </div>
 
+<div class="header-label-span" >
+  <div class="header-label-column">
+    <div class="label-1">
+      CLIMATE<br>RISK
+    </div>
+    <div class="label-2">
+      CLIMATE-RELATED<br>DEATHS
+    </div>
+    <div class="label-3">
+      CLIMATE-RELATED<br>ECONOMIC LOSSES
+    </div>
+  </div>
+</div>
+
+<div style="padding-bottom:5px"></div>
+
 <div class="grid-ghg">
 
   {#each headers as h}
@@ -166,37 +159,41 @@
 
   {#each sortedData as row, i}
     <div class="row" style={!displayRow(row, i) && 'display: none'}>
-      <span class="country-span">
+      <span class="country-name">
+        {row.country}
+      </span>
+
+      <span class="country-span" >
         <div class="country-column">
-
-          <div class="country-name">
-            {row.name}
+          <div class="country-distribution" bind:clientWidth={widthLineChart}>
+              <DistributionTiles
+              data={climateRiskIndexData}
+              selectedCountry={row.id}
+              selectedDataset="ClimateRiskIndex"
+              width2={widthLineChart}
+              height2={65}
+            />
           </div>
-
-          <div class="country-description">
-            {description}
+          <div class="country-index">
+            {row.cri_score}
           </div>
-
         </div>
       </span>
 
-      <span bind:clientWidth={widthLineChart}>
-        <MiniLineChart
-          data={countryTrendLookUp[row.id].emissions}
-          category={countryTrendLookUp[row.id].category}
-        />
-      </span>
-
       <span class="row-number">
-        {row.emissions2019}
-        <p class="number-descriptor">{emissions2015Comment}</p>
+        {row.cri_rank}
       </span>
       <span class="row-number">
-        {row.globalPct}{@html globalPCTComment}
+        {row.fatalities_in_2019}
       </span>
       <span class="row-number">
-        {row.percapita}
-        <p class="number-descriptor">{@html perCapitaComment}</p>
+        {row.fatalities_per_100000_inhabitants}
+      </span>
+      <span class="row-number">
+        {row.losses_in_millions_usd}
+      </span>
+      <span class="row-number">
+        {row.losses_per_unit_gdp_percentage}
       </span>
     </div>
   {/each}
@@ -213,6 +210,32 @@
 <div style="padding-bottom:60px"></div>
 
 <style>
+
+  .header-label-span{
+    width: 100%;
+    display: table;
+  }
+
+  .header-label-column{
+    display: table-row;
+  }
+
+  .label-1{
+    display:table-cell;
+    width: 55%;
+    text-align: right;
+  }
+
+  .label-2{
+    display:table-cell;
+    width: 50%;
+    text-align: right;
+  }
+
+  .label-3{
+    display:table-cell;
+    text-align: right;
+  }
 
 
 .arrow-down {
@@ -251,16 +274,19 @@
 }
 
 .country-name {
-  width: 35%;
-  display: table-cell;
   font-size: 24px;
   font-weight: bold;
 }
 
-.country-description {
+.country-distribution{
+  width: 50%;
+  display:table-cell;
+}
+
+.country-index {
   display: table-cell;
+  text-align: right;
   font-weight: 100;
-  font-size: 16px;
 }
 
 .row-number {
@@ -297,6 +323,7 @@
 .header {
   border-bottom: 2px solid #cccccc;
   padding-bottom: 10px;
+  text-align: right;
   cursor: pointer;
 }
 
@@ -345,7 +372,7 @@
 
 .grid-ghg {
   display: grid;
-  grid-template-columns: 50% 20% 10% 10% 10%;
+  grid-template-columns: 25% 25% 5% 11.25% 11.25% 11.25% 11.25%;
   border-top: 0px solid black;
   border-bottom: 0px solid #e5e5e5;
   border-right: 0px solid black;

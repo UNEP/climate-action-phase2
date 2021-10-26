@@ -55,7 +55,7 @@
 </script>
 
 <div>
-    <svg viewBox="0 0 {width2} {height2}" id="barchart">
+    <svg viewBox="0 0 {width2} {height2}" transform="scale(-1,1)" id="barchart">
       {#each data as d}
           {#if d.value !== null && d.id !== selectedCountry}
             <g id={d.id} class="region">
@@ -69,6 +69,7 @@
                 rx={xBorderRadius}
                 ry={yBorderRadius}
                 filter="none"
+                fill="red"
                 style = "--theme-color: {colorFunction(d.value)}"
               />
             </g>

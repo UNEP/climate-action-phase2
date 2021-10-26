@@ -1,0 +1,1752 @@
+[
+  {
+     "country": "Mozambique",
+     "id": "MOZ",
+     "cri_rank": 1.0,
+     "cri_score": 2.67,
+     "fatalities_in_2019": 2.0,
+     "fatalities_per_100000_inhabitants": 3.0,
+     "losses_in_millions_usd": 4.0,
+     "losses_per_unit_gdp_percentage": 2.0
+  },
+  {
+     "country": "Bahamas",
+     "id": "BHS",
+     "cri_rank": 3.0,
+     "cri_score": 6.5,
+     "fatalities_in_2019": 30.0,
+     "fatalities_per_100000_inhabitants": 1.0,
+     "losses_in_millions_usd": 5.0,
+     "losses_per_unit_gdp_percentage": 1.0
+  },
+  {
+     "country": "Japan",
+     "id": "JPN",
+     "cri_rank": 4.0,
+     "cri_score": 14.5,
+     "fatalities_in_2019": 9.0,
+     "fatalities_per_100000_inhabitants": 20.0,
+     "losses_in_millions_usd": 2.0,
+     "losses_per_unit_gdp_percentage": 18.0
+  },
+  {
+     "country": "Malawi",
+     "id": "MWI",
+     "cri_rank": 5.0,
+     "cri_score": 15.17,
+     "fatalities_in_2019": 20.0,
+     "fatalities_per_100000_inhabitants": 13.0,
+     "losses_in_millions_usd": 35.0,
+     "losses_per_unit_gdp_percentage": 5.0
+  },
+  {
+     "country": "Afghanistan",
+     "id": "AFG",
+     "cri_rank": 6.0,
+     "cri_score": 16.0,
+     "fatalities_in_2019": 11.0,
+     "fatalities_per_100000_inhabitants": 11.0,
+     "losses_in_millions_usd": 33.0,
+     "losses_per_unit_gdp_percentage": 15.0
+  },
+  {
+     "country": "India",
+     "id": "IND",
+     "cri_rank": 7.0,
+     "cri_score": 16.67,
+     "fatalities_in_2019": 1.0,
+     "fatalities_per_100000_inhabitants": 36.0,
+     "losses_in_millions_usd": 1.0,
+     "losses_per_unit_gdp_percentage": 13.0
+  },
+  {
+     "country": "South Sudan",
+     "id": "SSD",
+     "cri_rank": 8.0,
+     "cri_score": 17.33,
+     "fatalities_in_2019": 12.0,
+     "fatalities_per_100000_inhabitants": 4.0,
+     "losses_in_millions_usd": 64.0,
+     "losses_per_unit_gdp_percentage": 10.0
+  },
+  {
+     "country": "Niger",
+     "id": "NER",
+     "cri_rank": 9.0,
+     "cri_score": 18.17,
+     "fatalities_in_2019": 17.0,
+     "fatalities_per_100000_inhabitants": 12.0,
+     "losses_in_millions_usd": 46.0,
+     "losses_per_unit_gdp_percentage": 11.0
+  },
+  {
+     "country": "Bolivia",
+     "id": "BOL",
+     "cri_rank": 10.0,
+     "cri_score": 19.67,
+     "fatalities_in_2019": 43.0,
+     "fatalities_per_100000_inhabitants": 15.0,
+     "losses_in_millions_usd": 27.0,
+     "losses_per_unit_gdp_percentage": 9.0
+  },
+  {
+     "country": "Sudan",
+     "id": "SDN",
+     "cri_rank": 11.0,
+     "cri_score": 19.83,
+     "fatalities_in_2019": 22.0,
+     "fatalities_per_100000_inhabitants": 25.0,
+     "losses_in_millions_usd": 23.0,
+     "losses_per_unit_gdp_percentage": 12.0
+  },
+  {
+     "country": "Nepal",
+     "id": "NPL",
+     "cri_rank": 12.0,
+     "cri_score": 20.0,
+     "fatalities_in_2019": 10.0,
+     "fatalities_per_100000_inhabitants": 7.0,
+     "losses_in_millions_usd": 42.0,
+     "losses_per_unit_gdp_percentage": 27.0
+  },
+  {
+     "country": "Bangladesh",
+     "id": "BGD",
+     "cri_rank": 13.0,
+     "cri_score": 23.5,
+     "fatalities_in_2019": 7.0,
+     "fatalities_per_100000_inhabitants": 29.0,
+     "losses_in_millions_usd": 20.0,
+     "losses_per_unit_gdp_percentage": 28.0
+  },
+  {
+     "country": "Indonesia",
+     "id": "IDN",
+     "cri_rank": 14.0,
+     "cri_score": 24.83,
+     "fatalities_in_2019": 3.0,
+     "fatalities_per_100000_inhabitants": 31.0,
+     "losses_in_millions_usd": 6.0,
+     "losses_per_unit_gdp_percentage": 39.0
+  },
+  {
+     "country": "Pakistan",
+     "id": "PAK",
+     "cri_rank": 15.0,
+     "cri_score": 25.0,
+     "fatalities_in_2019": 8.0,
+     "fatalities_per_100000_inhabitants": 39.0,
+     "losses_in_millions_usd": 14.0,
+     "losses_per_unit_gdp_percentage": 25.0
+  },
+  {
+     "country": "Comoros",
+     "id": "COM",
+     "cri_rank": 16.0,
+     "cri_score": 25.33,
+     "fatalities_in_2019": 67.0,
+     "fatalities_per_100000_inhabitants": 6.0,
+     "losses_in_millions_usd": 65.0,
+     "losses_per_unit_gdp_percentage": 4.0
+  },
+  {
+     "country": "Philippines",
+     "id": "PHL",
+     "cri_rank": 17.0,
+     "cri_score": 26.67,
+     "fatalities_in_2019": 13.0,
+     "fatalities_per_100000_inhabitants": 40.0,
+     "losses_in_millions_usd": 15.0,
+     "losses_per_unit_gdp_percentage": 26.0
+  },
+  {
+     "country": "Islamic Rep. of Iran",
+     "id": "IRN",
+     "cri_rank": 18.0,
+     "cri_score": 27.0,
+     "fatalities_in_2019": 22.0,
+     "fatalities_per_100000_inhabitants": 45.0,
+     "losses_in_millions_usd": 8.0,
+     "losses_per_unit_gdp_percentage": 21.0
+  },
+  {
+     "country": "Australia",
+     "id": "AUS",
+     "cri_rank": 19.0,
+     "cri_score": 28.0,
+     "fatalities_in_2019": 37.0,
+     "fatalities_per_100000_inhabitants": 37.0,
+     "losses_in_millions_usd": 9.0,
+     "losses_per_unit_gdp_percentage": 24.0
+  },
+  {
+     "country": "Paraguay",
+     "id": "PRY",
+     "cri_rank": 20.0,
+     "cri_score": 30.0,
+     "fatalities_in_2019": 52.0,
+     "fatalities_per_100000_inhabitants": 22.0,
+     "losses_in_millions_usd": 38.0,
+     "losses_per_unit_gdp_percentage": 23.0
+  },
+  {
+     "country": "Myanmar",
+     "id": "MMR",
+     "cri_rank": 21.0,
+     "cri_score": 31.33,
+     "fatalities_in_2019": 24.0,
+     "fatalities_per_100000_inhabitants": 38.0,
+     "losses_in_millions_usd": 30.0,
+     "losses_per_unit_gdp_percentage": 29.0
+  },
+  {
+     "country": "Mongolia",
+     "id": "MNG",
+     "cri_rank": 22.0,
+     "cri_score": 31.67,
+     "fatalities_in_2019": 50.0,
+     "fatalities_per_100000_inhabitants": 9.0,
+     "losses_in_millions_usd": 62.0,
+     "losses_per_unit_gdp_percentage": 30.0
+  },
+  {
+     "country": "Angola",
+     "id": "AGO",
+     "cri_rank": 23.0,
+     "cri_score": 32.33,
+     "fatalities_in_2019": 44.0,
+     "fatalities_per_100000_inhabitants": 50.0,
+     "losses_in_millions_usd": 22.0,
+     "losses_per_unit_gdp_percentage": 14.0
+  },
+  {
+     "country": "South Africa",
+     "id": "ZAF",
+     "cri_rank": 24.0,
+     "cri_score": 32.5,
+     "fatalities_in_2019": 16.0,
+     "fatalities_per_100000_inhabitants": 26.0,
+     "losses_in_millions_usd": 31.0,
+     "losses_per_unit_gdp_percentage": 48.0
+  },
+  {
+     "country": "Chile",
+     "id": "CHL",
+     "cri_rank": 25.0,
+     "cri_score": 33.0,
+     "fatalities_in_2019": 52.0,
+     "fatalities_per_100000_inhabitants": 59.0,
+     "losses_in_millions_usd": 12.0,
+     "losses_per_unit_gdp_percentage": 8.0
+  },
+  {
+     "country": "Kenya",
+     "id": "KEN",
+     "cri_rank": 25.0,
+     "cri_score": 33.0,
+     "fatalities_in_2019": 15.0,
+     "fatalities_per_100000_inhabitants": 16.0,
+     "losses_in_millions_usd": 49.0,
+     "losses_per_unit_gdp_percentage": 51.0
+  },
+  {
+     "country": "Brazil",
+     "id": "BRA",
+     "cri_rank": 27.0,
+     "cri_score": 33.67,
+     "fatalities_in_2019": 5.0,
+     "fatalities_per_100000_inhabitants": 32.0,
+     "losses_in_millions_usd": 17.0,
+     "losses_per_unit_gdp_percentage": 58.0
+  },
+  {
+     "country": "Colombia",
+     "id": "COL",
+     "cri_rank": 28.0,
+     "cri_score": 36.33,
+     "fatalities_in_2019": 17.0,
+     "fatalities_per_100000_inhabitants": 18.0,
+     "losses_in_millions_usd": 37.0,
+     "losses_per_unit_gdp_percentage": 64.0
+  },
+  {
+     "country": "Madagascar",
+     "id": "MDG",
+     "cri_rank": 29.0,
+     "cri_score": 40.33,
+     "fatalities_in_2019": 19.0,
+     "fatalities_per_100000_inhabitants": 14.0,
+     "losses_in_millions_usd": 83.0,
+     "losses_per_unit_gdp_percentage": 56.0
+  },
+  {
+     "country": "Sri Lanka",
+     "id": "LKA",
+     "cri_rank": 30.0,
+     "cri_score": 41.83,
+     "fatalities_in_2019": 33.0,
+     "fatalities_per_100000_inhabitants": 24.0,
+     "losses_in_millions_usd": 48.0,
+     "losses_per_unit_gdp_percentage": 61.0
+  },
+  {
+     "country": "Uganda",
+     "id": "UGA",
+     "cri_rank": 31.0,
+     "cri_score": 42.17,
+     "fatalities_in_2019": 21.0,
+     "fatalities_per_100000_inhabitants": 19.0,
+     "losses_in_millions_usd": 68.0,
+     "losses_per_unit_gdp_percentage": 63.0
+  },
+  {
+     "country": "China",
+     "id": "CHN",
+     "cri_rank": 32.0,
+     "cri_score": 42.83,
+     "fatalities_in_2019": 4.0,
+     "fatalities_per_100000_inhabitants": 83.0,
+     "losses_in_millions_usd": 3.0,
+     "losses_per_unit_gdp_percentage": 42.0
+  },
+  {
+     "country": "Spain",
+     "id": "ESP",
+     "cri_rank": 32.0,
+     "cri_score": 42.83,
+     "fatalities_in_2019": 47.0,
+     "fatalities_per_100000_inhabitants": 69.0,
+     "losses_in_millions_usd": 10.0,
+     "losses_per_unit_gdp_percentage": 31.0
+  },
+  {
+     "country": "Thailand",
+     "id": "THA",
+     "cri_rank": 34.0,
+     "cri_score": 43.17,
+     "fatalities_in_2019": 36.0,
+     "fatalities_per_100000_inhabitants": 64.0,
+     "losses_in_millions_usd": 19.0,
+     "losses_per_unit_gdp_percentage": 38.0
+  },
+  {
+     "country": "Italy",
+     "id": "ITA",
+     "cri_rank": 35.0,
+     "cri_score": 43.5,
+     "fatalities_in_2019": 46.0,
+     "fatalities_per_100000_inhabitants": 70.0,
+     "losses_in_millions_usd": 7.0,
+     "losses_per_unit_gdp_percentage": 34.0
+  },
+  {
+     "country": "Greece",
+     "id": "GRC",
+     "cri_rank": 36.0,
+     "cri_score": 45.0,
+     "fatalities_in_2019": 50.0,
+     "fatalities_per_100000_inhabitants": 34.0,
+     "losses_in_millions_usd": 44.0,
+     "losses_per_unit_gdp_percentage": 54.0
+  },
+  {
+     "country": "Portugal",
+     "id": "PRT",
+     "cri_rank": 37.0,
+     "cri_score": 48.33,
+     "fatalities_in_2019": 67.0,
+     "fatalities_per_100000_inhabitants": 61.0,
+     "losses_in_millions_usd": 29.0,
+     "losses_per_unit_gdp_percentage": 36.0
+  },
+  {
+     "country": "Viet Nam",
+     "id": "VNM",
+     "cri_rank": 38.0,
+     "cri_score": 50.17,
+     "fatalities_in_2019": 25.0,
+     "fatalities_per_100000_inhabitants": 57.0,
+     "losses_in_millions_usd": 32.0,
+     "losses_per_unit_gdp_percentage": 65.0
+  },
+  {
+     "country": "Russian Fed.",
+     "id": "RUS",
+     "cri_rank": 39.0,
+     "cri_score": 50.67,
+     "fatalities_in_2019": 33.0,
+     "fatalities_per_100000_inhabitants": 80.0,
+     "losses_in_millions_usd": 13.0,
+     "losses_per_unit_gdp_percentage": 49.0
+  },
+  {
+     "country": "France",
+     "id": "FRA",
+     "cri_rank": 40.0,
+     "cri_score": 52.5,
+     "fatalities_in_2019": 41.0,
+     "fatalities_per_100000_inhabitants": 68.0,
+     "losses_in_millions_usd": 18.0,
+     "losses_per_unit_gdp_percentage": 60.0
+  },
+  {
+     "country": "Gambia",
+     "id": "GMB",
+     "cri_rank": 41.0,
+     "cri_score": 53.17,
+     "fatalities_in_2019": 80.0,
+     "fatalities_per_100000_inhabitants": 33.0,
+     "losses_in_millions_usd": 103.0,
+     "losses_per_unit_gdp_percentage": 35.0
+  },
+  {
+     "country": "Ghana",
+     "id": "GHA",
+     "cri_rank": 42.0,
+     "cri_score": 53.33,
+     "fatalities_in_2019": 29.0,
+     "fatalities_per_100000_inhabitants": 30.0,
+     "losses_in_millions_usd": 71.0,
+     "losses_per_unit_gdp_percentage": 80.0
+  },
+  {
+     "country": "Rwanda",
+     "id": "RWA",
+     "cri_rank": 42.0,
+     "cri_score": 53.33,
+     "fatalities_in_2019": 45.0,
+     "fatalities_per_100000_inhabitants": 21.0,
+     "losses_in_millions_usd": 99.0,
+     "losses_per_unit_gdp_percentage": 67.0
+  },
+  {
+     "country": "Lebanon",
+     "id": "LBN",
+     "cri_rank": 44.0,
+     "cri_score": 54.67,
+     "fatalities_in_2019": 72.0,
+     "fatalities_per_100000_inhabitants": 55.0,
+     "losses_in_millions_usd": 60.0,
+     "losses_per_unit_gdp_percentage": 43.0
+  },
+  {
+     "country": "Lao People’s Dem. Rep.",
+     "id": "LAO",
+     "cri_rank": 45.0,
+     "cri_score": 55.17,
+     "fatalities_in_2019": 57.0,
+     "fatalities_per_100000_inhabitants": 28.0,
+     "losses_in_millions_usd": 86.0,
+     "losses_per_unit_gdp_percentage": 66.0
+  },
+  {
+     "country": "Peru",
+     "id": "PER",
+     "cri_rank": 46.0,
+     "cri_score": 56.33,
+     "fatalities_in_2019": 37.0,
+     "fatalities_per_100000_inhabitants": 43.0,
+     "losses_in_millions_usd": 57.0,
+     "losses_per_unit_gdp_percentage": 79.0
+  },
+  {
+     "country": "Austria",
+     "id": "AUT",
+     "cri_rank": 47.0,
+     "cri_score": 56.83,
+     "fatalities_in_2019": 84.0,
+     "fatalities_per_100000_inhabitants": 79.0,
+     "losses_in_millions_usd": 25.0,
+     "losses_per_unit_gdp_percentage": 37.0
+  },
+  {
+     "country": "Bosnia and Herzegovina",
+     "id": "BIH",
+     "cri_rank": 48.0,
+     "cri_score": 57.83,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 82.0,
+     "losses_in_millions_usd": 45.0,
+     "losses_per_unit_gdp_percentage": 20.0
+  },
+  {
+     "country": "Nicaragua",
+     "id": "NIC",
+     "cri_rank": 49.0,
+     "cri_score": 58.0,
+     "fatalities_in_2019": 72.0,
+     "fatalities_per_100000_inhabitants": 52.0,
+     "losses_in_millions_usd": 82.0,
+     "losses_per_unit_gdp_percentage": 45.0
+  },
+  {
+     "country": "Dem. Rep. of the Congo",
+     "id": "COD",
+     "cri_rank": 51.0,
+     "cri_score": 58.67,
+     "fatalities_in_2019": 14.0,
+     "fatalities_per_100000_inhabitants": 41.0,
+     "losses_in_millions_usd": 90.0,
+     "losses_per_unit_gdp_percentage": 83.0
+  },
+  {
+     "country": "Papua New Guinea",
+     "id": "PNG",
+     "cri_rank": 51.0,
+     "cri_score": 58.67,
+     "fatalities_in_2019": 49.0,
+     "fatalities_per_100000_inhabitants": 17.0,
+     "losses_in_millions_usd": 105.0,
+     "losses_per_unit_gdp_percentage": 82.0
+  },
+  {
+     "country": "Yemen",
+     "id": "YEM",
+     "cri_rank": 53.0,
+     "cri_score": 59.33,
+     "fatalities_in_2019": 42.0,
+     "fatalities_per_100000_inhabitants": 46.0,
+     "losses_in_millions_usd": 84.0,
+     "losses_per_unit_gdp_percentage": 69.0
+  },
+  {
+     "country": "Mexico",
+     "id": "MEX",
+     "cri_rank": 54.0,
+     "cri_score": 59.5,
+     "fatalities_in_2019": 31.0,
+     "fatalities_per_100000_inhabitants": 73.0,
+     "losses_in_millions_usd": 26.0,
+     "losses_per_unit_gdp_percentage": 77.0
+  },
+  {
+     "country": "Argentina",
+     "id": "ARG",
+     "cri_rank": 55.0,
+     "cri_score": 60.0,
+     "fatalities_in_2019": 60.0,
+     "fatalities_per_100000_inhabitants": 86.0,
+     "losses_in_millions_usd": 28.0,
+     "losses_per_unit_gdp_percentage": 50.0
+  },
+  {
+     "country": "Germany",
+     "id": "DEU",
+     "cri_rank": 56.0,
+     "cri_score": 61.33,
+     "fatalities_in_2019": 65.0,
+     "fatalities_per_100000_inhabitants": 102.0,
+     "losses_in_millions_usd": 11.0,
+     "losses_per_unit_gdp_percentage": 44.0
+  },
+  {
+     "country": "Burundi",
+     "id": "BDI",
+     "cri_rank": 57.0,
+     "cri_score": 61.83,
+     "fatalities_in_2019": 26.0,
+     "fatalities_per_100000_inhabitants": 10.0,
+     "losses_in_millions_usd": 121.0,
+     "losses_per_unit_gdp_percentage": 102.0
+  },
+  {
+     "country": "Mauritania",
+     "id": "MRT",
+     "cri_rank": 58.0,
+     "cri_score": 63.0,
+     "fatalities_in_2019": 76.0,
+     "fatalities_per_100000_inhabitants": 44.0,
+     "losses_in_millions_usd": 96.0,
+     "losses_per_unit_gdp_percentage": 59.0
+  },
+  {
+     "country": "Zambia",
+     "id": "ZMB",
+     "cri_rank": 59.0,
+     "cri_score": 63.33,
+     "fatalities_in_2019": 80.0,
+     "fatalities_per_100000_inhabitants": 90.0,
+     "losses_in_millions_usd": 56.0,
+     "losses_per_unit_gdp_percentage": 32.0
+  },
+  {
+     "country": "Rep. of Korea",
+     "id": "KOR",
+     "cri_rank": 60.0,
+     "cri_score": 64.0,
+     "fatalities_in_2019": 52.0,
+     "fatalities_per_100000_inhabitants": 81.0,
+     "losses_in_millions_usd": 24.0,
+     "losses_per_unit_gdp_percentage": 73.0
+  },
+  {
+     "country": "Lesotho",
+     "id": "LSO",
+     "cri_rank": 61.0,
+     "cri_score": 64.67,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 58.0,
+     "losses_per_unit_gdp_percentage": 6.0
+  },
+  {
+     "country": "Canada",
+     "id": "CAN",
+     "cri_rank": 62.0,
+     "cri_score": 65.67,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 104.0,
+     "losses_in_millions_usd": 16.0,
+     "losses_per_unit_gdp_percentage": 40.0
+  },
+  {
+     "country": "Guatemala",
+     "id": "GTM",
+     "cri_rank": 62.0,
+     "cri_score": 65.67,
+     "fatalities_in_2019": 60.0,
+     "fatalities_per_100000_inhabitants": 66.0,
+     "losses_in_millions_usd": 66.0,
+     "losses_per_unit_gdp_percentage": 68.0
+  },
+  {
+     "country": "Belgium",
+     "id": "BEL",
+     "cri_rank": 64.0,
+     "cri_score": 66.0,
+     "fatalities_in_2019": 84.0,
+     "fatalities_per_100000_inhabitants": 85.0,
+     "losses_in_millions_usd": 36.0,
+     "losses_per_unit_gdp_percentage": 53.0
+  },
+  {
+     "country": "Turkey",
+     "id": "TUR",
+     "cri_rank": 64.0,
+     "cri_score": 66.0,
+     "fatalities_in_2019": 40.0,
+     "fatalities_per_100000_inhabitants": 71.0,
+     "losses_in_millions_usd": 34.0,
+     "losses_per_unit_gdp_percentage": 90.0
+  },
+  {
+     "country": "New Zealand",
+     "id": "NZL",
+     "cri_rank": 66.0,
+     "cri_score": 66.33,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 76.0,
+     "losses_in_millions_usd": 52.0,
+     "losses_per_unit_gdp_percentage": 52.0
+  },
+  {
+     "country": "United Rep. of Tanzania",
+     "id": "TZA",
+     "cri_rank": 67.0,
+     "cri_score": 66.5,
+     "fatalities_in_2019": 27.0,
+     "fatalities_per_100000_inhabitants": 47.0,
+     "losses_in_millions_usd": 88.0,
+     "losses_per_unit_gdp_percentage": 95.0
+  },
+  {
+     "country": "Cameroon",
+     "id": "CMR",
+     "cri_rank": 68.0,
+     "cri_score": 67.33,
+     "fatalities_in_2019": 32.0,
+     "fatalities_per_100000_inhabitants": 27.0,
+     "losses_in_millions_usd": 104.0,
+     "losses_per_unit_gdp_percentage": 107.0
+  },
+  {
+     "country": "Malta",
+     "id": "MLT",
+     "cri_rank": 68.0,
+     "cri_score": 67.33,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 54.0,
+     "losses_per_unit_gdp_percentage": 16.0
+  },
+  {
+     "country": "Central African Rep.",
+     "id": "CAF",
+     "cri_rank": 70.0,
+     "cri_score": 67.5,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 92.0,
+     "losses_in_millions_usd": 89.0,
+     "losses_per_unit_gdp_percentage": 17.0
+  },
+  {
+     "country": "Senegal",
+     "id": "SEN",
+     "cri_rank": 70.0,
+     "cri_score": 67.5,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 43.0,
+     "losses_per_unit_gdp_percentage": 22.0
+  },
+  {
+     "country": "Ethiopia",
+     "id": "ETH",
+     "cri_rank": 72.0,
+     "cri_score": 69.33,
+     "fatalities_in_2019": 39.0,
+     "fatalities_per_100000_inhabitants": 74.0,
+     "losses_in_millions_usd": 67.0,
+     "losses_per_unit_gdp_percentage": 81.0
+  },
+  {
+     "country": "Nigeria",
+     "id": "NGA",
+     "cri_rank": 73.0,
+     "cri_score": 70.0,
+     "fatalities_in_2019": 27.0,
+     "fatalities_per_100000_inhabitants": 84.0,
+     "losses_in_millions_usd": 47.0,
+     "losses_per_unit_gdp_percentage": 89.0
+  },
+  {
+     "country": "Luxembourg",
+     "id": "LUX",
+     "cri_rank": 74.0,
+     "cri_score": 72.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 53.0,
+     "losses_per_unit_gdp_percentage": 33.0
+  },
+  {
+     "country": "Djibouti",
+     "id": "DJI",
+     "cri_rank": 75.0,
+     "cri_score": 73.0,
+     "fatalities_in_2019": 64.0,
+     "fatalities_per_100000_inhabitants": 5.0,
+     "losses_in_millions_usd": 124.0,
+     "losses_per_unit_gdp_percentage": 120.0
+  },
+  {
+     "country": "Fiji",
+     "id": "FJI",
+     "cri_rank": 75.0,
+     "cri_score": 73.0,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 23.0,
+     "losses_in_millions_usd": 118.0,
+     "losses_per_unit_gdp_percentage": 92.0
+  },
+  {
+     "country": "Saudi Arabia",
+     "id": "SAU",
+     "cri_rank": 75.0,
+     "cri_score": 73.0,
+     "fatalities_in_2019": 48.0,
+     "fatalities_per_100000_inhabitants": 65.0,
+     "losses_in_millions_usd": 50.0,
+     "losses_per_unit_gdp_percentage": 105.0
+  },
+  {
+     "country": "Vanuatu",
+     "id": "VUT",
+     "cri_rank": 75.0,
+     "cri_score": 73.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 106.0,
+     "losses_per_unit_gdp_percentage": 7.0
+  },
+  {
+     "country": "Honduras",
+     "id": "HND",
+     "cri_rank": 79.0,
+     "cri_score": 73.33,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 93.0,
+     "losses_in_millions_usd": 72.0,
+     "losses_per_unit_gdp_percentage": 46.0
+  },
+  {
+     "country": "Libya",
+     "id": "LBY",
+     "cri_rank": 80.0,
+     "cri_score": 73.67,
+     "fatalities_in_2019": 67.0,
+     "fatalities_per_100000_inhabitants": 48.0,
+     "losses_in_millions_usd": 93.0,
+     "losses_per_unit_gdp_percentage": 93.0
+  },
+  {
+     "country": "Croatia",
+     "id": "HRV",
+     "cri_rank": 81.0,
+     "cri_score": 75.17,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 51.0,
+     "losses_per_unit_gdp_percentage": 41.0
+  },
+  {
+     "country": "Denmark",
+     "id": "DNK",
+     "cri_rank": 82.0,
+     "cri_score": 75.5,
+     "fatalities_in_2019": 72.0,
+     "fatalities_per_100000_inhabitants": 49.0,
+     "losses_in_millions_usd": 75.0,
+     "losses_per_unit_gdp_percentage": 104.0
+  },
+  {
+     "country": "Estonia",
+     "id": "EST",
+     "cri_rank": 83.0,
+     "cri_score": 75.67,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 60.0,
+     "losses_in_millions_usd": 92.0,
+     "losses_per_unit_gdp_percentage": 72.0
+  },
+  {
+     "country": "Cambodia",
+     "id": "KHM",
+     "cri_rank": 84.0,
+     "cri_score": 75.83,
+     "fatalities_in_2019": 60.0,
+     "fatalities_per_100000_inhabitants": 63.0,
+     "losses_in_millions_usd": 97.0,
+     "losses_per_unit_gdp_percentage": 86.0
+  },
+  {
+     "country": "Ukraine",
+     "id": "UKR",
+     "cri_rank": 85.0,
+     "cri_score": 76.17,
+     "fatalities_in_2019": 76.0,
+     "fatalities_per_100000_inhabitants": 100.0,
+     "losses_in_millions_usd": 41.0,
+     "losses_per_unit_gdp_percentage": 70.0
+  },
+  {
+     "country": "Sierra Leone",
+     "id": "SLE",
+     "cri_rank": 86.0,
+     "cri_score": 76.5,
+     "fatalities_in_2019": 67.0,
+     "fatalities_per_100000_inhabitants": 54.0,
+     "losses_in_millions_usd": 116.0,
+     "losses_per_unit_gdp_percentage": 84.0
+  },
+  {
+     "country": "Slovakia",
+     "id": "SVK",
+     "cri_rank": 87.0,
+     "cri_score": 77.17,
+     "fatalities_in_2019": 76.0,
+     "fatalities_per_100000_inhabitants": 53.0,
+     "losses_in_millions_usd": 87.0,
+     "losses_per_unit_gdp_percentage": 97.0
+  },
+  {
+     "country": "Dominica",
+     "id": "DMA",
+     "cri_rank": 88.0,
+     "cri_score": 77.67,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 110.0,
+     "losses_per_unit_gdp_percentage": 19.0
+  },
+  {
+     "country": "Montenegro",
+     "id": "MNE",
+     "cri_rank": 89.0,
+     "cri_score": 78.0,
+     "fatalities_in_2019": 80.0,
+     "fatalities_per_100000_inhabitants": 8.0,
+     "losses_in_millions_usd": 126.0,
+     "losses_per_unit_gdp_percentage": 123.0
+  },
+  {
+     "country": "Mali",
+     "id": "MLI",
+     "cri_rank": 90.0,
+     "cri_score": 79.67,
+     "fatalities_in_2019": 52.0,
+     "fatalities_per_100000_inhabitants": 58.0,
+     "losses_in_millions_usd": 108.0,
+     "losses_per_unit_gdp_percentage": 101.0
+  },
+  {
+     "country": "Morocco",
+     "id": "MAR",
+     "cri_rank": 90.0,
+     "cri_score": 79.67,
+     "fatalities_in_2019": 35.0,
+     "fatalities_per_100000_inhabitants": 42.0,
+     "losses_in_millions_usd": 117.0,
+     "losses_per_unit_gdp_percentage": 121.0
+  },
+  {
+     "country": "Uruguay",
+     "id": "URY",
+     "cri_rank": 90.0,
+     "cri_score": 79.67,
+     "fatalities_in_2019": 84.0,
+     "fatalities_per_100000_inhabitants": 56.0,
+     "losses_in_millions_usd": 100.0,
+     "losses_per_unit_gdp_percentage": 91.0
+  },
+  {
+     "country": "Poland",
+     "id": "POL",
+     "cri_rank": 93.0,
+     "cri_score": 80.0,
+     "fatalities_in_2019": 76.0,
+     "fatalities_per_100000_inhabitants": 97.0,
+     "losses_in_millions_usd": 40.0,
+     "losses_per_unit_gdp_percentage": 85.0
+  },
+  {
+     "country": "Iraq",
+     "id": "IRQ",
+     "cri_rank": 94.0,
+     "cri_score": 84.33,
+     "fatalities_in_2019": 56.0,
+     "fatalities_per_100000_inhabitants": 77.0,
+     "losses_in_millions_usd": 76.0,
+     "losses_per_unit_gdp_percentage": 110.0
+  },
+  {
+     "country": "Oman",
+     "id": "OMN",
+     "cri_rank": 95.0,
+     "cri_score": 84.67,
+     "fatalities_in_2019": 67.0,
+     "fatalities_per_100000_inhabitants": 35.0,
+     "losses_in_millions_usd": 123.0,
+     "losses_per_unit_gdp_percentage": 124.0
+  },
+  {
+     "country": "Switzerland",
+     "id": "CHE",
+     "cri_rank": 96.0,
+     "cri_score": 85.5,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 87.0,
+     "losses_in_millions_usd": 61.0,
+     "losses_per_unit_gdp_percentage": 94.0
+  },
+  {
+     "country": "Hungary",
+     "id": "HUN",
+     "cri_rank": 97.0,
+     "cri_score": 85.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 55.0,
+     "losses_per_unit_gdp_percentage": 71.0
+  },
+  {
+     "country": "Latvia",
+     "id": "LVA",
+     "cri_rank": 98.0,
+     "cri_score": 86.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 79.0,
+     "losses_per_unit_gdp_percentage": 62.0
+  },
+  {
+     "country": "Malaysia",
+     "id": "MYS",
+     "cri_rank": 99.0,
+     "cri_score": 87.33,
+     "fatalities_in_2019": 58.0,
+     "fatalities_per_100000_inhabitants": 78.0,
+     "losses_in_millions_usd": 74.0,
+     "losses_per_unit_gdp_percentage": 118.0
+  },
+  {
+     "country": "Iceland",
+     "id": "ISL",
+     "cri_rank": 100.0,
+     "cri_score": 88.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 101.0,
+     "losses_per_unit_gdp_percentage": 57.0
+  },
+  {
+     "country": "Liberia",
+     "id": "LBR",
+     "cri_rank": 101.0,
+     "cri_score": 89.5,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 109.0,
+     "losses_per_unit_gdp_percentage": 55.0
+  },
+  {
+     "country": "United Kingdom",
+     "id": "GBR",
+     "cri_rank": 102.0,
+     "cri_score": 90.83,
+     "fatalities_in_2019": 84.0,
+     "fatalities_per_100000_inhabitants": 105.0,
+     "losses_in_millions_usd": 39.0,
+     "losses_per_unit_gdp_percentage": 106.0
+  },
+  {
+     "country": "El Salvador",
+     "id": "SLV",
+     "cri_rank": 103.0,
+     "cri_score": 91.83,
+     "fatalities_in_2019": 80.0,
+     "fatalities_per_100000_inhabitants": 67.0,
+     "losses_in_millions_usd": 111.0,
+     "losses_per_unit_gdp_percentage": 113.0
+  },
+  {
+     "country": "Slovenia",
+     "id": "SVN",
+     "cri_rank": 103.0,
+     "cri_score": 91.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 85.0,
+     "losses_per_unit_gdp_percentage": 74.0
+  },
+  {
+     "country": "Serbia",
+     "id": "SRB",
+     "cri_rank": 105.0,
+     "cri_score": 92.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 78.0,
+     "losses_per_unit_gdp_percentage": 78.0
+  },
+  {
+     "country": "Norway",
+     "id": "NOR",
+     "cri_rank": 106.0,
+     "cri_score": 92.33,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 94.0,
+     "losses_in_millions_usd": 70.0,
+     "losses_per_unit_gdp_percentage": 99.0
+  },
+  {
+     "country": "Czechia",
+     "id": "CZE",
+     "cri_rank": 107.0,
+     "cri_score": 92.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 63.0,
+     "losses_per_unit_gdp_percentage": 88.0
+  },
+  {
+     "country": "Georgia",
+     "id": "GEO",
+     "cri_rank": 108.0,
+     "cri_score": 93.17,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 91.0,
+     "losses_per_unit_gdp_percentage": 75.0
+  },
+  {
+     "country": "Netherlands",
+     "id": "NLD",
+     "cri_rank": 109.0,
+     "cri_score": 97.17,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 59.0,
+     "losses_per_unit_gdp_percentage": 103.0
+  },
+  {
+     "country": "Congo",
+     "id": "COG",
+     "cri_rank": 109.0,
+     "cri_score": 97.17,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 89.0,
+     "losses_in_millions_usd": 115.0,
+     "losses_per_unit_gdp_percentage": 96.0
+  },
+  {
+     "country": "Maldives",
+     "id": "MDV",
+     "cri_rank": 111.0,
+     "cri_score": 97.33,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 114.0,
+     "losses_per_unit_gdp_percentage": 76.0
+  },
+  {
+     "country": "Finland",
+     "id": "FIN",
+     "cri_rank": 112.0,
+     "cri_score": 97.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 73.0,
+     "losses_per_unit_gdp_percentage": 98.0
+  },
+  {
+     "country": "Armenia",
+     "id": "ARM",
+     "cri_rank": 113.0,
+     "cri_score": 98.17,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 62.0,
+     "losses_in_millions_usd": 125.0,
+     "losses_per_unit_gdp_percentage": 125.0
+  },
+  {
+     "country": "Namibia",
+     "id": "NAM",
+     "cri_rank": 113.0,
+     "cri_score": 98.17,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 75.0,
+     "losses_in_millions_usd": 119.0,
+     "losses_per_unit_gdp_percentage": 111.0
+  },
+  {
+     "country": "Guinea",
+     "id": "GIN",
+     "cri_rank": 115.0,
+     "cri_score": 99.17,
+     "fatalities_in_2019": 72.0,
+     "fatalities_per_100000_inhabitants": 72.0,
+     "losses_in_millions_usd": 127.0,
+     "losses_per_unit_gdp_percentage": 126.0
+  },
+  {
+     "country": "Botswana",
+     "id": "BWA",
+     "cri_rank": 117.0,
+     "cri_score": 99.83,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 107.0,
+     "losses_per_unit_gdp_percentage": 87.0
+  },
+  {
+     "country": "Sweden",
+     "id": "SWE",
+     "cri_rank": 118.0,
+     "cri_score": 100.5,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 69.0,
+     "losses_per_unit_gdp_percentage": 108.0
+  },
+  {
+     "country": "Bulgaria",
+     "id": "BGR",
+     "cri_rank": 119.0,
+     "cri_score": 101.0,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 96.0,
+     "losses_in_millions_usd": 98.0,
+     "losses_per_unit_gdp_percentage": 109.0
+  },
+  {
+     "country": "Egypt",
+     "id": "EGY",
+     "cri_rank": 120.0,
+     "cri_score": 102.0,
+     "fatalities_in_2019": 58.0,
+     "fatalities_per_100000_inhabitants": 99.0,
+     "losses_in_millions_usd": 112.0,
+     "losses_per_unit_gdp_percentage": 122.0
+  },
+  {
+     "country": "Ecuador",
+     "id": "ECU",
+     "cri_rank": 121.0,
+     "cri_score": 103.83,
+     "fatalities_in_2019": 98.0,
+     "fatalities_per_100000_inhabitants": 103.0,
+     "losses_in_millions_usd": 95.0,
+     "losses_per_unit_gdp_percentage": 112.0
+  },
+  {
+     "country": "Tajikistan",
+     "id": "TJK",
+     "cri_rank": 122.0,
+     "cri_score": 104.33,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 91.0,
+     "losses_in_millions_usd": 120.0,
+     "losses_per_unit_gdp_percentage": 117.0
+  },
+  {
+     "country": "Ireland",
+     "id": "IRL",
+     "cri_rank": 123.0,
+     "cri_score": 104.5,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 81.0,
+     "losses_per_unit_gdp_percentage": 114.0
+  },
+  {
+     "country": "Romania",
+     "id": "ROU",
+     "cri_rank": 123.0,
+     "cri_score": 104.5,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 77.0,
+     "losses_per_unit_gdp_percentage": 116.0
+  },
+  {
+     "country": "Algeria",
+     "id": "DZA",
+     "cri_rank": 125.0,
+     "cri_score": 105.17,
+     "fatalities_in_2019": 65.0,
+     "fatalities_per_100000_inhabitants": 95.0,
+     "losses_in_millions_usd": 122.0,
+     "losses_per_unit_gdp_percentage": 127.0
+  },
+  {
+     "country": "Mauritius",
+     "id": "MUS",
+     "cri_rank": 125.0,
+     "cri_score": 105.17,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 113.0,
+     "losses_per_unit_gdp_percentage": 100.0
+  },
+  {
+     "country": "Panama",
+     "id": "PAN",
+     "cri_rank": 127.0,
+     "cri_score": 108.33,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 102.0,
+     "losses_per_unit_gdp_percentage": 115.0
+  },
+  {
+     "country": "Israel",
+     "id": "ISR",
+     "cri_rank": 128.0,
+     "cri_score": 108.83,
+     "fatalities_in_2019": 90.0,
+     "fatalities_per_100000_inhabitants": 88.0,
+     "losses_in_millions_usd": 129.0,
+     "losses_per_unit_gdp_percentage": 129.0
+  },
+  {
+     "country": "Côte d’Ivoire",
+     "id": "CIV",
+     "cri_rank": 129.0,
+     "cri_score": 111.67,
+     "fatalities_in_2019": 84.0,
+     "fatalities_per_100000_inhabitants": 101.0,
+     "losses_in_millions_usd": 128.0,
+     "losses_per_unit_gdp_percentage": 128.0
+  },
+  {
+     "country": "Albania",
+     "id": "ALB",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Antigua and Barbuda",
+     "id": "ATG",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Azerbaijan",
+     "id": "AZE",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Bahrain",
+     "id": "BHR",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Barbados",
+     "id": "BRB",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Belarus",
+     "id": "BLR",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Belize",
+     "id": "BLZ",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Benin",
+     "id": "BEN",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Bhutan",
+     "id": "BTN",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Brunei Darussalam",
+     "id": "BRN",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Burkina Faso",
+     "id": "BFA",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Cabo Verde",
+     "id": "CPV",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Chad",
+     "id": "TCD",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Costa Rica",
+     "id": "CRI",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Cyprus",
+     "id": "CYP",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Timor-Leste",
+     "id": "TLS",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Dominican Rep.",
+     "id": "DOM",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Eritrea",
+     "id": "ERI",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Eswatini",
+     "id": "SWZ",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Gabon",
+     "id": "GAB",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Grenada",
+     "id": "GRD",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Guinea-Bissau",
+     "id": "GNB",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Guyana",
+     "id": "GUY",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Jamaica",
+     "id": "JAM",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Jordan",
+     "id": "JOR",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Kazakhstan",
+     "id": "KAZ",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Kiribati",
+     "id": "KIR",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Kuwait",
+     "id": "KWT",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Kyrgyzstan",
+     "id": "KGZ",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Lithuania",
+     "id": "LTU",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Fed. States of Micronesia",
+     "id": "FSM",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Rep. of Moldova",
+     "id": "MDA",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "North Macedonia",
+     "id": "MKD",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Qatar",
+     "id": "QAT",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Samoa",
+     "id": "WSM",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Seychelles",
+     "id": "SYC",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Singapore",
+     "id": "SGP",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Solomon Islands",
+     "id": "SLB",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Saint Kitts and Nevis",
+     "id": "KNA",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Saint Lucia",
+     "id": "LCA",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Saint Vincent and the Grenadines",
+     "id": "VCT",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Suriname",
+     "id": "SUR",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Togo",
+     "id": "TGO",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Tonga",
+     "id": "TON",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Trinidad and Tobago",
+     "id": "TTO",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Tunisia",
+     "id": "TUN",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Tuvalu",
+     "id": "TUV",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "United Arab Emirates",
+     "id": "ARE",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  },
+  {
+     "country": "Uzbekistan",
+     "id": "UZB",
+     "cri_rank": 130.0,
+     "cri_score": 118.0,
+     "fatalities_in_2019": 106.0,
+     "fatalities_per_100000_inhabitants": 106.0,
+     "losses_in_millions_usd": 130.0,
+     "losses_per_unit_gdp_percentage": 130.0
+  }
+]
