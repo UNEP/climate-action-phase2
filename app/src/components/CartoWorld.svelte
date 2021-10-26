@@ -3,7 +3,7 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorNDC, colorPM25 } from "src/colors";
+  import { colorNDC, colorPM25, colorGHG } from "src/colors";
   import { displayVal} from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
@@ -27,9 +27,27 @@
   let width : number;
   let height : number;
   let cartogramAnnotation: boolean;
+  let legendIsHoveredValue : string;
 
   let rerender: () => void;
 
+  let getGHGCategory = (countryName : string) => {
+
+    let trends = datasets.cartoworld.trends.data.find(d => d.id === countryName);
+
+    if(trends !== undefined && 'emissions' in trends){
+      let emissions = trends.emissions;
+      const baseValue = emissions['1990'];
+      const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
+      const diff = (lastValue - baseValue) / baseValue;
+      // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
+      if (Math.abs(diff) < 0.25) return 'Stable since 1990';
+      else if (diff < -0.25) return 'Decreased since 1990';
+      else return 'Still climbing';
+    }
+
+    console.error('Unexpected data');
+  };
 
   type LegendProps = {
     title: string;
@@ -68,13 +86,13 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG in ${datasets.endYear}`,
-        colorFn: d => colorPM25(d.value),
+        colorFn: d => colorGHG(getGHGCategory(d.id)),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-        colors: colorPM25.range(),
-        labels: ["x1", "2", "3", "4", "5", "6", "7", "8"],
-        type: 'sequential',
+        colors: colorGHG.range(),
+        labels: colorGHG.domain(),
+        type: 'categorical',
       }
     },
     percapita: {
@@ -89,13 +107,13 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG per capita in ${datasets.endYear}`,
-        colorFn: d => colorPM25(d.value),
+        colorFn: d => colorGHG(getGHGCategory(d.id))
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-        colors: colorPM25.range(),
-        labels: ["x1", "2", "3", "4", "5", "6", "7", "8"],
-        type: 'sequential',
+        colors: colorGHG.range(),
+        labels: colorGHG.domain(),
+        type: 'categorical',
       }
     },
     trends: {
@@ -108,13 +126,13 @@
           code: "IRN",
           text: "Each tile represents individual country trends in greenhouse gas emissions"
         },
-        colorFn: d => colorPM25(d.value),
+        colorFn: d => colorGHG(getGHGCategory(d.id)),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
-        colors: colorPM25.range(),
-        labels: ["x1", "2", "3", "4", "5", "6", "7", "8"],
-        type: 'sequential',
+        colors: colorGHG.range(),
+        labels: colorGHG.domain(),
+        type: 'categorical',
       }
     },
     ndc: {
@@ -127,19 +145,29 @@
           text: "Each square represents a country, scaled by its per capita emissions"
         },
         hoverTextFn: c => c.data.label,
-        colorFn: d => colorNDC(d.data.colorValue),
+        colorFn: d => {
+          if('colorValue' in d.data)
+            return colorNDC(d.data.colorValue);
+        }
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
         colors: colorNDC.range(),
         labels: colorNDC.domain(),
-        type: 'sequential',
+        type: 'categorical',
       }
     }
   };
 
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
+
+  $: {
+    legendIsHoveredValue = "";
+    if(legendElementSelectedIndex !== null && legendElementSelectedIndex >= 0){
+      legendIsHoveredValue = selectedDataset.legend.colors[legendElementSelectedIndex];
+    }
+  }
 
   $: {
     width = Math.max(clientWidth, 700);
@@ -183,6 +211,7 @@
           class="cartogram-container"
         >
           <svelte:component this={Cartogram}
+            {legendIsHoveredValue}
             {...selectedDataset.cartogram}
             bind:rerenderFn={rerender}
             bind:annotationShowing={cartogramAnnotation}

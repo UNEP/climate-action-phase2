@@ -11,6 +11,10 @@ export const colorSectors = scaleOrdinal<string>()
     '#666666','#333333','#62b048','#1b6e29','#bd8e71','#854f38','#ff8a18','url(#hash--windblown)'
   ]);
 
+export const colorGHG = scaleOrdinal<string>()
+  .domain(['Decreased since 1990', 'Stable since 1990', 'Still climbing'])
+  .range(['#00AACC','#BEC7CD','#FD7D2E']);
+
 export const colorFuels = scaleOrdinal<string>()
   .domain(['process','liquid','solidbio','coal'])
   .range(['#407aa9','#faba26','#62b048','#333333']);
