@@ -1,7 +1,6 @@
 import fs from 'fs';
 import * as aq from 'arquero';
 import path from 'path';
-import _ from 'underscore';
 
 const OUTPUT_DIR = path.join(__dirname, '../output');
 
