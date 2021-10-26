@@ -11,6 +11,7 @@
   import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
   import { strToId } from './util';
   import CartoTemperature from './components/CartoTemperature.svelte';
+  import CountryTable from './components/CountryTable.svelte';
 
 
   export var gdocs: GDocs;
@@ -27,8 +28,10 @@
     'intro': Intro,
     'text': Text,
     "menu": Menu,
-    'methodology': MethodologySourcesText
+    'methodology': MethodologySourcesText,
+    'country-table': CountryTable
   };
+
 </script>
 {#if embedBlock}
   <BaseEmbed>
