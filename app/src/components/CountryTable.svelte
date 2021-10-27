@@ -23,19 +23,19 @@
 
   let showAll = false;
 
+  let widthDistributionChart = 120;
+  let heightDistributionChart = 45;
+
   let climateRiskIndexData: CountryDataSquare[] = CRIdata
     .map(d => {
       return { id: d.id, value: d.cri_score};
     });
 
-  let widthLineChart = 225;
-  // let heightLineChart = 100;
-  // let widthDistribution = 10;
-
   type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
 
   const headers: Header[] = [
     { name: 'COUNTRY', sortable: true, defaultSort: 'asc' },
+    { name: 'CHART', sortable: false},
     { name: 'INDEX', sortable: true },
     { name: 'RANK', sortable: true },
     { name: 'TOTAL', sortable: true },
@@ -141,16 +141,15 @@
   <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
 </div>
 
-
-
 <div style="padding-bottom:5px"></div>
 
 <div class="grid-ghg">
 
   {#each headers as h}
     <div class="header" class:selected="{sort && sort.column === h.name}"
-        on:click={() => h.sortable && onClickHeader(h)}>
-      <span>
+        on:click={() => h.sortable && onClickHeader(h)}
+        data-name={h.name}>
+      <span >
         {h.name}
         {#if sort && sort.column === h.name}
           <i class="arrow-down" class:arrow-up={sort.asc}></i>
@@ -165,21 +164,18 @@
         {row.country}
       </span>
 
-      <span class="country-span" >
-        <div class="country-column">
-          <div class="country-distribution" bind:clientWidth={widthLineChart}>
+      <span class="country-distribution">
               <DistributionTiles
               data={climateRiskIndexData}
               selectedCountry={row.id}
               selectedDataset="ClimateRiskIndex"
-              width2={widthLineChart}
-              height2={45}
+              width2={widthDistributionChart}
+              height2={heightDistributionChart}
             />
-          </div>
-          <div class="country-index">
-            {row.cri_score}
-          </div>
-        </div>
+      </span>
+
+      <span class="country-index">
+        {row.cri_score}
       </span>
 
       <span class="row-number">
@@ -212,6 +208,11 @@
 <div style="padding-bottom:60px"></div>
 
 <style>
+
+
+&[data-name="COUNTRY"]{
+  text-align: left;
+}
 
 #grid {
   display: grid;
@@ -261,15 +262,6 @@
   display: contents;
 }
 
-.country-span {
-  width: 100%;
-  display: table;
-}
-
-.country-column{
-  display: table-row;
-}
-
 .country-name {
   font-size: 24px;
   font-weight: bold;
@@ -290,16 +282,6 @@
   font-weight: 100;
   font-size: 24px;
   text-align: right;
-}
-
-.number-descriptor {
-  color: #818181;
-  font-weight: 500;
-  text-align: right;
-  font-size: 16px;
-  margin: 0%;
-  padding: 0;
-  padding-left: 18px;
 }
 
 .show-more-button {
@@ -369,7 +351,7 @@
 
 .grid-ghg {
   display: grid;
-  grid-template-columns: 25% 25% 10% 10% 10% 10% 10%;
+  grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
   border-top: 0px solid black;
   border-bottom: 0px solid #e5e5e5;
   border-right: 0px solid black;
