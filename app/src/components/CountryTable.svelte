@@ -103,9 +103,11 @@
       .map(d => d.id);
   }
 
+  const rerender = () => sortedData = sortedData;
+
   $: {
     searchResults = getSearchResults(searchText);
-    sortedData = sortedData;
+    rerender();
   }
 
   const displayRow = (row: RowData, i: number) => {
@@ -118,6 +120,11 @@
     }
   };
 
+  const onClickShowButton = () => {
+    showAll = !showAll;
+    rerender();
+  };
+
 </script>
 
 
@@ -127,19 +134,14 @@
   <input bind:value={searchText} placeholder='Search a country' />
 </div>
 
-<div class="header-label-span" >
-  <div class="header-label-column">
-    <div class="label-1">
-      CLIMATE<br>RISK
-    </div>
-    <div class="label-2">
-      CLIMATE-RELATED<br>DEATHS
-    </div>
-    <div class="label-3">
-      CLIMATE-RELATED<br>ECONOMIC LOSSES
-    </div>
-  </div>
+
+<div id="grid">
+  <div id="item1">CLIMATE<br>RISK</div>
+  <div id="item2">CLIMATE-RELATED<br>DEATHS</div>
+  <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
 </div>
+
+
 
 <div style="padding-bottom:5px"></div>
 
@@ -171,7 +173,7 @@
               selectedCountry={row.id}
               selectedDataset="ClimateRiskIndex"
               width2={widthLineChart}
-              height2={65}
+              height2={45}
             />
           </div>
           <div class="country-index">
@@ -202,7 +204,7 @@
 {#if searchText === ''}
   <button
     class="show-more-button"
-    on:click={() => showAll = !showAll}>
+    on:click={onClickShowButton}>
     <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
   </button>
 {/if}
@@ -211,32 +213,27 @@
 
 <style>
 
-  .header-label-span{
-    width: 100%;
-    display: table;
-  }
+#grid {
+  display: grid;
+  height: 45px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 10px;
+}
 
-  .header-label-column{
-    display: table-row;
-  }
+#item1 {
+  grid-column: 3/3;
+  text-align: right;
+}
 
-  .label-1{
-    display:table-cell;
-    width: 55%;
-    text-align: right;
-  }
+#item2 {
+  grid-column: 4/5;
+  text-align: right;
+}
 
-  .label-2{
-    display:table-cell;
-    width: 50%;
-    text-align: right;
-  }
-
-  .label-3{
-    display:table-cell;
-    text-align: right;
-  }
-
+#item3 {
+  grid-column: 5/5;
+  text-align: right;
+}
 
 .arrow-down {
   border: solid black;
@@ -279,7 +276,7 @@
 }
 
 .country-distribution{
-  width: 50%;
+  width: 70%;
   display:table-cell;
 }
 
@@ -372,7 +369,7 @@
 
 .grid-ghg {
   display: grid;
-  grid-template-columns: 25% 25% 5% 11.25% 11.25% 11.25% 11.25%;
+  grid-template-columns: 25% 25% 10% 10% 10% 10% 10%;
   border-top: 0px solid black;
   border-bottom: 0px solid #e5e5e5;
   border-right: 0px solid black;
