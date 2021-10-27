@@ -98,9 +98,12 @@
       ]
     },
     {
-      "type": "table",
-      "Type": "country-table",
-      "data": "Risk"
+      "type": "table"
+    },
+    {
+      "type": "country-table",
+      "data": "Risk",
+      "head": "Look here!!"
     },
     {
       "type": "methodology",

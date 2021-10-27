@@ -11,8 +11,10 @@
   import co2trends from 'src/data/co2trends.json';
   import co2data from 'src/data/co2data.json';
   import type { Unpacked } from 'src/util';
+  import { displayVal } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
+  import Icon from './Icon.svelte';
 
   const top10Emissons = co2data.sort((c1, c2) => {
     if (c1.emissions2019 > c2.emissions2019){
@@ -30,9 +32,6 @@
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
-  const emissions2015Comment = 'million tonnes of GHG';
-  const globalPCTComment = `<t style="font-size:16px;">%</t>`;
-  const perCapitaComment = `tonnes<br> of GHG`;
 
   const ROW_LIMIT = 6;
 
@@ -41,10 +40,6 @@
   let sortedData = co2data;
 
   let showAll = false;
-
-  let widthLineChart = 225;
-  // let heightLineChart = 100;
-  // let widthDistribution = 10;
 
   let countryEmissions = [];
   let countryDataArray = co2trends;
@@ -103,6 +98,7 @@
 
   const headers: Header[] = [
     { name: 'Country', sortable: true, defaultSort: 'asc' },
+    { name: '', sortable: false },
     { name: 'Trend', sortable: false },
     { name: '2019 emissions', sortable: true },
     { name: 'As pct of global', sortable: true },
@@ -157,9 +153,11 @@
       .map(d => d.id);
   }
 
+  const rerender = () => sortedData = sortedData;
+
   $: {
     searchResults = getSearchResults(searchText);
-    sortedData = sortedData;
+    rerender();
   }
 
   const displayRow = (row: RowData, i: number) => {
@@ -172,227 +170,261 @@
     }
   };
 
+  const onClickShowButton = () => {
+    showAll = !showAll;
+    rerender();
+  };
+
   $: innerWidth = 0;
 
 </script>
 
 <svelte:window bind:innerWidth/>
-<h2 class='narrow'>{@html head}</h2>
+<div class="container">
 
-<div class="search-bar">
-  <input bind:value={searchText} placeholder='Search a country' />
-</div>
+  <h2 class='narrow'>{@html head}</h2>
 
-<div class="grid-ghg">
+  <div class="search-bar">
+    <input bind:value={searchText} placeholder='Search a country' />
+  </div>
 
-  {#each headers as h}
-    <div class="header" class:selected="{sort && sort.column === h.name}"
-        on:click={() => h.sortable && onClickHeader(h)}>
-      <span>
-        {h.name}
+  <div class="grid-table">
+
+    {#each headers as h}
+      <div class="header"
+        class:selected="{sort && sort.column === h.name}"
+        class:sortable={h.sortable}
+        data-name={h.name}
+        on:click={() => h.sortable && onClickHeader(h)}
+      >
+        <span>{h.name}</span>
         {#if sort && sort.column === h.name}
-          <i class="arrow-down" class:arrow-up={sort.asc}></i>
+          <div class="sort-arrow" class:sort-arrow--asc={sort.asc}>
+            <Icon name='arrows.down' />
+          </div>
         {/if}
-      </span>
-    </div>
-  {/each}
+      </div>
+    {/each}
 
-  {#each sortedData as row, i}
-    <div class="row" style={!displayRow(row, i) && 'display: none'}>
-      <span class="country-span">
-        <div class="country-column">
+    {#each sortedData as row, i}
+      <div class="row" style={!displayRow(row, i) ? 'display: none' : ''}>
 
-          <div class="country-name">
-            {row.name}
-          </div>
-          {#if innerWidth > 1200}
-          <div class="country-description">
-            {@html getChartText(row)}
-          </div>
-          {/if}
-        </div>
-      </span>
+        <div class="cell-name">{row.name}</div>
 
-      <span bind:clientWidth={widthLineChart}>
-        <div class="chart-column">
+        <div class="cell-description">{description}</div>
+
+        <div class="cell-chart">
           <MiniLineChart
             data={countryTrendLookUp[row.id].emissions}
             category={countryTrendLookUp[row.id].category}
             height={widthLineChart < 1200 && widthLineChart > 500 ? 117.5 : 187.5}
           />
         </div>
-      </span>
 
-      <span class="row-number">
-        {row.emissions2019}
-        <p class="number-descriptor">{emissions2015Comment}</p>
-      </span>
-      <span class="row-number">
-        {row.globalPct}{@html globalPCTComment}
-      </span>
-      <span class="row-number">
-        {row.percapita}
-        <p class="number-descriptor">{@html perCapitaComment}</p>
-      </span>
-    </div>
-  {/each}
+        <div class="cell-number cell-ghg">
+          {displayVal(row.emissions2019, 2)} <span>million tonnes of GHG</span>
+        </div>
+
+        <div class="cell-number cell-perc">
+          {row.globalPct < 0.1 ? '<0.1' : row.globalPct.toFixed(1)}<span>%</span>
+        </div>
+
+        <div class="cell-number cell-pcap">
+          {row.percapita} <span>tonnes of GHG</span>
+        </div>
+
+      </div>
+    {/each}
+  </div>
+
+  {#if searchText === ''}
+    <button
+      class="show-more-button"
+      on:click={onClickShowButton}>
+      <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
+    </button>
+  {/if}
+
 </div>
 
-{#if searchText === ''}
-  <button
-    class="show-more-button"
-    on:click={() => showAll = !showAll}>
-    <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
-  </button>
-{/if}
+<style type="text/scss">
 
-<div style="padding-bottom:60px"></div>
+  .container {
+    margin-bottom: 60px;
+  }
 
-<style>
+  .grid-table {
+    display: grid;
+    grid-template-columns: 200px 1fr 180px 110px 110px 90px;
+    row-gap: 10px;
+    border-top: 0px solid black;
+    border-bottom: 0px solid #e5e5e5;
+    border-right: 0px solid black;
+  }
 
+  .sort-arrow {
+    width: 24px;
+    flex-shrink: 0;
+    position: relative;
+    top: 1px;
 
-.arrow-down {
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 5px;
-  margin-bottom: 3px;
-  margin-left: 6px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
+    &.sort-arrow--asc {
+      transform-origin: 50% 42%;
+      transform: rotate(180deg);
+    }
+  }
 
-.arrow-up {
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 5px;
-  margin-bottom: -3px;
-  margin-left: 6px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
+  .row {
+    display: contents;
+    column-gap: 10px;
+    > * {
+      box-sizing: border-box;
+    }
+  }
 
-.row {
-  display: contents;
-}
+  .cell-name, .cell-description {
+    padding-right: 10px;
+  }
 
-.country-span {
-  width: 100%;
-  display: table;
-}
+  .cell-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
 
-.country-column{
-  display: table-row;
-}
+  .cell-description {
+    font-weight: 100;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 400px;
+  }
 
-.country-name {
-  width: 35%;
-  display: table-cell;
-  font-size: 24px;
-  font-weight: bold;
-}
+  .cell-number {
+    font-weight: 100;
+    font-size: 24px;
+    text-align: right;
+    padding-left: 10px;
+    span {
+      color: #818181;
+      font-weight: 500;
+      text-align: right;
+      font-size: 16px;
+      margin: 0%;
+    }
+  }
 
-.country-description {
-  display: table-cell;
-  font-weight: 100;
-  font-size: 16px;
-}
+  .cell-pcap, .cell-ghg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 2px;
 
-.row-number {
-  font-weight: 100;
-  font-size: 24px;
-  text-align: right;
-}
+    span {
+      font-size: 14px;
+      display: block;
+      line-height: 1.6;
+      width: 90px;
+    }
+  }
 
-.number-descriptor {
-  color: #818181;
-  font-weight: 500;
-  text-align: right;
-  font-size: 16px;
-  margin: 0%;
-  padding: 0;
-  padding-left: 18px;
-}
-
-.show-more-button {
-  background-color: #111111;
-  font-size: 16px;
-  color: white;
-  border: none;
-  padding: 10px 20px 10px 20px;
-  margin-top: 30px;
-  cursor: pointer;
-}
-
-.selected {
-  border-color: black !important;
-  font-weight: 700;
-}
-
-.header {
-  border-bottom: 2px solid #cccccc;
-  padding-bottom: 10px;
-  cursor: pointer;
-}
-
-.search-bar :global([data-svelte-typeahead] mark){
-  background-color: aqua;
-}
-
-.search-bar :global([data-svelte-typeahead]) {
-    margin: 0rem;
-    width: 50%;
+  .show-more-button {
+    background-color: #111111;
+    font-size: 16px;
+    color: white;
+    border: none;
+    padding: 10px 20px 10px 20px;
     margin-top: 30px;
-    background-color: #f9f9f9;
-}
+    cursor: pointer;
+  }
 
-.search-bar :global([data-svelte-typeahead] ul) {
-  visibility: hidden;
-}
+  .header {
+    display: flex;
+    border-bottom: 2px solid #cccccc;
+    padding-bottom: 10px;
+    align-items: flex-end;
+    text-transform: uppercase;
+    position: relative;
 
-.search-bar :global([data-svelte-search] input:focus) {
-  outline-width: 0px;
-  background-color: #f9f9f9;
-}
+    &.sortable {
+      cursor: pointer;
+    }
 
-.search-bar :global([data-svelte-search] input) {
-  width: 100%;
-  padding: 0.5rem 0rem;
-  background: #f9f9f9;
-  font-size: 2rem;
-  border: 0;
-  border-radius: 0;
-  border: 0px solid #cccccc;
-  border-bottom-width: 2px;
-  font-family: Roboto;
-  font-weight: lighter;
-}
+    &.selected {
+      border-color: black !important;
+      font-weight: 700;
+    }
 
-.search-bar :global([data-svelte-search] label) {
-  margin-bottom: 0.25rem;
-  display: inline-flex;
-  font-size: 0.875rem;
-}
+    &[data-name="2019 emissions"],
+    &[data-name="As pct of global"],
+    &[data-name="Per capita"] {
+      text-align: right;
+      flex-direction: row-reverse;
+    }
 
-.search-bar {
-  padding-bottom: 50px;
-}
+    &[data-name="Per capita"] span {
+      width: 60px;
+    }
 
-.grid-ghg {
-  display: grid;
-  grid-template-columns: 50% 20% 10% 10% 10%;
-  border-top: 0px solid black;
-  border-bottom: 0px solid #e5e5e5;
-  border-right: 0px solid black;
-}
+    &[data-name="As pct of global"] span {
+      width: 80px;
+    }
 
-.grid-ghg > span {
-  margin-top: 15px;
-  padding-bottom: 15px;
-  border-left: 0px solid black;
-  border-bottom: 1px solid #cccccc;
-}
+    &[data-name="2019 emissions"] span {
+      width: 88px;
+    }
+  }
+
+  .search-bar {
+    padding-bottom: 50px;
+
+    input {
+      width: 100%;
+      padding: 0.5rem 0rem;
+      background: #f9f9f9;
+      font-size: 2rem;
+      border: 0;
+      border-radius: 0;
+      border: 0px solid #cccccc;
+      border-bottom-width: 2px;
+      font-family: Roboto;
+      font-weight: lighter;
+      &:focus {
+        outline-width: 0px;
+        background-color: #f9f9f9;
+      }
+    }
+  }
+
+  // RESPONSIVELY DROP COLUMNS
+  // original column template is:
+  // grid-template-columns: 200px 1fr 180px 110px 110px 90px;
+
+  @media (max-width: 1250px) {
+    .header[data-name='As pct of global'], .cell-perc {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 1fr 180px 110px 90px;
+    }
+  }
+
+  @media (max-width: 950px) {
+    .header[data-name=''], .cell-description {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 180px 110px 90px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .header[data-name='Per capita'], .cell-pcap {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 180px 110px;
+    }
+
+  }
 
 @media (max-width: 700px) {
   .grid-ghg {
