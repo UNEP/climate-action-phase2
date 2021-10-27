@@ -17,16 +17,16 @@
         },
         {
           "a": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
-          "label": "Pollution Action Note"
+          "label": "Climate Action Note"
         }
       ],
       "head": "Climate Action Note – State of the climate",
       "text": [
         {
-          "p": "Air pollution is the greatest environmental threat to public health globally and accounts for an estimated 7 million premature deaths every year. Air pollution and climate change are closely linked as all major pollutants have an impact on the climate and most share common sources with greenhouse gases. Improving our air quality will bring health, more net development and environmental benefits, along with mitigating climate change."
+          "p": "·         Humanity’s use of fossil fuels has caused a climate emergency - ‘a code red for the planet’ according to UN SG Antonio Guterres. The devastating consequences of the climate emergency are threatening our lives, economy, health and food systems - and extreme weather events are already wrecking havoc across the world. We are far from keeping the global temperature rise safe below 1.5 degrees as promised in the Paris Agreement."
         },
         {
-          "p": "The UNEP Pollution Dashboard displays the global state of air pollution, major sources, the impact on human health and national efforts to tackle this critical issue."
+          "p": "The UNEP Climate Dashboard displays the global state of climate action, major sources, the impact on human health and national efforts to tackle this critical issue."
         }
       ]
     },
@@ -41,10 +41,10 @@
       "menuicon": "stateoftheclimate.emissions",
       "data": "ghg",
       "embed": "ghg",
-      "head": "GHG emissions are changing our climate and choking our world",
+      "head": "GHG emissions are choking our world and changing our climate",
       "text": [
         {
-          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, as promised in the Paris Agreement, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ],
       "legend": [
@@ -70,7 +70,7 @@
       "head": "Our individual carbon footprints vary wildly; wealth is a key factor",
       "text": [
         {
-          "p": "The wealthiest 1 per cent of the global population produce more than twice the emissions of the poorest 50 per cent. As developing countries grow their economies, they need financial assistance and technical support to transition to low-carbon, resilient strategies. It is possible to reduce emissions and grow economies. For example the energy sector can cut emissions by 12.5 gigatonnes annually by switching to renewable energy and being more efficient with the power it consumes."
+          "p": "We all emit GHG in the cause of our lives. But some people emit a lot more than others. The world’s wealthiest 1 percent produce more than twice the emissions of the poorest 50 percent. As developing countries grow their economies, they need financial assistance and technical support to transition to low-carbon, resilient strategies. We can reduce emissions while growing the economy. The energy sector alone can cut emissions by 12.5 gigatonnes annually by switching to renewable energy and using its power more efficiently."
         }
       ]
     },
@@ -85,7 +85,7 @@
       "head": "Some countries are making progress but all nations need to step up",
       "text": [
         {
-          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
+          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to 1.5°C. Yet the technological solutions already exist, including renewable power, green hydrogen and modern bioenergy. And government subsidies and support could be directed to push towards low-carbon, green policies."
         }
       ]
     },
@@ -105,6 +105,10 @@
     {
       "type": "country-table",
       "data": "GHG"
+    },
+    {
+      "type": "country-table",
+      "data": "Risk"
     },
     {
       "type": "methodology",

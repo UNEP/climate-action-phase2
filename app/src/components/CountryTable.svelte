@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+
   export interface CountryDataSquare {
       id: string,
       value: number
@@ -6,14 +7,26 @@
 </script>
 
 <script lang="ts">
+
   import co2trends from 'src/data/co2trends.json';
   import co2data from 'src/data/co2data.json';
   import type { Unpacked } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
 
-  const description = "It has had one of the biggest increases in GHG emissions\
-   -422% since 1990. Today, it accounts for 0.33% of global emissions.";
+  const top10Emissons = co2data.sort((c1, c2) => {
+    if (c1.emissions2019 > c2.emissions2019){
+      return -1;
+    }else if (c1.emissions2019 < c2.emissions2019){
+      return 1;
+    }else return 0;
+  }).slice(0, 10);
+
+  enum ChartTextType {
+        Largest,
+        Relative,
+        PerCapita
+  }
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
@@ -36,6 +49,24 @@
   let countryEmissions = [];
   let countryDataArray = co2trends;
 
+  function getChartText(data: RowData) {
+    const trends = co2trends.find(c => c.code === data.id);
+    const latestEmissions = data.emissions2019;
+    const change = data.emissions2019 / trends.emissions['1990'];
+    const fallen = change <= 1;
+    const relChange = fallen ? 1 - change : change - 1;
+    const percStr = Math.round(relChange * 100).toFixed(0);
+    const chartTextType = top10Emissons.find(c => c.id === data.id) ? 0 : 2;
+    switch (chartTextType){
+    case ChartTextType.Largest:
+      return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
+      of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
+    case ChartTextType.PerCapita:
+      return `<b>${data.name}</b> has had one of the biggest
+      ${fallen ? 'drops' : 'increases'} in GHG emissions —${percStr}% since 1990. `
+      + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+    }
+  }
   for (let i = 0; i < countryDataArray.length; i++){
     let emissionsArray = Object.entries(countryDataArray[i].emissions);
     let entries = [];
@@ -141,9 +172,11 @@
     }
   };
 
+  $: innerWidth = 0;
+
 </script>
 
-
+<svelte:window bind:innerWidth/>
 <h2 class='narrow'>{@html head}</h2>
 
 <div class="search-bar">
@@ -172,19 +205,22 @@
           <div class="country-name">
             {row.name}
           </div>
-
+          {#if innerWidth > 1200}
           <div class="country-description">
-            {description}
+            {@html getChartText(row)}
           </div>
-
+          {/if}
         </div>
       </span>
 
       <span bind:clientWidth={widthLineChart}>
-        <MiniLineChart
-          data={countryTrendLookUp[row.id].emissions}
-          category={countryTrendLookUp[row.id].category}
-        />
+        <div class="chart-column">
+          <MiniLineChart
+            data={countryTrendLookUp[row.id].emissions}
+            category={countryTrendLookUp[row.id].category}
+            height={widthLineChart < 1200 && widthLineChart > 500 ? 117.5 : 187.5}
+          />
+        </div>
       </span>
 
       <span class="row-number">
@@ -358,4 +394,35 @@
   border-bottom: 1px solid #cccccc;
 }
 
+@media (max-width: 700px) {
+  .grid-ghg {
+    grid-template-columns: 25% 30% 15% 20% 10%;
+  }
+
+  .country-name {
+    font-size: 24px;
+    font-size: 4vw;
+  }
+
+  .number-descriptor {
+    font-size: 16px;
+    font-size: 3vw;
+  }
+
+  .row-number {
+    font-size: 24px;
+    font-size: 3vw;
+  }
+
+  .header {
+    font-size: 10px;
+    font-size: 2.5vw;
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid-ghg {
+    grid-template-columns: 25% 30% 15% 15% 15%;
+  }
+}
 </style>

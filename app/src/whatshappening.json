@@ -13,11 +13,11 @@
         },
         {
           "a": "https://www.unep.org/explore-topics/air",
-          "label": "Air"
+          "label": "Climate"
         },
         {
           "a": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
-          "label": "Pollution Action Note"
+          "label": "Climate Action Note"
         }
       ],
       "head": "Climate Action Note – What’s happening",
@@ -96,6 +96,11 @@
           "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
         }
       ]
+    },
+    {
+      "type": "table",
+      "Type": "country-table",
+      "data": "Risk"
     },
     {
       "type": "methodology",
