@@ -69,13 +69,12 @@
                 rx={xBorderRadius}
                 ry={yBorderRadius}
                 filter="none"
-                fill="red"
                 style = "--theme-color: {colorFunction(d.value)}"
               />
             </g>
           {/if}
       {/each}
-        <g id={relevantCountry.id} class="region2">
+        <g id={relevantCountry.id} class="shadow">
           <rect
             id = {relevantCountry.id}
             class= "selectedCountry"
@@ -103,7 +102,7 @@
     fill: var(--theme-color);
   }
 
-  .region2 {
+  .shadow {
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.6));
   }
 </style>

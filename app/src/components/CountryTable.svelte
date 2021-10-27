@@ -24,7 +24,7 @@
 
   let showAll = false;
 
-  let widthDistributionChart = 120;
+  let widthDistributionChart = 140;
   let heightDistributionChart = 45;
 
   let climateRiskIndexData: CountryDataSquare[] = CRIdata
@@ -35,17 +35,19 @@
   type Header = { name: string, index: number, sortable: boolean, defaultSort?: 'asc' | 'desc' };
 
   const headers: Header[] = [
-    { name: 'COUNTRY', index: 0,sortable: true, defaultSort: 'asc' },
-    { name: '', index: 1,sortable: false},
-    { name: 'INDEX', index: 2,sortable: true },
-    { name: 'RANK', index: 3,sortable: true },
-    { name: 'TOTAL', index: 4,sortable: true },
-    { name: 'POP. ADJ.', index: 5,sortable: true },
-    { name: 'TOTAL2', index: 6,sortable: true },
-    { name: 'AS GDP PCT.', index: 7,sortable: true },
+    { name: 'country', index: 0,sortable: true, defaultSort: 'asc' },
+    { name: 'chart', index: 1,sortable: false},
+    { name: 'criIndex', index: 2,sortable: true },
+    { name: 'criRank', index: 3,sortable: true },
+    { name: 'totalDeaths', index: 4,sortable: true },
+    { name: 'popAdjDeaths', index: 5,sortable: true },
+    { name: 'totalLosses', index: 6,sortable: true },
+    { name: 'gdpPctLosses', index: 7,sortable: true },
   ];
 
-  let sort: {column: string, asc: boolean} = {column: 'COUNTRY', asc: true};
+  const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL', 'POP. ADJ.', 'TOTAL', 'AS GDP PCT.'];
+
+  let sort: {column: string, asc: boolean} = {column: 'country', asc: true};
 
   const onClickHeader = (header: Header) => {
     if (header.name === sort.column) {
@@ -59,26 +61,26 @@
   };
 
   const getSortAsc = ({column}: typeof sort): RowData[] => {
-    if (column === 'COUNTRY') {
+    if (column === 'country') {
       return [...CRIdata].sort((a,b) => a.country > b.country ? 1 : -1);
     }
-    else if (column === 'INDEX') {
+    else if (column === 'criIndex') {
       return [...CRIdata].sort((a,b) => a.cri_score - b.cri_score);
     }
-    else if (column === 'RANK') {
+    else if (column === 'criRank') {
       return [...CRIdata].sort((a,b) => a.cri_rank - b.cri_rank);
     }
-    else if (column === 'TOTAL') {
+    else if (column === 'totalDeaths') {
       return [...CRIdata].sort((a,b) => a.fatalities_in_2019 - b.fatalities_in_2019);
     }
-    else if (column === 'POP. ADJ.') {
+    else if (column === 'popAdjDeaths') {
       return [...CRIdata].sort((a,b) => a.fatalities_per_100000_inhabitants - 
         b.fatalities_per_100000_inhabitants);
     }
-    else if (column === 'TOTAL2') {
+    else if (column === 'totalLosses') {
       return [...CRIdata].sort((a,b) => a.losses_in_millions_usd - b.losses_in_millions_usd);
     }
-    else if (column === 'AS GDP PCT.') {
+    else if (column === 'gdpPctLosses') {
       return [...CRIdata].sort((a,b) => a.losses_per_unit_gdp_percentage -
        b.losses_per_unit_gdp_percentage);
     }
@@ -128,6 +130,7 @@
 
   $: innerWidth = 0;
 
+
 </script>
 
 <svelte:window bind:innerWidth/>
@@ -156,7 +159,7 @@
         data-name={h.name}
         on:click={() => h.sortable && onClickHeader(h)}
       >
-        <span>{h.name}</span>
+        <span>{columnNames[h.index]}</span>
         {#if sort && sort.column === h.name}
           <div class="sort-arrow" class:sort-arrow--asc={sort.asc}>
             <Icon name='arrows.down' />
@@ -205,14 +208,12 @@
       <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
     </button>
   {/if}
-  
-  <div style="padding-bottom:60px"></div>
+
   
 </div>
 
 
 <style lang="scss">
-
 
   .container {
     margin-bottom: 60px;
@@ -282,7 +283,6 @@
     border-bottom: 2px solid #cccccc;
     padding-bottom: 10px;
     align-items: flex-end;
-    text-transform: uppercase;
     position: relative;
 
     &.sortable {
@@ -294,12 +294,12 @@
       font-weight: 700;
     }
 
-    &[data-name="INDEX"],
-    &[data-name="RANK"],
-    &[data-name="TOTAL2"],
-    &[data-name="POP. ADJ."],
-    &[data-name="AS GDP PCT."],
-    &[data-name="TOTAL"] {
+    &[data-name="criIndex"],
+    &[data-name="criRank"],
+    &[data-name="totalDeaths"],
+    &[data-name="popAdjDeaths"],
+    &[data-name="gdpPctLosses"],
+    &[data-name="totalLosses"] {
       text-align: right;
       flex-direction: row-reverse;
     }
@@ -325,7 +325,6 @@
       }
     }
   }
-
  
   #grid {
     display: grid;
@@ -349,29 +348,21 @@
     text-align: right;
   }
 
-  .cell-distribution{
-    
-  }
-
   // RESPONSIVELY DROP COLUMNS
   // original column template is:
   // grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
 
   @media (max-width: 1250px) {
-    .header[data-name='TOTAL'], .cell-number {
+    .header[data-name='totalLosses'],
+    .header[data-name='popAdjDeaths'],
+    .header[data-name='totalDeaths'],
+    .header[data-name='gdpPctLosses'],
+    .cell-number {
       display: none;
     }
 
-    .header[data-name='POP. ADJ.'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='TOTAL2'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='AS GDP PCT.'], .cell-number {
-      display: none;
+    .cell-permanent-number{
+      font-size: 16px;
     }
 
     #item2, #item3{
@@ -388,55 +379,10 @@
   }
 
   @media (max-width: 950px) {
-    .header[data-name='TOTAL'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='POP. ADJ.'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='TOTAL2'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='AS GDP PCT.'], .cell-number {
-      display: none;
-    }
-
-    #item2, #item3{
-      display:none;
-    }
-
-    .grid-table {
-      grid-template-columns: 35% 35% 15% 15%;
+    .cell-name {
+      font-size: 18px;
     }
   }
 
-  @media (max-width: 700px) {
-    .header[data-name='TOTAL'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='POP. ADJ.'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='TOTAL2'], .cell-number {
-      display: none;
-    }
-
-    .header[data-name='AS GDP PCT.'], .cell-number {
-      display: none;
-    }
-
-    #item2, #item3{
-      display:none;
-    }
-
-    .grid-table {
-      grid-template-columns: 35% 35% 15% 15%;
-    }
-  }
 
 </style>
