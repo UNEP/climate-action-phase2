@@ -211,13 +211,12 @@
 
         <div class="cell-name">{row.name}</div>
 
-        <div class="cell-description">{description}</div>
+        <div class="cell-description">{@html getChartText(row)}</div>
 
         <div class="cell-chart">
           <MiniLineChart
             data={countryTrendLookUp[row.id].emissions}
             category={countryTrendLookUp[row.id].category}
-            height={widthLineChart < 1200 && widthLineChart > 500 ? 117.5 : 187.5}
           />
         </div>
 
@@ -421,40 +420,8 @@
       display: none;
     }
     .grid-table {
-      grid-template-columns: 200px 180px 110px;
+      grid-template-columns: 40% 35% 25%;
     }
 
   }
-
-@media (max-width: 700px) {
-  .grid-ghg {
-    grid-template-columns: 25% 30% 15% 20% 10%;
-  }
-
-  .country-name {
-    font-size: 24px;
-    font-size: 4vw;
-  }
-
-  .number-descriptor {
-    font-size: 16px;
-    font-size: 3vw;
-  }
-
-  .row-number {
-    font-size: 24px;
-    font-size: 3vw;
-  }
-
-  .header {
-    font-size: 10px;
-    font-size: 2.5vw;
-  }
-}
-
-@media (max-width: 1200px) {
-  .grid-ghg {
-    grid-template-columns: 25% 30% 15% 15% 15%;
-  }
-}
 </style>
