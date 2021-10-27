@@ -10,6 +10,7 @@
   import type { Unpacked } from 'src/util';
   import { createLookup } from 'src/util';
   import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
+  import Icon from './Icon.svelte';
 
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
@@ -31,17 +32,17 @@
       return { id: d.id, value: d.cri_score};
     });
 
-  type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
+  type Header = { name: string, index: number, sortable: boolean, defaultSort?: 'asc' | 'desc' };
 
   const headers: Header[] = [
-    { name: 'COUNTRY', sortable: true, defaultSort: 'asc' },
-    { name: 'CHART', sortable: false},
-    { name: 'INDEX', sortable: true },
-    { name: 'RANK', sortable: true },
-    { name: 'TOTAL', sortable: true },
-    { name: 'POP.ADJ.', sortable: true },
-    { name: 'TOTAL2', sortable: true },
-    { name: 'AS GDP PCT.', sortable: true },
+    { name: 'COUNTRY', index: 0,sortable: true, defaultSort: 'asc' },
+    { name: '', index: 1,sortable: false},
+    { name: 'INDEX', index: 2,sortable: true },
+    { name: 'RANK', index: 3,sortable: true },
+    { name: 'TOTAL', index: 4,sortable: true },
+    { name: 'POP. ADJ.', index: 5,sortable: true },
+    { name: 'TOTAL2', index: 6,sortable: true },
+    { name: 'AS GDP PCT.', index: 7,sortable: true },
   ];
 
   let sort: {column: string, asc: boolean} = {column: 'COUNTRY', asc: true};
@@ -70,7 +71,7 @@
     else if (column === 'TOTAL') {
       return [...CRIdata].sort((a,b) => a.fatalities_in_2019 - b.fatalities_in_2019);
     }
-    else if (column === 'POP.ADJ.') {
+    else if (column === 'POP. ADJ.') {
       return [...CRIdata].sort((a,b) => a.fatalities_per_100000_inhabitants - 
         b.fatalities_per_100000_inhabitants);
     }
@@ -125,243 +126,317 @@
     rerender();
   };
 
+  $: innerWidth = 0;
+
 </script>
 
+<svelte:window bind:innerWidth/>
 
-<h2 class='narrow'>{@html head}</h2>
+<div class="container">
+  <h2 class='narrow'>{@html head}</h2>
 
-<div class="search-bar">
-  <input bind:value={searchText} placeholder='Search a country' />
-</div>
-
-
-<div id="grid">
-  <div id="item1">CLIMATE<br>RISK</div>
-  <div id="item2">CLIMATE-RELATED<br>DEATHS</div>
-  <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
-</div>
-
-<div style="padding-bottom:5px"></div>
-
-<div class="grid-ghg">
-
-  {#each headers as h}
-    <div class="header" class:selected="{sort && sort.column === h.name}"
+  <div class="search-bar">
+    <input bind:value={searchText} placeholder='Search a country' />
+  </div>
+  
+  <div id="grid">
+    <div id="item1">CLIMATE<br>RISK</div>
+    <div id="item2">CLIMATE-RELATED<br>DEATHS</div>
+    <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
+  </div>
+  
+  <div style="padding-bottom:5px"></div>
+  
+  <div class="grid-table">
+  
+    {#each headers as h}
+      <div class="header"
+        class:selected="{sort && sort.column === h.name}"
+        class:sortable={h.sortable}
+        data-name={h.name}
         on:click={() => h.sortable && onClickHeader(h)}
-        data-name={h.name}>
-      <span >
-        {h.name}
+      >
+        <span>{h.name}</span>
         {#if sort && sort.column === h.name}
-          <i class="arrow-down" class:arrow-up={sort.asc}></i>
+          <div class="sort-arrow" class:sort-arrow--asc={sort.asc}>
+            <Icon name='arrows.down' />
+          </div>
         {/if}
-      </span>
-    </div>
-  {/each}
+      </div>
+    {/each}
+  
+    {#each sortedData as row, i}
+      <div class="row" style={!displayRow(row, i) && 'display: none'}>
 
-  {#each sortedData as row, i}
-    <div class="row" style={!displayRow(row, i) && 'display: none'}>
-      <span class="country-name">
-        {row.country}
-      </span>
+        <div class="cell-name">
+          {row.country}
+        </div>
+  
+        <div class="cell-distribution">
+                <DistributionTiles
+                data={climateRiskIndexData}
+                selectedCountry={row.id}
+                selectedDataset="ClimateRiskIndex"
+                width2={widthDistributionChart}
+                height2={heightDistributionChart}
+              />
+        </div>
+  
+        <div class="cell-permanent-number">{row.cri_score}</div>
+  
+        <div class="cell-permanent-number">{row.cri_rank}</div>
 
-      <span class="country-distribution">
-              <DistributionTiles
-              data={climateRiskIndexData}
-              selectedCountry={row.id}
-              selectedDataset="ClimateRiskIndex"
-              width2={widthDistributionChart}
-              height2={heightDistributionChart}
-            />
-      </span>
+        <div class="cell-number">{row.fatalities_in_2019}</div>
 
-      <span class="country-index">
-        {row.cri_score}
-      </span>
+        <div class="cell-number">{row.fatalities_per_100000_inhabitants}</div>
 
-      <span class="row-number">
-        {row.cri_rank}
-      </span>
-      <span class="row-number">
-        {row.fatalities_in_2019}
-      </span>
-      <span class="row-number">
-        {row.fatalities_per_100000_inhabitants}
-      </span>
-      <span class="row-number">
-        {row.losses_in_millions_usd}
-      </span>
-      <span class="row-number">
-        {row.losses_per_unit_gdp_percentage}
-      </span>
-    </div>
-  {/each}
+        <div class="cell-number">{row.losses_in_millions_usd}</div>
+
+        <div class="cell-number">{row.losses_per_unit_gdp_percentage}</div>
+
+      </div>
+    {/each}
+  </div>
+  
+  {#if searchText === ''}
+    <button
+      class="show-more-button"
+      on:click={onClickShowButton}>
+      <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
+    </button>
+  {/if}
+  
+  <div style="padding-bottom:60px"></div>
+  
 </div>
 
-{#if searchText === ''}
-  <button
-    class="show-more-button"
-    on:click={onClickShowButton}>
-    <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
-  </button>
-{/if}
 
-<div style="padding-bottom:60px"></div>
-
-<style>
+<style lang="scss">
 
 
-&[data-name="COUNTRY"]{
-  text-align: left;
-}
+  .container {
+    margin-bottom: 60px;
+  }
 
-#grid {
-  display: grid;
-  height: 45px;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 10px;
-}
+  .grid-table {
+    display: grid;
+    grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
+    row-gap: 10px;
+    border-top: 0px solid black;
+    border-bottom: 0px solid #e5e5e5;
+    border-right: 0px solid black;
+  }
 
-#item1 {
-  grid-column: 3/3;
-  text-align: right;
-}
+  .sort-arrow {
+    width: 24px;
+    flex-shrink: 0;
+    position: relative;
+    top: 1px;
 
-#item2 {
-  grid-column: 4/5;
-  text-align: right;
-}
+    &.sort-arrow--asc {
+      transform-origin: 50% 42%;
+      transform: rotate(180deg);
+    }
+  }
 
-#item3 {
-  grid-column: 5/5;
-  text-align: right;
-}
+  .row {
+    display: contents;
+    column-gap: 10px;
+    > * {
+      box-sizing: border-box;
+    }
+  }
 
-.arrow-down {
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 5px;
-  margin-bottom: 3px;
-  margin-left: 6px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-}
+  .cell-name {
+    font-size: 24px;
+    font-weight: bold;
+    padding-right: 10px;
+  }
 
-.arrow-up {
-  border: solid black;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 5px;
-  margin-bottom: -3px;
-  margin-left: 6px;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
+  .cell-permanent-number {
+    font-weight: 100;
+    font-size: 24px;
+    text-align: right;
+    padding-left: 10px;
+  }
 
-.row {
-  display: contents;
-}
+  .cell-number {
+    font-weight: 100;
+    font-size: 24px;
+    text-align: right;
+    padding-left: 10px;
+  }
 
-.country-name {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.country-distribution{
-  width: 70%;
-  display:table-cell;
-}
-
-.country-index {
-  display: table-cell;
-  text-align: right;
-  font-weight: 100;
-}
-
-.row-number {
-  font-weight: 100;
-  font-size: 24px;
-  text-align: right;
-}
-
-.show-more-button {
-  background-color: #111111;
-  font-size: 16px;
-  color: white;
-  border: none;
-  padding: 10px 20px 10px 20px;
-  margin-top: 30px;
-  cursor: pointer;
-}
-
-.selected {
-  border-color: black !important;
-  font-weight: 700;
-}
-
-.header {
-  border-bottom: 2px solid #cccccc;
-  padding-bottom: 10px;
-  text-align: right;
-  cursor: pointer;
-}
-
-.search-bar :global([data-svelte-typeahead] mark){
-  background-color: aqua;
-}
-
-.search-bar :global([data-svelte-typeahead]) {
-    margin: 0rem;
-    width: 50%;
+  .show-more-button {
+    background-color: #111111;
+    font-size: 16px;
+    color: white;
+    border: none;
+    padding: 10px 20px 10px 20px;
     margin-top: 30px;
-    background-color: #f9f9f9;
-}
+    cursor: pointer;
+  }
 
-.search-bar :global([data-svelte-typeahead] ul) {
-  visibility: hidden;
-}
+  .header {
+    display: flex;
+    border-bottom: 2px solid #cccccc;
+    padding-bottom: 10px;
+    align-items: flex-end;
+    text-transform: uppercase;
+    position: relative;
 
-.search-bar :global([data-svelte-search] input:focus) {
-  outline-width: 0px;
-  background-color: #f9f9f9;
-}
+    &.sortable {
+      cursor: pointer;
+    }
 
-.search-bar :global([data-svelte-search] input) {
-  width: 100%;
-  padding: 0.5rem 0rem;
-  background: #f9f9f9;
-  font-size: 2rem;
-  border: 0;
-  border-radius: 0;
-  border: 0px solid #cccccc;
-  border-bottom-width: 2px;
-  font-family: Roboto;
-  font-weight: lighter;
-}
+    &.selected {
+      border-color: black !important;
+      font-weight: 700;
+    }
 
-.search-bar :global([data-svelte-search] label) {
-  margin-bottom: 0.25rem;
-  display: inline-flex;
-  font-size: 0.875rem;
-}
+    &[data-name="INDEX"],
+    &[data-name="RANK"],
+    &[data-name="TOTAL2"],
+    &[data-name="POP. ADJ."],
+    &[data-name="AS GDP PCT."],
+    &[data-name="TOTAL"] {
+      text-align: right;
+      flex-direction: row-reverse;
+    }
+  }
 
-.search-bar {
-  padding-bottom: 50px;
-}
+  .search-bar {
+    padding-bottom: 50px;
 
-.grid-ghg {
-  display: grid;
-  grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
-  border-top: 0px solid black;
-  border-bottom: 0px solid #e5e5e5;
-  border-right: 0px solid black;
-}
+    input {
+      width: 100%;
+      padding: 0.5rem 0rem;
+      background: #f9f9f9;
+      font-size: 2rem;
+      border: 0;
+      border-radius: 0;
+      border: 0px solid #cccccc;
+      border-bottom-width: 2px;
+      font-family: Roboto;
+      font-weight: lighter;
+      &:focus {
+        outline-width: 0px;
+        background-color: #f9f9f9;
+      }
+    }
+  }
 
-.grid-ghg > span {
-  margin-top: 15px;
-  padding-bottom: 15px;
-  border-left: 0px solid black;
-  border-bottom: 1px solid #cccccc;
-}
+ 
+  #grid {
+    display: grid;
+    height: 45px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 10px;
+  }
+
+  #item1 {
+    grid-column: 3/3;
+    text-align: right;
+  }
+
+  #item2 {
+    grid-column: 4/5;
+    text-align: right;
+  }
+
+  #item3 {
+    grid-column: 5/5;
+    text-align: right;
+  }
+
+  .cell-distribution{
+    
+  }
+
+  // RESPONSIVELY DROP COLUMNS
+  // original column template is:
+  // grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
+
+  @media (max-width: 1250px) {
+    .header[data-name='TOTAL'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='POP. ADJ.'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='TOTAL2'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='AS GDP PCT.'], .cell-number {
+      display: none;
+    }
+
+    #item2, #item3{
+      display:none;
+    }
+
+    #item1{
+      grid-column: 5/5;
+    }
+
+    .grid-table {
+      grid-template-columns: 35% 35% 15% 15%;
+    }
+  }
+
+  @media (max-width: 950px) {
+    .header[data-name='TOTAL'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='POP. ADJ.'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='TOTAL2'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='AS GDP PCT.'], .cell-number {
+      display: none;
+    }
+
+    #item2, #item3{
+      display:none;
+    }
+
+    .grid-table {
+      grid-template-columns: 35% 35% 15% 15%;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .header[data-name='TOTAL'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='POP. ADJ.'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='TOTAL2'], .cell-number {
+      display: none;
+    }
+
+    .header[data-name='AS GDP PCT.'], .cell-number {
+      display: none;
+    }
+
+    #item2, #item3{
+      display:none;
+    }
+
+    .grid-table {
+      grid-template-columns: 35% 35% 15% 15%;
+    }
+  }
 
 </style>
