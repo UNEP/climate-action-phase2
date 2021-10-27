@@ -423,5 +423,12 @@
       grid-template-columns: 40% 35% 25%;
     }
 
+    .cell-name {
+      font-size: 20px;
+    }
+
+    .cell-ghg span{
+      font-size:  10px;
+    }
   }
 </style>
