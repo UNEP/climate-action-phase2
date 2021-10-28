@@ -13,7 +13,6 @@
   import type { TrendsInputDataPoint } from "./maps/TrendsNode.svelte";
   import type { InputDataPoint } from "./maps/CartogramTypes";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
-  import ghgCategories from "../data/index";
 
   export var data : keyof Datasets;
   export var id: string;
@@ -69,7 +68,7 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG in ${datasets.endYear}`,
-        colorFn: d => colorGHG(ghgCategories.ghgCategories[d.id]),
+        colorFn: d => colorGHG(datasets.ghgCategories[d.id]),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -90,7 +89,7 @@
         hoverTextFn: c =>
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG per capita in ${datasets.endYear}`,
-        colorFn: d => colorGHG(ghgCategories.ghgCategories[d.id])
+        colorFn: d => colorGHG(datasets.ghgCategories[d.id])
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -109,7 +108,7 @@
           code: "IRN",
           text: "Each tile represents individual country trends in greenhouse gas emissions"
         },
-        colorFn: d => colorGHG(ghgCategories.ghgCategories[d.id]),
+        colorFn: d => colorGHG(datasets.ghgCategories[d.id]),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -145,12 +144,9 @@
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
 
-  $: {
-    legendIsHoveredValue = "";
-    if(legendElementSelectedIndex !== null && legendElementSelectedIndex >= 0){
-      legendIsHoveredValue = selectedDataset.legend.colors[legendElementSelectedIndex];
-    }
-  }
+  $: legendIsHoveredValue = legendElementSelectedIndex !== null && legendElementSelectedIndex >= 0
+    ? selectedDataset.legend.colors[legendElementSelectedIndex]
+    : "";
 
   $: {
     width = Math.max(clientWidth, 700);
