@@ -8,14 +8,10 @@
   export var data: CountryDataSquare[];
   export var width : number;
   export var height : number;
-  export const rerenderFn: () => void = () => uniqueData = uniqueData;
+  export const rerenderFn: () => void = () => data = data;
 
-  const normalTileWidth = 3;
-  const normalTileHeight = 20;
   const relevantTileWidth = 5;
   const relevantTileHeight = 34;
-  const xBorderRadius = 10;
-  const yBorderRadius = 2;
   const endingTileMargin = 10;
 
   const colorGenerator = scaleThreshold<number, string>()
@@ -27,16 +23,7 @@
 
   const colorFunction = (d: number) => colorGenerator(d);
 
-  let values = new Set<number>();
-  let uniqueData = data.filter(d => {
-    if (d.id === selectedCountry || !values.has(d.value)) {
-      values.add(d.value);
-      return true;
-    }
-    return false;
-  });
-
-  const dataLookUp = createLookup(uniqueData, d => d.id, d => d);
+  const dataLookUp = createLookup(data, d => d.id, d => d);
 
   function findMaxValue(data: CountryDataSquare[]){
     let max = 0;
@@ -52,7 +39,7 @@
     return countryValue * (width - endingTileMargin) / maxValue;
   }
 
-  $: maxValue = findMaxValue(uniqueData);
+  $: maxValue = findMaxValue(data);
 
   $: relevantCountry = {
     id: selectedCountry,
