@@ -12,21 +12,21 @@
           "label": "Explore Topics"
         },
         {
-          "a": "https://www.unep.org/explore-topics/climate",
+          "a": "https://www.unep.org/explore-topics/air",
           "label": "Climate"
         },
         {
-          "a": "https://www.unep.org/explore-topics/air/what-we-do/climate-action-note",
+          "a": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
           "label": "Climate Action Note"
         }
       ],
       "head": "Climate Action Note – What’s happening",
       "text": [
         {
-          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in the atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. This is a global average covering extreme variations across continents and regions. According to the IPCC we will see more severe and frequent extreme weather events in the near future like floods, droughts, wildfires and hurricanes."
+          "p": "Air pollution is the greatest environmental threat to public health globally and accounts for an estimated 7 million premature deaths every year. Air pollution and climate change are closely linked as all major pollutants have an impact on the climate and most share common sources with greenhouse gases. Improving our air quality will bring health, more net development and environmental benefits, along with mitigating climate change."
         },
         {
-          "p": "The UNEP Climate Action Dashboard shows you the global state of the climate emergency with its impact on extreme weather events across the world"
+          "p": "The UNEP Pollution Dashboard displays the global state of air pollution, major sources, the impact on human health and national efforts to tackle this critical issue."
         }
       ]
     },
@@ -46,7 +46,7 @@
       "head": "Land temperature anomaly Map bla bla bla",
       "text": [
         {
-          "p": "As the world is heading for a catastrophic rise in excess of 3°C this century, we will see more severe and frequent extreme weather events in the near future like floods, droughts, wildfires and hurricanes according to the IPCC. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030."
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ]
     },
@@ -63,7 +63,7 @@
       "head": "Ocean Temperature Map bla bla",
       "text": [
         {
-          "p": "As the world is heading for a catastrophic rise in excess of 3°C this century, we will see more severe and frequent extreme weather events in the near future. They will be affecting land, but also the 70 percent of Earth’s surface covered in oceans. With polar ice melting, rising sea levels and oceans becoming more acidic, the changing climate is impacting life below the surface."
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ]
     },
@@ -77,10 +77,10 @@
       "src": "fire.mp4",
       "imgtitle": "<b>A decade of fires</b> (monthly data from 2010 to 2020)",
       "alt": "Fires Map",
-      "head": "More frequent fires around the world",
+      "head": "Fires map around the world",
       "text": [
         {
-          "p": "As the world is heading for a catastrophic rise in excess of 3°C this century, we will see more severe and frequent extreme weather events in the near future. While the global temperature is a world average, we will see many more heatwaves and droughts causing wildfires that will in turn emit GHG from the forests burned while threatening biodiversity, economy and human health."
+          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ]
     },
@@ -93,7 +93,7 @@
       "head": "Some countries are making progress but all nations need to step up",
       "text": [
         {
-          "p": "As the world is heading for a catastrophic rise in excess of 3°C this century, we will see more severe and frequent extreme weather events in the near future. Look here to see what climate risks each country is facing in a world beyond 1.5°C."
+          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is far above what is needed to achieve the 2015 Paris Agreement goals of limiting global warming to well below 2°C and pursuing 1.5°C. The good news is that the technologies already exist, including renewable power, green hydrogen and modern bioenergy. The COVID-19 crisis offers a chance to direct recovery measures towards low-carbon, green policies."
         }
       ]
     },

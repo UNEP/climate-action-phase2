@@ -6,47 +6,75 @@
 </script>
 
 <script lang="ts">
-  import CRIdata from 'src/data/cri.json';
+  import co2trends from 'src/data/co2trends.json';
+  import co2data from 'src/data/co2data.json';
   import type { Unpacked } from 'src/util';
-  import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
+  import { displayVal } from 'src/util';
+  import { createLookup } from 'src/util';
+  import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
   import Icon from './Icon.svelte';
 
+  const description = "It has had one of the biggest increases in GHG emissions\
+   -422% since 1990. Today, it accounts for 0.33% of global emissions.";
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
 
   const ROW_LIMIT = 6;
 
-  type RowData = Unpacked<typeof CRIdata>;
+  type RowData = Unpacked<typeof co2data>;
 
-  let sortedData = CRIdata;
+  let sortedData = co2data;
 
   let showAll = false;
 
-  let widthDistributionChart = 140;
-  let heightDistributionChart = 45;
+  let countryEmissions = [];
+  let countryDataArray = co2trends;
 
-  let climateRiskIndexData: CountryDataSquare[] = CRIdata
-    .map(d => {
-      return { id: d.id, value: d.cri_score};
+  for (let i = 0; i < countryDataArray.length; i++){
+    let emissionsArray = Object.entries(countryDataArray[i].emissions);
+    let entries = [];
+    let baseValue = 0;
+    let lastValue = 0;
+    emissionsArray.forEach(([key, value]) => {
+      let yearEntry = {year: parseInt(key), value: value};
+      if (yearEntry.year === 1990){
+        baseValue = value;
+      }
+      else if (yearEntry.year === 2019){
+        lastValue = value;
+      }
+      entries.push(yearEntry);
     });
+    let cat = getCategory(baseValue, lastValue);
+    const newCountry = {id:countryDataArray[i].code, emissions: entries, category: cat};
+    countryEmissions.push(newCountry);
+  }
 
-  type Header = { name: string, index: number, sortable: boolean, defaultSort?: 'asc' | 'desc' };
+  const countryTrendLookUp = createLookup(countryEmissions, c => c.id, c => c);
+
+  function getCategory(baseValue, lastValue) {
+    let diff = (lastValue - baseValue) / baseValue;
+    if (Math.abs(diff) < 0.25)
+      return 'stable';
+    else if (diff < -0.25)
+      return 'falling';
+    else
+      return 'climbing-fast';
+  }
+
+  type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
 
   const headers: Header[] = [
-    { name: 'country', index: 0,sortable: true, defaultSort: 'asc' },
-    { name: 'chart', index: 1,sortable: false},
-    { name: 'criIndex', index: 2,sortable: true },
-    { name: 'criRank', index: 3,sortable: true },
-    { name: 'totalDeaths', index: 4,sortable: true },
-    { name: 'popAdjDeaths', index: 5,sortable: true },
-    { name: 'totalLosses', index: 6,sortable: true },
-    { name: 'gdpPctLosses', index: 7,sortable: true },
+    { name: 'Country', sortable: true, defaultSort: 'asc' },
+    { name: '', sortable: false },
+    { name: 'Trend', sortable: false },
+    { name: '2019 emissions', sortable: true },
+    { name: 'As pct of global', sortable: true },
+    { name: 'Per capita', sortable: true },
   ];
 
-  const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL', 'POP. ADJ.', 'TOTAL', 'AS GDP PCT.'];
-
-  let sort: {column: string, asc: boolean} = {column: 'country', asc: true};
+  let sort: {column: string, asc: boolean} = {column: 'Country', asc: true};
 
   const onClickHeader = (header: Header) => {
     if (header.name === sort.column) {
@@ -60,28 +88,17 @@
   };
 
   const getSortAsc = ({column}: typeof sort): RowData[] => {
-    if (column === 'country') {
-      return [...CRIdata].sort((a,b) => a.country > b.country ? 1 : -1);
+    if (column === 'Country') {
+      return [...co2data].sort((a,b) => a.name > b.name ? 1 : -1);
     }
-    else if (column === 'criIndex') {
-      return [...CRIdata].sort((a,b) => a.cri_score - b.cri_score);
+    else if (column === '2019 emissions') {
+      return [...co2data].sort((a,b) => a.emissions2019 - b.emissions2019);
     }
-    else if (column === 'criRank') {
-      return [...CRIdata].sort((a,b) => a.cri_rank - b.cri_rank);
+    else if (column === 'As pct of global') {
+      return [...co2data].sort((a,b) => a.globalPct - b.globalPct);
     }
-    else if (column === 'totalDeaths') {
-      return [...CRIdata].sort((a,b) => a.fatalities_in_2019 - b.fatalities_in_2019);
-    }
-    else if (column === 'popAdjDeaths') {
-      return [...CRIdata].sort((a,b) => a.fatalities_per_100000_inhabitants - 
-        b.fatalities_per_100000_inhabitants);
-    }
-    else if (column === 'totalLosses') {
-      return [...CRIdata].sort((a,b) => a.losses_in_millions_usd - b.losses_in_millions_usd);
-    }
-    else if (column === 'gdpPctLosses') {
-      return [...CRIdata].sort((a,b) => a.losses_per_unit_gdp_percentage -
-       b.losses_per_unit_gdp_percentage);
+    else if (column === 'Per capita') {
+      return [...co2data].sort((a,b) => a.percapita - b.percapita);
     }
   };
 
@@ -98,7 +115,7 @@
     return sortedData
       .map(d => ({
         id: d.id,
-        searchIndex: re.exec(d.country)?.index
+        searchIndex: re.exec(d.name)?.index
       }))
       .filter(d => d.searchIndex !== undefined)
       .sort((a, b) => a.searchIndex - b.searchIndex)
@@ -127,30 +144,18 @@
     rerender();
   };
 
-  $: innerWidth = 0;
-
-
 </script>
 
-<svelte:window bind:innerWidth/>
-
 <div class="container">
+
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="search-bar">
     <input bind:value={searchText} placeholder='Search a country' />
   </div>
-  
-  <div id="grid">
-    <div id="item1">CLIMATE<br>RISK</div>
-    <div id="item2">CLIMATE-RELATED<br>DEATHS</div>
-    <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
-  </div>
-  
-  <div style="padding-bottom:5px"></div>
-  
+
   <div class="grid-table">
-  
+
     {#each headers as h}
       <div class="header"
         class:selected="{sort && sort.column === h.name}"
@@ -158,7 +163,7 @@
         data-name={h.name}
         on:click={() => h.sortable && onClickHeader(h)}
       >
-        <span>{columnNames[h.index]}</span>
+        <span>{h.name}</span>
         {#if sort && sort.column === h.name}
           <div class="sort-arrow" class:sort-arrow--asc={sort.asc}>
             <Icon name='arrows.down' />
@@ -166,39 +171,37 @@
         {/if}
       </div>
     {/each}
-  
+
     {#each sortedData as row, i}
-      <div class="row" style={!displayRow(row, i) && 'display: none'}>
+      <div class="row" style={!displayRow(row, i) ? 'display: none' : ''}>
 
-        <div class="cell-name">
-          {row.country}
+        <div class="cell-name">{row.name}</div>
+
+        <div class="cell-description">{description}</div>
+
+        <div class="cell-chart">
+          <MiniLineChart
+            data={countryTrendLookUp[row.id].emissions}
+            category={countryTrendLookUp[row.id].category}
+          />
         </div>
-  
-        <div class="cell-distribution">
-                <DistributionTiles
-                data={climateRiskIndexData}
-                selectedCountry={row.id}
-                width={widthDistributionChart}
-                height={heightDistributionChart}
-              />
+
+        <div class="cell-number cell-ghg">
+          {displayVal(row.emissions2019, 2)} <span>million tonnes of GHG</span>
         </div>
-  
-        <div class="cell-permanent-number">{row.cri_score}</div>
-  
-        <div class="cell-permanent-number">{row.cri_rank}</div>
 
-        <div class="cell-number">{row.fatalities_in_2019}</div>
+        <div class="cell-number cell-perc">
+          {row.globalPct < 0.1 ? '<0.1' : row.globalPct.toFixed(1)}<span>%</span>
+        </div>
 
-        <div class="cell-number">{row.fatalities_per_100000_inhabitants}</div>
-
-        <div class="cell-number">{row.losses_in_millions_usd}</div>
-
-        <div class="cell-number">{row.losses_per_unit_gdp_percentage}</div>
+        <div class="cell-number cell-pcap">
+          {row.percapita} <span>tonnes of GHG</span>
+        </div>
 
       </div>
     {/each}
   </div>
-  
+
   {#if searchText === ''}
     <button
       class="show-more-button"
@@ -207,11 +210,9 @@
     </button>
   {/if}
 
-  
 </div>
 
-
-<style lang="scss">
+<style type="text/scss">
 
   .container {
     margin-bottom: 60px;
@@ -219,15 +220,11 @@
 
   .grid-table {
     display: grid;
-    grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
+    grid-template-columns: 200px 1fr 180px 110px 110px 90px;
     row-gap: 10px;
     border-top: 0px solid black;
     border-bottom: 0px solid #e5e5e5;
     border-right: 0px solid black;
-  }
-
-  .cell-distribution{
-    padding-top: 10px;
   }
 
   .sort-arrow {
@@ -250,22 +247,20 @@
     }
   }
 
+  .cell-name, .cell-description {
+    padding-right: 10px;
+  }
+
   .cell-name {
     font-size: 24px;
     font-weight: bold;
-    padding-right: 10px;
-    display: flex;
-    align-items:center;
   }
 
-  .cell-permanent-number {
+  .cell-description {
     font-weight: 100;
-    font-size: 24px;
-    text-align: right;
-    padding-left: 10px;
-    display: flex;
-    align-items:center;
-    justify-content: right;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 400px;
   }
 
   .cell-number {
@@ -273,9 +268,27 @@
     font-size: 24px;
     text-align: right;
     padding-left: 10px;
+    span {
+      color: #818181;
+      font-weight: 500;
+      text-align: right;
+      font-size: 16px;
+      margin: 0%;
+    }
+  }
+
+  .cell-pcap, .cell-ghg {
     display: flex;
-    align-items:center;
-    justify-content: right;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 2px;
+
+    span {
+      font-size: 14px;
+      display: block;
+      line-height: 1.6;
+      width: 90px;
+    }
   }
 
   .show-more-button {
@@ -293,6 +306,7 @@
     border-bottom: 2px solid #cccccc;
     padding-bottom: 10px;
     align-items: flex-end;
+    text-transform: uppercase;
     position: relative;
 
     &.sortable {
@@ -304,14 +318,23 @@
       font-weight: 700;
     }
 
-    &[data-name="criIndex"],
-    &[data-name="criRank"],
-    &[data-name="totalDeaths"],
-    &[data-name="popAdjDeaths"],
-    &[data-name="gdpPctLosses"],
-    &[data-name="totalLosses"] {
+    &[data-name="2019 emissions"],
+    &[data-name="As pct of global"],
+    &[data-name="Per capita"] {
       text-align: right;
       flex-direction: row-reverse;
+    }
+
+    &[data-name="Per capita"] span {
+      width: 60px;
+    }
+
+    &[data-name="As pct of global"] span {
+      width: 80px;
+    }
+
+    &[data-name="2019 emissions"] span {
+      width: 88px;
     }
   }
 
@@ -335,64 +358,37 @@
       }
     }
   }
- 
-  #grid {
-    display: grid;
-    height: 45px;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 10px;
-  }
-
-  #item1 {
-    grid-column: 3/3;
-    text-align: right;
-  }
-
-  #item2 {
-    grid-column: 4/5;
-    text-align: right;
-  }
-
-  #item3 {
-    grid-column: 5/5;
-    text-align: right;
-  }
 
   // RESPONSIVELY DROP COLUMNS
   // original column template is:
-  // grid-template-columns: 25% 15% 10% 10% 10% 10% 10% 10%;
+  // grid-template-columns: 200px 1fr 180px 110px 110px 90px;
 
   @media (max-width: 1250px) {
-    .header[data-name='totalLosses'],
-    .header[data-name='popAdjDeaths'],
-    .header[data-name='totalDeaths'],
-    .header[data-name='gdpPctLosses'],
-    .cell-number {
+    .header[data-name='As pct of global'], .cell-perc {
       display: none;
     }
-
-    .cell-permanent-number{
-      font-size: 16px;
-    }
-
-    #item2, #item3{
-      display:none;
-    }
-
-    #item1{
-      grid-column: 5/5;
-    }
-
     .grid-table {
-      grid-template-columns: 35% 35% 15% 15%;
+      grid-template-columns: 200px 1fr 180px 110px 90px;
     }
   }
 
   @media (max-width: 950px) {
-    .cell-name {
-      font-size: 18px;
+    .header[data-name=''], .cell-description {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 180px 110px 90px;
     }
   }
 
+  @media (max-width: 700px) {
+    .header[data-name='Per capita'], .cell-pcap {
+      display: none;
+    }
+    .grid-table {
+      grid-template-columns: 200px 180px 110px;
+    }
+
+  }
 
 </style>
