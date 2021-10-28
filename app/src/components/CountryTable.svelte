@@ -16,17 +16,10 @@
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
   import Icon from './Icon.svelte';
 
-  const top10Emissons = co2data.sort((c1, c2) => {
-    if (c1.emissions2019 > c2.emissions2019){
-      return -1;
-    }else if (c1.emissions2019 < c2.emissions2019){
-      return 1;
-    }else return 0;
-  }).slice(0, 10);
+  const top10Emissons = co2data.sort((a,b) => b.emissions2019 - a.emissions2019);
 
   enum ChartTextType {
         Largest,
-        Relative,
         PerCapita
   }
 
@@ -45,13 +38,14 @@
   let countryDataArray = co2trends;
 
   function getChartText(data: RowData) {
-    const trends = co2trends.find(c => c.code === data.id);
+    const trends = countryTrendLookUp[data.id];
     const latestEmissions = data.emissions2019;
     const change = data.emissions2019 / trends.emissions['1990'];
     const fallen = change <= 1;
     const relChange = fallen ? 1 - change : change - 1;
     const percStr = Math.round(relChange * 100).toFixed(0);
-    const chartTextType = top10Emissons.find(c => c.id === data.id) ? 0 : 2;
+    const chartTextType = top10Emissons.find(c => c.id === data.id) ?
+      ChartTextType.Largest : ChartTextType.PerCapita;
     switch (chartTextType){
     case ChartTextType.Largest:
       return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
@@ -175,11 +169,8 @@
     rerender();
   };
 
-  $: innerWidth = 0;
-
 </script>
 
-<svelte:window bind:innerWidth/>
 <div class="container">
 
   <h2 class='narrow'>{@html head}</h2>
