@@ -11,7 +11,7 @@
   import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
   import Icon from './Icon.svelte';
 
-  const head = `Country Table 2 Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
+  const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
 
   const ROW_LIMIT = 6;
