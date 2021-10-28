@@ -6,6 +6,8 @@ import countries from './countryDictionary.json';
 import ndc from './ndc.carto.json';
 import pew from './pewsurvey.json';
 import netzero from './netzero.json';
+import co2trends from 'src/data/co2trends.json';
+import co2data from 'src/data/co2data.json';
 import { IS_DEV } from 'src/util/env';
 export {default as annotations } from './annotations.json';
 
@@ -78,11 +80,13 @@ export default {
   },
   lookups: {
     netzero: createLookup(netzero, d => d.id, d => d),
+    trends: createLookup(co2trends, d => d.code, d => d)
   },
+  co2data,
+  co2trends,
   top10emitters,
   top10drops,
   pew,
   endYear: 2015,
-  ghgCategories,
-  netzeroLookup
+  ghgCategories
 };

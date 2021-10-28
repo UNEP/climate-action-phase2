@@ -7,85 +7,58 @@
 </script>
 
 <script lang="ts">
-
-  import co2trends from 'src/data/co2trends.json';
-  import co2data from 'src/data/co2data.json';
+  import datasets from 'src/data';
   import type { Unpacked } from 'src/util';
   import { displayVal } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
   import Icon from './Icon.svelte';
+  import { colorGHG } from 'src/colors';
 
-  const top10Emissons = co2data.sort((a,b) => b.emissions2019 - a.emissions2019);
-
-  enum ChartTextType {
-        Largest,
-        PerCapita
-  }
+  const top10Emissons = new Set(
+    datasets.co2data
+      .sort((a,b) => b.emissions2019 - a.emissions2019)
+      .slice(0, 10)
+      .map(d => d.id)
+  );
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
 
   const ROW_LIMIT = 6;
 
-  type RowData = Unpacked<typeof co2data>;
+  type RowData = Unpacked<typeof datasets.co2data>;
 
-  let sortedData = co2data;
+  let sortedData = datasets.co2data;
 
   let showAll = false;
 
-  let countryEmissions = [];
-  let countryDataArray = co2trends;
+  const formattedTrendsData = datasets.co2trends.map(d => ({
+    id: d.code,
+    category: datasets.ghgCategories[d.code],
+    emissions: Object.entries(d.emissions)
+      .map(([year, value]) => ({year: parseInt(year), value})),
+
+  }));
+
+  const formattedTrendsDataLookup = createLookup(formattedTrendsData, c => c.id, c => c);
 
   function getChartText(data: RowData) {
-    const trends = countryTrendLookUp[data.id];
-    const latestEmissions = data.emissions2019;
-    const change = data.emissions2019 / trends.emissions['1990'];
-    const fallen = change <= 1;
-    const relChange = fallen ? 1 - change : change - 1;
-    const percStr = Math.round(relChange * 100).toFixed(0);
-    const chartTextType = top10Emissons.find(c => c.id === data.id) ?
-      ChartTextType.Largest : ChartTextType.PerCapita;
-    switch (chartTextType){
-    case ChartTextType.Largest:
+    if (top10Emissons.has(data.id)) {
+      const latestEmissions = data.emissions2019;
       return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
-      of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
-    case ChartTextType.PerCapita:
-      return `<b>${data.name}</b> has had one of the biggest
-      ${fallen ? 'drops' : 'increases'} in GHG emissions —${percStr}% since 1990. `
-      + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+        of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
     }
-  }
-  for (let i = 0; i < countryDataArray.length; i++){
-    let emissionsArray = Object.entries(countryDataArray[i].emissions);
-    let entries = [];
-    let baseValue = 0;
-    let lastValue = 0;
-    emissionsArray.forEach(([key, value]) => {
-      let yearEntry = {year: parseInt(key), value: value};
-      if (yearEntry.year === 1990){
-        baseValue = value;
-      }
-      else if (yearEntry.year === 2019){
-        lastValue = value;
-      }
-      entries.push(yearEntry);
-    });
-    let cat = getCategory(baseValue, lastValue);
-    const newCountry = {id:countryDataArray[i].code, emissions: entries, category: cat};
-    countryEmissions.push(newCountry);
-  }
-
-  const countryTrendLookUp = createLookup(countryEmissions, c => c.id, c => c);
-
-  function getCategory(baseValue, lastValue) {
-    let diff = (lastValue - baseValue) / baseValue;
-    if (Math.abs(diff) < 0.25)
-      return 'stable';
-    else if (diff < -0.25)
-      return 'falling';
-    else
-      return 'climbing-fast';
+    else {
+      const trends = datasets.lookups.trends[data.id];
+      const change = data.emissions2019 / trends.emissions['1990'];
+      const fallen = change <= 1;
+      const relChange = fallen ? 1 - change : change - 1;
+      const percStr = Math.round(relChange * 100).toFixed(0);
+      return `<b>${data.name}</b> has had one of the biggest
+        ${fallen ? 'drops' : 'increases'} in GHG emissions — ${percStr}% since 1990. `
+        + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+    }
   }
 
   type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
@@ -114,16 +87,16 @@
 
   const getSortAsc = ({column}: typeof sort): RowData[] => {
     if (column === 'Country') {
-      return [...co2data].sort((a,b) => a.name > b.name ? 1 : -1);
+      return [...datasets.co2data].sort((a,b) => a.name > b.name ? 1 : -1);
     }
     else if (column === '2019 emissions') {
-      return [...co2data].sort((a,b) => a.emissions2019 - b.emissions2019);
+      return [...datasets.co2data].sort((a,b) => a.emissions2019 - b.emissions2019);
     }
     else if (column === 'As pct of global') {
-      return [...co2data].sort((a,b) => a.globalPct - b.globalPct);
+      return [...datasets.co2data].sort((a,b) => a.globalPct - b.globalPct);
     }
     else if (column === 'Per capita') {
-      return [...co2data].sort((a,b) => a.percapita - b.percapita);
+      return [...datasets.co2data].sort((a,b) => a.percapita - b.percapita);
     }
   };
 
@@ -206,8 +179,8 @@
 
         <div class="cell-chart">
           <MiniLineChart
-            data={countryTrendLookUp[row.id].emissions}
-            category={countryTrendLookUp[row.id].category}
+            data={formattedTrendsDataLookup[row.id].emissions}
+            stroke={colorGHG(formattedTrendsDataLookup[row.id].category)}
           />
         </div>
 
