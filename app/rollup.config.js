@@ -11,6 +11,7 @@ import image from '@rollup/plugin-image';
 import eslint from '@rbnlffl/rollup-plugin-eslint';
 import includePaths from 'rollup-plugin-includepaths';
 import { string } from 'rollup-plugin-string';
+import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -53,6 +54,12 @@ export default {
     }),
     eslint({
       filterInclude: "src/**/*.(ts|svelte|js)"
+    }),
+    replace({
+      preventAssignment: true,
+      values: {
+        'ROLLUP_IS_DEV': !production
+      }
     }),
     svelte({
       preprocess: sveltePreprocess(),

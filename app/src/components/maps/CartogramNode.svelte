@@ -1,6 +1,8 @@
 <script lang="ts">
   import type { CartogramDataPoint } from "./CartogramTypes";
   export let d: CartogramDataPoint<any,any>;
+  export let canvasWidth: number;
+  export let canvasHeight: number;
 </script>
 
 <div
