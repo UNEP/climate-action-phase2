@@ -55,8 +55,6 @@ trends.data.forEach(d => {
   ghgCategories[d.id] = calcGHGCategory(d);
 });
 
-const netzeroLookup = createLookup(netzero, d => d.id, d => d);
-
 if (IS_DEV) {
   // check data
   const trendsLookup = createLookup(trends.data, d => d.id, d => d);
@@ -77,6 +75,9 @@ export default {
     ghg,
     ndc,
     trends,
+  },
+  lookups: {
+    netzero: createLookup(netzero, d => d.id, d => d),
   },
   top10emitters,
   top10drops,

@@ -29,8 +29,8 @@
           `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
           `tonnes of GHG in ${END_YEAR}`,
         classesFn: c => section === 1 && !datasets.top10emitters.has(c.id) ? ['fade'] : [],
-        colorFn: d => datasets.netzeroLookup[d.id]
-          ? colorNetZero(datasets.netzeroLookup[d.id].status)
+        colorFn: d => datasets.lookups.netzero[d.id]
+          ? colorNetZero(datasets.lookups.netzero[d.id].status)
           : '#000000'
       },
       {
@@ -38,8 +38,8 @@
         NodeComponent: TrendsNode,
         NodeClass: TrendsCartogramDataPoint,
         classesFn: c => section === 3 && !datasets.top10drops.has(c.id) ? ['fade'] : [],
-        colorFn: d => datasets.netzeroLookup[d.id]
-          ? colorNetZero(datasets.netzeroLookup[d.id].status)
+        colorFn: d => datasets.lookups.netzero[d.id]
+          ? colorNetZero(datasets.lookups.netzero[d.id].status)
           : '#000000'
       },
     ],
