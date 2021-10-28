@@ -3,7 +3,7 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorNDC, colorPM25, colorGHG } from "src/colors";
+  import { colorNDC, colorGHG } from "src/colors";
   import { displayVal} from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
@@ -106,7 +106,7 @@
           ...datasets.cartoworld.trends,
           NodeClass: TrendsCartogramDataPoint,
           NodeComponent: TrendsNode,
-          colorFn: d => colorPM25(d.value)
+          colorFn: d => 'black'
         }],
         countries: datasets.countries,
         helpText: {
