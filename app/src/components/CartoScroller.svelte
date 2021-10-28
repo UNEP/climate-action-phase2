@@ -41,7 +41,7 @@
         colorFn: d => datasets.netzeroLookup[d.id]
           ? colorNetZero(datasets.netzeroLookup[d.id].status)
           : '#000000'
-      } as CartogramData<TrendsCartogramDataPoint<'size'>>,
+      },
     ],
     countries: datasets.countries
   };
