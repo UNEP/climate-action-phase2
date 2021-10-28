@@ -12,6 +12,7 @@
   import { strToId } from './util';
   import CartoTemperature from './components/CartoTemperature.svelte';
   import CountryTable from './components/CountryTable.svelte';
+  import RiskCountryTable from './components/RiskCountryTable.svelte';
 
 
   export var gdocs: GDocs;
@@ -29,7 +30,8 @@
     'text': Text,
     "menu": Menu,
     'methodology': MethodologySourcesText,
-    'country-table': CountryTable
+    'country-table': CountryTable,
+    'risk-country-table': RiskCountryTable
   };
 
 </script>
