@@ -146,9 +146,6 @@
     }
   };
 
-  // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
-  $: legendElementSelectedIndex !== undefined && rerender && rerender();
-
   $: legendIsHoveredValue = legendElementSelectedIndex !== null && legendElementSelectedIndex >= 0
     ? selectedDataset.legend.colors[legendElementSelectedIndex]
     : "";

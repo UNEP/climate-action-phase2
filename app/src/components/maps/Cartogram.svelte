@@ -338,7 +338,7 @@
 
   .node {
     position: absolute;
-    transition: 200ms width 50ms, 200ms height 50ms, 200ms left 50ms, 200ms top 50ms, opacity 400ms;
+    transition: 200ms width 50ms, 200ms height 50ms, 200ms left 50ms, 200ms top 50ms, opacity 500ms;
 
     &.node--fadeout {
       opacity: 0.2;
