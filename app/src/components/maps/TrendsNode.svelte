@@ -186,8 +186,15 @@
     display: none;
     opacity: 0;
 
+    .trend-chart {
+      transition: opacity 100ms linear;
+    }
+
     &:hover {
       z-index: 10;
+      &.fade .trend-chart {
+        opacity: 1;
+      }
     }
 
     &.display {
@@ -197,7 +204,6 @@
 
     &.fade .trend-chart {
       opacity: 0.2;
-      transition: opacity 100ms linear;
     }
   }
 
