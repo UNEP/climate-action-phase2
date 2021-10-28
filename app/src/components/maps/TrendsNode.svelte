@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   import type { TimeseriesDataPoint } from 'src/data';
   import { END_YEAR, START_YEAR } from 'src/data';
-  import type { CartogramConstructor, InputDataPoint } from "./CartogramTypes";
+  import type { CountryMetadata, InputDataPoint, Transforms } from "./CartogramTypes";
   import * as d3 from 'src/d3';
   import { clamp, displayVal, range } from "src/util";
   import { CartogramDataPoint } from "./CartogramTypes";
@@ -12,14 +12,19 @@
 
   const years = range(START_YEAR, END_YEAR+1);
 
-  export class TrendsCartogramDataPoint<VK extends string, IDP extends TrendsInputDataPoint<VK> = TrendsInputDataPoint<VK>> extends CartogramDataPoint<VK, IDP> {
+  export class TrendsCartogramDataPoint<VK extends string, IDP extends TrendsInputDataPoint<VK> = TrendsInputDataPoint<VK>> extends CartogramDataPoint<IDP, VK> {
     timeseries: TimeseriesDataPoint[];
     _path: string;
 
-    constructor(input: CartogramConstructor<TrendsCartogramDataPoint<VK, IDP>>) {
-      super(input);
+    constructor(
+      data: IDP,
+      valueKey: VK,
+      metadata: CountryMetadata,
+      transforms: Transforms<TrendsCartogramDataPoint<VK, IDP>>
+    ) {
+      super(data, valueKey, metadata, transforms);
       this.timeseries = years.map(year => ({
-        year, value: input.data.emissions[year]
+        year, value: data.emissions[year]
       }));
     }
 

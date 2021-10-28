@@ -1,11 +1,14 @@
 <script lang="ts" context="module">
+  import { CartogramDataPoint } from './CartogramTypes';
   import type {
-    CartogramConstructor, CartogramDataPoint, CountryMetadata,
+    CountryMetadata,
+    ExtractVKFromIDP,
     InputDataPoint, Transforms } from "./CartogramTypes";
 
   export interface BaseCartogramData<
-    VK extends string,
-    IDP extends InputDataPoint<VK> = InputDataPoint<VK>
+    IDP extends InputDataPoint<VK>,
+    VK extends string = ExtractVKFromIDP<IDP>
+
   > {
     nodeSize: number;
     width: number;
@@ -14,16 +17,26 @@
     data: IDP[];
   }
 
+  export class SimpleCartogramDataPoint<VK extends string>
+    extends CartogramDataPoint<InputDataPoint<VK>, VK> {
+  }
+
   export interface CartogramData<
-    VK extends string,
-    IDP extends InputDataPoint<VK> = InputDataPoint<VK>,
-    CDP extends CartogramDataPoint<VK, IDP> = CartogramDataPoint<VK, IDP>
-  > extends BaseCartogramData<VK, IDP> {
-    NodeClass: { new(input: CartogramConstructor<CDP>): CDP },
+    T extends CartogramDataPoint<IDP, VK>,
+    IDP extends InputDataPoint<VK> = T extends CartogramDataPoint<infer IDP, infer _> ? IDP : never,
+    VK extends string = ExtractVKFromIDP<IDP>
+  > extends BaseCartogramData<IDP, VK> {
+    NodeClass: { new(
+      data: IDP,
+      valueKey: VK,
+      metadata: CountryMetadata,
+      transforms: Transforms<T>
+    ): T },
     NodeComponent: typeof SvelteComponent;
-    hoverTextFn: Transforms<CDP>['hoverTextFn']
-    classesFn: Transforms<CDP>['classesFn']
-    colorFn: Transforms<CDP>['colorFn']
+    hoverTextFn?: Transforms<T>['hoverTextFn'];
+    classesFn?: Transforms<T>['classesFn'];
+    colorFn?: Transforms<T>['colorFn'];
+    categoryFn?: Transforms<T>['categoryFn'];
   }
 
 </script>
@@ -34,19 +47,21 @@
   import Annotation from './Annotation.svelte';
   import type { SvelteComponent } from "svelte";
 
-  type CD = CartogramData<string, InputDataPoint<string>>;
-  type CDP = CartogramDataPoint<string, InputDataPoint<string>>;
+  type CDPs = $$Generic<[CartogramDataPoint<any>, ...CartogramDataPoint<any>[]]>;
+  type CDP = CartogramDataPoint<any>;
+  type CDs = {[P in keyof CDPs]: CartogramData<CDPs[P] & CartogramDataPoint<any>>};
 
-  export let dataset: CD | CD[];
+  export let dataset: CDs;
   export let selectedDatasetIndex = 0;
   export let countries: CountryMetadata[];
   export let helpText: {code: string, text: string} = null;
-  export let categoryFn: Transforms<CDP>['categoryFn'] = () => '';
-  export let onHoverFn: (c: CDP) => void = () => null;
   export const rerenderFn: () => void = () => selectedCartogramData = selectedCartogramData;
   export let annotationShowing: boolean = false;
 
-  let datasets = dataset instanceof Array ? dataset : [dataset];
+  // workaround as mapped tuples seem to break with generics
+  type _CDs = [CartogramData<any>, ...CartogramData<any>[]];
+  type CD = _CDs extends {[x: number]: infer R} ? R : never;
+  let datasets: CD[] = dataset as CD[];
 
   let containerEl: Element;
   let loaded = false;
@@ -55,7 +70,7 @@
 
   $: {
     if (datasets[selectedDatasetIndex] === undefined) {
-      throw new Error(`Ivalid dataset index: ${selectedDatasetIndex}`);
+      throw new Error(`Invalid dataset index: ${selectedDatasetIndex}`);
     }
   }
 
@@ -90,19 +105,19 @@
       .domain([0, _dataset.height])
       .range([0, targetHeight]);
 
-    const { hoverTextFn, classesFn, colorFn } = _dataset;
+    const { hoverTextFn, classesFn, colorFn, categoryFn } = _dataset;
 
     return { colorFn, categoryFn, hoverTextFn, classesFn, xScale, yScale, radius };
   });
 
   let allCartogramData: CDP[][] = datasets.map((_dataset, i) => {
     return _dataset.data
-      .map(d => new _dataset.NodeClass({
-        data: d,
-        valueKey: _dataset.valueKey,
-        transforms: transforms[i],
-        metadata: countryMetadataLookup[d.id] || { id: d.id, short: 'UNKNOWN', name: 'UNKNOWN' }
-      }))
+      .map(d => new _dataset.NodeClass(
+        d,
+        _dataset.valueKey,
+        countryMetadataLookup[d.id] || { id: d.id, short: 'UNKNOWN', name: 'UNKNOWN' },
+        transforms[i]
+      ))
       .sort((a,b) => a.id > b.id ? -1 : 1);
   });
 
@@ -178,7 +193,7 @@
   const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
 
   function onMouseEnterCountry(evt: MouseEvent, country: CDP) {
-    onHoverFn(country);
+    // onHoverFn(country);
     helpTextFade = false;
     _debouncedShowHelpText.cancel();
     hoverData = {
@@ -189,7 +204,7 @@
   }
 
   function onMouseClick(country: CDP) {
-    onHoverFn(country);
+    // onHoverFn(country);
     helpTextFade = false;
     _debouncedShowHelpText.cancel();
     hoverData = {
@@ -201,7 +216,7 @@
 
   function onMouseLeaveCountry() {
     clearHoverState();
-    onHoverFn(null);
+    // onHoverFn(null);
   }
 
   function clearHoverState() {

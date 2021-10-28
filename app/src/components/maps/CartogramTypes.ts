@@ -1,4 +1,5 @@
 import type { ScaleLinear } from "d3-scale";
+// import type { CartogramData } from "./Cartogram.svelte";
 
 export interface CountryMetadata {
   id: string;
@@ -6,16 +7,18 @@ export interface CountryMetadata {
   short: string;
 }
 
-export type InputDataPoint<VK extends string> = {
+export type BaseInputDataPoint = {
   id: string;
   x: number;
   y: number;
   color?: string;
-} & {
-  [key in VK]: number;
-}
+};
 
-export interface Transforms<CDP extends CartogramDataPoint<any, any>> {
+export type InputDataPoint<VK extends string> = {
+  [key in VK]: number;
+} & BaseInputDataPoint;
+
+export interface Transforms<CDP extends CartogramDataPoint<any>> {
   hoverTextFn: (c: CDP) => string;
   categoryFn: (c: CDP) => string;
   colorFn: (c: CDP) => string;
@@ -25,20 +28,11 @@ export interface Transforms<CDP extends CartogramDataPoint<any, any>> {
   yScale: ScaleLinear<number, number, never>;
 }
 
-export type ExtractValueKey<T> = T extends CartogramDataPoint<infer R, any> ? R : any;
-export type ExtractInputDataType<T> = T extends CartogramDataPoint<infer _, infer R> ? R : any;
-
-
-export interface CartogramConstructor<CDP extends CartogramDataPoint<any, any>> {
-  data: ExtractInputDataType<CDP>;
-  valueKey: ExtractValueKey<CDP>;
-  metadata: CountryMetadata;
-  transforms: Transforms<CDP>;
-}
+export type ExtractVKFromIDP<T> = T extends InputDataPoint<infer VK> ? VK : any;
 
 export class CartogramDataPoint<
-  VK extends string,
-  IDP extends InputDataPoint<VK> = InputDataPoint<VK>
+  IDP extends InputDataPoint<VK>,
+  VK extends string = ExtractVKFromIDP<IDP>
 > {
   data: IDP;
   valueKey: VK;
@@ -49,13 +43,18 @@ export class CartogramDataPoint<
   _width: number;
   _hoverText: string;
   metadata: CountryMetadata;
-  transforms: Transforms<CartogramDataPoint<VK, IDP>>;
+  transforms: Transforms<this>;
 
-  constructor(input: CartogramConstructor<CartogramDataPoint<VK, IDP>>) {
-    this.data = input.data;
-    this.valueKey = input.valueKey;
-    this.metadata = input.metadata;
-    this.transforms = input.transforms;
+  constructor(
+    data: IDP,
+    valueKey: VK,
+    metadata: CountryMetadata,
+    transforms: Transforms<CartogramDataPoint<IDP, VK>>
+  ) {
+    this.data = data;
+    this.valueKey = valueKey;
+    this.metadata = metadata;
+    this.transforms = transforms;
   }
 
   clearDims() {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CartogramData } from "src/components/maps/Cartogram.svelte";
+  import type { SimpleCartogramDataPoint } from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
@@ -10,9 +10,9 @@
   import EmbedFooter from "./EmbedFooter.svelte";
   import SectionTitle from "src/components/SectionTitle.svelte";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
-  import type { TrendsInputDataPoint } from "./maps/TrendsNode.svelte";
   import type { InputDataPoint } from "./maps/CartogramTypes";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
+  import CartogramNode from "./maps/CartogramNode.svelte";
 
   export var data : keyof Datasets;
   export var id: string;
@@ -30,44 +30,42 @@
 
   let rerender: () => void;
 
-  type LegendProps = {
-    title: string;
-    labels: string[];
-    colors: string[];
-    type: string;
-  }
-
-  interface NDCDataPoint extends InputDataPoint<'ghg'> {
+  type NDCDataPoint<VK extends string> = InputDataPoint<VK> & {
     label: string,
     colorValue: string;
-  }
+  };
 
-  type Dataset<T extends string, CDP extends CartogramDataPoint<T> = CartogramDataPoint<T>> = {
-    cartogram: Cartogram<CDP>['$$prop_def'];
-    legend: LegendProps;
+  type Dataset<CDP extends CartogramDataPoint<any>> = {
+    cartogram: Cartogram<[CDP]>['$$prop_def'];
+    legend: Omit<Legend['$$prop_def'], 'selected'>;
   };
 
   interface Datasets {
-    ghg: Dataset<'emissions2015'>,
-    percapita: Dataset<'emissions_percapita'>,
-    trends: Dataset<'size', TrendsCartogramDataPoint<'size'>>,
-    ndc: Dataset<'ghg', CartogramDataPoint<'ghg', NDCDataPoint>>,
+    ghg: Dataset<SimpleCartogramDataPoint<'emissions2015'>>,
+    percapita: Dataset<SimpleCartogramDataPoint<'emissions_percapita'>>,
+    trends: Dataset<TrendsCartogramDataPoint<'size'>>,
+    ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>
   }
 
   const datasetParams: Datasets = {
     ghg: {
       cartogram: {
-        NodeClass: CartogramDataPoint,
-        dataset: datasets.cartoworld.ghg as CartogramData<'emissions2015'>,
-        countries: datasets.countries,
+        dataset: [
+          {
+            ...datasets.cartoworld.ghg,
+            NodeComponent: CartogramNode,
+            NodeClass: CartogramDataPoint,
+            hoverTextFn: c =>
+              `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
+              `tonnes of GHG in ${datasets.endYear}`,
+            colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown'),
+          }
+        ],
         helpText: {
           code: "CAN",
           text: "Each square represents a country, scaled by its per capita emissions"
         },
-        hoverTextFn: c =>
-          `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-          `tonnes of GHG in ${datasets.endYear}`,
-        colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown'),
+        countries: datasets.countries,
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -78,17 +76,22 @@
     },
     percapita: {
       cartogram: {
-        NodeClass: CartogramDataPoint,
-        dataset: datasets.cartoworld.percapita as CartogramData<'emissions_percapita'>,
-        countries: datasets.countries,
+        dataset: [
+          {
+            ...datasets.cartoworld.percapita,
+            NodeComponent: CartogramNode,
+            NodeClass: CartogramDataPoint,
+            hoverTextFn: c =>
+              `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
+              `tonnes of GHG per capita in ${datasets.endYear}`,
+            colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown')
+          }
+        ],
         helpText: {
           code: "CAN",
           text: "Each square represents a country, scaled by its per capita emissions"
         },
-        hoverTextFn: c =>
-          `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-          `tonnes of GHG per capita in ${datasets.endYear}`,
-        colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown')
+        countries: datasets.countries,
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -99,15 +102,17 @@
     },
     trends: {
       cartogram: {
-        NodeClass: TrendsCartogramDataPoint,
-        NodeComponent: TrendsNode,
-        dataset: datasets.cartoworld.trends as CartogramData<'size', TrendsInputDataPoint<'size'>>,
+        dataset: [{
+          ...datasets.cartoworld.trends,
+          NodeClass: TrendsCartogramDataPoint,
+          NodeComponent: TrendsNode,
+          colorFn: d => colorPM25(d.value)
+        }],
         countries: datasets.countries,
         helpText: {
           code: "IRN",
           text: "Each tile represents individual country trends in greenhouse gas emissions"
         },
-        colorFn: d => colorPM25(d.value),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -118,15 +123,18 @@
     },
     ndc: {
       cartogram: {
-        NodeClass: CartogramDataPoint,
-        dataset: datasets.cartoworld.ndc as CartogramData<'ghg', NDCDataPoint>,
+        dataset: [{
+          ...datasets.cartoworld.ndc,
+          NodeClass: CartogramDataPoint,
+          NodeComponent: CartogramNode,
+          hoverTextFn: c => c.data.label,
+          colorFn: d => colorNDC(d.data.colorValue),
+        }],
         countries: datasets.countries,
         helpText: {
           code: "CAN",
           text: "Each square represents a country, scaled by its per capita emissions"
         },
-        hoverTextFn: c => c.data.label,
-        colorFn: d => colorNDC(d.data.colorValue),
       },
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
@@ -181,11 +189,11 @@
           style="width:{width}px; height:{height}px"
           class="cartogram-container"
         >
-          <svelte:component this={Cartogram}
+          <Cartogram
             {...selectedDataset.cartogram}
             bind:rerenderFn={rerender}
             bind:annotationShowing={cartogramAnnotation}
-            />
+          />
         </div>
       </ScrollableX>
     </div>

@@ -29,7 +29,7 @@
     'text': Text,
     "menu": Menu,
     'methodology': MethodologySourcesText,
-    'carto-scroller': CartoScroller
+    'carto-scrolly': CartoScroller
   };
 </script>
 {#if embedBlock}
