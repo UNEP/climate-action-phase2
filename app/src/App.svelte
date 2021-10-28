@@ -12,6 +12,7 @@
   import { strToId } from './util';
   import CartoTemperature from './components/CartoTemperature.svelte';
   import CartoScroller from './components/CartoScroller.svelte';
+  import CountryTable from './components/CountryTable.svelte';
 
 
   export var gdocs: GDocs;
@@ -29,8 +30,10 @@
     'text': Text,
     "menu": Menu,
     'methodology': MethodologySourcesText,
-    'carto-scrolly': CartoScroller
+    'carto-scrolly': CartoScroller,
+    'country-table': CountryTable
   };
+
 </script>
 {#if embedBlock}
   <BaseEmbed>

@@ -1,5 +1,6 @@
 import arrowRight from './arrow-right.svg';
 import arrowLeft from './arrow-left.svg';
+import arrowDown from './arrow-down.svg';
 
 import dataSource from './icons_data-source.svg';
 import embed from './icons_embed.svg';
@@ -29,7 +30,8 @@ const icons = {
   embed,
   arrows: {
     right: arrowRight,
-    left: arrowLeft
+    left: arrowLeft,
+    down: arrowDown
   },
 
   data,

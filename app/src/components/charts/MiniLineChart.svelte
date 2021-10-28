@@ -5,16 +5,18 @@
 
   export let data: TimeseriesDataPoint[];
   export let category: string;
+  export let width = 200 * 1.5;
+  export let height = 125 * 1.5;
+
+  const axisHeight = 25;
+  const topPadding = height * 0.2;
+
+  let chartWidth = width;
+  let chartHeight = height - axisHeight - topPadding;
 
   const startYear = data[0].year;
   const endYear = data[data.length - 1].year;
-  const topPadding = 30;
 
-  const chartWidth = 320;
-  const chartHeight = 100;
-  const width = chartWidth;
-  const height = chartHeight + topPadding;
-  const axisHeight = 25;
   let hoverInfo: { data: TimeseriesDataPoint, x: number, y: number, valStr: string };
 
   $: x = d3.scaleLinear()
@@ -42,7 +44,7 @@
 </script>
 
 <div class="chart-container">
-  <svg viewBox="0 0 {width} {height + axisHeight}">
+  <svg viewBox="0 0 {width} {height}">
 
     <g class="x-axis" transform="translate(0, {y(0) + topPadding})">
       <line class="x-axis-line" x1={x(startYear)} x2={x(endYear)} y1="0" y2="0" />
@@ -73,7 +75,7 @@
   </g>
   {/if}
 
-  <rect class="mouse-rect" width={width} height={height}
+  <rect class="mouse-rect" width={width} height={height - axisHeight}
     on:mousemove={mouseMove} on:mouseout={() => hoverInfo = null} />
 
 </svg>
