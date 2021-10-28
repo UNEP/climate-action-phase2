@@ -3,13 +3,11 @@
   import { createLookup } from "src/util";
   import { scaleThreshold } from 'd3-scale';
 
-
-  export const colorGenerator = scaleThreshold<number, string>()
-    .domain([10,20,30,40,50,60,70,80,100])
-    .range([
-      '#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877',
-      '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
-    ]);
+  export var selectedCountry: string;
+  export var data: CountryDataSquare[];
+  export var width : number;
+  export var height : number;
+  export const rerenderFn: () => void = () => data = data;
 
   const normalTileWidth = 3;
   const normalTileHeight = 20;
@@ -19,12 +17,12 @@
   const yBorderRadius = 2;
   const endingTileMargin = 10;
 
-  export var selectedCountry: string;
-  export var data: CountryDataSquare[];
-  export var selectedDataset: "ClimateRiskIndex" | "RelativePosition";
-  export var width2 : number;
-  export var height2 : number;
-  export const rerenderFn: () => void = () => data = data;
+  const colorGenerator = scaleThreshold<number, string>()
+    .domain([10,20,30,40,50,60,70,80,100])
+    .range([
+      '#facc6e', '#f3b670', '#eaa073', '#de8b75', '#d07877',
+      '#bf6578', '#ac557a', '#95477c', '#7a3b7f', '#583382'
+    ]);
 
   const colorFunction = (d: number) => colorGenerator(d);
 
@@ -41,7 +39,7 @@
   }
 
   function findXlocation(countryValue: number){
-    return countryValue * (width2 - endingTileMargin) / maxValue;
+    return countryValue * (width - endingTileMargin) / maxValue;
   }
 
   $: maxValue = findMaxValue(data);
@@ -55,7 +53,7 @@
 </script>
 
 <div>
-    <svg viewBox="0 0 {width2} {height2}" transform="scale(-1,1)" id="barchart">
+    <svg viewBox="0 0 {width} {height}" transform="scale(-1,1)" id="distribution-chart">
       {#each data as d}
           {#if d.value !== null && d.id !== selectedCountry}
             <g id={d.id} class="region">

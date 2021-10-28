@@ -180,8 +180,8 @@
                 data={climateRiskIndexData}
                 selectedCountry={row.id}
                 selectedDataset="ClimateRiskIndex"
-                width2={widthDistributionChart}
-                height2={heightDistributionChart}
+                width={widthDistributionChart}
+                height={heightDistributionChart}
               />
         </div>
   
@@ -228,6 +228,10 @@
     border-right: 0px solid black;
   }
 
+  .cell-distribution{
+    padding-top: 10px;
+  }
+
   .sort-arrow {
     width: 24px;
     flex-shrink: 0;
@@ -252,6 +256,8 @@
     font-size: 24px;
     font-weight: bold;
     padding-right: 10px;
+    display: flex;
+    align-items:center;
   }
 
   .cell-permanent-number {
@@ -259,6 +265,9 @@
     font-size: 24px;
     text-align: right;
     padding-left: 10px;
+    display: flex;
+    align-items:center;
+    justify-content: right;
   }
 
   .cell-number {
@@ -266,6 +275,9 @@
     font-size: 24px;
     text-align: right;
     padding-left: 10px;
+    display: flex;
+    align-items:center;
+    justify-content: right;
   }
 
   .show-more-button {
