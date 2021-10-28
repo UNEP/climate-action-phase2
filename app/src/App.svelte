@@ -13,6 +13,7 @@
   import CartoTemperature from './components/CartoTemperature.svelte';
   import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
+  import RiskCountryTable from './components/RiskCountryTable.svelte';
 
 
   export var gdocs: GDocs;
@@ -31,7 +32,8 @@
     "menu": Menu,
     'methodology': MethodologySourcesText,
     'carto-scrolly': CartoScroller,
-    'country-table': CountryTable
+    'country-table': CountryTable,
+    'risk-country-table': RiskCountryTable
   };
 
 </script>

@@ -57,6 +57,7 @@
   export let helpText: {code: string, text: string} = null;
   export const rerenderFn: () => void = () => selectedCartogramData = selectedCartogramData;
   export let annotationShowing: boolean = false;
+  export let legendIsHoveredValue: string = "";
 
   // workaround as mapped tuples seem to break with generics
   type _CDs = [CartogramData<any>, ...CartogramData<any>[]];
@@ -294,6 +295,7 @@
         {#if d.x && d.y}
           <div
             class="node"
+            class:country--fadeout={legendIsHoveredValue === d.transforms.colorFn(d) || legendIsHoveredValue === ""}
             style={d.style}
             data-code={d.id}
             on:transitionend={ontransitionend}
@@ -368,5 +370,10 @@
 
   .annotation-container :global(.line) {
     border-color :#bbbbbb !important;
+  }
+
+  .country--fadeout {
+    opacity: 0.2;
+    transition: opacity 1s;
   }
 </style>

@@ -27,6 +27,7 @@
   let width : number;
   let height : number;
   let cartogramAnnotation: boolean;
+  let legendIsHoveredValue : string;
 
   let rerender: () => void;
 
@@ -106,7 +107,7 @@
           ...datasets.cartoworld.trends,
           NodeClass: TrendsCartogramDataPoint,
           NodeComponent: TrendsNode,
-          colorFn: d => 'black'
+          colorFn: d => colorGHG(datasets.ghgCategories[d.id]),
         }],
         countries: datasets.countries,
         helpText: {
@@ -147,6 +148,10 @@
 
   // re-render hack (as Cartogram component doesn't know when then result of our funcs change)
   $: legendElementSelectedIndex !== undefined && rerender && rerender();
+
+  $: legendIsHoveredValue = legendElementSelectedIndex !== null && legendElementSelectedIndex >= 0
+    ? selectedDataset.legend.colors[legendElementSelectedIndex]
+    : "";
 
   $: {
     width = Math.max(clientWidth, 700);
@@ -190,6 +195,7 @@
           class="cartogram-container"
         >
           <Cartogram
+            {legendIsHoveredValue}
             {...selectedDataset.cartogram}
             bind:rerenderFn={rerender}
             bind:annotationShowing={cartogramAnnotation}
