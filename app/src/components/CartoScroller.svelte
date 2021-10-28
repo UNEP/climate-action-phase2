@@ -9,6 +9,8 @@
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import CartogramNode from "./maps/CartogramNode.svelte";
 
+  export let text: {p: string}[];
+
   let section: number;
   let prevSection: number;
 
@@ -85,26 +87,11 @@
     </div>
 
     <div slot="scrollable">
+      {#each text as {p}}
       <section>
-        <div class="scrollcard">
-          This is the first section.
-        </div>
+        <div class="scrollcard">{p}</div>
       </section>
-      <section>
-        <div class="scrollcard">
-          This is the second section.
-        </div>
-      </section>
-      <section>
-        <div class="scrollcard">
-          This is the third section.
-        </div>
-      </section>
-      <section>
-        <div class="scrollcard">
-          This is the fourth section.
-        </div>
-      </section>
+      {/each}
     </div>
   </Scroller>
 </div>
@@ -114,14 +101,19 @@
 
   section {
     pointer-events: none;
-    height: 480px;
-    display: flex;
-    align-items: center;
+    height: 100vh;
     .scrollcard {
+      position: absolute;
+      top: 20vh;
       width: 300px;
       padding: 20px;
-      background: white;
-      border-radius: 4px;
+      background: #fffffff0;
+      pointer-events: all;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+      font-weight: 300;
+      box-shadow: 0 0 20px 0 #0000003d;
+
     }
 
     &:not(:last-child) {
