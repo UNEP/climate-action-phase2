@@ -5,6 +5,7 @@ import { default as trends } from './trends.carto.json';
 import { default as countries } from './countryDictionary.json';
 import { default as ndc } from './ndc.carto.json';
 import { default as pew } from './pewsurvey.json';
+import { default as netzero } from './netzero.json';
 import { IS_DEV } from 'src/util/env';
 export {default as annotations } from './annotations.json';
 
@@ -54,6 +55,8 @@ trends.data.forEach(d => {
   ghgCategories[d.id] = calcGHGCategory(d);
 });
 
+const netzeroLookup = createLookup(netzero, d => d.id, d => d);
+
 if (IS_DEV) {
   // check data
   const trendsLookup = createLookup(trends.data, d => d.id, d => d);
@@ -79,5 +82,6 @@ export default {
   top10drops,
   pew,
   endYear: 2015,
-  ghgCategories
+  ghgCategories,
+  netzeroLookup
 };
