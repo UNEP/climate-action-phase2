@@ -1,6 +1,7 @@
 <script lang="ts" context="module">
   import type { TimeseriesDataPoint } from 'src/data';
   import { END_YEAR, START_YEAR } from 'src/data';
+  import datasets from 'src/data';
   import type { CountryMetadata, InputDataPoint, Transforms } from "./CartogramTypes";
   import * as d3 from 'src/d3';
   import { clamp, displayVal, range } from "src/util";
@@ -74,6 +75,7 @@
 <script lang="ts">
   import MiniLineChart from "../charts/MiniLineChart.svelte";
 	import { createEventDispatcher } from 'svelte';
+  import { colorGHG } from "src/colors";
 
   const dispatch = createEventDispatcher();
 
@@ -116,10 +118,10 @@
         <h3 class="hover-chart__name">{d.name}</h3>
         <h3 class='hover-chart__emissions'>{d.emissionsDisplayVal} Mt</h3>
       </div>
-      <MiniLineChart data={d.timeseries} category={d.category} />
+      <MiniLineChart data={d.timeseries} stroke={colorGHG(datasets.ghgCategories[d.id])} />
   </div>
 
-  <svg class="trend-chart" viewBox="0 0 {d.width} {d.height}" style="background-color: {d.color};">
+  <svg class="trend-chart" viewBox="0 0 {d.width} {d.height}" style="--color: {d.color};">
     <path class="line" d={d.path} />
   </svg>
 </div>
@@ -127,7 +129,7 @@
 <style lang="scss">
 
   svg {
-    // background: #eaeaea;
+    background: #eaeaea;
     stroke-width: 1.5px;
     position: absolute;
     left: 50%;
@@ -178,6 +180,18 @@
 
     .trend-chart {
       transition: opacity 100ms linear;
+
+    }
+    &:not(.invert) {
+      .trend-chart {
+        background-color: var(--color);
+      }
+    }
+
+    &.invert {
+      .trend-chart .line {
+        stroke: var(--color);
+      }
     }
 
     &:hover {

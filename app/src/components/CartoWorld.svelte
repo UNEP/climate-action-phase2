@@ -109,7 +109,8 @@
           ...datasets.cartoworld.trends,
           NodeClass: TrendsCartogramDataPoint,
           NodeComponent: TrendsNode,
-          colorFn: d => colorGHG(datasets.ghgCategories[d.id]),
+          classesFn: () => ['invert'],
+          colorFn: d => colorGHG(datasets.ghgCategories[d.id]) || 'black'
         }],
         countries: datasets.countries,
         helpText: {
