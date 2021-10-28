@@ -8,7 +8,6 @@
 <script lang="ts">
   import CRIdata from 'src/data/cri.json';
   import type { Unpacked } from 'src/util';
-  import { createLookup } from 'src/util';
   import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
   import Icon from './Icon.svelte';
 
@@ -179,7 +178,6 @@
                 <DistributionTiles
                 data={climateRiskIndexData}
                 selectedCountry={row.id}
-                selectedDataset="ClimateRiskIndex"
                 width={widthDistributionChart}
                 height={heightDistributionChart}
               />
