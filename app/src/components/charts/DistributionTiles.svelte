@@ -2,12 +2,13 @@
   import type {CountryDataSquare} from 'src/components/CountryTable.svelte';
   import { createLookup } from "src/util";
   import { scaleThreshold } from 'd3-scale';
+  import RiskSVG from 'src/assets/risk.svg';
 
   export var selectedCountry: string;
   export var data: CountryDataSquare[];
   export var width : number;
   export var height : number;
-  export const rerenderFn: () => void = () => data = data;
+  export const rerenderFn: () => void = () => uniqueData = uniqueData;
 
   const normalTileWidth = 3;
   const normalTileHeight = 20;
@@ -26,7 +27,16 @@
 
   const colorFunction = (d: number) => colorGenerator(d);
 
-  const dataLookUp = createLookup(data, d => d.id, d => d);
+  let values = new Set<number>();
+  let uniqueData = data.filter(d => {
+    if (d.id === selectedCountry || !values.has(d.value)) {
+      values.add(d.value);
+      return true;
+    }
+    return false;
+  });
+
+  const dataLookUp = createLookup(uniqueData, d => d.id, d => d);
 
   function findMaxValue(data: CountryDataSquare[]){
     let max = 0;
@@ -42,7 +52,7 @@
     return countryValue * (width - endingTileMargin) / maxValue;
   }
 
-  $: maxValue = findMaxValue(data);
+  $: maxValue = findMaxValue(uniqueData);
 
   $: relevantCountry = {
     id: selectedCountry,
@@ -52,55 +62,46 @@
 
 </script>
 
-<div>
-    <svg viewBox="0 0 {width} {height}" transform="scale(-1,1)" id="distribution-chart">
-      {#each data as d}
-          {#if d.value !== null && d.id !== selectedCountry}
-            <g id={d.id} class="region">
-              <rect
-                id = {d.id}
-                class= "normalTile"
-                width= {d.id === selectedCountry ? relevantTileWidth : normalTileWidth}
-                height= {d.id === selectedCountry ? relevantTileHeight : normalTileHeight}
-                x={findXlocation(d.value)}
-                y=10
-                rx={xBorderRadius}
-                ry={yBorderRadius}
-                filter="none"
-                style = "--theme-color: {colorFunction(d.value)}"
-              />
-            </g>
-          {/if}
-      {/each}
-        <g id={relevantCountry.id} class="shadow">
-          <rect
-            id = {relevantCountry.id}
-            class= "selectedCountry"
-            width= {relevantTileWidth}
-            height= {relevantTileHeight}
-            x={findXlocation(relevantCountry.value)}
-            y=4
-            rx="10"
-            ry="3"
-            filter="none"
-            style = "--theme-color: {colorFunction(relevantCountry.value)}"
-          />
-        </g>
-    </svg>
+<div class="container">
+
+  <img src={RiskSVG} alt="risk" />
+
+  <svg viewBox="0 0 {width} {height}" transform="scale(-1,1)">
+      <g id={relevantCountry.id} class="shadow">
+        <rect
+          class="selectedCountry"
+          width={relevantTileWidth}
+          height={relevantTileHeight}
+          x={findXlocation(relevantCountry.value)}
+          y=4
+          rx="10"
+          ry="3"
+          filter="none"
+          fill={colorFunction(relevantCountry.value)}
+        />
+      </g>
+  </svg>
 </div>
 
 <style>
+  .container {
+    position: relative;
+  }
+
   .selectedCountry {
-    fill: var(--theme-color);
     stroke-width: 1.2;
     stroke: black;
   }
 
-  .normalTile {
-    fill: var(--theme-color);
-  }
-
   .shadow {
     filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.6));
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 </style>
