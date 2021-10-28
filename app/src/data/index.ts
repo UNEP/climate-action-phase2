@@ -1,11 +1,11 @@
 import { createLookup, Unpacked } from 'src/util';
-import { default as percapita } from './percapita.carto.json';
-import { default as ghg } from './ghg.carto.json';
-import { default as trends } from './trends.carto.json';
-import { default as countries } from './countryDictionary.json';
-import { default as ndc } from './ndc.carto.json';
-import { default as pew } from './pewsurvey.json';
-import { default as netzero } from './netzero.json';
+import percapita from './percapita.carto.json';
+import ghg from './ghg.carto.json';
+import trends from './trends.carto.json';
+import countries from './countryDictionary.json';
+import ndc from './ndc.carto.json';
+import pew from './pewsurvey.json';
+import netzero from './netzero.json';
 import { IS_DEV } from 'src/util/env';
 export {default as annotations } from './annotations.json';
 
