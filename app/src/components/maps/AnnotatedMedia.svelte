@@ -21,7 +21,6 @@
   var loaded: boolean = false;
   var srcImgHeight: number;
   var srcImgWidth: number;
-  var clientWidth = 0;
 
   $: mappedAnnotations = annotations.map(a => {
     return {text: a.text, x: a.x, y: a.y};

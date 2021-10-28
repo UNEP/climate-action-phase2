@@ -1,42 +1,37 @@
+import type { ScaleLinear } from "d3-scale";
+
 export interface CountryMetadata {
   id: string;
   name: string;
   short: string;
 }
 
-export type InputDataPoint<VK extends string> = {
+export type BaseInputDataPoint = {
   id: string;
   x: number;
   y: number;
   color?: string;
-} & {
-  [key in VK]: number;
-}
+};
 
-export interface Transforms<CDP extends CartogramDataPoint<any, any>> {
+export type InputDataPoint<VK extends string> = {
+  [key in VK]: number;
+} & BaseInputDataPoint;
+
+export interface Transforms<CDP extends CartogramDataPoint<any>> {
   hoverTextFn: (c: CDP) => string;
   categoryFn: (c: CDP) => string;
   colorFn: (c: CDP) => string;
   classesFn: (c: CDP) => string[];
   radius: (v: number) => number;
-  xScale: (x: number) => number;
-  yScale: (y: number) => number;
+  xScale: ScaleLinear<number, number, never>;
+  yScale: ScaleLinear<number, number, never>;
 }
 
-export type ExtractValueKey<T> = T extends CartogramDataPoint<infer R, any> ? R : any;
-export type ExtractInputDataType<T> = T extends CartogramDataPoint<infer _, infer R> ? R : any;
-
-
-export interface CartogramConstructor<CDP extends CartogramDataPoint<any, any>> {
-  data: ExtractInputDataType<CDP>;
-  valueKey: ExtractValueKey<CDP>;
-  metadata: CountryMetadata;
-  transforms: Transforms<CDP>;
-}
+export type ExtractVKFromIDP<T> = T extends InputDataPoint<infer VK> ? VK : any;
 
 export class CartogramDataPoint<
-  VK extends string,
-  IDP extends InputDataPoint<VK> = InputDataPoint<VK>
+  IDP extends InputDataPoint<VK>,
+  VK extends string = ExtractVKFromIDP<IDP>
 > {
   data: IDP;
   valueKey: VK;
@@ -45,14 +40,27 @@ export class CartogramDataPoint<
   _top: number;
   _height: number;
   _width: number;
+  _hoverText: string;
   metadata: CountryMetadata;
-  transforms: Transforms<CartogramDataPoint<VK, IDP>>;
+  transforms: Transforms<this>;
 
-  constructor(input: CartogramConstructor<CartogramDataPoint<VK, IDP>>) {
-    this.data = input.data;
-    this.valueKey = input.valueKey;
-    this.metadata = input.metadata;
-    this.transforms = input.transforms;
+  constructor(
+    data: IDP,
+    valueKey: VK,
+    metadata: CountryMetadata,
+    transforms: Transforms<CartogramDataPoint<IDP, VK>>
+  ) {
+    this.data = data;
+    this.valueKey = valueKey;
+    this.metadata = metadata;
+    this.transforms = transforms;
+  }
+
+  clearDims() {
+    this._left = undefined;
+    this._top = undefined;
+    this._width = undefined;
+    this._height = undefined;
   }
 
   get value() { return this.data[this.valueKey]; }
@@ -62,7 +70,12 @@ export class CartogramDataPoint<
 
   get short() { return this.metadata.short; }
   get name() { return this.metadata.name; }
-  get hoverText() { return this.transforms.hoverTextFn(this); }
+  get hoverText() {
+    if (this._hoverText === undefined) {
+      this._hoverText = this.transforms.hoverTextFn ? this.transforms.hoverTextFn(this) : null;
+    }
+    return this._hoverText;
+  }
 
   get r() { return this._r = this._r || this.transforms.radius(this.value); }
   get left() { return this._left = this._left || this.transforms.xScale(this.x - this.r); }
@@ -71,17 +84,18 @@ export class CartogramDataPoint<
   get height() { return this._height = this._height || this.transforms.yScale(this.r * 2); }
 
   get category() { return this.transforms.categoryFn(this); }
-  get color() { return this.data.color || this.transforms.colorFn(this); }
-  get classes() { return this.transforms.classesFn(this); }
+  get color() {
+    return this.data.color || (this.transforms.colorFn ? this.transforms.colorFn(this) : '');
+  }
+  get classes() { return this.transforms.classesFn ? this.transforms.classesFn(this) : []; }
 
   get style() {
     const styles = [
       `left: ${this.left}px`,
       `top: ${this.top}px`,
       `width: ${this.width}px`,
-      `height: ${this.height}px`,
-      `background: ${this.color};`,
+      `height: ${this.height}px`
     ];
-    return styles.join(';');
+    return styles.join(';') + ';';
   }
 }

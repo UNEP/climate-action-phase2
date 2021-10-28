@@ -1,38 +1,16 @@
-import { scaleOrdinal, scaleThreshold } from './d3';
-
-export const colorSectors = scaleOrdinal<string>()
-  .domain([
-    'residential','transport','intlshipping','industry','commercial','afciddust',
-    'othercombustion','remainingsources','otherfires','agrwasteburning','agriculture',
-    'waste','solvents','energy','windblowndust'
-  ])
-  .range([
-    '#407aa9','#811494','#9b7ccc','#ab4867','#ff9c9c','#b3b3b3','#8c8c8c',
-    '#666666','#333333','#62b048','#1b6e29','#bd8e71','#854f38','#ff8a18','url(#hash--windblown)'
-  ]);
-
-export const colorGHG = scaleOrdinal<string>()
-  .domain(['Decreased since 1990', 'Stable since 1990', 'Still climbing'])
-  .range(['#00AACC','#BEC7CD','#FD7D2E']);
-
-export const colorFuels = scaleOrdinal<string>()
-  .domain(['process','liquid','solidbio','coal'])
-  .range(['#407aa9','#faba26','#62b048','#333333']);
-
-export const colorPM25 = scaleThreshold<number, string>()
-  .domain([...new Array(8)].map((d,i) => (i + 1) * 10))
-  .range(['#ffbeb3', '#f0a9ad', '#e094a7', '#d07fa1', '#c16b9b', '#b15694', '#a1408e'
-    ,'#912787', '#800080']);
-
-export const colorHealth = scaleThreshold<number, string>()
-  .domain([20,40,60,80,100,120])
-  .range(['#facc6e', '#e5a774', '#ca8679', '#aa677c', '#854b7f', '#583382']);
-
-
-export const colorPolices = scaleOrdinal<string>()
-  .domain(['Target met', 'On track', 'Not met', 'No data'])
-  .range(['#0074B2', '#5A93B4', '#ffcf61', '#cacaca']);
+import { scaleOrdinal } from './d3';
 
 export const colorNDC = scaleOrdinal<string>()
   .domain(['Nothing submitted','Only INDC','Only First NDC','First 2020 NDC', 'Second 2020 NDC'])
   .range(['#D5D7D9','#A3A4A6','#4A7D94','#1EA3C7', '#1EA3C7']);
+
+export const colorGHG = scaleOrdinal<string>()
+  .domain(['falling', 'stable', 'climbing'])
+  .range(['#00AACC','#BEC7CD','#FD7D2E']);
+
+export const colorNetZero = scaleOrdinal<string>()
+  .domain([
+    'ACHIEVED', 'IN LAW', 'PROPOSED LEGISLATION',
+    'IN POLICY DOCUMENT', 'TARGET UNDER DISCUSSION'
+  ])
+  .range(['#30609e', '#4e8cb7', '#6cb7cf', '#fec200', '#f58c00']);

@@ -4,7 +4,7 @@
   import { clamp, displayVal } from 'src/util';
 
   export let data: TimeseriesDataPoint[];
-  export let category: string;
+  export let stroke: string = 'black';
   export let width = 200 * 1.5;
   export let height = 125 * 1.5;
 
@@ -53,7 +53,7 @@
     </g>
 
     <g transform="translate(0, {topPadding})">
-      <path class="line stroke--{category}" d={linePath}></path>
+      <path class="line" {stroke} d={linePath}></path>
     </g>
 
     {#if hoverInfo}

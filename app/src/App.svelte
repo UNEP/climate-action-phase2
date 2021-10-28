@@ -11,6 +11,7 @@
   import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
   import { strToId } from './util';
   import CartoTemperature from './components/CartoTemperature.svelte';
+  import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
 
@@ -30,6 +31,7 @@
     'text': Text,
     "menu": Menu,
     'methodology': MethodologySourcesText,
+    'carto-scrolly': CartoScroller,
     'country-table': CountryTable,
     'risk-country-table': RiskCountryTable
   };

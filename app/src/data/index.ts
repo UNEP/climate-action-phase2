@@ -1,10 +1,13 @@
 import { createLookup, Unpacked } from 'src/util';
-import { default as percapita } from './percapita.carto.json';
-import { default as ghg } from './ghg.carto.json';
-import { default as trends } from './trends.carto.json';
-import { default as countries } from './countryDictionary.json';
-import { default as ndc } from './ndc.carto.json';
-import { default as pew } from './pewsurvey.json';
+import percapita from './percapita.carto.json';
+import ghg from './ghg.carto.json';
+import trends from './trends.carto.json';
+import countries from './countryDictionary.json';
+import ndc from './ndc.carto.json';
+import pew from './pewsurvey.json';
+import netzero from './netzero.json';
+import co2trends from 'src/data/co2trends.json';
+import co2data from 'src/data/co2data.json';
 import { IS_DEV } from 'src/util/env';
 export {default as annotations } from './annotations.json';
 
@@ -12,6 +15,29 @@ export interface TimeseriesDataPoint {
   year: number;
   value: number;
 }
+
+export const START_YEAR = 1970;
+export const END_YEAR = 2015;
+
+const top10emitters = new Set([
+  ...ghg.data
+    .sort((a,b) => b.emissions2015 - a.emissions2015)
+    .slice(0, 10)
+    .map(d => d.id)
+]);
+
+
+const top10drops = new Set([
+  ...trends.data
+    .map(d => ({
+      id: d.id,
+      drop: (d.emissions[END_YEAR] - d.emissions['1990']) / d.emissions['1990']
+    }))
+    .sort((a,b) => a.drop - b.drop)
+    .slice(0, 10)
+    .map(d => d.id)
+]);
+
 
 type TrendsDataPoint = Unpacked<typeof trends.data>;
 
@@ -21,9 +47,9 @@ export const calcGHGCategory = (d: TrendsDataPoint): string => {
   const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
   const diff = (lastValue - baseValue) / baseValue;
   // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-  if (Math.abs(diff) < 0.25) return 'Stable since 1990';
-  else if (diff < -0.25) return 'Decreased since 1990';
-  else return 'Still climbing';
+  if (Math.abs(diff) < 0.25) return 'stable';
+  else if (diff < -0.25) return 'falling';
+  else return 'climbing';
 };
 
 const ghgCategories: {[id: string]: string} = {};
@@ -52,6 +78,14 @@ export default {
     ndc,
     trends,
   },
+  lookups: {
+    netzero: createLookup(netzero, d => d.id, d => d),
+    trends: createLookup(co2trends, d => d.code, d => d)
+  },
+  co2data,
+  co2trends,
+  top10emitters,
+  top10drops,
   pew,
   endYear: 2015,
   ghgCategories

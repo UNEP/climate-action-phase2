@@ -1,6 +1,8 @@
 <script lang="ts" context="module">
   import type { TimeseriesDataPoint } from 'src/data';
-  import type { CartogramConstructor, InputDataPoint } from "./CartogramTypes";
+  import { END_YEAR, START_YEAR } from 'src/data';
+  import datasets from 'src/data';
+  import type { CountryMetadata, InputDataPoint, Transforms } from "./CartogramTypes";
   import * as d3 from 'src/d3';
   import { clamp, displayVal, range } from "src/util";
   import { CartogramDataPoint } from "./CartogramTypes";
@@ -9,20 +11,27 @@
     emissions: {[year: number]: number};
   }
 
-  const startYear = 1970;
-  const endYear = 2015;
-  const years = range(startYear, endYear+1);
+  const years = range(START_YEAR, END_YEAR+1);
 
-  export class TrendsCartogramDataPoint<VK extends string, IDP extends TrendsInputDataPoint<VK> = TrendsInputDataPoint<VK>> extends CartogramDataPoint<VK, IDP> {
+  export class TrendsCartogramDataPoint<VK extends string, IDP extends TrendsInputDataPoint<VK> = TrendsInputDataPoint<VK>> extends CartogramDataPoint<IDP, VK> {
     timeseries: TimeseriesDataPoint[];
     _path: string;
 
-    constructor(input: CartogramConstructor<TrendsCartogramDataPoint<VK, IDP>>) {
-      super(input);
+    constructor(
+      data: IDP,
+      valueKey: VK,
+      metadata: CountryMetadata,
+      transforms: Transforms<TrendsCartogramDataPoint<VK, IDP>>
+    ) {
+      super(data, valueKey, metadata, transforms);
       this.timeseries = years.map(year => ({
-        year, value: input.data.emissions[year]
+        year, value: data.emissions[year]
       }));
+    }
 
+    clearDims() {
+      CartogramDataPoint.prototype.clearDims.bind(this)();
+      this._path = undefined;
     }
 
     private generatePath(): string {
@@ -36,7 +45,7 @@
         .range([ this.height, 0 ]);
 
       const x = d3.scaleLinear()
-          .domain([startYear, endYear+1])
+          .domain([START_YEAR, END_YEAR+1])
           .range([ 0, this.width ]);
 
       const pathGenerator = d3.line<TimeseriesDataPoint>()
@@ -54,33 +63,19 @@
       return this._path;
     }
 
-    get color(): string {
-      return 'transparent';
-    }
-
-    get category(): string {
-      const baseValue = this.data.emissions['1990'];
-      const lastValue = this.data.emissions['2015'];
-      const diff = (lastValue - baseValue) / baseValue;
-      // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-      if (Math.abs(diff) < 0.25) return 'stable';
-      else if (diff < -0.25) return 'falling';
-      else return 'climbing-fast';
-    }
-
     get emissionsDisplayVal(): string {
-      const val = this.data.emissions[endYear];
+      const val = this.data.emissions[END_YEAR];
       return displayVal(val, val < 10 ? 1 : 0);
     }
 
   }
-
 
 </script>
 
 <script lang="ts">
   import MiniLineChart from "../charts/MiniLineChart.svelte";
 	import { createEventDispatcher } from 'svelte';
+  import { colorGHG } from "src/colors";
 
   const dispatch = createEventDispatcher();
 
@@ -89,6 +84,9 @@
   export let d: TrendsCartogramDataPoint<VK>;
   export let canvasWidth: number;
   export let canvasHeight: number;
+  export let datasetSelected = true;
+  export let transitioning = false;
+
   let activeChart = false;
 
   const onClickCountry = () => {
@@ -103,15 +101,14 @@
 </script>
 
 <div
-  class="country testing {d.classes}"
-  style={d.style}
-  data-code={d.id}
+  class="country {d.classes.join(' ')}"
   tabindex="0"
   on:mouseenter
   on:mouseleave={onMouseLeaveCountry}
   on:focus
   on:blur
   on:click={onClickCountry}
+  class:display={datasetSelected && !transitioning}
 >
 
   <div class="hover-chart"
@@ -121,11 +118,11 @@
         <h3 class="hover-chart__name">{d.name}</h3>
         <h3 class='hover-chart__emissions'>{d.emissionsDisplayVal} Mt</h3>
       </div>
-      <MiniLineChart data={d.timeseries} category={d.category} />
+      <MiniLineChart data={d.timeseries} stroke={colorGHG(datasets.ghgCategories[d.id])} />
   </div>
 
-  <svg viewBox="0 0 {d.width} {d.height}">
-    <path class="line stroke--{d.category}" d={d.path} />
+  <svg class="trend-chart" viewBox="0 0 {d.width} {d.height}" style="--color: {d.color};">
+    <path class="line" d={d.path} />
   </svg>
 </div>
 
@@ -155,20 +152,62 @@
     fill: none;
     vector-effect: non-scaling-stroke;
     pointer-events: none;
+    stroke: white;
+  }
+
+
+  @keyframes fadein {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .country {
     position: absolute;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-    opacity: 1;
     z-index: 2;
     padding: 2px;
-    transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
-    will-change: opacity, background-color, border-radius;
-    background: grey;
+    margin-top: -2px;
+    margin-left: -2px;
     outline-color: black;
+    display: none;
+    opacity: 0;
+
+    .trend-chart {
+      transition: opacity 100ms linear;
+
+    }
+    &:not(.invert) {
+      .trend-chart {
+        background-color: var(--color);
+      }
+    }
+
+    &.invert {
+      .trend-chart .line {
+        stroke: var(--color);
+      }
+    }
+
     &:hover {
       z-index: 10;
+      &.fade .trend-chart {
+        opacity: 1;
+      }
+    }
+
+    &.display {
+      display: block;
+      animation: 100ms ease-in 0ms 1 normal forwards running fadein;
+    }
+
+    &.fade .trend-chart {
+      opacity: 0.2;
     }
   }
 

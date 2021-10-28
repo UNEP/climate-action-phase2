@@ -1,14 +1,17 @@
 <script lang="ts">
   import type { CartogramDataPoint } from "./CartogramTypes";
   export let d: CartogramDataPoint<any,any>;
-  export let canvasWidth: number;
-  export let canvasHeight: number;
+  export let canvasWidth: number = null;
+  export let canvasHeight: number = null;
+  export let datasetSelected = true;
+  export let transitioning = false;
+
 </script>
 
 <div
-  class="country {d.classes}"
-  style={d.style}
-  data-code={d.id}
+  class="country {d.classes.join(' ')}"
+  style="background-color: {d.color};"
+  class:active={datasetSelected || transitioning}
   tabindex="0"
   on:mouseenter
   on:mouseleave
@@ -16,21 +19,31 @@
   on:blur
 >
   {#if d.width > 100}
-    <span class="country-text">{d.short}</span>
+    <span class="country-text" class:showtext={datasetSelected && !transitioning}>{d.short}</span>
   {/if}
 </div>
 
 <style lang="scss">
   .country {
     position: absolute;
+    width: 100%;
+    height: 100%;
     border-radius: 4px;
     cursor: pointer;
     opacity: 1;
     z-index: 2;
-    transition: top 0.2s, left 0.2s, width 0.2s, height 0.2s, background-color 0.2s, opacity 0.45s ease 0.15s;
-    will-change: opacity, background-color, border-radius;
     background: grey;
     outline-color: black;
+
+    &:not(.active) {
+      opacity: 0;
+      transition: opacity 100ms linear 100ms;
+    }
+
+    &.fade {
+      opacity: 0.5;
+      transition: opacity 100ms ease-in;
+    }
   }
 
   .country-text {
@@ -45,9 +58,15 @@
     margin: auto;
     transform: translateY(-50%);
     text-align: center;
+    opacity: 1;
+    transition: opacity 100ms;
+
+    &:not(.showtext) {
+      opacity: 0;
+    }
   }
 
-  .country--hide {
+  .country--hide.active {
     opacity: 0.5;
   }
 
@@ -59,15 +78,17 @@
     transition: none;
   }
 
-  :global(.cartogram-country-hover) .country:not(:hover) {
-    opacity: 0.65;
-    transition: opacity 0.05s;
-  }
+  :global(.cartogram-country-hover) .country.active {
+    &:not(:hover):not(.fade) {
+      opacity: 0.65;
+      transition: opacity 0.05s;
+    }
 
-  :global(.cartogram-country-hover) .country:hover {
-    opacity: 0.999;
-    transition: opacity 0s;
-    z-index: 3;
+    &:hover {
+      opacity: 0.999;
+      transition: opacity 0s;
+      z-index: 3;
+    }
   }
 
 </style>
