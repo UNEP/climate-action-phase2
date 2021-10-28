@@ -1,7 +1,7 @@
 <script lang="ts">
   import Scroller from "./common/Scroller.svelte";
   import datasets, { END_YEAR } from 'src/data';
-  import type { CartogramData, SimpleCartogramDataPoint } from "./maps/Cartogram.svelte";
+  import type { SimpleCartogramDataPoint } from "./maps/Cartogram.svelte";
   import Cartogram from "./maps/Cartogram.svelte";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
   import { displayVal } from "src/util";
