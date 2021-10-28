@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+
   export interface CountryDataSquare {
       id: string,
       value: number
@@ -6,6 +7,7 @@
 </script>
 
 <script lang="ts">
+
   import co2trends from 'src/data/co2trends.json';
   import co2data from 'src/data/co2data.json';
   import type { Unpacked } from 'src/util';
@@ -14,8 +16,12 @@
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
   import Icon from './Icon.svelte';
 
-  const description = "It has had one of the biggest increases in GHG emissions\
-   -422% since 1990. Today, it accounts for 0.33% of global emissions.";
+  const top10Emissons = co2data.sort((a,b) => b.emissions2019 - a.emissions2019);
+
+  enum ChartTextType {
+        Largest,
+        PerCapita
+  }
 
   const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
     Mauris mattis posuere faucibus.`;
@@ -31,6 +37,25 @@
   let countryEmissions = [];
   let countryDataArray = co2trends;
 
+  function getChartText(data: RowData) {
+    const trends = countryTrendLookUp[data.id];
+    const latestEmissions = data.emissions2019;
+    const change = data.emissions2019 / trends.emissions['1990'];
+    const fallen = change <= 1;
+    const relChange = fallen ? 1 - change : change - 1;
+    const percStr = Math.round(relChange * 100).toFixed(0);
+    const chartTextType = top10Emissons.find(c => c.id === data.id) ?
+      ChartTextType.Largest : ChartTextType.PerCapita;
+    switch (chartTextType){
+    case ChartTextType.Largest:
+      return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
+      of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
+    case ChartTextType.PerCapita:
+      return `<b>${data.name}</b> has had one of the biggest
+      ${fallen ? 'drops' : 'increases'} in GHG emissions —${percStr}% since 1990. `
+      + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+    }
+  }
   for (let i = 0; i < countryDataArray.length; i++){
     let emissionsArray = Object.entries(countryDataArray[i].emissions);
     let entries = [];
@@ -177,7 +202,7 @@
 
         <div class="cell-name">{row.name}</div>
 
-        <div class="cell-description">{description}</div>
+        <div class="cell-description">{@html getChartText(row)}</div>
 
         <div class="cell-chart">
           <MiniLineChart
@@ -386,9 +411,15 @@
       display: none;
     }
     .grid-table {
-      grid-template-columns: 200px 180px 110px;
+      grid-template-columns: 40% 35% 25%;
     }
 
-  }
+    .cell-name {
+      font-size: 20px;
+    }
 
+    .cell-ghg span{
+      font-size:  10px;
+    }
+  }
 </style>
