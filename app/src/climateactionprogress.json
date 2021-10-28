@@ -44,7 +44,7 @@
       "head": "GHG emissions are choking our world and changing our climate",
       "text": [
         {
-          "p": "Net-zero target emissions cartogram by GHG emissions colored by NZT status"
+          "p": "Net-zero target emissions cartogram by CO2 emissions colored by NZT status"
         },
         {
           "p": "Same, highlight biggest emitters"
@@ -65,10 +65,10 @@
       "menuicon": "climateactionprogress.ndc",
       "data": "ndc",
       "embed": "ndc",
-      "head": "NDC BLA BLA BLA",
+      "head": "Countries must strengthen pledges made under Paris Agreement",
       "text": [
         {
-          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. The Emissions Gap Report 2021 concludes that the commitments made in NDCs will lead to a 2.7°C warmer world beyond the Paris Agreement promises - and only if they are followed by adequate and acute action."
+          "p": "Under the 2015 Paris Agreement, governments made pledges, known as Nationally Determined Contributions (NDCs), to cut emissions. And although a growing number of countries have now committed to net-zero emissions, the levels of ambition in the Paris accord must be roughly tripled for the 2°C pathway and increased at least fivefold for the 1.5°C pathway. There is no time to lose."
         }
       ]
     },
