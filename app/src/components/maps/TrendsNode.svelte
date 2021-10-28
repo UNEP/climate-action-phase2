@@ -62,16 +62,6 @@
       return this._path;
     }
 
-    get category(): string {
-      const baseValue = this.data.emissions['1990'];
-      const lastValue = this.data.emissions['2015'];
-      const diff = (lastValue - baseValue) / baseValue;
-      // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-      if (Math.abs(diff) < 0.25) return 'stable';
-      else if (diff < -0.25) return 'falling';
-      else return 'climbing-fast';
-    }
-
     get emissionsDisplayVal(): string {
       const val = this.data.emissions[END_YEAR];
       return displayVal(val, val < 10 ? 1 : 0);

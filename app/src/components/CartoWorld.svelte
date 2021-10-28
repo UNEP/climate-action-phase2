@@ -48,6 +48,8 @@
     ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>
   }
 
+  const ghgLabels = ['Decreased since 1990', 'Stable since 1990', 'Still climbing'];
+
   const datasetParams: Datasets = {
     ghg: {
       cartogram: {
@@ -71,7 +73,7 @@
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
         colors: colorGHG.range(),
-        labels: colorGHG.domain(),
+        labels: ghgLabels,
         type: 'categorical',
       }
     },
@@ -97,7 +99,7 @@
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
         colors: colorGHG.range(),
-        labels: colorGHG.domain(),
+        labels: ghgLabels,
         type: 'categorical',
       }
     },
@@ -118,7 +120,7 @@
       legend: {
         title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
         colors: colorGHG.range(),
-        labels: colorGHG.domain(),
+        labels: ghgLabels,
         type: 'categorical',
       }
     },

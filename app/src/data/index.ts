@@ -45,9 +45,9 @@ export const calcGHGCategory = (d: TrendsDataPoint): string => {
   const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
   const diff = (lastValue - baseValue) / baseValue;
   // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-  if (Math.abs(diff) < 0.25) return 'Stable since 1990';
-  else if (diff < -0.25) return 'Decreased since 1990';
-  else return 'Still climbing';
+  if (Math.abs(diff) < 0.25) return 'stable';
+  else if (diff < -0.25) return 'falling';
+  else return 'climbing';
 };
 
 const ghgCategories: {[id: string]: string} = {};
