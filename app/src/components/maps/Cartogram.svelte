@@ -295,7 +295,7 @@
         {#if d.x && d.y}
           <div
             class="node"
-            class:country--fadeout={legendIsHoveredValue === d.transforms.colorFn(d) || legendIsHoveredValue === ""}
+            class:node--fadeout={legendIsHoveredValue !== "" && legendIsHoveredValue !== d.transforms.colorFn(d)}
             style={d.style}
             data-code={d.id}
             on:transitionend={ontransitionend}
@@ -334,11 +334,15 @@
 
 </div>
 
-<style>
+<style lang="scss">
 
   .node {
     position: absolute;
-    transition: 200ms width 50ms, 200ms height 50ms, 200ms left 50ms, 200ms top 50ms;
+    transition: 200ms width 50ms, 200ms height 50ms, 200ms left 50ms, 200ms top 50ms, opacity 400ms;
+
+    &.node--fadeout {
+      opacity: 0.2;
+    }
   }
 
   .cartogram {
@@ -370,10 +374,5 @@
 
   .annotation-container :global(.line) {
     border-color :#bbbbbb !important;
-  }
-
-  .country--fadeout {
-    opacity: 0.2;
-    transition: opacity 1s;
   }
 </style>
