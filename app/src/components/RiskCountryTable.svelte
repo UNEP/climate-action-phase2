@@ -72,7 +72,7 @@
       return [...CRIdata].sort((a,b) => a.fatalities_in_2019 - b.fatalities_in_2019);
     }
     else if (column === 'popAdjDeaths') {
-      return [...CRIdata].sort((a,b) => a.fatalities_per_100000_inhabitants - 
+      return [...CRIdata].sort((a,b) => a.fatalities_per_100000_inhabitants -
         b.fatalities_per_100000_inhabitants);
     }
     else if (column === 'totalLosses') {
@@ -139,17 +139,17 @@
   <div class="search-bar">
     <input bind:value={searchText} placeholder='Search a country' />
   </div>
-  
+
   <div id="grid">
     <div id="item1">CLIMATE<br>RISK</div>
     <div id="item2">CLIMATE-RELATED<br>DEATHS</div>
     <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
   </div>
-  
+
   <div style="padding-bottom:5px"></div>
-  
+
   <div class="grid-table">
-  
+
     {#each headers as h}
       <div class="header"
         class:selected="{sort && sort.column === h.name}"
@@ -165,25 +165,25 @@
         {/if}
       </div>
     {/each}
-  
+
     {#each sortedData as row, i}
       <div class="row" style={!displayRow(row, i) && 'display: none'}>
 
         <div class="cell-name">
           {row.country}
         </div>
-  
+
         <div class="cell-distribution">
                 <DistributionTiles
-                data={climateRiskIndexData}
-                selectedCountry={row.id}
-                width={widthDistributionChart}
-                height={heightDistributionChart}
-              />
+                  data={climateRiskIndexData}
+                  selectedCountry={row.id}
+                  width={widthDistributionChart}
+                  height={heightDistributionChart}
+                />
         </div>
-  
+
         <div class="cell-permanent-number">{row.cri_score}</div>
-  
+
         <div class="cell-permanent-number">{row.cri_rank}</div>
 
         <div class="cell-number">{row.fatalities_in_2019}</div>
@@ -197,7 +197,7 @@
       </div>
     {/each}
   </div>
-  
+
   {#if searchText === ''}
     <button
       class="show-more-button"
@@ -206,7 +206,7 @@
     </button>
   {/if}
 
-  
+
 </div>
 
 
@@ -334,7 +334,7 @@
       }
     }
   }
- 
+
   #grid {
     display: grid;
     height: 45px;
