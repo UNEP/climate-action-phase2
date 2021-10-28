@@ -1,5 +1,4 @@
 import type { ScaleLinear } from "d3-scale";
-// import type { CartogramData } from "./Cartogram.svelte";
 
 export interface CountryMetadata {
   id: string;
