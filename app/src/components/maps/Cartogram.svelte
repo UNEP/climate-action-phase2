@@ -40,6 +40,7 @@
   export let NodeComponent: typeof SvelteComponent = CartogramNode;
   export const rerenderFn: () => void = () => cartogramData = cartogramData;
   export let annotationShowing: boolean = false;
+  export let legendIsHoveredValue: string = "";
 
   let containerEl: Element;
   let loaded = false;
@@ -101,6 +102,7 @@
   $: dimsChanged = radius && xScale && yScale;
 
   let cartogramData: CDP[];
+
   $: cartogramData = dimsChanged && data
     .map(d => new NodeClass({
       data: d,
@@ -195,7 +197,6 @@
     const top = containerEl.getBoundingClientRect().top - 50;
     pxAboveScreenTop = top < 0 ? Math.abs(top) : 0;
   };
-
 </script>
 
 <svelte:window on:scroll={onWindowScroll} />
@@ -212,6 +213,9 @@
     <div class="countries">
       {#each cartogramData as d (d.id)}
         {#if d.x && d.y}
+          <div class={legendIsHoveredValue === d.transforms.colorFn(d) || legendIsHoveredValue === "" ?
+          "country--fadeIn" : "country--fadeOut"}>
+
           <svelte:component this={NodeComponent}
             {d}
             canvasWidth={targetWidth}
@@ -221,6 +225,7 @@
             on:focus={() => onMouseClick(d)}
             on:blur={() => onMouseLeaveCountry()}
           />
+          </div>
         {/if}
       {/each}
     </div>
@@ -271,5 +276,14 @@
 
   .annotation-container :global(.line) {
     border-color :#bbbbbb !important;
+  }
+
+  .country--fadeOut {
+    opacity: 0.2;
+    transition: opacity 1s;
+  }
+  .country--fadeIn {
+    opacity: 1;
+    transition: opacity 1s;
   }
 </style>
