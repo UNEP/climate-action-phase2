@@ -3,12 +3,14 @@ import * as aq from 'arquero';
 import path from 'path';
 import countryDict from '../input/countryDictionary.json';
 import netzeroRaw from '../input/netzero-raw.json';
+import trendsCarto from '../../app/src/data/trends.carto.json';
 
 const OUTPUT_DIR = path.join(__dirname, '../output');
 
-const outputJSONData = (filename: string, data: any) => {
+const outputJSONData = (filename: string, data: any, msg = 'Saving') => {
   const dataStr = JSON.stringify(data, null, 2);
   const outfile = path.join(OUTPUT_DIR, filename);
+  console.log(`${msg} -> ${filename}`);
   fs.writeFileSync(outfile, dataStr);
 }
 
@@ -30,16 +32,16 @@ function processCO2() {
 
   const co2Mapped = folded_co2_totals
     .filter(d => d.year === '2019')
-    .map(d => ({code: d.id, emissions2019: d.emissions}));
+    .map(d => ({id: d.id, emissions2019: d.emissions}));
 
   const co2percapitaMapped = folded_co2_percapita
     .filter(d => d.year === '2019')
-    .map(d => ({code: d.id, emissions2019: d.emissions}));
+    .map(d => ({id: d.id, emissions2019: d.emissions}));
 
   const co2trendsMapped = [...new Set(folded_co2_totals.map(d => d.id))]
     .map(d => (
       {
-        code: d,
+        id: d,
         size: 1,
         emissions: Object.fromEntries(
           folded_co2_totals
@@ -50,13 +52,20 @@ function processCO2() {
     ));
 
 
-  outputJSONData('co2.json', co2Mapped);
-  outputJSONData('co2trends.json', co2trendsMapped);
-  outputJSONData('co2percapita.json', co2percapitaMapped);
+  outputJSONData('co2-all.json', co2Mapped);
+  outputJSONData('co2trends-all.json', co2trendsMapped);
+  outputJSONData('co2percapita-all.json', co2percapitaMapped);
 
+  const idsInTrendsCartoData = new Set(trendsCarto.data.map(d => d.id));
+  const trendsDataNotInCarto = co2trendsMapped
+    .filter(d => !idsInTrendsCartoData.has(d.id))
+    .map( d=> ({id: d.id, emissions: d.emissions}));
+  outputJSONData('co2trends-missing.json', trendsDataNotInCarto, `Trends data for ${trendsDataNotInCarto.length} countries not in carto dataset`);
 }
 
 function processNetZero() {
+
+  console.log('Processing Netzero dataset...');
 
   let out = [];
 
@@ -81,11 +90,8 @@ function processNetZero() {
         console.warn(`Missing country data for: ${_nzname}`);
       }
     });
-
-    outputJSONData('netzero.json', out);
-
   });
-
+  outputJSONData('netzero.json', out, `NZ data for ${out.length} countries`);
 }
 
 processNetZero();

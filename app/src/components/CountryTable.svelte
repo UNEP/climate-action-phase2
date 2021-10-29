@@ -34,8 +34,8 @@
   let showAll = false;
 
   const formattedTrendsData = datasets.co2trends.map(d => ({
-    id: d.code,
-    category: datasets.ghgCategories[d.code],
+    id: d.id,
+    category: datasets.ghgCategories[d.id],
     emissions: Object.entries(d.emissions)
       .map(([year, value]) => ({year: parseInt(year), value})),
 
