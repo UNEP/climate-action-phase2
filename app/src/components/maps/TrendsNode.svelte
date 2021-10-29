@@ -207,7 +207,7 @@
     }
 
     &.fade .trend-chart {
-      opacity: 0.2;
+      opacity: 0.1;
     }
   }
 

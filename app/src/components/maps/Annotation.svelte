@@ -144,26 +144,31 @@
 
 </script>
 
-{#if !justText}
-<div class="canvas-limiter" style="top: {topClampPerc}%; height: {perc(limitedCanvasHeight, canvasHeight)}%">
-  <div class="annotation annotation--{pos}" style={styleStr}
-      bind:this={el}>
-      <div class="line line-before"></div>
-      <div class="text" style={textStyleStr} bind:this={textEl}>
-          {@html text}
+<div class="annotation-container">
+  {#if !justText}
+    <div class="canvas-limiter" style="top: {topClampPerc}%; height: {perc(limitedCanvasHeight, canvasHeight)}%">
+      <div class="annotation annotation--{pos}" style={styleStr}
+          bind:this={el}>
+          <div class="line line-before"></div>
+          <div class="text" style={textStyleStr} bind:this={textEl}>
+              {@html text}
+          </div>
+          <div class="line line-after"></div>
       </div>
-      <div class="line line-after"></div>
-  </div>
-</div>
-{:else}
-<div class="just-text"
-    bind:this={el}>
-    <div class="text" style="transform: translate({x}px, {y}px);" bind:this={textEl}>
-        {@html text}
     </div>
+  {:else}
+    <div class="just-text"
+        bind:this={el}>
+        <div class="text" style="transform: translate({x}px, {y}px);" bind:this={textEl}>
+            {@html text}
+        </div>
+    </div>
+  {/if}
 </div>
-{/if}
 <style>
+  .annotation-container {
+    display: contents;
+  }
   .canvas-limiter {
     position: absolute;
     width: 100%;

@@ -87,6 +87,5 @@ export default {
   top10emitters,
   top10drops,
   pew,
-  endYear: 2015,
   ghgCategories
 };
