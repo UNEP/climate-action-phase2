@@ -26,16 +26,16 @@ const folded_co2_percapita = foldData(co2_percapita, ['id', 'country_name'], ['y
 
 const co2Mapped = folded_co2_totals
   .filter(d => d.year === '2019')
-  .map(d => ({code: d.id, emissions2019: d.emissions}));
+  .map(d => ({id: d.id, emissions2019: d.emissions}));
 
 const co2percapitaMapped = folded_co2_percapita
   .filter(d => d.year === '2019')
-  .map(d => ({code: d.id, emissions2019: d.emissions}));
+  .map(d => ({id: d.id, emissions2019: d.emissions}));
 
 const co2trendsMapped = [...new Set(folded_co2_totals.map(d => d.id))]
   .map(d => (
     {
-      code: d,
+      id: d,
       size: 1,
       emissions: Object.fromEntries(
         folded_co2_totals
