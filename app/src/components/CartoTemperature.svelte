@@ -31,12 +31,18 @@
   const sections: {[section: string]: {annotations: MediaAnnotation[]}} = {
     "Land temperature": {
       annotations: annotations.surface.map(mapAnnotation).filter(a => a)
+        // quick hack to transform old coords to new coords (bigger image)
+        .map(a => ({...a, x: a.x * (2400 / 828), y: a.y * (1217 / 420) }))
     },
     "Ocean temperature": {
       annotations: annotations.ocean.map(mapAnnotation).filter(a => a)
+        // quick hack to transform old coords to new coords (bigger image)
+        .map(a => ({...a, x: a.x * (2400 / 828), y: a.y * (1217 / 420) }))
     },
     "Fires": {
       annotations: annotations.fire.map(mapAnnotation).filter(a => a)
+        // quick hack to transform old coords to new coords (bigger image)
+        .map(a => ({...a, x: a.x * (1200 / 828), y: a.y * (608 / 420) }))
     }
   };
   $: selectedSection = sections[selectedSectionStr];
