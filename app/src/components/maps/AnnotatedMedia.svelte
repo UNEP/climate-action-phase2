@@ -145,11 +145,11 @@
   .aimg {
     :global(.annotation-container .text) {
       text-shadow:
-        1px 1px 1px #f3f3f3, -1px 1px 1px #f3f3f3, 1px -1px 1px #f3f3f3, -1px -1px 1px #f3f3f3,
-        2px 2px 2px #f3f3f3, -2px 2px 2px #f3f3f3, 2px -2px 2px #f3f3f3, -2px -2px 2px #f3f3f3,
-        3px 3px 2px #f3f3f3, -3px 3px 2px #f3f3f3, 3px -3px 2px #f3f3f3, -3px -3px 2px #f3f3f3,
-        -3px 0 2px #f3f3f3, 3px 0 2px #f3f3f3, 0 -3px 2px #f3f3f3, 0 3px 2px #f3f3f3,
-        -4px 0 2px #f3f3f3, 4px 0 2px #f3f3f3, 0 -4px 2px #f3f3f3, 0 4px 2px #f3f3f3;
+      1px 1px 1px #f9f9f9, -1px 1px 1px #f9f9f9, 1px -1px 1px #f9f9f9, -1px -1px 1px #f9f9f9,
+        2px 2px 2px #f9f9f9, -2px 2px 2px #f9f9f9, 2px -2px 2px #f9f9f9, -2px -2px 2px #f9f9f9,
+        3px 3px 2px #f9f9f9, -3px 3px 2px #f9f9f9, 3px -3px 2px #f9f9f9, -3px -3px 2px #f9f9f9,
+        -3px 0 2px #f9f9f9, 3px 0 2px #f9f9f9, 0 -3px 2px #f9f9f9, 0 3px 2px #f9f9f9,
+        -4px 0 2px #f9f9f9, 4px 0 2px #f9f9f9, 0 -4px 2px #f9f9f9, 0 4px 2px #f9f9f9;
     }
     :global(.annotation-container .line) {
       border-color: black !important;

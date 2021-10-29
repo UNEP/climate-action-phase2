@@ -1,786 +1,738 @@
 [
   {
     "id": "AFG",
-    "emissions2019": 0.3
+    "emissions2018": 0.81
   },
   {
     "id": "ALB",
-    "emissions2019": 1.93
+    "emissions2018": 3.06
   },
   {
     "id": "DZA",
-    "emissions2019": 4.23
+    "emissions2018": 6.25
   },
   {
     "id": "AGO",
-    "emissions2019": 0.81
-  },
-  {
-    "id": "AIA",
-    "emissions2019": 1.54
+    "emissions2018": 2.43
   },
   {
     "id": "ATG",
-    "emissions2019": 4.9
+    "emissions2018": 6.05
   },
   {
     "id": "ARG",
-    "emissions2019": 4.42
+    "emissions2018": 8.89
   },
   {
     "id": "ARM",
-    "emissions2019": 2.02
+    "emissions2018": 2.96
   },
   {
     "id": "AUS",
-    "emissions2019": 17.27
+    "emissions2018": 23.49
   },
   {
     "id": "AUT",
-    "emissions2019": 8.25
+    "emissions2018": 9.76
   },
   {
     "id": "AZE",
-    "emissions2019": 3.59
+    "emissions2018": 5.66
   },
   {
     "id": "BHS",
-    "emissions2019": 6.08
+    "emissions2018": 6.52
   },
   {
     "id": "BHR",
-    "emissions2019": 21.64
+    "emissions2018": 37.81
   },
   {
     "id": "BGD",
-    "emissions2019": 0.66
+    "emissions2018": 1.54
   },
   {
     "id": "BRB",
-    "emissions2019": 13.34
+    "emissions2018": 5.44
   },
   {
     "id": "BLR",
-    "emissions2019": 7.03
+    "emissions2018": 11.01
   },
   {
     "id": "BEL",
-    "emissions2019": 9.03
+    "emissions2018": 11.35
   },
   {
     "id": "BLZ",
-    "emissions2019": 0.95
+    "emissions2018": 2.69
   },
   {
     "id": "BEN",
-    "emissions2019": 0.69
-  },
-  {
-    "id": "BMU",
-    "emissions2019": 5.75
+    "emissions2018": 1.5
   },
   {
     "id": "BTN",
-    "emissions2019": 2.57
+    "emissions2018": 2.93
   },
   {
     "id": "BOL",
-    "emissions2019": 2.15
+    "emissions2018": 5.16
   },
   {
     "id": "BIH",
-    "emissions2019": 9.57
+    "emissions2018": 8.75
   },
   {
     "id": "BWA",
-    "emissions2019": 2.96
+    "emissions2018": 5.53
   },
   {
     "id": "BRA",
-    "emissions2019": 2.25
-  },
-  {
-    "id": "VGB",
-    "emissions2019": 3.77
+    "emissions2018": 5.97
   },
   {
     "id": "BRN",
-    "emissions2019": 15.98
+    "emissions2018": 29.49
   },
   {
     "id": "BGR",
-    "emissions2019": 6.2
+    "emissions2018": 8.48
   },
   {
     "id": "BFA",
-    "emissions2019": 0.18
+    "emissions2018": 1.48
   },
   {
     "id": "BDI",
-    "emissions2019": 0.03
+    "emissions2018": 0.55
   },
   {
     "id": "CPV",
-    "emissions2019": 1.83
+    "emissions2018": 2.06
   },
   {
     "id": "KHM",
-    "emissions2019": 1
+    "emissions2018": 2.55
   },
   {
     "id": "CMR",
-    "emissions2019": 0.4
+    "emissions2018": 1.6
   },
   {
     "id": "CAN",
-    "emissions2019": 15.69
+    "emissions2018": 20.62
   },
   {
     "id": "CAF",
-    "emissions2019": 0.1
+    "emissions2018": 2.29
   },
   {
     "id": "TCD",
-    "emissions2019": 0.06
+    "emissions2018": 4.42
   },
   {
     "id": "CHL",
-    "emissions2019": 4.9
+    "emissions2018": 6.9
   },
   {
     "id": "CHN",
-    "emissions2019": 8.12
+    "emissions2018": 9.71
   },
   {
     "id": "COL",
-    "emissions2019": 1.74
+    "emissions2018": 3.93
   },
   {
     "id": "COM",
-    "emissions2019": 0.25
+    "emissions2018": 0.94
   },
   {
     "id": "COG",
-    "emissions2019": 1.05
+    "emissions2018": 3.89
+  },
+  {
+    "id": "COK",
+    "emissions2018": 3.82
   },
   {
     "id": "CRI",
-    "emissions2019": 1.8
+    "emissions2018": 3.11
   },
   {
     "id": "CIV",
-    "emissions2019": 0.53
+    "emissions2018": 1.18
   },
   {
     "id": "HRV",
-    "emissions2019": 4.62
+    "emissions2018": 6.17
   },
   {
     "id": "CUB",
-    "emissions2019": 2.7
-  },
-  {
-    "id": "CUW",
-    "emissions2019": 36.38
+    "emissions2018": 4.02
   },
   {
     "id": "CYP",
-    "emissions2019": 6.19
+    "emissions2018": 7.23
   },
   {
     "id": "CZE",
-    "emissions2019": 9.94
+    "emissions2018": 12.37
   },
   {
     "id": "COD",
-    "emissions2019": 0.03
+    "emissions2018": 0.57
   },
   {
     "id": "DNK",
-    "emissions2019": 5.39
+    "emissions2018": 8.54
   },
   {
     "id": "DJI",
-    "emissions2019": 1.06
+    "emissions2018": 2.32
   },
   {
     "id": "DMA",
-    "emissions2019": 1.38
+    "emissions2018": 3.37
   },
   {
     "id": "DOM",
-    "emissions2019": 2.48
+    "emissions2018": 3.79
   },
   {
     "id": "ECU",
-    "emissions2019": 2.38
+    "emissions2018": 4.05
   },
   {
     "id": "EGY",
-    "emissions2019": 2.52
+    "emissions2018": 4.01
   },
   {
     "id": "SLV",
-    "emissions2019": 1.11
+    "emissions2018": 1.88
   },
   {
     "id": "GNQ",
-    "emissions2019": 2.55
+    "emissions2018": 10.5
   },
   {
     "id": "ERI",
-    "emissions2019": 0.14
+    "emissions2018": 1.23
   },
   {
     "id": "EST",
-    "emissions2019": 14.19
+    "emissions2018": 19.22
   },
   {
     "id": "SWZ",
-    "emissions2019": 0.81
+    "emissions2018": 2.44
   },
   {
     "id": "ETH",
-    "emissions2019": 0.17
-  },
-  {
-    "id": "FLK",
-    "emissions2019": 10.87
-  },
-  {
-    "id": "FRO",
-    "emissions2019": 0.04
+    "emissions2018": 1.42
   },
   {
     "id": "FJI",
-    "emissions2019": 1.48
+    "emissions2018": 3.65
   },
   {
     "id": "FIN",
-    "emissions2019": 7.81
+    "emissions2018": 13.5
   },
   {
     "id": "FRA",
-    "emissions2019": 4.81
+    "emissions2018": 6.9
   },
   {
     "id": "GAB",
-    "emissions2019": 1.65
+    "emissions2018": 8.66
   },
   {
     "id": "GEO",
-    "emissions2019": 3.45
+    "emissions2018": 4.2
   },
   {
     "id": "DEU",
-    "emissions2019": 8.52
+    "emissions2018": 10.62
   },
   {
     "id": "GHA",
-    "emissions2019": 0.56
-  },
-  {
-    "id": "GIB",
-    "emissions2019": 19.88
+    "emissions2018": 1.27
   },
   {
     "id": "GRC",
-    "emissions2019": 5.89
-  },
-  {
-    "id": "GRL",
-    "emissions2019": 9.47
+    "emissions2018": 8.24
   },
   {
     "id": "GRD",
-    "emissions2019": 2.1
+    "emissions2018": 2.61
   },
   {
     "id": "GTM",
-    "emissions2019": 1.21
+    "emissions2018": 2.35
   },
   {
     "id": "GIN",
-    "emissions2019": 0.22
+    "emissions2018": 1.86
   },
   {
     "id": "GNB",
-    "emissions2019": 0.22
+    "emissions2018": 1.49
   },
   {
     "id": "GUY",
-    "emissions2019": 1.94
+    "emissions2018": 6.47
   },
   {
     "id": "HTI",
-    "emissions2019": 0.32
+    "emissions2018": 1.22
   },
   {
     "id": "HND",
-    "emissions2019": 1.08
+    "emissions2018": 2.45
   },
   {
     "id": "HUN",
-    "emissions2019": 5.51
+    "emissions2018": 6.93
   },
   {
     "id": "ISL",
-    "emissions2019": 11.53
+    "emissions2018": 14.66
   },
   {
     "id": "IND",
-    "emissions2019": 1.9
+    "emissions2018": 2.67
   },
   {
     "id": "IDN",
-    "emissions2019": 2.32
+    "emissions2018": 4.03
   },
   {
     "id": "IRN",
-    "emissions2019": 8.48
+    "emissions2018": 11.3
   },
   {
     "id": "IRQ",
-    "emissions2019": 4.89
+    "emissions2018": 8.93
   },
   {
     "id": "IRL",
-    "emissions2019": 7.54
+    "emissions2018": 14.08
   },
   {
     "id": "ISR",
-    "emissions2019": 7.96
+    "emissions2018": 10.3
   },
   {
     "id": "ITA",
-    "emissions2019": 5.6
+    "emissions2018": 7.04
   },
   {
     "id": "JAM",
-    "emissions2019": 2.56
+    "emissions2018": 3.56
   },
   {
     "id": "JPN",
-    "emissions2019": 9.09
+    "emissions2018": 9.99
   },
   {
     "id": "JOR",
-    "emissions2019": 2.81
+    "emissions2018": 3.57
   },
   {
     "id": "KAZ",
-    "emissions2019": 14.92
+    "emissions2018": 19.98
   },
   {
     "id": "KEN",
-    "emissions2019": 0.38
+    "emissions2018": 1.79
   },
   {
     "id": "KIR",
-    "emissions2019": 0.28
+    "emissions2018": 0.8
   },
   {
     "id": "KWT",
-    "emissions2019": 23.29
+    "emissions2018": 33.71
   },
   {
     "id": "KGZ",
-    "emissions2019": 1.92
+    "emissions2018": 3.47
   },
   {
     "id": "LAO",
-    "emissions2019": 0.96
+    "emissions2018": 5.31
   },
   {
     "id": "LVA",
-    "emissions2019": 4.38
+    "emissions2018": 6.51
   },
   {
     "id": "LBN",
-    "emissions2019": 4.52
+    "emissions2018": 5.67
   },
   {
     "id": "LSO",
-    "emissions2019": 0.33
+    "emissions2018": 1.26
   },
   {
     "id": "LBR",
-    "emissions2019": 0.24
+    "emissions2018": 0.86
   },
   {
     "id": "LBY",
-    "emissions2019": 7.92
+    "emissions2018": 12.24
   },
   {
     "id": "LTU",
-    "emissions2019": 4.81
+    "emissions2018": 8.15
   },
   {
     "id": "LUX",
-    "emissions2019": 16.31
+    "emissions2018": 17.73
   },
   {
     "id": "MDG",
-    "emissions2019": 0.16
+    "emissions2018": 1.25
   },
   {
     "id": "MWI",
-    "emissions2019": 0.08
+    "emissions2018": 0.66
   },
   {
     "id": "MYS",
-    "emissions2019": 7.67
+    "emissions2018": 10.12
   },
   {
     "id": "MDV",
-    "emissions2019": 2.02
+    "emissions2018": 4.16
   },
   {
     "id": "MLI",
-    "emissions2019": 0.05
+    "emissions2018": 2.02
   },
   {
     "id": "MLT",
-    "emissions2019": 2.41
+    "emissions2018": 4.76
   },
   {
     "id": "MRT",
-    "emissions2019": 1.64
+    "emissions2018": 2.98
   },
   {
     "id": "MUS",
-    "emissions2019": 3.41
+    "emissions2018": 4.75
   },
   {
     "id": "MEX",
-    "emissions2019": 3.67
+    "emissions2018": 6.13
   },
   {
     "id": "MDA",
-    "emissions2019": 2.29
+    "emissions2018": 3.06
   },
   {
     "id": "MNG",
-    "emissions2019": 11.35
+    "emissions2018": 19.48
   },
   {
     "id": "MAR",
-    "emissions2019": 2.02
+    "emissions2018": 2.8
   },
   {
     "id": "MOZ",
-    "emissions2019": 0.29
+    "emissions2018": 1.07
   },
   {
     "id": "MMR",
-    "emissions2019": 0.89
+    "emissions2018": 2.7
   },
   {
     "id": "NAM",
-    "emissions2019": 1.67
+    "emissions2018": 4.65
   },
   {
     "id": "NPL",
-    "emissions2019": 0.5
+    "emissions2018": 1.73
   },
   {
     "id": "NLD",
-    "emissions2019": 9.13
-  },
-  {
-    "id": "NCL",
-    "emissions2019": 55.25
+    "emissions2018": 12.99
   },
   {
     "id": "NZL",
-    "emissions2019": 8.07
+    "emissions2018": 17.88
   },
   {
     "id": "NIC",
-    "emissions2019": 0.92
+    "emissions2018": 3.04
   },
   {
     "id": "NER",
-    "emissions2019": 0.1
+    "emissions2018": 1.56
   },
   {
     "id": "NGA",
-    "emissions2019": 0.5
+    "emissions2018": 2.01
   },
   {
     "id": "PRK",
-    "emissions2019": 1.64
+    "emissions2018": 1.74
   },
   {
     "id": "MKD",
-    "emissions2019": 4.28
+    "emissions2018": 4.91
   },
   {
     "id": "NOR",
-    "emissions2019": 8.89
+    "emissions2018": 13.26
   },
   {
     "id": "OMN",
-    "emissions2019": 18.55
+    "emissions2018": 24.85
   },
   {
     "id": "PAK",
-    "emissions2019": 1.09
+    "emissions2018": 2.51
   },
   {
     "id": "PLW",
-    "emissions2019": 59.88
+    "emissions2018": 58.27
   },
   {
     "id": "PAN",
-    "emissions2019": 2.75
+    "emissions2018": 3.85
   },
   {
     "id": "PNG",
-    "emissions2019": 0.47
+    "emissions2018": 1.88
   },
   {
     "id": "PRY",
-    "emissions2019": 1.21
+    "emissions2018": 6.27
   },
   {
     "id": "PER",
-    "emissions2019": 1.71
+    "emissions2018": 2.81
   },
   {
     "id": "PHL",
-    "emissions2019": 1.39
+    "emissions2018": 2.23
   },
   {
     "id": "POL",
-    "emissions2019": 8.35
+    "emissions2018": 11.15
   },
   {
     "id": "PRT",
-    "emissions2019": 4.73
+    "emissions2018": 6.76
   },
   {
     "id": "QAT",
-    "emissions2019": 38.82
+    "emissions2018": 66.23
   },
   {
     "id": "ROU",
-    "emissions2019": 4.04
+    "emissions2018": 6.08
   },
   {
     "id": "RUS",
-    "emissions2019": 12.45
+    "emissions2018": 16.07
   },
   {
     "id": "RWA",
-    "emissions2019": 0.09
-  },
-  {
-    "id": "SHN",
-    "emissions2019": 3.87
+    "emissions2018": 0.54
   },
   {
     "id": "KNA",
-    "emissions2019": 3.44
+    "emissions2018": 3.76
   },
   {
     "id": "LCA",
-    "emissions2019": 1.65
-  },
-  {
-    "id": "SPM",
-    "emissions2019": 9.72
+    "emissions2018": 2.82
   },
   {
     "id": "VCT",
-    "emissions2019": 1.32
+    "emissions2018": 1.8
   },
   {
     "id": "WSM",
-    "emissions2019": 0.7
+    "emissions2018": 2.94
   },
   {
     "id": "STP",
-    "emissions2019": 0.75
+    "emissions2018": 1.18
   },
   {
     "id": "SAU",
-    "emissions2019": 18
+    "emissions2018": 22.37
   },
   {
     "id": "SEN",
-    "emissions2019": 0.59
+    "emissions2018": 1.55
   },
   {
     "id": "SRB",
-    "emissions2019": 7.55
+    "emissions2018": 10.08
   },
   {
     "id": "SYC",
-    "emissions2019": 10.98
+    "emissions2018": 13.15
   },
   {
     "id": "SLE",
-    "emissions2019": 0.18
+    "emissions2018": 0.87
   },
   {
     "id": "SGP",
-    "emissions2019": 9.09
+    "emissions2018": 12.18
   },
   {
     "id": "SVK",
-    "emissions2019": 6.6
+    "emissions2018": 8.73
   },
   {
     "id": "SVN",
-    "emissions2019": 7.38
+    "emissions2018": 9.85
   },
   {
     "id": "SLB",
-    "emissions2019": 0.22
+    "emissions2018": 0.85
   },
   {
     "id": "SOM",
-    "emissions2019": 0.06
+    "emissions2018": 1.91
   },
   {
     "id": "ZAF",
-    "emissions2019": 8.52
+    "emissions2018": 10
   },
   {
     "id": "KOR",
-    "emissions2019": 12.7
+    "emissions2018": 14.82
   },
   {
     "id": "ESP",
-    "emissions2019": 5.58
+    "emissions2018": 7.54
   },
   {
     "id": "LKA",
-    "emissions2019": 1.31
+    "emissions2018": 1.99
   },
   {
     "id": "SDN",
-    "emissions2019": 0.4
+    "emissions2018": 2.42
   },
   {
     "id": "SUR",
-    "emissions2019": 3.59
+    "emissions2018": 5.16
   },
   {
     "id": "SWE",
-    "emissions2019": 4.45
+    "emissions2018": 6.47
   },
   {
     "id": "CHE",
-    "emissions2019": 4.57
+    "emissions2018": 5.61
   },
   {
     "id": "SYR",
-    "emissions2019": 1.58
+    "emissions2018": 2.33
   },
   {
     "id": "TJK",
-    "emissions2019": 0.96
+    "emissions2018": 2.13
   },
   {
     "id": "TZA",
-    "emissions2019": 0.22
+    "emissions2018": 1.27
   },
   {
     "id": "THA",
-    "emissions2019": 3.97
+    "emissions2018": 6.28
   },
   {
     "id": "GMB",
-    "emissions2019": 0.27
+    "emissions2018": 0.96
   },
   {
     "id": "TLS",
-    "emissions2019": 0.28
+    "emissions2018": 3.88
   },
   {
     "id": "TGO",
-    "emissions2019": 0.35
+    "emissions2018": 1.21
   },
   {
     "id": "TON",
-    "emissions2019": 1.16
+    "emissions2018": 2.09
   },
   {
     "id": "TTO",
-    "emissions2019": 23.81
+    "emissions2018": 34.6
   },
   {
     "id": "TUN",
-    "emissions2019": 2.72
+    "emissions2018": 3.66
   },
   {
     "id": "TUR",
-    "emissions2019": 5.01
+    "emissions2018": 7.07
   },
   {
     "id": "TKM",
-    "emissions2019": 15.23
-  },
-  {
-    "id": "TCA",
-    "emissions2019": 3.7
+    "emissions2018": 21.5
   },
   {
     "id": "UGA",
-    "emissions2019": 0.12
+    "emissions2018": 1.06
   },
   {
     "id": "UKR",
-    "emissions2019": 4.48
+    "emissions2018": 6.32
   },
   {
     "id": "ARE",
-    "emissions2019": 22.99
+    "emissions2018": 29.09
   },
   {
     "id": "GBR",
-    "emissions2019": 5.45
+    "emissions2018": 6.97
   },
   {
     "id": "USA",
-    "emissions2019": 15.52
+    "emissions2018": 19.27
   },
   {
     "id": "URY",
-    "emissions2019": 1.89
+    "emissions2018": 11.28
   },
   {
     "id": "UZB",
-    "emissions2019": 2.9
+    "emissions2018": 5.32
   },
   {
     "id": "VUT",
-    "emissions2019": 0.3
+    "emissions2018": 2.54
   },
   {
     "id": "VEN",
-    "emissions2019": 3.36
+    "emissions2018": 6.52
   },
   {
     "id": "VNM",
-    "emissions2019": 3.13
-  },
-  {
-    "id": "ESH",
-    "emissions2019": 0.51
+    "emissions2018": 4.34
   },
   {
     "id": "YEM",
-    "emissions2019": 0.37
+    "emissions2018": 1.05
   },
   {
     "id": "ZMB",
-    "emissions2019": 0.41
+    "emissions2018": 1.61705
   },
   {
     "id": "ZWE",
-    "emissions2019": 0.63
+    "emissions2018": 1.85
   }
 ]

@@ -21,6 +21,7 @@
         }
       ],
       "head": "Climate Action Note – State of the climate",
+      "id": "sotc",
       "text": [
         {
           "p": "Humanity’s use of fossil fuels has caused a climate emergency - ‘a code red for the planet’ according to UN SG Antonio Guterres. It’s devastating consequences are threatening our lives, economy, health and food systems - and extreme weather events are already wrecking havoc across the world. We are far from securing the global temperature rise safely below 1.5°C as promised in the Paris Agreement."
@@ -47,6 +48,7 @@
           "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, as promised in the Paris Agreement, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ],
+      "legend-head": "TKTK",
       "legend": [
         {
           "l": "Lower than in 1990"
@@ -90,21 +92,14 @@
       ]
     },
     {
-      "type": "table",
-      "title": "By country",
-      "icon": "stateoftheclimate.trends",
-      "data": "ghgbycountry",
-      "embed": "ghgbycountry",
-      "head": "Some countries are making progress but all nations need to step up",
-      "text": [
-        {
-          "p": "See how the emissions from each country has developed between 1990 and 2019."
-        }
-      ]
-    },
-    {
       "type": "country-table",
-      "data": "GHG"
+      "head": "See how the emissions from each country has developed between 1990 and 2019.",
+      "title": "By country",
+      "icon": "stateoftheclimate.searchtable",
+      "menu": "By country",
+      "menuicon": "stateoftheclimate.searchtable",
+      "data": "co2bycountry",
+      "embed": "co2bycountry"
     },
     {
       "type": "methodology",
@@ -113,19 +108,13 @@
       "icon": "data",
       "text": [
         {
-          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong>  and <strong>attributable deaths</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
+          "p": "Data for <strong>GHG emissions</strong> comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=”https://edgar.jrc.ec.europa.eu/report_2021#data_download”>GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=”http://dx.doi.org/10.2760/173513”>doi:10.2760/173513</a>, <a href=”https://publications.jrc.ec.europa.eu/repository/handle/JRC126363”>JRC126363</a>"
         },
         {
-          "p": "Data for <strong>sectors breakdown</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\" rel=\"noopener\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
+          "p": "The “GHG emissions of all world countries - 2021 Report” uses uses the <a href=”https://edgar.jrc.ec.europa.eu/”>Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
         },
         {
-          "p": "The data for the <strong>sector section</strong> was reaggregated from country data into UNEP regions, which are different from the ones used in the study."
-        },
-        {
-          "p": "Data for policy implementations comes from <a href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">Actions on Air Quality: A Global Summary of Policies and Programmes to Reduce Air Pollution. UNEP, 2021</a>."
-        },
-        {
-          "p": "<em>The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.</em>"
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
     }

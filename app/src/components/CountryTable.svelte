@@ -9,11 +9,17 @@
 <script lang="ts">
   import datasets from 'src/data';
   import type { Unpacked } from 'src/util';
+  import type { Content, TextBlock } from 'src/types';
   import { displayVal } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
+  import SectionTitle from './SectionTitle.svelte';
   import Icon from './Icon.svelte';
   import { colorGHG } from 'src/colors';
+
+  export let head: string;
+  export let block: Content;
+  export var id: string;
 
   const top10Emissons = new Set(
     datasets.co2data
@@ -21,9 +27,6 @@
       .slice(0, 10)
       .map(d => d.id)
   );
-
-  const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
-    Mauris mattis posuere faucibus.`;
 
   const ROW_LIMIT = 6;
 
@@ -144,7 +147,9 @@
 
 </script>
 
-<div class="container">
+<section {id} class="container table">
+
+  <SectionTitle {block} />
 
   <h2 class='narrow'>{@html head}</h2>
 
@@ -208,7 +213,7 @@
     </button>
   {/if}
 
-</div>
+  </section>
 
 <style type="text/scss">
 
@@ -242,6 +247,7 @@
     column-gap: 10px;
     > * {
       box-sizing: border-box;
+      border-bottom: 1px solid #e0e0e0;
     }
   }
 
@@ -250,7 +256,7 @@
   }
 
   .cell-name {
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: bold;
   }
 
@@ -263,14 +269,14 @@
 
   .cell-number {
     font-weight: 100;
-    font-size: 24px;
+    font-size: 1.2rem;
     text-align: right;
     padding-left: 10px;
     span {
       color: #818181;
       font-weight: 500;
       text-align: right;
-      font-size: 16px;
+      font-size: .9rem;
       margin: 0%;
     }
   }
@@ -282,7 +288,7 @@
     row-gap: 2px;
 
     span {
-      font-size: 14px;
+      font-size: .9rem;
       display: block;
       line-height: 1.6;
       width: 90px;
@@ -388,7 +394,7 @@
     }
 
     .cell-name {
-      font-size: 20px;
+      font-size: 1rem;
     }
 
     .cell-ghg span{
