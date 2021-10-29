@@ -1,7 +1,11 @@
 <script>
+import PagesMenu from "../nav/PagesMenu.svelte";
+
 export let text;
 export let head;
 export let breadcrumbs;
+export let currentPage = "";
+
 </script>
 <section class='intro col-text'>
   <nav class="inner-nav" role="navigation" labelledby="breadcrumbs-label">
@@ -20,7 +24,7 @@ export let breadcrumbs;
   {#if head}
     <h1>{@html head}</h1>
   {/if}
-
+  <PagesMenu {currentPage}></PagesMenu>
   {#if text}
   {#each text as p}
       <p>{@html p.p}</p>
