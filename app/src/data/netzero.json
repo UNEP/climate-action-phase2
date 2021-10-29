@@ -1,697 +1,195 @@
-[
-  {
-    "id": "SUR",
-    "year": null,
-    "status": "ACHIEVED"
-  },
-  {
-    "id": "BTN",
-    "year": null,
-    "status": "ACHIEVED"
-  },
-  {
-    "id": "DEU",
-    "year": 2045,
-    "status": "IN LAW"
-  },
-  {
-    "id": "SWE",
-    "year": 2045,
-    "status": "IN LAW"
-  },
-  {
-    "id": "JPN",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "GBR",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "FRA",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "CAN",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "KOR",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "ESP",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "DNK",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "NZL",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "HUN",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "LUX",
-    "year": 2050,
-    "status": "IN LAW"
-  },
-  {
-    "id": "IRL",
-    "year": 2050,
-    "status": "PROPOSED LEGISLATION"
-  },
-  {
-    "id": "CHL",
-    "year": 2050,
-    "status": "PROPOSED LEGISLATION"
-  },
-  {
-    "id": "FJI",
-    "year": 2050,
-    "status": "PROPOSED LEGISLATION"
-  },
-  {
-    "id": "FIN",
-    "year": 2035,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "AUT",
-    "year": 2040,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "ISL",
-    "year": 2040,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "AUS",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "ZAF",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "ITA",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "BRA",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "CHE",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "ARG",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "NOR",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "ARE",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "MYS",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "COL",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "PRT",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "SVK",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "DOM",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "PAN",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "CRI",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "URY",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "SVN",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "LVA",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "NPL",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "LAO",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "JAM",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "NAM",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "MUS",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "MCO",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "MWI",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "MDV",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "BRB",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "AND",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "CPV",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "SYC",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "SLB",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "GRD",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "VAT",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "MHL",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "NRU",
-    "year": 2050,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "TUR",
-    "year": 2053,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "CHN",
-    "year": 2060,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "IDN",
-    "year": 2060,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "KAZ",
-    "year": 2060,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "UKR",
-    "year": 2060,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "LKA",
-    "year": 2060,
-    "status": "IN POLICY DOCUMENT"
-  },
-  {
-    "id": "AUS",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MEX",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "NLD",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BEL",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "PAK",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BGD",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "CZE",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ROU",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "PER",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "GRC",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ECU",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "AGO",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ETH",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MMR",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "HRV",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BGR",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TZA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "LBN",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "LTU",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "COD",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "SDN",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "EST",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "UGA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "YEM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ZMB",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "CYP",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "KHM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "SEN",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TTO",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "PNG",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "AFG",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MLI",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MOZ",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MLT",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BFA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MDG",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "NIC",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ARM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BHS",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "SSD",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TCD",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "GIN",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BEN",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "HTI",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "RWA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "NER",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TGO",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "MRT",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "SOM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "SLE",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "GUY",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "LBR",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BDI",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "DJI",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "LSO",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TLS",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ERI",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "CAF",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "BLZ",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "LCA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "ATG",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "GMB",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "GNB",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "COM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "KNA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "VUT",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "WSM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "VCT",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "DMA",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TON",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "FSM",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "STP",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "PLW",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "KIR",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "TUV",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "NIU",
-    "year": 2050,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "IND",
-    "year": 2060,
-    "status": "TARGET UNDER DISCUSSION"
-  },
-  {
-    "id": "RUS",
-    "year": 2060,
-    "status": "TARGET UNDER DISCUSSION"
-  }
-]
+[{"id":"AFG","status":"Proposed / in discussion","year":2050},
+  {"id":"AGO","status":"Proposed / in discussion","year":2050},
+  {"id":"ARG","status":"Proposed / in discussion","year":2050},
+  {"id":"ARM","status":"Proposed / in discussion","year":2050},
+  {"id":"ATG","status":"In policy document","year":2040},
+  {"id":"AUT","status":"In policy document","year":2040},
+  {"id":"BEL","status":"Proposed / in discussion","year":2050},
+  {"id":"BEN","status":"Achieved (self-declared)","year":2000},
+  {"id":"BFA","status":"","year":2050},
+  {"id":"BGD","status":"Proposed / in discussion","year":2030},
+  {"id":"BHS","status":"Proposed / in discussion","year":2050},
+  {"id":"BLZ","status":"In policy document","year":2050},
+  {"id":"BRB","status":"In policy document","year":2030},
+  {"id":"BTN","status":"Achieved (self-declared)","year":2000},
+  {"id":"CAF","status":"Proposed / in discussion","year":2050},
+  {"id":"CAN","status":"In law","year":2050},
+  {"id":"CHE","status":"Proposed / in discussion","year":2050},
+  {"id":"CHL","status":"In policy document","year":2050},
+  {"id":"CHN","status":"In policy document","year":2060},
+  {"id":"COD","status":"In policy document","year":2030},
+  {"id":"COG","status":"Declaration / pledge","year":2030},
+  {"id":"COL","status":"Proposed / in discussion","year":2050},
+  {"id":"COM","status":"Proposed / in discussion","year":2050},
+  {"id":"CPV","status":"Proposed / in discussion","year":2050},
+  {"id":"CRI","status":"In policy document","year":2050},
+  {"id":"CYP","status":"Proposed / in discussion","year":2050},
+  {"id":"CZE","status":"In policy document","year":2050},
+  {"id":"DEU","status":"In law","year":2045},
+  {"id":"DJI","status":"In policy document","year":2030},
+  {"id":"DMA","status":"Proposed / in discussion","year":2050},
+  {"id":"DNK","status":"In law","year":2050},
+  {"id":"DOM","status":"Proposed / in discussion","year":2050},
+  {"id":"ECU","status":"In policy document","year":2050},
+  {"id":"ERI","status":"Proposed / in discussion","year":2050},
+  {"id":"ESP","status":"In law","year":2050},
+  {"id":"EST","status":"Declaration / pledge","year":2050},
+  {"id":"ETH","status":"Proposed / in discussion","year":2050},
+  {"id":"FIN","status":"In policy document","year":2035},
+  {"id":"FJI","status":"In policy document","year":2050},
+  {"id":"FRA","status":"In law","year":2050},
+  {"id":"FSM","status":"Proposed / in discussion","year":2050},
+  {"id":"GAB","status":"Achieved (self-declared)","year":2000},
+  {"id":"GBR","status":"In law","year":2050},
+  {"id":"GIN","status":"Proposed / in discussion","year":2050},
+  {"id":"GMB","status":"Proposed / in discussion","year":2050},
+  {"id":"GNB","status":"Achieved (self-declared)","year":2030},
+  {"id":"GRC","status":"In policy document","year":2050},
+  {"id":"GRD","status":"Proposed / in discussion","year":2050},
+  {"id":"GUY","status":"Achieved (self-declared)","year":2019},
+  {"id":"HRV","status":"In policy document","year":2050},
+  {"id":"HTI","status":"Proposed / in discussion","year":2050},
+  {"id":"HUN","status":"In law","year":2050},
+  {"id":"IRL","status":"In law","year":2050},
+  {"id":"ISL","status":"In policy document","year":2040},
+  {"id":"ITA","status":"In policy document","year":2050},
+  {"id":"JAM","status":"Proposed / in discussion","year":2050},
+  {"id":"JPN","status":"In law","year":2050},
+  {"id":"KHM","status":"Achieved (self-declared)","year":2000},
+  {"id":"KIR","status":"Proposed / in discussion","year":2050},
+  {"id":"KNA","status":"Proposed / in discussion","year":2050},
+  {"id":"KOR","status":"In law","year":2050},
+  {"id":"LAO","status":"Proposed / in discussion","year":2050},
+  {"id":"LBN","status":"Proposed / in discussion","year":2050},
+  {"id":"LBR","status":"Achieved (self-declared)","year":2000},
+  {"id":"LCA","status":"Proposed / in discussion","year":2050},
+  {"id":"LSO","status":"Proposed / in discussion","year":2050},
+  {"id":"LTU","status":"In policy document","year":2050},
+  {"id":"LUX","status":"In policy document","year":2050},
+  {"id":"LVA","status":"In policy document","year":2050},
+  {"id":"MCO","status":"In policy document","year":2050},
+  {"id":"MDG","status":"Achieved (self-declared)","year":2010},
+  {"id":"MDV","status":"In policy document","year":2030},
+  {"id":"MEX","status":"Proposed / in discussion","year":2050},
+  {"id":"MHL","status":"In policy document","year":2050},
+  {"id":"MLI","status":"Achieved (self-declared)","year":2010},
+  {"id":"MLT","status":"In policy document","year":2050},
+  {"id":"MMR","status":"Achieved (self-declared)","year":2005},
+  {"id":"MOZ","status":"Proposed / in discussion","year":2050},
+  {"id":"MRT","status":"Proposed / in discussion","year":2050},
+  {"id":"MUS","status":"Proposed / in discussion","year":2050},
+  {"id":"MWI","status":"Proposed / in discussion","year":2050},
+  {"id":"NAM","status":"Proposed / in discussion","year":2050},
+  {"id":"NER","status":"Achieved (self-declared)","year":2008},
+  {"id":"NIC","status":"Proposed / in discussion","year":2050},
+  {"id":"NOR","status":"In law","year":2050},
+  {"id":"NPL","status":"In policy document","year":2050},
+  {"id":"NRU","status":"Proposed / in discussion","year":2050},
+  {"id":"NZL","status":"In law","year":2050},
+  {"id":"PAK","status":"Proposed / in discussion","year":2050},
+  {"id":"PER","status":"Proposed / in discussion","year":2050},
+  {"id":"PLW","status":"Proposed / in discussion","year":2050},
+  {"id":"PNG","status":"Proposed / in discussion","year":2050},
+  {"id":"PRT","status":"In policy document","year":2050},
+  {"id":"RWA","status":"Proposed / in discussion","year":2050},
+  {"id":"SEN","status":"Proposed / in discussion","year":2050},
+  {"id":"SLB","status":"Proposed / in discussion","year":2050},
+  {"id":"SLE","status":"Proposed / in discussion","year":2050},
+  {"id":"STP","status":"Achieved (self-declared)","year":2012},
+  {"id":"SUR","status":"Achieved (self-declared)","year":2003},
+  {"id":"SVK","status":"Proposed / in discussion","year":2050},
+  {"id":"SVN","status":"In policy document","year":2050},
+  {"id":"SWE","status":"In law","year":2045},
+  {"id":"SYC","status":"Achieved (self-declared)","year":2011},
+  {"id":"TCD","status":"Proposed / in discussion","year":2050},
+  {"id":"TGO","status":"Proposed / in discussion","year":2050},
+  {"id":"TLS","status":"Proposed / in discussion","year":2050},
+  {"id":"TON","status":"Achieved (self-declared)","year":2006},
+  {"id":"TTO","status":"Proposed / in discussion","year":2050},
+  {"id":"TUV","status":"Proposed / in discussion","year":2050},
+  {"id":"UGA","status":"Proposed / in discussion","year":2050},
+  {"id":"URY","status":"In policy document","year":2050},
+  {"id":"USA","status":"Declaration / pledge","year":2050},
+  {"id":"VCT","status":"Proposed / in discussion","year":2050},
+  {"id":"VUT","status":"In policy document","year":2050},
+  {"id":"WSM","status":"Proposed / in discussion","year":2050},
+  {"id":"YEM","status":"Proposed / in discussion","year":2050},
+  {"id":"ZAF","status":"Declaration / pledge","year":2050},
+  {"id":"ZMB","status":"Proposed / in discussion","year":2050},
+  {"id":"ZWE","status":"Declaration / pledge","year":2030},
+  {"id":"ALB","status":"","year":null},
+  {"id":"AND","status":"","year":null},
+  {"id":"ARE","status":"Declaration / pledge","year":2050},
+  {"id":"AUS","status":"Declaration / pledge","year":2050},
+  {"id":"AZE","status":"","year":null},
+  {"id":"BDI","status":"Proposed / in discussion","year":2050},
+  {"id":"BGR","status":"Proposed / in discussion","year":2050},
+  {"id":"BHR","status":"","year":null},
+  {"id":"BIH","status":"","year":null},
+  {"id":"BLR","status":"","year":null},
+  {"id":"BOL","status":"","year":null},
+  {"id":"BRA","status":"In policy document","year":2060},
+  {"id":"BRN","status":"","year":null},
+  {"id":"BWA","status":"","year":null},
+  {"id":"CIV","status":"","year":null},
+  {"id":"CMR","status":"","year":null},
+  {"id":"CUB","status":"","year":null},
+  {"id":"DZA","status":"In policy document","year":2030},
+  {"id":"EGY","status":"In policy document","year":2030},
+  {"id":"GEO","status":"","year":null},
+  {"id":"GHA","status":"","year":null},
+  {"id":"GNQ","status":"","year":null},
+  {"id":"GTM","status":"","year":null},
+  {"id":"HND","status":"","year":null},
+  {"id":"IDN","status":"Proposed / in discussion","year":2060},
+  {"id":"IND","status":"In policy document","year":2030},
+  {"id":"IRN","status":"","year":null},
+  {"id":"IRQ","status":"","year":null},
+  {"id":"ISR","status":"","year":null},
+  {"id":"JOR","status":"","year":null},
+  {"id":"KAZ","status":"Declaration / pledge","year":2050},
+  {"id":"KEN","status":"In policy document","year":2030},
+  {"id":"KGZ","status":"In policy document","year":2050},
+  {"id":"KWT","status":"","year":null},
+  {"id":"LBY","status":"","year":null},
+  {"id":"LIE","status":"","year":null},
+  {"id":"LKA","status":"In policy document","year":2060},
+  {"id":"MAR","status":"In policy document","year":2030},
+  {"id":"MDA","status":"","year":null},
+  {"id":"MKD","status":"","year":null},
+  {"id":"MNE","status":"","year":null},
+  {"id":"MNG","status":"","year":null},
+  {"id":"MYS","status":"Declaration / pledge","year":2050},
+  {"id":"NGA","status":"Declaration / pledge","year":2030},
+  {"id":"NLD","status":"In law","year":2050},
+  {"id":"OMN","status":"","year":null},
+  {"id":"PAN","status":"In policy document","year":2050},
+  {"id":"PHL","status":"","year":null},
+  {"id":"POL","status":"","year":null},
+  {"id":"PRK","status":"In policy document","year":2030},
+  {"id":"PRY","status":"In policy document","year":2030},
+  {"id":"PSE","status":"","year":null},
+  {"id":"QAT","status":"In policy document","year":2030},
+  {"id":"ROU","status":"In law","year":2050},
+  {"id":"RUS","status":"Declaration / pledge","year":2060},
+  {"id":"SAU","status":"Declaration / pledge","year":2050},
+  {"id":"SDN","status":"Proposed / in discussion","year":2050},
+  {"id":"SLV","status":"","year":null},
+  {"id":"SMR","status":"","year":null},
+  {"id":"SOM","status":"Proposed / in discussion","year":2050},
+  {"id":"SRB","status":"","year":null},
+  {"id":"SWZ","status":"","year":null},
+  {"id":"SYR","status":"","year":null},
+  {"id":"THA","status":"","year":null},
+  {"id":"TJK","status":"","year":null},
+  {"id":"TKM","status":"","year":null},
+  {"id":"TUN","status":"","year":null},
+  {"id":"TUR","status":"In policy document","year":2053},
+  {"id":"TZA","status":"Proposed / in discussion","year":2050},
+  {"id":"UKR","status":"In policy document","year":2060},
+  {"id":"UZB","status":"","year":null},
+  {"id":"VEN","status":"","year":null},
+  {"id":"VNM","status":"","year":null},
+  {"id":"SSD","status":"Proposed / in discussion","year":2030},
+  {"id":"SGP","status":"In policy document","year":null},
+  {"id":"NIU","status":"Proposed / in discussion","year":2050}]
