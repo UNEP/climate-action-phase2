@@ -2,12 +2,12 @@ import { createLookup, Unpacked } from 'src/util';
 import percapita from './co2-percapita-2019.carto.json';
 import ghg from './co2-2019.carto.json';
 import trends from './trends.carto.json';
+import trendsNotInCarto from './co2trends-notincarto.json';
 import countries from './countryDictionary.json';
 import ndc from './ndc.carto.json';
 import pew from './pewsurvey.json';
 import netzero from './netzero.json';
-import co2trends from 'src/data/co2trends.json';
-import co2data from 'src/data/co2data.json';
+import co2baseData from 'src/data/co2data.json';
 import { IS_DEV } from 'src/util/env';
 export {default as annotations } from './annotations.json';
 
@@ -26,7 +26,6 @@ const top10emitters = new Set([
     .map(d => d.id)
 ]);
 
-
 const top10drops = new Set([
   ...trends.data
     .map(d => ({
@@ -37,7 +36,6 @@ const top10drops = new Set([
     .slice(0, 10)
     .map(d => d.id)
 ]);
-
 
 type TrendsDataPoint = Unpacked<typeof trends.data>;
 
@@ -56,6 +54,21 @@ const ghgCategories: {[id: string]: string} = {};
 trends.data.forEach(d => {
   ghgCategories[d.id] = calcGHGCategory(d);
 });
+
+const countriesLookup = createLookup(countries, d => d.id, d => d);
+
+const co2trends = [
+  ...trends.data.map(d => ({id: d.id, emissions: d.emissions})),
+  ...trendsNotInCarto
+];
+
+const totalGHG2019 = co2baseData.map(d => d.emissions2019).reduce((a,b) => a + b, 0);
+
+const co2data = co2baseData.map(d => ({
+  ...d,
+  name: countriesLookup[d.id].name,
+  globalPct: Number((d.emissions2019 / totalGHG2019).toFixed(2))
+}));
 
 if (IS_DEV) {
   // check data
@@ -80,7 +93,8 @@ export default {
   },
   lookups: {
     netzero: createLookup(netzero, d => d.id, d => d),
-    trends: createLookup(co2trends, d => d.code, d => d)
+    trends: createLookup(co2trends, d => d.id, d => d),
+    countries: countriesLookup
   },
   co2data,
   co2trends,
