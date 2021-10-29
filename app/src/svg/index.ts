@@ -55,6 +55,7 @@ const icons = {
     searchtable:searchTable
   },
   climateactionprogress: {
+    nzt: climateActionProgressNZT,
     main: climateActionProgressMain,
     ndc: climateActionProgressNdc,
     opinion: climateActionProgressOpinion

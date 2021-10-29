@@ -37,9 +37,9 @@
     {
       "type": "carto-scrolly",
       "title": "Emissions",
-      "icon": "stateoftheclimate.emissions",
+      "icon": "climateactionprogress.nzt",
       "menu": "Net-zero targets",
-      "menuicon": "stateoftheclimate.main",
+      "menuicon": "climateactionprogress.nzt",
       "data": "ghg",
       "embed": "ghg",
       "head": "Countries must strengthen pledges and actions to reach the Paris Agreement goal",
@@ -94,7 +94,7 @@
       "icon": "data",
       "text": [
         {
-          "p": "Data for the <strong>net zero targets</strong> pledged by countries comes from <a href=”https://zerotracker.net/”>Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
+          "p": "Data for the <strong>net-zero targets</strong> pledged by countries comes from <a href=”https://zerotracker.net/”>Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
         },
         {
           "p": "Data for the <strong>public opinion section</strong> comes from Pew Research Center, February, 2019, <a href=\"https://www.pewresearch.org/global/2019/02/10/climate-change-still-seen-as-the-top-global-threat-but-cyberattacks-a-rising-concern/\">“Climate Change Still Seen as the Top Global Threat, but Cyberattacks a Rising Concern”</a>"
