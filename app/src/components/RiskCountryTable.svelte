@@ -326,10 +326,10 @@
     padding-bottom: 50px;
 
     input {
-      width: 100%;
+      width: 50%;
       padding: 0.5rem 0rem;
       background: #f9f9f9;
-      font-size: 2rem;
+      font-size: 1.5rem;
       border: 0;
       border-radius: 0;
       border: 0px solid #cccccc;
