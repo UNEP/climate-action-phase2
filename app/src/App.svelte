@@ -15,7 +15,6 @@
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
 
-
   export var gdocs: GDocs;
   export var embed: string;
 

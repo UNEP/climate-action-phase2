@@ -1,6 +1,6 @@
 import { createLookup, Unpacked } from 'src/util';
-import percapita from './percapita.carto.json';
-import ghg from './ghg.carto.json';
+import percapita from './co2-percapita-2019.carto.json';
+import ghg from './co2-2019.carto.json';
 import trends from './trends.carto.json';
 import countries from './countryDictionary.json';
 import ndc from './ndc.carto.json';
@@ -21,7 +21,7 @@ export const END_YEAR = 2015;
 
 const top10emitters = new Set([
   ...ghg.data
-    .sort((a,b) => b.emissions2015 - a.emissions2015)
+    .sort((a,b) => b.emissions2019 - a.emissions2019)
     .slice(0, 10)
     .map(d => d.id)
 ]);
