@@ -10,6 +10,7 @@
   import CartogramNode from "./maps/CartogramNode.svelte";
 
   export let text: {p: string}[];
+  export let id: string;
 
   let section: number;
   let prevSection: number;
@@ -72,7 +73,7 @@
 
 </script>
 
-<div>
+<div {id}>
   <Scroller bind:section>
     <div slot="sticky">
       <div class="carto-container">
