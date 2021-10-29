@@ -12,6 +12,7 @@ import eslint from '@rbnlffl/rollup-plugin-eslint';
 import includePaths from 'rollup-plugin-includepaths';
 import { string } from 'rollup-plugin-string';
 import replace from '@rollup/plugin-replace';
+import analyze from 'rollup-plugin-analyzer';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -103,7 +104,9 @@ export default {
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
-    production && terser()
+    production && terser(),
+
+    production && analyze()
   ],
   watch: {
     clearScreen: false

@@ -1,6 +1,6 @@
 [
   {
-    "code": "AFG",
+    "id": "AFG",
     "size": 1,
     "emissions": {
       "1970": 1.48,
@@ -56,7 +56,7 @@
     }
   },
   {
-    "code": "ALB",
+    "id": "ALB",
     "size": 1,
     "emissions": {
       "1970": 4.72,
@@ -112,7 +112,7 @@
     }
   },
   {
-    "code": "DZA",
+    "id": "DZA",
     "size": 1,
     "emissions": {
       "1970": 18.93,
@@ -168,7 +168,7 @@
     }
   },
   {
-    "code": "AGO",
+    "id": "AGO",
     "size": 1,
     "emissions": {
       "1970": 8.95,
@@ -224,7 +224,7 @@
     }
   },
   {
-    "code": "AIA",
+    "id": "AIA",
     "size": 1,
     "emissions": {
       "1970": 0,
@@ -280,7 +280,7 @@
     }
   },
   {
-    "code": "ATG",
+    "id": "ATG",
     "size": 1,
     "emissions": {
       "1970": 0.12,
@@ -336,7 +336,7 @@
     }
   },
   {
-    "code": "ARG",
+    "id": "ARG",
     "size": 1,
     "emissions": {
       "1970": 88.76,
@@ -392,7 +392,7 @@
     }
   },
   {
-    "code": "ARM",
+    "id": "ARM",
     "size": 1,
     "emissions": {
       "1970": 10.92,
@@ -448,7 +448,7 @@
     }
   },
   {
-    "code": "AUS",
+    "id": "AUS",
     "size": 1,
     "emissions": {
       "1970": 160.99,
@@ -504,7 +504,7 @@
     }
   },
   {
-    "code": "AUT",
+    "id": "AUT",
     "size": 1,
     "emissions": {
       "1970": 53.98,
@@ -560,7 +560,7 @@
     }
   },
   {
-    "code": "AZE",
+    "id": "AZE",
     "size": 1,
     "emissions": {
       "1970": 32.28,
@@ -616,7 +616,7 @@
     }
   },
   {
-    "code": "BHS",
+    "id": "BHS",
     "size": 1,
     "emissions": {
       "1970": 1.62,
@@ -672,7 +672,7 @@
     }
   },
   {
-    "code": "BHR",
+    "id": "BHR",
     "size": 1,
     "emissions": {
       "1970": 2.96,
@@ -728,7 +728,7 @@
     }
   },
   {
-    "code": "BGD",
+    "id": "BGD",
     "size": 1,
     "emissions": {
       "1970": 3.35,
@@ -784,7 +784,7 @@
     }
   },
   {
-    "code": "BRB",
+    "id": "BRB",
     "size": 1,
     "emissions": {
       "1970": 0.29,
@@ -840,7 +840,7 @@
     }
   },
   {
-    "code": "BLR",
+    "id": "BLR",
     "size": 1,
     "emissions": {
       "1970": 64.18,
@@ -896,7 +896,7 @@
     }
   },
   {
-    "code": "BEL",
+    "id": "BEL",
     "size": 1,
     "emissions": {
       "1970": 140.36,
@@ -952,7 +952,7 @@
     }
   },
   {
-    "code": "BLZ",
+    "id": "BLZ",
     "size": 1,
     "emissions": {
       "1970": 0.06,
@@ -1008,7 +1008,7 @@
     }
   },
   {
-    "code": "BEN",
+    "id": "BEN",
     "size": 1,
     "emissions": {
       "1970": 0.32,
@@ -1064,7 +1064,7 @@
     }
   },
   {
-    "code": "BMU",
+    "id": "BMU",
     "size": 1,
     "emissions": {
       "1970": 0.16,
@@ -1120,7 +1120,7 @@
     }
   },
   {
-    "code": "BTN",
+    "id": "BTN",
     "size": 1,
     "emissions": {
       "1970": 0.04,
@@ -1176,7 +1176,7 @@
     }
   },
   {
-    "code": "BOL",
+    "id": "BOL",
     "size": 1,
     "emissions": {
       "1970": 3.07,
@@ -1232,7 +1232,7 @@
     }
   },
   {
-    "code": "BIH",
+    "id": "BIH",
     "size": 1,
     "emissions": {
       "1970": 15.74,
@@ -1288,7 +1288,7 @@
     }
   },
   {
-    "code": "BWA",
+    "id": "BWA",
     "size": 1,
     "emissions": {
       "1970": 0.29,
@@ -1344,7 +1344,7 @@
     }
   },
   {
-    "code": "BRA",
+    "id": "BRA",
     "size": 1,
     "emissions": {
       "1970": 109.52,
@@ -1400,7 +1400,7 @@
     }
   },
   {
-    "code": "VGB",
+    "id": "VGB",
     "size": 1,
     "emissions": {
       "1970": 0.01,
@@ -1456,7 +1456,7 @@
     }
   },
   {
-    "code": "BRN",
+    "id": "BRN",
     "size": 1,
     "emissions": {
       "1970": 2.04,
@@ -1512,7 +1512,7 @@
     }
   },
   {
-    "code": "BGR",
+    "id": "BGR",
     "size": 1,
     "emissions": {
       "1970": 70.58,
@@ -1568,7 +1568,7 @@
     }
   },
   {
-    "code": "BFA",
+    "id": "BFA",
     "size": 1,
     "emissions": {
       "1970": 0.25,
@@ -1624,7 +1624,7 @@
     }
   },
   {
-    "code": "BDI",
+    "id": "BDI",
     "size": 1,
     "emissions": {
       "1970": 0.05,
@@ -1680,7 +1680,7 @@
     }
   },
   {
-    "code": "CPV",
+    "id": "CPV",
     "size": 1,
     "emissions": {
       "1970": 0.18,
@@ -1736,7 +1736,7 @@
     }
   },
   {
-    "code": "KHM",
+    "id": "KHM",
     "size": 1,
     "emissions": {
       "1970": 0.22,
@@ -1792,7 +1792,7 @@
     }
   },
   {
-    "code": "CMR",
+    "id": "CMR",
     "size": 1,
     "emissions": {
       "1970": 0.9,
@@ -1848,7 +1848,7 @@
     }
   },
   {
-    "code": "CAN",
+    "id": "CAN",
     "size": 1,
     "emissions": {
       "1970": 359.78,
@@ -1904,7 +1904,7 @@
     }
   },
   {
-    "code": "CAF",
+    "id": "CAF",
     "size": 1,
     "emissions": {
       "1970": 0.08,
@@ -1960,7 +1960,7 @@
     }
   },
   {
-    "code": "TCD",
+    "id": "TCD",
     "size": 1,
     "emissions": {
       "1970": 0.16,
@@ -2016,7 +2016,7 @@
     }
   },
   {
-    "code": "CHL",
+    "id": "CHL",
     "size": 1,
     "emissions": {
       "1970": 27.87,
@@ -2072,7 +2072,7 @@
     }
   },
   {
-    "code": "CHN",
+    "id": "CHN",
     "size": 1,
     "emissions": {
       "1970": 906.56,
@@ -2128,7 +2128,7 @@
     }
   },
   {
-    "code": "COL",
+    "id": "COL",
     "size": 1,
     "emissions": {
       "1970": 31.68,
@@ -2184,7 +2184,7 @@
     }
   },
   {
-    "code": "COM",
+    "id": "COM",
     "size": 1,
     "emissions": {
       "1970": 0.02,
@@ -2240,7 +2240,7 @@
     }
   },
   {
-    "code": "COG",
+    "id": "COG",
     "size": 1,
     "emissions": {
       "1970": 1.81,
@@ -2296,7 +2296,7 @@
     }
   },
   {
-    "code": "CRI",
+    "id": "CRI",
     "size": 1,
     "emissions": {
       "1970": 1.45,
@@ -2352,7 +2352,7 @@
     }
   },
   {
-    "code": "CIV",
+    "id": "CIV",
     "size": 1,
     "emissions": {
       "1970": 2.64,
@@ -2408,7 +2408,7 @@
     }
   },
   {
-    "code": "HRV",
+    "id": "HRV",
     "size": 1,
     "emissions": {
       "1970": 22,
@@ -2464,7 +2464,7 @@
     }
   },
   {
-    "code": "CUB",
+    "id": "CUB",
     "size": 1,
     "emissions": {
       "1970": 21.74,
@@ -2520,7 +2520,7 @@
     }
   },
   {
-    "code": "CUW",
+    "id": "CUW",
     "size": 1,
     "emissions": {
       "1970": 4.73,
@@ -2576,7 +2576,7 @@
     }
   },
   {
-    "code": "CYP",
+    "id": "CYP",
     "size": 1,
     "emissions": {
       "1970": 2.17,
@@ -2632,7 +2632,7 @@
     }
   },
   {
-    "code": "CZE",
+    "id": "CZE",
     "size": 1,
     "emissions": {
       "1970": 190.08,
@@ -2688,7 +2688,7 @@
     }
   },
   {
-    "code": "COD",
+    "id": "COD",
     "size": 1,
     "emissions": {
       "1970": 2.34,
@@ -2744,7 +2744,7 @@
     }
   },
   {
-    "code": "DNK",
+    "id": "DNK",
     "size": 1,
     "emissions": {
       "1970": 62.39,
@@ -2800,7 +2800,7 @@
     }
   },
   {
-    "code": "DJI",
+    "id": "DJI",
     "size": 1,
     "emissions": {
       "1970": 0.8,
@@ -2856,7 +2856,7 @@
     }
   },
   {
-    "code": "DMA",
+    "id": "DMA",
     "size": 1,
     "emissions": {
       "1970": 0.01,
@@ -2912,7 +2912,7 @@
     }
   },
   {
-    "code": "DOM",
+    "id": "DOM",
     "size": 1,
     "emissions": {
       "1970": 3.82,
@@ -2968,7 +2968,7 @@
     }
   },
   {
-    "code": "ECU",
+    "id": "ECU",
     "size": 1,
     "emissions": {
       "1970": 5.03,
@@ -3024,7 +3024,7 @@
     }
   },
   {
-    "code": "EGY",
+    "id": "EGY",
     "size": 1,
     "emissions": {
       "1970": 25.26,
@@ -3080,7 +3080,7 @@
     }
   },
   {
-    "code": "SLV",
+    "id": "SLV",
     "size": 1,
     "emissions": {
       "1970": 1.58,
@@ -3136,7 +3136,7 @@
     }
   },
   {
-    "code": "GNQ",
+    "id": "GNQ",
     "size": 1,
     "emissions": {
       "1970": 0.03,
@@ -3192,7 +3192,7 @@
     }
   },
   {
-    "code": "ERI",
+    "id": "ERI",
     "size": 1,
     "emissions": {
       "1970": 0.18,
@@ -3248,7 +3248,7 @@
     }
   },
   {
-    "code": "EST",
+    "id": "EST",
     "size": 1,
     "emissions": {
       "1970": 14.44,
@@ -3304,7 +3304,7 @@
     }
   },
   {
-    "code": "SWZ",
+    "id": "SWZ",
     "size": 1,
     "emissions": {
       "1970": 0.18,
@@ -3360,7 +3360,7 @@
     }
   },
   {
-    "code": "ETH",
+    "id": "ETH",
     "size": 1,
     "emissions": {
       "1970": 1.43,
@@ -3416,7 +3416,7 @@
     }
   },
   {
-    "code": "FLK",
+    "id": "FLK",
     "size": 1,
     "emissions": {
       "1970": 0,
@@ -3472,7 +3472,7 @@
     }
   },
   {
-    "code": "FRO",
+    "id": "FRO",
     "size": 1,
     "emissions": {
       "1970": 0,
@@ -3528,7 +3528,7 @@
     }
   },
   {
-    "code": "FJI",
+    "id": "FJI",
     "size": 1,
     "emissions": {
       "1970": 0.78,
@@ -3584,7 +3584,7 @@
     }
   },
   {
-    "code": "FIN",
+    "id": "FIN",
     "size": 1,
     "emissions": {
       "1970": 43.75,
@@ -3640,7 +3640,7 @@
     }
   },
   {
-    "code": "FRA",
+    "id": "FRA",
     "size": 1,
     "emissions": {
       "1970": 467,
@@ -3696,7 +3696,7 @@
     }
   },
   {
-    "code": "GAB",
+    "id": "GAB",
     "size": 1,
     "emissions": {
       "1970": 0.6,
@@ -3752,7 +3752,7 @@
     }
   },
   {
-    "code": "GEO",
+    "id": "GEO",
     "size": 1,
     "emissions": {
       "1970": 25.89,
@@ -3808,7 +3808,7 @@
     }
   },
   {
-    "code": "DEU",
+    "id": "DEU",
     "size": 1,
     "emissions": {
       "1970": 1082.06,
@@ -3864,7 +3864,7 @@
     }
   },
   {
-    "code": "GHA",
+    "id": "GHA",
     "size": 1,
     "emissions": {
       "1970": 2.37,
@@ -3920,7 +3920,7 @@
     }
   },
   {
-    "code": "GIB",
+    "id": "GIB",
     "size": 1,
     "emissions": {
       "1970": 0.07,
@@ -3976,7 +3976,7 @@
     }
   },
   {
-    "code": "GRC",
+    "id": "GRC",
     "size": 1,
     "emissions": {
       "1970": 30.09,
@@ -4032,7 +4032,7 @@
     }
   },
   {
-    "code": "GRL",
+    "id": "GRL",
     "size": 1,
     "emissions": {
       "1970": 0,
@@ -4088,7 +4088,7 @@
     }
   },
   {
-    "code": "GRD",
+    "id": "GRD",
     "size": 1,
     "emissions": {
       "1970": 0.01,
@@ -4144,7 +4144,7 @@
     }
   },
   {
-    "code": "GTM",
+    "id": "GTM",
     "size": 1,
     "emissions": {
       "1970": 2.49,
@@ -4200,7 +4200,7 @@
     }
   },
   {
-    "code": "GIN",
+    "id": "GIN",
     "size": 1,
     "emissions": {
       "1970": 0.51,
@@ -4256,7 +4256,7 @@
     }
   },
   {
-    "code": "GNB",
+    "id": "GNB",
     "size": 1,
     "emissions": {
       "1970": 0.04,
@@ -4312,7 +4312,7 @@
     }
   },
   {
-    "code": "GUY",
+    "id": "GUY",
     "size": 1,
     "emissions": {
       "1970": 0.42,
@@ -4368,7 +4368,7 @@
     }
   },
   {
-    "code": "HTI",
+    "id": "HTI",
     "size": 1,
     "emissions": {
       "1970": 0.54,
@@ -4424,7 +4424,7 @@
     }
   },
   {
-    "code": "HND",
+    "id": "HND",
     "size": 1,
     "emissions": {
       "1970": 1.23,
@@ -4480,7 +4480,7 @@
     }
   },
   {
-    "code": "HUN",
+    "id": "HUN",
     "size": 1,
     "emissions": {
       "1970": 66.13,
@@ -4536,7 +4536,7 @@
     }
   },
   {
-    "code": "ISL",
+    "id": "ISL",
     "size": 1,
     "emissions": {
       "1970": 1.93,
@@ -4592,7 +4592,7 @@
     }
   },
   {
-    "code": "IND",
+    "id": "IND",
     "size": 1,
     "emissions": {
       "1970": 232.81,
@@ -4648,7 +4648,7 @@
     }
   },
   {
-    "code": "IDN",
+    "id": "IDN",
     "size": 1,
     "emissions": {
       "1970": 31.05,
@@ -4704,7 +4704,7 @@
     }
   },
   {
-    "code": "IRN",
+    "id": "IRN",
     "size": 1,
     "emissions": {
       "1970": 79.51,
@@ -4760,7 +4760,7 @@
     }
   },
   {
-    "code": "IRQ",
+    "id": "IRQ",
     "size": 1,
     "emissions": {
       "1970": 23.19,
@@ -4816,7 +4816,7 @@
     }
   },
   {
-    "code": "IRL",
+    "id": "IRL",
     "size": 1,
     "emissions": {
       "1970": 21.09,
@@ -4872,7 +4872,7 @@
     }
   },
   {
-    "code": "ISR",
+    "id": "ISR",
     "size": 1,
     "emissions": {
       "1970": 14.97,
@@ -4928,7 +4928,7 @@
     }
   },
   {
-    "code": "ITA",
+    "id": "ITA",
     "size": 1,
     "emissions": {
       "1970": 317.47,
@@ -4984,7 +4984,7 @@
     }
   },
   {
-    "code": "JAM",
+    "id": "JAM",
     "size": 1,
     "emissions": {
       "1970": 5.93,
@@ -5040,7 +5040,7 @@
     }
   },
   {
-    "code": "JPN",
+    "id": "JPN",
     "size": 1,
     "emissions": {
       "1970": 857.85,
@@ -5096,7 +5096,7 @@
     }
   },
   {
-    "code": "JOR",
+    "id": "JOR",
     "size": 1,
     "emissions": {
       "1970": 2.74,
@@ -5152,7 +5152,7 @@
     }
   },
   {
-    "code": "KAZ",
+    "id": "KAZ",
     "size": 1,
     "emissions": {
       "1970": 161.14,
@@ -5208,7 +5208,7 @@
     }
   },
   {
-    "code": "KEN",
+    "id": "KEN",
     "size": 1,
     "emissions": {
       "1970": 3.77,
@@ -5264,7 +5264,7 @@
     }
   },
   {
-    "code": "KIR",
+    "id": "KIR",
     "size": 1,
     "emissions": {
       "1970": 0.02,
@@ -5320,7 +5320,7 @@
     }
   },
   {
-    "code": "KWT",
+    "id": "KWT",
     "size": 1,
     "emissions": {
       "1970": 38.34,
@@ -5376,7 +5376,7 @@
     }
   },
   {
-    "code": "KGZ",
+    "id": "KGZ",
     "size": 1,
     "emissions": {
       "1970": 15.27,
@@ -5432,7 +5432,7 @@
     }
   },
   {
-    "code": "LAO",
+    "id": "LAO",
     "size": 1,
     "emissions": {
       "1970": 0.29,
@@ -5488,7 +5488,7 @@
     }
   },
   {
-    "code": "LVA",
+    "id": "LVA",
     "size": 1,
     "emissions": {
       "1970": 13.68,
@@ -5544,7 +5544,7 @@
     }
   },
   {
-    "code": "LBN",
+    "id": "LBN",
     "size": 1,
     "emissions": {
       "1970": 5.38,
@@ -5600,7 +5600,7 @@
     }
   },
   {
-    "code": "LSO",
+    "id": "LSO",
     "size": 1,
     "emissions": {
       "1970": 0.08,
@@ -5656,7 +5656,7 @@
     }
   },
   {
-    "code": "LBR",
+    "id": "LBR",
     "size": 1,
     "emissions": {
       "1970": 1.07,
@@ -5712,7 +5712,7 @@
     }
   },
   {
-    "code": "LBY",
+    "id": "LBY",
     "size": 1,
     "emissions": {
       "1970": 37.87,
@@ -5768,7 +5768,7 @@
     }
   },
   {
-    "code": "LTU",
+    "id": "LTU",
     "size": 1,
     "emissions": {
       "1970": 20.22,
@@ -5824,7 +5824,7 @@
     }
   },
   {
-    "code": "LUX",
+    "id": "LUX",
     "size": 1,
     "emissions": {
       "1970": 18.42,
@@ -5880,7 +5880,7 @@
     }
   },
   {
-    "code": "MDG",
+    "id": "MDG",
     "size": 1,
     "emissions": {
       "1970": 0.68,
@@ -5936,7 +5936,7 @@
     }
   },
   {
-    "code": "MWI",
+    "id": "MWI",
     "size": 1,
     "emissions": {
       "1970": 0.28,
@@ -5992,7 +5992,7 @@
     }
   },
   {
-    "code": "MYS",
+    "id": "MYS",
     "size": 1,
     "emissions": {
       "1970": 14.23,
@@ -6048,7 +6048,7 @@
     }
   },
   {
-    "code": "MDV",
+    "id": "MDV",
     "size": 1,
     "emissions": {
       "1970": 0.01,
@@ -6104,7 +6104,7 @@
     }
   },
   {
-    "code": "MLI",
+    "id": "MLI",
     "size": 1,
     "emissions": {
       "1970": 0.27,
@@ -6160,7 +6160,7 @@
     }
   },
   {
-    "code": "MLT",
+    "id": "MLT",
     "size": 1,
     "emissions": {
       "1970": 0.71,
@@ -6216,7 +6216,7 @@
     }
   },
   {
-    "code": "MRT",
+    "id": "MRT",
     "size": 1,
     "emissions": {
       "1970": 0.36,
@@ -6272,7 +6272,7 @@
     }
   },
   {
-    "code": "MUS",
+    "id": "MUS",
     "size": 1,
     "emissions": {
       "1970": 0.3,
@@ -6328,7 +6328,7 @@
     }
   },
   {
-    "code": "MEX",
+    "id": "MEX",
     "size": 1,
     "emissions": {
       "1970": 121.38,
@@ -6384,7 +6384,7 @@
     }
   },
   {
-    "code": "MDA",
+    "id": "MDA",
     "size": 1,
     "emissions": {
       "1970": 0.76,
@@ -6440,7 +6440,7 @@
     }
   },
   {
-    "code": "MNG",
+    "id": "MNG",
     "size": 1,
     "emissions": {
       "1970": 5.09,
@@ -6496,7 +6496,7 @@
     }
   },
   {
-    "code": "MAR",
+    "id": "MAR",
     "size": 1,
     "emissions": {
       "1970": 6.85,
@@ -6552,7 +6552,7 @@
     }
   },
   {
-    "code": "MOZ",
+    "id": "MOZ",
     "size": 1,
     "emissions": {
       "1970": 3.18,
@@ -6608,7 +6608,7 @@
     }
   },
   {
-    "code": "MMR",
+    "id": "MMR",
     "size": 1,
     "emissions": {
       "1970": 4.72,
@@ -6664,7 +6664,7 @@
     }
   },
   {
-    "code": "NAM",
+    "id": "NAM",
     "size": 1,
     "emissions": {
       "1970": 1.2,
@@ -6720,7 +6720,7 @@
     }
   },
   {
-    "code": "NPL",
+    "id": "NPL",
     "size": 1,
     "emissions": {
       "1970": 0.27,
@@ -6776,7 +6776,7 @@
     }
   },
   {
-    "code": "NLD",
+    "id": "NLD",
     "size": 1,
     "emissions": {
       "1970": 135.03,
@@ -6832,7 +6832,7 @@
     }
   },
   {
-    "code": "NCL",
+    "id": "NCL",
     "size": 1,
     "emissions": {
       "1970": 1.23,
@@ -6888,7 +6888,7 @@
     }
   },
   {
-    "code": "NZL",
+    "id": "NZL",
     "size": 1,
     "emissions": {
       "1970": 14.01,
@@ -6944,7 +6944,7 @@
     }
   },
   {
-    "code": "NIC",
+    "id": "NIC",
     "size": 1,
     "emissions": {
       "1970": 1.62,
@@ -7000,7 +7000,7 @@
     }
   },
   {
-    "code": "NER",
+    "id": "NER",
     "size": 1,
     "emissions": {
       "1970": 0.32,
@@ -7056,7 +7056,7 @@
     }
   },
   {
-    "code": "NGA",
+    "id": "NGA",
     "size": 1,
     "emissions": {
       "1970": 29.06,
@@ -7112,7 +7112,7 @@
     }
   },
   {
-    "code": "PRK",
+    "id": "PRK",
     "size": 1,
     "emissions": {
       "1970": 14.75,
@@ -7168,7 +7168,7 @@
     }
   },
   {
-    "code": "MKD",
+    "id": "MKD",
     "size": 1,
     "emissions": {
       "1970": 9.11,
@@ -7224,7 +7224,7 @@
     }
   },
   {
-    "code": "NOR",
+    "id": "NOR",
     "size": 1,
     "emissions": {
       "1970": 36.79,
@@ -7280,7 +7280,7 @@
     }
   },
   {
-    "code": "OMN",
+    "id": "OMN",
     "size": 1,
     "emissions": {
       "1970": 7.33,
@@ -7336,7 +7336,7 @@
     }
   },
   {
-    "code": "PAK",
+    "id": "PAK",
     "size": 1,
     "emissions": {
       "1970": 17.72,
@@ -7392,7 +7392,7 @@
     }
   },
   {
-    "code": "PLW",
+    "id": "PLW",
     "size": 1,
     "emissions": {
       "1970": 1.99,
@@ -7448,7 +7448,7 @@
     }
   },
   {
-    "code": "PAN",
+    "id": "PAN",
     "size": 1,
     "emissions": {
       "1970": 2.59,
@@ -7504,7 +7504,7 @@
     }
   },
   {
-    "code": "PNG",
+    "id": "PNG",
     "size": 1,
     "emissions": {
       "1970": 1.48,
@@ -7560,7 +7560,7 @@
     }
   },
   {
-    "code": "PRY",
+    "id": "PRY",
     "size": 1,
     "emissions": {
       "1970": 0.68,
@@ -7616,7 +7616,7 @@
     }
   },
   {
-    "code": "PER",
+    "id": "PER",
     "size": 1,
     "emissions": {
       "1970": 17.38,
@@ -7672,7 +7672,7 @@
     }
   },
   {
-    "code": "PHL",
+    "id": "PHL",
     "size": 1,
     "emissions": {
       "1970": 25.7,
@@ -7728,7 +7728,7 @@
     }
   },
   {
-    "code": "POL",
+    "id": "POL",
     "size": 1,
     "emissions": {
       "1970": 310.37,
@@ -7784,7 +7784,7 @@
     }
   },
   {
-    "code": "PRT",
+    "id": "PRT",
     "size": 1,
     "emissions": {
       "1970": 15.96,
@@ -7840,7 +7840,7 @@
     }
   },
   {
-    "code": "QAT",
+    "id": "QAT",
     "size": 1,
     "emissions": {
       "1970": 14.72,
@@ -7896,7 +7896,7 @@
     }
   },
   {
-    "code": "ROU",
+    "id": "ROU",
     "size": 1,
     "emissions": {
       "1970": 130.24,
@@ -7952,7 +7952,7 @@
     }
   },
   {
-    "code": "RUS",
+    "id": "RUS",
     "size": 1,
     "emissions": {
       "1970": 1314.17,
@@ -8008,7 +8008,7 @@
     }
   },
   {
-    "code": "RWA",
+    "id": "RWA",
     "size": 1,
     "emissions": {
       "1970": 0.08,
@@ -8064,7 +8064,7 @@
     }
   },
   {
-    "code": "SHN",
+    "id": "SHN",
     "size": 1,
     "emissions": {
       "1970": 0,
@@ -8120,7 +8120,7 @@
     }
   },
   {
-    "code": "KNA",
+    "id": "KNA",
     "size": 1,
     "emissions": {
       "1970": 0.02,
@@ -8176,7 +8176,7 @@
     }
   },
   {
-    "code": "LCA",
+    "id": "LCA",
     "size": 1,
     "emissions": {
       "1970": 0.04,
@@ -8232,7 +8232,7 @@
     }
   },
   {
-    "code": "SPM",
+    "id": "SPM",
     "size": 1,
     "emissions": {
       "1970": 0.04,
@@ -8288,7 +8288,7 @@
     }
   },
   {
-    "code": "VCT",
+    "id": "VCT",
     "size": 1,
     "emissions": {
       "1970": 0.01,
@@ -8344,7 +8344,7 @@
     }
   },
   {
-    "code": "WSM",
+    "id": "WSM",
     "size": 1,
     "emissions": {
       "1970": 0.05,
@@ -8400,7 +8400,7 @@
     }
   },
   {
-    "code": "STP",
+    "id": "STP",
     "size": 1,
     "emissions": {
       "1970": 0.02,
@@ -8456,7 +8456,7 @@
     }
   },
   {
-    "code": "SAU",
+    "id": "SAU",
     "size": 1,
     "emissions": {
       "1970": 47.02,
@@ -8512,7 +8512,7 @@
     }
   },
   {
-    "code": "SEN",
+    "id": "SEN",
     "size": 1,
     "emissions": {
       "1970": 1.37,
@@ -8568,7 +8568,7 @@
     }
   },
   {
-    "code": "SRB",
+    "id": "SRB",
     "size": 1,
     "emissions": {
       "1970": 24.81,
@@ -8624,7 +8624,7 @@
     }
   },
   {
-    "code": "SYC",
+    "id": "SYC",
     "size": 1,
     "emissions": {
       "1970": 0.11,
@@ -8680,7 +8680,7 @@
     }
   },
   {
-    "code": "SLE",
+    "id": "SLE",
     "size": 1,
     "emissions": {
       "1970": 0.42,
@@ -8736,7 +8736,7 @@
     }
   },
   {
-    "code": "SGP",
+    "id": "SGP",
     "size": 1,
     "emissions": {
       "1970": 6.61,
@@ -8792,7 +8792,7 @@
     }
   },
   {
-    "code": "SVK",
+    "id": "SVK",
     "size": 1,
     "emissions": {
       "1970": 38.45,
@@ -8848,7 +8848,7 @@
     }
   },
   {
-    "code": "SVN",
+    "id": "SVN",
     "size": 1,
     "emissions": {
       "1970": 9.92,
@@ -8904,7 +8904,7 @@
     }
   },
   {
-    "code": "SLB",
+    "id": "SLB",
     "size": 1,
     "emissions": {
       "1970": 0.05,
@@ -8960,7 +8960,7 @@
     }
   },
   {
-    "code": "SOM",
+    "id": "SOM",
     "size": 1,
     "emissions": {
       "1970": 0.64,
@@ -9016,7 +9016,7 @@
     }
   },
   {
-    "code": "ZAF",
+    "id": "ZAF",
     "size": 1,
     "emissions": {
       "1970": 185.19,
@@ -9072,7 +9072,7 @@
     }
   },
   {
-    "code": "KOR",
+    "id": "KOR",
     "size": 1,
     "emissions": {
       "1970": 62.77,
@@ -9128,7 +9128,7 @@
     }
   },
   {
-    "code": "ESP",
+    "id": "ESP",
     "size": 1,
     "emissions": {
       "1970": 143.16,
@@ -9184,7 +9184,7 @@
     }
   },
   {
-    "code": "LKA",
+    "id": "LKA",
     "size": 1,
     "emissions": {
       "1970": 3.13,
@@ -9240,7 +9240,7 @@
     }
   },
   {
-    "code": "SDN",
+    "id": "SDN",
     "size": 1,
     "emissions": {
       "1970": 3.44,
@@ -9296,7 +9296,7 @@
     }
   },
   {
-    "code": "SUR",
+    "id": "SUR",
     "size": 1,
     "emissions": {
       "1970": 0.76,
@@ -9352,7 +9352,7 @@
     }
   },
   {
-    "code": "SWE",
+    "id": "SWE",
     "size": 1,
     "emissions": {
       "1970": 96.45,
@@ -9408,7 +9408,7 @@
     }
   },
   {
-    "code": "CHE",
+    "id": "CHE",
     "size": 1,
     "emissions": {
       "1970": 41.43,
@@ -9464,7 +9464,7 @@
     }
   },
   {
-    "code": "SYR",
+    "id": "SYR",
     "size": 1,
     "emissions": {
       "1970": 6.32,
@@ -9520,7 +9520,7 @@
     }
   },
   {
-    "code": "TJK",
+    "id": "TJK",
     "size": 1,
     "emissions": {
       "1970": 7.55,
@@ -9576,7 +9576,7 @@
     }
   },
   {
-    "code": "TZA",
+    "id": "TZA",
     "size": 1,
     "emissions": {
       "1970": 1.57,
@@ -9632,7 +9632,7 @@
     }
   },
   {
-    "code": "THA",
+    "id": "THA",
     "size": 1,
     "emissions": {
       "1970": 18.06,
@@ -9688,7 +9688,7 @@
     }
   },
   {
-    "code": "GMB",
+    "id": "GMB",
     "size": 1,
     "emissions": {
       "1970": 0.08,
@@ -9744,7 +9744,7 @@
     }
   },
   {
-    "code": "TLS",
+    "id": "TLS",
     "size": 1,
     "emissions": {
       "1970": 0.1,
@@ -9800,7 +9800,7 @@
     }
   },
   {
-    "code": "TGO",
+    "id": "TGO",
     "size": 1,
     "emissions": {
       "1970": 0.35,
@@ -9856,7 +9856,7 @@
     }
   },
   {
-    "code": "TON",
+    "id": "TON",
     "size": 1,
     "emissions": {
       "1970": 0.02,
@@ -9912,7 +9912,7 @@
     }
   },
   {
-    "code": "TTO",
+    "id": "TTO",
     "size": 1,
     "emissions": {
       "1970": 6.35,
@@ -9968,7 +9968,7 @@
     }
   },
   {
-    "code": "TUN",
+    "id": "TUN",
     "size": 1,
     "emissions": {
       "1970": 4.24,
@@ -10024,7 +10024,7 @@
     }
   },
   {
-    "code": "TUR",
+    "id": "TUR",
     "size": 1,
     "emissions": {
       "1970": 46.19,
@@ -10080,7 +10080,7 @@
     }
   },
   {
-    "code": "TKM",
+    "id": "TKM",
     "size": 1,
     "emissions": {
       "1970": 17.34,
@@ -10136,7 +10136,7 @@
     }
   },
   {
-    "code": "TCA",
+    "id": "TCA",
     "size": 1,
     "emissions": {
       "1970": 0,
@@ -10192,7 +10192,7 @@
     }
   },
   {
-    "code": "UGA",
+    "id": "UGA",
     "size": 1,
     "emissions": {
       "1970": 0.51,
@@ -10248,7 +10248,7 @@
     }
   },
   {
-    "code": "UKR",
+    "id": "UKR",
     "size": 1,
     "emissions": {
       "1970": 505.85,
@@ -10304,7 +10304,7 @@
     }
   },
   {
-    "code": "ARE",
+    "id": "ARE",
     "size": 1,
     "emissions": {
       "1970": 19.44,
@@ -10360,7 +10360,7 @@
     }
   },
   {
-    "code": "GBR",
+    "id": "GBR",
     "size": 1,
     "emissions": {
       "1970": 684.53,
@@ -10416,7 +10416,7 @@
     }
   },
   {
-    "code": "USA",
+    "id": "USA",
     "size": 1,
     "emissions": {
       "1970": 4685.43,
@@ -10472,7 +10472,7 @@
     }
   },
   {
-    "code": "URY",
+    "id": "URY",
     "size": 1,
     "emissions": {
       "1970": 5.43,
@@ -10528,7 +10528,7 @@
     }
   },
   {
-    "code": "UZB",
+    "id": "UZB",
     "size": 1,
     "emissions": {
       "1970": 49.01,
@@ -10584,7 +10584,7 @@
     }
   },
   {
-    "code": "VUT",
+    "id": "VUT",
     "size": 1,
     "emissions": {
       "1970": 0.1,
@@ -10640,7 +10640,7 @@
     }
   },
   {
-    "code": "VEN",
+    "id": "VEN",
     "size": 1,
     "emissions": {
       "1970": 57.31,
@@ -10696,7 +10696,7 @@
     }
   },
   {
-    "code": "VNM",
+    "id": "VNM",
     "size": 1,
     "emissions": {
       "1970": 13.51,
@@ -10752,7 +10752,7 @@
     }
   },
   {
-    "code": "ESH",
+    "id": "ESH",
     "size": 1,
     "emissions": {
       "1970": 0.07,
@@ -10808,7 +10808,7 @@
     }
   },
   {
-    "code": "YEM",
+    "id": "YEM",
     "size": 1,
     "emissions": {
       "1970": 1.5,
@@ -10864,7 +10864,7 @@
     }
   },
   {
-    "code": "ZMB",
+    "id": "ZMB",
     "size": 1,
     "emissions": {
       "1970": 3.67,
@@ -10920,7 +10920,7 @@
     }
   },
   {
-    "code": "ZWE",
+    "id": "ZWE",
     "size": 1,
     "emissions": {
       "1970": 9.65,

@@ -17,7 +17,7 @@
   type SharedParamNames = 'dataset' | 'countries';
 
   type CartogramProps = Cartogram<[
-    SimpleCartogramDataPoint<'emissions2015'>,
+    SimpleCartogramDataPoint<'emissions2019'>,
     TrendsCartogramDataPoint<'size'>
   ]>['$$prop_def'];
 

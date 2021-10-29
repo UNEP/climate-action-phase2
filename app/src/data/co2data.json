@@ -1,1374 +1,982 @@
 [
   {
      "id": "ARG",
-     "name": "Argentina",
      "emissions2019": 199.41,
-     "globalPct": 0.549,
      "percapita": 4.42
   },
   {
      "id": "AUS",
-     "name": "Australia",
      "emissions2019": 433.38,
-     "globalPct": 1.1931,
      "percapita": 17.27
   },
   {
      "id": "AUT",
-     "name": "Austria",
      "emissions2019": 72.36,
-     "globalPct": 0.1992,
      "percapita": 8.25
   },
   {
      "id": "BEL",
-     "name": "Belgium",
      "emissions2019": 104.41,
-     "globalPct": 0.2874,
      "percapita": 9.03
   },
   {
      "id": "BGR",
-     "name": "Bulgaria",
      "emissions2019": 43.31,
-     "globalPct": 0.1192,
      "percapita": 6.2
   },
   {
      "id": "BRA",
-     "name": "Brazil",
      "emissions2019": 478.15,
-     "globalPct": 1.3164,
      "percapita": 2.25
   },
   {
      "id": "CAN",
-     "name": "Canada",
      "emissions2019": 584.85,
-     "globalPct": 1.6101,
      "percapita": 15.69
   },
   {
      "id": "CHN",
-     "name": "China",
      "emissions2019": 11535.2,
-     "globalPct": 31.7569,
      "percapita": 8.12
   },
   {
      "id": "CYP",
-     "name": "Cyprus",
      "emissions2019": 7.41,
-     "globalPct": 0.0204,
      "percapita": 6.19
   },
   {
      "id": "CZE",
-     "name": "Czechia",
      "emissions2019": 105.69,
-     "globalPct": 0.291,
      "percapita": 9.94
   },
   {
      "id": "DEU",
-     "name": "Germany",
      "emissions2019": 702.6,
-     "globalPct": 1.9343,
      "percapita": 8.52
   },
   {
      "id": "DNK",
-     "name": "Denmark",
      "emissions2019": 31.12,
-     "globalPct": 0.0857,
      "percapita": 5.39
   },
   {
      "id": "ESP",
-     "name": "Spain",
      "emissions2019": 259.31,
-     "globalPct": 0.7139,
      "percapita": 5.58
   },
   {
      "id": "EST",
-     "name": "Estonia",
      "emissions2019": 18.5,
-     "globalPct": 0.0509,
      "percapita": 14.19
   },
   {
      "id": "FIN",
-     "name": "Finland",
      "emissions2019": 43.41,
-     "globalPct": 0.1195,
      "percapita": 7.81
   },
   {
      "id": "FRA",
-     "name": "France",
      "emissions2019": 314.74,
-     "globalPct": 0.8665,
      "percapita": 4.81
   },
   {
      "id": "GBR",
-     "name": "United Kingdom",
      "emissions2019": 364.91,
-     "globalPct": 1.0046,
      "percapita": 5.45
   },
   {
      "id": "GRC",
-     "name": "Greece",
      "emissions2019": 65.57,
-     "globalPct": 0.1805,
      "percapita": 5.89
   },
   {
      "id": "HRV",
-     "name": "Croatia",
      "emissions2019": 19.12,
-     "globalPct": 0.0526,
      "percapita": 4.62
   },
   {
      "id": "HUN",
-     "name": "Hungary",
      "emissions2019": 53.18,
-     "globalPct": 0.1464,
      "percapita": 5.51
   },
   {
      "id": "IDN",
-     "name": "Indonesia",
      "emissions2019": 625.66,
-     "globalPct": 1.7225,
      "percapita": 2.32
   },
   {
      "id": "IND",
-     "name": "India",
      "emissions2019": 2597.36,
-     "globalPct": 7.1506,
      "percapita": 1.9
   },
   {
      "id": "IRL",
-     "name": "Ireland",
      "emissions2019": 36.55,
-     "globalPct": 0.1006,
      "percapita": 7.54
   },
   {
      "id": "ISL",
-     "name": "Iceland",
      "emissions2019": 3.93,
-     "globalPct": 0.0108,
      "percapita": 11.53
   },
   {
      "id": "ITA",
-     "name": "Italy",
      "emissions2019": 331.56,
-     "globalPct": 0.9128,
      "percapita": 5.6
   },
   {
      "id": "JPN",
-     "name": "Japan",
      "emissions2019": 1153.72,
-     "globalPct": 3.1762,
      "percapita": 9.09
   },
   {
      "id": "KOR",
-     "name": "Rep. of Korea",
      "emissions2019": 651.87,
-     "globalPct": 1.7946,
      "percapita": 12.7
   },
   {
      "id": "LTU",
-     "name": "Lithuania",
      "emissions2019": 13.77,
-     "globalPct": 0.0379,
      "percapita": 4.81
   },
   {
      "id": "LUX",
-     "name": "Luxembourg",
      "emissions2019": 9.74,
-     "globalPct": 0.0268,
      "percapita": 16.31
   },
   {
      "id": "LVA",
-     "name": "Latvia",
      "emissions2019": 8.38,
-     "globalPct": 0.0231,
      "percapita": 4.38
   },
   {
      "id": "MEX",
-     "name": "Mexico",
      "emissions2019": 485.0,
-     "globalPct": 1.3352,
      "percapita": 3.67
   },
   {
      "id": "MLT",
-     "name": "Malta",
      "emissions2019": 1.04,
-     "globalPct": 0.0029,
      "percapita": 2.41
   },
   {
      "id": "NLD",
-     "name": "Netherlands",
      "emissions2019": 156.41,
-     "globalPct": 0.4306,
      "percapita": 9.13
   },
   {
      "id": "POL",
-     "name": "Poland",
      "emissions2019": 317.65,
-     "globalPct": 0.8745,
      "percapita": 8.35
   },
   {
      "id": "PRT",
-     "name": "Portugal",
      "emissions2019": 48.47,
-     "globalPct": 0.1334,
      "percapita": 4.73
   },
   {
      "id": "ROU",
-     "name": "Romania",
      "emissions2019": 78.63,
-     "globalPct": 0.2165,
      "percapita": 4.04
   },
   {
      "id": "RUS",
-     "name": "Russian Fed.",
      "emissions2019": 1792.02,
-     "globalPct": 4.9335,
      "percapita": 12.45
   },
   {
      "id": "SAU",
-     "name": "Saudi Arabia",
      "emissions2019": 614.61,
-     "globalPct": 1.692,
      "percapita": 18.0
   },
   {
      "id": "SVK",
-     "name": "Slovakia",
      "emissions2019": 35.99,
-     "globalPct": 0.0991,
      "percapita": 6.6
   },
   {
      "id": "SVN",
-     "name": "Slovenia",
      "emissions2019": 15.37,
-     "globalPct": 0.0423,
      "percapita": 7.38
   },
   {
      "id": "SWE",
-     "name": "Sweden",
      "emissions2019": 44.75,
-     "globalPct": 0.1232,
      "percapita": 4.45
   },
   {
      "id": "TUR",
-     "name": "Turkey",
      "emissions2019": 415.78,
-     "globalPct": 1.1447,
      "percapita": 5.01
   },
   {
      "id": "USA",
-     "name": "United States of America",
      "emissions2019": 5107.26,
-     "globalPct": 14.0605,
      "percapita": 15.52
   },
   {
      "id": "ZAF",
-     "name": "South Africa",
      "emissions2019": 494.86,
-     "globalPct": 1.3624,
      "percapita": 8.52
   },
   {
      "id": "AFG",
-     "name": "Afghanistan",
      "emissions2019": 11.0,
-     "globalPct": 0.0303,
      "percapita": 0.3
   },
   {
      "id": "AGO",
-     "name": "Angola",
      "emissions2019": 25.82,
-     "globalPct": 0.0711,
      "percapita": 0.81
   },
   {
      "id": "ALB",
-     "name": "Albania",
      "emissions2019": 5.66,
-     "globalPct": 0.0156,
      "percapita": 1.93
   },
   {
      "id": "ARE",
-     "name": "United Arab Emirates",
      "emissions2019": 222.61,
-     "globalPct": 0.6129,
      "percapita": 22.99
   },
   {
      "id": "ARM",
-     "name": "Armenia",
      "emissions2019": 5.92,
-     "globalPct": 0.0163,
      "percapita": 2.02
   },
   {
      "id": "ATG",
-     "name": "Antigua and Barbuda",
      "emissions2019": 0.51,
-     "globalPct": 0.0014,
      "percapita": 4.9
   },
   {
      "id": "AZE",
-     "name": "Azerbaijan",
      "emissions2019": 35.98,
-     "globalPct": 0.0991,
      "percapita": 3.59
   },
   {
      "id": "BDI",
-     "name": "Burundi",
      "emissions2019": 0.34,
-     "globalPct": 0.0009,
      "percapita": 0.03
   },
   {
      "id": "BEN",
-     "name": "Benin",
      "emissions2019": 8.15,
-     "globalPct": 0.0224,
      "percapita": 0.69
   },
   {
      "id": "BFA",
-     "name": "Burkina Faso",
      "emissions2019": 3.64,
-     "globalPct": 0.01,
      "percapita": 0.18
   },
   {
      "id": "BGD",
-     "name": "Bangladesh",
      "emissions2019": 110.16,
-     "globalPct": 0.3033,
      "percapita": 0.66
   },
   {
      "id": "BHR",
-     "name": "Bahrain",
      "emissions2019": 35.44,
-     "globalPct": 0.0976,
      "percapita": 21.64
   },
   {
      "id": "BHS",
-     "name": "Bahamas",
      "emissions2019": 2.45,
-     "globalPct": 0.0067,
      "percapita": 6.08
   },
   {
      "id": "BIH",
-     "name": "Bosnia and Herzegovina",
      "emissions2019": 33.5,
-     "globalPct": 0.0922,
      "percapita": 9.57
   },
   {
      "id": "BLR",
-     "name": "Belarus",
      "emissions2019": 66.34,
-     "globalPct": 0.1826,
      "percapita": 7.03
   },
   {
      "id": "BLZ",
-     "name": "Belize",
      "emissions2019": 0.37,
-     "globalPct": 0.001,
      "percapita": 0.95
   },
   {
      "id": "BOL",
-     "name": "Bolivia",
      "emissions2019": 24.51,
-     "globalPct": 0.0675,
      "percapita": 2.15
   },
   {
      "id": "BRB",
-     "name": "Barbados",
      "emissions2019": 3.83,
-     "globalPct": 0.0105,
      "percapita": 13.34
   },
   {
      "id": "BRN",
-     "name": "Brunei Darussalam",
      "emissions2019": 7.02,
-     "globalPct": 0.0193,
      "percapita": 15.98
   },
   {
      "id": "BTN",
-     "name": "Bhutan",
      "emissions2019": 2.12,
-     "globalPct": 0.0058,
      "percapita": 2.57
   },
   {
      "id": "BWA",
-     "name": "Botswana",
      "emissions2019": 7.04,
-     "globalPct": 0.0194,
      "percapita": 2.96
   },
   {
      "id": "CAF",
-     "name": "Central African Rep.",
      "emissions2019": 0.49,
-     "globalPct": 0.0013,
      "percapita": 0.1
   },
   {
      "id": "CHE",
-     "name": "Switzerland",
      "emissions2019": 39.37,
-     "globalPct": 0.1084,
      "percapita": 4.57
   },
   {
      "id": "CHL",
-     "name": "Chile",
      "emissions2019": 89.89,
-     "globalPct": 0.2475,
      "percapita": 4.9
   },
   {
      "id": "CIV",
-     "name": "Côte d’Ivoire",
      "emissions2019": 13.56,
-     "globalPct": 0.0373,
      "percapita": 0.53
   },
   {
      "id": "CMR",
-     "name": "Cameroon",
      "emissions2019": 10.1,
-     "globalPct": 0.0278,
      "percapita": 0.4
   },
   {
      "id": "COD",
-     "name": "Dem. Rep. of the Congo",
      "emissions2019": 2.98,
-     "globalPct": 0.0082,
      "percapita": 0.03
   },
   {
      "id": "COG",
-     "name": "Congo",
      "emissions2019": 5.8,
-     "globalPct": 0.016,
      "percapita": 1.05
   },
   {
      "id": "COL",
-     "name": "Colombia",
      "emissions2019": 86.55,
-     "globalPct": 0.2383,
      "percapita": 1.74
   },
   {
      "id": "COM",
-     "name": "Comoros",
      "emissions2019": 0.21,
-     "globalPct": 0.0006,
      "percapita": 0.25
   },
   {
      "id": "CPV",
-     "name": "Cabo Verde",
      "emissions2019": 1.02,
-     "globalPct": 0.0028,
      "percapita": 1.83
   },
   {
      "id": "CRI",
-     "name": "Costa Rica",
      "emissions2019": 8.98,
-     "globalPct": 0.0247,
      "percapita": 1.8
   },
   {
      "id": "CUB",
-     "name": "Cuba",
      "emissions2019": 31.04,
-     "globalPct": 0.0855,
      "percapita": 2.7
   },
   {
      "id": "DJI",
-     "name": "Djibouti",
      "emissions2019": 1.05,
-     "globalPct": 0.0029,
      "percapita": 1.06
   },
   {
      "id": "DMA",
-     "name": "Dominica",
      "emissions2019": 0.1,
-     "globalPct": 0.0003,
      "percapita": 1.38
   },
   {
      "id": "DOM",
-     "name": "Dominican Rep.",
      "emissions2019": 27.28,
-     "globalPct": 0.0751,
      "percapita": 2.48
   },
   {
      "id": "DZA",
-     "name": "Algeria",
      "emissions2019": 180.57,
-     "globalPct": 0.4971,
      "percapita": 4.23
   },
   {
      "id": "ECU",
-     "name": "Ecuador",
      "emissions2019": 40.7,
-     "globalPct": 0.112,
      "percapita": 2.38
   },
   {
      "id": "EGY",
-     "name": "Egypt",
      "emissions2019": 255.37,
-     "globalPct": 0.703,
      "percapita": 2.52
   },
   {
      "id": "ERI",
-     "name": "Eritrea",
      "emissions2019": 0.75,
-     "globalPct": 0.0021,
      "percapita": 0.14
   },
   {
      "id": "ETH",
-     "name": "Ethiopia",
      "emissions2019": 18.25,
-     "globalPct": 0.0502,
      "percapita": 0.17
   },
   {
      "id": "FJI",
-     "name": "Fiji",
      "emissions2019": 1.36,
-     "globalPct": 0.0037,
      "percapita": 1.48
   },
   {
      "id": "GAB",
-     "name": "Gabon",
      "emissions2019": 3.48,
-     "globalPct": 0.0096,
      "percapita": 1.65
   },
   {
      "id": "GEO",
-     "name": "Georgia",
      "emissions2019": 13.47,
-     "globalPct": 0.0371,
      "percapita": 3.45
   },
   {
      "id": "GHA",
-     "name": "Ghana",
      "emissions2019": 16.84,
-     "globalPct": 0.0464,
      "percapita": 0.56
   },
   {
      "id": "GIN",
-     "name": "Guinea",
      "emissions2019": 2.92,
-     "globalPct": 0.008,
      "percapita": 0.22
   },
   {
      "id": "GMB",
-     "name": "Gambia",
      "emissions2019": 0.59,
-     "globalPct": 0.0016,
      "percapita": 0.27
   },
   {
      "id": "GNB",
-     "name": "Guinea-Bissau",
      "emissions2019": 0.44,
-     "globalPct": 0.0012,
      "percapita": 0.22
   },
   {
      "id": "GNQ",
-     "name": "Equatorial Guinea",
      "emissions2019": 3.47,
-     "globalPct": 0.0096,
      "percapita": 2.55
   },
   {
      "id": "GRD",
-     "name": "Grenada",
      "emissions2019": 0.23,
-     "globalPct": 0.0006,
      "percapita": 2.1
   },
   {
      "id": "GTM",
-     "name": "Guatemala",
      "emissions2019": 21.2,
-     "globalPct": 0.0584,
      "percapita": 1.21
   },
   {
      "id": "GUY",
-     "name": "Guyana",
      "emissions2019": 1.52,
-     "globalPct": 0.0042,
      "percapita": 1.94
   },
   {
      "id": "HND",
-     "name": "Honduras",
      "emissions2019": 10.36,
-     "globalPct": 0.0285,
      "percapita": 1.08
   },
   {
      "id": "HTI",
-     "name": "Haiti",
      "emissions2019": 3.58,
-     "globalPct": 0.0099,
      "percapita": 0.32
   },
   {
      "id": "IRN",
-     "name": "Islamic Rep. of Iran",
      "emissions2019": 701.99,
-     "globalPct": 1.9326,
      "percapita": 8.48
   },
   {
      "id": "IRQ",
-     "name": "Iraq",
      "emissions2019": 197.61,
-     "globalPct": 0.544,
      "percapita": 4.89
   },
   {
      "id": "ISR",
-     "name": "Israel",
      "emissions2019": 68.33,
-     "globalPct": 0.1881,
      "percapita": 7.96
   },
   {
      "id": "JAM",
-     "name": "Jamaica",
      "emissions2019": 7.44,
-     "globalPct": 0.0205,
      "percapita": 2.56
   },
   {
      "id": "JOR",
-     "name": "Jordan",
      "emissions2019": 28.34,
-     "globalPct": 0.078,
      "percapita": 2.81
   },
   {
      "id": "KAZ",
-     "name": "Kazakhstan",
      "emissions2019": 277.36,
-     "globalPct": 0.7636,
      "percapita": 14.92
   },
   {
      "id": "KEN",
-     "name": "Kenya",
      "emissions2019": 19.81,
-     "globalPct": 0.0545,
      "percapita": 0.38
   },
   {
      "id": "KGZ",
-     "name": "Kyrgyzstan",
      "emissions2019": 11.92,
-     "globalPct": 0.0328,
      "percapita": 1.92
   },
   {
      "id": "KHM",
-     "name": "Cambodia",
      "emissions2019": 16.49,
-     "globalPct": 0.0454,
      "percapita": 1.0
   },
   {
      "id": "KIR",
-     "name": "Kiribati",
      "emissions2019": 0.03,
-     "globalPct": 0.0001,
      "percapita": 0.28
   },
   {
      "id": "KNA",
-     "name": "Saint Kitts and Nevis",
      "emissions2019": 0.19,
-     "globalPct": 0.0005,
      "percapita": 3.44
   },
   {
      "id": "KWT",
-     "name": "Kuwait",
      "emissions2019": 98.95,
-     "globalPct": 0.2724,
      "percapita": 23.29
   },
   {
      "id": "LAO",
-     "name": "Lao People’s Dem. Rep.",
      "emissions2019": 6.78,
-     "globalPct": 0.0187,
      "percapita": 0.96
   },
   {
      "id": "LBN",
-     "name": "Lebanon",
      "emissions2019": 27.44,
-     "globalPct": 0.0755,
      "percapita": 4.52
   },
   {
      "id": "LBR",
-     "name": "Liberia",
      "emissions2019": 1.21,
-     "globalPct": 0.0033,
      "percapita": 0.24
   },
   {
      "id": "LBY",
-     "name": "Libya",
      "emissions2019": 52.05,
-     "globalPct": 0.1433,
      "percapita": 7.92
   },
   {
      "id": "LCA",
-     "name": "Saint Lucia",
      "emissions2019": 0.3,
-     "globalPct": 0.0008,
      "percapita": 1.65
   },
   {
      "id": "LKA",
-     "name": "Sri Lanka",
      "emissions2019": 27.57,
-     "globalPct": 0.0759,
      "percapita": 1.31
   },
   {
      "id": "LSO",
-     "name": "Lesotho",
      "emissions2019": 0.75,
-     "globalPct": 0.0021,
      "percapita": 0.33
   },
   {
      "id": "MAR",
-     "name": "Morocco",
      "emissions2019": 73.91,
-     "globalPct": 0.2035,
      "percapita": 2.02
   },
   {
      "id": "MDA",
-     "name": "Rep. of Moldova",
      "emissions2019": 9.23,
-     "globalPct": 0.0254,
      "percapita": 2.29
   },
   {
      "id": "MDG",
-     "name": "Madagascar",
      "emissions2019": 4.2,
-     "globalPct": 0.0116,
      "percapita": 0.16
   },
   {
      "id": "SYC",
-     "name": "Seychelles",
      "emissions2019": 1.05,
-     "globalPct": 0.0029,
      "percapita": 10.98
   },
   {
      "id": "MDV",
-     "name": "Maldives",
      "emissions2019": 0.91,
-     "globalPct": 0.0025,
      "percapita": 2.02
   },
   {
      "id": "MKD",
-     "name": "North Macedonia",
      "emissions2019": 8.92,
-     "globalPct": 0.0246,
      "percapita": 4.28
   },
   {
      "id": "MLI",
-     "name": "Mali",
      "emissions2019": 1.03,
-     "globalPct": 0.0028,
      "percapita": 0.05
   },
   {
      "id": "MMR",
-     "name": "Myanmar",
      "emissions2019": 48.31,
-     "globalPct": 0.133,
      "percapita": 0.89
   },
   {
      "id": "MNG",
-     "name": "Mongolia",
      "emissions2019": 35.93,
-     "globalPct": 0.0989,
      "percapita": 11.35
   },
   {
      "id": "MOZ",
-     "name": "Mozambique",
      "emissions2019": 9.26,
-     "globalPct": 0.0255,
      "percapita": 0.29
   },
   {
      "id": "MRT",
-     "name": "Mauritania",
      "emissions2019": 7.66,
-     "globalPct": 0.0211,
      "percapita": 1.64
   },
   {
      "id": "MUS",
-     "name": "Mauritius",
      "emissions2019": 4.33,
-     "globalPct": 0.0119,
      "percapita": 3.41
   },
   {
      "id": "MWI",
-     "name": "Malawi",
      "emissions2019": 1.62,
-     "globalPct": 0.0045,
      "percapita": 0.08
   },
   {
      "id": "MYS",
-     "name": "Malaysia",
      "emissions2019": 248.83,
-     "globalPct": 0.685,
      "percapita": 7.67
   },
   {
      "id": "NAM",
-     "name": "Namibia",
      "emissions2019": 4.4,
-     "globalPct": 0.0121,
      "percapita": 1.67
   },
   {
      "id": "NER",
-     "name": "Niger",
      "emissions2019": 2.36,
-     "globalPct": 0.0065,
      "percapita": 0.1
   },
   {
      "id": "NGA",
-     "name": "Nigeria",
      "emissions2019": 100.22,
-     "globalPct": 0.2759,
      "percapita": 0.5
   },
   {
      "id": "NIC",
-     "name": "Nicaragua",
      "emissions2019": 5.86,
-     "globalPct": 0.0161,
      "percapita": 0.92
   },
   {
      "id": "NOR",
-     "name": "Norway",
      "emissions2019": 47.99,
-     "globalPct": 0.1321,
      "percapita": 8.89
   },
   {
      "id": "NPL",
-     "name": "Nepal",
      "emissions2019": 15.02,
-     "globalPct": 0.0414,
      "percapita": 0.5
   },
   {
      "id": "NZL",
-     "name": "New Zealand",
      "emissions2019": 38.67,
-     "globalPct": 0.1065,
      "percapita": 8.07
   },
   {
      "id": "OMN",
-     "name": "Oman",
      "emissions2019": 92.78,
-     "globalPct": 0.2554,
      "percapita": 18.55
   },
   {
      "id": "PAK",
-     "name": "Pakistan",
      "emissions2019": 223.63,
-     "globalPct": 0.6157,
      "percapita": 1.09
   },
   {
      "id": "PAN",
-     "name": "Panama",
      "emissions2019": 11.63,
-     "globalPct": 0.032,
      "percapita": 2.75
   },
   {
      "id": "PER",
-     "name": "Peru",
      "emissions2019": 56.29,
-     "globalPct": 0.155,
      "percapita": 1.71
   },
   {
      "id": "PHL",
-     "name": "Philippines",
      "emissions2019": 150.64,
-     "globalPct": 0.4147,
      "percapita": 1.39
   },
   {
      "id": "PLW",
-     "name": "Palau",
      "emissions2019": 1.33,
-     "globalPct": 0.0037,
      "percapita": 59.88
   },
   {
      "id": "PNG",
-     "name": "Papua New Guinea",
      "emissions2019": 4.07,
-     "globalPct": 0.0112,
      "percapita": 0.47
   },
   {
      "id": "PRK",
-     "name": "Dem. People’s Rep. of Korea",
      "emissions2019": 42.17,
-     "globalPct": 0.1161,
      "percapita": 1.64
   },
   {
      "id": "PRY",
-     "name": "Paraguay",
      "emissions2019": 8.47,
-     "globalPct": 0.0233,
      "percapita": 1.21
   },
   {
      "id": "QAT",
-     "name": "Qatar",
      "emissions2019": 106.53,
-     "globalPct": 0.2933,
      "percapita": 38.82
   },
   {
      "id": "RWA",
-     "name": "Rwanda",
      "emissions2019": 1.15,
-     "globalPct": 0.0032,
      "percapita": 0.09
   },
   {
      "id": "SDN",
-     "name": "Sudan",
      "emissions2019": 22.57,
-     "globalPct": 0.0621,
      "percapita": 0.4
   },
   {
      "id": "SEN",
-     "name": "Senegal",
      "emissions2019": 9.81,
-     "globalPct": 0.027,
      "percapita": 0.59
   },
   {
      "id": "SGP",
-     "name": "Singapore",
      "emissions2019": 53.37,
-     "globalPct": 0.1469,
      "percapita": 9.09
   },
   {
      "id": "SLB",
-     "name": "Solomon Islands",
      "emissions2019": 0.14,
-     "globalPct": 0.0004,
      "percapita": 0.22
   },
   {
      "id": "SLE",
-     "name": "Sierra Leone",
      "emissions2019": 1.4,
-     "globalPct": 0.0039,
      "percapita": 0.18
   },
   {
      "id": "SLV",
-     "name": "El Salvador",
      "emissions2019": 7.15,
-     "globalPct": 0.0197,
      "percapita": 1.11
   },
   {
      "id": "SOM",
-     "name": "Somalia",
      "emissions2019": 0.97,
-     "globalPct": 0.0027,
      "percapita": 0.06
   },
   {
      "id": "SRB",
-     "name": "Serbia",
      "emissions2019": 70.69,
-     "globalPct": 0.1946,
      "percapita": 7.55
   },
   {
      "id": "STP",
-     "name": "Sao Tome and Principe",
      "emissions2019": 0.16,
-     "globalPct": 0.0004,
      "percapita": 0.75
   },
   {
      "id": "SUR",
-     "name": "Suriname",
      "emissions2019": 2.06,
-     "globalPct": 0.0057,
      "percapita": 3.59
   },
   {
      "id": "SWZ",
-     "name": "Eswatini",
      "emissions2019": 1.14,
-     "globalPct": 0.0031,
      "percapita": 0.81
   },
   {
      "id": "SYR",
-     "name": "Syrian Arab Rep.",
      "emissions2019": 29.16,
-     "globalPct": 0.0803,
      "percapita": 1.58
   },
   {
      "id": "TCA",
-     "name": "Turks and Caicos Islands",
      "emissions2019": 0.13,
-     "globalPct": 0.0004,
      "percapita": 3.7
   },
   {
      "id": "TCD",
-     "name": "Chad",
      "emissions2019": 0.89,
-     "globalPct": 0.0025,
      "percapita": 0.06
   },
   {
      "id": "TGO",
-     "name": "Togo",
      "emissions2019": 2.85,
-     "globalPct": 0.0078,
      "percapita": 0.35
   },
   {
      "id": "THA",
-     "name": "Thailand",
      "emissions2019": 275.06,
-     "globalPct": 0.7573,
      "percapita": 3.97
   },
   {
      "id": "TJK",
-     "name": "Tajikistan",
      "emissions2019": 8.92,
-     "globalPct": 0.0246,
      "percapita": 0.96
   },
   {
      "id": "TKM",
-     "name": "Turkmenistan",
      "emissions2019": 90.52,
-     "globalPct": 0.2492,
      "percapita": 15.23
   },
   {
      "id": "TLS",
-     "name": "Timor-Leste",
      "emissions2019": 0.38,
-     "globalPct": 0.001,
      "percapita": 0.28
   },
   {
      "id": "TON",
-     "name": "Tonga",
      "emissions2019": 0.13,
-     "globalPct": 0.0004,
      "percapita": 1.16
   },
   {
      "id": "TTO",
-     "name": "Trinidad and Tobago",
      "emissions2019": 32.74,
-     "globalPct": 0.0901,
      "percapita": 23.81
   },
   {
      "id": "TUN",
-     "name": "Tunisia",
      "emissions2019": 32.07,
-     "globalPct": 0.0883,
      "percapita": 2.72
   },
   {
      "id": "TZA",
-     "name": "United Rep. of Tanzania",
      "emissions2019": 13.34,
-     "globalPct": 0.0367,
      "percapita": 0.22
   },
   {
      "id": "UGA",
-     "name": "Uganda",
      "emissions2019": 5.34,
-     "globalPct": 0.0147,
      "percapita": 0.12
   },
   {
      "id": "UKR",
-     "name": "Ukraine",
      "emissions2019": 196.4,
-     "globalPct": 0.5407,
      "percapita": 4.48
   },
   {
      "id": "URY",
-     "name": "Uruguay",
      "emissions2019": 6.56,
-     "globalPct": 0.0181,
      "percapita": 1.89
   },
   {
      "id": "UZB",
-     "name": "Uzbekistan",
      "emissions2019": 94.99,
-     "globalPct": 0.2615,
      "percapita": 2.9
   },
   {
      "id": "VCT",
-     "name": "Saint Vincent and the Grenadines",
      "emissions2019": 0.15,
-     "globalPct": 0.0004,
      "percapita": 1.32
   },
   {
      "id": "VEN",
-     "name": "Venezuela",
      "emissions2019": 110.06,
-     "globalPct": 0.303,
      "percapita": 3.36
   },
   {
      "id": "VGB",
-     "name": "British Virgin Islands",
      "emissions2019": 0.12,
-     "globalPct": 0.0003,
      "percapita": 3.77
   },
   {
      "id": "VNM",
-     "name": "Viet Nam",
      "emissions2019": 305.25,
-     "globalPct": 0.8404,
      "percapita": 3.13
   },
   {
      "id": "VUT",
-     "name": "Vanuatu",
      "emissions2019": 0.09,
-     "globalPct": 0.0002,
      "percapita": 0.3
   },
   {
      "id": "WSM",
-     "name": "Samoa",
      "emissions2019": 0.14,
-     "globalPct": 0.0004,
      "percapita": 0.7
   },
   {
      "id": "YEM",
-     "name": "Yemen",
      "emissions2019": 10.89,
-     "globalPct": 0.03,
      "percapita": 0.37
   },
   {
      "id": "ZMB",
-     "name": "Zambia",
      "emissions2019": 7.5,
-     "globalPct": 0.0206,
      "percapita": 0.41
   },
   {
      "id": "ZWE",
-     "name": "Zimbabwe",
      "emissions2019": 10.86,
-     "globalPct": 0.0299,
      "percapita": 0.63
   },
   {
      "id": "AIA",
-     "name": "Anguilla",
      "emissions2019": 0.02,
-     "globalPct": 0.0001,
      "percapita": 1.54
   },
   {
      "id": "BMU",
-     "name": "Bermuda",
      "emissions2019": 0.35,
-     "globalPct": 0.001,
      "percapita": 5.75
   },
   {
      "id": "CUW",
-     "name": "Curaçao",
      "emissions2019": 5.91,
-     "globalPct": 0.0163,
      "percapita": 36.38
   },
   {
      "id": "FLK",
-     "name": "Falkland Islands (Malvinas)",
      "emissions2019": 0.03,
-     "globalPct": 0.0001,
      "percapita": 10.87
   },
   {
      "id": "FRO",
-     "name": "Faroe Islands",
      "emissions2019": 0.0,
-     "globalPct": 0.0,
      "percapita": 0.04
   },
   {
      "id": "GIB",
-     "name": "Gibraltar",
      "emissions2019": 0.69,
-     "globalPct": 0.0019,
      "percapita": 19.88
   },
   {
      "id": "GRL",
-     "name": "Greenland",
      "emissions2019": 0.54,
-     "globalPct": 0.0015,
      "percapita": 9.47
   },
   {
      "id": "NCL",
-     "name": "New Caledonia",
      "emissions2019": 15.66,
-     "globalPct": 0.0431,
      "percapita": 55.25
   },
   {
      "id": "SHN",
-     "name": "Saint Helena",
      "emissions2019": 0.02,
-     "globalPct": 0.0001,
      "percapita": 3.87
   },
   {
      "id": "SPM",
-     "name": "Saint Pierre et Miquelon",
      "emissions2019": 0.06,
-     "globalPct": 0.0002,
      "percapita": 9.72
   },
   {
      "id": "ESH",
-     "name": "Western Sahara",
      "emissions2019": 0.3,
-     "globalPct": 0.0008,
      "percapita": 0.51
   }
 ]
