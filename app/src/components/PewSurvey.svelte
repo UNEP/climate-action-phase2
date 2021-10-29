@@ -52,9 +52,20 @@
       hover = true;
 
       detailChartPosition = pos;
-      detailChartPosition.x = detailChartPosition.x - 75;
+      detailChartPosition.x = detailChartPosition.x - 100;
       detailChartPosition.y = detailChartPosition.y;
 
+      if (detailChartPosition.x < 32) {
+        detailChartPosition.x = 0;
+      }else if (detailChartPosition.x + 270 > offset.width){
+        detailChartPosition.x = width - 270;
+      }
+
+      if (detailChartPosition.y < 32) {
+        detailChartPosition.y = 32;
+      }else if (detailChartPosition.y + 270 * .7 > offset.height){
+        detailChartPosition.y = offset.height - 270 * .7;
+      }
     }
 
     const nameOverrides = {
@@ -191,12 +202,4 @@
         font-size:18px;
     }
 
-    @media (max-width: 900px) {
-        .label {
-            font-size: 11px;
-        }
-        .pew-container {
-            margin-top:0;
-        }
-    }
 </style>
