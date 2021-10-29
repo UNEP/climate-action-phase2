@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { SimpleCartogramDataPoint } from "src/components/maps/Cartogram.svelte";
   import Cartogram from "src/components/maps/Cartogram.svelte";
-  import datasets, { END_YEAR } from 'src/data';
+  import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
   import { colorNDC, colorGHG } from "src/colors";
   import { displayVal} from 'src/util';
@@ -42,7 +42,7 @@
   };
 
   interface Datasets {
-    ghg: Dataset<SimpleCartogramDataPoint<'emissions2015'>>,
+    ghg: Dataset<SimpleCartogramDataPoint<'emissions2019'>>,
     percapita: Dataset<SimpleCartogramDataPoint<'emissions_percapita'>>,
     trends: Dataset<TrendsCartogramDataPoint<'size'>>,
     ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>
@@ -60,7 +60,7 @@
             NodeClass: CartogramDataPoint,
             hoverTextFn: c =>
               `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-              `tonnes of GHG in ${END_YEAR}`,
+              `tonnes of GHG in 2019`,
             colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown'),
           }
         ],
@@ -86,7 +86,7 @@
             NodeClass: CartogramDataPoint,
             hoverTextFn: c =>
               `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-              `tonnes of GHG per capita in ${END_YEAR}`,
+              `tonnes of GHG per capita in 2019`,
             colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown')
           }
         ],
