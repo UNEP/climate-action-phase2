@@ -9,7 +9,7 @@
 <script lang="ts">
   import datasets from 'src/data';
   import type { Unpacked } from 'src/util';
-  import type { Content, TextBlock } from 'src/types';
+  import type { Content } from 'src/types';
   import { displayVal } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
@@ -21,18 +21,20 @@
   export let block: Content;
   export var id: string;
 
+  const data = datasets.co2latest.filter(d => datasets.lookups.trends[d.id]);
+
   const top10Emissons = new Set(
-    datasets.co2data
-      .sort((a,b) => b.emissions2019 - a.emissions2019)
+    data
+      .sort((a,b) => b.emissions2018 - a.emissions2018)
       .slice(0, 10)
       .map(d => d.id)
   );
 
   const ROW_LIMIT = 6;
 
-  type RowData = Unpacked<typeof datasets.co2data>;
+  type RowData = Unpacked<typeof data>;
 
-  let sortedData = datasets.co2data;
+  let sortedData = data;
 
   let showAll = false;
 
@@ -48,13 +50,13 @@
 
   function getChartText(data: RowData) {
     if (top10Emissons.has(data.id)) {
-      const latestEmissions = data.emissions2019;
+      const latestEmissions = data.emissions2018;
       return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
-        of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
+        of global GHG emissions. In 2018, it emitted ${latestEmissions} million tonnes.`;
     }
     else {
       const trends = datasets.lookups.trends[data.id];
-      const change = data.emissions2019 / trends.emissions['1990'];
+      const change = data.emissions2018 / trends.emissions['1990'];
       const fallen = change <= 1;
       const relChange = fallen ? 1 - change : change - 1;
       const percStr = Math.round(relChange * 100).toFixed(0);
@@ -70,7 +72,7 @@
     { name: 'Country', sortable: true, defaultSort: 'asc' },
     { name: '', sortable: false },
     { name: 'Trend', sortable: false },
-    { name: '2019 emissions', sortable: true },
+    { name: '2018 emissions', sortable: true },
     { name: 'As pct of global', sortable: true },
     { name: 'Per capita', sortable: true },
   ];
@@ -90,16 +92,16 @@
 
   const getSortAsc = ({column}: typeof sort): RowData[] => {
     if (column === 'Country') {
-      return [...datasets.co2data].sort((a,b) => a.name > b.name ? 1 : -1);
+      return [...data].sort((a,b) => a.name > b.name ? 1 : -1);
     }
-    else if (column === '2019 emissions') {
-      return [...datasets.co2data].sort((a,b) => a.emissions2019 - b.emissions2019);
+    else if (column === '2018 emissions') {
+      return [...data].sort((a,b) => a.emissions2018 - b.emissions2018);
     }
     else if (column === 'As pct of global') {
-      return [...datasets.co2data].sort((a,b) => a.globalPct - b.globalPct);
+      return [...data].sort((a,b) => a.globalPct - b.globalPct);
     }
     else if (column === 'Per capita') {
-      return [...datasets.co2data].sort((a,b) => a.percapita - b.percapita);
+      return [...data].sort((a,b) => a.percapita2018 - b.percapita2018);
     }
   };
 
@@ -180,7 +182,11 @@
 
         <div class="cell-name">{row.name}</div>
 
-        <div class="cell-description">{@html getChartText(row)}</div>
+        <div class="cell-description">
+          <div class="cell-description-text">
+            {@html getChartText(row)}
+          </div>
+        </div>
 
         <div class="cell-chart">
           <MiniLineChart
@@ -190,7 +196,7 @@
         </div>
 
         <div class="cell-number cell-ghg">
-          {displayVal(row.emissions2019, 2)} <span>million tonnes of GHG</span>
+          {displayVal(row.emissions2018, 2)} <span>million tonnes of GHG</span>
         </div>
 
         <div class="cell-number cell-perc">
@@ -198,7 +204,7 @@
         </div>
 
         <div class="cell-number cell-pcap">
-          {row.percapita} <span>tonnes of GHG</span>
+          {row.percapita2018} <span>tonnes of GHG</span>
         </div>
 
       </div>
@@ -264,6 +270,9 @@
     font-weight: 100;
     font-size: 16px;
     line-height: 1.6;
+  }
+
+  .cell-description-text {
     max-width: 400px;
   }
 
@@ -322,7 +331,7 @@
       font-weight: 700;
     }
 
-    &[data-name="2019 emissions"],
+    &[data-name="2018 emissions"],
     &[data-name="As pct of global"],
     &[data-name="Per capita"] {
       text-align: right;
@@ -337,7 +346,7 @@
       width: 80px;
     }
 
-    &[data-name="2019 emissions"] span {
+    &[data-name="2018 emissions"] span {
       width: 88px;
     }
   }
