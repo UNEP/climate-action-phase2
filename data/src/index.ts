@@ -2,6 +2,7 @@ import fs from 'fs';
 import * as aq from 'arquero';
 import path from 'path';
 import trendsCarto from '../../app/src/data/trends.carto.json';
+import { createLookup } from './util';
 
 const ROOT_DIR = path.join(__dirname, '../..');
 
@@ -47,9 +48,18 @@ function processCO2() {
       }
     ));
 
-    outputJSONData('data/output/carto/co2trends-all.json', co2trendsMapped);
-    outputJSONData('data/output/carto/co2-all.json', co2Mapped);
-    outputJSONData('data/output/carto/co2percapita-all.json', co2percapitaMapped);
+  outputJSONData('data/output/carto/co2trends-all.json', co2trendsMapped);
+  outputJSONData('data/output/carto/co2-all.json', co2Mapped);
+  outputJSONData('data/output/carto/co2percapita-all.json', co2percapitaMapped);
+
+  const co2pcLookup = createLookup(co2percapitaMapped, d => d.id, d => d);
+  const co2latest = co2Mapped.map(d => ({
+    ...d,
+    percapita2018: co2pcLookup[d.id].emissions2018
+  }));
+
+  outputJSONData('app/src/data/co2-latest.json', co2latest);
+
 
   const idsInTrendsCartoData = new Set(trendsCarto.data.map(d => d.id));
   const trendsDataNotInCarto = co2trendsMapped
