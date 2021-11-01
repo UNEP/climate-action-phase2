@@ -63,7 +63,7 @@
 
       <text
         class="hover-year"
-        x={clamp(hoverInfo.x, 20, 300)}
+        x={clamp(hoverInfo.x, 20, width - 20)}
         y={y(0) + 2 + (hoverInfo.y > 75 ? 18 : -5)}
       >{hoverInfo.data.year}</text>
 
