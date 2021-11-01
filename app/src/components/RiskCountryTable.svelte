@@ -9,10 +9,13 @@
   import CRIdata from 'src/data/cri.json';
   import type { Unpacked } from 'src/util';
   import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
+  import type { Content, TextBlock } from 'src/types';
+  import SectionTitle from './SectionTitle.svelte';
   import Icon from './Icon.svelte';
 
-  const head = `Lorem <b>ipsum dolor sit amet</b>, consectetur adipiscing elit.
-    Mauris mattis posuere faucibus.`;
+  export let head:string;
+  export let block: Content;
+  export var id: string;
 
   const ROW_LIMIT = 6;
 
@@ -133,7 +136,10 @@
 
 <svelte:window bind:innerWidth/>
 
-<div class="container">
+<section {id} class="container table">
+
+  <SectionTitle {block} />
+
   <h2 class='narrow'>{@html head}</h2>
 
   <div class="search-bar">
@@ -141,9 +147,9 @@
   </div>
 
   <div id="grid">
-    <div id="item1">CLIMATE<br>RISK</div>
-    <div id="item2">CLIMATE-RELATED<br>DEATHS</div>
-    <div id="item3">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
+    <div id="item1" class="header-title">CLIMATE<br>RISK</div>
+    <div id="item2" class="header-title">CLIMATE-RELATED<br>DEATHS</div>
+    <div id="item3" class="header-title">CLIMATE-RELATED<br>ECONOMIC LOSSES</div>
   </div>
 
   <div style="padding-bottom:5px"></div>
@@ -207,7 +213,7 @@
   {/if}
 
 
-</div>
+  </section>
 
 
 <style lang="scss">
@@ -244,13 +250,15 @@
   .row {
     display: contents;
     column-gap: 10px;
+
     > * {
       box-sizing: border-box;
+      border-bottom: 1px solid #e0e0e0;
     }
   }
 
   .cell-name {
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: bold;
     padding-right: 10px;
     display: flex;
@@ -259,7 +267,7 @@
 
   .cell-permanent-number {
     font-weight: 100;
-    font-size: 24px;
+    font-size: 1.2rem;
     text-align: right;
     padding-left: 10px;
     display: flex;
@@ -269,7 +277,7 @@
 
   .cell-number {
     font-weight: 100;
-    font-size: 24px;
+    font-size: 1.2rem;
     text-align: right;
     padding-left: 10px;
     display: flex;
@@ -318,10 +326,10 @@
     padding-bottom: 50px;
 
     input {
-      width: 100%;
+      width: 50%;
       padding: 0.5rem 0rem;
       background: #f9f9f9;
-      font-size: 2rem;
+      font-size: 1.5rem;
       border: 0;
       border-radius: 0;
       border: 0px solid #cccccc;
@@ -371,7 +379,7 @@
     }
 
     .cell-permanent-number{
-      font-size: 16px;
+      font-size: 1rem;
     }
 
     #item2, #item3{
@@ -389,7 +397,7 @@
 
   @media (max-width: 950px) {
     .cell-name {
-      font-size: 18px;
+      font-size: 1rem;
     }
   }
 

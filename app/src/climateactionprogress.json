@@ -21,6 +21,7 @@
         }
       ],
       "head": "Climate Action Note – Climate Action progress",
+      "id": "climateactionprogress",
       "text": [
         {
           "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste. The world has to move towards net-zero emissions soon - and start moving now."
@@ -36,24 +37,24 @@
     {
       "type": "carto-scrolly",
       "title": "Emissions",
-      "icon": "stateoftheclimate.emissions",
-      "menu": "Scrolly Carto",
-      "menuicon": "stateoftheclimate.main",
+      "icon": "climateactionprogress.nzt",
+      "menu": "Net-zero targets",
+      "menuicon": "climateactionprogress.nzt",
       "data": "ghg",
       "embed": "ghg",
-      "head": "GHG emissions are choking our world and changing our climate",
+      "head": "Countries must strengthen pledges and actions to reach the Paris Agreement goal",
       "text": [
         {
-          "p": "Net-zero target emissions cartogram by CO2 emissions colored by NZT status"
+          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries with net-zero emission targets scaled by their respective 2921 CO2 emissions."
         },
         {
-          "p": "Same, highlight biggest emitters"
+          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries listed in terms of highest CO2 emissions"
         },
         {
-          "p": "Tilegram showing trend colored by NZT status"
+          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the country developments in terms of emissions and showing their net-zero target status."
         },
         {
-          "p": "Same, highlighting trends"
+          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries hightighet by emissions trends."
         }
       ]
     },
@@ -61,7 +62,7 @@
       "type": "carto-world",
       "title": "NDC",
       "icon": "climateactionprogress.ndc",
-      "menu": "State of the climate",
+      "menu": "NDC submissions",
       "menuicon": "climateactionprogress.ndc",
       "data": "ndc",
       "embed": "ndc",
@@ -93,19 +94,22 @@
       "icon": "data",
       "text": [
         {
-          "p": "Data for <strong>PM<sub>2.5</sub> exposure</strong>  and <strong>attributable deaths</strong> comes from <a href=\"https://www.stateofglobalair.org/data/#/air/plot\" target=\"_blank\" rel=\"noopener\"> Health Effects Institute. 2020. State of Global Air 2020</a>. Data source: Global Burden of Disease Study 2019. IHME, 2020."
+          "p": "Data for the <strong>net-zero targets</strong> pledged by countries comes from <a href=”https://zerotracker.net/”>Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
         },
         {
-          "p": "Data for <strong>sectors breakdown</strong> comes from McDuffie, E.E., Martin, R.V., Spadaro, J.V. et al. <a href=\"​​https://www.nature.com/articles/s41467-021-23853-y\" target=\"_blank\" rel=\"noopener\">Source sector and fuel contributions to ambient PM<sub>2.5</sub> and attributable mortality across multiple spatial scales</a>. <em>Nat Commun</em> <strong>12</strong>, 3594 (2021)"
+          "p": "Data for the <strong>public opinion section</strong> comes from Pew Research Center, February, 2019, <a href=\"https://www.pewresearch.org/global/2019/02/10/climate-change-still-seen-as-the-top-global-threat-but-cyberattacks-a-rising-concern/\">“Climate Change Still Seen as the Top Global Threat, but Cyberattacks a Rising Concern”</a>"
         },
         {
-          "p": "The data for the <strong>sector section</strong> was reaggregated from country data into UNEP regions, which are different from the ones used in the study."
+          "p": "Data for the <strong>NDC pledges</strong> comes from <a href=\"https://www.climatewatchdata.org/ndcs-explore\">Climate Watch</a>. 2020. Washington, DC: World Resources Institute."
         },
         {
-          "p": "Data for policy implementations comes from <a href=\"https://www.unep.org/resources/report/actions-air-quality-global-summary-policies-and-programmes-reduce-air-pollution\">Actions on Air Quality: A Global Summary of Policies and Programmes to Reduce Air Pollution. UNEP, 2021</a>."
+          "p": "Data for <strong>GHG emissions</strong>, used to size the countries in the net zero and NDC sections, comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=”https://edgar.jrc.ec.europa.eu/report_2021#data_download”>GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=”http://dx.doi.org/10.2760/173513”>doi:10.2760/173513</a>, <a href=”https://publications.jrc.ec.europa.eu/repository/handle/JRC126363”>JRC126363</a>"
         },
         {
-          "p": "<em>The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.</em>"
+          "p": "The “GHG emissions of all world countries - 2021 Report” uses the <a href=”https://edgar.jrc.ec.europa.eu/”>Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
+        },
+        {
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
     }

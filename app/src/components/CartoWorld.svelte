@@ -48,7 +48,7 @@
     ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>
   }
 
-  const ghgLabels = ['Decreased since 1990', 'Stable since 1990', 'Still climbing'];
+  const ghgLabels = ['Lower', 'Status quo', 'More than in 1990'];
 
   const datasetParams: Datasets = {
     ghg: {
@@ -60,18 +60,18 @@
             NodeClass: CartogramDataPoint,
             hoverTextFn: c =>
               `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-              `tonnes of GHG in 2019`,
+              `million tonnes of GHG in 2018`,
             colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown'),
           }
         ],
         helpText: {
           code: "CAN",
-          text: "Each square represents a country, scaled by its per capita emissions"
+          text: "Each square represents a country, scaled by its emissions"
         },
         countries: datasets.countries,
       },
       legend: {
-        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        title: `How much have <b>emissions changed since 1990</b>`,
         colors: colorGHG.range(),
         labels: ghgLabels,
         type: 'categorical',
@@ -86,7 +86,7 @@
             NodeClass: CartogramDataPoint,
             hoverTextFn: c =>
               `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-              `tonnes of GHG per capita in 2019`,
+              `tonnes of GHG per capita in 2018`,
             colorFn: d => colorGHG(datasets.ghgCategories[d.id] || 'Unknown')
           }
         ],
@@ -97,7 +97,7 @@
         countries: datasets.countries,
       },
       legend: {
-        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        title: `How much have <b>emissions changed since 1990</b>`,
         colors: colorGHG.range(),
         labels: ghgLabels,
         type: 'categorical',
@@ -115,11 +115,11 @@
         countries: datasets.countries,
         helpText: {
           code: "IRN",
-          text: "Each tile represents individual country trends in greenhouse gas emissions"
+          text: "Each tile represents individual country trends in GHG emissions"
         },
       },
       legend: {
-        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        title: `How much have <b>emissions changed since 1990</b>`,
         colors: colorGHG.range(),
         labels: ghgLabels,
         type: 'categorical',
