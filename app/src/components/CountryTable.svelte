@@ -52,7 +52,7 @@
     if (top10Emissons.has(data.id)) {
       const latestEmissions = data.emissions2018;
       return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
-        of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
+        of global GHG emissions. In 2018, it emitted ${latestEmissions} million tonnes.`;
     }
     else {
       const trends = datasets.lookups.trends[data.id];
@@ -72,7 +72,7 @@
     { name: 'Country', sortable: true, defaultSort: 'asc' },
     { name: '', sortable: false },
     { name: 'Trend', sortable: false },
-    { name: '2019 emissions', sortable: true },
+    { name: '2018 emissions', sortable: true },
     { name: 'As pct of global', sortable: true },
     { name: 'Per capita', sortable: true },
   ];
@@ -94,7 +94,7 @@
     if (column === 'Country') {
       return [...data].sort((a,b) => a.name > b.name ? 1 : -1);
     }
-    else if (column === '2019 emissions') {
+    else if (column === '2018 emissions') {
       return [...data].sort((a,b) => a.emissions2018 - b.emissions2018);
     }
     else if (column === 'As pct of global') {
@@ -324,7 +324,7 @@
       font-weight: 700;
     }
 
-    &[data-name="2019 emissions"],
+    &[data-name="2018 emissions"],
     &[data-name="As pct of global"],
     &[data-name="Per capita"] {
       text-align: right;
@@ -339,7 +339,7 @@
       width: 80px;
     }
 
-    &[data-name="2019 emissions"] span {
+    &[data-name="2018 emissions"] span {
       width: 88px;
     }
   }

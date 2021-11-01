@@ -42,7 +42,7 @@
   };
 
   interface Datasets {
-    ghg: Dataset<SimpleCartogramDataPoint<'emissions2019'>>,
+    ghg: Dataset<SimpleCartogramDataPoint<'emissions2018'>>,
     percapita: Dataset<SimpleCartogramDataPoint<'emissions_percapita'>>,
     trends: Dataset<TrendsCartogramDataPoint<'size'>>,
     ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>
