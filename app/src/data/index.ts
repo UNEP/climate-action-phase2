@@ -1,6 +1,6 @@
 import { createLookup, Unpacked } from 'src/util';
-import percapita from './co2-percapita-2019.carto.json';
-import ghg from './co2-2019.carto.json';
+import percapita from './co2-percapita.carto.json';
+import ghg from './co2.carto.json';
 import trends from './trends.carto.json';
 import trendsNotInCarto from './co2trends-notincarto.json';
 import countries from './countryDictionary.json';
