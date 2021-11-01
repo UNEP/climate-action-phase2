@@ -182,7 +182,11 @@
 
         <div class="cell-name">{row.name}</div>
 
-        <div class="cell-description">{@html getChartText(row)}</div>
+        <div class="cell-description">
+          <div class="cell-description-text">
+            {@html getChartText(row)}
+          </div>
+        </div>
 
         <div class="cell-chart">
           <MiniLineChart
@@ -266,6 +270,9 @@
     font-weight: 100;
     font-size: 16px;
     line-height: 1.6;
+  }
+
+  .cell-description-text {
     max-width: 400px;
   }
 
