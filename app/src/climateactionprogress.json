@@ -27,7 +27,7 @@
           "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste. The world has to move towards net-zero emissions soon - and start moving now."
         },
         {
-          "p": "The UNEP Climate ActionDashboard shows you the global state of climate action and where each country has work to do."
+          "p": "The UNEP Climate ActionDashboard shows you the global state of climate action and where each country has work to do.[a][b]"
         }
       ]
     },
@@ -36,7 +36,7 @@
     },
     {
       "type": "carto-scrolly",
-      "title": "Emissions",
+      "title": "Net zero targets",
       "icon": "climateactionprogress.nzt",
       "menu": "Net-zero targets",
       "menuicon": "climateactionprogress.nzt",
@@ -54,7 +54,7 @@
           "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the country developments in terms of emissions and showing their net-zero target status."
         },
         {
-          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries hightighet by emissions trends."
+          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries hightighet by emissions trends.[c]"
         }
       ]
     },
@@ -80,7 +80,7 @@
       "menu": "Pew Survey",
       "menuicon": "climateactionprogress.opinion",
       "embed": "survey",
-      "head": "PEW SURVEY BLA BLA BLA",
+      "head": "PEW SURVEY BLA BLA BLA[d]",
       "text": [
         {
           "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. There is popular support for such emission reductions and to act ambitiously and adequately on the climate emergency."
@@ -109,7 +109,7 @@
           "p": "The “GHG emissions of all world countries - 2021 Report” uses the <a href=”https://edgar.jrc.ec.europa.eu/”>Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
         },
         {
-          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.[e]"
         }
       ]
     }
@@ -119,5 +119,10 @@
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "Air pollution, health and air pollution, pm2.5"
-  }
+  },
+  "a": [],
+  "b": [],
+  "c": [],
+  "d": [],
+  "e": []
 }
