@@ -105,7 +105,7 @@
   .hover-year {
     text-anchor: middle;
     fill: #555555;
-    font-size: 16px;
+    font-size: 24px;
     stroke: #f3f3f3;
     stroke-width: 5px;
     paint-order: stroke;
@@ -116,7 +116,7 @@
     dominant-baseline: bottom;
     fill: #555555;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 24px;
     stroke: #f3f3f3;
     stroke-width: 3px;
     paint-order: stroke;
