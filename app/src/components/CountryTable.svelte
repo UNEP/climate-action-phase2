@@ -9,7 +9,7 @@
 <script lang="ts">
   import datasets from 'src/data';
   import type { Unpacked } from 'src/util';
-  import type { Content, TextBlock } from 'src/types';
+  import type { Content } from 'src/types';
   import { displayVal } from 'src/util';
   import { createLookup } from 'src/util';
   import MiniLineChart from "src/components/charts/MiniLineChart.svelte";
@@ -21,18 +21,18 @@
   export let block: Content;
   export var id: string;
 
-  const top10Emissions = new Set(
-    datasets.co2data
-      .sort((a,b) => b.emissions2019 - a.emissions2019)
-      .slice(0, 10)
-      .map(d => d.id)
-  );
+  const over1percent = datasets.co2data.filter(d => d.globalPct > 0.1);
+  const over1percentLookUp = createLookup(over1percent, c => c.id, c => c.globalPct);
 
-  const remainingCountries = datasets.co2data.filter(d => !top10Emissions.has(d.id));
+  const biggestPerCapita = datasets.co2data
+    .sort((a,b) => b.percapita - a.percapita)
+    .slice(0,25);
+  
+  const biggestPerCapitaLookUp = createLookup(biggestPerCapita, c => c.id, c => c.percapita);
   
   let relativeChangeData = [];
 
-  remainingCountries.forEach(c => {
+  datasets.co2data.forEach(c => {
     let _trends = datasets.lookups.trends[c.id];
     let _change = c.emissions2019 / _trends.emissions['1990'];
     let _fallen = _change <= 1;
@@ -48,13 +48,13 @@
 
   const top10Increase = relativeChangeData
     .sort((a,b) => b.perc - a.perc)
-    .slice(0, 10);
+    .slice(0, 25);
 
   const increaseLookUp = createLookup(top10Increase, c => c.id, c => c);
 
   const top10Decrease = relativeChangeData
     .sort((a,b) => a.perc - b.perc)
-    .slice(0, 10);
+    .slice(0, 25);
 
   const decreaseLookUp = createLookup(top10Decrease, c => c.id, c => c);
 
@@ -77,24 +77,32 @@
   const formattedTrendsDataLookup = createLookup(formattedTrendsData, c => c.id, c => c);
 
   function getChartText(data: RowData) {
-    if (top10Emissions.has(data.id)) {
+    let descriptionPhrase = '';
+
+    if (data.id === biggestEmitter.id) {
       const latestEmissions = data.emissions2019;
-      return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
-        of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
+      descriptionPhrase += `<b>${data.name}</b> is the top emitter of the countries 
+        with >1% of the global share. It accounts for ${data.globalPct}% of global 
+        GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes. `;
     }
-    else if (increaseLookUp[data.id] !== undefined) {
-      return `<b>${data.name}</b> has had one of the biggest
+    if (biggestPerCapitaLookUp[data.id] !== undefined){
+      descriptionPhrase += `<b>${data.name}</b> is on of the countries 
+        with the highest per capita GHG values. — ${biggestPerCapitaLookUp[data.id].toFixed(2)}. `;
+    }
+    if (increaseLookUp[data.id] !== undefined) {
+      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
         increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
     }
-    else if (decreaseLookUp[data.id] !== undefined){
-      return `<b>${data.name}</b> has had one of the biggest
+    if (decreaseLookUp[data.id] !== undefined){
+      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
         drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
     }
-    else{
-      return '';
-    }
+
+    if (descriptionPhrase === '') {console.log("COUNTRY WITHOUT DESC.");}
+
+    return descriptionPhrase;
   }
 
   type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
