@@ -21,7 +21,7 @@ export const END_YEAR = 2015;
 
 const top10emitters = new Set([
   ...ghg.data
-    .sort((a,b) => b.emissions2019 - a.emissions2019)
+    .sort((a,b) => b.emissions2018 - a.emissions2018)
     .slice(0, 10)
     .map(d => d.id)
 ]);
