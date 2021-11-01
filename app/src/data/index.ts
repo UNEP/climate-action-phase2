@@ -67,7 +67,7 @@ const totalGHG2019 = co2baseData.map(d => d.emissions2019).reduce((a,b) => a + b
 const co2data = co2baseData.map(d => ({
   ...d,
   name: countriesLookup[d.id].name,
-  globalPct: Number((d.emissions2019 / totalGHG2019).toFixed(2))
+  globalPct: Number((100 * d.emissions2019 / totalGHG2019).toFixed(2))
 }));
 
 if (IS_DEV) {
