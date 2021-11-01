@@ -21,12 +21,42 @@
   export let block: Content;
   export var id: string;
 
-  const top10Emissons = new Set(
+  const top10Emissions = new Set(
     datasets.co2data
       .sort((a,b) => b.emissions2019 - a.emissions2019)
       .slice(0, 10)
       .map(d => d.id)
   );
+
+  const remainingCountries = datasets.co2data.filter(d => !top10Emissions.has(d.id));
+  
+  let relativeChangeData = [];
+
+  remainingCountries.forEach(c => {
+    let _trends = datasets.lookups.trends[c.id];
+    let _change = c.emissions2019 / _trends.emissions['1990'];
+    let _fallen = _change <= 1;
+    let _relChange = _fallen ? 1 - _change : _change - 1;
+    let _perc = Math.round(_relChange * 100);
+    let relChaCountry = {
+      id: c.id,
+      fallen: _fallen,
+      perc: _perc
+    };
+    relativeChangeData.push(relChaCountry);
+  });
+
+  const top10Increase = relativeChangeData
+    .sort((a,b) => b.perc - a.perc)
+    .slice(0, 10);
+
+  const increaseLookUp = createLookup(top10Increase, c => c.id, c => c);
+
+  const top10Decrease = relativeChangeData
+    .sort((a,b) => a.perc - b.perc)
+    .slice(0, 10);
+
+  const decreaseLookUp = createLookup(top10Decrease, c => c.id, c => c);
 
   const ROW_LIMIT = 6;
 
@@ -47,20 +77,23 @@
   const formattedTrendsDataLookup = createLookup(formattedTrendsData, c => c.id, c => c);
 
   function getChartText(data: RowData) {
-    if (top10Emissons.has(data.id)) {
+    if (top10Emissions.has(data.id)) {
       const latestEmissions = data.emissions2019;
       return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
         of global GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes.`;
     }
-    else {
-      const trends = datasets.lookups.trends[data.id];
-      const change = data.emissions2019 / trends.emissions['1990'];
-      const fallen = change <= 1;
-      const relChange = fallen ? 1 - change : change - 1;
-      const percStr = Math.round(relChange * 100).toFixed(0);
+    else if (increaseLookUp[data.id] !== undefined) {
       return `<b>${data.name}</b> has had one of the biggest
-        ${fallen ? 'drops' : 'increases'} in GHG emissions — ${percStr}% since 1990. `
+        increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
         + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+    }
+    else if (decreaseLookUp[data.id] !== undefined){
+      return `<b>${data.name}</b> has had one of the biggest
+        drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
+        + `Today, it accounts for ${data.globalPct}% of global emissions.`;
+    }
+    else{
+      return '';
     }
   }
 
