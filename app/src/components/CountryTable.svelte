@@ -51,20 +51,14 @@
 
   const biggestPerCapitaLookUp = createLookup(biggestPerCapita, c => c.id, c => c.percapita2018);
 
-  let relativeChangeData = [];
-
-  data.forEach(c => {
-    let _trends = datasets.lookups.trends[c.id];
-    let _change = c.emissions2018 / _trends.emissions['1990'];
-    let _fallen = _change <= 1;
-    let _relChange = _fallen ? 1 - _change : _change - 1;
-    let _perc = Math.round(_relChange * 100);
-    let relChaCountry = {
-      id: c.id,
-      fallen: _fallen,
-      perc: _perc
-    };
-    relativeChangeData.push(relChaCountry);
+  const relativeChangeData = data.map(d => {
+    const {id} = d;
+    const trends = datasets.lookups.trends[id];
+    const change = d.emissions2018 / trends.emissions['1990'];
+    const fallen = change <= 1;
+    const relChange = fallen ? 1 - change : change - 1;
+    const perc = Math.round(relChange * 100);
+    return { id, fallen, perc };
   });
 
   const top10Increase = relativeChangeData
