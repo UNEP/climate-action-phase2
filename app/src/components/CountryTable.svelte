@@ -43,6 +43,10 @@
       fallen: _fallen,
       perc: _perc
     };
+
+    if (c.name === "Australia"){
+      console.log(c.name, _fallen, _trends.emissions);
+    }
     relativeChangeData.push(relChaCountry);
   });
 
@@ -79,9 +83,9 @@
   function getChartText(data: RowData) {
     let descriptionPhrase = '';
 
-    if (data.id === biggestEmitter.id) {
+    if (over1percentLookUp[data.id] !== undefined) {
       const latestEmissions = data.emissions2019;
-      descriptionPhrase += `<b>${data.name}</b> is the top emitter of the countries 
+      descriptionPhrase += `<b>${data.name}</b> is the one of top emitters from the countries
         with >1% of the global share. It accounts for ${data.globalPct}% of global 
         GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes. `;
     }
