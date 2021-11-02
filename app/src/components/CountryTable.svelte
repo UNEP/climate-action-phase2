@@ -21,52 +21,20 @@
   export let block: Content;
   export var id: string;
 
-  const over1percent = datasets.co2data.filter(d => d.globalPct > 0.1);
-  const over1percentLookUp = createLookup(over1percent, c => c.id, c => c.globalPct);
+  const data = datasets.co2latest.filter(d => datasets.lookups.trends[d.id]);
 
-  const biggestPerCapita = datasets.co2data
-    .sort((a,b) => b.percapita - a.percapita)
-    .slice(0,25);
-  
-  const biggestPerCapitaLookUp = createLookup(biggestPerCapita, c => c.id, c => c.percapita);
-  
-  let relativeChangeData = [];
-
-  datasets.co2data.forEach(c => {
-    let _trends = datasets.lookups.trends[c.id];
-    let _change = c.emissions2019 / _trends.emissions['1990'];
-    let _fallen = _change <= 1;
-    let _relChange = _fallen ? 1 - _change : _change - 1;
-    let _perc = Math.round(_relChange * 100);
-    let relChaCountry = {
-      id: c.id,
-      fallen: _fallen,
-      perc: _perc
-    };
-
-    if (c.name === "Australia"){
-      console.log(c.name, _fallen, _trends.emissions);
-    }
-    relativeChangeData.push(relChaCountry);
-  });
-
-  const top10Increase = relativeChangeData
-    .sort((a,b) => b.perc - a.perc)
-    .slice(0, 25);
-
-  const increaseLookUp = createLookup(top10Increase, c => c.id, c => c);
-
-  const top10Decrease = relativeChangeData
-    .sort((a,b) => a.perc - b.perc)
-    .slice(0, 25);
-
-  const decreaseLookUp = createLookup(top10Decrease, c => c.id, c => c);
+  const top10Emissons = new Set(
+    data
+      .sort((a,b) => b.emissions2018 - a.emissions2018)
+      .slice(0, 10)
+      .map(d => d.id)
+  );
 
   const ROW_LIMIT = 6;
 
-  type RowData = Unpacked<typeof datasets.co2data>;
+  type RowData = Unpacked<typeof data>;
 
-  let sortedData = datasets.co2data;
+  let sortedData = data;
 
   let showAll = false;
 
@@ -81,32 +49,21 @@
   const formattedTrendsDataLookup = createLookup(formattedTrendsData, c => c.id, c => c);
 
   function getChartText(data: RowData) {
-    let descriptionPhrase = '';
-
-    if (over1percentLookUp[data.id] !== undefined) {
-      const latestEmissions = data.emissions2019;
-      descriptionPhrase += `<b>${data.name}</b> is the one of top emitters from the countries
-        with >1% of the global share. It accounts for ${data.globalPct}% of global 
-        GHG emissions. In 2019, it emitted ${latestEmissions} million tonnes. `;
+    if (top10Emissons.has(data.id)) {
+      const latestEmissions = data.emissions2018;
+      return `<b>${data.name}</b> is one of the top emitters accounting for ${data.globalPct}%
+        of global GHG emissions. In 2018, it emitted ${latestEmissions} million tonnes.`;
     }
-    if (biggestPerCapitaLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> is on of the countries 
-        with the highest per capita GHG values. — ${biggestPerCapitaLookUp[data.id].toFixed(2)}. `;
+    else {
+      const trends = datasets.lookups.trends[data.id];
+      const change = data.emissions2018 / trends.emissions['1990'];
+      const fallen = change <= 1;
+      const relChange = fallen ? 1 - change : change - 1;
+      const percStr = Math.round(relChange * 100).toFixed(0);
+      return `<b>${data.name}</b> has had one of the biggest
+        ${fallen ? 'drops' : 'increases'} in GHG emissions — ${percStr}% since 1990. `
+        + `Today, it accounts for ${data.globalPct}% of global emissions.`;
     }
-    if (increaseLookUp[data.id] !== undefined) {
-      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
-        increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
-    }
-    if (decreaseLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
-        drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
-    }
-
-    if (descriptionPhrase === '') {console.log("COUNTRY WITHOUT DESC.");}
-
-    return descriptionPhrase;
   }
 
   type Header = { name: string, sortable: boolean, defaultSort?: 'asc' | 'desc' };
@@ -115,7 +72,7 @@
     { name: 'Country', sortable: true, defaultSort: 'asc' },
     { name: '', sortable: false },
     { name: 'Trend', sortable: false },
-    { name: '2019 emissions', sortable: true },
+    { name: '2018 emissions', sortable: true },
     { name: 'As pct of global', sortable: true },
     { name: 'Per capita', sortable: true },
   ];
@@ -135,16 +92,16 @@
 
   const getSortAsc = ({column}: typeof sort): RowData[] => {
     if (column === 'Country') {
-      return [...datasets.co2data].sort((a,b) => a.name > b.name ? 1 : -1);
+      return [...data].sort((a,b) => a.name > b.name ? 1 : -1);
     }
-    else if (column === '2019 emissions') {
-      return [...datasets.co2data].sort((a,b) => a.emissions2019 - b.emissions2019);
+    else if (column === '2018 emissions') {
+      return [...data].sort((a,b) => a.emissions2018 - b.emissions2018);
     }
     else if (column === 'As pct of global') {
-      return [...datasets.co2data].sort((a,b) => a.globalPct - b.globalPct);
+      return [...data].sort((a,b) => a.globalPct - b.globalPct);
     }
     else if (column === 'Per capita') {
-      return [...datasets.co2data].sort((a,b) => a.percapita - b.percapita);
+      return [...data].sort((a,b) => a.percapita2018 - b.percapita2018);
     }
   };
 
@@ -225,7 +182,11 @@
 
         <div class="cell-name">{row.name}</div>
 
-        <div class="cell-description">{@html getChartText(row)}</div>
+        <div class="cell-description">
+          <div class="cell-description-text">
+            {@html getChartText(row)}
+          </div>
+        </div>
 
         <div class="cell-chart">
           <MiniLineChart
@@ -235,7 +196,7 @@
         </div>
 
         <div class="cell-number cell-ghg">
-          {displayVal(row.emissions2019, 2)} <span>million tonnes of GHG</span>
+          {displayVal(row.emissions2018, 2)} <span>million tonnes of GHG</span>
         </div>
 
         <div class="cell-number cell-perc">
@@ -243,7 +204,7 @@
         </div>
 
         <div class="cell-number cell-pcap">
-          {row.percapita} <span>tonnes of GHG</span>
+          {row.percapita2018} <span>tonnes of GHG</span>
         </div>
 
       </div>
@@ -309,6 +270,9 @@
     font-weight: 100;
     font-size: 16px;
     line-height: 1.6;
+  }
+
+  .cell-description-text {
     max-width: 400px;
   }
 
@@ -367,7 +331,7 @@
       font-weight: 700;
     }
 
-    &[data-name="2019 emissions"],
+    &[data-name="2018 emissions"],
     &[data-name="As pct of global"],
     &[data-name="Per capita"] {
       text-align: right;
@@ -382,7 +346,7 @@
       width: 80px;
     }
 
-    &[data-name="2019 emissions"] span {
+    &[data-name="2018 emissions"] span {
       width: 88px;
     }
   }

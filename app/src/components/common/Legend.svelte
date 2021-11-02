@@ -2,53 +2,56 @@
   export let title = '';
   export let colors: string[];
   export let labels: string[];
-  export let type = 'sequential';
+  type LegendTypes = 'sequential' | 'categorical';
+  export let type: LegendTypes = 'sequential';
   export let selected: number;
 </script>
 
-<h3 class="note title">{@html title}</h3>
+<div class="legend-container">
+  <h3 class="note title">{@html title}</h3>
 
-{#if type === 'sequential'}
-<ol class="seq info" role="menu" aria-label="menu">
-  {#each colors as c,i}
-  <li
-    role="menuitem"
-    tabindex="0"
-    style="width: { 100 / colors.length }%; background-color: {c};"
-    class:selected-seq={selected === i}
-    on:mouseout={() => selected = null}
-    on:blur={() => selected = null}
-    on:mouseover={() => selected = i}
-    on:focus={() => selected = i}
-  >
-    {#if labels[i] !== undefined}
-      <p class='note'>{labels[i]}</p>
-    {/if}
-  </li>
-  {/each}
-</ol>
-
-{:else if type === 'categorical'}
-<ul class="cat info" role="menu" aria-label="menu">
-  {#each colors as c,i}
-    <li role="menuitem"
-    tabindex="0"
-    class="cat-item note"
-    class:selected-cat="{selected === i}"
-    on:mouseout={() => selected = null}
-    on:blur={() => selected = null}
-    on:mouseover={() => selected = i}
-    on:focus={() => selected = i}
-  >
-      <div
-        class="cat-symbol"
-        style="background-color: {c};
-        background-size: 5.66px 5.66px;"
-      />{labels[i]}
+  {#if type === 'sequential'}
+  <ol class="seq info" role="menu" aria-label="menu">
+    {#each colors as c,i}
+    <li
+      role="menuitem"
+      tabindex="0"
+      style="width: { 100 / colors.length }%; background-color: {c};"
+      class:selected-seq={selected === i}
+      on:mouseout={() => selected = null}
+      on:blur={() => selected = null}
+      on:mouseover={() => selected = i}
+      on:focus={() => selected = i}
+    >
+      {#if labels[i] !== undefined}
+        <p class='note'>{labels[i]}</p>
+      {/if}
     </li>
-  {/each}
-</ul>
-{/if}
+    {/each}
+  </ol>
+
+  {:else if type === 'categorical'}
+  <ul class="cat info" role="menu" aria-label="menu">
+    {#each colors as c,i}
+      <li role="menuitem"
+      tabindex="0"
+      class="cat-item note"
+      class:selected-cat="{selected === i}"
+      on:mouseout={() => selected = null}
+      on:blur={() => selected = null}
+      on:mouseover={() => selected = i}
+      on:focus={() => selected = i}
+    >
+        <div
+          class="cat-symbol"
+          style="background-color: {c};
+          background-size: 5.66px 5.66px;"
+        />{labels[i]}
+      </li>
+    {/each}
+  </ul>
+  {/if}
+</div>
 
 <style>
   .title {

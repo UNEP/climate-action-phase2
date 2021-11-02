@@ -27,7 +27,7 @@
           "p": "Humanity’s use of fossil fuels has caused a climate emergency - ‘a code red for the planet’ according to UN SG Antonio Guterres. It’s devastating consequences are threatening our lives, economy, health and food systems - and extreme weather events are already wrecking havoc across the world. We are far from securing the global temperature rise safely below 1.5°C as promised in the Paris Agreement."
         },
         {
-          "p": "The UNEP Climate Dashboard shows you the global state of the climate emergency and its development."
+          "p": "The UNEP Climate Dashboard shows you the global state of the climate emergency and its development.[a][b]"
         }
       ]
     },
@@ -48,13 +48,13 @@
           "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, as promised in the Paris Agreement, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
         }
       ],
-      "legend-head": "TKTK",
+      "legend-head": "How much have emissions changed since 1990",
       "legend": [
         {
-          "l": "Lower than in 1990"
+          "l": "Lower"
         },
         {
-          "l": "Status quo as 1990"
+          "l": "Status quo"
         },
         {
           "l": "More than in 1990"
@@ -69,7 +69,7 @@
       "menuicon": "stateoftheclimate.percapita",
       "data": "percapita",
       "embed": "percapita",
-      "head": "Individual emissions vary wildly; the wealthy emit the most",
+      "head": "Individual emissions vary wildly; the wealthy emit the most [d]",
       "text": [
         {
           "p": "We all emit GHG during the cause of our lives. But some people emit a lot more than others. The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. As developing countries grow their economies, they need financial assistance and technical support to transition to low-carbon and resilient strategies. We can reduce emissions while growing the economy. The energy sector alone can cut emissions by 12.5 gigatonnes annually by switching to renewable energy and using its power more efficiently."
@@ -84,16 +84,16 @@
       "menuicon": "stateoftheclimate.trends",
       "data": "trends",
       "embed": "trends",
-      "head": "Some countries are making progress but all nations need to step up",
+      "head": "Some countries are making progress but all nations need to step up[e]",
       "text": [
         {
-          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is way beyond the Paris Agreement goals of limiting global warming to 1.5°C. And, we have the technological solutions to do it, including renewable energy, green hydrogen and modern bioenergy. Government subsidies and support could be directed to push towards low-carbon and green policies."
+          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is way beyond the Paris Agreement goals of limiting global warming to 1.5°C. And, we have the technological solutions to do it, including renewable energy, green hydrogen and modern bioenergy. Government subsidies and support could be directed to push towards low-carbon and green policies. [f]"
         }
       ]
     },
     {
       "type": "country-table",
-      "head": "See how the emissions from each country has developed between 1990 and 2019.",
+      "head": "Find how your country’s GHG emissions have changed since 1970.[g]",
       "title": "By country",
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
@@ -114,15 +114,23 @@
           "p": "The “GHG emissions of all world countries - 2021 Report” uses uses the <a href=”https://edgar.jrc.ec.europa.eu/”>Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
         },
         {
-          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.[h]"
         }
       ]
     }
   ],
   "meta": {
-    "title": "Climate Actionn Note – Data you need to know",
+    "title": "Climate Action Note – Data you need to know",
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on climate action from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "climate action, climate change, GHG emissions, CO2"
-  }
+  },
+  "a": [],
+  "b": [],
+  "c": [],
+  "d": [],
+  "e": [],
+  "f": [],
+  "g": [],
+  "h": []
 }
