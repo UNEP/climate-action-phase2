@@ -1,6 +1,27 @@
 {
   "article": [
     {
+      "type": "websites-menu",
+      "options": [
+        {
+          "text": "State of the climate",
+          "icon": "stateoftheclimate.main",
+          "href": "http://localhost:5000/sotc.html"
+        },
+        {
+          "text": "Climate action progress",
+          "icon": "climateactionprogress.main",
+          "href": "http://localhost:5000/climateactionprogress.html"
+        },
+        {
+          "text": "Whatshappening",
+          "icon": "whatshappening.main",
+          "href": "http://localhost:5000/whatshappening.html"
+        }
+      ],
+      "selected": "1"
+    },
+    {
       "type": "intro",
       "breadcrumbs": [
         {
@@ -20,14 +41,15 @@
           "label": "Climate Action Note"
         }
       ],
-      "head": "Climate Action Note – Climate Action progress",
+      "head": "Climate action progress",
+      "tag": "Climate Action Note – data you need to know",
       "id": "climateactionprogress",
       "text": [
         {
-          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste. The world has to move towards net-zero emissions soon - and start moving now."
+          "p": "Global average temperatures are on the rise predicted to exceed 3°C this century and catastrophic consequences are already setting in across the world with extreme variations in weather. The world needs to cut emissions by 30 gigatones annually by 2030 in order to limit temperature rise to a safe 1.5°C and thus halt the worst impacts. And the emission reductions need to start happening now."
         },
         {
-          "p": "The UNEP Climate ActionDashboard shows you the global state of climate action and where each country has work to do.[a][b]"
+          "p": "The UNEP Climate Action Note shows you the global state of climate action and where each country has work to do."
         }
       ]
     },
@@ -42,19 +64,19 @@
       "menuicon": "climateactionprogress.nzt",
       "data": "ghg",
       "embed": "ghg",
-      "head": "Countries must strengthen pledges and actions to reach the Paris Agreement goal",
+      "head": "Country emissions, plans and progress",
       "text": [
         {
-          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries with net-zero emission targets scaled by their respective 2921 CO2 emissions."
+          "p": "This map shows countries scaled to their emissions per capita and coloured by the status of their net-zero emissions target."
         },
         {
-          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries listed in terms of highest CO2 emissions"
+          "p": "These are the 10 countries with the largest emissions per capita."
         },
         {
-          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the country developments in terms of emissions and showing their net-zero target status."
+          "p": "This map shows how country emissions are actually developing regardless of NDCs or net-zero targets."
         },
         {
-          "p": "In the Paris Agreement, governments pledged to contribute - so-called Nationally Determined Contributions (NDCs) to cut emissions. More and more countries are committing to net-zero emissions targets yet ambition needs to be tripled for the 2°C pathway and increased fivefold for the 1.5°C pathway. These are the countries hightighet by emissions trends.[c]"
+          "p": "These are the 10 countries highlighted by the largest actual emission reductions.[a][b]"
         }
       ]
     },
@@ -69,7 +91,7 @@
       "head": "Countries must strengthen pledges made under Paris Agreement",
       "text": [
         {
-          "p": "Under the 2015 Paris Agreement, governments made pledges, known as Nationally Determined Contributions (NDCs), to cut emissions. And although a growing number of countries have now committed to net-zero emissions, the levels of ambition in the Paris accord must be roughly tripled for the 2°C pathway and increased at least fivefold for the 1.5°C pathway. There is no time to lose."
+          "p": "In signing the Paris Agreement, governments pledged to cut emissions and report their plans through ‘Nationally Determined Contributions’ (NDCs). The levels of ambition in the Paris Agreement must be roughly tripled to stay below 2°C and increased at least fivefold to stay safe below 1.5°C. More countries have committed to net-zero emission targets yet few implement the actual measure making those targets realistic."
         }
       ]
     },
@@ -80,12 +102,36 @@
       "menu": "Pew Survey",
       "menuicon": "climateactionprogress.opinion",
       "embed": "survey",
-      "head": "PEW SURVEY BLA BLA BLA[d]",
+      "head": "People want climate action now",
       "text": [
         {
-          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, we need to cut emissions by 30 gigatones annually by 2030. There is popular support for such emission reductions and to act ambitiously and adequately on the climate emergency."
+          "p": "The catastrophic consequences of the climate emergency are making an impact on popular perceptions. In just five years - between 2013 and 2018 - more people are considering climate change a major threat. Most countries today have popular support for such rapid and large scale emission reductions."
         }
       ]
+    },
+    {
+      "type": "carto-world",
+      "title": "Fossil fuel subsidies",
+      "icon": "climateactionprogress.ffsubsidies",
+      "menu": "Fossil fuel subsidies",
+      "menuicon": "climateactionprogress.ffsubsidies",
+      "embed": "ffsubsidies",
+      "head": "Headline here",
+      "text": [
+        {
+          "p": "Text here"
+        }
+      ]
+    },
+    {
+      "type": "climate-action-country-table",
+      "head": "See what countries are taking more action globally",
+      "title": "By country",
+      "icon": "stateoftheclimate.searchtable",
+      "menu": "By country",
+      "menuicon": "stateoftheclimate.searchtable",
+      "data": "co2bycountry",
+      "embed": "co2bycountry"
     },
     {
       "type": "methodology",
@@ -94,22 +140,22 @@
       "icon": "data",
       "text": [
         {
-          "p": "Data for the <strong>net-zero targets</strong> pledged by countries comes from <a href=”https://zerotracker.net/”>Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
+          "p": "Data for the <strong>net-zero targets</strong> pledged by countries comes from <a href=\"https://zerotracker.net/\">Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
         },
         {
-          "p": "Data for the <strong>public opinion section</strong> comes from Pew Research Center, February, 2019, <a href=\"https://www.pewresearch.org/global/2019/02/10/climate-change-still-seen-as-the-top-global-threat-but-cyberattacks-a-rising-concern/\">“Climate Change Still Seen as the Top Global Threat, but Cyberattacks a Rising Concern”</a>"
+          "p": "Data for the <strong>public opinion section</strong> comes from Pew Research Center, February, 2019, <a href=\"https://www.pewresearch.org/global/2019/02/10/climate-change-still-seen-as-the-top-global-threat-but-cyberattacks-a-rising-concern/\">\"Climate Change Still Seen as the Top Global Threat, but Cyberattacks a Rising Concern\"</a>"
         },
         {
           "p": "Data for the <strong>NDC pledges</strong> comes from <a href=\"https://www.climatewatchdata.org/ndcs-explore\">Climate Watch</a>. 2020. Washington, DC: World Resources Institute."
         },
         {
-          "p": "Data for <strong>GHG emissions</strong>, used to size the countries in the net zero and NDC sections, comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=”https://edgar.jrc.ec.europa.eu/report_2021#data_download”>GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=”http://dx.doi.org/10.2760/173513”>doi:10.2760/173513</a>, <a href=”https://publications.jrc.ec.europa.eu/repository/handle/JRC126363”>JRC126363</a>"
+          "p": "Data for <strong>GHG emissions</strong>, used to size the countries in the net zero and NDC sections, comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=\"https://edgar.jrc.ec.europa.eu/report_2021#data_download\">GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=\"http://dx.doi.org/10.2760/173513\">doi:10.2760/173513</a>, <a href=\"https://publications.jrc.ec.europa.eu/repository/handle/JRC126363\">JRC126363</a>"
         },
         {
-          "p": "The “GHG emissions of all world countries - 2021 Report” uses the <a href=”https://edgar.jrc.ec.europa.eu/”>Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
+          "p": "The \"GHG emissions of all world countries - 2021 Report\" uses the <a href=\"https://edgar.jrc.ec.europa.eu/\">Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
         },
         {
-          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.[e]"
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
     }
@@ -122,7 +168,5 @@
   },
   "a": [],
   "b": [],
-  "c": [],
-  "d": [],
-  "e": []
+  "c": []
 }
