@@ -118,7 +118,7 @@
         <h3 class="hover-chart__name">{d.name}</h3>
         <h3 class='hover-chart__emissions'>{d.emissionsDisplayVal} Mt</h3>
       </div>
-      <MiniLineChart data={d.timeseries} stroke={colorGHG(datasets.ghgCategories[d.id])} />
+      <MiniLineChart data={d.timeseries} stroke={d.color} />
   </div>
 
   <svg class="trend-chart" viewBox="0 0 {d.width} {d.height}" style="--color: {d.color};">
