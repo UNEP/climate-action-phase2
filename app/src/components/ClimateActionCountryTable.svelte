@@ -71,7 +71,7 @@
     }
     else if (column === 'ndcStatus') {
       return [...climateActionData].sort(function(a, b){
-        if (rankingNDCstatus[a.ndcStatus] < rankingNDCstatus[b.ndcStatus]){
+        if (rankingNDCstatus[a.ndcStatus] < rankingNDCstatus[b.ndcStatus] ){
           return -1;
         }
         else{
@@ -271,6 +271,7 @@
     display: flex;
     align-items:center;
     justify-content: right;
+    padding-bottom: 10px;
   }
 
   .show-more-button {
@@ -335,34 +336,21 @@
     grid-template-rows: 10px;
   }
 
-  // RESPONSIVELY DROP COLUMNS
-  // original column template is:
-  // grid-template-columns:;
 
   @media (max-width: 1250px) {
-    .header[data-name='totalLosses'],
-    .header[data-name='popAdjDeaths'],
-    .header[data-name='totalDeaths'],
-    .header[data-name='gdpPctLosses'],
-    .cell-number {
+    .header[data-name='description'],
+    .cell-description,
+    .cell-description-text {
       display: none;
     }
 
-    #item2, #item3{
-      display:none;
-    }
-
-    #item1{
-      grid-column: 5/5;
-    }
-
     .grid-table {
-      grid-template-columns: 35% 35% 15% 15%;
+      grid-template-columns: 30% 25% 25% 20%;
     }
   }
 
   @media (max-width: 950px) {
-    .cell-name {
+    .cell-name, .cell-number {
       font-size: 1rem;
     }
   }
