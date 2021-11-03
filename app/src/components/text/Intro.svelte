@@ -24,7 +24,7 @@ export let currentPage = "";
   {#if head}
     <h1>{@html head}</h1>
   {/if}
-  <PagesMenu {currentPage}></PagesMenu>
+
   {#if text}
   {#each text as p}
       <p>{@html p.p}</p>
