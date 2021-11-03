@@ -98,7 +98,7 @@
         <SectionTitle {block} />
 
         <Legend type='categorical'
-          title="Current <b>net zero</b> policy status"
+          title="Status of <b>net-zero</b> targets"
           colors={colorNetZero.range()} {labels}
           bind:selected={hoveredLegendIndex} />
       </div>
