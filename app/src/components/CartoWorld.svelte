@@ -131,7 +131,18 @@
           ...datasets.cartoworld.ndc,
           NodeClass: CartogramDataPoint,
           NodeComponent: CartogramNode,
-          hoverTextFn: c => c.data.label,
+          hoverTextFn: (c) => {
+            let current = datasets.lookups.netzero[c.id];
+            let res = "";
+
+            current.status !== "" && current.year !== null ?
+              res = datasets.lookups.countries[c.id].name +
+              " has the status: " + current.status + " by " + current.year + "." :
+              res = "No data for " + datasets.lookups.countries[c.id].name + ".";
+
+            return res;
+
+          },
           colorFn: d => colorNDC(d.data.colorValue),
         }],
         countries: datasets.countries,
