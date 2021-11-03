@@ -118,7 +118,7 @@
         <h3 class="hover-chart__name">{d.name}</h3>
         <h3 class='hover-chart__emissions'>{d.emissionsDisplayVal} Mt</h3>
       </div>
-      <MiniLineChart data={d.timeseries} stroke={colorGHG(datasets.ghgCategories[d.id])} />
+      <MiniLineChart data={d.timeseries} stroke={d.color} />
   </div>
 
   <svg class="trend-chart" viewBox="0 0 {d.width} {d.height}" style="--color: {d.color};">
@@ -293,11 +293,18 @@
     z-index: 3;
     visibility: hidden;
 
+    transform: translate(-50%, -50%) scale(0.3);
+    transform-origin: 50% 50%;
+
     .country:hover & {
       animation:
         appear 0s ease 300ms 1 normal forwards,
         grow 80ms ease 300ms 1 normal forwards,
         raise 80ms ease 300ms 1 normal forwards;
+    }
+
+    &.hover-chart--active {
+      pointer-events: all;
     }
 
   }
@@ -318,10 +325,6 @@
     text-align: right;
     flex-grow: 1;
     white-space: nowrap;
-  }
-
-  .hover-chart--active {
-    pointer-events: all;
   }
 
 </style>
