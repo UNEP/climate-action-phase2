@@ -11,23 +11,27 @@
   $: current = options[selected];
   console.log(options);
 </script>
+<div class="section">
+  <ScrollableX>
+    <nav>
+        <div class="subnavbuttons">
+            {#each options as option}
 
-<ScrollableX>
-  <nav>
-      <div class="subnavbuttons">
-          {#each options as option}
+            <a href={option.href} class:selected={current === option} disabled={current === option} on:click={() => current = option} title={option.text}>
+                <i><Icon name={option.icon} /></i>
+                {option.text}
+            </a>
 
-          <a href={option.href} class:selected={current === option} disabled={current === option} on:click={() => current = option} title={option.text}>
-              <i><Icon name={option.icon} /></i>
-              {option.text}
-          </a>
-
-          {/each}
-      </div>
-  </nav>
-</ScrollableX>
+            {/each}
+        </div>
+    </nav>
+  </ScrollableX>
+</div>
 
 <style>
+  .section{
+
+  }
   .subnavbuttons {
       display: flex;
       position: relative;
@@ -114,5 +118,11 @@
           font-size: 14px;
       }
   }
+  @media (max-width: 600px) {
+    .section{
+      margin: 0 -1rem;
+    }
+  }
+
 
 </style>

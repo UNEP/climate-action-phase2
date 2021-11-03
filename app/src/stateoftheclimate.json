@@ -1,6 +1,27 @@
 {
   "article": [
     {
+      "type": "websites-menu",
+      "options": [
+        {
+          "text": "State of the climate",
+          "icon": "stateoftheclimate.main",
+          "href": "http://localhost:5000/sotc.html"
+        },
+        {
+          "text": "Climate action progress",
+          "icon": "climateactionprogress.main",
+          "href": "http://localhost:5000/climateactionprogress.html"
+        },
+        {
+          "text": "Whatshappening",
+          "icon": "whatshappening.main",
+          "href": "http://localhost:5000/whatshappening.html"
+        }
+      ],
+      "selected": "0"
+    },
+    {
       "type": "intro",
       "breadcrumbs": [
         {
@@ -24,10 +45,10 @@
       "id": "sotc",
       "text": [
         {
-          "p": "Humanity’s use of fossil fuels has caused a climate emergency - ‘a code red for the planet’ according to UN SG Antonio Guterres. It’s devastating consequences are threatening our lives, economy, health and food systems - and extreme weather events are already wrecking havoc across the world. We are far from securing the global temperature rise safely below 1.5°C as promised in the Paris Agreement."
+          "p": "The world is in a climate emergency - ‘a code red for humanity’. The concentration of GHG emissions in the atmosphere is wrecking[a] havoc across the world threatening lives, economy, health and food. We are far from securing a global temperature rise safely below 1.5°C as promised in the Paris Agreement. With a baseline in 1990, some countries are emitting more, some the same and some are emitting less."
         },
         {
-          "p": "The UNEP Climate Dashboard shows you the global state of the climate emergency and its development.[a][b]"
+          "p": "The UNEP Climate Dashboard shows you the global state of the climate emergency and its development."
         }
       ]
     },
@@ -45,10 +66,10 @@
       "head": "GHG emissions are choking our world and changing our climate",
       "text": [
         {
-          "p": "Global temperatures are linked to the concentration of greenhouse gases (GHG) in our atmosphere and we are heading for a catastrophic rise in excess of 3°C this century. To limit this to 1.5°C, as promised in the Paris Agreement, we need to cut emissions by 30 gigatones annually by 2030. That means cutting emissions from transport and industry, managing land and resources more efficiently, building smart cities and curbing deforestation and food waste."
+          "p": "To limit global temperature rise to safe 1.5°C, as promised in the Paris Agreement, emissions must be cut with 30 gigatones annually by 2030[b]. This map shows countries scaled to their current emissions in 2018 and coloured by their development in emissions since 1990.[c]"
         }
       ],
-      "legend-head": "How much have emissions changed since 1990",
+      "legend-head": "How have emissions changed since 1990",
       "legend": [
         {
           "l": "Lower"
@@ -69,10 +90,10 @@
       "menuicon": "stateoftheclimate.percapita",
       "data": "percapita",
       "embed": "percapita",
-      "head": "Individual emissions vary wildly; the wealthy emit the most [d]",
+      "head": "Individual emissions vary a lot and they follow along wealth lines",
       "text": [
         {
-          "p": "We all emit GHG during the cause of our lives. But some people emit a lot more than others. The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. As developing countries grow their economies, they need financial assistance and technical support to transition to low-carbon and resilient strategies. We can reduce emissions while growing the economy. The energy sector alone can cut emissions by 12.5 gigatonnes annually by switching to renewable energy and using its power more efficiently."
+          "p": "The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. This map shows country emissions per capita and how they have changed since 1990.[d] It is a strong call to make rapid and large scale[e] emission reduction in the largest emitters and to support developing countries build a low-carbon economy and making adequate climate adaptation. [f]"
         }
       ]
     },
@@ -84,16 +105,19 @@
       "menuicon": "stateoftheclimate.trends",
       "data": "trends",
       "embed": "trends",
-      "head": "Some countries are making progress but all nations need to step up[e]",
+      "head": "Progress is being made but it is insufficient and all countries need to step up",
       "text": [
         {
-          "p": "In 2019, total GHG emissions, including land-use change, reached a new high of 59.1 GtCO2e. This is way beyond the Paris Agreement goals of limiting global warming to 1.5°C. And, we have the technological solutions to do it, including renewable energy, green hydrogen and modern bioenergy. Government subsidies and support could be directed to push towards low-carbon and green policies. [f]"
+          "p": "We can stay safe below 1.5°C temperature rise as set out in the Paris Agreement using existing solutions. They include renewable energy, green hydrogen and modern bioenergy - and government subsidies and support could be directed to push towards low-carbon and green policies."
+        },
+        {
+          "p": "We need to scale up the green transition and reduce GHG emissions by fivefold to stay safe below 1.5°C temperature rise. These are country trends in GHG emissions coloured by their development. [g]"
         }
       ]
     },
     {
       "type": "country-table",
-      "head": "Find how your country’s GHG emissions have changed since 1970.[g]",
+      "head": "See how the GHG emissions from each country have changed since 1970",
       "title": "By country",
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
@@ -108,13 +132,13 @@
       "icon": "data",
       "text": [
         {
-          "p": "Data for <strong>GHG emissions</strong> comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=”https://edgar.jrc.ec.europa.eu/report_2021#data_download”>GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=”http://dx.doi.org/10.2760/173513”>doi:10.2760/173513</a>, <a href=”https://publications.jrc.ec.europa.eu/repository/handle/JRC126363”>JRC126363</a>"
+          "p": "Data for <strong>GHG emissions</strong> comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=\"https://edgar.jrc.ec.europa.eu/report_2021#data_download\">GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=\"http://dx.doi.org/10.2760/173513\">doi:10.2760/173513</a>, <a href=\"https://publications.jrc.ec.europa.eu/repository/handle/JRC126363\">JRC126363</a>"
         },
         {
-          "p": "The “GHG emissions of all world countries - 2021 Report” uses uses the <a href=”https://edgar.jrc.ec.europa.eu/”>Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
+          "p": "The \"GHG emissions of all world countries - 2021 Report\" uses uses the <a href=\"https://edgar.jrc.ec.europa.eu/\">Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
         },
         {
-          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations.[h]"
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
     }
@@ -131,6 +155,5 @@
   "d": [],
   "e": [],
   "f": [],
-  "g": [],
-  "h": []
+  "g": []
 }
