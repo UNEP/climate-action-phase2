@@ -29,9 +29,7 @@
 </div>
 
 <style>
-  .section{
 
-  }
   .subnavbuttons {
       display: flex;
       position: relative;
