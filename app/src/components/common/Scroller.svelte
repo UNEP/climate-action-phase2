@@ -46,7 +46,6 @@
     width: 100%;
     > :global(*) {
       position: sticky;
-      top: 20vh;
     }
   }
 </style>
