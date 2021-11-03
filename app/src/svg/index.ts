@@ -58,6 +58,7 @@ const icons = {
     nzt: climateActionProgressNZT,
     main: climateActionProgressMain,
     ndc: climateActionProgressNdc,
+    ffsubsidies: climateActionProgressSubsidies,
     opinion: climateActionProgressOpinion
   },
   legends: {
