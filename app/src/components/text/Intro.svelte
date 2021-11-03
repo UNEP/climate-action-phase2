@@ -1,10 +1,8 @@
 <script>
-import PagesMenu from "../nav/PagesMenu.svelte";
 
 export let text;
 export let head;
 export let breadcrumbs;
-export let currentPage = "";
 
 </script>
 <section class='intro col-text'>
