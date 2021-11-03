@@ -51,17 +51,17 @@
     pointer-events: none;
   }
   .area {
-    fill: #00aacc;
-    opacity: .2;
+    fill: #6FA1D9;
+    opacity: .4;
   }
   .line {
-    stroke: #00aacc;
+    stroke: #6FA1D9;
     stroke-width: 2px;
     fill:none;
   }
   .selected { stroke-width: 3px;}
   .circle {
-    fill: #00aacc;
+    fill: #6FA1D9;
   }
   .container {
     width: 100%;

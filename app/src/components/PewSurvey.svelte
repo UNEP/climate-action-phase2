@@ -80,7 +80,7 @@
   <h2 class='narrow'>{@html block.head}</h2>
 
   {#if hover && selectedCountry}
-      <div class="detail-chart" style='transform: translate({detailChartPosition.x}px, {detailChartPosition.y}px);'  transition:fade={{duration:100}}>
+      <div class="detail-chart" style='transform: translate({detailChartPosition.x}px, {detailChartPosition.y}px);'  transition:fade={{duration:200}}>
       <p class="description"><span class='value'>{selectedCountry[selectedCountry.length - 1].value}%</span> of people in <span class='country'>{selectedCountry[0].country}</span> consider climate change a major threat
       </p>
       <MiniSurveyCharts
@@ -134,31 +134,30 @@
 
     .mini-chart {
         width: 10%;
-        margin-right: 2px;
-        margin-bottom: 2px;
-        padding: 20px 2px 0 2px;
-        background-color: #eaeaea;
+        margin-right: 4px;
+        padding: 20px 0 0 2px;
+        background-color: #E8E8E8;
         display: inline-block;
         position:relative;
         overflow: hidden;
     }
 
     .mini-chart:hover {
-        background-color: #dadada;
+        background-color: #E8E8E8;
         transform: scale(1.2);
         transition: transform 0.1s;
         z-index: 5;
     }
 
     .label {
-        font-size: 13px;
+        font-size: .8rem;
         margin:0;
         padding:0;
         text-align:left;
         position:absolute;
-        color: #666;
+        color: #505050;
         top: 2px;
-        left: 2px;
+        left: 6px;
         pointer-events: none;
     }
 
@@ -169,7 +168,7 @@
         margin-right: 2px;
         margin-bottom: 2px;
         padding: 10px 0 0 2px;
-        background-color: rgba(234,234,234,.85);
+        background-color: rgba(243,243,243,.85);
         box-shadow: 0px 0px 15px 0px #00000018;
         position:absolute;
         pointer-events: none;

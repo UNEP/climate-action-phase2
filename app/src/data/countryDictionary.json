@@ -1088,5 +1088,10 @@
      "id": "ESH",
      "short": null,
      "name": "Western Sahara"
+  },
+  {
+     "id": "COK",
+     "short": null,
+     "name": "Cook Islands"
   }
 ]

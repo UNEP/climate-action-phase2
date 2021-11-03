@@ -18,6 +18,10 @@ article, .page-header, .footer-content {
   margin: 0 1rem;
 }
 
+.header, .header-title {
+  font-size: .85rem;
+}
+
 .margin-breakout-mobile {
   margin: 0 -1rem;
 }
@@ -201,6 +205,9 @@ sup, sub { line-height: 0; }
 @media (min-width: 1200px){
   article, .page-header, .footer-content {
     padding-right: 220px;
+  }
+  .table {
+    padding-right:2rem;
   }
 }
 

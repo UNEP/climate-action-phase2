@@ -2,15 +2,15 @@ import { scaleOrdinal } from './d3';
 
 export const colorNDC = scaleOrdinal<string>()
   .domain(['Nothing submitted','Only INDC','Only First NDC','First 2020 NDC', 'Second 2020 NDC'])
-  .range(['#D5D7D9','#A3A4A6','#4A7D94','#1EA3C7', '#1EA3C7']);
+  .range(['#DAE0E6','#BEC7CD','#6fa1d9','#4574b8', '#004a97']);
 
 export const colorGHG = scaleOrdinal<string>()
   .domain(['falling', 'stable', 'climbing'])
-  .range(['#00AACC','#BEC7CD','#FD7D2E']);
+  .range(['#4574b8','#BEC7CD','#f5a14c']);
 
 export const colorNetZero = scaleOrdinal<string>()
   .domain([
-    'ACHIEVED', 'IN LAW', 'PROPOSED LEGISLATION',
-    'IN POLICY DOCUMENT', 'TARGET UNDER DISCUSSION'
+    'Achieved (self-declared)', 'In law', 'In policy document',
+    'Declaration / pledge', 'Proposed / in discussion', ''
   ])
-  .range(['#30609e', '#4e8cb7', '#6cb7cf', '#fec200', '#f58c00']);
+  .range(['#004a97', '#4574b8', '#6fa1d9', '#ffcf61', '#f5a14c', '#BEC7CD']);

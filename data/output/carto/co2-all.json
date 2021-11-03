@@ -1,0 +1,738 @@
+[
+  {
+    "id": "AFG",
+    "emissions2018": 29.30568
+  },
+  {
+    "id": "ALB",
+    "emissions2018": 8.97261
+  },
+  {
+    "id": "DZA",
+    "emissions2018": 262.4498
+  },
+  {
+    "id": "AGO",
+    "emissions2018": 74.92314
+  },
+  {
+    "id": "ATG",
+    "emissions2018": 0.623416
+  },
+  {
+    "id": "ARG",
+    "emissions2018": 397.3061
+  },
+  {
+    "id": "ARM",
+    "emissions2018": 8.68046
+  },
+  {
+    "id": "AUS",
+    "emissions2018": 581.9676
+  },
+  {
+    "id": "AUT",
+    "emissions2018": 85.39053
+  },
+  {
+    "id": "AZE",
+    "emissions2018": 56.13049
+  },
+  {
+    "id": "BHS",
+    "emissions2018": 2.604869
+  },
+  {
+    "id": "BHR",
+    "emissions2018": 59.24406
+  },
+  {
+    "id": "BGD",
+    "emissions2018": 256.8978
+  },
+  {
+    "id": "BRB",
+    "emissions2018": 1.55671
+  },
+  {
+    "id": "BLR",
+    "emissions2018": 104.0782
+  },
+  {
+    "id": "BEL",
+    "emissions2018": 130.564
+  },
+  {
+    "id": "BLZ",
+    "emissions2018": 1.028476
+  },
+  {
+    "id": "BEN",
+    "emissions2018": 17.18262
+  },
+  {
+    "id": "BTN",
+    "emissions2018": 2.393323
+  },
+  {
+    "id": "BOL",
+    "emissions2018": 57.81948
+  },
+  {
+    "id": "BIH",
+    "emissions2018": 30.66901
+  },
+  {
+    "id": "BWA",
+    "emissions2018": 12.90264
+  },
+  {
+    "id": "BRA",
+    "emissions2018": 1259.512
+  },
+  {
+    "id": "BRN",
+    "emissions2018": 12.79992
+  },
+  {
+    "id": "BGR",
+    "emissions2018": 59.65369
+  },
+  {
+    "id": "BFA",
+    "emissions2018": 29.17144
+  },
+  {
+    "id": "BDI",
+    "emissions2018": 6.131456
+  },
+  {
+    "id": "CPV",
+    "emissions2018": 1.138447
+  },
+  {
+    "id": "KHM",
+    "emissions2018": 41.49558
+  },
+  {
+    "id": "CMR",
+    "emissions2018": 39.43564
+  },
+  {
+    "id": "CAN",
+    "emissions2018": 762.1392
+  },
+  {
+    "id": "CAF",
+    "emissions2018": 10.84106
+  },
+  {
+    "id": "TCD",
+    "emissions2018": 67.91884
+  },
+  {
+    "id": "CHL",
+    "emissions2018": 125.6169
+  },
+  {
+    "id": "CHN",
+    "emissions2018": 13739.79
+  },
+  {
+    "id": "COL",
+    "emissions2018": 194.2418
+  },
+  {
+    "id": "COM",
+    "emissions2018": 0.781915
+  },
+  {
+    "id": "COG",
+    "emissions2018": 21.02332
+  },
+  {
+    "id": "COK",
+    "emissions2018": 0.066552
+  },
+  {
+    "id": "CRI",
+    "emissions2018": 15.39125
+  },
+  {
+    "id": "CIV",
+    "emissions2018": 29.37551
+  },
+  {
+    "id": "HRV",
+    "emissions2018": 25.70683
+  },
+  {
+    "id": "CUB",
+    "emissions2018": 46.21347
+  },
+  {
+    "id": "CYP",
+    "emissions2018": 8.602951
+  },
+  {
+    "id": "CZE",
+    "emissions2018": 131.4143
+  },
+  {
+    "id": "COD",
+    "emissions2018": 47.57254
+  },
+  {
+    "id": "DNK",
+    "emissions2018": 49.16681
+  },
+  {
+    "id": "DJI",
+    "emissions2018": 2.257532
+  },
+  {
+    "id": "DMA",
+    "emissions2018": 0.250302
+  },
+  {
+    "id": "DOM",
+    "emissions2018": 41.28007
+  },
+  {
+    "id": "ECU",
+    "emissions2018": 68.2316
+  },
+  {
+    "id": "EGY",
+    "emissions2018": 398.6795
+  },
+  {
+    "id": "SLV",
+    "emissions2018": 12.07374
+  },
+  {
+    "id": "GNQ",
+    "emissions2018": 13.79287
+  },
+  {
+    "id": "ERI",
+    "emissions2018": 6.367903
+  },
+  {
+    "id": "EST",
+    "emissions2018": 25.12045
+  },
+  {
+    "id": "SWZ",
+    "emissions2018": 3.390424
+  },
+  {
+    "id": "ETH",
+    "emissions2018": 152.4619
+  },
+  {
+    "id": "FJI",
+    "emissions2018": 3.332276
+  },
+  {
+    "id": "FIN",
+    "emissions2018": 74.80229
+  },
+  {
+    "id": "FRA",
+    "emissions2018": 450.3925
+  },
+  {
+    "id": "GAB",
+    "emissions2018": 17.89709
+  },
+  {
+    "id": "GEO",
+    "emissions2018": 16.40753
+  },
+  {
+    "id": "DEU",
+    "emissions2018": 873.5959
+  },
+  {
+    "id": "GHA",
+    "emissions2018": 37.28045
+  },
+  {
+    "id": "GRC",
+    "emissions2018": 91.86053
+  },
+  {
+    "id": "GRD",
+    "emissions2018": 0.283093
+  },
+  {
+    "id": "GTM",
+    "emissions2018": 40.60059
+  },
+  {
+    "id": "GIN",
+    "emissions2018": 24.28971
+  },
+  {
+    "id": "GNB",
+    "emissions2018": 2.845115
+  },
+  {
+    "id": "GUY",
+    "emissions2018": 5.061791
+  },
+  {
+    "id": "HTI",
+    "emissions2018": 13.53116
+  },
+  {
+    "id": "HND",
+    "emissions2018": 23.04503
+  },
+  {
+    "id": "HUN",
+    "emissions2018": 67.15908
+  },
+  {
+    "id": "ISL",
+    "emissions2018": 4.951359
+  },
+  {
+    "id": "IND",
+    "emissions2018": 3619.8
+  },
+  {
+    "id": "IDN",
+    "emissions2018": 1074.191
+  },
+  {
+    "id": "IRN",
+    "emissions2018": 926.3721
+  },
+  {
+    "id": "IRQ",
+    "emissions2018": 351.2521
+  },
+  {
+    "id": "IRL",
+    "emissions2018": 67.61521
+  },
+  {
+    "id": "ISR",
+    "emissions2018": 87.02769
+  },
+  {
+    "id": "ITA",
+    "emissions2018": 417.5558
+  },
+  {
+    "id": "JAM",
+    "emissions2018": 10.32182
+  },
+  {
+    "id": "JPN",
+    "emissions2018": 1270.212
+  },
+  {
+    "id": "JOR",
+    "emissions2018": 35.3634
+  },
+  {
+    "id": "KAZ",
+    "emissions2018": 367.7757
+  },
+  {
+    "id": "KEN",
+    "emissions2018": 90.97676
+  },
+  {
+    "id": "KIR",
+    "emissions2018": 0.09448
+  },
+  {
+    "id": "KWT",
+    "emissions2018": 141.475
+  },
+  {
+    "id": "KGZ",
+    "emissions2018": 21.27992
+  },
+  {
+    "id": "LAO",
+    "emissions2018": 36.93646
+  },
+  {
+    "id": "LVA",
+    "emissions2018": 12.55479
+  },
+  {
+    "id": "LBN",
+    "emissions2018": 34.52695
+  },
+  {
+    "id": "LSO",
+    "emissions2018": 2.845723
+  },
+  {
+    "id": "LBR",
+    "emissions2018": 4.178266
+  },
+  {
+    "id": "LBY",
+    "emissions2018": 79.20871
+  },
+  {
+    "id": "LTU",
+    "emissions2018": 23.4523
+  },
+  {
+    "id": "LUX",
+    "emissions2018": 10.46459
+  },
+  {
+    "id": "MDG",
+    "emissions2018": 32.78953
+  },
+  {
+    "id": "MWI",
+    "emissions2018": 12.65078
+  },
+  {
+    "id": "MYS",
+    "emissions2018": 324.3119
+  },
+  {
+    "id": "MDV",
+    "emissions2018": 1.848022
+  },
+  {
+    "id": "MLI",
+    "emissions2018": 38.52064
+  },
+  {
+    "id": "MLT",
+    "emissions2018": 2.056912
+  },
+  {
+    "id": "MRT",
+    "emissions2018": 13.52663
+  },
+  {
+    "id": "MUS",
+    "emissions2018": 6.023436
+  },
+  {
+    "id": "MEX",
+    "emissions2018": 801.3804
+  },
+  {
+    "id": "MDA",
+    "emissions2018": 12.36462
+  },
+  {
+    "id": "MNG",
+    "emissions2018": 60.81458
+  },
+  {
+    "id": "MAR",
+    "emissions2018": 101.2431
+  },
+  {
+    "id": "MOZ",
+    "emissions2018": 32.55969
+  },
+  {
+    "id": "MMR",
+    "emissions2018": 145.2373
+  },
+  {
+    "id": "NAM",
+    "emissions2018": 12.04212
+  },
+  {
+    "id": "NPL",
+    "emissions2018": 51.18223
+  },
+  {
+    "id": "NLD",
+    "emissions2018": 221.9044
+  },
+  {
+    "id": "NZL",
+    "emissions2018": 84.92306
+  },
+  {
+    "id": "NIC",
+    "emissions2018": 19.13149
+  },
+  {
+    "id": "NER",
+    "emissions2018": 34.77653
+  },
+  {
+    "id": "NGA",
+    "emissions2018": 392.7597
+  },
+  {
+    "id": "PRK",
+    "emissions2018": 44.6078
+  },
+  {
+    "id": "MKD",
+    "emissions2018": 10.2419
+  },
+  {
+    "id": "NOR",
+    "emissions2018": 71.0064
+  },
+  {
+    "id": "OMN",
+    "emissions2018": 120.0153
+  },
+  {
+    "id": "PAK",
+    "emissions2018": 504.5899
+  },
+  {
+    "id": "PLW",
+    "emissions2018": 1.27983
+  },
+  {
+    "id": "PAN",
+    "emissions2018": 16.00784
+  },
+  {
+    "id": "PNG",
+    "emissions2018": 15.84161
+  },
+  {
+    "id": "PRY",
+    "emissions2018": 43.24559
+  },
+  {
+    "id": "PER",
+    "emissions2018": 91.36851
+  },
+  {
+    "id": "PHL",
+    "emissions2018": 237.4231
+  },
+  {
+    "id": "POL",
+    "emissions2018": 424.9649
+  },
+  {
+    "id": "PRT",
+    "emissions2018": 69.5517
+  },
+  {
+    "id": "QAT",
+    "emissions2018": 178.4765
+  },
+  {
+    "id": "ROU",
+    "emissions2018": 118.9537
+  },
+  {
+    "id": "RUS",
+    "emissions2018": 2313.735
+  },
+  {
+    "id": "RWA",
+    "emissions2018": 6.713835
+  },
+  {
+    "id": "KNA",
+    "emissions2018": 0.210147
+  },
+  {
+    "id": "LCA",
+    "emissions2018": 0.506646
+  },
+  {
+    "id": "VCT",
+    "emissions2018": 0.198107
+  },
+  {
+    "id": "WSM",
+    "emissions2018": 0.580864
+  },
+  {
+    "id": "STP",
+    "emissions2018": 0.247286
+  },
+  {
+    "id": "SAU",
+    "emissions2018": 750.5968
+  },
+  {
+    "id": "SEN",
+    "emissions2018": 25.31614
+  },
+  {
+    "id": "SRB",
+    "emissions2018": 94.70937
+  },
+  {
+    "id": "SYC",
+    "emissions2018": 1.252042
+  },
+  {
+    "id": "SLE",
+    "emissions2018": 6.736201
+  },
+  {
+    "id": "SGP",
+    "emissions2018": 70.52111
+  },
+  {
+    "id": "SVK",
+    "emissions2018": 47.58161
+  },
+  {
+    "id": "SVN",
+    "emissions2018": 20.50643
+  },
+  {
+    "id": "SLB",
+    "emissions2018": 0.527479
+  },
+  {
+    "id": "SOM",
+    "emissions2018": 29.04895
+  },
+  {
+    "id": "ZAF",
+    "emissions2018": 573.9589
+  },
+  {
+    "id": "KOR",
+    "emissions2018": 758.1368
+  },
+  {
+    "id": "ESP",
+    "emissions2018": 349.7656
+  },
+  {
+    "id": "LKA",
+    "emissions2018": 41.71494
+  },
+  {
+    "id": "SDN",
+    "emissions2018": 131.6412
+  },
+  {
+    "id": "SUR",
+    "emissions2018": 2.933499
+  },
+  {
+    "id": "SWE",
+    "emissions2018": 64.58824
+  },
+  {
+    "id": "CHE",
+    "emissions2018": 47.90822
+  },
+  {
+    "id": "SYR",
+    "emissions2018": 42.6346
+  },
+  {
+    "id": "TJK",
+    "emissions2018": 19.41181
+  },
+  {
+    "id": "TZA",
+    "emissions2018": 75.16169
+  },
+  {
+    "id": "THA",
+    "emissions2018": 434.7812
+  },
+  {
+    "id": "GMB",
+    "emissions2018": 2.073008
+  },
+  {
+    "id": "TLS",
+    "emissions2018": 5.141213
+  },
+  {
+    "id": "TGO",
+    "emissions2018": 9.652757
+  },
+  {
+    "id": "TON",
+    "emissions2018": 0.227969
+  },
+  {
+    "id": "TTO",
+    "emissions2018": 47.49423
+  },
+  {
+    "id": "TUN",
+    "emissions2018": 42.62411
+  },
+  {
+    "id": "TUR",
+    "emissions2018": 579.1885
+  },
+  {
+    "id": "TKM",
+    "emissions2018": 125.7883
+  },
+  {
+    "id": "UGA",
+    "emissions2018": 46.97968
+  },
+  {
+    "id": "UKR",
+    "emissions2018": 278.1473
+  },
+  {
+    "id": "ARE",
+    "emissions2018": 277.5436
+  },
+  {
+    "id": "GBR",
+    "emissions2018": 463.735
+  },
+  {
+    "id": "USA",
+    "emissions2018": 6297.624
+  },
+  {
+    "id": "URY",
+    "emissions2018": 39.11921
+  },
+  {
+    "id": "UZB",
+    "emissions2018": 172.0539
+  },
+  {
+    "id": "VUT",
+    "emissions2018": 0.715922
+  },
+  {
+    "id": "VEN",
+    "emissions2018": 211.1288
+  },
+  {
+    "id": "VNM",
+    "emissions2018": 418.799
+  },
+  {
+    "id": "YEM",
+    "emissions2018": 30.48129
+  },
+  {
+    "id": "ZMB",
+    "emissions2018": 28.48952
+  },
+  {
+    "id": "ZWE",
+    "emissions2018": 31.3319
+  }
+]

@@ -8,16 +8,26 @@
   import { colorNetZero } from "src/colors";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import CartogramNode from "./maps/CartogramNode.svelte";
+  import Legend from "./common/Legend.svelte";
+  import SectionTitle from "./SectionTitle.svelte";
+  import type { Content } from "src/types";
 
   export let text: {p: string}[];
+  export let id: string;
+  export var block: Content;
 
   let section: number;
   let prevSection: number;
 
   type SharedParamNames = 'dataset' | 'countries';
 
+  const labels = [
+    ...colorNetZero.domain().slice(0, -1),
+    'No plans'
+  ];
+
   type CartogramProps = Cartogram<[
-    SimpleCartogramDataPoint<'emissions2019'>,
+    SimpleCartogramDataPoint<'emissions2018'>,
     TrendsCartogramDataPoint<'size'>
   ]>['$$prop_def'];
 
@@ -69,16 +79,33 @@
     }
   }
 
+  let hoveredLegendIndex: number;
+
+
+  $: hoveredLegendColor = hoveredLegendIndex !== null && hoveredLegendIndex >= 0
+    ? colorNetZero.range()[hoveredLegendIndex] : "";
+
+  $: console.log('hoveredLegendColor', hoveredLegendIndex, hoveredLegendColor);
 
 </script>
 
-<div>
+<div {id}>
   <Scroller bind:section>
     <div slot="sticky">
+      <div class="legend-container">
+
+        <SectionTitle {block} />
+
+        <Legend type='categorical'
+          title="Current <b>net zero</b> policy status"
+          colors={colorNetZero.range()} {labels}
+          bind:selected={hoveredLegendIndex} />
+      </div>
       <div class="carto-container">
         <div class="carto-content">
           <Cartogram
             {...sharedParams} {...currentSectionParams}
+            legendIsHoveredValue={hoveredLegendColor}
             bind:rerenderFn
             selectedDatasetIndex={Math.floor((section || 0) / 2)} />
         </div>
@@ -125,6 +152,17 @@
     .carto-content {
       height: 70vh;
       width: 100%;
+    }
+  }
+
+  .legend-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: -20px;
+    position: relative;
+    z-index: 10;
+    > :global(.legend-container) {
+      max-width: 500px;
     }
   }
 

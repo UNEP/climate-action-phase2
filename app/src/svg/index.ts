@@ -12,6 +12,10 @@ import whatshappeningOcean from './icons_whats-happening--ocean.svg';
 import whatshappeningFire from './icons_whats-happening--fire.svg';
 import whatshappeningSurface from './icons_whats-happening--surface.svg';
 
+import searchTable from './icons_search-table.svg';
+import climateActionProgressNZT from './icons_climate-action-progress--nzt.svg';
+import climateActionProgressSubsidies from './icons_climate-action-progress--ffsubsidies.svg';
+
 import stateoftheclimateMain from './icons_state-of-the-climate--main.svg';
 import stateoftheclimateEmissions from './icons_state-of-the-climate--total-emissions.svg';
 import stateoftheclimatePerCapita from './icons_state-of-the-climate--per-capita.svg';
@@ -40,15 +44,18 @@ const icons = {
     main: stateoftheclimateMain,
     emissions: stateoftheclimateEmissions,
     percapita: stateoftheclimatePerCapita,
-    trends: stateoftheclimateTrends
+    trends: stateoftheclimateTrends,
+    searchtable:searchTable
   },
   whatshappening: {
     main: whatshappeningMain,
     ocean: whatshappeningOcean,
     fire: whatshappeningFire,
     surface: whatshappeningSurface,
+    searchtable:searchTable
   },
   climateactionprogress: {
+    nzt: climateActionProgressNZT,
     main: climateActionProgressMain,
     ndc: climateActionProgressNdc,
     opinion: climateActionProgressOpinion
