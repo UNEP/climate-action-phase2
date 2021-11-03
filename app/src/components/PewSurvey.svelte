@@ -24,8 +24,11 @@
     let loaded: boolean = false;
     let selectedCountry:Array<any>;
     let width: number = 100;
-    $: tileWidth = width * .1;
+    let tileWidth: number = width * .1;
+    $: width < 826 ? tileWidth = width * .2 : tileWidth = width * .1;
+    $: console.log(width);
     let hover: boolean = false;
+    let hoverTileWidth: number = 270;
 
     let groupByCountry;
     let detailChartPosition: {x:number, y:number};
@@ -52,7 +55,8 @@
       hover = true;
 
       detailChartPosition = pos;
-      detailChartPosition.x = detailChartPosition.x - 100;
+
+      detailChartPosition.x = detailChartPosition.x + tileWidth / 2 - hoverTileWidth / 2;
       detailChartPosition.y = detailChartPosition.y;
 
       if (detailChartPosition.x < 32) {
@@ -85,7 +89,7 @@
       </p>
       <MiniSurveyCharts
               data={selectedCountry}
-              width={270}
+              width={hoverTileWidth}
               selected={true}
           />
       </div>
@@ -199,6 +203,11 @@
 
     .value {
         font-size:18px;
+    }
+    @media (max-width: 900px) {
+      .mini-chart {
+        width: 20%;
+      }
     }
 
 </style>
