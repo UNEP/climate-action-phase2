@@ -3,7 +3,7 @@
   import Cartogram from "src/components/maps/Cartogram.svelte";
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
-  import { colorNDC, colorGHG } from "src/colors";
+  import { colorNDC, colorGHG, colorSubsidies } from "src/colors";
   import { displayVal} from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
@@ -45,10 +45,11 @@
     ghg: Dataset<SimpleCartogramDataPoint<'emissions2018'>>,
     percapita: Dataset<SimpleCartogramDataPoint<'emissions_percapita'>>,
     trends: Dataset<TrendsCartogramDataPoint<'size'>>,
-    ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>
+    ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>,
+    ffsubsidies: Dataset<SimpleCartogramDataPoint<'subsidies_percapita'>>,
   }
 
-  const ghgLabels = ['Lower', 'Status quo', 'More than in 1990'];
+  const ghgLabels = ['Lower', 'Stagnant', 'More than in 1990'];
 
   const datasetParams: Datasets = {
     ghg: {
@@ -141,10 +142,34 @@
         },
       },
       legend: {
-        title: `As a multiple of the <strong>WHO's guideline</strong> (10 µg/m<sup>3</sup>)`,
+        title: `Status of <b>Nationally Determined Contributions (NDCs)</b>`,
         colors: colorNDC.range(),
         labels: colorNDC.domain(),
         type: 'categorical',
+      }
+    },
+    ffsubsidies: {
+      cartogram: {
+        dataset: [{
+          ...datasets.cartoworld.ffsubsidies,
+          NodeClass: CartogramDataPoint,
+          NodeComponent: CartogramNode,
+          hoverTextFn: c =>
+              `<b>${c.name}</b> subsidized fossil fuels with <b>$${displayVal(c.data.subsidies_total_in_millions, 1)} million</b> in 2019` +
+              ` — <b>$${displayVal(c.data.subsidies_percapita, 1)} per person</b>. That represents <b>${displayVal(c.data.subsidies_pct_gdp, 1)}% of its GDP</b>.`,
+          colorFn: d => colorSubsidies(d.data.subsidies_pct_gdp),
+        }],
+        countries: datasets.countries,
+        helpText: {
+          code: "CAN",
+          text: "Each square represents a country, scaled by its fossil-fuel subsidies per capita"
+        },
+      },
+      legend: {
+        title: `How much <b>fossil-fuel subsidies</b> represent <b>as a percent of GDP</b>`,
+        colors: colorSubsidies.range(),
+        labels: colorSubsidies.domain(),
+        type: 'sequential',
       }
     }
   };
