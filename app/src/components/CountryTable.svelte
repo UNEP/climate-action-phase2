@@ -79,13 +79,12 @@
 
     if (over1percentLookUp[data.id] !== undefined) {
       const latestEmissions = data.emissions2018;
-      descriptionPhrase += `<b>${data.name}</b> is the one of top emitters from the countries
-        with >1% of the global share. It accounts for ${data.globalPct}% of global
-        GHG emissions. In 2018, it emitted ${latestEmissions} million tonnes. `;
+      descriptionPhrase += `<b>${data.name}</b> is the one of top GHG emitters. It accounts for ${data.globalPct}% of global 
+      emissions. In 2018, it emitted ${latestEmissions} million tonnes. `;
     }
     if (biggestPerCapitaLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> is on of the countries
-        with the highest per capita GHG values. — ${biggestPerCapitaLookUp[data.id].toFixed(2)}. `;
+      descriptionPhrase += `<b>${data.name}</b> is one of the countries
+        with the highest per capita GHG emissions — ${biggestPerCapitaLookUp[data.id].toFixed(2)}. `;
     }
     if (increaseLookUp[data.id] !== undefined) {
       descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
