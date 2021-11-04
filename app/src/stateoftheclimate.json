@@ -67,10 +67,10 @@
       "head": "GHG emissions are choking our world, mitigation opportunities exist but GHG emissions continue to rise",
       "text": [
         {
-          "p": "To limit global temperature rise to safe 1.5°C, as promised in the Paris Agreement, countries must cut 30 gigatonnes of greenhouse gas emissions annually by 2030. [a]"
+          "p": "To limit global temperature rise to a safe 1.5°C, as promised in the Paris Agreement, countries must cut 30 gigatonnes of greenhouse gas emissions annually by 2030. The necessary solutions exist yet at the moment more and more GHG emissions are entering the atmosphere making it harder to keep the planet safe."
         }
       ],
-      "legend-head": "How have emissions changed since 1990",
+      "legend-head": "How emissions have changed since 1990",
       "legend": [
         {
           "l": "Lower"
@@ -94,7 +94,7 @@
       "head": "Individual carbon footprint varies a lot and it falls along wealth lines",
       "text": [
         {
-          "p": "The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. It is a strong call to make rapid and large scale[b] emission reduction in the largest emitters and to support developing countries build a low-carbon economy and making adequate climate adaptation. [c]"
+          "p": "The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. That is why developed nation must step up to make rapid and large-scale emission reduction and support developing countries as they build low-carbon economies and make adequate climate adaptation."
         }
       ]
     },
@@ -146,8 +146,5 @@
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on climate action from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "climate action, climate change, GHG emissions, CO2"
-  },
-  "a": [],
-  "b": [],
-  "c": []
+  }
 }
