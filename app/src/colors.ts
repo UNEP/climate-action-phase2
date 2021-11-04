@@ -1,4 +1,4 @@
-import { scaleOrdinal } from './d3';
+import { scaleOrdinal, scaleThreshold } from './d3';
 
 export const colorNDC = scaleOrdinal<string>()
   .domain(['Nothing submitted','Only INDC','Only First NDC','First 2020 NDC', 'Second 2020 NDC'])
@@ -14,3 +14,7 @@ export const colorNetZero = scaleOrdinal<string>()
     'Declaration / pledge', 'Proposed / in discussion', ''
   ])
   .range(['#004a97', '#4574b8', '#6fa1d9', '#ffcf61', '#f5a14c', '#BEC7CD']);
+
+  export const colorSubsidies = scaleThreshold<number, string>()
+  .domain([0.2,0.5,1,2.5])
+  .range(['#facc6e', '#d9a177', '#b4797c', '#8a5480', '#583382']);

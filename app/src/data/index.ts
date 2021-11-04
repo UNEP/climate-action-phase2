@@ -2,6 +2,7 @@ import { createLookup, Unpacked } from 'src/util';
 import percapita from './co2-percapita.carto.json';
 import ghg from './co2.carto.json';
 import trends from './trends.carto.json';
+import ffsubsidies from './subsidies.carto.json';
 import trendsNotInCarto from './co2trends-notincarto.json';
 import countries from './countryDictionary.json';
 import ndc from './ndc.carto.json';
@@ -96,6 +97,7 @@ export default {
     ghg,
     ndc,
     trends,
+    ffsubsidies
   },
   lookups: {
     netzero: createLookup(netzero, d => d.id, d => d),

@@ -1,0 +1,1450 @@
+[
+  {
+     "id": "AFG",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "13.6% reduction in GHG emissions by 2030 compared to a business as usual (BAU) scenario, conditional on external support",
+     "name": "Afghanistan"
+  },
+  {
+     "id": "AGO",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Up to 35% (uncondtional) to 50% (conditional) reduction in GHG emissions by 2030 as compared to the BAU scenario",
+     "name": "Angola"
+  },
+  {
+     "id": "ARG",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "A cap of 359 MtCO2e net emissions in 2030",
+     "name": "Argentina"
+  },
+  {
+     "id": "ARM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Total aggregate emissions between 2015 and 2050 will be equal to 633 million tCO2eq, and that the country will strive to achieve ecosystem neutral GHG emissions in 2050 (equivalent to 2.07 tons/per capita per annum) with international support.",
+     "name": "Armenia"
+  },
+  {
+     "id": "ATG",
+     "status": "In policy document",
+     "year": 2040.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Antigua and Barbuda"
+  },
+  {
+     "id": "AUT",
+     "status": "In policy document",
+     "year": 2040.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Austria"
+  },
+  {
+     "id": "BEL",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Belgium"
+  },
+  {
+     "id": "BEN",
+     "status": "Achieved (self-declared)",
+     "year": 2000.0,
+     "ndcStatus": "Only First NDC",
+     "description": "49.49 MtCO2e, or 16.17% reduction in overall cumulative GHG emissions (excluding forestry sector) 2021-2030 compared to the BAU scenario; The share of national efforts is 3.63% and of conditional contribution is 12.55%",
+     "name": "Benin"
+  },
+  {
+     "id": "BFA",
+     "status": null,
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "6.6% (unconditional), 11.6% (hybrid conditional), or 36.95% (adaptation co-benefits) reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Burkina Faso"
+  },
+  {
+     "id": "BGD",
+     "status": "Proposed / in discussion",
+     "year": 2030.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "5% (unconditional) to 15% (conditional) reduction in GHG emissions by 2030 compared to the BAU levels",
+     "name": "Bangladesh"
+  },
+  {
+     "id": "BHS",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "30% reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Bahamas"
+  },
+  {
+     "id": "BLZ",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Belize"
+  },
+  {
+     "id": "BRB",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "44% reduction by 2030 in GHG emissions compared to the BAU scenario, translating to a 23% reduction compared to 2008 in absolute terms; Interim target of 37% reduction compared to its BAU scenario by 2025",
+     "name": "Barbados"
+  },
+  {
+     "id": "BTN",
+     "status": "Achieved (self-declared)",
+     "year": 2000.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Remain carbon neutral where GHG emission will not exceed sequestration by forests, which is estimated at 6.3 million tons of CO2",
+     "name": "Bhutan"
+  },
+  {
+     "id": "CAF",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "5% reduction by 2030 and 25% by 2050 in GHG emission compared to the reference BAU scenario",
+     "name": "Central African Rep."
+  },
+  {
+     "id": "CAN",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "30% reduction in GHG emissions by 2030 compared to 2005, representing a total economy-wide emissions of 523 Mt in 2030",
+     "name": "Canada"
+  },
+  {
+     "id": "CHE",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 50% reduction by 2030 compared to 1990 levels, with an indicative goal to reduce greenhouse gas emissions to net-zero emissions by 2050.",
+     "name": "Switzerland"
+  },
+  {
+     "id": "CHL",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "A goal of 95 MtCO2eq by 2030, an emissions maximum in 2025, and a GHG emissions budget of no more than 1,100 MtCO2eq in the period 2020-2030.",
+     "name": "Chile"
+  },
+  {
+     "id": "CHN",
+     "status": "In policy document",
+     "year": 2060.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Achieve the peaking of CO2 emissions around 2030 and making best efforts to peak early; 60% to 65% reduction of CO2 emissions per unit of GDP by 2030 compared to 2005 level",
+     "name": "China"
+  },
+  {
+     "id": "COG",
+     "status": "Declaration / pledge",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Abouth 48% (or 8 MtCO2e) reduction in 2025 and 54% (or 19 MtCO2e) reduction in 2035 in GHG emission compared to the baseline scenario",
+     "name": "Congo"
+  },
+  {
+     "id": "COL",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Maximum of 169.44 MtCO2e in 2030 (equivalent to 51% reduction compared to BAU)<br>Reduce black carbon emissions by 40% compared to 2014 in 2030.",
+     "name": "Colombia"
+  },
+  {
+     "id": "COM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "84% reduction in GHG emissions by 2030 compared to the reference scenario, including sinks from the Land Use, Land-Use Change, and Forestry (LULUCF) sector.",
+     "name": "Comoros"
+  },
+  {
+     "id": "CPV",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Reduce GHG emissions by 18% (unconditional) and 24% (conditional) by 2030 compared to BAU.",
+     "name": "Cabo Verde"
+  },
+  {
+     "id": "CRI",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "An absolute maximum of net-emissions by 2030 of 9.11 MtCO2e, and a maximum budget of net-emissions during 2021-2030 of 106.53 MtCO2e.",
+     "name": "Costa Rica"
+  },
+  {
+     "id": "CYP",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Cyprus"
+  },
+  {
+     "id": "CZE",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Czechia"
+  },
+  {
+     "id": "DEU",
+     "status": "In law",
+     "year": 2045.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Germany"
+  },
+  {
+     "id": "DJI",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "40% (unconditional) to additional 20% (conditional) reduction in GHG emissions by 2030 compared to the referece scenario, equivalent to 1.8 MtCO2e (unconditional) to an additional 0.9 MtCO2e (conditional) reduction in 2030",
+     "name": "Djibouti"
+  },
+  {
+     "id": "DMA",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "17.9% by 2020, 39.2% by 2025 and 44.7% by 2030 reduction in GHG emissions below 2014 levels (164.5 Ggs est.)",
+     "name": "Dominica"
+  },
+  {
+     "id": "DNK",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Denmark"
+  },
+  {
+     "id": "DOM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "27% reduction (7% unconditional to domestic finances and 20% conditional to external finances) by 2030 compared to BAU",
+     "name": "Dominican Rep."
+  },
+  {
+     "id": "ECU",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Ecuador"
+  },
+  {
+     "id": "ERI",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "The government of Eritrea is committed to reduce the CO2 emissions from fossil fuels by 4.2% in 2020, 6.2% by 2025 and 12.0% by 2030 compared to the projected BAU of the reference year of 2010. If additional support is availed, it can further be reduced by 12.6% in 2020, 24.9% by 2025 and 38.5 by the year 2030.",
+     "name": "Eritrea"
+  },
+  {
+     "id": "ESP",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Spain"
+  },
+  {
+     "id": "EST",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Estonia"
+  },
+  {
+     "id": "ETH",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Ethiopia is committing to reduce economy-wide greenhouse gas emissions (GHG) by 220.59 MtCO2eq in 2030 as compared to the 2010 BAU scenario. Ethiopia commits to 12.4% (unconditional) and 41.1%% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario (412.1 MtCO2eq).",
+     "name": "Ethiopia"
+  },
+  {
+     "id": "FIN",
+     "status": "In policy document",
+     "year": 2035.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Finland"
+  },
+  {
+     "id": "FJI",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "To reduce 30% of BAU CO2 emissions from the energy sector by 2030",
+     "name": "Fiji"
+  },
+  {
+     "id": "FRA",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "France"
+  },
+  {
+     "id": "GAB",
+     "status": "Achieved (self-declared)",
+     "year": 2000.0,
+     "ndcStatus": "Only First NDC",
+     "description": "At least 50% reduction in GHG emissions by 2025 compared to the baseline scenario emissions",
+     "name": "Gabon"
+  },
+  {
+     "id": "GBR",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Reduce economy-wide greenhouse gas emissions by at least 68% by 2030, compared to 1990 levels.",
+     "name": "United Kingdom"
+  },
+  {
+     "id": "GIN",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "13% reduction in GHG emissions by 2030 compared to 1994, excluding Land-Use Change and Forestry (LUCF)",
+     "name": "Guinea"
+  },
+  {
+     "id": "GMB",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Gambia"
+  },
+  {
+     "id": "GNB",
+     "status": "Achieved (self-declared)",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Guinea-Bissau"
+  },
+  {
+     "id": "GRC",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Greece"
+  },
+  {
+     "id": "GRD",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "40% reduction of the 2010 emissions levels by 2030",
+     "name": "Grenada"
+  },
+  {
+     "id": "GUY",
+     "status": "Achieved (self-declared)",
+     "year": 2019.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Guyana"
+  },
+  {
+     "id": "HRV",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Croatia"
+  },
+  {
+     "id": "HTI",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "5% (unconditional) to 31% (conditional) reduction in GHG emissions compared to the baseline scenario, equivalent to an absolute reduction of 10 MtCO2e (unconditional) to 45.24 MtCO2e (conditional)",
+     "name": "Haiti"
+  },
+  {
+     "id": "HUN",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Hungary"
+  },
+  {
+     "id": "IRL",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Ireland"
+  },
+  {
+     "id": "ISL",
+     "status": "In policy document",
+     "year": 2040.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Economy-wide net reduction of at least 55% in greenhouse gas emissions by 2030 compared to 1990",
+     "name": "Iceland"
+  },
+  {
+     "id": "ITA",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Italy"
+  },
+  {
+     "id": "JAM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Jamaica's target is to achieve 25.4% reduction relative to business-as-usual emissions in 2030 without international support (unconditional), 28.5% reduction relative to business-as-usual emissions in 2030 conditional upon international support.",
+     "name": "Jamaica"
+  },
+  {
+     "id": "JPN",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "26% reduction in GHG emissions by fiscal year (FY) 2030 compared to FY 2013, or 25.4% reduction compared to FY 2005, equivalent to approximately 1.042 billion t-CO2eq in 2030",
+     "name": "Japan"
+  },
+  {
+     "id": "KHM",
+     "status": "Achieved (self-declared)",
+     "year": 2000.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "42%% reduction in GHG emission below BAU by 2030",
+     "name": "Cambodia"
+  },
+  {
+     "id": "KIR",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "13.7% reduction in GHG emissions by 2025 and 12.8% by 2030 compared to a BAU projection",
+     "name": "Kiribati"
+  },
+  {
+     "id": "KNA",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "22% reduction for 2025 and 35% reduction for 2030 in GHG emissions compared to the BAU scenario",
+     "name": "Saint Kitts and Nevis"
+  },
+  {
+     "id": "KOR",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "24.4% by 2030 compared to 2017 levels (709.1MtCO2e)",
+     "name": "Rep. of Korea"
+  },
+  {
+     "id": "LAO",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Lao People’s Dem. Rep."
+  },
+  {
+     "id": "LBN",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "20% (unconditional) to 31% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Lebanon"
+  },
+  {
+     "id": "LBR",
+     "status": "Achieved (self-declared)",
+     "year": 2000.0,
+     "ndcStatus": "Only First NDC",
+     "description": "15% reduction in GHG emissions by 2030 compared to the BAU trajectory",
+     "name": "Liberia"
+  },
+  {
+     "id": "LCA",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "7% (7.2%) GHG emissions reduction in the energy sector relative to 2010, by 2030, equivalent to 37 GgCO2 eq.",
+     "name": "Saint Lucia"
+  },
+  {
+     "id": "LSO",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Unconditional target: 10% reduction in GHG emissions compared to business as usual (BAU) by 2030. Conditional target: An additional 25% reduction under certain conditions which would bring the total GHG reduction to sum 35% of (a) and (b) below BAU emission levels by 2030.",
+     "name": "Lesotho"
+  },
+  {
+     "id": "LTU",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Lithuania"
+  },
+  {
+     "id": "LUX",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Luxembourg"
+  },
+  {
+     "id": "LVA",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Latvia"
+  },
+  {
+     "id": "MDG",
+     "status": "Achieved (self-declared)",
+     "year": 2010.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Reduce approximately 30 MtCO2, representing 14% of national emissions, in 2030 compared to the BAU scenario; additive to 61 MtCO2 absorptions increase of the LULUCF sector in 2030, expected at 32% compared to the BAU scenario",
+     "name": "Madagascar"
+  },
+  {
+     "id": "MDV",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Maldives commits to reduce emissions by 26% (conditional) by 2030 compared to BAU and strive to achieve net-zero by 2030.",
+     "name": "Maldives"
+  },
+  {
+     "id": "MEX",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Unconditionally, 22% reduction in GHG and 51% reduction in Black Carbon for the year 2030 compared to BAU scenario <br>With conditions, GHG reductions could increase up to 36%, and Black Carbon reductions to 70% in 2030.",
+     "name": "Mexico"
+  },
+  {
+     "id": "MLI",
+     "status": "Achieved (self-declared)",
+     "year": 2010.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Sequest 84,437 ktCO2e under mitigation scenario (conditional), 29,242 KtCO2e under baseline scenario in 2030; 29% reduction in GHG emissions from agriculture, 31% from energy and 21% from land use and forestry by 2030 compared to the baseline scenario",
+     "name": "Mali"
+  },
+  {
+     "id": "MLT",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Malta"
+  },
+  {
+     "id": "MMR",
+     "status": "Achieved (self-declared)",
+     "year": 2005.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Myanmar"
+  },
+  {
+     "id": "MOZ",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Mozambique"
+  },
+  {
+     "id": "MRT",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "2.68% (unconditional) to 22.3%, or 4.2 MtCO2e (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario (18.84 MtCO2e); 33.56 MtCO2e cumulative avoided emissions 2020-2030",
+     "name": "Mauritania"
+  },
+  {
+     "id": "MUS",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "30% reduction in GHG emissions by 2030 compared to the BAU scenario (7 MtCO2e)",
+     "name": "Mauritius"
+  },
+  {
+     "id": "MWI",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Malawi"
+  },
+  {
+     "id": "NAM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "89% reduction (projected avoided emissions at the order of 20000 GgCO2eq inclusive of sequestration in AFOLU sector) in GHG emissions at 2030 compared to the BAU scenario",
+     "name": "Namibia"
+  },
+  {
+     "id": "NER",
+     "status": "Achieved (self-declared)",
+     "year": 2008.0,
+     "ndcStatus": "Only First NDC",
+     "description": "2.5% (unconditional) to 25%(conditional) reduction by 2020 and of 3.5% (unconditional) to 34.6%(conditional) reduction by 2030 in GHG emissions compared to the BAU scenario",
+     "name": "Niger"
+  },
+  {
+     "id": "NIC",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "69 MtCO2e in 2030 or 10% reduction compared to BAU (77 MtCO2e)",
+     "name": "Nicaragua"
+  },
+  {
+     "id": "NOR",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 50% and towards 55% reduction in greenhouse gas emission by 2030 compared to 1990 levels",
+     "name": "Norway"
+  },
+  {
+     "id": "NPL",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "No GHG Target mentioned in the submission",
+     "name": "Nepal"
+  },
+  {
+     "id": "NZL",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "reduce net emissions of greenhouse gases (other than biogenic methane) to zero by 2050, and to reduce emissions of biogenic methane to 24 to 47 per cent below 2017 levels by 2050, including to 10 per cent below 2017 levels by 2030",
+     "name": "New Zealand"
+  },
+  {
+     "id": "PAK",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Up to 20% reduction in GHG emissions by 2030 compared to the projected GHG emissions",
+     "name": "Pakistan"
+  },
+  {
+     "id": "PER",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Peru commits to limit its GHG emissions to a maximum level of 208.8 MtCO2e (unconditional) and 179.0 MtCO2e (conditional) in 2030.",
+     "name": "Peru"
+  },
+  {
+     "id": "PLW",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "22% reduction in GHG emissions from energy sector 2025 compared to 2005",
+     "name": "Palau"
+  },
+  {
+     "id": "PNG",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "Papua New Guinea commits a carbon neutrality target within the energy industries sub-sector by 2030, and a 10,000 Gg CO2 eq reduction target in annual emission from deforestation and forest degradation compared to 2015 level by 2030.",
+     "name": "Papua New Guinea"
+  },
+  {
+     "id": "PRT",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Portugal"
+  },
+  {
+     "id": "RWA",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Rwanda commits to reduce emissions by 16% (unconditional) and 38% (conditional) in 2030 compared to BAU.",
+     "name": "Rwanda"
+  },
+  {
+     "id": "SEN",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "5% (unconditional) to 23.7% (conditional) reduction in 2025, and 7% (unconditional) to 29.5% (conditional) reduction in 2030 in GHG emissions compared to baseline projections",
+     "name": "Senegal"
+  },
+  {
+     "id": "SLB",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "12% (unconditional) to 27% (conditional) reduction by 2025, 30% (unconditional) to 45% (conditional) reduction by 2030, and more than 50% (conditional) reduction by 2050 in GHG emissions compared to the BAU projection",
+     "name": "Solomon Islands"
+  },
+  {
+     "id": "SLE",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Sierra Leone"
+  },
+  {
+     "id": "STP",
+     "status": "Achieved (self-declared)",
+     "year": 2012.0,
+     "ndcStatus": "Only First NDC",
+     "description": "57 ktCO2e (or approxiamtely 24% national emission) reduction in GHG emission by 2030 compared to the BAU scenario",
+     "name": "Sao Tome and Principe"
+  },
+  {
+     "id": "SUR",
+     "status": "Achieved (self-declared)",
+     "year": 2003.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "Not Applicable",
+     "name": "Suriname"
+  },
+  {
+     "id": "SVK",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Slovakia"
+  },
+  {
+     "id": "SVN",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Slovenia"
+  },
+  {
+     "id": "SWE",
+     "status": "In law",
+     "year": 2045.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Sweden"
+  },
+  {
+     "id": "TCD",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Cumulative 18.2% (unconditional) to 71% (conditional) reduction in GHG emissions by 2030 compared to the reference scenario, equivalent to a cumulative reduction of about 41,700 GgCO2e (unconditional) to 162,000 GgCO2e (conditional) 2015-2030",
+     "name": "Chad"
+  },
+  {
+     "id": "TGO",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "11.14% (unconditional) and 31.14% (conditional) reduction in GHG emissions by 2030 compared to the baseline scenario",
+     "name": "Togo"
+  },
+  {
+     "id": "TLS",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Timor-Leste"
+  },
+  {
+     "id": "TON",
+     "status": "Achieved (self-declared)",
+     "year": 2006.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "Tonga commits to reduce emissions by 13% (16Gg) by 2030 compared to 2006 in energy sector.",
+     "name": "Tonga"
+  },
+  {
+     "id": "TTO",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "15% (equivalent of 103,000,000 tCO2e) reduction in GHG emissions from power generation, transportation and industrial sectors by 2030 compared to the BAU scenario; 30% (or 1,700,000 tCO2e) (unconditional) reduction in GHG emissions from public transport by December 31, 2030 compared to 2013",
+     "name": "Trinidad and Tobago"
+  },
+  {
+     "id": "UGA",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Uganda"
+  },
+  {
+     "id": "URY",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "2025 mitigation objective of intensity reduction (GHG emissions per GDP unit) from base year 1990 of 24% in CO2, 57% in CH4, 48% in N2O (unconditional), and 29% in CO2, 59% in CH4, 52% in N2O (conditional)",
+     "name": "Uruguay"
+  },
+  {
+     "id": "USA",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "26% to 28% reduction in GHG emission by 2025 compared to 2005 and to make best efforts to reduce its emissions by 28%",
+     "name": "United States of America"
+  },
+  {
+     "id": "VCT",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "22% reduction in GHG emissions by 2025 compared to the BAU scenario",
+     "name": "Saint Vincent and the Grenadines"
+  },
+  {
+     "id": "VUT",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Not Applicable",
+     "name": "Vanuatu"
+  },
+  {
+     "id": "WSM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Samoa"
+  },
+  {
+     "id": "YEM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only INDC",
+     "description": "1% (unconditional) and 14% (conditional) reduction (representing estimated total cumulative GHG reduction of about 35 MtCO2e from 2020 through 2030) in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Yemen"
+  },
+  {
+     "id": "ZAF",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "South Africa's emissions by 2025 and 2030 will be in a range between 398 and 614 MtCO2eq",
+     "name": "South Africa"
+  },
+  {
+     "id": "ZMB",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 25% (at the Business As Usual BAU level of international support prevailing in 2015) and towards 47% (with substantial international support) reduction in greenhouse gas emission compared to 2010.",
+     "name": "Zambia"
+  },
+  {
+     "id": "ZWE",
+     "status": "Declaration / pledge",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "33% reduction in energy emissions per capita by 2030 compared to the BAU scenario",
+     "name": "Zimbabwe"
+  },
+  {
+     "id": "ALB",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Reduce CO2 emissions compared to the baseline scenario in the period of 2016 and 2030 by 11.5%, which means 708 kT carbon-dioxide emission reduction in 2030.",
+     "name": "Albania"
+  },
+  {
+     "id": "ARE",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "Second 2020 NDC",
+     "description": "Reduction of 23.5% in GHG emissions for the year 2030, relative to BAU.",
+     "name": "United Arab Emirates"
+  },
+  {
+     "id": "AUS",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "26 to 28 per cent below 2005 levels by 2030, to be implemented as an emissions budget covering the period 2021-2030.",
+     "name": "Australia"
+  },
+  {
+     "id": "AZE",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "35% reduction in GHG emissions by 2030 compared to 1990",
+     "name": "Azerbaijan"
+  },
+  {
+     "id": "BDI",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "3% (unconditional) to 20% (conditional) reduction in GHG emissions for 2030 compared to the business-as-usual (BAU) scenario",
+     "name": "Burundi"
+  },
+  {
+     "id": "BGR",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Bulgaria"
+  },
+  {
+     "id": "BHR",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Bahrain"
+  },
+  {
+     "id": "BIH",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "2% (unconditional) to 23% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario, which would mean 18% higher (unconditional) to 3% reduction (conditional) compared to 1990.",
+     "name": "Bosnia and Herzegovina"
+  },
+  {
+     "id": "BLR",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "At least 28% reduction in GHG emissions by 2030 compared to 1990 (excluding LULUCF) without any conditions.",
+     "name": "Belarus"
+  },
+  {
+     "id": "BOL",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Bolivia"
+  },
+  {
+     "id": "BRA",
+     "status": "In policy document",
+     "year": 2060.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Reduce GHG emissions by 37% in 2025, and by 43% in 2030 below 2005 levels",
+     "name": "Brazil"
+  },
+  {
+     "id": "BRN",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "A reduction in GHG emissions by 20% relative to Business-As-Usual levels by 2030.",
+     "name": "Brunei Darussalam"
+  },
+  {
+     "id": "BWA",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "15% reduction in GHG emissions by 2030 compared to 2010",
+     "name": "Botswana"
+  },
+  {
+     "id": "CIV",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "28% reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Côte d’Ivoire"
+  },
+  {
+     "id": "CMR",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "32% reduction in GHG emissions for 2035 compared to a reference scenario",
+     "name": "Cameroon"
+  },
+  {
+     "id": "CUB",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "No GHG Target mentioned in the submission",
+     "name": "Cuba"
+  },
+  {
+     "id": "DZA",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "7% (with domestic means) to 22% (conditional) reduction in GHG emissions by 2030 compared to the BAU levels",
+     "name": "Algeria"
+  },
+  {
+     "id": "EGY",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Egypt"
+  },
+  {
+     "id": "GEO",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "15% (unconditional) to 25% (conditional) reduction in GHG emissions for the year 2030 compared to the BAU scenario",
+     "name": "Georgia"
+  },
+  {
+     "id": "GHA",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "15% (unconditional) to 45% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario (73.95 MtCO2e)",
+     "name": "Ghana"
+  },
+  {
+     "id": "GNQ",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "20% reduction in emissions by 2030 compared to 2010 levels, in order to acheive a 50% reduction by 2050",
+     "name": "Equatorial Guinea"
+  },
+  {
+     "id": "GTM",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "11.2% (unconditional) to 22.6% (conditional) reduction in GHG emission by 2030 compared to the BAU scenario",
+     "name": "Guatemala"
+  },
+  {
+     "id": "HND",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "15% reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Honduras"
+  },
+  {
+     "id": "IDN",
+     "status": "Proposed / in discussion",
+     "year": 2060.0,
+     "ndcStatus": "Only First NDC",
+     "description": "29% (unconditional) and up to 41% (conditional) by 2030 compared to the business as usual scenario; 26% (unconditional) reduction in GHG emissions by 2020 compared to business as usual scenario",
+     "name": "Indonesia"
+  },
+  {
+     "id": "IND",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "33% to 35% reduction in the emissions intensity of its GDP by 2030 compared to 2005 level",
+     "name": "India"
+  },
+  {
+     "id": "IRN",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only INDC",
+     "description": "4% (unconditional) up to 12% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Islamic Rep. of Iran"
+  },
+  {
+     "id": "IRQ",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only INDC",
+     "description": "1% (unconditional) to 14% (conditional) reduction in GHG emissions by 2035 compared to the BAU scenario",
+     "name": "Iraq"
+  },
+  {
+     "id": "ISR",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Reduce per capita greenhouse gas emissions to 7.7 tCO2e by 2030, equivalent to a 26% reduction compared to 2005 of 10.4 tCO2e per capita; interim target of 8.8 tCO2e per capita by 2025",
+     "name": "Israel"
+  },
+  {
+     "id": "JOR",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Maximally 1.5% (unconditional) to 14% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Jordan"
+  },
+  {
+     "id": "KAZ",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "15% (unconditional) to 25% (conditional) reduction in GHG emissions by 2030 compared to 1990",
+     "name": "Kazakhstan"
+  },
+  {
+     "id": "KEN",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "32% reduction in GHG emissions by 2030 compared to BAU scenario (143 MtCO2eq)",
+     "name": "Kenya"
+  },
+  {
+     "id": "KGZ",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "11.49 - 13.75% (unconditional) and 29.00 - 30.89% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario; 12.67 - 15.69% (unconditional) and 35.06 - 36.75% (conditional) reduction in GHG emissions by 2050 compared to the BAU scenario.",
+     "name": "Kyrgyzstan"
+  },
+  {
+     "id": "KWT",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Kuwait"
+  },
+  {
+     "id": "LBY",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Nothing submitted",
+     "description": "No data",
+     "name": "Libya"
+  },
+  {
+     "id": "LKA",
+     "status": "In policy document",
+     "year": 2060.0,
+     "ndcStatus": "Only First NDC",
+     "description": "4% (unconditional) to 20% (conditional) reduction in GHG emissions from the energy sector, and 3% (unconditional) to 10% (conditional) from other sectors (transport, industry, forests and waste) by 2030 compared to the BAU scenario",
+     "name": "Sri Lanka"
+  },
+  {
+     "id": "MAR",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "17% (unconditional) to 42% (conditional) reduction in GHG emission by 2030 compared to the BAU scenario, taking into account reductions in Agriculture, Forestry and Other Land Use (AFOLU)",
+     "name": "Morocco"
+  },
+  {
+     "id": "MDA",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "70% (unconditional) and up to 88% (conditional) reduction in GHG emission in 2030 compared to 1990",
+     "name": "Rep. of Moldova"
+  },
+  {
+     "id": "MKD",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "30% to 36% reduction in CO2 emissions from fossil fuels combustion by 2030 compared to the BAU scenario",
+     "name": "North Macedonia"
+  },
+  {
+     "id": "MNG",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Unconditional: 22.7 percent reduction from BAU by 2030, excluding LULUCF.<br>Conditional: 27.2 percent reduction from BAU by 2030, excluding LULUCF.",
+     "name": "Mongolia"
+  },
+  {
+     "id": "MYS",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "35% (unconditional) to 45% (conditional) reduction in GHG emissions intensity of GDP by 2030 compared to 2005 level",
+     "name": "Malaysia"
+  },
+  {
+     "id": "NGA",
+     "status": "Declaration / pledge",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "20% (unconditional) to 45% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Nigeria"
+  },
+  {
+     "id": "NLD",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Netherlands"
+  },
+  {
+     "id": "OMN",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Control the expected GHG emissions growth by 2% below BAU to be 88714 Gg (in 2030) during the period from 2020 - 2030",
+     "name": "Oman"
+  },
+  {
+     "id": "PAN",
+     "status": "In policy document",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Reduce energy sector emissions by at least 11.5% by 2030 and at least 24% by 2050 compared to baseline",
+     "name": "Panama"
+  },
+  {
+     "id": "PHL",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only INDC",
+     "description": "About 70% reduction in GHG emissions by 2030 compared to the BAU scenario of 2000-2030",
+     "name": "Philippines"
+  },
+  {
+     "id": "POL",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Poland"
+  },
+  {
+     "id": "PRK",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Reduce GHG emissions by 16.4% (unconditional) and 52% (conditional) by 2030 compared to BAU.",
+     "name": "Dem. People’s Rep. of Korea"
+  },
+  {
+     "id": "PRY",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "10% (unconditional) to 20% (conditional) reduction in GHG emissions by 2030 relative to projected emissions",
+     "name": "Paraguay"
+  },
+  {
+     "id": "QAT",
+     "status": "In policy document",
+     "year": 2030.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Qatar"
+  },
+  {
+     "id": "ROU",
+     "status": "In law",
+     "year": 2050.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990.",
+     "name": "Romania"
+  },
+  {
+     "id": "RUS",
+     "status": "Declaration / pledge",
+     "year": 2060.0,
+     "ndcStatus": "First 2020 NDC",
+     "description": "A target for limiting greenhouse gas emissions, which provides for a reduction in greenhouse gas emissions by 2030 to 70 percent relative to the 1990 level.",
+     "name": "Russian Fed."
+  },
+  {
+     "id": "SAU",
+     "status": "Declaration / pledge",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Saudi Arabia"
+  },
+  {
+     "id": "SDN",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Sudan"
+  },
+  {
+     "id": "SLV",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "El Salvador"
+  },
+  {
+     "id": "SOM",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Somalia"
+  },
+  {
+     "id": "SRB",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "9.8% reduction in GHG emissions by 2030 compared to 1990",
+     "name": "Serbia"
+  },
+  {
+     "id": "SWZ",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Eswatini"
+  },
+  {
+     "id": "SYR",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not Applicable",
+     "name": "Syrian Arab Rep."
+  },
+  {
+     "id": "THA",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "20% (unconditional) up to 25% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario",
+     "name": "Thailand"
+  },
+  {
+     "id": "TJK",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Not exceeding 80-90% (amounts to 1.7-2.2 tCO2e per capita) (unconditional) of 1990 level by 2030; achieve 65-75% (amounts to 1.2-1.7 tCO2e per capita) (conditional) of 1990 level by 2030",
+     "name": "Tajikistan"
+  },
+  {
+     "id": "TKM",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Turkmenistan chose an intensity target (taraget indicator attached to per unit of GDP) and communicated that ",
+     "name": "Turkmenistan"
+  },
+  {
+     "id": "TUN",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "13% (unconditional) to 41% (conditional) reduction in carbon intensity by 2030 compared to 2010",
+     "name": "Tunisia"
+  },
+  {
+     "id": "TUR",
+     "status": "In policy document",
+     "year": 2053.0,
+     "ndcStatus": "Only INDC",
+     "description": "Up to 21% reduction in GHG emissions by 2030 compared to the BAU level",
+     "name": "Turkey"
+  },
+  {
+     "id": "TZA",
+     "status": "Proposed / in discussion",
+     "year": 2050.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Between 10%-20% reduction in GHG emissions by 2030 compared to the BAU scenario (138-153 MtCO2e gross emissions)",
+     "name": "United Rep. of Tanzania"
+  },
+  {
+     "id": "UKR",
+     "status": "In policy document",
+     "year": 2060.0,
+     "ndcStatus": "Only First NDC",
+     "description": "Will not exceed 60% of 1990 GHG emissions level in 2030",
+     "name": "Ukraine"
+  },
+  {
+     "id": "UZB",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "Decrease specific emissions of greenhouse gases per unit of GDP by 10% by 2030 from level of 2010",
+     "name": "Uzbekistan"
+  },
+  {
+     "id": "VEN",
+     "status": null,
+     "year": null,
+     "ndcStatus": "Only First NDC",
+     "description": "At least 20% reduction in GHG emissions by 2030 compared to the baseline scenario",
+     "name": "Venezuela"
+  },
+  {
+     "id": "VNM",
+     "status": null,
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Unconditional contribution: With domestic resources, by 2025 Viet Nam will have reduced total GHG emissions by about 7.3% compared to the BAU scenario (equivalent to 52.9 million tonnes of CO2eq), and by 2030 Viet Nam will have reduced total GHG emissions by about 9% compared to the BAU scenario (equivalent to 83.9 million tonnes of CO2eq). Conditional contribution: The above-mentioned 9% contribution can be increased to 27% by 2030 (equivalent to 250.8 million tonnes of CO2eq)",
+     "name": "Viet Nam"
+  },
+  {
+     "id": "SGP",
+     "status": "In policy document",
+     "year": null,
+     "ndcStatus": "First 2020 NDC",
+     "description": "Singapore’s NDC is an economy-wide absolute GHG emissions limitation target to peak its GHG emissions at 65 MtCO2e around 2030. Singapore’s GHG emissions in 2030 are expected to amount to no higher than 65 MtCO2e.",
+     "name": "Singapore"
+  }
+]
