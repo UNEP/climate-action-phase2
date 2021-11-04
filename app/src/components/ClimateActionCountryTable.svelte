@@ -184,9 +184,9 @@
           </div>
         </div>
 
-        <div class="cell-number">{row.ndcStatus}</div>
+        <div class="cell-category">{row.ndcStatus}</div>
 
-        <div class="cell-number">{row.status ? row.status : '—'}</div>
+        <div class="cell-category">{row.status ? row.status : '—'}</div>
 
         <div class="cell-number">{row.year ? row.year : '—'}</div>
 
@@ -249,6 +249,7 @@
     padding-right: 10px;
     display: flex;
     align-items:center;
+    padding-bottom: 10px;
   }
 
   .cell-description {
@@ -260,6 +261,16 @@
 
   .cell-description-text {
     max-width: 400px;
+    padding-bottom: 10px;
+  }
+
+  .cell-category {
+    font-weight: 100;
+    font-size: 1.2rem;
+    text-align: left;
+    display: flex;
+    align-items:center;
+    justify-content: left;
     padding-bottom: 10px;
   }
 
@@ -300,8 +311,6 @@
       font-weight: 700;
     }
 
-    &[data-name="ndcStatus"],
-    &[data-name="ntzStatus"],
     &[data-name="year"] {
       text-align: right;
       flex-direction: row-reverse;
