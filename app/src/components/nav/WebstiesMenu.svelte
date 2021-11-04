@@ -42,7 +42,7 @@
   a {
       border: 0;
       border-radius: 0;
-      padding: 20px 16px 4px 40px;
+      padding: 20px 16px 4px 50px;
       background: none;
       border-bottom: 1px solid #dcdcdc;
       margin: 0;
@@ -84,12 +84,12 @@
       background: #1E1E1E;
   }
   i {
-      width: 22px;
-      height: 22px;
+      width: 36px;
+      height: 36px;
       display: block;
       position: absolute;
       left: 10px;
-      bottom: 8px;
+      bottom: 6px;
   }
 
   i :global(svg) {

@@ -9,14 +9,14 @@
           "href": "http://localhost:5000/sotc.html"
         },
         {
+          "text": "What’s happening",
+          "icon": "whatshappening.main",
+          "href": "http://localhost:5000/whatshappening.html"
+        },
+        {
           "text": "Climate action progress",
           "icon": "climateactionprogress.main",
           "href": "http://localhost:5000/climateactionprogress.html"
-        },
-        {
-          "text": "Whatshappening",
-          "icon": "whatshappening.main",
-          "href": "http://localhost:5000/whatshappening.html"
         }
       ],
       "selected": "1"
