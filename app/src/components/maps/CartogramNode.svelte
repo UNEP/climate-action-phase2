@@ -18,8 +18,8 @@
   on:focus
   on:blur
 >
-  {#if d.width > 100}
-    <span class="country-text" class:showtext={datasetSelected && !transitioning}>{d.short}</span>
+  {#if d.width > 80}
+    <span class="country-text" class:showtext={datasetSelected && !transitioning}>{d.name}</span>
   {/if}
 </div>
 
