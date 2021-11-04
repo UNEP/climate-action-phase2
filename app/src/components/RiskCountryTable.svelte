@@ -46,7 +46,8 @@
     { name: 'gdpPctLosses', index: 7,sortable: true },
   ];
 
-  const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL', 'POP. ADJ.', 'TOTAL', 'AS GDP PCT.'];
+  const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL',
+    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENTAGE'];
 
   let sort: {column: string, asc: boolean} = {column: 'country', asc: true};
 

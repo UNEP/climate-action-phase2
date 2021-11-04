@@ -79,8 +79,9 @@
 
     if (over1percentLookUp[data.id] !== undefined) {
       const latestEmissions = data.emissions2018;
-      descriptionPhrase += `<b>${data.name}</b> is the one of top GHG emitters. It accounts for ${data.globalPct}% of global 
-      emissions. In 2018, it emitted ${latestEmissions} million tonnes. `;
+      descriptionPhrase += `<b>${data.name}</b> is the one of top GHG emitters. 
+      It accounts for ${data.globalPct}% of global emissions. 
+      In 2018, it emitted ${latestEmissions} million tonnes. `;
     }
     if (biggestPerCapitaLookUp[data.id] !== undefined){
       descriptionPhrase += `<b>${data.name}</b> is one of the countries
@@ -106,7 +107,7 @@
     { name: '', sortable: false },
     { name: 'Trend', sortable: false },
     { name: '2018 emissions', sortable: true },
-    { name: 'As pct of global', sortable: true },
+    { name: 'As percentage of global', sortable: true },
     { name: 'Per capita', sortable: true },
   ];
 
@@ -130,7 +131,7 @@
     else if (column === '2018 emissions') {
       return [...data].sort((a,b) => a.emissions2018 - b.emissions2018);
     }
-    else if (column === 'As pct of global') {
+    else if (column === 'As percentage of global') {
       return [...data].sort((a,b) => a.globalPct - b.globalPct);
     }
     else if (column === 'Per capita') {
@@ -365,7 +366,7 @@
     }
 
     &[data-name="2018 emissions"],
-    &[data-name="As pct of global"],
+    &[data-name="As percentage of global"],
     &[data-name="Per capita"] {
       text-align: right;
       flex-direction: row-reverse;
@@ -375,7 +376,7 @@
       width: 60px;
     }
 
-    &[data-name="As pct of global"] span {
+    &[data-name="As percentage of global"] span {
       width: 80px;
     }
 
@@ -410,7 +411,7 @@
   // grid-template-columns: 200px 1fr 180px 110px 110px 90px;
 
   @media (max-width: 1250px) {
-    .header[data-name='As pct of global'], .cell-perc {
+    .header[data-name='As percentage of global'], .cell-perc {
       display: none;
     }
     .grid-table {
