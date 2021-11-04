@@ -117,13 +117,13 @@
       "menuicon": "climateactionprogress.ffsubsidies",
       "data": "ffsubsidies",
       "embed": "ffsubsidies",
-      "head": "A stop to fossil fuel subsidies is incremental to a stable climate below 1.5°C - or even 2°C",
+      "head": "A stop to fossil fuel subsidies is vital to a stable climate below 1.5°C — or even 2°C",
       "text": [
         {
           "p": "The climate emergency has devastating impacts across the world and people are urging governments for acute and adequate climate action. Yet many governments are still subsidising and supporting fossil fuel production and consumption inconsistently with any possible way to reach the Paris Agreement targets of 1.5°C or even 2°C."
         },
         {
-          "p": "This map shows fossil fuel subsidy consumption and production by country. Explore UNEP's Act Now: Speak Up section to see how we can all push governments to stop subsidizing fossil fuels and ensure a safe future below 1.5°C temperature rise."
+          "p": "Explore UNEP's Act Now: Speak Up section to see how we can all push governments to stop subsidizing fossil fuels and ensure a safe future below 1.5°C temperature rise."
         }
       ]
     },
@@ -151,6 +151,9 @@
         },
         {
           "p": "Data for the <strong>NDC pledges</strong> comes from <a href=\"https://www.climatewatchdata.org/ndcs-explore\">Climate Watch</a>. 2020. Washington, DC: World Resources Institute."
+        },
+        {
+          "p": "Data for the <strong>Fossil-fuel subsidies (consumption and production)</strong> comes from the <a href=\"https://unstats.un.org/sdgs/UNSDG/IndDatabasePage\">SDG Indicators Database</a> by UN DESA."
         },
         {
           "p": "Data for <strong>GHG emissions</strong>, used to size the countries in the net zero and NDC sections, comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=\"https://edgar.jrc.ec.europa.eu/report_2021#data_download\">GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=\"http://dx.doi.org/10.2760/173513\">doi:10.2760/173513</a>, <a href=\"https://publications.jrc.ec.europa.eu/repository/handle/JRC126363\">JRC126363</a>"
