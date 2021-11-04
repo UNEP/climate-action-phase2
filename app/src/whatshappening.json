@@ -66,7 +66,7 @@
       "src": "surface.jpg",
       "imgtitle": "<b>Surface temperature anomalies</b> (September 2021)",
       "alt": "This world map shows land temperature anomalies compared to the average conditions during that period between 2000-2008.",
-      "head": "Actual temperatures on land[a]",
+      "head": "Extreme land temperatures - hot and cold",
       "text": [
         {
           "p": "When average global temperatures rise, it covers vast differences across the world and throughout the year. The extreme weather events will get more severe and more frequent with rising temperatures. To stay safe the world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
@@ -83,7 +83,7 @@
       "src": "ocean.jpg",
       "imgtitle": "<b>Ocean temperature</b> (July 2021)",
       "alt": "This world map shows the temperature of the top millimeter of the ocean's surface. Sea surface temperature influences weather, including hurricanes, as well as plant and animal life in the ocean.",
-      "head": "Actual temperatures in the oceans[b]",
+      "head": "Extreme ocean temperatures - on the surface",
       "text": [
         {
           "p": "Oceans are absorbing 90% of the heat and a third of the GHG emissions. It has slowed the visible impacts of a warming planet yet it is leading to warmer and more acidic waters affecting marine life and ecosystems as well as the communities relying on them for livelihoods."
@@ -100,7 +100,7 @@
       "src": "fire.mp4",
       "imgtitle": "<b>A decade of fires</b> (monthly data from 2010 to 2021)",
       "alt": "This world map shows a decade of burning fires. Fire plays a major role in Earth's carbon cycle by releasing carbon into the air, and by consuming trees that would otherwise absorb carbon from the air during photosynthesis.",
-      "head": "Wildfires around the world [c]",
+      "head": "More wildfires are ravishing the world - and they are getting worse",
       "text": [
         {
           "p": "With average global temperatures on the rise, local and seasonal variations mean that droughts and heatwaves are causing more severe and more frequent wildfires. Burning vast areas of forests is laying waste to ecosystems, biodiversity and people. It is also emitting further CO2 and affecting the economy and human health. To stay safe the world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
@@ -152,8 +152,5 @@
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "Air pollution, health and air pollution, pm2.5"
-  },
-  "a": [],
-  "b": [],
-  "c": []
+  }
 }

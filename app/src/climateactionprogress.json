@@ -64,19 +64,19 @@
       "menuicon": "climateactionprogress.nzt",
       "data": "ghg",
       "embed": "ghg",
-      "head": "Country emissions, plans and progress",
+      "head": "Emissions rise and plans are made yet little progress",
       "text": [
         {
-          "p": "This map shows countries scaled to their emissions per capita and coloured by the status of their net-zero emissions target."
+          "p": "Putting actual emissions next to the status of net-zero emission targets shows us that progress is small and unevenly distributed."
         },
         {
-          "p": "These are the 10 countries with the largest emissions per capita."
+          "p": "Shining a spotlight on the top ten emitters highlights how many industrialized countries are responsible for most of the global emissions but have yet put their pledges into law."
         },
         {
-          "p": "This map shows how country emissions are actually developing regardless of NDCs or net-zero targets."
+          "p": "While countries are negotiating pledges for the far future, emissions are rising and putting the planet at risk. All countries need to do more now."
         },
         {
-          "p": "These are the 10 countries highlighted by the largest actual emission reductions.[a][b]"
+          "p": "Some countries are doing more than others. These are the 10 countries with largest actual emission reductions per capita."
         }
       ]
     },
@@ -117,16 +117,19 @@
       "menuicon": "climateactionprogress.ffsubsidies",
       "data": "ffsubsidies",
       "embed": "ffsubsidies",
-      "head": "Headline here",
+      "head": "A stop to fossil fuel subsidies is incremental to a stable climate below 1.5°C - or even 2°C",
       "text": [
         {
-          "p": "Text here"
+          "p": "The climate emergency has devastating impacts across the world and people are urging governments for acute and adequate climate action. Yet many governments are still subsidising and supporting fossil fuel production and consumption inconsistently with any possible way to reach the Paris Agreement targets of 1.5°C or even 2°C."
+        },
+        {
+          "p": "This map shows fossil fuel subsidy consumption and production by country. Explore UNEP's Act Now: Speak Up section to see how we can all push governments to stop subsidizing fossil fuels and ensure a safe future below 1.5°C temperature rise."
         }
       ]
     },
     {
       "type": "climate-action-country-table",
-      "head": "See what countries are taking more action globally",
+      "head": "See what countries are taking more climate action globally",
       "title": "By country",
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
@@ -166,8 +169,5 @@
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "Air pollution, health and air pollution, pm2.5"
-  },
-  "a": [],
-  "b": [],
-  "c": []
+  }
 }

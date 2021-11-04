@@ -14,6 +14,7 @@
   import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
+  import ClimateActionCountryTable from './components/ClimateActionCountryTable.svelte';
 
   export var gdocs: GDocs;
   export var embed: string;
@@ -32,7 +33,8 @@
     'methodology': MethodologySourcesText,
     'carto-scrolly': CartoScroller,
     'country-table': CountryTable,
-    'risk-country-table': RiskCountryTable
+    'risk-country-table': RiskCountryTable,
+    'climate-action-country-table': ClimateActionCountryTable
   };
 
 </script>
