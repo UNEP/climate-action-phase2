@@ -1,7 +1,7 @@
 <script lang='ts'>
   export let title = '';
   export let colors: string[];
-  export let labels: string[];
+  export let labels: string[] | number[];
   type LegendTypes = 'sequential' | 'categorical';
   export let type: LegendTypes = 'sequential';
   export let selected: number;

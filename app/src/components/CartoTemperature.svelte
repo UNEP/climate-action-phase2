@@ -5,8 +5,8 @@
   import svg from '../svg';
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
-  import SectionTitle from "src/components/SectionTitle.svelte";
   import AnnotatedMedia from "./maps/AnnotatedMedia.svelte";
+  import CartogramHeader from "./maps/CartogramHeader.svelte";
 
   type InputAnnotation = typeof annotations.surface[0];
   function mapAnnotation(input: InputAnnotation): MediaAnnotation {
@@ -59,28 +59,23 @@
 
 <section {id} class="viz wide">
 
-  {#if !isEmbed}
-    <SectionTitle {block} />
-  {/if}
-
-  <h2 class='narrow'>{@html block.head}</h2>
-
-  <div class="right-narrow" >
-    {#if selectedSectionStr === "Land temperature"}
-      <div class="legend">
-        <p class="legend-text">Colder</p>
-        <div class="legend-scale">{@html svg.legends.land}</div>
-        <p class="legend-text">Warmer than the avg. for the 2000s</p>
-      </div>
-    {:else if selectedSectionStr === "Ocean temperature"}
-      <div class="legend">
-        <p class="legend-text">Cold</p>
-        <div class="legend-scale">{@html svg.legends.sea}</div>
-        <p class="legend-text">Warm</p>
-      </div>
-    {/if}
-  </div>
-
+  <CartogramHeader {block}>
+    <div slot="legend">
+      {#if selectedSectionStr === "Land temperature"}
+        <div class="legend">
+          <p class="legend-text">Colder</p>
+          <div class="legend-scale">{@html svg.legends.land}</div>
+          <p class="legend-text"><span>Warmer than the</span> <span>avg. for the 2000s</span></p>
+        </div>
+      {:else if selectedSectionStr === "Ocean temperature"}
+        <div class="legend">
+          <p class="legend-text">Cold</p>
+          <div class="legend-scale">{@html svg.legends.sea}</div>
+          <p class="legend-text">Warm</p>
+        </div>
+      {/if}
+    </div>
+  </CartogramHeader>
 
   <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
     <ScrollableX>
@@ -118,88 +113,95 @@
   {/if}
 
 </section>
-<style>
+<style lang="scss">
   .container {
-      width: 100%;
+    width: 100%;
   }
   .title {
-      font-size: 14px;
-      padding-left: 12px;
-      margin: 10px 0 12px 0;
+    font-size: 14px;
+    padding-left: 12px;
+    margin: 10px 0 12px 0;
   }
   .aimg-container {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
+    flex: 1;
+    position: relative;
+    overflow: hidden;
   }
   .inline-annotation {
-      font-size: 14px;
-      line-height: 1.5;
-      padding: 0 10px;
-      margin-top: 10px;
-      display: grid;
-  }
-  .inline-annotation div {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-top: 10px;
+    display: grid;
+    div {
       grid-column: 1;
       grid-row: 1;
       visibility: hidden;
+      &.visible {
+        visibility: visible;
+      }
+    }
   }
-  .inline-annotation div.visible {
-      visibility: visible;
-  }
+
   .legend {
-      display: inline-block;
-      margin: auto;
-      margin-top: 8px;
-      flex: 0;
-      padding-left: 10px;
-      white-space: nowrap;
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    flex: 0;
+    padding-left: 10px;
+    min-width: 380px;
   }
   .legend-scale {
-      max-width: 270px;
-      display: inline-block;
-  }
-  .legend-scale > :global(svg) {
+    max-width: 270px;
+    min-width: 200px;
+    flex: 1;
+    font-size: 0;
+    > :global(svg) {
       width: 100%;
+    }
   }
   .legend-text {
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0;
+    padding: 0;
+    > span {
       display: inline-block;
-      font-size: 14px;
-      vertical-align: middle;
-      margin-bottom: 18px;
+    }
   }
+
   @media (max-width: 600px) {
-      .container :global(.aimg .annotation) {
-          display: none;
-      }
-      .legend-text {
-          display: none;
-      }
-      .legend {
-          top: 25px;
-      }
-      .aimg-container {
-          margin-top: 45px;
-      }
+    .container :global(.aimg .annotation) {
+      display: none;
+    }
+    .legend-text {
+      display: none;
+    }
+    .legend {
+      top: 25px;
+    }
+    .aimg-container {
+      margin-top: 45px;
+    }
   }
   @media (min-width: 600px) {
-      .inline-annotation {
-          display: none;
-      }
+    .inline-annotation {
+      display: none;
+    }
   }
   @media (min-width: 600px) {
-      .title {
-          position: absolute;
-          top:35%;
-          left:2rem;
-          max-width: 120px;
-          font-size: 14px;
-          line-height: 1.3;
-          color:#808080;
-          z-index: 5;
-      }
-      .white {
-          color:#FFF;
-      }
+    .title {
+      position: absolute;
+      top:35%;
+      left:2rem;
+      max-width: 120px;
+      font-size: 14px;
+      line-height: 1.3;
+      color:#808080;
+      z-index: 5;
+    }
+    .white {
+      color:#FFF;
+    }
   }
 </style>
