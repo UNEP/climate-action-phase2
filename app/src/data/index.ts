@@ -17,6 +17,8 @@ export interface TimeseriesDataPoint {
   value: number;
 }
 
+type TrendsDataPoint = Unpacked<typeof trends.data>;
+
 const countriesLookup = createLookup(countries, d => d.id, d => d);
 
 if (IS_DEV) {
@@ -40,18 +42,13 @@ if (IS_DEV) {
 export const START_YEAR = 1970;
 export const END_YEAR = 2018;
 
-export function calcGradientFrom(
-  data: Unpacked<typeof trends.data>,
-  startYear: number,
-  endYear: number
-) {
+export function calcGradientFrom(data: TrendsDataPoint, startYear: number, endYear: number) {
   const years = range(startYear, endYear + 1);
   const norm = data.emissions[startYear.toString()];
   const ys = years.map(year => data.emissions[year.toString()] / norm);
   return calcBestFitGradient(years.map((_, i) => i), normalize(ys));
 }
 
-type TrendsDataPoint = Unpacked<typeof trends.data>;
 
 export const calcGHGCategory = (d: TrendsDataPoint): string => {
   const m = calcGradientFrom(d, 1990, END_YEAR);
