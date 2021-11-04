@@ -1,4 +1,4 @@
-import { calcBestFitGradient, createLookup, normalize, range, Unpacked } from 'src/util';
+import { calcBestFitGradient, createLookup, range, Unpacked } from 'src/util';
 import percapita from './co2-percapita.carto.json';
 import ghg from './co2.carto.json';
 import trends from './trends.carto.json';
