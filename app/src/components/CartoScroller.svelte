@@ -9,9 +9,9 @@
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import CartogramNode from "./maps/CartogramNode.svelte";
   import Legend from "./common/Legend.svelte";
-  import SectionTitle from "./SectionTitle.svelte";
   import type { Content } from "src/types";
   import ScrollableX from "./common/ScrollableX.svelte";
+  import CartogramHeader from "./maps/CartogramHeader.svelte";
 
   export let text: {p: string}[];
   export let id: string;
@@ -93,15 +93,16 @@
 <div {id} class="container">
   <Scroller bind:section>
     <div class="sticky" slot="sticky">
-      <div class="legend-container">
 
-        <SectionTitle {block} />
-
-        <Legend type='categorical'
+      <CartogramHeader {block}>
+        <div slot="legend">
+          <Legend type='categorical'
           title="Status of <b>net-zero</b> targets"
           colors={colorNetZero.range()} {labels}
           bind:selected={hoveredLegendIndex} />
-      </div>
+        </div>
+      </CartogramHeader>
+
       <div class="carto-container">
         <ScrollableX>
           <div class="carto-content">
@@ -161,6 +162,7 @@
       margin-bottom: 600px;
     }
   }
+
   .carto-container {
     -webkit-transform: translate3d(0, 0, 0);
     .carto-content {
@@ -174,17 +176,6 @@
     }
   }
 
-  .legend-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: -20px;
-    position: relative;
-    z-index: 10;
-    > :global(.legend-container) {
-      max-width: 500px;
-    }
-  }
-
   @media screen and (max-width: 800px) {
     .carto-container {
       margin: 0 -1rem;
@@ -192,11 +183,6 @@
     .carto-content {
       padding: 1rem;
       height: 55vh;
-    }
-
-    .legend-container {
-      display: block;
-      margin-bottom: 20px;
     }
   }
 
