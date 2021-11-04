@@ -28,6 +28,7 @@ export interface Content {
   icon?: string;
   menuicon?: string;
   embed?: string;
+  id?: string;
 }
 
 namespace Content {

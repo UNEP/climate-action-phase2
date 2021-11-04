@@ -1,7 +1,10 @@
 <script>
+
 export let text;
 export let head;
+export let tag;
 export let breadcrumbs;
+
 </script>
 <section class='intro col-text'>
   <nav class="inner-nav" role="navigation" labelledby="breadcrumbs-label">
@@ -19,6 +22,10 @@ export let breadcrumbs;
 
   {#if head}
     <h1>{@html head}</h1>
+  {/if}
+
+  {#if tag}
+    <h2 class="tag">{@html tag}</h2>
   {/if}
 
   {#if text}
