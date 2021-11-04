@@ -148,25 +148,26 @@
       visibility: visible;
   }
   .legend {
-      display: inline-block;
-      margin: auto;
-      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
       flex: 0;
       padding-left: 10px;
-      white-space: nowrap;
   }
   .legend-scale {
       max-width: 270px;
-      display: inline-block;
+      min-width: 200px;
+      flex: 1;
+      font-size: 0;
   }
   .legend-scale > :global(svg) {
       width: 100%;
   }
   .legend-text {
-      display: inline-block;
       font-size: 14px;
-      vertical-align: middle;
-      margin-bottom: 18px;
+      line-height: 1;
+      margin: 0;
+      padding: 0;
   }
   @media (max-width: 600px) {
       .container :global(.aimg .annotation) {
