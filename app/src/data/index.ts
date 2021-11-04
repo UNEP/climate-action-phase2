@@ -1,4 +1,4 @@
-import { createLookup, Unpacked } from 'src/util';
+import { calcBestFitGradient, createLookup, normalize, range, Unpacked } from 'src/util';
 import percapita from './co2-percapita.carto.json';
 import ghg from './co2.carto.json';
 import trends from './trends.carto.json';
@@ -37,7 +37,6 @@ if (IS_DEV) {
   }
 }
 
-
 export const START_YEAR = 1970;
 export const END_YEAR = 2018;
 
@@ -61,15 +60,19 @@ const top10drops = new Set([
 
 type TrendsDataPoint = Unpacked<typeof trends.data>;
 
+const TREND_LINE_YEARS = range(START_YEAR, END_YEAR);
+const X_VALS = TREND_LINE_YEARS.map((year, i) => i);
+
 export const calcGHGCategory = (d: TrendsDataPoint): string => {
-  const { emissions } = d;
-  const baseValue = emissions['1990'];
-  const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
-  const diff = (lastValue - baseValue) / baseValue;
-  // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-  if (Math.abs(diff) < 0.25) return 'stable';
-  else if (diff < -0.25) return 'falling';
-  else return 'climbing';
+  const ys: number[] = TREND_LINE_YEARS.map(year => d.emissions[year.toString()]);
+  const normalizedYs = normalize(ys);
+  const m = calcBestFitGradient(X_VALS, normalizedYs);
+
+  const cutoff = 0.008;
+
+  if (Math.abs(m) <= cutoff) return 'stable';
+  else if (m > cutoff) return 'climbing';
+  else return 'falling';
 };
 
 const ghgCategories: {[id: string]: string} = {};
