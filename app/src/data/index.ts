@@ -40,36 +40,22 @@ if (IS_DEV) {
 export const START_YEAR = 1970;
 export const END_YEAR = 2018;
 
-const top10emitters = new Set([
-  ...ghg.data
-    .sort((a,b) => b.emissions2018 - a.emissions2018)
-    .slice(0, 10)
-    .map(d => d.id)
-]);
-
-const top10drops = new Set([
-  ...trends.data
-    .map(d => ({
-      id: d.id,
-      drop: (d.emissions[END_YEAR] - d.emissions['1990']) / d.emissions['1990']
-    }))
-    .sort((a,b) => a.drop - b.drop)
-    .slice(0, 10)
-    .map(d => d.id)
-]);
+export function calcGradientFrom(
+  data: Unpacked<typeof trends.data>,
+  startYear: number,
+  endYear: number
+) {
+  const years = range(startYear, endYear + 1);
+  const norm = data.emissions[startYear.toString()];
+  const ys = years.map(year => data.emissions[year.toString()] / norm);
+  return calcBestFitGradient(years.map((_, i) => i), normalize(ys));
+}
 
 type TrendsDataPoint = Unpacked<typeof trends.data>;
 
-const TREND_LINE_YEARS = range(START_YEAR, END_YEAR);
-const X_VALS = TREND_LINE_YEARS.map((year, i) => i);
-
 export const calcGHGCategory = (d: TrendsDataPoint): string => {
-  const ys: number[] = TREND_LINE_YEARS.map(year => d.emissions[year.toString()]);
-  const normalizedYs = normalize(ys);
-  const m = calcBestFitGradient(X_VALS, normalizedYs);
-
-  const cutoff = 0.008;
-
+  const m = calcGradientFrom(d, 1990, END_YEAR);
+  const cutoff = 0.01;
   if (Math.abs(m) <= cutoff) return 'stable';
   else if (m > cutoff) return 'climbing';
   else return 'falling';
@@ -109,8 +95,6 @@ export default {
   },
   co2latest,
   co2trends,
-  top10emitters,
-  top10drops,
   pew,
   ghgCategories
 };

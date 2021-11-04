@@ -113,8 +113,3 @@ export function calcBestFitGradient(xs: number[], ys: number[]): number {
 
   return ssxy / ssxx;
 }
-
-export function normalize(arr: number[]): number[] {
-  const max = Math.max(...arr);
-  return arr.map(x => x / max);
-}

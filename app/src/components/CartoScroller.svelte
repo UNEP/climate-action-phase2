@@ -1,6 +1,6 @@
 <script lang="ts">
   import Scroller from "./common/Scroller.svelte";
-  import datasets from 'src/data';
+  import datasets, { calcGradientFrom } from 'src/data';
   import type { SimpleCartogramDataPoint } from "./maps/Cartogram.svelte";
   import Cartogram from "./maps/Cartogram.svelte";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
@@ -18,6 +18,23 @@
 
   let section: number;
   let prevSection: number;
+
+  const topemitters = new Set([
+    ...datasets.cartoworld.ghg.data
+      .sort((a,b) => b.emissions2018 - a.emissions2018)
+      .slice(0, 10)
+      .map(d => d.id)
+  ]);
+
+  const topdrops = new Set([
+    ...datasets.cartoworld.trends.data
+      .map(d => ({
+        id: d.id,
+        m: calcGradientFrom(d, 2015, 2018)
+      }))
+      .filter(d => d.m < -0.01)
+      .map(d => d.id)
+  ]);
 
   type SharedParamNames = 'dataset' | 'countries';
 
@@ -50,7 +67,7 @@
           else
             return `No data for ${name}.`;
         },
-        classesFn: c => section === 1 && !datasets.top10emitters.has(c.id) ? ['fade'] : [],
+        classesFn: c => section === 1 && !topemitters.has(c.id) ? ['fade'] : [],
         colorFn: d => datasets.lookups.netzero[d.id]
           ? colorNetZero(datasets.lookups.netzero[d.id].status)
           : '#000000'
@@ -59,7 +76,7 @@
         ...datasets.cartoworld.trends,
         NodeComponent: TrendsNode,
         NodeClass: TrendsCartogramDataPoint,
-        classesFn: c => section === 3 && !datasets.top10drops.has(c.id) ? ['fade'] : [],
+        classesFn: c => section === 3 && !topdrops.has(c.id) ? ['fade'] : [],
         colorFn: d => datasets.lookups.netzero[d.id]
           ? colorNetZero(datasets.lookups.netzero[d.id].status)
           : '#000000'
