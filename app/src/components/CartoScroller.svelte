@@ -90,7 +90,7 @@
 
 </script>
 
-<div {id}>
+<div {id} class="container">
   <Scroller bind:section>
     <div class="sticky" slot="sticky">
       <div class="legend-container">
@@ -127,6 +127,10 @@
 
 
 <style lang="scss">
+
+  .container {
+    padding-top: 20px;
+  }
 
   .sticky {
     top: 10vh;
