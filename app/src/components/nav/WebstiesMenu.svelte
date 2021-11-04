@@ -9,7 +9,6 @@
   export let selected: number;
   let current = options[0];
   $: current = options[selected];
-  console.log(options);
 </script>
 <div class="section">
   <ScrollableX>
