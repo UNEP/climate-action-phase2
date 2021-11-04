@@ -115,6 +115,7 @@
       "icon": "climateactionprogress.ffsubsidies",
       "menu": "Fossil fuel subsidies",
       "menuicon": "climateactionprogress.ffsubsidies",
+      "data": "ffsubsidies",
       "embed": "ffsubsidies",
       "head": "Headline here",
       "text": [
