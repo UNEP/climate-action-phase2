@@ -34,7 +34,7 @@
     { name: 'year', index: 4, sortable: true },
   ];
 
-  const columnNames = ['COUNTRY','', 'NDC STATUS', 'NTZ STATUS', 'YEAR'];
+  const columnNames = ['COUNTRY','', 'NDC STATUS', 'NET-ZERO TARGET STATUS', 'TARGET YEAR'];
 
   const rankingNTZstatus = {
     'Proposed / in discussion': 1,
@@ -186,7 +186,7 @@
 
         <div class="cell-category">{row.ndcStatus}</div>
 
-        <div class="cell-category">{row.status ? row.status : '—'}</div>
+        <div class="cell-category">{row.status ? row.status : 'No target'}</div>
 
         <div class="cell-number">{row.year ? row.year : '—'}</div>
 
@@ -248,7 +248,6 @@
     font-weight: bold;
     padding-right: 10px;
     display: flex;
-    align-items:center;
     padding-bottom: 10px;
   }
 
@@ -269,7 +268,6 @@
     font-size: 1.2rem;
     text-align: left;
     display: flex;
-    align-items:center;
     justify-content: left;
     padding-bottom: 10px;
   }
@@ -280,7 +278,6 @@
     text-align: right;
     padding-left: 10px;
     display: flex;
-    align-items:center;
     justify-content: right;
     padding-bottom: 10px;
   }
