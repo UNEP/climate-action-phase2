@@ -172,6 +172,10 @@
 
     }
 
+    .mainnavbuttons {
+      margin-right: 0px;
+    }
+
     .text {
       opacity: 0;
     }
