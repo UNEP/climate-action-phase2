@@ -176,7 +176,6 @@
           display: none;
       }
       .legend {
-          position: absolute;
           top: 25px;
       }
       .aimg-container {
