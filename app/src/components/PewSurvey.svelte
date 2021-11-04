@@ -14,28 +14,24 @@
     export var id: string;
     export var text: TextBlock[];
 
-    interface PewData {
-      country: string,
-      year: string,
-      value: number
-    }
-
-    let datasetPewData = dataset.pew as PewData [];
+    let datasetPewData = dataset.pew;
     let loaded: boolean = false;
     let selectedCountry:Array<any>;
     let width: number = 100;
-    $: tileWidth = width * .1;
+    let tileWidth: number = width * .1;
+    $: width < 826 ? tileWidth = width * .23 : tileWidth = width * .1;
     let hover: boolean = false;
+    let hoverTileWidth: number = 270;
 
-    let groupByCountry;
     let detailChartPosition: {x:number, y:number};
     let container:HTMLElement;
     let offset:{x:number, y:number, width: number, height: number};
 
 
     let dataFiltered = datasetPewData.filter(d => d.value !== null);
-    groupByCountry = groups(dataFiltered, d => d.country).map(d => d[1]);
-    groupByCountry.sort((a,b) => b[b.length - 1].value - a[a.length - 1].value );
+    const groupByCountry = groups(dataFiltered, d => d.country).map(d => d[1])
+      .sort((a,b) => b[b.length - 1].value - a[a.length - 1].value );
+
     loaded = true;
 
 
@@ -52,9 +48,21 @@
       hover = true;
 
       detailChartPosition = pos;
-      detailChartPosition.x = detailChartPosition.x - 75;
+
+      detailChartPosition.x = detailChartPosition.x + tileWidth / 2 - hoverTileWidth / 2;
       detailChartPosition.y = detailChartPosition.y;
 
+      if (detailChartPosition.x < 32) {
+        detailChartPosition.x = 0;
+      }else if (detailChartPosition.x + 270 > offset.width){
+        detailChartPosition.x = width - 270;
+      }
+
+      if (detailChartPosition.y < 32) {
+        detailChartPosition.y = 32;
+      }else if (detailChartPosition.y + 270 * .7 > offset.height){
+        detailChartPosition.y = offset.height - 270 * .7;
+      }
     }
 
     const nameOverrides = {
@@ -74,7 +82,7 @@
       </p>
       <MiniSurveyCharts
               data={selectedCountry}
-              width={270}
+              width={hoverTileWidth}
               selected={true}
           />
       </div>
@@ -83,7 +91,7 @@
   <div class="pew-container" bind:clientWidth={width} bind:this={container} >
       {#each groupByCountry as country}
       <div class="mini-chart"
-      on:mouseenter={(e) => selectCountry(country, {x: e.target.offsetLeft, y: e.target.offsetTop})}
+      on:mouseenter={(e) => selectCountry(country, {x: e.currentTarget.offsetLeft, y: e.currentTarget.offsetTop})}
       on:mouseleave={() => hover = false }
       >
           <p class="label">{nameOverrides[country[0].short] || country[0].short}</p>
@@ -189,13 +197,10 @@
     .value {
         font-size:18px;
     }
-
     @media (max-width: 900px) {
-        .label {
-            font-size: 11px;
-        }
-        .pew-container {
-            margin-top:0;
-        }
+      .mini-chart {
+        width: calc(25% - 6px);
+      }
     }
+
 </style>
