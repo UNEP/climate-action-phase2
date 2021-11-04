@@ -1,10 +1,9 @@
 <script lang="ts">
   import Scroller from "./common/Scroller.svelte";
-  import datasets, { END_YEAR } from 'src/data';
+  import datasets from 'src/data';
   import type { SimpleCartogramDataPoint } from "./maps/Cartogram.svelte";
   import Cartogram from "./maps/Cartogram.svelte";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
-  import { displayVal } from "src/util";
   import { colorNetZero } from "src/colors";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import CartogramNode from "./maps/CartogramNode.svelte";
@@ -92,11 +91,8 @@
 
   let hoveredLegendIndex: number;
 
-
   $: hoveredLegendColor = hoveredLegendIndex !== null && hoveredLegendIndex >= 0
     ? colorNetZero.range()[hoveredLegendIndex] : "";
-
-  $: console.log('hoveredLegendColor', hoveredLegendIndex, hoveredLegendColor);
 
 </script>
 
