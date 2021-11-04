@@ -39,20 +39,17 @@
         NodeComponent: CartogramNode,
         NodeClass: CartogramDataPoint,
         hoverTextFn: (c) => {
-          let current = datasets.lookups.netzero[c.id];
-          let res = "";
-          if(current.status !== "" && current.year !== null)
-            res = datasets.lookups.countries[c.id].name +
-            " has the status: " + current.status + " by " + current.year + ".";
-          else if(current.status !== "")
-            res = datasets.lookups.countries[c.id].name +
-            " has the status: " + current.status + " but no target year.";
-          else if(current.year !== null)
-            res = datasets.lookups.countries[c.id].name +
-            " has " + current.year + " as a target, but doesn't has a status.";
+          const { year, status } = datasets.lookups.netzero[c.id];
+          const { name } = datasets.lookups.countries[c.id];
+
+          if (status !== "" && year !== null)
+            return `${name} has the status: ${status} by ${year}.`;
+          else if (status !== "")
+            return `${name} has the status: ${status} but no target year.`;
+          else if (year !== null)
+            return `${name} has ${year} as a target, but doesn't has a status.`;
           else
-            res = "No data for " + datasets.lookups.countries[c.id].name + ".";
-          return res;
+            return `No data for ${name}.`;
         },
         classesFn: c => section === 1 && !datasets.top10emitters.has(c.id) ? ['fade'] : [],
         colorFn: d => datasets.lookups.netzero[d.id]
