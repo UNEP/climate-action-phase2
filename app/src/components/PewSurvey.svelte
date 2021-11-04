@@ -14,31 +14,24 @@
     export var id: string;
     export var text: TextBlock[];
 
-    interface PewData {
-      country: string,
-      year: string,
-      value: number
-    }
-
-    let datasetPewData = dataset.pew as PewData [];
+    let datasetPewData = dataset.pew;
     let loaded: boolean = false;
     let selectedCountry:Array<any>;
     let width: number = 100;
     let tileWidth: number = width * .1;
-    $: width < 826 ? tileWidth = width * .2 : tileWidth = width * .1;
-    $: console.log(width);
+    $: width < 826 ? tileWidth = width * .23 : tileWidth = width * .1;
     let hover: boolean = false;
     let hoverTileWidth: number = 270;
 
-    let groupByCountry;
     let detailChartPosition: {x:number, y:number};
     let container:HTMLElement;
     let offset:{x:number, y:number, width: number, height: number};
 
 
     let dataFiltered = datasetPewData.filter(d => d.value !== null);
-    groupByCountry = groups(dataFiltered, d => d.country).map(d => d[1]);
-    groupByCountry.sort((a,b) => b[b.length - 1].value - a[a.length - 1].value );
+    const groupByCountry = groups(dataFiltered, d => d.country).map(d => d[1])
+      .sort((a,b) => b[b.length - 1].value - a[a.length - 1].value );
+
     loaded = true;
 
 
@@ -98,7 +91,7 @@
   <div class="pew-container" bind:clientWidth={width} bind:this={container} >
       {#each groupByCountry as country}
       <div class="mini-chart"
-      on:mouseenter={(e) => selectCountry(country, {x: e.target.offsetLeft, y: e.target.offsetTop})}
+      on:mouseenter={(e) => selectCountry(country, {x: e.currentTarget.offsetLeft, y: e.currentTarget.offsetTop})}
       on:mouseleave={() => hover = false }
       >
           <p class="label">{nameOverrides[country[0].short] || country[0].short}</p>
@@ -206,7 +199,7 @@
     }
     @media (max-width: 900px) {
       .mini-chart {
-        width: 20%;
+        width: calc(25% - 6px);
       }
     }
 
