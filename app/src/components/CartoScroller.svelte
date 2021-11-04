@@ -38,9 +38,19 @@
         ...datasets.cartoworld.ghg,
         NodeComponent: CartogramNode,
         NodeClass: CartogramDataPoint,
-        hoverTextFn: c =>
-          `<b>${c.name}</b> emitted ${displayVal(c.value, 1)} ` +
-          `tonnes of GHG in ${END_YEAR}`,
+        hoverTextFn: (c) => {
+          const { year, status } = datasets.lookups.netzero[c.id];
+          const { name } = datasets.lookups.countries[c.id];
+
+          if (status !== "" && year !== null)
+            return `${name} has the status: ${status} by ${year}.`;
+          else if (status !== "")
+            return `${name} has the status: ${status} but no target year.`;
+          else if (year !== null)
+            return `${name} has ${year} as a target, but doesn't has a status.`;
+          else
+            return `No data for ${name}.`;
+        },
         classesFn: c => section === 1 && !datasets.top10emitters.has(c.id) ? ['fade'] : [],
         colorFn: d => datasets.lookups.netzero[d.id]
           ? colorNetZero(datasets.lookups.netzero[d.id].status)

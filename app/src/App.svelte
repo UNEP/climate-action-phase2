@@ -14,6 +14,7 @@
   import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
+  import WebstiesMenu from './components/nav/WebstiesMenu.svelte';
   import ClimateActionCountryTable from './components/ClimateActionCountryTable.svelte';
 
   export var gdocs: GDocs;
@@ -34,6 +35,7 @@
     'carto-scrolly': CartoScroller,
     'country-table': CountryTable,
     'risk-country-table': RiskCountryTable,
+    'websites-menu' : WebstiesMenu,
     'climate-action-country-table': ClimateActionCountryTable
   };
 

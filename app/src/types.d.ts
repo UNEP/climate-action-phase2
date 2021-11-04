@@ -19,6 +19,14 @@ type TextBlockType = "p";
 
 export type TextBlock = Record<TextBlockType, string>;
 
+type TextBlockType = "p";
+
+export interface MenuOption {
+  text: string,
+  icon: string,
+  href: string
+}
+
 export interface Content {
   type: string;
   head?: string;
@@ -28,6 +36,8 @@ export interface Content {
   icon?: string;
   menuicon?: string;
   embed?: string;
+  options?: MenuOption[];
+  selected?: number;
   id?: string;
 }
 
