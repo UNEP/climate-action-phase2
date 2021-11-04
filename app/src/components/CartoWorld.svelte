@@ -8,16 +8,15 @@
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
   import EmbedFooter from "./EmbedFooter.svelte";
-  import SectionTitle from "src/components/SectionTitle.svelte";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import type { InputDataPoint } from "./maps/CartogramTypes";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
   import CartogramNode from "./maps/CartogramNode.svelte";
+  import CartogramHeader from "./maps/CartogramHeader.svelte";
 
   export var data : keyof Datasets;
   export var id: string;
   export var block: Content;
-  export var head: string;
   export var text: TextBlock[];
   export var embed: string;
   export var isEmbed = false;
@@ -132,7 +131,7 @@
           ...datasets.cartoworld.ndc,
           NodeClass: CartogramDataPoint,
           NodeComponent: CartogramNode,
-          hoverTextFn: c => c.data.label,
+          hoverTextFn: (c) => c.data.label,
           colorFn: d => colorNDC(d.data.colorValue),
         }],
         countries: datasets.countries,
@@ -190,18 +189,14 @@
 {#if datasetParams[data]}
   <section {id} class="viz wide">
 
-    {#if !isEmbed}
-      <SectionTitle {block} />
-    {/if}
-
-    <h2 class='narrow'>{@html head}</h2>
-
-    <div class="right-narrow" >
-      <Legend
-        {...datasetParams[data].legend}
-        bind:selected = {legendElementSelectedIndex}
-      />
-    </div>
+    <CartogramHeader {block} >
+      <div slot="legend">
+        <Legend
+          {...datasetParams[data].legend}
+          bind:selected = {legendElementSelectedIndex}
+        />
+      </div>
+    </CartogramHeader>
 
     {#if isEmbed && embed !== "policies"}
       <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
