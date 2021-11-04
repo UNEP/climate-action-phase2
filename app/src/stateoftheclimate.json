@@ -41,14 +41,15 @@
           "label": "Climate Action Note"
         }
       ],
-      "head": "Climate Action Note – State of the climate",
+      "head": "State of the climate",
+      "tag": "Climate Action Note – data you need to know",
       "id": "sotc",
       "text": [
         {
-          "p": "The world is in a climate emergency - ‘a code red for humanity’. The concentration of GHG emissions in the atmosphere is wrecking[a] havoc across the world threatening lives, economy, health and food. We are far from securing a global temperature rise safely below 1.5°C as promised in the Paris Agreement. With a baseline in 1990, some countries are emitting more, some the same and some are emitting less."
+          "p": "The world is in a climate emergency – ‘a code red for humanity’. The concentration of GHG emissions in the atmosphere is wreaking havoc across the world threatening lives, economy, health and food. We are far from securing a global temperature rise safely below 1.5°C as promised in the Paris Agreement. With a baseline in 1990, some countries are emitting more, some the same and some are emitting less."
         },
         {
-          "p": "The UNEP Climate Dashboard shows you the global state of the climate emergency and its development."
+          "p": "The UNEP Climate Action Note shows you the global state of the climate emergency and its development."
         }
       ]
     },
@@ -63,10 +64,10 @@
       "menuicon": "stateoftheclimate.emissions",
       "data": "ghg",
       "embed": "ghg",
-      "head": "GHG emissions are choking our world and changing our climate",
+      "head": "GHG emissions are choking our world, mitigation opportunities exist but GHG emissions continue to rise",
       "text": [
         {
-          "p": "To limit global temperature rise to safe 1.5°C, as promised in the Paris Agreement, emissions must be cut with 30 gigatones annually by 2030[b]. This map shows countries scaled to their current emissions in 2018 and coloured by their development in emissions since 1990.[c]"
+          "p": "To limit global temperature rise to safe 1.5°C, as promised in the Paris Agreement, countries must cut 30 gigatonnes of greenhouse gas emissions annually by 2030. [a]"
         }
       ],
       "legend-head": "How have emissions changed since 1990",
@@ -75,7 +76,7 @@
           "l": "Lower"
         },
         {
-          "l": "Status quo"
+          "l": "Stagnant"
         },
         {
           "l": "More than in 1990"
@@ -90,10 +91,10 @@
       "menuicon": "stateoftheclimate.percapita",
       "data": "percapita",
       "embed": "percapita",
-      "head": "Individual emissions vary a lot and they follow along wealth lines",
+      "head": "Individual carbon footprint varies a lot and it falls along wealth lines",
       "text": [
         {
-          "p": "The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. This map shows country emissions per capita and how they have changed since 1990.[d] It is a strong call to make rapid and large scale[e] emission reduction in the largest emitters and to support developing countries build a low-carbon economy and making adequate climate adaptation. [f]"
+          "p": "The world’s wealthiest 1 percent emit more than twice the emissions of the poorest half combined. It is a strong call to make rapid and large scale[b] emission reduction in the largest emitters and to support developing countries build a low-carbon economy and making adequate climate adaptation. [c]"
         }
       ]
     },
@@ -108,16 +109,13 @@
       "head": "Progress is being made but it is insufficient and all countries need to step up",
       "text": [
         {
-          "p": "We can stay safe below 1.5°C temperature rise as set out in the Paris Agreement using existing solutions. They include renewable energy, green hydrogen and modern bioenergy - and government subsidies and support could be directed to push towards low-carbon and green policies."
-        },
-        {
-          "p": "We need to scale up the green transition and reduce GHG emissions by fivefold to stay safe below 1.5°C temperature rise. These are country trends in GHG emissions coloured by their development. [g]"
+          "p": "We can stay safe below 1.5°C temperature rise as set out in the Paris Agreement using existing solutions. They include renewable energy, green hydrogen and modern bioenergy — and government subsidies and support could be directed to push towards low-carbon and green policies. We need to scale up the green transition and reduce GHG emissions by fivefold to stay safe. Explore the <a href=\"https://www.unep.org/interactive/six-sector-solution-climate-change/\" target=\"_blank\">UNEP Six-sector solution.</a>"
         }
       ]
     },
     {
       "type": "country-table",
-      "head": "See how the GHG emissions from each country have changed since 1970",
+      "head": "See how the GHG emissions for each country have changed since 1970",
       "title": "By country",
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
@@ -151,9 +149,5 @@
   },
   "a": [],
   "b": [],
-  "c": [],
-  "d": [],
-  "e": [],
-  "f": [],
-  "g": []
+  "c": []
 }

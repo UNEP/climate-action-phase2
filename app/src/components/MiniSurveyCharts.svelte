@@ -29,7 +29,7 @@
 
 </script>
 <div class='container'>
-<svg width={width} height={height} >
+<svg viewBox="0 0 {width} {height}" >
   {#each data as d,i}
   <circle class="circle" cx={x(d3.timeParse("%m/%Y")(d.year))} cy={y(d.value)} r={selected ? (i === data.length - 1 ) ? 4.5 : 3 : 2} />
   {/each}

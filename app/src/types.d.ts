@@ -38,6 +38,7 @@ export interface Content {
   embed?: string;
   options?: MenuOption[];
   selected?: number;
+  id?: string;
 }
 
 namespace Content {

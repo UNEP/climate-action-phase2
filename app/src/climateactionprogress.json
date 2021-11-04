@@ -41,14 +41,15 @@
           "label": "Climate Action Note"
         }
       ],
-      "head": "Climate Action Note – Climate Action progress",
+      "head": "Climate action progress",
+      "tag": "Climate Action Note – data you need to know",
       "id": "climateactionprogress",
       "text": [
         {
           "p": "Global average temperatures are on the rise predicted to exceed 3°C this century and catastrophic consequences are already setting in across the world with extreme variations in weather. The world needs to cut emissions by 30 gigatones annually by 2030 in order to limit temperature rise to a safe 1.5°C and thus halt the worst impacts. And the emission reductions need to start happening now."
         },
         {
-          "p": "The UNEP Climate ActionDashboard[a] shows you the global state of climate action and where each country has work to do."
+          "p": "The UNEP Climate Action Note shows you the global state of climate action and where each country has work to do."
         }
       ]
     },
@@ -75,7 +76,7 @@
           "p": "This map shows how country emissions are actually developing regardless of NDCs or net-zero targets."
         },
         {
-          "p": "These are the 10 countries highlighted by the largest actual emission reductions.[b][c]"
+          "p": "These are the 10 countries highlighted by the largest actual emission reductions.[a][b]"
         }
       ]
     },
@@ -90,7 +91,7 @@
       "head": "Countries must strengthen pledges made under Paris Agreement",
       "text": [
         {
-          "p": "In signing the Paris Agreement, governments pledged to cut emissions and report their plans through ‘Nationally Determined Contributions’ (NDCs). The levels of ambition in the Paris Agreement must be roughly tripled to stay below 2°C and increased at least fivefold to stay safe below 1.5°C. More countries have committed to net-zero emission targets yet few implement the actual measure making those targets realistic. This map shows countries scaled by their emissions and coloured by their NDC submissions.[d]"
+          "p": "In signing the Paris Agreement, governments pledged to cut emissions and report their plans through ‘Nationally Determined Contributions’ (NDCs). The levels of ambition in the Paris Agreement must be roughly tripled to stay below 2°C and increased at least fivefold to stay safe below 1.5°C. More countries have committed to net-zero emission targets yet few implement the actual measure making those targets realistic."
         }
       ]
     },
@@ -107,6 +108,30 @@
           "p": "The catastrophic consequences of the climate emergency are making an impact on popular perceptions. In just five years - between 2013 and 2018 - more people are considering climate change a major threat. Most countries today have popular support for such rapid and large scale emission reductions."
         }
       ]
+    },
+    {
+      "type": "carto-world",
+      "title": "Fossil fuel subsidies",
+      "icon": "climateactionprogress.ffsubsidies",
+      "menu": "Fossil fuel subsidies",
+      "menuicon": "climateactionprogress.ffsubsidies",
+      "embed": "ffsubsidies",
+      "head": "Headline here",
+      "text": [
+        {
+          "p": "Text here"
+        }
+      ]
+    },
+    {
+      "type": "climate-action-country-table",
+      "head": "See what countries are taking more action globally",
+      "title": "By country",
+      "icon": "stateoftheclimate.searchtable",
+      "menu": "By country",
+      "menuicon": "stateoftheclimate.searchtable",
+      "data": "co2bycountry",
+      "embed": "co2bycountry"
     },
     {
       "type": "methodology",
@@ -143,6 +168,5 @@
   },
   "a": [],
   "b": [],
-  "c": [],
-  "d": []
+  "c": []
 }

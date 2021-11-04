@@ -62,6 +62,7 @@
             block={block}
             id={block.menu ? strToId(block.menu) : null}
             content={content}
+            currentPage={block.id}
           />
         {:else}
           <div>Missing component for '{block.type}'</div>

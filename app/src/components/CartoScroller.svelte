@@ -11,6 +11,7 @@
   import Legend from "./common/Legend.svelte";
   import SectionTitle from "./SectionTitle.svelte";
   import type { Content } from "src/types";
+  import ScrollableX from "./common/ScrollableX.svelte";
 
   export let text: {p: string}[];
   export let id: string;
@@ -91,7 +92,7 @@
 
 <div {id}>
   <Scroller bind:section>
-    <div slot="sticky">
+    <div class="sticky" slot="sticky">
       <div class="legend-container">
 
         <SectionTitle {block} />
@@ -102,18 +103,19 @@
           bind:selected={hoveredLegendIndex} />
       </div>
       <div class="carto-container">
-        <div class="carto-content">
-          <Cartogram
-            {...sharedParams} {...currentSectionParams}
-            legendIsHoveredValue={hoveredLegendColor}
-            bind:rerenderFn
-            selectedDatasetIndex={Math.floor((section || 0) / 2)} />
-        </div>
-
+        <ScrollableX>
+          <div class="carto-content">
+            <Cartogram
+              {...sharedParams} {...currentSectionParams}
+              legendIsHoveredValue={hoveredLegendColor}
+              bind:rerenderFn
+              selectedDatasetIndex={Math.floor((section || 0) / 2)} />
+          </div>
+        </ScrollableX>
       </div>
     </div>
 
-    <div slot="scrollable">
+    <div class="scrollable" slot="scrollable">
       {#each text as {p}}
       <section>
         <div class="scrollcard">{p}</div>
@@ -125,6 +127,14 @@
 
 
 <style lang="scss">
+
+  .sticky {
+    top: 10vh;
+  }
+
+  .scrollable {
+    padding-bottom: 60vh;
+  }
 
   section {
     pointer-events: none;
@@ -150,8 +160,13 @@
   .carto-container {
     -webkit-transform: translate3d(0, 0, 0);
     .carto-content {
+      display: flex;
       height: 70vh;
       width: 100%;
+      min-width: 800px;
+      > :global(.scrollable) {
+        flex: 1;
+      }
     }
   }
 
@@ -163,6 +178,21 @@
     z-index: 10;
     > :global(.legend-container) {
       max-width: 500px;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .carto-container {
+      margin: 0 -1rem;
+    }
+    .carto-content {
+      padding: 1rem;
+      height: 55vh;
+    }
+
+    .legend-container {
+      display: block;
+      margin-bottom: 20px;
     }
   }
 
