@@ -46,7 +46,7 @@ export function calcGradientFrom(data: TrendsDataPoint, startYear: number, endYe
   const years = range(startYear, endYear + 1);
   const norm = data.emissions[startYear.toString()];
   const ys = years.map(year => data.emissions[year.toString()] / norm);
-  return calcBestFitGradient(years.map((_, i) => i), normalize(ys));
+  return calcBestFitGradient(years.map((_, i) => i), ys);
 }
 
 
