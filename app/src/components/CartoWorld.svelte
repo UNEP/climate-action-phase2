@@ -131,7 +131,7 @@
           ...datasets.cartoworld.ndc,
           NodeClass: CartogramDataPoint,
           NodeComponent: CartogramNode,
-          hoverTextFn: (c) => c.data.label,
+          hoverTextFn: (c) => `<b>${c.name}</b><br>${c.data.label}`,
           colorFn: d => colorNDC(d.data.colorValue),
         }],
         countries: datasets.countries,
