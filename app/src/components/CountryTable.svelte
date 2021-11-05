@@ -111,7 +111,7 @@
     { name: 'Per capita', sortable: true },
   ];
 
-  let sort: {column: string, asc: boolean} = {column: 'Country', asc: true};
+  let sort: {column: string, asc: boolean} = {column: '2018 emissions', asc: false};
 
   const onClickHeader = (header: Header) => {
     if (header.name === sort.column) {
