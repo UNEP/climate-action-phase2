@@ -16,11 +16,18 @@
   import RiskCountryTable from './components/RiskCountryTable.svelte';
   import ClimateActionCountryTable from './components/ClimateActionCountryTable.svelte';
   import EmbedSection from './components/EmbedSection.svelte';
+  import sotc from './stateoftheclimate.json';
+  import wh from './whatshappening.json';
+  import cap from './climateactionprogress.json';
 
-  export var gdocs: GDocs;
   export var embed: string;
+  export var page: string;
 
-  const content: Content[] = gdocs.article;
+  const gdocs = { sotc, wh, cap };
+
+  const content: Content[] = embed
+    ? [...sotc.article, ...wh.article, ...cap.article] : gdocs[page].article;
+
   const embedBlock = embed && content.find(b => b.embed === embed);
 
   const components = {
@@ -40,18 +47,22 @@
   };
 
 </script>
-{#if embedBlock}
-  <BaseEmbed>
-    <div slot="viz" class="cartogram-pane">
-      <svelte:component
-        this={components[embedBlock.type]}
-        {...embedBlock}
-        content={content}
-        block={embedBlock}
-        isEmbed={true}
-      />
-    </div>
-  </BaseEmbed>
+{#if embed}
+  {#if embedBlock}
+    <BaseEmbed>
+      <div slot="viz" class="cartogram-pane">
+        <svelte:component
+          this={components[embedBlock.type]}
+          {...embedBlock}
+          content={content}
+          block={embedBlock}
+          isEmbed={true}
+        />
+      </div>
+    </BaseEmbed>
+  {:else}
+    <div>Missing embed: {embed}</div>
+  {/if}
 {:else}
   <TopNav />
   <main>
