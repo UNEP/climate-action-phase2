@@ -1,0 +1,919 @@
+[
+  {
+    "id": "ARE",
+    "status": "Second 2020 NDC",
+    "description": "Reduction of 23.5% in GHG emissions for the year 2030, relative to BAU."
+  },
+  {
+    "id": "AFG",
+    "status": "Only First NDC",
+    "description": "13.6% reduction in GHG emissions by 2030 compared to a business as usual (BAU) scenario, conditional on external support"
+  },
+  {
+    "id": "ATG",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "ALB",
+    "status": "Only First NDC",
+    "description": "Reduce CO2 emissions compared to the baseline scenario in the period of 2016 and 2030 by 11.5%, which means 708 kT carbon-dioxide emission reduction in 2030."
+  },
+  {
+    "id": "ARM",
+    "status": "Only First NDC",
+    "description": "Total aggregate emissions between 2015 and 2050 will be equal to 633 million tCO2eq, and that the country will strive to achieve ecosystem neutral GHG emissions in 2050 (equivalent to 2.07 tons/per capita per annum) with international support."
+  },
+  {
+    "id": "AGO",
+    "status": "Only First NDC",
+    "description": "Up to 35% (uncondtional) to 50% (conditional) reduction in GHG emissions by 2030 as compared to the BAU scenario"
+  },
+  {
+    "id": "ARG",
+    "status": "Second 2020 NDC",
+    "description": "A cap of 359 MtCO2e net emissions in 2030"
+  },
+  {
+    "id": "AUT",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "AUS",
+    "status": "First 2020 NDC",
+    "description": "26 to 28 per cent below 2005 levels by 2030, to be implemented as an emissions budget covering the period 2021-2030."
+  },
+  {
+    "id": "ABW"
+  },
+  {
+    "id": "AZE",
+    "status": "Only First NDC",
+    "description": "35% reduction in GHG emissions by 2030 compared to 1990"
+  },
+  {
+    "id": "BIH",
+    "status": "Only First NDC",
+    "description": "2% (unconditional) to 23% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario, which would mean 18% higher (unconditional) to 3% reduction (conditional) compared to 1990."
+  },
+  {
+    "id": "BRB",
+    "status": "Only First NDC",
+    "description": "44% reduction by 2030 in GHG emissions compared to the BAU scenario, translating to a 23% reduction compared to 2008 in absolute terms; Interim target of 37% reduction compared to its BAU scenario by 2025"
+  },
+  {
+    "id": "BGD",
+    "status": "First 2020 NDC",
+    "description": "5% (unconditional) to 15% (conditional) reduction in GHG emissions by 2030 compared to the BAU levels"
+  },
+  {
+    "id": "BEL",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "BFA",
+    "status": "Only First NDC",
+    "description": "6.6% (unconditional), 11.6% (hybrid conditional), or 36.95% (adaptation co-benefits) reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "BGR",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "BHR",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "BDI",
+    "status": "Only First NDC",
+    "description": "3% (unconditional) to 20% (conditional) reduction in GHG emissions for 2030 compared to the business-as-usual (BAU) scenario"
+  },
+  {
+    "id": "BEN",
+    "status": "Only First NDC",
+    "description": "49.49 MtCO2e, or 16.17% reduction in overall cumulative GHG emissions (excluding forestry sector) 2021-2030 compared to the BAU scenario; The share of national efforts is 3.63% and of conditional contribution is 12.55%"
+  },
+  {
+    "id": "BRN",
+    "status": "First 2020 NDC",
+    "description": "A reduction in GHG emissions by 20% relative to Business-As-Usual levels by 2030."
+  },
+  {
+    "id": "BOL",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "BRA",
+    "status": "First 2020 NDC",
+    "description": "Reduce GHG emissions by 37% in 2025, and by 43% in 2030 below 2005 levels"
+  },
+  {
+    "id": "BHS",
+    "status": "Only First NDC",
+    "description": "30% reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "BTN",
+    "status": "Only First NDC",
+    "description": "Remain carbon neutral where GHG emission will not exceed sequestration by forests, which is estimated at 6.3 million tons of CO2"
+  },
+  {
+    "id": "BWA",
+    "status": "Only First NDC",
+    "description": "15% reduction in GHG emissions by 2030 compared to 2010"
+  },
+  {
+    "id": "BLR",
+    "status": "Only First NDC",
+    "description": "At least 28% reduction in GHG emissions by 2030 compared to 1990 (excluding LULUCF) without any conditions."
+  },
+  {
+    "id": "BLZ",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "CAN",
+    "status": "Only First NDC",
+    "description": "30% reduction in GHG emissions by 2030 compared to 2005, representing a total economy-wide emissions of 523 Mt in 2030"
+  },
+  {
+    "id": "CAF",
+    "status": "Only First NDC",
+    "description": "5% reduction by 2030 and 25% by 2050 in GHG emission compared to the reference BAU scenario"
+  },
+  {
+    "id": "COG",
+    "status": "Only First NDC",
+    "description": "Abouth 48% (or 8 MtCO2e) reduction in 2025 and 54% (or 19 MtCO2e) reduction in 2035 in GHG emission compared to the baseline scenario"
+  },
+  {
+    "id": "CHE",
+    "status": "First 2020 NDC",
+    "description": "At least 50% reduction by 2030 compared to 1990 levels, with an indicative goal to reduce greenhouse gas emissions to net-zero emissions by 2050."
+  },
+  {
+    "id": "CIV",
+    "status": "Only First NDC",
+    "description": "28% reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "CHL",
+    "status": "First 2020 NDC",
+    "description": "A goal of 95 MtCO2eq by 2030, an emissions maximum in 2025, and a GHG emissions budget of no more than 1,100 MtCO2eq in the period 2020-2030."
+  },
+  {
+    "id": "CMR",
+    "status": "Only First NDC",
+    "description": "32% reduction in GHG emissions for 2035 compared to a reference scenario"
+  },
+  {
+    "id": "CHN",
+    "status": "Only First NDC",
+    "description": "Achieve the peaking of CO2 emissions around 2030 and making best efforts to peak early; 60% to 65% reduction of CO2 emissions per unit of GDP by 2030 compared to 2005 level"
+  },
+  {
+    "id": "COL",
+    "status": "First 2020 NDC",
+    "description": "Maximum of 169.44 MtCO2e in 2030 (equivalent to 51% reduction compared to BAU)<br>Reduce black carbon emissions by 40% compared to 2014 in 2030."
+  },
+  {
+    "id": "CRI",
+    "status": "First 2020 NDC",
+    "description": "An absolute maximum of net-emissions by 2030 of 9.11 MtCO2e, and a maximum budget of net-emissions during 2021-2030 of 106.53 MtCO2e."
+  },
+  {
+    "id": "CUB",
+    "status": "First 2020 NDC",
+    "description": "No GHG Target mentioned in the submission"
+  },
+  {
+    "id": "CPV",
+    "status": "First 2020 NDC",
+    "description": "Reduce GHG emissions by 18% (unconditional) and 24% (conditional) by 2030 compared to BAU."
+  },
+  {
+    "id": "CYP",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "CZE",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "DEU",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "DJI",
+    "status": "Only First NDC",
+    "description": "40% (unconditional) to additional 20% (conditional) reduction in GHG emissions by 2030 compared to the referece scenario, equivalent to 1.8 MtCO2e (unconditional) to an additional 0.9 MtCO2e (conditional) reduction in 2030"
+  },
+  {
+    "id": "DNK",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "DMA",
+    "status": "Only First NDC",
+    "description": "17.9% by 2020, 39.2% by 2025 and 44.7% by 2030 reduction in GHG emissions below 2014 levels (164.5 Ggs est.)"
+  },
+  {
+    "id": "DOM",
+    "status": "First 2020 NDC",
+    "description": "27% reduction (7% unconditional to domestic finances and 20% conditional to external finances) by 2030 compared to BAU"
+  },
+  {
+    "id": "DZA",
+    "status": "Only First NDC",
+    "description": "7% (with domestic means) to 22% (conditional) reduction in GHG emissions by 2030 compared to the BAU levels"
+  },
+  {
+    "id": "ECU",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "EST",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "EGY",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "ERI",
+    "status": "Only First NDC",
+    "description": "The government of Eritrea is committed to reduce the CO2 emissions from fossil fuels by 4.2% in 2020, 6.2% by 2025 and 12.0% by 2030 compared to the projected BAU of the reference year of 2010. If additional support is availed, it can further be reduced by 12.6% in 2020, 24.9% by 2025 and 38.5 by the year 2030."
+  },
+  {
+    "id": "ESP",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "ETH",
+    "status": "First 2020 NDC",
+    "description": "Ethiopia is committing to reduce economy-wide greenhouse gas emissions (GHG) by 220.59 MtCO2eq in 2030 as compared to the 2010 BAU scenario. Ethiopia commits to 12.4% (unconditional) and 41.1%% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario (412.1 MtCO2eq)."
+  },
+  {
+    "id": "FIN",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "FJI",
+    "status": "First 2020 NDC",
+    "description": "To reduce 30% of BAU CO2 emissions from the energy sector by 2030"
+  },
+  {
+    "id": "FRA",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "GAB",
+    "status": "Only First NDC",
+    "description": "At least 50% reduction in GHG emissions by 2025 compared to the baseline scenario emissions"
+  },
+  {
+    "id": "GBR",
+    "status": "First 2020 NDC",
+    "description": "Reduce economy-wide greenhouse gas emissions by at least 68% by 2030, compared to 1990 levels."
+  },
+  {
+    "id": "GRD",
+    "status": "Second 2020 NDC",
+    "description": "40% reduction of the 2010 emissions levels by 2030"
+  },
+  {
+    "id": "GEO",
+    "status": "Only First NDC",
+    "description": "15% (unconditional) to 25% (conditional) reduction in GHG emissions for the year 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "GHA",
+    "status": "Only First NDC",
+    "description": "15% (unconditional) to 45% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario (73.95 MtCO2e)"
+  },
+  {
+    "id": "GMB",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "GIN",
+    "status": "Only First NDC",
+    "description": "13% reduction in GHG emissions by 2030 compared to 1994, excluding Land-Use Change and Forestry (LUCF)"
+  },
+  {
+    "id": "GNQ",
+    "status": "Only First NDC",
+    "description": "20% reduction in emissions by 2030 compared to 2010 levels, in order to acheive a 50% reduction by 2050"
+  },
+  {
+    "id": "GRC",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "GTM",
+    "status": "Only First NDC",
+    "description": "11.2% (unconditional) to 22.6% (conditional) reduction in GHG emission by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "GNB",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "GUY",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "HND",
+    "status": "Only First NDC",
+    "description": "15% reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "HRV",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "HTI",
+    "status": "Only First NDC",
+    "description": "5% (unconditional) to 31% (conditional) reduction in GHG emissions compared to the baseline scenario, equivalent to an absolute reduction of 10 MtCO2e (unconditional) to 45.24 MtCO2e (conditional)"
+  },
+  {
+    "id": "HUN",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "IDN",
+    "status": "Only First NDC",
+    "description": "29% (unconditional) and up to 41% (conditional) by 2030 compared to the business as usual scenario; 26% (unconditional) reduction in GHG emissions by 2020 compared to business as usual scenario"
+  },
+  {
+    "id": "IRL",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "ISR",
+    "status": "Only First NDC",
+    "description": "Reduce per capita greenhouse gas emissions to 7.7 tCO2e by 2030, equivalent to a 26% reduction compared to 2005 of 10.4 tCO2e per capita; interim target of 8.8 tCO2e per capita by 2025"
+  },
+  {
+    "id": "IND",
+    "status": "Only First NDC",
+    "description": "33% to 35% reduction in the emissions intensity of its GDP by 2030 compared to 2005 level"
+  },
+  {
+    "id": "IRQ",
+    "status": "Only INDC",
+    "description": "1% (unconditional) to 14% (conditional) reduction in GHG emissions by 2035 compared to the BAU scenario"
+  },
+  {
+    "id": "IRN",
+    "status": "Only INDC",
+    "description": "4% (unconditional) up to 12% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "ISL",
+    "status": "First 2020 NDC",
+    "description": "Economy-wide net reduction of at least 55% in greenhouse gas emissions by 2030 compared to 1990"
+  },
+  {
+    "id": "ITA",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "JAM",
+    "status": "First 2020 NDC",
+    "description": "Jamaica's target is to achieve 25.4% reduction relative to business-as-usual emissions in 2030 without international support (unconditional), 28.5% reduction relative to business-as-usual emissions in 2030 conditional upon international support."
+  },
+  {
+    "id": "JOR",
+    "status": "Only First NDC",
+    "description": "Maximally 1.5% (unconditional) to 14% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "JPN",
+    "status": "First 2020 NDC",
+    "description": "26% reduction in GHG emissions by fiscal year (FY) 2030 compared to FY 2013, or 25.4% reduction compared to FY 2005, equivalent to approximately 1.042 billion t-CO2eq in 2030"
+  },
+  {
+    "id": "KEN",
+    "status": "First 2020 NDC",
+    "description": "32% reduction in GHG emissions by 2030 compared to BAU scenario (143 MtCO2eq)"
+  },
+  {
+    "id": "KGZ",
+    "status": "Only First NDC",
+    "description": "11.49 - 13.75% (unconditional) and 29.00 - 30.89% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario; 12.67 - 15.69% (unconditional) and 35.06 - 36.75% (conditional) reduction in GHG emissions by 2050 compared to the BAU scenario."
+  },
+  {
+    "id": "KHM",
+    "status": "First 2020 NDC",
+    "description": "42%% reduction in GHG emission below BAU by 2030"
+  },
+  {
+    "id": "KIR",
+    "status": "Only First NDC",
+    "description": "13.7% reduction in GHG emissions by 2025 and 12.8% by 2030 compared to a BAU projection"
+  },
+  {
+    "id": "COM",
+    "status": "Only First NDC",
+    "description": "84% reduction in GHG emissions by 2030 compared to the reference scenario, including sinks from the Land Use, Land-Use Change, and Forestry (LULUCF) sector."
+  },
+  {
+    "id": "KNA",
+    "status": "Only First NDC",
+    "description": "22% reduction for 2025 and 35% reduction for 2030 in GHG emissions compared to the BAU scenario"
+  },
+  {
+    "id": "PRK",
+    "status": "First 2020 NDC",
+    "description": "Reduce GHG emissions by 16.4% (unconditional) and 52% (conditional) by 2030 compared to BAU."
+  },
+  {
+    "id": "KOR",
+    "status": "First 2020 NDC",
+    "description": "24.4% by 2030 compared to 2017 levels (709.1MtCO2e)"
+  },
+  {
+    "id": "KWT",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "KAZ",
+    "status": "Only First NDC",
+    "description": "15% (unconditional) to 25% (conditional) reduction in GHG emissions by 2030 compared to 1990"
+  },
+  {
+    "id": "LAO",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "LBN",
+    "status": "First 2020 NDC",
+    "description": "20% (unconditional) to 31% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "LCA",
+    "status": "First 2020 NDC",
+    "description": "7% (7.2%) GHG emissions reduction in the energy sector relative to 2010, by 2030, equivalent to 37 GgCO2 eq."
+  },
+  {
+    "id": "LKA",
+    "status": "Only First NDC",
+    "description": "4% (unconditional) to 20% (conditional) reduction in GHG emissions from the energy sector, and 3% (unconditional) to 10% (conditional) from other sectors (transport, industry, forests and waste) by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "LBR",
+    "status": "Only First NDC",
+    "description": "15% reduction in GHG emissions by 2030 compared to the BAU trajectory"
+  },
+  {
+    "id": "LSO",
+    "status": "Only First NDC",
+    "description": "Unconditional target: 10% reduction in GHG emissions compared to business as usual (BAU) by 2030. Conditional target: An additional 25% reduction under certain conditions which would bring the total GHG reduction to sum 35% of (a) and (b) below BAU emission levels by 2030."
+  },
+  {
+    "id": "LTU",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "LUX",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "LVA",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "LBY",
+    "status": "Nothing submitted",
+    "description": "No data"
+  },
+  {
+    "id": "MAR",
+    "status": "Only First NDC",
+    "description": "17% (unconditional) to 42% (conditional) reduction in GHG emission by 2030 compared to the BAU scenario, taking into account reductions in Agriculture, Forestry and Other Land Use (AFOLU)"
+  },
+  {
+    "id": "MDA",
+    "status": "First 2020 NDC",
+    "description": "70% (unconditional) and up to 88% (conditional) reduction in GHG emission in 2030 compared to 1990"
+  },
+  {
+    "id": "MDG",
+    "status": "Only First NDC",
+    "description": "Reduce approximately 30 MtCO2, representing 14% of national emissions, in 2030 compared to the BAU scenario; additive to 61 MtCO2 absorptions increase of the LULUCF sector in 2030, expected at 32% compared to the BAU scenario"
+  },
+  {
+    "id": "MKD",
+    "status": "Only First NDC",
+    "description": "30% to 36% reduction in CO2 emissions from fossil fuels combustion by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "MLI",
+    "status": "Only First NDC",
+    "description": "Sequest 84,437 ktCO2e under mitigation scenario (conditional), 29,242 KtCO2e under baseline scenario in 2030; 29% reduction in GHG emissions from agriculture, 31% from energy and 21% from land use and forestry by 2030 compared to the baseline scenario"
+  },
+  {
+    "id": "MMR",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "MNG",
+    "status": "First 2020 NDC",
+    "description": "Unconditional: 22.7 percent reduction from BAU by 2030, excluding LULUCF.<br>Conditional: 27.2 percent reduction from BAU by 2030, excluding LULUCF."
+  },
+  {
+    "id": "MAC"
+  },
+  {
+    "id": "MRT",
+    "status": "Only First NDC",
+    "description": "2.68% (unconditional) to 22.3%, or 4.2 MtCO2e (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario (18.84 MtCO2e); 33.56 MtCO2e cumulative avoided emissions 2020-2030"
+  },
+  {
+    "id": "MLT",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "MUS",
+    "status": "Only First NDC",
+    "description": "30% reduction in GHG emissions by 2030 compared to the BAU scenario (7 MtCO2e)"
+  },
+  {
+    "id": "MDV",
+    "status": "First 2020 NDC",
+    "description": "Maldives commits to reduce emissions by 26% (conditional) by 2030 compared to BAU and strive to achieve net-zero by 2030."
+  },
+  {
+    "id": "MWI",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "MEX",
+    "status": "First 2020 NDC",
+    "description": "Unconditionally, 22% reduction in GHG and 51% reduction in Black Carbon for the year 2030 compared to BAU scenario <br>With conditions, GHG reductions could increase up to 36%, and Black Carbon reductions to 70% in 2030."
+  },
+  {
+    "id": "MYS",
+    "status": "Only First NDC",
+    "description": "35% (unconditional) to 45% (conditional) reduction in GHG emissions intensity of GDP by 2030 compared to 2005 level"
+  },
+  {
+    "id": "MOZ",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "NAM",
+    "status": "Only First NDC",
+    "description": "89% reduction (projected avoided emissions at the order of 20000 GgCO2eq inclusive of sequestration in AFOLU sector) in GHG emissions at 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "NER",
+    "status": "Only First NDC",
+    "description": "2.5% (unconditional) to 25%(conditional) reduction by 2020 and of 3.5% (unconditional) to 34.6%(conditional) reduction by 2030 in GHG emissions compared to the BAU scenario"
+  },
+  {
+    "id": "NGA",
+    "status": "Only First NDC",
+    "description": "20% (unconditional) to 45% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "NIC",
+    "status": "First 2020 NDC",
+    "description": "69 MtCO2e in 2030 or 10% reduction compared to BAU (77 MtCO2e)"
+  },
+  {
+    "id": "NLD",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "NOR",
+    "status": "First 2020 NDC",
+    "description": "At least 50% and towards 55% reduction in greenhouse gas emission by 2030 compared to 1990 levels"
+  },
+  {
+    "id": "NPL",
+    "status": "Second 2020 NDC",
+    "description": "No GHG Target mentioned in the submission"
+  },
+  {
+    "id": "NZL",
+    "status": "First 2020 NDC",
+    "description": "reduce net emissions of greenhouse gases (other than biogenic methane) to zero by 2050, and to reduce emissions of biogenic methane to 24 to 47 per cent below 2017 levels by 2050, including to 10 per cent below 2017 levels by 2030"
+  },
+  {
+    "id": "OMN",
+    "status": "Only First NDC",
+    "description": "Control the expected GHG emissions growth by 2% below BAU to be 88714 Gg (in 2030) during the period from 2020 - 2030"
+  },
+  {
+    "id": "PAN",
+    "status": "First 2020 NDC",
+    "description": "Reduce energy sector emissions by at least 11.5% by 2030 and at least 24% by 2050 compared to baseline"
+  },
+  {
+    "id": "PER",
+    "status": "First 2020 NDC",
+    "description": "Peru commits to limit its GHG emissions to a maximum level of 208.8 MtCO2e (unconditional) and 179.0 MtCO2e (conditional) in 2030."
+  },
+  {
+    "id": "PNG",
+    "status": "Second 2020 NDC",
+    "description": "Papua New Guinea commits a carbon neutrality target within the energy industries sub-sector by 2030, and a 10,000 Gg CO2 eq reduction target in annual emission from deforestation and forest degradation compared to 2015 level by 2030."
+  },
+  {
+    "id": "PHL",
+    "status": "Only INDC",
+    "description": "About 70% reduction in GHG emissions by 2030 compared to the BAU scenario of 2000-2030"
+  },
+  {
+    "id": "PAK",
+    "status": "Only First NDC",
+    "description": "Up to 20% reduction in GHG emissions by 2030 compared to the projected GHG emissions"
+  },
+  {
+    "id": "POL",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "PRT",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "PLW",
+    "status": "Only First NDC",
+    "description": "22% reduction in GHG emissions from energy sector 2025 compared to 2005"
+  },
+  {
+    "id": "PRY",
+    "status": "Only First NDC",
+    "description": "10% (unconditional) to 20% (conditional) reduction in GHG emissions by 2030 relative to projected emissions"
+  },
+  {
+    "id": "QAT",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "ROU",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "SRB",
+    "status": "Only First NDC",
+    "description": "9.8% reduction in GHG emissions by 2030 compared to 1990"
+  },
+  {
+    "id": "RUS",
+    "status": "First 2020 NDC",
+    "description": "A target for limiting greenhouse gas emissions, which provides for a reduction in greenhouse gas emissions by 2030 to 70 percent relative to the 1990 level."
+  },
+  {
+    "id": "RWA",
+    "status": "First 2020 NDC",
+    "description": "Rwanda commits to reduce emissions by 16% (unconditional) and 38% (conditional) in 2030 compared to BAU."
+  },
+  {
+    "id": "SAU",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "SLB",
+    "status": "Only First NDC",
+    "description": "12% (unconditional) to 27% (conditional) reduction by 2025, 30% (unconditional) to 45% (conditional) reduction by 2030, and more than 50% (conditional) reduction by 2050 in GHG emissions compared to the BAU projection"
+  },
+  {
+    "id": "SDN",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "SWE",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "SGP",
+    "status": "First 2020 NDC",
+    "description": "Singapore’s NDC is an economy-wide absolute GHG emissions limitation target to peak its GHG emissions at 65 MtCO2e around 2030. Singapore’s GHG emissions in 2030 are expected to amount to no higher than 65 MtCO2e."
+  },
+  {
+    "id": "SVN",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "SVK",
+    "status": "First 2020 NDC",
+    "description": "At least 55% reduction in greenhouse gas emissions by 2030 compared to 1990."
+  },
+  {
+    "id": "SLE",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "SEN",
+    "status": "First 2020 NDC",
+    "description": "5% (unconditional) to 23.7% (conditional) reduction in 2025, and 7% (unconditional) to 29.5% (conditional) reduction in 2030 in GHG emissions compared to baseline projections"
+  },
+  {
+    "id": "SOM",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "SUR",
+    "status": "Second 2020 NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "STP",
+    "status": "Only First NDC",
+    "description": "57 ktCO2e (or approxiamtely 24% national emission) reduction in GHG emission by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "SLV",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "SYR",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "SWZ",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "TCA"
+  },
+  {
+    "id": "TCD",
+    "status": "Only First NDC",
+    "description": "Cumulative 18.2% (unconditional) to 71% (conditional) reduction in GHG emissions by 2030 compared to the reference scenario, equivalent to a cumulative reduction of about 41,700 GgCO2e (unconditional) to 162,000 GgCO2e (conditional) 2015-2030"
+  },
+  {
+    "id": "TGO",
+    "status": "Only First NDC",
+    "description": "11.14% (unconditional) and 31.14% (conditional) reduction in GHG emissions by 2030 compared to the baseline scenario"
+  },
+  {
+    "id": "THA",
+    "status": "First 2020 NDC",
+    "description": "20% (unconditional) up to 25% (conditional) reduction in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "TJK",
+    "status": "Only First NDC",
+    "description": "Not exceeding 80-90% (amounts to 1.7-2.2 tCO2e per capita) (unconditional) of 1990 level by 2030; achieve 65-75% (amounts to 1.2-1.7 tCO2e per capita) (conditional) of 1990 level by 2030"
+  },
+  {
+    "id": "TLS",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "TKM",
+    "status": "Only First NDC",
+    "description": "Turkmenistan chose an intensity target (taraget indicator attached to per unit of GDP) and communicated that "
+  },
+  {
+    "id": "TUN",
+    "status": "Only First NDC",
+    "description": "13% (unconditional) to 41% (conditional) reduction in carbon intensity by 2030 compared to 2010"
+  },
+  {
+    "id": "TON",
+    "status": "Second 2020 NDC",
+    "description": "Tonga commits to reduce emissions by 13% (16Gg) by 2030 compared to 2006 in energy sector."
+  },
+  {
+    "id": "TUR",
+    "status": "Only INDC",
+    "description": "Up to 21% reduction in GHG emissions by 2030 compared to the BAU level"
+  },
+  {
+    "id": "TTO",
+    "status": "Only First NDC",
+    "description": "15% (equivalent of 103,000,000 tCO2e) reduction in GHG emissions from power generation, transportation and industrial sectors by 2030 compared to the BAU scenario; 30% (or 1,700,000 tCO2e) (unconditional) reduction in GHG emissions from public transport by December 31, 2030 compared to 2013"
+  },
+  {
+    "id": "TZA",
+    "status": "Only First NDC",
+    "description": "Between 10%-20% reduction in GHG emissions by 2030 compared to the BAU scenario (138-153 MtCO2e gross emissions)"
+  },
+  {
+    "id": "UKR",
+    "status": "Only First NDC",
+    "description": "Will not exceed 60% of 1990 GHG emissions level in 2030"
+  },
+  {
+    "id": "UGA",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "USA",
+    "status": "Only First NDC",
+    "description": "26% to 28% reduction in GHG emission by 2025 compared to 2005 and to make best efforts to reduce its emissions by 28%"
+  },
+  {
+    "id": "URY",
+    "status": "Only First NDC",
+    "description": "2025 mitigation objective of intensity reduction (GHG emissions per GDP unit) from base year 1990 of 24% in CO2, 57% in CH4, 48% in N2O (unconditional), and 29% in CO2, 59% in CH4, 52% in N2O (conditional)"
+  },
+  {
+    "id": "UZB",
+    "status": "Only First NDC",
+    "description": "Decrease specific emissions of greenhouse gases per unit of GDP by 10% by 2030 from level of 2010"
+  },
+  {
+    "id": "VCT",
+    "status": "Only First NDC",
+    "description": "22% reduction in GHG emissions by 2025 compared to the BAU scenario"
+  },
+  {
+    "id": "VEN",
+    "status": "Only First NDC",
+    "description": "At least 20% reduction in GHG emissions by 2030 compared to the baseline scenario"
+  },
+  {
+    "id": "VGB"
+  },
+  {
+    "id": "VNM",
+    "status": "First 2020 NDC",
+    "description": "Unconditional contribution: With domestic resources, by 2025 Viet Nam will have reduced total GHG emissions by about 7.3% compared to the BAU scenario (equivalent to 52.9 million tonnes of CO2eq), and by 2030 Viet Nam will have reduced total GHG emissions by about 9% compared to the BAU scenario (equivalent to 83.9 million tonnes of CO2eq). Conditional contribution: The above-mentioned 9% contribution can be increased to 27% by 2030 (equivalent to 250.8 million tonnes of CO2eq)"
+  },
+  {
+    "id": "VUT",
+    "status": "First 2020 NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "WSM",
+    "status": "Only First NDC",
+    "description": "Not Applicable"
+  },
+  {
+    "id": "YEM",
+    "status": "Only INDC",
+    "description": "1% (unconditional) and 14% (conditional) reduction (representing estimated total cumulative GHG reduction of about 35 MtCO2e from 2020 through 2030) in GHG emissions by 2030 compared to the BAU scenario"
+  },
+  {
+    "id": "ZAF",
+    "status": "Only First NDC",
+    "description": "South Africa's emissions by 2025 and 2030 will be in a range between 398 and 614 MtCO2eq"
+  },
+  {
+    "id": "ZMB",
+    "status": "First 2020 NDC",
+    "description": "At least 25% (at the Business As Usual BAU level of international support prevailing in 2015) and towards 47% (with substantial international support) reduction in greenhouse gas emission compared to 2010."
+  },
+  {
+    "id": "ZWE",
+    "status": "Only First NDC",
+    "description": "33% reduction in energy emissions per capita by 2030 compared to the BAU scenario"
+  }
+]
