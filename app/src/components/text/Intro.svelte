@@ -6,7 +6,7 @@ export let tag;
 export let breadcrumbs;
 
 </script>
-<section class='intro col-text'>
+<header class='intro col-text'>
   <nav class="inner-nav" role="navigation" labelledby="breadcrumbs-label">
     <h3 id="breadcrumbs-label" class="hidden">Breadcrumbs</h3>
     <ul class='breadcrumbs'>
@@ -34,7 +34,11 @@ export let breadcrumbs;
   {/each}
   {/if}
 
-</section>
+  <p class="dateline">
+    Published <time datetime="2021-11-09">9 Nov 2021</time>
+  </p>
+
+</header>
 
 <style>
   .intro {
@@ -45,6 +49,10 @@ export let breadcrumbs;
     list-style-type: none;
     margin:0;
     padding: 0;
+  }
+  .dateline {
+    font-size: 1rem;
+    color:#505050;
   }
   li {
     display: inline-block;
