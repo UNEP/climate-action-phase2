@@ -25,8 +25,6 @@
   export var text: TextBlock[];
 
   let selectedSectionStr: string = block.title;
-  let width : number;
-  let clientWidth = 0;
 
   const sections: {[section: string]: {annotations: MediaAnnotation[]}} = {
     "Land temperature": {
@@ -51,10 +49,6 @@
     selectedAnnotation = a;
   }
 
-  $: {
-    width = Math.max(clientWidth, 700);
-  }
-  $: height = width * 0.62;
 </script>
 
 <section {id} class="viz wide">
@@ -77,24 +71,22 @@
     </div>
   </CartogramHeader>
 
-  <div class="margin-breakout-mobile" bind:clientWidth={clientWidth}>
+  <div class="margin-breakout-mobile">
     <ScrollableX>
-      <div class="cartogram-container" style="width:{width}px; height:{height}px">
-        <div class="container">
-          <div class="title {selectedSectionStr === 'Ocean temperature' ? 'white' : ''}">
-            {@html block.imgtitle}
-          </div>
-          <div class="aimg-container">
-            <AnnotatedMedia src={block.src} alt={block.alt} video={block.src === 'fire.mp4'}
-              annotations={selectedSection.annotations} onChangeAnnotation={onChangeAnnotation}
-            />
-          </div>
+      <div class="container">
+        <div class="title {selectedSectionStr === 'Ocean temperature' ? 'white' : ''}">
+          {@html block.imgtitle}
+        </div>
+        <div class="aimg-container">
+          <AnnotatedMedia src={block.src} alt={block.alt} video={block.src === 'fire.mp4'}
+            annotations={selectedSection.annotations} onChangeAnnotation={onChangeAnnotation}
+          />
+        </div>
 
-          <div class="inline-annotation">
-            {#each selectedSection.annotations as annotation}
-              <div class:visible={selectedAnnotation === annotation}>{annotation.text}</div>
-            {/each}
-          </div>
+        <div class="inline-annotation">
+          {#each selectedSection.annotations as annotation}
+            <div class:visible={selectedAnnotation === annotation}>{annotation.text}</div>
+          {/each}
         </div>
       </div>
     </ScrollableX>

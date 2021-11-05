@@ -1,4 +1,4 @@
-import { createLookup, Unpacked } from 'src/util';
+import { calcBestFitGradient, createLookup, range, Unpacked } from 'src/util';
 import percapita from './co2-percapita.carto.json';
 import ghg from './co2.carto.json';
 import trends from './trends.carto.json';
@@ -16,6 +16,8 @@ export interface TimeseriesDataPoint {
   year: number;
   value: number;
 }
+
+type TrendsDataPoint = Unpacked<typeof trends.data>;
 
 const countriesLookup = createLookup(countries, d => d.id, d => d);
 
@@ -37,39 +39,23 @@ if (IS_DEV) {
   }
 }
 
-
 export const START_YEAR = 1970;
 export const END_YEAR = 2018;
 
-const top10emitters = new Set([
-  ...ghg.data
-    .sort((a,b) => b.emissions2018 - a.emissions2018)
-    .slice(0, 10)
-    .map(d => d.id)
-]);
+export function calcGradientFrom(data: TrendsDataPoint, startYear: number, endYear: number) {
+  const years = range(startYear, endYear + 1);
+  const norm = data.emissions[startYear.toString()];
+  const ys = years.map(year => data.emissions[year.toString()] / norm);
+  return calcBestFitGradient(years.map((_, i) => i), ys);
+}
 
-const top10drops = new Set([
-  ...trends.data
-    .map(d => ({
-      id: d.id,
-      drop: (d.emissions[END_YEAR] - d.emissions['1990']) / d.emissions['1990']
-    }))
-    .sort((a,b) => a.drop - b.drop)
-    .slice(0, 10)
-    .map(d => d.id)
-]);
-
-type TrendsDataPoint = Unpacked<typeof trends.data>;
 
 export const calcGHGCategory = (d: TrendsDataPoint): string => {
-  const { emissions } = d;
-  const baseValue = emissions['1990'];
-  const lastValue = emissions[ Object.keys(emissions)[Object.keys(emissions).length - 1] ];
-  const diff = (lastValue - baseValue) / baseValue;
-  // 0 means the same. 0.5 means 50% increase. 1 means 100% increase. etc
-  if (Math.abs(diff) < 0.25) return 'stable';
-  else if (diff < -0.25) return 'falling';
-  else return 'climbing';
+  const m = calcGradientFrom(d, 1990, END_YEAR);
+  const cutoff = 0.01;
+  if (Math.abs(m) <= cutoff) return 'stable';
+  else if (m > cutoff) return 'climbing';
+  else return 'falling';
 };
 
 const ghgCategories: {[id: string]: string} = {};
@@ -106,8 +92,6 @@ export default {
   },
   co2latest,
   co2trends,
-  top10emitters,
-  top10drops,
   pew,
   ghgCategories
 };
