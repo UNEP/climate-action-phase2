@@ -62,12 +62,16 @@
       margin: 0;
       padding: 0;
     }
-    
+
     :global(.embed-additional-text-desktop-policies) {
       display: none;
       max-width: 300px;
       position: absolute;
       margin-top: -12rem;
+    }
+
+    :global(.kicker) {
+      display: none;
     }
   }
 
