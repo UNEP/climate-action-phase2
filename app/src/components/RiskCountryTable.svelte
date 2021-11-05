@@ -9,7 +9,7 @@
   import CRIdata from 'src/data/cri.json';
   import type { Unpacked } from 'src/util';
   import DistributionTiles from 'src/components/charts/DistributionTiles.svelte';
-  import type { Content, TextBlock } from 'src/types';
+  import type { Content } from 'src/types';
   import SectionTitle from './SectionTitle.svelte';
   import Icon from './Icon.svelte';
 
@@ -49,7 +49,7 @@
   const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL',
     'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENT'];
 
-  let sort: {column: string, asc: boolean} = {column: 'country', asc: true};
+  let sort: {column: string, asc: boolean} = {column: 'criRank', asc: false};
 
   const onClickHeader = (header: Header) => {
     if (header.name === sort.column) {
