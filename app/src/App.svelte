@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Content, GDocs, Embeds } from 'src/types';
+  import type { Content, GDocs } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
   import PewSurvey from 'src/components/PewSurvey.svelte';
   import Intro from 'src/components/text/Intro.svelte';
@@ -20,17 +20,8 @@
   export var gdocs: GDocs;
   export var embed: string;
 
-  let embedData:Embeds[] = [];
   const content: Content[] = gdocs.article;
   const embedBlock = embed && content.find(b => b.embed === embed);
-
-  console.log(content);
-
-  content.forEach(c =>{
-    if('head' in c && 'title' in c && 'embed' in c){
-      embedData.push({'title':c.title, 'head':c.head, 'embed':c.embed});
-    }
-  });
 
   const components = {
     'pew-survey' : PewSurvey,

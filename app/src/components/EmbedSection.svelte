@@ -6,12 +6,9 @@
   export let content: Content[];
   export let id: string;
 
-  let embedData:Embeds[] = [];
-  content.forEach(c =>{
-    if('head' in c && 'title' in c && 'embed' in c){
-      embedData.push({'title':c.title, 'head':c.head, 'embed':c.embed});
-    }
-  });
+  const embedData:Embeds[] = content
+    .filter(c => 'head' in c && 'title' in c && 'embed' in c)
+    .map(c => ({'title':c.title, 'head':c.head, 'embed':c.embed}));
 
   const urlParts = window.location.href.split('/');
   const urlPath = urlParts.slice(0, -1).join('/');
