@@ -5,7 +5,7 @@ import trends from './trends.carto.json';
 import ffsubsidies from './subsidies.carto.json';
 import trendsNotInCarto from './co2trends-notincarto.json';
 import countries from './countryDictionary.json';
-import ndc from './ndc.carto.json';
+import ndc from './ndc.json';
 import pew from './pewsurvey.json';
 import netzero from './netzero.json';
 import co2baseData from 'src/data/co2-latest.json';
@@ -76,16 +76,32 @@ const co2latest = co2baseData.map(d => ({
   globalPct: Number((100 * d.emissions2018 / totalGHG2018).toFixed(2))
 }));
 
+const ndcLookup = createLookup(ndc, d => d.id, d => d);
+
+const ndcCarto = {
+  ...ghg,
+  data: ghg.data.map(d => ({
+    ...d,
+    ndc: {
+      status: ndcLookup[d.id]?.status,
+      description: ndcLookup[d.id]?.description
+    }
+  }))
+};
+
+console.log(ndcCarto);
+
 export default {
   countries,
   cartoworld: {
     percapita,
     ghg,
-    ndc,
+    ndc: ndcCarto,
     trends,
     ffsubsidies
   },
   lookups: {
+    ndc: ndcLookup,
     netzero: createLookup(netzero, d => d.id, d => d),
     trends: createLookup(co2trends, d => d.id, d => d),
     countries: countriesLookup

@@ -31,8 +31,10 @@
   let rerender: () => void;
 
   type NDCDataPoint<VK extends string> = InputDataPoint<VK> & {
-    label: string,
-    colorValue: string;
+    ndc: {
+      status: string;
+      description: string;
+    }
   };
 
   type Dataset<CDP extends CartogramDataPoint<any>> = {
@@ -44,7 +46,7 @@
     ghg: Dataset<SimpleCartogramDataPoint<'emissions2018'>>,
     percapita: Dataset<SimpleCartogramDataPoint<'emissions_percapita'>>,
     trends: Dataset<TrendsCartogramDataPoint<'size'>>,
-    ndc: Dataset<CartogramDataPoint<NDCDataPoint<'ghg'>, 'ghg'>>,
+    ndc: Dataset<CartogramDataPoint<NDCDataPoint<'emissions2018'>, 'emissions2018'>>,
     ffsubsidies: Dataset<SimpleCartogramDataPoint<'subsidies_percapita'>>,
   }
 
@@ -131,8 +133,8 @@
           ...datasets.cartoworld.ndc,
           NodeClass: CartogramDataPoint,
           NodeComponent: CartogramNode,
-          hoverTextFn: (c) => c.data.label,
-          colorFn: d => colorNDC(d.data.colorValue),
+          hoverTextFn: (c) => `<b>${c.name}</b><br>${c.data.ndc.description}`,
+          colorFn: d => colorNDC(d.data.ndc.status)
         }],
         countries: datasets.countries,
         helpText: {
