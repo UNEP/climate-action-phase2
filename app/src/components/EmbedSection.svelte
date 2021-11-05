@@ -1,12 +1,11 @@
 <script lang="ts">
-
   import Icon from './Icon.svelte';
   import type {Content, Embeds} from '../types';
 
   export let content: Content[];
   export let id: string;
 
-  const embedData:Embeds[] = content
+  const embedData: Embeds[] = content
     .filter(c => 'head' in c && 'title' in c && 'embed' in c)
     .map(c => ({'title':c.title, 'head':c.head, 'embed':c.embed}));
 
@@ -14,11 +13,15 @@
   const urlPath = urlParts.slice(0, -1).join('/');
   const embedScript = `${urlPath}/embed.js`;
 
+  function selectAll(e: HTMLTextAreaElement) {
+    e.setSelectionRange(0, e.value.length);
+  }
+
 </script>
 
 <section class="infoSquare margin-breakout-mobile" id={id}>
   <div class="kicker">
-    <div class="kicker-icon"  style="">
+    <div class="kicker-icon" style="">
       <Icon name="embed" />
     </div>
     <div class="kicker-text">
@@ -26,20 +29,23 @@
     </div>
   </div>
   <div class="embed-container">
-    {#each embedData as block}
+    {#each embedData as {embed, title, head}}
     <div class="group-embed">
       <div class="embed-chart">
-        <img src={"/img/embeds/" + block.embed + ".jpg"} class="embed-image" alt="embed">
+        <img src="/img/embeds/{embed}.jpg" class="embed-image" alt="embed">
         <div class="embed-background">
-          <div class="embed-tag">
-            &lt;script async src='{embedScript}' data-embed='{block.embed}'&gt;&lt/script&gt;
-          </div>
+          <textarea
+            class="embed-tag"
+            on:focus={e => selectAll(e.currentTarget)}
+            readonly
+            value="<script async src='{embedScript}' data-embed='{embed}'></script>"
+          />
         </div>
       </div>
       <div class="embed-text">
-        <b>{block.title}</b>
+        <b>{title}</b>
         <br>
-        {block.head}
+        {head}
       </div>
     </div>
     {/each}
@@ -48,28 +54,37 @@
 </section>
 
 <style>
-  .embed-tag{
-    margin-top: 10px;
-    margin-left: 5px;
+  .embed-tag {
     word-wrap: break-word;
+    word-break: break-all;
     text-align: left;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: black;
   }
-  .embed-text{
+  .embed-text {
     margin-top: 20px;
     height: 150px;
   }
-  .group-embed{
+  .group-embed {
     width: 225px;
     margin-right: 25px;
     display: inline-table;
     position:relative;
   }
-  .embed-image{
+  .embed-image {
     position: absolute;
     width: 100%;
     height: 150px;
   }
-  .embed-background{
+  .embed-background {
     position: absolute;
     opacity: 0;
     width: 100%;
@@ -79,7 +94,7 @@
     text-align: center;
   }
 
-  .embed-background:hover{
+  .embed-background:hover {
     opacity: 1;
     transition: .5s ease;
   }
