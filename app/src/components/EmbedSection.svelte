@@ -1,10 +1,17 @@
 <script lang="ts">
 
   import Icon from './Icon.svelte';
-  import type {Embeds} from '../types';
+  import type {Content, Embeds} from '../types';
 
-  export let content: Embeds[];
+  export let content: Content[];
+  export let id: string;
 
+  let embedData:Embeds[] = [];
+  content.forEach(c =>{
+    if('head' in c && 'title' in c && 'embed' in c){
+      embedData.push({'title':c.title, 'head':c.head, 'embed':c.embed});
+    }
+  });
 
   const urlParts = window.location.href.split('/');
   const urlPath = urlParts.slice(0, -1).join('/');
@@ -12,7 +19,7 @@
 
 </script>
 
-<section class="infoSquare margin-breakout-mobile">
+<section class="infoSquare margin-breakout-mobile" id={id}>
   <div class="kicker">
     <div class="kicker-icon"  style="">
       <Icon name="embed" />
@@ -22,7 +29,7 @@
     </div>
   </div>
   <div class="embed-container">
-    {#each content as block}
+    {#each embedData as block}
     <div class="group-embed">
       <div class="embed-chart">
         <img src={"/img/embeds/" + block.embed + ".jpg"} class="embed-image" alt="embed">

@@ -24,6 +24,7 @@
   const content: Content[] = gdocs.article;
   const embedBlock = embed && content.find(b => b.embed === embed);
 
+  console.log(content);
 
   content.forEach(c =>{
     if('head' in c && 'title' in c && 'embed' in c){
@@ -43,7 +44,8 @@
     'carto-scrolly': CartoScroller,
     'country-table': CountryTable,
     'risk-country-table': RiskCountryTable,
-    'climate-action-country-table': ClimateActionCountryTable
+    'climate-action-country-table': ClimateActionCountryTable,
+    'embed' : EmbedSection
   };
 
 </script>
@@ -77,7 +79,6 @@
           <div>Missing component for '{block.type}'</div>
         {/if}
       {/each}
-      <EmbedSection content = {embedData}/>
     </article>
   </main>
 

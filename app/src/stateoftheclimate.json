@@ -1,6 +1,27 @@
 {
   "article": [
     {
+      "type": "websites-menu",
+      "options": [
+        {
+          "text": "State of the climate",
+          "icon": "stateoftheclimate.main",
+          "href": "http://localhost:5000/sotc.html"
+        },
+        {
+          "text": "What’s happening",
+          "icon": "whatshappening.main",
+          "href": "http://localhost:5000/whatshappening.html"
+        },
+        {
+          "text": "Climate action progress",
+          "icon": "climateactionprogress.main",
+          "href": "http://localhost:5000/climateactionprogress.html"
+        }
+      ],
+      "selected": "0"
+    },
+    {
       "type": "intro",
       "breadcrumbs": [
         {
@@ -118,6 +139,12 @@
           "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
+    },
+    {
+      "type": "embed",
+      "title": "Embed our visualizations",
+      "menu": "Embed our visualizations",
+      "icon": "embed"
     }
   ],
   "meta": {
