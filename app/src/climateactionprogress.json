@@ -41,8 +41,6 @@
       "icon": "climateactionprogress.nzt",
       "menu": "Net-zero targets",
       "menuicon": "climateactionprogress.nzt",
-      "data": "ghg",
-      "embed": "ghg",
       "head": "Emissions rise and plans are made yet little progress",
       "text": [
         {
