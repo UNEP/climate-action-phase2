@@ -47,7 +47,7 @@
   ];
 
   const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL',
-    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENTAGE'];
+    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENT'];
 
   let sort: {column: string, asc: boolean} = {column: 'country', asc: true};
 

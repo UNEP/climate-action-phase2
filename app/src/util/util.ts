@@ -98,11 +98,18 @@ export const strToId = (str: string): string => {
     .replace(/[^a-z0-9-]/g, '');
 };
 
-// export const range = (from: number, to: number) => {
-
-// }
 export const range = (from: number, to: number): number[] => {
   return [...new Array(to - from)].map((_, i) => from + i);
 };
 
 export type Unpacked<T> = T extends (infer U)[] ? U : T;
+
+export function calcBestFitGradient(xs: number[], ys: number[]): number {
+  const xsMean = xs.reduce((a, b) => a + b) / xs.length;
+  const ysMean = ys.reduce((a, b) => a + b) / ys.length;
+
+  const ssxx = xs.reduce((a, b) => a + (b - xsMean) ** 2, 0);
+  const ssxy = xs.reduce((a, b, i) => a + (b - xsMean) * (ys[i] - ysMean), 0);
+
+  return ssxy / ssxx;
+}

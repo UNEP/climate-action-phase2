@@ -154,8 +154,10 @@
           NodeClass: CartogramDataPoint,
           NodeComponent: CartogramNode,
           hoverTextFn: c =>
-              `<b>${c.name}</b> subsidized fossil fuels with <b>$${displayVal(c.data.subsidies_total_in_millions, 1)} million</b> in 2019` +
-              ` — <b>$${displayVal(c.data.subsidies_percapita, 1)} per person</b>. That represents <b>${displayVal(c.data.subsidies_pct_gdp, 1)}% of its GDP</b>.`,
+            `<b>${c.name}</b> subsidized fossil fuels with ` +
+            `<b>$${displayVal(c.data.subsidies_total_in_millions, 1)} million</b> in 2019` +
+            ` — <b>$${displayVal(c.data.subsidies_percapita, 1)} per person</b>. ` +
+            `That represents <b>${displayVal(c.data.subsidies_pct_gdp, 1)}% of its GDP</b>.`,
           colorFn: d => colorSubsidies(d.data.subsidies_pct_gdp),
         }],
         countries: datasets.countries,

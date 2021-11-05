@@ -15,6 +15,6 @@ export const colorNetZero = scaleOrdinal<string>()
   ])
   .range(['#004a97', '#4574b8', '#6fa1d9', '#ffcf61', '#f5a14c', '#BEC7CD']);
 
-  export const colorSubsidies = scaleThreshold<number, string>()
+export const colorSubsidies = scaleThreshold<number, string>()
   .domain([0.2,0.5,1,2.5])
   .range(['#facc6e', '#d9a177', '#b4797c', '#8a5480', '#583382']);
