@@ -238,10 +238,6 @@
 
     {#if !isEmbed}
 
-      <div class="footer">
-        <EmbedFooter {embed} />
-      </div>
-
       {#each text as t}
         <p class='col-text'>{@html t.p}</p>
       {/each}

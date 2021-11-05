@@ -1,27 +1,6 @@
 {
   "article": [
     {
-      "type": "websites-menu",
-      "options": [
-        {
-          "text": "State of the climate",
-          "icon": "stateoftheclimate.main",
-          "href": "http://localhost:5000/sotc.html"
-        },
-        {
-          "text": "What’s happening",
-          "icon": "whatshappening.main",
-          "href": "http://localhost:5000/whatshappening.html"
-        },
-        {
-          "text": "Climate action progress",
-          "icon": "climateactionprogress.main",
-          "href": "http://localhost:5000/climateactionprogress.html"
-        }
-      ],
-      "selected": "2"
-    },
-    {
       "type": "intro",
       "breadcrumbs": [
         {
@@ -76,7 +55,7 @@
           "p": "While countries are negotiating pledges for the far future, emissions are rising and putting the planet at risk. All countries need to do more now."
         },
         {
-          "p": "Some countries are doing more than others. These are the 10 countries with largest actual emission reductions per capita."
+          "p": "Some countries are doing more than others. While the world saw an increase in emissions from 2015 to 2018, these countries managed to reduce them."
         }
       ]
     },

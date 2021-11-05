@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Content, GDocs } from 'src/types';
+  import type { Content, GDocs, Embeds } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
   import PewSurvey from 'src/components/PewSurvey.svelte';
   import Intro from 'src/components/text/Intro.svelte';
@@ -14,14 +14,22 @@
   import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
-  import WebstiesMenu from './components/nav/WebstiesMenu.svelte';
   import ClimateActionCountryTable from './components/ClimateActionCountryTable.svelte';
+  import EmbedSection from './components/EmbedSection.svelte';
 
   export var gdocs: GDocs;
   export var embed: string;
 
+  let embedData:Embeds[] = [];
   const content: Content[] = gdocs.article;
   const embedBlock = embed && content.find(b => b.embed === embed);
+
+
+  content.forEach(c =>{
+    if('head' in c && 'title' in c && 'embed' in c){
+      embedData.push({'title':c.title, 'head':c.head, 'embed':c.embed});
+    }
+  });
 
   const components = {
     'pew-survey' : PewSurvey,
@@ -35,7 +43,6 @@
     'carto-scrolly': CartoScroller,
     'country-table': CountryTable,
     'risk-country-table': RiskCountryTable,
-    'websites-menu' : WebstiesMenu,
     'climate-action-country-table': ClimateActionCountryTable
   };
 
@@ -70,7 +77,9 @@
           <div>Missing component for '{block.type}'</div>
         {/if}
       {/each}
+      <EmbedSection content = {embedData}/>
     </article>
   </main>
+
   <Footer />
 {/if}
