@@ -25,7 +25,7 @@
     {#each content as block}
     <div class="group-embed">
       <div class="embed-chart">
-        <img src={"/img/embeds/" + block.embed + ".png"} class="embed-image" alt="embed">
+        <img src={"/img/embeds/" + block.embed + ".jpg"} class="embed-image" alt="embed">
         <div class="embed-background">
           <div class="embed-tag">
             &lt;script async src='{embedScript}' data-embed='{block.embed}'&gt;&lt/script&gt;
