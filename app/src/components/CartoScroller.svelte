@@ -23,7 +23,7 @@
 
   const labels = [
     ...colorNetZero.domain().slice(0, -1),
-    'No plans'
+    'No target'
   ];
 
   type CartogramProps = Cartogram<[
@@ -40,13 +40,20 @@
         hoverTextFn: (c) => {
           const { year, status } = datasets.lookups.netzero[c.id];
           const { name } = datasets.lookups.countries[c.id];
+          const yearText = (y: number) => y ? `The target year is ${y}` : '';
 
-          if (status !== "" && year !== null)
-            return `${name} has the status: ${status} by ${year}.`;
-          else if (status !== "")
-            return `${name} has the status: ${status} but no target year.`;
+          if (status === "Achieved (self-declared)")
+            return `<b>${name}</b> has self-declared that it has achieved its net-zero target.`;
+          else if (status === "In law")
+            return `<b>${name}</b> has a net-zero target in law. ${yearText}`;
+          else if (status === "In policy document")
+            return `<b>${name}</b> has set a net-zero target in policy documents. ${yearText}`;
+          else if (status === "Declaration / pledge")
+            return `<b>${name}</b> has declared or pledged a net-zero target. ${yearText}`;
+          else if (status === "Proposed / in discussion")
+            return `<b>${name}</b> has proposed or discussed a net-zero target. ${yearText}`;
           else if (year !== null)
-            return `${name} has ${year} as a target, but doesn't has a status.`;
+            return `<b>${name}</b> has set ${year} as its target year.`;
           else
             return `No data for ${name}.`;
         },

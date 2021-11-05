@@ -198,7 +198,7 @@
     <button
       class="show-more-button"
       on:click={onClickShowButton}>
-      <b>{showAll ? 'Show only main' : 'Show all countries'}</b>
+      <b>{showAll ? 'Show fewer' : 'Show all countries'}</b>
     </button>
   {/if}
 
