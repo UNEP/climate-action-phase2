@@ -68,6 +68,7 @@
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     color: black;
+    resize: none;
   }
   .embed-text {
     margin-top: 20px;
