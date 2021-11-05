@@ -4,7 +4,7 @@ function getIframePath(embed) {
   const currentScript = document.currentScript;
   const urlParts = currentScript.src.split('/');
   const urlPath = urlParts.slice(0, -1).join('/');
-  return `${urlPath}/index.html?embed=${embed}`;
+  return `${urlPath}/embed.html?embed=${embed}`;
 }
 
 function injectIframe() {
