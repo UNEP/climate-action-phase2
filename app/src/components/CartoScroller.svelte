@@ -57,18 +57,18 @@
         hoverTextFn: (c) => {
           const { year, status } = datasets.lookups.netzero[c.id];
           const { name } = datasets.lookups.countries[c.id];
-          const yearText = (y: number) => y ? `The target year is ${y}` : '';
+          const yearText = (y: number) => y ? `The target year is ${y}.` : '';
 
           if (status === "Achieved (self-declared)")
             return `<b>${name}</b> has self-declared that it has achieved its net-zero target.`;
           else if (status === "In law")
-            return `<b>${name}</b> has a net-zero target in law. ${yearText}`;
+            return `<b>${name}</b> has a net-zero target in law. ${yearText(year)}`;
           else if (status === "In policy document")
-            return `<b>${name}</b> has set a net-zero target in policy documents. ${yearText}`;
+            return `<b>${name}</b> has set a net-zero target in policy documents. ${yearText(year)}`;
           else if (status === "Declaration / pledge")
-            return `<b>${name}</b> has declared or pledged a net-zero target. ${yearText}`;
+            return `<b>${name}</b> has declared or pledged a net-zero target. ${yearText(year)}`;
           else if (status === "Proposed / in discussion")
-            return `<b>${name}</b> has proposed or discussed a net-zero target. ${yearText}`;
+            return `<b>${name}</b> has proposed or discussed a net-zero target. ${yearText(year)}`;
           else if (year !== null)
             return `<b>${name}</b> has set ${year} as its target year.`;
           else
