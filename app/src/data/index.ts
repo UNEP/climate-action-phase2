@@ -89,8 +89,6 @@ const ndcCarto = {
   }))
 };
 
-console.log(ndcCarto);
-
 export default {
   countries,
   cartoworld: {
