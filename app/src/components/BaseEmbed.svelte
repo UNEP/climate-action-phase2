@@ -52,7 +52,7 @@
     position: relative;
 
     :global(.viz) {
-      padding-bottom: 0;
+      padding: 0;
     }
 
     :global(.embed-additional-text-desktop) {
