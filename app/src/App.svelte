@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Content, GDocs } from 'src/types';
+  import type { Content } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
   import PewSurvey from 'src/components/PewSurvey.svelte';
   import Intro from 'src/components/text/Intro.svelte';
@@ -67,7 +67,7 @@
   <TopNav />
   <main>
     <article>
-      {#each content as block}
+      {#each content.filter(c => !c.embedonly) as block}
         {#if components[block.type]}
           <svelte:component
             this={components[block.type]}

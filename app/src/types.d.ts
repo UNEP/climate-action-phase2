@@ -37,6 +37,7 @@ export interface Content {
   menuicon?: string;
   embed?: string;
   id?: string;
+  embedonly?: string;
 }
 
 namespace Content {

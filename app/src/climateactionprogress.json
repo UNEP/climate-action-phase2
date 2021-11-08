@@ -148,6 +148,22 @@
       "title": "Embed our visualizations",
       "menu": "Embed our visualizations",
       "icon": "embed"
+    },
+    {
+      "type": "carto-world",
+      "title": "Net zero targets",
+      "head": "Emissions rise and plans are made yet little progress",
+      "data": "nz",
+      "embed": "nz",
+      "embedonly": "1"
+    },
+    {
+      "type": "carto-world",
+      "title": "Net zero targets",
+      "head": "Emissions rise and plans are made yet little progress",
+      "data": "nztrends",
+      "embed": "nztrends",
+      "embedonly": "1"
     }
   ],
   "meta": {
