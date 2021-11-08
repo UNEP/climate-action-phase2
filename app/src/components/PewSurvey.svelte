@@ -1,72 +1,72 @@
 <script lang="ts">
-    import { groups } from 'd3-array';
-    import dataset from '../data';
-    import MiniSurveyCharts from '../components/MiniSurveyCharts.svelte';
-    import {fade} from 'svelte/transition';
-    import SectionTitle from './SectionTitle.svelte';
-    import type { Content, TextBlock } from 'src/types';
-import VizSection from './common/VizSection.svelte';
+  import { groups } from 'd3-array';
+  import dataset from '../data';
+  import MiniSurveyCharts from '../components/MiniSurveyCharts.svelte';
+  import {fade} from 'svelte/transition';
+  import SectionTitle from './SectionTitle.svelte';
+  import type { Content, TextBlock } from 'src/types';
+  import VizSection from './common/VizSection.svelte';
 
 
-    export var isEmbed = false;
-    export var block: Content.AnnotatedImage;
-    export var id: string;
-    export var text: TextBlock[];
+  export var isEmbed = false;
+  export var block: Content.AnnotatedImage;
+  export var id: string;
+  export var text: TextBlock[];
 
-    let datasetPewData = dataset.pew;
-    let loaded: boolean = false;
-    let selectedCountry:Array<any>;
-    let width: number = 100;
-    let tileWidth: number = width * .1;
-    $: width < 826 ? tileWidth = width * .23 : tileWidth = width * .1;
-    let hover: boolean = false;
-    let hoverTileWidth: number = 270;
+  let datasetPewData = dataset.pew;
+  let loaded: boolean = false;
+  let selectedCountry:Array<any>;
+  let width: number = 100;
+  let tileWidth: number = width * .1;
+  $: width < 826 ? tileWidth = width * .23 : tileWidth = width * .1;
+  let hover: boolean = false;
+  let hoverTileWidth: number = 270;
 
-    let detailChartPosition: {x:number, y:number};
-    let container:HTMLElement;
-    let offset:{x:number, y:number, width: number, height: number};
-
-
-    let dataFiltered = datasetPewData.filter(d => d.value !== null);
-    const groupByCountry = groups(dataFiltered, d => d.country).map(d => d[1])
-      .sort((a,b) => b[b.length - 1].value - a[a.length - 1].value );
-
-    loaded = true;
+  let detailChartPosition: {x:number, y:number};
+  let container:HTMLElement;
+  let offset:{x:number, y:number, width: number, height: number};
 
 
-    function selectCountry(selection:Array<any>, pos:{x:number, y:number}) {
+  let dataFiltered = datasetPewData.filter(d => d.value !== null);
+  const groupByCountry = groups(dataFiltered, d => d.country).map(d => d[1])
+    .sort((a,b) => b[b.length - 1].value - a[a.length - 1].value );
 
-      offset = {
-        x: container.getBoundingClientRect().x,
-        y: container.getBoundingClientRect().y,
-        width: container.getBoundingClientRect().width,
-        height: container.getBoundingClientRect().height
-      };
+  loaded = true;
 
-      selectedCountry = selection;
-      hover = true;
 
-      detailChartPosition = pos;
+  function selectCountry(selection:Array<any>, pos:{x:number, y:number}) {
 
-      detailChartPosition.x = detailChartPosition.x + tileWidth / 2 - hoverTileWidth / 2;
-      detailChartPosition.y = detailChartPosition.y;
+    offset = {
+      x: container.getBoundingClientRect().x,
+      y: container.getBoundingClientRect().y,
+      width: container.getBoundingClientRect().width,
+      height: container.getBoundingClientRect().height
+    };
 
-      if (detailChartPosition.x < 32) {
-        detailChartPosition.x = 0;
-      }else if (detailChartPosition.x + 270 > offset.width){
-        detailChartPosition.x = width - 270;
-      }
+    selectedCountry = selection;
+    hover = true;
 
-      if (detailChartPosition.y < 32) {
-        detailChartPosition.y = 32;
-      }else if (detailChartPosition.y + 270 * .7 > offset.height){
-        detailChartPosition.y = offset.height - 270 * .7;
-      }
+    detailChartPosition = pos;
+
+    detailChartPosition.x = detailChartPosition.x + tileWidth / 2 - hoverTileWidth / 2;
+    detailChartPosition.y = detailChartPosition.y;
+
+    if (detailChartPosition.x < 32) {
+      detailChartPosition.x = 0;
+    }else if (detailChartPosition.x + 270 > offset.width){
+      detailChartPosition.x = width - 270;
     }
 
-    const nameOverrides = {
-      "United States of America": "United States"
-    };
+    if (detailChartPosition.y < 32) {
+      detailChartPosition.y = 32;
+    }else if (detailChartPosition.y + 270 * .7 > offset.height){
+      detailChartPosition.y = offset.height - 270 * .7;
+    }
+  }
+
+  const nameOverrides = {
+    "United States of America": "United States"
+  };
 </script>
 <VizSection {id} >
   {#if !isEmbed}
