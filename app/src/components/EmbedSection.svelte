@@ -126,6 +126,7 @@
     width: 36px;
     height: 36px;
     box-sizing: border-box;
+    color: black;
   }
   .kicker-text {
     padding-left: 5px;
