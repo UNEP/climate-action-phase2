@@ -111,8 +111,7 @@
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
       "menuicon": "stateoftheclimate.searchtable",
-      "data": "co2bycountry",
-      "embed": "co2bycountry"
+      "data": "co2bycountry"
     },
     {
       "type": "methodology",

@@ -93,7 +93,6 @@
       "menu": "By country",
       "menuicon": "whatshappening.searchtable",
       "data": "cribycountry",
-      "embed": "cribycountry",
       "head": "See each country and the risk it faces on an overheated planet"
     },
     {
