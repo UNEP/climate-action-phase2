@@ -6,6 +6,7 @@
   import ScrollableX from "./common/ScrollableX.svelte";
   import AnnotatedMedia from "./maps/AnnotatedMedia.svelte";
   import CartogramHeader from "./maps/CartogramHeader.svelte";
+  import VizSection from "./common/VizSection.svelte";
 
   type InputAnnotation = typeof annotations.surface[0];
   function mapAnnotation(input: InputAnnotation): MediaAnnotation {
@@ -49,7 +50,7 @@
 
 </script>
 
-<section {id} class="viz wide">
+<VizSection {id}>
 
   <CartogramHeader {block}>
     <div slot="legend">
@@ -98,7 +99,8 @@
 
   {/if}
 
-</section>
+</VizSection>
+
 <style lang="scss">
   .container {
     width: 100%;

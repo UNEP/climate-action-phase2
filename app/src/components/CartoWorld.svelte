@@ -13,6 +13,7 @@
   import CartogramNode from "./maps/CartogramNode.svelte";
   import CartogramHeader from "./maps/CartogramHeader.svelte";
   import { legendProps as nzLegendProps, nzDataset, nztrendsDataset } from './CartoScroller.svelte';
+  import VizSection from "./common/VizSection.svelte";
 
   export var data : keyof Datasets;
   export var id: string;
@@ -207,7 +208,7 @@
 </script>
 
 {#if datasetParams[data]}
-  <section {id} class="viz wide">
+  <VizSection {id}>
 
     <CartogramHeader {block} >
       <div slot="legend">
@@ -252,16 +253,12 @@
 
     {/if}
 
-  </section>
+  </VizSection>
 {:else}
   <div>Missing dataset: {data}</div>
 {/if}
 
 <style lang="scss">
-
-  .footer {
-    margin-bottom: 30px;
-  }
 
   .embed-additional-text-desktop {
     display: none !important; // TODO: fix this element
