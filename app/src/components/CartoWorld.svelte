@@ -7,7 +7,6 @@
   import { displayVal} from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
-  import EmbedFooter from "./EmbedFooter.svelte";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import type { InputDataPoint } from "./maps/CartogramTypes";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
