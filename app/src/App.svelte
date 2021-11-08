@@ -66,7 +66,7 @@
 {:else}
   <TopNav />
   <main>
-    <article>
+    <article class="main-container">
       {#each content.filter(c => !c.embedonly) as block}
         {#if components[block.type]}
           <svelte:component
