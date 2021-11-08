@@ -68,7 +68,7 @@
     "United States of America": "United States"
   };
 </script>
-<VizSection {id} >
+<VizSection {id}>
   {#if !isEmbed}
     <SectionTitle {block} />
   {/if}
