@@ -5,6 +5,7 @@
     import {fade} from 'svelte/transition';
     import SectionTitle from './SectionTitle.svelte';
     import type { Content, TextBlock } from 'src/types';
+import VizSection from './common/VizSection.svelte';
 
 
     export var isEmbed = false;
@@ -67,7 +68,7 @@
       "United States of America": "United States"
     };
 </script>
-<section {id} class="viz wide">
+<VizSection {id} >
   {#if !isEmbed}
     <SectionTitle {block} />
   {/if}
@@ -109,12 +110,9 @@
     {/each}
 
   {/if}
-</section>
+</VizSection>
 
 <style>
-    .footer {
-      margin-bottom: 30px;
-    }
     .pew-container {
         box-sizing: border-box;
         padding-bottom: 20px;
