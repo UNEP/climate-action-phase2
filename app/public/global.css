@@ -120,6 +120,10 @@ p, ul {
 
 sup, sub { line-height: 0; }
 
+.page-header {
+  margin-top: 1.5rem;
+}
+
 .main-container {
   margin: 0 1rem;
 }
