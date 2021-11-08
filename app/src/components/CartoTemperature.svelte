@@ -4,7 +4,6 @@
   import { annotations } from '../data';
   import svg from '../svg';
   import ScrollableX from "./common/ScrollableX.svelte";
-  import EmbedFooter from "./EmbedFooter.svelte";
   import AnnotatedMedia from "./maps/AnnotatedMedia.svelte";
   import CartogramHeader from "./maps/CartogramHeader.svelte";
 

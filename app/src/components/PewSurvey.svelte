@@ -3,7 +3,6 @@
     import dataset from '../data';
     import MiniSurveyCharts from '../components/MiniSurveyCharts.svelte';
     import {fade} from 'svelte/transition';
-    import EmbedFooter from './EmbedFooter.svelte';
     import SectionTitle from './SectionTitle.svelte';
     import type { Content, TextBlock } from 'src/types';
 
