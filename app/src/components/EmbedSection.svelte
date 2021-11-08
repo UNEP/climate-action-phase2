@@ -84,6 +84,7 @@
     position: absolute;
     width: 100%;
     height: 150px;
+    object-fit: contain;
   }
   .embed-background {
     position: absolute;
@@ -108,6 +109,7 @@
     flex-direction: row;
   }
   .embed-chart {
+    background: #f9f9f9;
     filter: drop-shadow(0px 0px 10px rgba(0,0,0,0.2));
 
     height: 150px;
