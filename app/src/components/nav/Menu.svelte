@@ -74,7 +74,7 @@
   {/each}
 </nav>
 
-<style>
+<style lang="scss">
 
   .mainnavbuttons {
     position: sticky;
@@ -123,13 +123,15 @@
     height: 36px;
     margin: 4px 7px;
     z-index: 2;
+    color: gray;
+    .active &,
+    .active & :global(svg *) {
+      stroke: #e5e5e5;
+    }
   }
 
   button:not(.active){
     cursor: pointer;
-  }
-  .active .icon :global(svg *){
-    stroke: #e5e5e5;
   }
 
   .active .text {

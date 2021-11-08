@@ -21,10 +21,10 @@ export type TextBlock = Record<TextBlockType, string>;
 
 type TextBlockType = "p";
 
-export interface MenuOption {
-  text: string,
-  icon: string,
-  href: string
+export interface Embeds{
+  title: string,
+  head: string,
+  embed: string,
 }
 
 export interface Content {
@@ -36,9 +36,8 @@ export interface Content {
   icon?: string;
   menuicon?: string;
   embed?: string;
-  options?: MenuOption[];
-  selected?: number;
   id?: string;
+  embedonly?: string;
 }
 
 namespace Content {

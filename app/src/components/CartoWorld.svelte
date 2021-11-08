@@ -4,15 +4,15 @@
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
   import { colorNDC, colorGHG, colorSubsidies } from "src/colors";
-  import { displayVal} from 'src/util';
+  import { displayVal } from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
-  import EmbedFooter from "./EmbedFooter.svelte";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
   import type { InputDataPoint } from "./maps/CartogramTypes";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
   import CartogramNode from "./maps/CartogramNode.svelte";
   import CartogramHeader from "./maps/CartogramHeader.svelte";
+  import { legendProps as nzLegendProps, nzDataset, nztrendsDataset } from './CartoScroller.svelte';
 
   export var data : keyof Datasets;
   export var id: string;
@@ -48,6 +48,8 @@
     trends: Dataset<TrendsCartogramDataPoint<'size'>>,
     ndc: Dataset<CartogramDataPoint<NDCDataPoint<'emissions2018'>, 'emissions2018'>>,
     ffsubsidies: Dataset<SimpleCartogramDataPoint<'subsidies_percapita'>>,
+    nz: Dataset<SimpleCartogramDataPoint<'emissions2018'>>,
+    nztrends: Dataset<TrendsCartogramDataPoint<'size'>>,
   }
 
   const ghgLabels = ['Lower', 'Stagnant', 'More than in 1990'];
@@ -174,6 +176,20 @@
         labels: colorSubsidies.domain(),
         type: 'sequential',
       }
+    },
+    nz: {
+      cartogram: {
+        dataset: [nzDataset],
+        countries: datasets.countries
+      },
+      legend: nzLegendProps
+    },
+    nztrends: {
+      cartogram: {
+        dataset: [nztrendsDataset],
+        countries: datasets.countries
+      },
+      legend: nzLegendProps
     }
   };
 
@@ -202,7 +218,7 @@
       </div>
     </CartogramHeader>
 
-    {#if isEmbed && embed !== "policies"}
+    {#if isEmbed}
       <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
         <p>
           To explore more about the climate emergency and
@@ -228,21 +244,7 @@
       </ScrollableX>
     </div>
 
-    {#if isEmbed && embed === "policies"}
-      <div class="embed-additional-text-desktop-policies" class:hide={cartogramAnnotation}>
-        <p>
-          To explore more about the climate emergency and
-          the effects on the planet visit
-          <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
-        </p>
-      </div>
-    {/if}
-
     {#if !isEmbed}
-
-      <div class="footer">
-        <EmbedFooter {embed} />
-      </div>
 
       {#each text as t}
         <p class='col-text'>{@html t.p}</p>
@@ -261,7 +263,8 @@
     margin-bottom: 30px;
   }
 
-  .embed-additional-text-desktop, .embed-additional-text-desktop-policies{
+  .embed-additional-text-desktop {
+    display: none !important; // TODO: fix this element
     opacity: 1;
     transition: 300ms opacity 700ms;
     position: relative;

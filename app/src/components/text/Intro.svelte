@@ -1,4 +1,6 @@
 <script>
+import WebsitesMenu from "../nav/WebsitesMenu.svelte";
+
 
 export let text;
 export let head;
@@ -19,7 +21,7 @@ export let breadcrumbs;
       {/each}
     </ul>
   </nav>
-
+  <WebsitesMenu/>
   {#if head}
     <h1>{@html head}</h1>
   {/if}

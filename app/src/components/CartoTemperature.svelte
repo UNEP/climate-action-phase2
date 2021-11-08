@@ -4,7 +4,6 @@
   import { annotations } from '../data';
   import svg from '../svg';
   import ScrollableX from "./common/ScrollableX.svelte";
-  import EmbedFooter from "./EmbedFooter.svelte";
   import AnnotatedMedia from "./maps/AnnotatedMedia.svelte";
   import CartogramHeader from "./maps/CartogramHeader.svelte";
 
@@ -19,7 +18,6 @@
   }
 
   export var isEmbed = false;
-  export var embed: string;
   export var block: Content.AnnotatedImage;
   export var id: string;
   export var text: TextBlock[];
@@ -93,10 +91,6 @@
   </div>
 
   {#if !isEmbed}
-
-    <div class="footer">
-      <EmbedFooter {embed} />
-    </div>
 
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>

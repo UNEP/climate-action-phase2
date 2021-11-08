@@ -1,27 +1,6 @@
 {
   "article": [
     {
-      "type": "websites-menu",
-      "options": [
-        {
-          "text": "State of the climate",
-          "icon": "stateoftheclimate.main",
-          "href": "http://localhost:5000/sotc.html"
-        },
-        {
-          "text": "What’s happening",
-          "icon": "whatshappening.main",
-          "href": "http://localhost:5000/whatshappening.html"
-        },
-        {
-          "text": "Climate action progress",
-          "icon": "climateactionprogress.main",
-          "href": "http://localhost:5000/climateactionprogress.html"
-        }
-      ],
-      "selected": "2"
-    },
-    {
       "type": "intro",
       "breadcrumbs": [
         {
@@ -62,8 +41,6 @@
       "icon": "climateactionprogress.nzt",
       "menu": "Net-zero targets",
       "menuicon": "climateactionprogress.nzt",
-      "data": "ghg",
-      "embed": "ghg",
       "head": "Emissions rise and plans are made yet little progress",
       "text": [
         {
@@ -76,7 +53,7 @@
           "p": "While countries are negotiating pledges for the far future, emissions are rising and putting the planet at risk. All countries need to do more now."
         },
         {
-          "p": "Some countries are doing more than others. These are the 10 countries with largest actual emission reductions per capita."
+          "p": "Some countries are doing more than others. While the world saw an increase in emissions from 2015 to 2018, these countries managed to reduce them."
         }
       ]
     },
@@ -134,8 +111,7 @@
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
       "menuicon": "stateoftheclimate.searchtable",
-      "data": "co2bycountry",
-      "embed": "co2bycountry"
+      "data": "co2bycountry"
     },
     {
       "type": "methodology",
@@ -165,6 +141,28 @@
           "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
+    },
+    {
+      "type": "embed",
+      "title": "Embed our visualizations",
+      "menu": "Embed our visualizations",
+      "icon": "embed"
+    },
+    {
+      "type": "carto-world",
+      "title": "Net zero targets",
+      "head": "Emissions rise and plans are made yet little progress",
+      "data": "nz",
+      "embed": "nz",
+      "embedonly": "1"
+    },
+    {
+      "type": "carto-world",
+      "title": "Net zero targets",
+      "head": "Emissions rise and plans are made yet little progress",
+      "data": "nztrends",
+      "embed": "nztrends",
+      "embedonly": "1"
     }
   ],
   "meta": {

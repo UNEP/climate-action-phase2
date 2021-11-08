@@ -120,8 +120,7 @@
       "icon": "stateoftheclimate.searchtable",
       "menu": "By country",
       "menuicon": "stateoftheclimate.searchtable",
-      "data": "co2bycountry",
-      "embed": "co2bycountry"
+      "data": "co2bycountry"
     },
     {
       "type": "methodology",
@@ -139,6 +138,12 @@
           "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
         }
       ]
+    },
+    {
+      "type": "embed",
+      "title": "Embed our visualizations",
+      "menu": "Embed our visualizations",
+      "icon": "embed"
     }
   ],
   "meta": {

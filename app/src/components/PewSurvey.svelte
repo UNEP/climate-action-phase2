@@ -3,13 +3,11 @@
     import dataset from '../data';
     import MiniSurveyCharts from '../components/MiniSurveyCharts.svelte';
     import {fade} from 'svelte/transition';
-    import EmbedFooter from './EmbedFooter.svelte';
     import SectionTitle from './SectionTitle.svelte';
     import type { Content, TextBlock } from 'src/types';
 
 
     export var isEmbed = false;
-    export var embed: string;
     export var block: Content.AnnotatedImage;
     export var id: string;
     export var text: TextBlock[];
@@ -105,10 +103,6 @@
   </div>
   {/if}
   {#if !isEmbed}
-
-    <div class="footer">
-      <EmbedFooter {embed} />
-    </div>
 
     {#each text as t}
       <p class='col-text'>{@html t.p}</p>

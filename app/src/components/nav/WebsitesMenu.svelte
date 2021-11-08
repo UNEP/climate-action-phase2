@@ -1,27 +1,35 @@
 
 <script lang="ts">
-  import type { MenuOption } from "src/types";
 
   import ScrollableX from "../common/ScrollableX.svelte";
   import Icon from "../Icon.svelte";
 
-  export let options: MenuOption[];
-  export let selected: number;
-  let current = options[0];
-  $: current = options[selected];
+
+
+  const urlParts = window.location.href.split('/');
+  const current = urlParts.slice().pop();
+
 </script>
 <div class="section">
   <ScrollableX>
     <nav>
         <div class="subnavbuttons">
-            {#each options as option}
 
-            <a href={option.href} class:selected={current === option} disabled={current === option} on:click={() => current = option} title={option.text}>
-                <i><Icon name={option.icon} /></i>
-                {option.text}
+            <a href="sotc.html" class:selected={current === "sotc.html"} disabled={current !== "sotc.html"} title="State of the climate">
+                <i><Icon name="stateoftheclimate.main" /></i>
+                State of the climate
             </a>
 
-            {/each}
+            <a href="whatshappening.html" class:selected={current === "whatshappening.html"} disabled={current !== "whatshappening.html"} title="What’s happening">
+              <i><Icon name="whatshappening.main" /></i>
+              What’s happening
+            </a>
+
+            <a href="climateactionprogress.html" class:selected={current === "climateactionprogress.html"} disabled={current !== "climateactionprogress.html"} title="Climate action progress">
+              <i><Icon name="climateactionprogress.main" /></i>
+              Climate action progress
+            </a>
+
         </div>
     </nav>
   </ScrollableX>

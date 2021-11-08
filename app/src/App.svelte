@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Content, GDocs } from 'src/types';
+  import type { Content } from 'src/types';
   import CartoWorld from 'src/components/CartoWorld.svelte';
   import PewSurvey from 'src/components/PewSurvey.svelte';
   import Intro from 'src/components/text/Intro.svelte';
@@ -14,13 +14,20 @@
   import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
-  import WebstiesMenu from './components/nav/WebstiesMenu.svelte';
   import ClimateActionCountryTable from './components/ClimateActionCountryTable.svelte';
+  import EmbedSection from './components/EmbedSection.svelte';
+  import sotc from './stateoftheclimate.json';
+  import wh from './whatshappening.json';
+  import cap from './climateactionprogress.json';
 
-  export var gdocs: GDocs;
   export var embed: string;
+  export var page: string;
 
-  const content: Content[] = gdocs.article;
+  const gdocs = { sotc, wh, cap };
+
+  const content: Content[] = embed
+    ? [...sotc.article, ...wh.article, ...cap.article] : gdocs[page].article;
+
   const embedBlock = embed && content.find(b => b.embed === embed);
 
   const components = {
@@ -35,28 +42,32 @@
     'carto-scrolly': CartoScroller,
     'country-table': CountryTable,
     'risk-country-table': RiskCountryTable,
-    'websites-menu' : WebstiesMenu,
-    'climate-action-country-table': ClimateActionCountryTable
+    'climate-action-country-table': ClimateActionCountryTable,
+    'embed' : EmbedSection
   };
 
 </script>
-{#if embedBlock}
-  <BaseEmbed>
-    <div slot="viz" class="cartogram-pane">
-      <svelte:component
-        this={components[embedBlock.type]}
-        {...embedBlock}
-        content={content}
-        block={embedBlock}
-        isEmbed={true}
-      />
-    </div>
-  </BaseEmbed>
+{#if embed}
+  {#if embedBlock}
+    <BaseEmbed>
+      <div slot="viz" class="cartogram-pane">
+        <svelte:component
+          this={components[embedBlock.type]}
+          {...embedBlock}
+          content={content}
+          block={embedBlock}
+          isEmbed={true}
+        />
+      </div>
+    </BaseEmbed>
+  {:else}
+    <div>Missing embed: {embed}</div>
+  {/if}
 {:else}
   <TopNav />
   <main>
     <article>
-      {#each content as block}
+      {#each content.filter(c => !c.embedonly) as block}
         {#if components[block.type]}
           <svelte:component
             this={components[block.type]}
@@ -72,5 +83,6 @@
       {/each}
     </article>
   </main>
+
   <Footer />
 {/if}
