@@ -18,7 +18,6 @@
   }
 
   export var isEmbed = false;
-  export var embed: string;
   export var block: Content.AnnotatedImage;
   export var id: string;
   export var text: TextBlock[];
