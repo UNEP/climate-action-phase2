@@ -218,7 +218,7 @@
       </div>
     </CartogramHeader>
 
-    {#if isEmbed && embed !== "policies"}
+    {#if isEmbed}
       <div class="embed-additional-text-desktop" class:hide={cartogramAnnotation}>
         <p>
           To explore more about the climate emergency and
@@ -244,16 +244,6 @@
       </ScrollableX>
     </div>
 
-    {#if isEmbed && embed === "policies"}
-      <div class="embed-additional-text-desktop-policies" class:hide={cartogramAnnotation}>
-        <p>
-          To explore more about the climate emergency and
-          the effects on the planet visit
-          <b><a target="_blank" href="https://www.unep.org/">unep.org</a></b>
-        </p>
-      </div>
-    {/if}
-
     {#if !isEmbed}
 
       {#each text as t}
@@ -273,7 +263,8 @@
     margin-bottom: 30px;
   }
 
-  .embed-additional-text-desktop, .embed-additional-text-desktop-policies{
+  .embed-additional-text-desktop {
+    display: none !important; // TODO: fix this element
     opacity: 1;
     transition: 300ms opacity 700ms;
     position: relative;

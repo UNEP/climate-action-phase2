@@ -63,13 +63,6 @@
       padding: 0;
     }
 
-    :global(.embed-additional-text-desktop-policies) {
-      display: none;
-      max-width: 300px;
-      position: absolute;
-      margin-top: -12rem;
-    }
-
     :global(.kicker) {
       display: none;
     }
@@ -118,9 +111,6 @@
     .container {
       padding-left: 20px;
       :global(.embed-additional-text-desktop) {
-        display: block;
-      }
-      :global(.embed-additional-text-desktop-policies) {
         display: block;
       }
     };
