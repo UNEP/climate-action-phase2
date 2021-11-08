@@ -4,7 +4,7 @@
   import datasets from 'src/data';
   import Legend from "src/components/common/Legend.svelte";
   import { colorNDC, colorGHG, colorSubsidies } from "src/colors";
-  import { displayVal} from 'src/util';
+  import { displayVal } from 'src/util';
   import type { Content, TextBlock } from 'src/types';
   import ScrollableX from "./common/ScrollableX.svelte";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
@@ -12,6 +12,7 @@
   import { CartogramDataPoint } from "./maps/CartogramTypes";
   import CartogramNode from "./maps/CartogramNode.svelte";
   import CartogramHeader from "./maps/CartogramHeader.svelte";
+  import { legendProps as nzLegendProps, nzDataset, nztrendsDataset } from './CartoScroller.svelte';
 
   export var data : keyof Datasets;
   export var id: string;
@@ -47,6 +48,8 @@
     trends: Dataset<TrendsCartogramDataPoint<'size'>>,
     ndc: Dataset<CartogramDataPoint<NDCDataPoint<'emissions2018'>, 'emissions2018'>>,
     ffsubsidies: Dataset<SimpleCartogramDataPoint<'subsidies_percapita'>>,
+    nz: Dataset<SimpleCartogramDataPoint<'emissions2018'>>,
+    nztrends: Dataset<TrendsCartogramDataPoint<'size'>>,
   }
 
   const ghgLabels = ['Lower', 'Stagnant', 'More than in 1990'];
@@ -173,6 +176,20 @@
         labels: colorSubsidies.domain(),
         type: 'sequential',
       }
+    },
+    nz: {
+      cartogram: {
+        dataset: [nzDataset],
+        countries: datasets.countries
+      },
+      legend: nzLegendProps
+    },
+    nztrends: {
+      cartogram: {
+        dataset: [nztrendsDataset],
+        countries: datasets.countries
+      },
+      legend: nzLegendProps
     }
   };
 

@@ -1,23 +1,21 @@
-<script lang="ts">
-  import Scroller from "./common/Scroller.svelte";
+<script lang="ts" context="module">
   import datasets, { calcGradientFrom } from 'src/data';
-  import type { SimpleCartogramDataPoint } from "./maps/Cartogram.svelte";
-  import Cartogram from "./maps/Cartogram.svelte";
   import { CartogramDataPoint } from "./maps/CartogramTypes";
   import { colorNetZero } from "src/colors";
   import TrendsNode, { TrendsCartogramDataPoint } from "./maps/TrendsNode.svelte";
+  import type { SimpleCartogramDataPoint } from "./maps/Cartogram.svelte";
+  import Cartogram from "./maps/Cartogram.svelte";
   import CartogramNode from "./maps/CartogramNode.svelte";
-  import Legend from "./common/Legend.svelte";
-  import type { Content } from "src/types";
-  import ScrollableX from "./common/ScrollableX.svelte";
-  import CartogramHeader from "./maps/CartogramHeader.svelte";
 
-  export let text: {p: string}[];
-  export let id: string;
-  export var block: Content;
-
-  let section: number;
-  let prevSection: number;
+  export const legendProps: Omit<Legend['$$prop_def'], 'selected'> = {
+    title: "Status of <b>net-zero</b> targets",
+    type: 'categorical',
+    colors: colorNetZero.range(),
+    labels: [
+      ...colorNetZero.domain().slice(0, -1),
+      'No target'
+    ]
+  };
 
   const topemitters = new Set([
     ...datasets.cartoworld.ghg.data
@@ -36,75 +34,83 @@
       .map(d => d.id)
   ]);
 
-  type SharedParamNames = 'dataset' | 'countries';
-
-  const labels = [
-    ...colorNetZero.domain().slice(0, -1),
-    'No target'
-  ];
-
   type CartogramProps = Cartogram<[
     SimpleCartogramDataPoint<'emissions2018'>,
     TrendsCartogramDataPoint<'size'>
   ]>['$$prop_def'];
 
-  let sharedParams: Pick<CartogramProps, SharedParamNames> = {
+  export const nzDataset: CartogramProps['dataset'][0] = {
+    ...datasets.cartoworld.ghg,
+    NodeComponent: CartogramNode,
+    NodeClass: CartogramDataPoint,
+    hoverTextFn: (c) => {
+      const { year, status } = datasets.lookups.netzero[c.id];
+      const { name } = datasets.lookups.countries[c.id];
+      const yearText = (y: number) => y ? `The target year is ${y}.` : '';
+
+      if (status === "Achieved (self-declared)")
+        return `<b>${name}</b> has self-declared that it has achieved its net-zero target.`;
+      else if (status === "In law")
+        return `<b>${name}</b> has a net-zero target in law. ${yearText(year)}`;
+      else if (status === "In policy document")
+        return `<b>${name}</b> has set a net-zero target in policy documents. ${yearText(year)}`;
+      else if (status === "Declaration / pledge")
+        return `<b>${name}</b> has declared or pledged a net-zero target. ${yearText(year)}`;
+      else if (status === "Proposed / in discussion")
+        return `<b>${name}</b> has proposed or discussed a net-zero target. ${yearText(year)}`;
+      else if (year !== null)
+        return `<b>${name}</b> has set ${year} as its target year.`;
+      else
+        return `No data for ${name}.`;
+    },
+    colorFn: d => datasets.lookups.netzero[d.id]
+      ? colorNetZero(datasets.lookups.netzero[d.id].status)
+      : '#000000'
+  };
+
+  export const nztrendsDataset: CartogramProps['dataset'][1] = {
+    ...datasets.cartoworld.trends,
+    NodeComponent: TrendsNode,
+    NodeClass: TrendsCartogramDataPoint,
+    colorFn: d => datasets.lookups.netzero[d.id]
+      ? colorNetZero(datasets.lookups.netzero[d.id].status)
+      : '#000000'
+  };
+
+</script>
+
+<script lang="ts">
+  import Scroller from "./common/Scroller.svelte";
+  import Legend from "./common/Legend.svelte";
+  import type { Content } from "src/types";
+  import ScrollableX from "./common/ScrollableX.svelte";
+  import CartogramHeader from "./maps/CartogramHeader.svelte";
+
+  export let text: {p: string}[];
+  export let id: string;
+  export var block: Content;
+
+  let section: number;
+  let prevSection: number;
+
+  let cartoParams: CartogramProps;
+  $: cartoParams = {
     dataset: [
       {
-        ...datasets.cartoworld.ghg,
-        NodeComponent: CartogramNode,
-        NodeClass: CartogramDataPoint,
-        hoverTextFn: (c) => {
-          const { year, status } = datasets.lookups.netzero[c.id];
-          const { name } = datasets.lookups.countries[c.id];
-          const yearText = (y: number) => y ? `The target year is ${y}.` : '';
-
-          if (status === "Achieved (self-declared)")
-            return `<b>${name}</b> has self-declared that it has achieved its net-zero target.`;
-          else if (status === "In law")
-            return `<b>${name}</b> has a net-zero target in law. ${yearText(year)}`;
-          else if (status === "In policy document")
-            return `<b>${name}</b> has set a net-zero target in policy documents. ${yearText(year)}`;
-          else if (status === "Declaration / pledge")
-            return `<b>${name}</b> has declared or pledged a net-zero target. ${yearText(year)}`;
-          else if (status === "Proposed / in discussion")
-            return `<b>${name}</b> has proposed or discussed a net-zero target. ${yearText(year)}`;
-          else if (year !== null)
-            return `<b>${name}</b> has set ${year} as its target year.`;
-          else
-            return `No data for ${name}.`;
-        },
+        ...nzDataset,
         classesFn: c => section === 1 && !topemitters.has(c.id) ? ['fade'] : [],
-        colorFn: d => datasets.lookups.netzero[d.id]
-          ? colorNetZero(datasets.lookups.netzero[d.id].status)
-          : '#000000'
       },
       {
-        ...datasets.cartoworld.trends,
-        NodeComponent: TrendsNode,
-        NodeClass: TrendsCartogramDataPoint,
+        ...nztrendsDataset,
         classesFn: c => section === 3 && !topdrops.has(c.id) ? ['fade'] : [],
-        colorFn: d => datasets.lookups.netzero[d.id]
-          ? colorNetZero(datasets.lookups.netzero[d.id].status)
-          : '#000000'
-      },
+      }
     ],
-    countries: datasets.countries
+    countries: datasets.countries,
+    helpText: section === 0 ? {
+      code: "CAN",
+      text: "Each square represents a country, scaled by its per capita emissions"
+    } : null
   };
-
-  let sectionParams: {[section: string]: Omit<CartogramProps, SharedParamNames>} = {
-    emissions: {
-      helpText: {
-        code: "CAN",
-        text: "Each square represents a country, scaled by its per capita emissions"
-      },
-    },
-    trends: {
-      helpText: null
-    }
-  };
-
-  $: currentSectionParams = sectionParams[section === 0 ? 'emissions' : 'trends'];
 
   let rerenderFn: () => void;
   $: {
@@ -126,9 +132,7 @@
 
       <CartogramHeader {block}>
         <div slot="legend">
-          <Legend type='categorical'
-          title="Status of <b>net-zero</b> targets"
-          colors={colorNetZero.range()} {labels}
+          <Legend {...legendProps}
           bind:selected={hoveredLegendIndex} />
         </div>
       </CartogramHeader>
@@ -137,7 +141,7 @@
         <ScrollableX>
           <div class="carto-content">
             <Cartogram
-              {...sharedParams} {...currentSectionParams}
+              {...cartoParams}
               legendIsHoveredValue={hoveredLegendColor}
               bind:rerenderFn
               selectedDatasetIndex={Math.floor((section || 0) / 2)} />
