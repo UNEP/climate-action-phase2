@@ -7,9 +7,11 @@
 
 </script>
 <div class="kicker">
-  <div class="kicker-icon"  style={alignment[block.icon] || ''}>
-    <Icon name={block.icon} />
-  </div>
+  {#if block.icon}
+    <div class="kicker-icon"  style={alignment[block.icon] || ''}>
+      <Icon name={block.icon} />
+    </div>
+  {/if}
   <div class="kicker-text">
     {@html block.title }
   </div>
