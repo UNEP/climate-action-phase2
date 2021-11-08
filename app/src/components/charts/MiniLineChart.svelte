@@ -63,13 +63,13 @@
 
       <text
         class="hover-year"
-        x={clamp(hoverInfo.x, 20, width - 20)}
+        x={clamp(hoverInfo.x, 24, width - 24)}
         y={y(0) + 2 + (hoverInfo.y > 75 ? 18 : -5)}
       >{hoverInfo.data.year}</text>
 
       <text
         class="hover-value"
-        x={clamp(hoverInfo.x, hoverInfo.valStr.length * 4.5, 320 - hoverInfo.valStr.length * 4.5)}
+        x={clamp(hoverInfo.x, hoverInfo.valStr.length * 5.5, width - hoverInfo.valStr.length * 5.5)}
         y={Math.min(70, hoverInfo.y - 10)}
       >{hoverInfo.valStr}</text>
   </g>
@@ -105,7 +105,7 @@
   .hover-year {
     text-anchor: middle;
     fill: #555555;
-    font-size: 24px;
+    font-size: 20px;
     stroke: #f3f3f3;
     stroke-width: 5px;
     paint-order: stroke;
@@ -116,7 +116,7 @@
     dominant-baseline: bottom;
     fill: #555555;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     stroke: #f3f3f3;
     stroke-width: 3px;
     paint-order: stroke;
