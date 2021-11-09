@@ -83,20 +83,20 @@
 
     if (over1percentLookUp[data.id] !== undefined) {
       const latestEmissions = data.emissions2018;
-      descriptionPhrase += `<b>${data.name}</b> is the one of top GHG emitters. 
+      descriptionPhrase += `<b>${data.name}</b> is one of top GHG emitters. 
       It accounts for ${data.globalPct}% of global emissions. 
-      In 2018, it emitted ${latestEmissions} million tonnes. `;
+      In 2018, it emitted ${displayVal(latestEmissions,2)} million tonnes. `;
     }
     if (biggestPerCapitaLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> is one of the countries
-        with the highest per capita GHG emissions — ${biggestPerCapitaLookUp[data.id].toFixed(2)}. `;
+      descriptionPhrase += `${over1percentLookUp[data.id] !== undefined?`It`:`<b>${data.name}</b>`} is one of the countries
+        with the highest per capita GHG emissions — ${biggestPerCapitaLookUp[data.id].toFixed(2)} tonnes. `;
     }
     if (increaseLookUp[data.id] !== undefined) {
-      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
+      descriptionPhrase += `${over1percentLookUp[data.id] !== undefined || biggestPerCapitaLookUp[data.id] !== undefined ?`It`:`<b>${data.name}</b>`} has had one of the biggest
         increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `;
     }
     if (decreaseLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
+      descriptionPhrase += `${over1percentLookUp[data.id] !== undefined || biggestPerCapitaLookUp[data.id] !== undefined ?`It`:`<b>${data.name}</b>`} has had one of the biggest
         drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `;
     }
     return descriptionPhrase;
