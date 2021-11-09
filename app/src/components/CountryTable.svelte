@@ -61,18 +61,22 @@
     return { id, fallen, perc };
   });
 
-  const top10Increase = relativeChangeData
+  const increasingCountries = relativeChangeData.filter(function(e) {return !e.fallen;});
+
+  const top25Increase = increasingCountries
     .sort((a,b) => b.perc - a.perc)
     .slice(0, 25);
 
-  const increaseLookUp = createLookup(top10Increase, c => c.id, c => c);
+  const increaseLookUp = createLookup(top25Increase, c => c.id, c => c);
 
-  const top10Decrease = relativeChangeData
-    .sort((a,b) => a.perc - b.perc)
+  const decreasingCountries = relativeChangeData.filter(function(e) {return e.fallen;});
+
+  const top25Decrease = decreasingCountries
+    .sort((a,b) => b.perc - a.perc)
     .slice(0, 25);
 
-  const decreaseLookUp = createLookup(top10Decrease, c => c.id, c => c);
-
+  const decreaseLookUp = createLookup(top25Decrease, c => c.id, c => c);
+  
 
   function getChartText(data: RowData) {
     let descriptionPhrase = '';
