@@ -61,7 +61,9 @@
     return { id, fallen, perc };
   });
 
-  const top25Increase = relativeChangeData
+  const increasingCountries = relativeChangeData.filter(function(e) {return !e.fallen;});
+
+  const top25Increase = increasingCountries
     .sort((a,b) => b.perc - a.perc)
     .slice(0, 25);
 
@@ -74,7 +76,7 @@
     .slice(0, 25);
 
   const decreaseLookUp = createLookup(top25Decrease, c => c.id, c => c);
-
+  
 
   function getChartText(data: RowData) {
     let descriptionPhrase = '';
