@@ -25,7 +25,7 @@
       <Icon name="embed" />
     </div>
     <div class="kicker-text">
-      EMBED OUR VISUALITZATIONS
+      EMBED OUR VISUALIZATIONS
     </div>
   </div>
   <div class="embed-container">
@@ -42,11 +42,11 @@
           />
         </div>
       </div>
-      <div class="embed-text">
+      <p class="info-text">
         <b>{title}</b>
         <br>
         {head}
-      </div>
+      </p>
     </div>
     {/each}
   </div>
@@ -70,10 +70,7 @@
     color: black;
     resize: none;
   }
-  .embed-text {
-    margin-top: 20px;
-    height: 150px;
-  }
+
   .group-embed {
     width: 225px;
     margin-right: 25px;
@@ -91,7 +88,7 @@
     opacity: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(139, 139, 139, 0.2);
+    background-color: #f3f3f3D0;
     transition: .5s ease;
     text-align: center;
   }
@@ -147,13 +144,19 @@
     margin-bottom: 5px;
   }
 
+  .info-text {
+    color:#505050;
+    padding-bottom:1rem!important;
+    font-size: 1.125rem;
+    line-height:  1.5rem;
+  }
 
   .infoSquare {
     padding: 1rem 1rem;
     background-color:#E8E8E8;
     overflow: auto;
     max-width: 800px;
-    margin-top: 20px;
+    margin-top: 20px!important;
   }
 
   @media (min-width: 400px) {

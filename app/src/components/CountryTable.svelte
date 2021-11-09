@@ -93,13 +93,11 @@
     }
     if (increaseLookUp[data.id] !== undefined) {
       descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
-        increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
+        increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `;
     }
     if (decreaseLookUp[data.id] !== undefined){
       descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
-        drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
+        drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `;
     }
     return descriptionPhrase;
   }
