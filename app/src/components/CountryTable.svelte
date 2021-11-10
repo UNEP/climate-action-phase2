@@ -41,15 +41,12 @@
 
   const formattedTrendsDataLookup = createLookup(formattedTrendsData, c => c.id, c => c);
 
-  const over1percent = data.filter(d => d.globalPct > 1.0);
-
-  const over1percentLookUp = createLookup(over1percent, c => c.id, c => c.globalPct);
-
   const biggestPerCapita = data
     .sort((a,b) => b.percapita2018 - a.percapita2018)
-    .slice(0,25);
+    .slice(0,25)
+    .map(d => d.id);
 
-  const biggestPerCapitaLookUp = createLookup(biggestPerCapita, c => c.id, c => c.percapita2018);
+  const biggestPerCapitaLookUp = new Set(biggestPerCapita);
 
   const relativeChangeData = data.map(d => {
     const {id} = d;
@@ -61,46 +58,59 @@
     return { id, fallen, perc };
   });
 
-  const increasingCountries = relativeChangeData.filter(function(e) {return !e.fallen;});
+  const relativeChangeLookup = createLookup(relativeChangeData, d => d.id, d => d);
 
-  const top25Increase = increasingCountries
-    .sort((a,b) => b.perc - a.perc)
-    .slice(0, 25);
+  const top25Increase = new Set(
+    relativeChangeData
+      .filter(d => !d.fallen)
+      .sort((a,b) => b.perc - a.perc)
+      .slice(0, 25)
+      .map(d => d.id)
+  );
 
-  const increaseLookUp = createLookup(top25Increase, c => c.id, c => c);
-
-  const decreasingCountries = relativeChangeData.filter(function(e) {return e.fallen;});
-
-  const top25Decrease = decreasingCountries
-    .sort((a,b) => b.perc - a.perc)
-    .slice(0, 25);
-
-  const decreaseLookUp = createLookup(top25Decrease, c => c.id, c => c);
-  
+  const top25Decrease = new Set(
+    relativeChangeData
+      .filter(d => d.fallen)
+      .sort((a,b) => b.perc - a.perc)
+      .slice(0, 25)
+      .map(d => d.id)
+  );
 
   function getChartText(data: RowData) {
     let descriptionPhrase = '';
+    const {emissions2018, percapita2018, globalPct} = data;
+    const {perc} = relativeChangeLookup[data.id];
 
-    if (over1percentLookUp[data.id] !== undefined) {
-      const latestEmissions = data.emissions2018;
-      descriptionPhrase += `<b>${data.name}</b> is the one of top GHG emitters. 
-      It accounts for ${data.globalPct}% of global emissions. 
-      In 2018, it emitted ${latestEmissions} million tonnes. `;
+    // Country name the first time, "It" after
+    const name = (function() {
+      let used = false;
+      return () => {
+        if (used) return "It";
+        used = true;
+        return `<b>${data.name}</b>`;
+      };
+    })();
+
+    if (globalPct > 1) {
+      descriptionPhrase += `${name()} is one of the top GHG emitters.
+      It accounts for ${globalPct}% of global emissions.
+      In 2018, it emitted ${displayVal(emissions2018,2)} million tonnes. `;
     }
-    if (biggestPerCapitaLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> is one of the countries
-        with the highest per capita GHG emissions — ${biggestPerCapitaLookUp[data.id].toFixed(2)}. `;
+
+    if (biggestPerCapitaLookUp.has(data.id)){
+      descriptionPhrase += `${name()} is one of the countries
+        with the highest per capita GHG emissions — ${percapita2018.toFixed(2)} tonnes. `;
     }
-    if (increaseLookUp[data.id] !== undefined) {
-      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
-        increases in GHG emissions — ${increaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
+
+    if (top25Increase.has(data.id)) {
+      descriptionPhrase += `${name()} has had one of the biggest
+        increases in GHG emissions — ${perc.toFixed(0)}% since 1990. `;
     }
-    if (decreaseLookUp[data.id] !== undefined){
-      descriptionPhrase += `<b>${data.name}</b> has had one of the biggest
-        drops in GHG emissions — ${decreaseLookUp[data.id].perc.toFixed(0)}% since 1990. `
-        + `Today, it accounts for ${data.globalPct}% of global emissions. `;
+    else if (top25Decrease.has(data.id)){
+      descriptionPhrase += `${name()} has had one of the biggest
+        drops in GHG emissions — ${perc.toFixed(0)}% since 1990. `;
     }
+
     return descriptionPhrase;
   }
 

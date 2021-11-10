@@ -47,6 +47,9 @@ export let breadcrumbs;
     border-bottom: 1px solid #3B536527;
     padding-top:2rem;
   }
+  .inner-nav {
+    padding-bottom: 1.5rem;
+  }
   .breadcrumbs {
     list-style-type: none;
     margin:0;

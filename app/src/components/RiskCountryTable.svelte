@@ -49,7 +49,7 @@
   const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL',
     'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENT'];
 
-  let sort: {column: string, asc: boolean} = {column: 'criRank', asc: false};
+  let sort: {column: string, asc: boolean} = {column: 'criRank', asc: true};
 
   const onClickHeader = (header: Header) => {
     if (header.name === sort.column) {
