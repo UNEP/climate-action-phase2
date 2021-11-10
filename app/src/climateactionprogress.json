@@ -66,6 +66,7 @@
       "data": "ndc",
       "embed": "ndc",
       "head": "Countries must strengthen pledges made under Paris Agreement",
+      "attribution": "Data for the <strong>NDC pledges</strong> comes from <a href=\"https://www.climatewatchdata.org/ndcs-explore\">Climate Watch</a>. 2020. Washington, DC: World Resources Institute.",
       "text": [
         {
           "p": "In signing the Paris Agreement, governments pledged to cut emissions and report their plans through ‘Nationally Determined Contributions’ (NDCs). The levels of ambition in the Paris Agreement must be roughly tripled to stay below 2°C and increased at least fivefold to stay safe below 1.5°C. More countries have committed to net-zero emission targets yet few implement the actual measure making those targets realistic."
@@ -80,6 +81,7 @@
       "menuicon": "climateactionprogress.opinion",
       "embed": "survey",
       "head": "People want climate action now",
+      "attribution": "Data for the <strong>NDC pledges</strong> comes from <a href=\"https://www.climatewatchdata.org/ndcs-explore\">Climate Watch</a>. 2020. Washington, DC: World Resources Institute.",
       "text": [
         {
           "p": "The catastrophic consequences of the climate emergency are making an impact on popular perceptions. In just five years - between 2013 and 2018 - more people are considering climate change a major threat. Most countries today have popular support for such rapid and large scale emission reductions."
@@ -95,6 +97,7 @@
       "data": "ffsubsidies",
       "embed": "ffsubsidies",
       "head": "A stop to fossil fuel subsidies is vital to a stable climate below 1.5°C — or even 2°C",
+      "attribution": "Data for the <strong>Fossil-fuel subsidies (consumption and production)</strong> comes from the <a href=\"https://unstats.un.org/sdgs/UNSDG/IndDatabasePage\">SDG Indicators Database</a> by UN DESA.",
       "text": [
         {
           "p": "The climate emergency has devastating impacts across the world and people are urging governments for acute and adequate climate action. Yet many governments are still subsidising and supporting fossil fuel production and consumption inconsistently with any possible way to reach the Paris Agreement targets of 1.5°C or even 2°C."
@@ -154,7 +157,8 @@
       "head": "Emissions rise and plans are made yet little progress",
       "data": "nz",
       "embed": "nz",
-      "embedonly": "1"
+      "embedonly": "1",
+      "attribution": "Data for the <strong>net-zero targets</strong> pledged by countries comes from <a href=\"https://zerotracker.net/\">Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
     },
     {
       "type": "carto-world",
@@ -162,7 +166,8 @@
       "head": "Emissions rise and plans are made yet little progress",
       "data": "nztrends",
       "embed": "nztrends",
-      "embedonly": "1"
+      "embedonly": "1",
+      "attribution": "Data for the <strong>net-zero targets</strong> pledged by countries comes from <a href=\"https://zerotracker.net/\">Net Zero Tracker</a>. Energy and Climate Intelligence Unit, Data-Driven EnviroLab, NewClimate Institute, Oxford Net Zero. 2021."
     }
   ],
   "meta": {

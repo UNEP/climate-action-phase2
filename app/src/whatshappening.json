@@ -46,6 +46,7 @@
       "imgtitle": "<b>Surface temperature anomalies</b> (September 2021)",
       "alt": "This world map shows land temperature anomalies compared to the average conditions during that period between 2000-2008.",
       "head": "Extreme land temperatures - hot and cold",
+      "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
       "text": [
         {
           "p": "When average global temperatures rise, it covers vast differences across the world and throughout the year. The extreme weather events will get more severe and more frequent with rising temperatures. To stay safe the world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
@@ -63,6 +64,7 @@
       "imgtitle": "<b>Ocean temperature</b> (July 2021)",
       "alt": "This world map shows the temperature of the top millimeter of the ocean's surface. Sea surface temperature influences weather, including hurricanes, as well as plant and animal life in the ocean.",
       "head": "Extreme ocean temperatures - on the surface",
+      "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
       "text": [
         {
           "p": "Oceans are absorbing 90% of the heat and a third of the GHG emissions. It has slowed the visible impacts of a warming planet yet it is leading to warmer and more acidic waters affecting marine life and ecosystems as well as the communities relying on them for livelihoods."
@@ -80,6 +82,7 @@
       "imgtitle": "<b>A decade of fires</b> (monthly data from 2010 to 2021)",
       "alt": "This world map shows a decade of burning fires. Fire plays a major role in Earth's carbon cycle by releasing carbon into the air, and by consuming trees that would otherwise absorb carbon from the air during photosynthesis.",
       "head": "More wildfires are ravishing the world - and they are getting worse",
+      "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
       "text": [
         {
           "p": "With average global temperatures on the rise, local and seasonal variations mean that droughts and heatwaves are causing more severe and more frequent wildfires. Burning vast areas of forests is laying waste to ecosystems, biodiversity and people. It is also emitting further CO2 and affecting the economy and human health. To stay safe the world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
@@ -100,6 +103,7 @@
       "title": "Data and notes",
       "menu": "Data and notes",
       "icon": "data",
+      "attribution": "Data for the <strong>climate risk table</strong> comes from Eckstein, David & Künzel, Vera & Schäfer, Laura. (2021), <a href=\"https://germanwatch.org/en/19777\">'Global Climate Risk Index 2021'</a>, GermanWatch. The database used to calculate the Climate Risk Index 2021 does not include data for the United States of America.",
       "text": [
         {
           "p": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center."

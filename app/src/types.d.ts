@@ -38,6 +38,7 @@ export interface Content {
   embed?: string;
   id?: string;
   embedonly?: string;
+  attribution?: string;
 }
 
 namespace Content {
