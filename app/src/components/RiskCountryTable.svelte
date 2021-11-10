@@ -47,7 +47,7 @@
   ];
 
   const columnNames = ['COUNTRY','(A low value indicates most at risk)', 'INDEX', 'RANK', 'TOTAL',
-    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENT'];
+    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PER CENT'];
 
   let sort: {column: string, asc: boolean} = {column: 'criRank', asc: true};
 
