@@ -60,7 +60,7 @@
 
   const relativeChangeLookup = createLookup(relativeChangeData, d => d.id, d => d);
 
-  const top25Increase = new Set(
+  const topIncrease = new Set(
     relativeChangeData
       .filter(d => !d.fallen)
       .sort((a,b) => b.perc - a.perc)
@@ -68,9 +68,10 @@
       .map(d => d.id)
   );
 
-  const top25Decrease = new Set(
+  const topDecrease = new Set(
     relativeChangeData
       .filter(d => d.fallen)
+      .filter(d => datasets.ghgCategories[d.id] === 'falling')
       .sort((a,b) => b.perc - a.perc)
       .slice(0, 25)
       .map(d => d.id)
@@ -92,18 +93,6 @@
       };
     })();
 
-    const cat = (category) => {
-      if(category === 'stable') {
-        return `<strong>’s</strong> GHG emissions are stagnant compared to 1990`;
-      }
-      else if (category === 'falling') {
-        return ' has lower GHG emissions than it did in 1990';
-      }
-      else if (category === 'climbing') {
-        return ' emits more GHG now than it did in 1990';
-      }
-    };
-
     if (globalPct > 1) {
       descriptionPhrase += `${name()} is one of the top GHG emitters.
       It accounts for ${globalPct}% of global emissions.
@@ -115,18 +104,24 @@
         with the highest per capita GHG emissions — ${percapita2018.toFixed(2)} tonnes. `;
     }
 
-    if (top25Increase.has(data.id)) {
+    if (topIncrease.has(data.id)) {
       descriptionPhrase += `${name()} has had one of the biggest
         increases in GHG emissions — ${perc.toFixed(0)}% since 1990. `;
     }
 
-    else if (top25Decrease.has(data.id)){
+    else if (topDecrease.has(data.id)){
       descriptionPhrase += `${name()} has had one of the biggest
         drops in GHG emissions — ${perc.toFixed(0)}% since 1990. `;
     }
 
     if (descriptionPhrase === '') {
-      descriptionPhrase += `${name()}${cat(category)}. In 2018, it emitted ${displayVal(emissions2018,2)} million tonnes.`;
+      const catText = {
+        'stable': '<strong>’s</strong> GHG emissions are stagnant compared to 1990',
+        'falling': ' has lower GHG emissions than it did in 1990',
+        'climbing': ' emits more GHG now than it did in 1990'
+      };
+      descriptionPhrase += `${name()}${catText[category]}.
+        In 2018, it emitted ${displayVal(emissions2018,2)} million tonnes.`;
     }
 
     return descriptionPhrase;
