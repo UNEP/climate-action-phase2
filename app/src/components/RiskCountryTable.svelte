@@ -46,7 +46,7 @@
     { name: 'gdpPctLosses', index: 7,sortable: true },
   ];
 
-  const columnNames = ['COUNTRY','(A low value indicates most at risk)', `INDEX`, 'RANK', 'TOTAL',
+  const columnNames = ['COUNTRY','(A low value indicates most at risk)', 'INDEX', 'RANK', 'TOTAL',
     'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENT'];
 
   let sort: {column: string, asc: boolean} = {column: 'criRank', asc: true};
@@ -164,7 +164,7 @@
         data-name={h.name}
         on:click={() => h.sortable && onClickHeader(h)}
       >
-        <span>{@html columnNames[h.index]}</span>
+        <span>{columnNames[h.index]}</span>
         {#if sort && sort.column === h.name}
           <div class="sort-arrow" class:sort-arrow--asc={sort.asc}>
             <Icon name='arrows.down' />
