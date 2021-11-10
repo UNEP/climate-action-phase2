@@ -25,7 +25,7 @@
       "id": "whatshappening",
       "text": [
         {
-          "p": "The concentration of greenhouse gases (GHG) in the atmosphere causes global temperatures to rise with a host of impacts and catastrophic consequences. At the moment we are heading for a rise in excess of 3°C this century. It is a global average covering extreme variations across regions and seasons. According to the IPCC we will see more severe and frequent extreme weather events in the near future like floods, droughts, wildfires and hurricanes. A fraction of a degree in average global warming can have massive consequences."
+          "p": "The concentration of greenhouse gases (GHG) in the atmosphere causes global temperatures to rise with a host of impacts and catastrophic consequences. At the moment the world is heading for a rise in excess of 3°C this century. It is a global average covering extreme variations across regions and seasons. According to the IPCC (Intergovernmental Panel on Climate Change) there will be more severe and frequent extreme weather events in the near future like floods, droughts, wildfires and hurricanes. A fraction of a degree in average global warming can have massive consequences."
         },
         {
           "p": "The UNEP Climate Action Note shows you the global state of the climate emergency with its impact on extreme weather events across the world."
@@ -45,11 +45,11 @@
       "src": "surface.jpg",
       "imgtitle": "<b>Surface temperature anomalies</b> (September 2021)",
       "alt": "This world map shows land temperature anomalies compared to the average conditions during that period between 2000-2008.",
-      "head": "Extreme land temperatures - hot and cold",
+      "head": "Extreme land temperatures — hot and cold",
       "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
       "text": [
         {
-          "p": "When average global temperatures rise, it covers vast differences across the world and throughout the year. The extreme weather events will get more severe and more frequent with rising temperatures. To stay safe the world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
+          "p": "When average global temperature rises, it covers vast differences across the world and throughout the year. The extreme weather events will get more severe, and more frequent, with rising temperatures. The world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
         }
       ]
     },
@@ -67,7 +67,7 @@
       "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
       "text": [
         {
-          "p": "Oceans are absorbing 90% of the heat and a third of the GHG emissions. It has slowed the visible impacts of a warming planet yet it is leading to warmer and more acidic waters affecting marine life and ecosystems as well as the communities relying on them for livelihoods."
+          "p": "Oceans are absorbing 90% of the heat and one-third of the GHG emissions. It has slowed the visible impacts of a warming planet yet it is leading to warmer, and more acidic, waters affecting marine life and ecosystems as well as the communities relying on them for livelihoods."
         }
       ]
     },
@@ -81,11 +81,11 @@
       "src": "fire.mp4",
       "imgtitle": "<b>A decade of fires</b> (monthly data from 2010 to 2021)",
       "alt": "This world map shows a decade of burning fires. Fire plays a major role in Earth's carbon cycle by releasing carbon into the air, and by consuming trees that would otherwise absorb carbon from the air during photosynthesis.",
-      "head": "More wildfires are ravishing the world - and they are getting worse",
+      "head": "More wildfires are ravaging the world — and they are getting worse",
       "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
       "text": [
         {
-          "p": "With average global temperatures on the rise, local and seasonal variations mean that droughts and heatwaves are causing more severe and more frequent wildfires. Burning vast areas of forests is laying waste to ecosystems, biodiversity and people. It is also emitting further CO2 and affecting the economy and human health. To stay safe the world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
+          "p": "With average global temperatures on the rise, local and seasonal variations mean that droughts and heatwaves are causing more severe and more frequent wildfires. Burning vast areas of forests is laying waste to ecosystems, biodiversity and people. It is also emitting additional CO2 and affecting the economy and human health. The world must limit temperature rise to 1.5°C by cutting 30 gigatonnes of GHG emissions annually by 2030."
         }
       ]
     },
