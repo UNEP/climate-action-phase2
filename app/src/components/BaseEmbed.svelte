@@ -1,6 +1,11 @@
 <script lang="ts">
   import IframeResizingContainer from 'src/components/IframeResizingContainer.svelte';
   import Logo from './nav/Logo.svelte';
+  import svgs from 'src/svg';
+  import type { Content } from 'src/types';
+  import AttributionFooter from './common/AttributionFooter.svelte';
+
+  export let block: Content;
 
 </script>
 
@@ -29,6 +34,9 @@
 
     </div>
   </div>
+  <AttributionFooter icon={svgs.dataSource}>
+    <div slot="text">{@html block.attribution}</div>
+  </AttributionFooter>
 </IframeResizingContainer>
 
 <style lang="scss">

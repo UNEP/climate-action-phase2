@@ -49,12 +49,12 @@
 </script>
 {#if embed}
   {#if embedBlock}
-    <BaseEmbed>
+    <BaseEmbed block={embedBlock}>
       <div slot="viz" class="cartogram-pane">
         <svelte:component
           this={components[embedBlock.type]}
           {...embedBlock}
-          content={content}
+          {content}
           block={embedBlock}
           isEmbed={true}
         />
