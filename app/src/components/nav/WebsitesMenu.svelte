@@ -1,35 +1,39 @@
-
 <script lang="ts">
-
   import ScrollableX from "../common/ScrollableX.svelte";
   import Icon from "../Icon.svelte";
-
-
 
   const urlParts = window.location.href.split('/');
   const current = urlParts.slice().pop();
 
+  const navs = [
+    {
+      text: "State of the climate",
+      file: "state-of-climate.html",
+      icon: "stateoftheclimate.main"
+    },
+    {
+      text: "What's happening",
+      file: "whats-happening.html",
+      icon: "whatshappening.main"
+    },
+    {
+      text: "Climate action progress",
+      file: "climate-action-progress.html",
+      icon: "climateactionprogress.main"
+    }
+  ];
 </script>
+
 <div class="section">
   <ScrollableX>
     <nav>
         <div class="subnavbuttons">
-
-            <a href="sotc.html" class:selected={current === "sotc.html"} disabled={current !== "sotc.html"} title="State of the climate">
-                <i><Icon name="stateoftheclimate.main" /></i>
-                State of the climate
+          {#each navs as nav}
+            <a href={nav.file} class:selected={current === nav.file} disabled={current !== nav.file} title={nav.text}>
+                <i><Icon name={nav.icon} /></i>
+                {nav.text}
             </a>
-
-            <a href="whatshappening.html" class:selected={current === "whatshappening.html"} disabled={current !== "whatshappening.html"} title="What’s happening">
-              <i><Icon name="whatshappening.main" /></i>
-              What’s happening
-            </a>
-
-            <a href="climateactionprogress.html" class:selected={current === "climateactionprogress.html"} disabled={current !== "climateactionprogress.html"} title="Climate action progress">
-              <i><Icon name="climateactionprogress.main" /></i>
-              Climate action progress
-            </a>
-
+          {/each}
         </div>
     </nav>
   </ScrollableX>
