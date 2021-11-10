@@ -92,7 +92,7 @@
     })();
 
     if (globalPct > 1) {
-      descriptionPhrase += `${name()} is one of top GHG emitters.
+      descriptionPhrase += `${name()} is one of the top GHG emitters.
       It accounts for ${globalPct}% of global emissions.
       In 2018, it emitted ${displayVal(emissions2018,2)} million tonnes. `;
     }
