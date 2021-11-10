@@ -80,6 +80,7 @@
     let descriptionPhrase = '';
     const {emissions2018, percapita2018, globalPct} = data;
     const {perc} = relativeChangeLookup[data.id];
+    const {category} = formattedTrendsDataLookup[data.id]
 
     // Country name the first time, "It" after
     const name = (function() {
@@ -90,6 +91,18 @@
         return `<b>${data.name}</b>`;
       };
     })();
+
+    const cat = (category) => {
+      if(category === 'stable') {
+        return `<strong>’s</strong> GHG emissions are stagnant compared to 1990`
+      }
+      else if (category === 'falling') {
+        return ' has lower GHG emissions than it did in 1990'
+      }
+      else if (category === 'climbing') {
+        return ' emits more GHG now than it did in 1990'
+      }
+    }
 
     if (globalPct > 1) {
       descriptionPhrase += `${name()} is one of the top GHG emitters.
@@ -106,9 +119,14 @@
       descriptionPhrase += `${name()} has had one of the biggest
         increases in GHG emissions — ${perc.toFixed(0)}% since 1990. `;
     }
+
     else if (top25Decrease.has(data.id)){
       descriptionPhrase += `${name()} has had one of the biggest
         drops in GHG emissions — ${perc.toFixed(0)}% since 1990. `;
+    }
+
+    if (descriptionPhrase === '') {
+      descriptionPhrase += `${name()}${cat(category)}. In 2018, it emitted ${displayVal(emissions2018,2)} million tonnes.`;
     }
 
     return descriptionPhrase;
