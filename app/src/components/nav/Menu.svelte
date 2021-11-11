@@ -80,7 +80,7 @@
     position: sticky;
     top:0;
     left: 100%;
-    z-index: 6;
+    z-index: 100;
     width: 210px;
     border-top: 1px solid #DCDCDC;
   }
@@ -142,6 +142,18 @@
     background-color: #181818;
   }
 
+  @media (max-width: 360px) {
+    .text-container {
+      display: none !important;
+    }
+    button {
+      flex-grow: 1 !important;
+    }
+    .buttoncontent {
+      justify-content: center;
+      display: flex;
+    }
+  }
 
 
   @media (hover : hover) and (pointer : fine){
@@ -172,10 +184,6 @@
     .active .text-container{
       display: flex;
 
-    }
-
-    .mainnavbuttons {
-      margin-right: 0px;
     }
 
     .text {
