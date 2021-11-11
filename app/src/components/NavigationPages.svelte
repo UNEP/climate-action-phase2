@@ -48,18 +48,15 @@ let articles: Article[] = [
   <div class="embed-container">
     {#each articles as article}
     {#if article.id !== page}
-    <div class="navigation-content" onclick="location.href='{article.link}';">
+    <div class="navigation-content" on:click={() => location.href=article.link}>
         <div class="top-section">
-          <div class="arrow right"/>
-          <div class="title">
+          <span class="arrow right"/>
+          <h4 class="title">
             {article.title}
-          </div>
-
-          <div class="text">
-            <span>
+          </h4>
+          <p class="text">
               {article.body}
-            </span>
-          </div>
+          </p>
         </div>
         <div class="icon">
           <Icon name={article.icon} />
@@ -77,111 +74,110 @@ let articles: Article[] = [
   .top-section{
     margin-top: 20px;
     margin-bottom: 20px;
-    height: 150px;
   }
+
   .embed-container {
     box-sizing: border-box;
     padding-bottom: 20px;
     flex: 0 0 100%;
     text-align: left;
-    margin-top:30px;
     flex-direction: row;
   }
+
+  .navigation-content:first-child {
+    margin-right: 1rem;
+  }
+
   .navigation-content {
-    float: left;
     cursor: pointer;
     position: relative;
     margin-top: 30px;
-    height: 150px;
-    border: 2px solid rgba(189, 189, 189, 1);
-    width: 45%;
-    margin-right: 10px;
-    margin-left: 10px;
+    height: 18rem;
+    border: 2px solid #DCDCDC;
+    width: 100%;
     display: inline-table;
     position:relative;
     transition: 0.5s border;
   }
+
   .navigation-content:hover {
     border: 2px solid rgba(54, 54, 54, 1);
     transition: 0.5s border;
   }
 
+  .title, .text { padding: 0 3rem; }
 
-
-  .title {
-    margin-left: 10px;
-    float: left;
-    color:#505050;
-    font-size: 1.125rem;
-  }
   .text{
     color:#505050;
-    font-size: 0.9rem;
-    display: inline-block;
-    margin: 10px 20px 10px;
-    z-index: 10;
+    font-size: 1.125rem;
+    line-height:  1.5rem;
   }
 
-  .infoSquare {
-
-    overflow: auto;
-    max-width: 800px;
-    margin-top: 20px!important;
-  }
   .icon{
     overflow: hidden;
     position: absolute;
     bottom: 0px;
-    width: 50%;
-    max-height: 150px;
+    width: 70%;
+    height: 16rem;
     right: 0px;
     z-index: 1;
-    opacity: 0.2;
+    opacity: 0.15;
   }
 
   *, *:before, *:after {
 	box-sizing: border-box;
   }
 
-.arrow {
-  margin-top: 10px;
-  float: left;
-  width: 60px;
-  height: 15px;
-  position: relative;
-}
-.arrow::before {
-  content: '';
-  display: block;
-  width: 15px;
-  height: 15px;
+  .arrow {
+    margin-top: 10px;
+    float: left;
+    width: 60px;
+    height: 15px;
+    position: relative;
+  }
 
-  left: 60%;
-  border-style: solid;
-  border-color: #000;
-  border-width: 2px 2px 0 0;
-  position: absolute;
-  transform-origin: 110%;
-  transform: rotate(45deg);
-}
+  .arrow::before {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px; 
+    left: 60%;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px 2px 0 0;
+    position: absolute;
+    transform-origin: 110%;
+    transform: rotate(45deg);
+  }
 
-
-.arrow::after {
-  content: '';
-  display: block;
-  border-style: solid;
-  border-color: #000;
-}
-
-
-
-
-
+  .arrow::after {
+    content: '';
+    display: block;
+    border-style: solid;
+    border-color: #000;
+  }
 
   .arrow.arrow.right::after {
     width: 54px;
     height: 0;
     border-width: 2px 0 0 0;
+  }
+
+  .infoSquare {
+    overflow: auto;
+    margin-top: 20px!important;
+    padding:0 1rem;
+  }
+
+  @media (min-width: 58rem) {
+    .infoSquare {
+      padding:0;
+      margin: 1rem 0 0;
+      max-width: calc(800px + 7.2rem);
+    }
+    .navigation-content {
+      width: calc(50% - .5rem);
+    }
   }
 
 </style>
