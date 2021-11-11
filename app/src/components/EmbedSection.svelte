@@ -32,7 +32,7 @@
     {#each embedData as {embed, title, head}}
     <div class="group-embed">
       <div class="embed-chart">
-        <img src="/img/embeds/{embed}.jpg" class="embed-image" alt="embed">
+        <img src="img/embeds/{embed}.jpg" class="embed-image" alt="embed">
         <div class="embed-background">
           <textarea
             class="embed-tag"

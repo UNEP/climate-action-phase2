@@ -47,7 +47,7 @@
       "attribution": "Data for <strong>GHG emissions</strong> comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=\"https://edgar.jrc.ec.europa.eu/report_2021#data_download\">GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=\"http://dx.doi.org/10.2760/173513\">doi:10.2760/173513</a>, <a href=\"https://publications.jrc.ec.europa.eu/repository/handle/JRC126363\">JRC126363</a>",
       "text": [
         {
-          "p": "To limit global temperature rise to 1.5°C, as promised in the Paris Agreement, countries must cut 30 gigatonnes of GHG emissions annually by 2030. The necessary solutions exist yet currently more emissions are entering the atmosphere making it harder to keep the planet safe."
+          "p": "To limit global temperature rise to below 2°C aiming for 1.5°C, as promised in the Paris Agreement, countries must cut 30 gigatonnes of GHG emissions annually by 2030. The necessary solutions exist yet currently more emissions are entering the atmosphere making it harder to keep the planet safe."
         }
       ],
       "legend-head": "How emissions have changed since 1990",
@@ -91,7 +91,7 @@
       "attribution": "Data for <strong>GHG emissions</strong> comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=\"https://edgar.jrc.ec.europa.eu/report_2021#data_download\">GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=\"http://dx.doi.org/10.2760/173513\">doi:10.2760/173513</a>, <a href=\"https://publications.jrc.ec.europa.eu/repository/handle/JRC126363\">JRC126363</a>",
       "text": [
         {
-          "p": "It is possible to stay below 1.5°C temperature rise as set out in the Paris Agreement using existing solutions. They include renewable energy, green hydrogen and modern bioenergy — and government subsidies and support could be directed to push towards low-carbon and green policies. Scaling up green transition efforts and reducing GHG emissions fivefold is critical. Explore the <a href=\"https://www.unep.org/interactive/six-sector-solution-climate-change/\" target=\"_blank\">UNEP Six-sector solution</a> to find more."
+          "p": "It is possible to stay below 2°C aiming for 1.5°C temperature rise as set out in the Paris Agreement using existing solutions. They include renewable energy, green hydrogen and modern bioenergy — and government subsidies and support could be directed to push towards low-carbon and green policies. Scaling up green transition efforts and reducing GHG emissions fivefold is critical. Explore the <a href=\"https://www.unep.org/interactive/six-sector-solution-climate-change/\" target=\"_blank\">UNEP Six-sector solution</a> to find more."
         }
       ]
     },
@@ -114,7 +114,7 @@
           "p": "Data for <strong>GHG emissions</strong> comes from Crippa, M., Guizzardi, D., Solazzo, E., Muntean, M., Schaaf, E., Monforti-Ferrario, F., Banja, M., Olivier, J.G.J., Grassi, G., Rossi, S., Vignati, E., <a href=\"https://edgar.jrc.ec.europa.eu/report_2021#data_download\">GHG emissions of all world countries - 2021 Report</a>, EUR 30831 EN, Publications Office of the European Union, Luxembourg, 2021, ISBN 978-92-76-41547-3, <a href=\"http://dx.doi.org/10.2760/173513\">doi:10.2760/173513</a>, <a href=\"https://publications.jrc.ec.europa.eu/repository/handle/JRC126363\">JRC126363</a>"
         },
         {
-          "p": "The \"GHG emissions of all world countries - 2021 Report\" uses the <a href=\"https://edgar.jrc.ec.europa.eu/\">Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
+          "p": "The “GHG emissions of all world countries - 2021 Report” uses the <a href=\"https://edgar.jrc.ec.europa.eu/\">Emissions Database for Global Atmospheric Research</a>, which groups certain countries for statistical reasons: Switzerland and Liechtenstein; Sudan and South Sudan; Spain and Andorra; Serbia and Montenegro; Saint Helena, Ascension and Tristan da Cunha; Italy, San Marino and the Holy See; Israel and State of Palestine; and France and Monaco."
         },
         {
           "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
