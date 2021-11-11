@@ -25,7 +25,7 @@
       "id": "climateactionprogress",
       "text": [
         {
-          "p": "Global average temperatures are on the rise and predicted to exceed 3°C this century and catastrophic consequences are already setting in across the world with extreme variations in weather. The world needs to cut emissions by 30 gigatonnes annually by 2030 in order to limit temperature rise to 1.5°C and thus halt the worst impacts. [a]And the emission reductions need to start happening now."
+          "p": "Global average temperatures are on the rise and predicted to exceed 3°C this century and catastrophic consequences are already setting in across the world with extreme variations in weather. The world needs to cut emissions by 30 gigatonnes annually by 2030 in order to limit temperature rise to 1.5°C and thus halt the worst impacts. And the emission reductions need to start happening now."
         },
         {
           "p": "The UNEP Climate Action Note shows you the global state of climate action and where each country has work to do."
@@ -175,6 +175,5 @@
     "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
     "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
     "keywords": "Air pollution, health and air pollution, pm2.5"
-  },
-  "a": []
+  }
 }
