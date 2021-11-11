@@ -19,6 +19,7 @@
   import sotc from './stateoftheclimate.json';
   import wh from './whatshappening.json';
   import cap from './climateactionprogress.json';
+  import NavigationPages from './components/NavigationPages.svelte';
 
   export var embed: string;
   export var page: string;
@@ -81,6 +82,7 @@
           <div>Missing component for '{block.type}'</div>
         {/if}
       {/each}
+      <NavigationPages {page}></NavigationPages>
     </article>
   </main>
 

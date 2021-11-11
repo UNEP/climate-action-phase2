@@ -19,7 +19,8 @@
     padding: 1rem 1rem;
     background-color:#E8E8E8;
     overflow: auto;
-    max-width: 800px;
+    max-width: 900px;
+    box-sizing: border-box;
   }
 
   @media (min-width: 400px) {

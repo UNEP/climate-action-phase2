@@ -146,7 +146,7 @@
 
   .info-text {
     color:#505050;
-    padding-bottom:1rem!important;
+    padding-bottom:1rem !important;
     font-size: 1.125rem;
     line-height:  1.5rem;
   }
@@ -155,8 +155,9 @@
     padding: 1rem 1rem;
     background-color:#E8E8E8;
     overflow: auto;
-    max-width: 800px;
-    margin-top: 20px!important;
+    max-width: 900px;
+    box-sizing: border-box;
+    margin-top: 20px !important;
   }
 
   @media (min-width: 400px) {
