@@ -1,7 +1,6 @@
 <script lang="ts" context="module">
   import type { TimeseriesDataPoint } from 'src/data';
   import { END_YEAR, START_YEAR } from 'src/data';
-  import datasets from 'src/data';
   import type { CountryMetadata, InputDataPoint, Transforms } from "./CartogramTypes";
   import * as d3 from 'src/d3';
   import { clamp, displayVal, range } from "src/util";
@@ -75,7 +74,6 @@
 <script lang="ts">
   import MiniLineChart from "../charts/MiniLineChart.svelte";
 	import { createEventDispatcher } from 'svelte';
-  import { colorGHG } from "src/colors";
 
   const dispatch = createEventDispatcher();
 
