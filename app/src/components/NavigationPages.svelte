@@ -1,59 +1,83 @@
 <script lang="ts">
-  import Icon from './Icon.svelte';
+import { current_component, each } from 'svelte/internal';
+import sotc from '../stateoftheclimate.json';
+import wh from '../whatshappening.json';
+import cap from '../climateactionprogress.json';
 
+import Icon from './Icon.svelte';
+
+export let page:string;
+
+console.log(sotc);
+
+let articles: Article[] = [
+  {
+    title: sotc.article[0].head,
+    body: sotc.article[0].text[0].p.split('.').slice(0,2).join('.'),
+    icon: "stateoftheclimate.main",
+    id: "sotc",
+    link: "state-of-climate.html"
+  },
+  {
+    title: wh.article[0].head,
+    body: wh.article[0].text[0].p.split('.').slice(0,2).join('.'),
+    icon: "whatshappening.main",
+    id: "wh",
+    link: "whats-happening.html"
+  },
+  {
+    title: cap.article[0].head,
+    body: cap.article[0].text[0].p.split('.').slice(0,1).join('.'),
+    icon: "climateactionprogress.main",
+    id: "cap",
+    link: "climate-action-progress.html"
+  }
+];
+
+  interface Article{
+    title: string;
+    body: string;
+    icon: string;
+    id: string;
+    link: string;
+  }
 </script>
 
 <section class="infoSquare margin-breakout-mobile">
 
-  <div class="infoSquare embed-container">
-    <div class="navigation-content">
+  <div class="embed-container">
+    {#each articles as article}
+    {#if article.id !== page}
+    <div class="navigation-content" onclick="location.href='{article.link}';">
         <div class="top-section">
-          <div class="arrow"/>
+          <div class="arrow right"/>
           <div class="title">
-            State of the climate
+            {article.title}
           </div>
 
           <div class="text">
             <span>
-              The world is in a climate emergency - 'a code red for humanity'.
-              The concentration of GHG emissions in the atmosphere is wreaking havoc across the world
-              threating live, cononmy, health and food.
+              {article.body}
             </span>
           </div>
         </div>
         <div class="icon">
-          <Icon name="stateoftheclimate.main" />
+          <Icon name={article.icon} />
         </div>
     </div>
-
-    <div class="navigation-content">
-      <div class="top-section">
-        <div class="arrow"/>
-        <div class="title">
-          State of the climate
-        </div>
-
-        <div class="text">
-          <span>
-            The world is in a climate emergency - 'a code red for humanity'.
-            The concentration of GHG emissions in the atmosphere is wreaking havoc across the world
-            threating live, cononmy, health and food.
-          </span>
-        </div>
-      </div>
-      <div class="icon">
-        <Icon name="stateoftheclimate.main" />
-      </div>
-  </div>
-
+    {/if}
+    {/each}
   </div>
 
 </section>
 
 <style>
+
+
   .top-section{
     margin-top: 20px;
     margin-bottom: 20px;
+    height: 150px;
   }
   .embed-container {
     box-sizing: border-box;
@@ -64,6 +88,7 @@
     flex-direction: row;
   }
   .navigation-content {
+    float: left;
     cursor: pointer;
     position: relative;
     margin-top: 30px;
@@ -113,11 +138,50 @@
     z-index: 1;
     opacity: 0.2;
   }
-  .arrow {
-    float: left;
-    background: currentColor;
-    width:80px;
-    height:15px;
-    clip-path: polygon(0 10px,calc(100% - 15px) 10px,calc(100% - 15px) 0,100% 50%,calc(100% - 15px) 100%,calc(100% - 15px) calc(100% - 10px),0 calc(100% - 10px));
+
+  *, *:before, *:after {
+	box-sizing: border-box;
   }
+
+.arrow {
+  margin-top: 10px;
+  float: left;
+  width: 60px;
+  height: 15px;
+  position: relative;
+}
+.arrow::before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+
+  left: 60%;
+  border-style: solid;
+  border-color: #000;
+  border-width: 2px 2px 0 0;
+  position: absolute;
+  transform-origin: 110%;
+  transform: rotate(45deg);
+}
+
+
+.arrow::after {
+  content: '';
+  display: block;
+  border-style: solid;
+  border-color: #000;
+}
+
+
+
+
+
+
+  .arrow.arrow.right::after {
+    width: 54px;
+    height: 0;
+    border-width: 2px 0 0 0;
+  }
+
 </style>
