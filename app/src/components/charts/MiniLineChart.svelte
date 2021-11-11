@@ -29,9 +29,11 @@
 
   $: linePath = d3.line<TimeseriesDataPoint>().x(d => x(d.year)).y(d => y(d.value))(data);
 
-  function mouseMove(event: any) {
-    const pointer = d3.pointer(event);
-    const closestYear = Math.round(x.invert(pointer[0]));
+  function onMouseMove(event: MouseEvent & { currentTarget: EventTarget & SVGRectElement }) {
+    const { width } = event.currentTarget.getBoundingClientRect();
+    const { offsetX } = event;
+    const p = offsetX / width;
+    const closestYear = Math.round(x.invert(p * chartWidth));
     const d = data.find(d => d.year === closestYear);
     hoverInfo = {
       data: d,
@@ -76,7 +78,7 @@
   {/if}
 
   <rect class="mouse-rect" width={width} height={height - axisHeight}
-    on:mousemove={mouseMove} on:mouseout={() => hoverInfo = null} />
+    on:mousemove={onMouseMove} on:mouseout={() => hoverInfo = null} />
 
 </svg>
 
