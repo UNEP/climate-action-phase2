@@ -168,11 +168,11 @@
         countries: datasets.countries,
         helpText: {
           code: "CAN",
-          text: "Each square represents a country, scaled by its fossil-fuel subsidies per capita"
+          text: "Each square represents a country, scaled by its fossil fuel subsidies per capita"
         },
       },
       legend: {
-        title: `How much <b>fossil-fuel subsidies</b> represent <b>as a percent of GDP</b>`,
+        title: `How much <b>fossil fuel subsidies</b> represent <b>as a per cent of GDP</b>`,
         colors: colorSubsidies.range(),
         labels: colorSubsidies.domain(),
         type: 'sequential',
