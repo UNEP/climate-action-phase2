@@ -1,182 +1,160 @@
 <script lang="ts">
-import { current_component, each } from 'svelte/internal';
-import sotc from '../stateoftheclimate.json';
-import wh from '../whatshappening.json';
-import cap from '../climateactionprogress.json';
+  import sotc from '../stateoftheclimate.json';
+  import wh from '../whatshappening.json';
+  import cap from '../climateactionprogress.json';
 
-import Icon from './Icon.svelte';
+  import Icon from './Icon.svelte';
 
-export let page:string;
+  export let page: string;
 
-console.log(sotc);
-
-let articles: Article[] = [
-  {
-    title: sotc.article[0].head,
-    body: sotc.article[0].text[0].p.split('.').slice(0,2).join('.'),
-    icon: "stateoftheclimate.main",
-    id: "sotc",
-    link: "state-of-climate.html"
-  },
-  {
-    title: wh.article[0].head,
-    body: wh.article[0].text[0].p.split('.').slice(0,2).join('.'),
-    icon: "whatshappening.main",
-    id: "wh",
-    link: "whats-happening.html"
-  },
-  {
-    title: cap.article[0].head,
-    body: cap.article[0].text[0].p.split('.').slice(0,1).join('.'),
-    icon: "climateactionprogress.main",
-    id: "cap",
-    link: "climate-action-progress.html"
-  }
-];
-
-  interface Article{
-    title: string;
-    body: string;
-    icon: string;
-    id: string;
-    link: string;
-  }
+  let articles = [
+    {
+      title: sotc.article[0].head,
+      body: sotc.article[0].text[0].p.split('.').slice(0,2).join('.') + '.',
+      icon: "stateoftheclimate.main",
+      id: "sotc",
+      link: "state-of-climate.html"
+    },
+    {
+      title: wh.article[0].head,
+      body: wh.article[0].text[0].p.split('.').slice(0,2).join('.') + '.',
+      icon: "whatshappening.main",
+      id: "wh",
+      link: "whats-happening.html"
+    },
+    {
+      title: cap.article[0].head,
+      body: cap.article[0].text[0].p.split('.').slice(0,1).join('.') + '.',
+      icon: "climateactionprogress.main",
+      id: "cap",
+      link: "climate-action-progress.html"
+    }
+  ];
 </script>
 
-<section class="infoSquare margin-breakout-mobile">
+<section class="info-square">
 
-  <div class="embed-container">
+  <div class="link-square-container">
     {#each articles as article}
     {#if article.id !== page}
-    <div class="navigation-content" on:click={() => location.href=article.link}>
-        <div class="top-section">
-          <span class="arrow right"/>
+      <a class="link-square" href={article.link}>
+        <div class="page-name">
+          <div class="arrow"/>
           <h4 class="title">
             {article.title}
           </h4>
-          <p class="text">
-              {article.body}
-          </p>
         </div>
+        <p class="text">
+            {article.body}
+        </p>
         <div class="icon">
           <Icon name={article.icon} />
         </div>
-    </div>
+      </a>
     {/if}
     {/each}
   </div>
 
 </section>
 
-<style>
+<style lang="scss">
 
-
-  .top-section{
-    margin-top: 20px;
-    margin-bottom: 20px;
+  .page-name {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    .title {
+      margin: 0;
+    }
   }
 
-  .embed-container {
-    box-sizing: border-box;
-    padding-bottom: 20px;
-    flex: 0 0 100%;
-    text-align: left;
-    flex-direction: row;
+  .link-square-container {
+    display: flex;
+    column-gap: 10px;
+    row-gap: 10px;
+    flex-wrap: wrap;
   }
 
-  .navigation-content:first-child {
-    margin-right: 1rem;
-  }
-
-  .navigation-content {
+  .link-square {
     cursor: pointer;
     position: relative;
-    margin-top: 30px;
-    height: 18rem;
+    padding: 30px 0 20px;
     border: 2px solid #DCDCDC;
     width: 100%;
     display: inline-table;
     position:relative;
     transition: 0.5s border;
+    flex: 1;
+    min-width: 400px;
   }
 
-  .navigation-content:hover {
+  .link-square:hover {
     border: 2px solid rgba(54, 54, 54, 1);
     transition: 0.5s border;
   }
 
-  .title, .text { padding: 0 3rem; }
-
-  .text{
-    color:#505050;
+  .text {
+    padding: 0 2.5rem;
+    color: #505050;
     font-size: 1.125rem;
     line-height:  1.5rem;
   }
 
-  .icon{
+  .icon {
     overflow: hidden;
     position: absolute;
-    bottom: 0px;
-    width: 70%;
-    height: 16rem;
-    right: 0px;
+    bottom: 0;
+    top: -30%;
+    width: 80%;
+    right: 0;
     z-index: 1;
     opacity: 0.15;
-  }
-
-  *, *:before, *:after {
-	box-sizing: border-box;
+    > :global(svg) {
+      height: 100%;
+      position: relative;
+      top: 20%;
+    }
+    > :global(svg *) {
+      stroke-width: 0.6 !important;
+    }
   }
 
   .arrow {
-    margin-top: 10px;
-    float: left;
-    width: 60px;
-    height: 15px;
     position: relative;
+    border-top: 1px solid black;
+    float: left;
+    width: 70px;
+    height: 0;
   }
 
-  .arrow::before {
-    content: '';
-    display: block;
-    width: 15px;
-    height: 15px; 
-    left: 60%;
-    border-style: solid;
-    border-color: #000;
-    border-width: 2px 2px 0 0;
-    position: absolute;
-    transform-origin: 110%;
-    transform: rotate(45deg);
-  }
-
+  .arrow::before,
   .arrow::after {
     content: '';
     display: block;
-    border-style: solid;
-    border-color: #000;
+    position: absolute;
+    width: 18px;
+    right: 0;
+    border-top: 1px solid black;
+    transform-origin: 100% 0;
+    bottom: 0;
   }
 
-  .arrow.arrow.right::after {
-    width: 54px;
-    height: 0;
-    border-width: 2px 0 0 0;
+  .arrow::before {
+    transform: rotate(35deg);
   }
 
-  .infoSquare {
+  .arrow::after {
+    transform: rotate(-35deg);
+  }
+
+  .info-square {
     overflow: auto;
-    margin-top: 20px!important;
-    padding:0 1rem;
+    margin-top: 20px;
   }
 
   @media (min-width: 58rem) {
-    .infoSquare {
-      padding:0;
-      margin: 1rem 0 0;
-      max-width: calc(800px + 7.2rem);
-    }
-    .navigation-content {
-      width: calc(50% - .5rem);
+    .info-square {
+      max-width: 900px;
     }
   }
 
