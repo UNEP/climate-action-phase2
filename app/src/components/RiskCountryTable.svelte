@@ -46,8 +46,8 @@
     { name: 'gdpPctLosses', index: 7,sortable: true },
   ];
 
-  const columnNames = ['COUNTRY','', 'INDEX', 'RANK', 'TOTAL',
-    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PERCENT'];
+  const columnNames = ['COUNTRY','(A low value indicates most at risk)', 'INDEX', 'RANK', 'TOTAL',
+    'POPULATION ADJUSTED', 'TOTAL', 'AS GDP PER CENT'];
 
   let sort: {column: string, asc: boolean} = {column: 'criRank', asc: true};
 
