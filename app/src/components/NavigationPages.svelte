@@ -84,8 +84,7 @@
     display: inline-table;
     position:relative;
     transition: 0.5s border;
-    flex: 1;
-    min-width: 400px;
+    flex: 1 1 300px;
   }
 
   .link-square:hover {
