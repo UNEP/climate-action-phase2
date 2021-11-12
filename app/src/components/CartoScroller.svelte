@@ -127,15 +127,22 @@
 </script>
 
 <div {id} class="container">
+  <div class="cartoheader1">
+    <CartogramHeader {block}/>
+  </div>
   <Scroller bind:section>
+
+
     <div class="sticky" slot="sticky">
 
-      <CartogramHeader {block}>
-        <div slot="legend">
-          <Legend {...legendProps}
-          bind:selected={hoveredLegendIndex} />
-        </div>
-      </CartogramHeader>
+      <div class="cartoheader2">
+        <CartogramHeader {block}>
+          <div slot="legend">
+            <Legend {...legendProps}
+            bind:selected={hoveredLegendIndex} />
+          </div>
+        </CartogramHeader>
+      </div>
 
       <div class="carto-container">
         <ScrollableX>
@@ -163,6 +170,19 @@
 
 <style lang="scss">
 
+  .cartoheader2 :global(.copy) {
+    display: none;
+  }
+
+  @media screen and (min-width: 800px) {
+    .cartoheader1 {
+      display: none;
+    }
+    .cartoheader2 :global(.copy) {
+      display: block;
+    }
+  }
+
   .container {
     padding-top: 20px;
   }
@@ -180,6 +200,7 @@
     height: 100vh;
     .scrollcard {
       position: absolute;
+      z-index: 10;
       top: 20vh;
       width: 300px;
       padding: 20px;
@@ -189,7 +210,6 @@
       line-height: 1.875rem;
       font-weight: 300;
       box-shadow: 0 0 20px 0 #0000003d;
-
     }
 
     &:not(:last-child) {

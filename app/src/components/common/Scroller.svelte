@@ -6,6 +6,7 @@
   export let section: number;
 
   const onScroll = () => {
+    console.log('onscroll');
     for (let i = 0; i < sections.length; i++) {
       const s = sections[i];
       const { top, bottom } = s.getBoundingClientRect();
@@ -58,6 +59,7 @@
     bottom: 0;
     width: 100%;
     > :global(*) {
+      position: -webkit-sticky;
       position: sticky;
     }
   }
