@@ -58,6 +58,7 @@
     bottom: 0;
     width: 100%;
     > :global(*) {
+      position: -webkit-sticky;
       position: sticky;
     }
   }
