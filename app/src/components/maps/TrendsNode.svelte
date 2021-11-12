@@ -172,9 +172,11 @@
     padding: 2px;
     margin-top: -2px;
     margin-left: -2px;
-    outline-color: black;
     display: none;
     opacity: 0;
+    &:focus {
+      outline: none;
+    }
 
     .trend-chart {
       transition: opacity 100ms linear;
