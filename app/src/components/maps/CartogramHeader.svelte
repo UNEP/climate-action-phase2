@@ -8,12 +8,12 @@
 
 <div class="container">
 
-  <div>
+  <div class="copy">
     <SectionTitle {block} />
     <h2>{@html block.head}</h2>
   </div>
 
-  <div>
+  <div class="legend">
     <slot name="legend" />
   </div>
 </div>

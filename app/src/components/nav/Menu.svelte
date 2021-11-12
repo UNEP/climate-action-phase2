@@ -77,6 +77,7 @@
 <style lang="scss">
 
   .mainnavbuttons {
+    position: -webkit-sticky;
     position: sticky;
     top:0;
     left: 100%;
@@ -115,6 +116,12 @@
     text-align: left;
     margin-left: 10px;
     height: 100%;
+    overflow: hidden;
+  }
+
+  .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .icon {
@@ -142,7 +149,7 @@
     background-color: #181818;
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 440px) {
     .text-container {
       display: none !important;
     }
