@@ -33,7 +33,6 @@
     opacity: 1;
     z-index: 2;
     background: grey;
-    outline-color: black;
 
     &:not(.active) {
       opacity: 0;
@@ -44,6 +43,12 @@
       opacity: 0.1;
       transition: opacity 100ms ease-in;
     }
+
+    &:focus {
+      outline: black solid 1px;
+    }
+
+
   }
 
   .country-text {
