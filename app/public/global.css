@@ -106,7 +106,8 @@ p, ul {
 }
 
 .logo {
-  width: 6.2rem;
+  padding-top:1rem;
+  width: 5rem;
 }
 
 .hidden {
@@ -200,7 +201,7 @@ sup, sub { line-height: 0; }
     margin-left: 0;
   }
 
-  .logo { width: 11rem; }
+  .logo { width: 6rem; }
   .page-header { margin-top: 2rem; }
 }
 
