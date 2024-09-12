@@ -25,6 +25,11 @@ import climateActionProgressMain from './icons_climate-action-progress--main.svg
 import climateActionProgressNdc from './icons_climate-action-progress--ndc.svg';
 import climateActionProgressOpinion from './icons_climate-action-progress--opinion.svg';
 
+import adaptationMain from './adapt-main.svg';
+import adaptation2 from './adapt-2.svg';
+import adaptation3 from './adapt-3.svg';
+import adaptation4 from './adapt-4.svg';
+
 import legendLand from './legend_land-anomaly.svg';
 import legendSea from './legend_sea-temperature.svg';
 
@@ -60,6 +65,12 @@ const icons = {
     ndc: climateActionProgressNdc,
     ffsubsidies: climateActionProgressSubsidies,
     opinion: climateActionProgressOpinion
+  },
+  adaptationprogress: {
+    main: adaptationMain,
+    second: adaptation2,
+    third: adaptation3,
+    fourth: adaptation4,
   },
   legends: {
     land: legendLand,

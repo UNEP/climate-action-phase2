@@ -6,6 +6,7 @@ import ffsubsidies from './subsidies.carto.json';
 import trendsNotInCarto from './co2trends-notincarto.json';
 import countries from './countryDictionary.json';
 import ndc from './ndc.json';
+import nap from './nap.carto.json';
 import pew from './pewsurvey.json';
 import netzero from './netzero.json';
 import co2baseData from 'src/data/co2-latest.json';
@@ -24,6 +25,7 @@ const countriesLookup = createLookup(countries, d => d.id, d => d);
 if (IS_DEV) {
   // check data
   const trendsLookup = createLookup(trends.data, d => d.id, d => d);
+
   const missingTrends = new Set([
     ...ghg.data.map(d => d.id).filter(id => !trendsLookup[id]),
     ...percapita.data.map(d => d.id).filter(id => !trendsLookup[id])
@@ -77,6 +79,7 @@ const co2latest = co2baseData.map(d => ({
 }));
 
 const ndcLookup = createLookup(ndc, d => d.id, d => d);
+const napLookup = createLookup(nap.data, d => d.id, d => d);
 
 const ndcCarto = {
   ...ghg,
@@ -89,6 +92,11 @@ const ndcCarto = {
   }))
 };
 
+// console.log(ndcCarto);
+// console.log(nap);
+// console.log(ndcLookup);
+// console.log(napLookup);
+
 export default {
   countries,
   cartoworld: {
@@ -96,10 +104,12 @@ export default {
     ghg,
     ndc: ndcCarto,
     trends,
+    nap,
     ffsubsidies
   },
   lookups: {
     ndc: ndcLookup,
+    nap: napLookup,
     netzero: createLookup(netzero, d => d.id, d => d),
     trends: createLookup(co2trends, d => d.id, d => d),
     countries: countriesLookup

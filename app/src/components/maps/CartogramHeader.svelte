@@ -11,6 +11,7 @@
   <div class="copy">
     <SectionTitle {block} />
     <h2>{@html block.head}</h2>
+    <slot name="search" />
   </div>
 
   <div class="legend">
@@ -25,7 +26,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    z-index: 10;
+    z-index: 100000;
     > :global(.legend-container) {
       max-width: 500px;
     }

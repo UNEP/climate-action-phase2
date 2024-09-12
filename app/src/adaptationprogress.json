@@ -1,0 +1,138 @@
+{
+  "article": [
+    {
+      "type": "intro",
+      "breadcrumbs": [
+        {
+          "a": "https://www.unep.org/",
+          "label": "Home"
+        },
+        {
+          "a": "https://www.unep.org/explore-topics",
+          "label": "Explore Topics"
+        },
+        {
+          "a": "https://www.unep.org/explore-topics/climate",
+          "label": "Climate"
+        },
+        {
+          "a": "https://www.unep.org/explore-topics/air/what-we-do/climate-action-note",
+          "label": "Climate Action Note"
+        }
+      ],
+      "head": "Adaptation progress",
+      "publishDate": "6 Jun 2024",
+      "tag": "Track how countries are building climate resilience",
+      "id": "newsection",
+      "text": [
+        {
+          "p": "Even if all manmade greenhouse gas emissions stopped overnight, the impacts of climate change have already arrived. Now the world is asking, to what extent can we adapt? This is set to be one of the most important questions of the 21st century. Without adaptation, societies and economies may collapse, food security will be threatened, and global stability challenged as a result of migration and conflict over resources. Furthermore, the analyses are clear: investments in adaptation generate enormous social, environmental and economic benefits."
+        },
+        {
+          "p": "The UNEP Climate Action Note shows you the global state of climate action and where each country has work to do."
+        }
+      ]
+    },
+    {
+      "type": "menu"
+    },
+    {
+      "type": "adaptation-finance",
+      "title": "Adaptation finance gap",
+      "icon": "adaptationprogress.second",
+      "embed": "finance",
+      "menu": "Adaptation finance gap",
+      "menuicon": "adaptationprogress.second",
+      "src": "surface.jpg",
+      "imgtitle": "<b>Surface temperature anomalies</b> (September 2021)",
+      "alt": "This world map shows land temperature anomalies compared to the average conditions during that period between 2000-2008.",
+      "head": "Annual adaptation finance needs for developing countries 2021-2030",
+      "attribution": "The maps were produced using imagery by the NASA Earth Observations team using data courtesy of the MODIS Land Science team at NASA Goddard Space Flight Center.",
+      "text": [
+        {
+          "p": "Lack of finance is a major barrier to adapting to climate change in developing countries, for whom the combined costs of adaptation are now estimated to be between US$215 billion and US$387 billion per year. The priority sectors for adaptation vary by region. For example, in East Asia and the Pacific, the sector with the largest adaptation finance needs is infrastructure and settlement, while in Europe and Central Asia, it is the water sector."
+        }
+      ]
+    },
+    {
+      "type": "carto-world",
+      "title": "National Adaptation Plans",
+      "icon": "adaptationprogress.third",
+      "menu": "National Adaptation Plans",
+      "menuicon": "adaptationprogress.third",
+      "data": "nap",
+      "embed": "nap",
+      "head": "National Adaptation Plans (NAPs) in developing countries",
+      "attribution": "this is attribution",
+      "text": [
+        {
+          "p": "Developing countries are encouraged to submit their National Adaptation Plans (NAPs) to the NAP Central platform developed by the UN Framework Convention on Climate Change (UNFCCC). Informed by the latest climate science, these plans are vital for identifying medium- and long-term adaptation needs. UNEP, currently supporting 23 countries in developing their NAPs, argues that they offer a crucial opportunity to upscale nature-based solutions, which have been gaining popularity in recent years."
+        }
+      ]
+    },
+    {
+      "type": "iframes",
+      "title": "Adaptation projects",
+      "icon": "adaptationprogress.fourth",
+      "menu": "Adaptation projects",
+      "data": "ap",
+      "embed": "ap",
+      "menuicon": "adaptationprogress.fourth",
+      "head": "How UNEP is supporting the race to resilience",
+      "attribution": "this is attribution",
+      "iframes": [
+        {
+          "src": "https://maphub.net/embed/168360?panel=1",
+          "title": "iframe title"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": [
+        {
+          "p": "UNEP has assisted more than 70 projects on climate change adaptation in over 50 countries. Combined, the projects are aiming to benefit around 3.5 million people, restore 241,000 hectares of land, improve climate adaptation knowledge of 323,000 people and 131 institutions, and build over 7,800 water harvesting structures and 82 weather stations."
+        }
+      ]
+    },
+    {
+      "type": "methodology",
+      "title": "Data and notes",
+      "menu": "Data and notes",
+      "icon": "data",
+      "attribution": "Data for the estimated adaptation finance needs of developing countries comes from <a href=\"https://www.unep.org/resources/adaptation-gap-report-2023\" target=\"_blank\">UNEP’s Adaptation Gap Report 2023</a>.",
+      "text": [
+        {
+          "p": "Data for the <strong>adaptation finance needs</strong> of developing countries comes from UNEP’s <a href=\"https://www.unep.org/resources/adaptation-gap-report-2023\" target=\"_blank\">Adaptation Gap Report 2023</a>."
+        },
+        {
+          "p": "Data for the status of <strong>National Adaptation Plans</strong> comes from the <a href=\"https://trends.napglobalnetwork.org/\" target=\"_blank\">NAP Trends website</a> produced by the NAP Global Network. Developing countries are encouraged to submit their National Adaptation Plans to the UNFCCC NAP Portal. "
+        },
+        {
+          "p": "A UNEP publication assesses the lessons learned from National Adaptation Plans around the world, drawing on <strong>five assessment criteria</strong> – comprehensiveness, inclusiveness, potential for implementation, integration, and monitoring & evaluation. Read the publication <a href=\"https://www.unep.org/resources/policy-and-strategy/national-adaptation-planning-emerging-lessons-learned-unep-projects\" target=\"_blank\">here</a>. "
+        },
+        {
+          "p": "Learn more about <strong>National Adaptation Plans</strong> <a href=\"https://www.unep.org/topics/climate-action/adaptation/national-adaptation-plans\" target=\"_blank\">here</a>."
+        },
+        {
+          "p": "Learn more about <strong>UNEP’s work in climate adaptation</strong> <a href=\"https://www.unep.org/topics/climate-action/adaptation\" target=\"_blank\">here</a>."
+        },
+        {
+          "p": "The boundaries and names shown, and the designations used on these maps, do not imply official endorsement or acceptance by the United Nations."
+        }
+      ]
+    },
+    {
+      "type": "embed",
+      "title": "Embed our visualizations",
+      "menu": "Embed our visualizations",
+      "icon": "embed"
+    }
+  ],
+  "meta": {
+    "title": "Air Pollution Note – Data you need to know",
+    "url": "https://www.unep.org/explore-topics/air/what-we-do/air-pollution-note",
+    "description": "All of the critical data you need to know on air pollution from pm2.5 by country, policy-level action, health impact and more.",
+    "keywords": "Air pollution, health and air pollution, pm2.5"
+  }
+}

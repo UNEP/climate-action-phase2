@@ -18,6 +18,10 @@ body {
   font-size: .85rem;
 }
 
+#national-adaptation-plans {
+  max-width: 957px;
+}
+
 .main-container {
   max-width: 75rem;
 }
@@ -225,4 +229,12 @@ sup, sub { line-height: 0; }
   article {
     margin: 0 auto;
   }
+}
+
+.close {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:18px;
+  cursor:pointer;
 }

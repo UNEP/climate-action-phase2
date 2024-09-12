@@ -44,7 +44,8 @@
       </div>
       <p class="info-text">
         <b>{title}</b>
-        <br>
+        <br />
+        <br />
         {head}
       </p>
     </div>
@@ -146,11 +147,16 @@
 
   .info-text {
     color:#505050;
-    padding-bottom:1rem !important;
-    font-size: 1.125rem;
-    line-height:  1.5rem;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 30px;
+    font-weight: 300;
   }
-
+  
+  .info-text b {
+    font-weight: 700;
+    
+  }
   .infoSquare {
     padding: 1rem 1rem;
     background-color:#E8E8E8;

@@ -4,6 +4,7 @@ import WebsitesMenu from "../nav/WebsitesMenu.svelte";
 
 export let text;
 export let head;
+export let publishDate;
 export let tag;
 export let breadcrumbs;
 
@@ -37,14 +38,14 @@ export let breadcrumbs;
   {/if}
 
   <p class="dateline">
-    Published <time datetime="2021-11-09">9 Nov 2021</time>
+    Published <time datetime="2021-11-09">{publishDate ? publishDate : `9 Nov 2021`}</time>
   </p>
 
 </header>
 
 <style>
   .intro {
-    border-bottom: 1px solid #3B536527;
+    /* border-bottom: 1px solid #3B536527; */
     padding-top:2rem;
   }
   .inner-nav {
@@ -57,6 +58,7 @@ export let breadcrumbs;
   }
   .dateline {
     font-size: 1rem;
+    line-height: 22px;
     color:#505050;
   }
   li {

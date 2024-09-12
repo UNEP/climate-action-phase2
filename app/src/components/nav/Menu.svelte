@@ -81,7 +81,7 @@
     position: sticky;
     top:0;
     left: 100%;
-    z-index: 100;
+    z-index: 10000000;
     width: 210px;
     border-top: 1px solid #DCDCDC;
   }
@@ -135,6 +135,10 @@
     .active & :global(svg *) {
       stroke: #e5e5e5;
     }
+    .active & :global(svg path.fill-black) {
+      fill: #e5e5e5;
+      stroke: none;
+    }
   }
 
   button:not(.active){
@@ -166,6 +170,11 @@
   @media (hover : hover) and (pointer : fine){
     button:hover:not(.active) :global(svg *){
       stroke: #e5e5e5;
+    }
+
+    button:hover:not(.active) :global(svg path.fill-black) {
+      fill: #e5e5e5;
+      stroke: none;
     }
 
     button:hover:not(.active)  .text{

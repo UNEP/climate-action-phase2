@@ -1,0 +1,116 @@
+[
+  {
+      "id": 1,
+      "region": "East Asia and the Pacific",
+      "usd": "27-439",
+      "usdMedian": "158",
+      "gdp": "0.1-1.9",
+      "chartData" : {
+        "agriculture": "18.07",
+        "water": "13.36",
+        "infrastructure": "54.22",
+        "forest": "1.99",
+        "climate": "0.07",
+        "health": "0.48",
+        "energy": "0.64",
+        "coastal": "2.07",
+        "tourism": "0.66",
+        "other": "8.43"
+      }
+  },
+  {
+      "id": 2,
+      "region": "South Asia",
+      "usd": "40-205",
+      "usdMedian": "97",
+      "gdp": "1.0-5.1",
+      "chartData": {
+        "agriculture": "14.48",
+        "water": "40.77",
+        "infrastructure": "13.09",
+        "forest": "10.31",
+        "climate": "11.32",
+        "health": "1.48",
+        "energy": "1.07",
+        "coastal": "5.22",
+        "tourism": "0.35",
+        "other": "1.91"
+      }
+  },
+  {
+      "id": 3,
+      "region": "Latin America and the Caribbean",
+      "usdMedian": "51",
+      "usd": "6-149",
+      "gdp": "0.1-2.7",
+      "chartData": {
+        "agriculture": "31.4",
+        "water": "8.92",
+        "infrastructure": "17.86",
+        "forest": "32.06",
+        "climate": "0.016",
+        "health": "5.51",
+        "energy": "0",
+        "coastal": "3.59",
+        "tourism": "0.14",
+        "other": "0.37"
+      }
+  },
+  {
+      "id": 4,
+      "region": "Sub-Saharan Africa",
+      "usd": "17-96",
+      "gdp": "0.9-2.7",
+      "usdMedian": "46",
+      "agriculture": "20.57",
+      "chartData": {
+        "water": "17.5",
+        "infrastructure": "23.5",
+        "forest": "6.35",
+        "climate": "5.68",
+        "health": "7.11",
+        "energy": "7.48",
+        "coastal": "4.1",
+        "tourism": "1.29",
+        "other": "6.42"
+      }
+  },
+  {
+      "id": 5,
+      "region": "Middle East and North Africa",
+      "usdMedian": "27",
+      "usd": "8-66",
+      "gdp": "0.2-1.8",
+      "chartData": {
+        "agriculture": "30.9",
+        "water": "23.21",
+        "infrastructure": "0.3",
+        "forest": "0.19",
+        "climate": "0.37",
+        "health": "0.04",
+        "energy": "1.51",
+        "coastal": "0.25",
+        "tourism": "0.02",
+        "other": "43.21"
+      }
+  },
+  {
+      "id": 6,
+      "region": "Europe and Central Asia",
+      "usdMedian": "8",
+      "usd": "2-20",
+      "gdp": "0.3-3.6",
+      "chartData": {
+        "agriculture": "13.46",
+        "water": "65.79",
+        "infrastructure": "2.47",
+        "forest": "3.21",
+        "climate": "4.43",
+        "health": "4.49",
+        "energy": "3.11",
+        "coastal": "0",
+        "tourism": "0.16",
+        "other": "2.9"
+      }
+  }
+]

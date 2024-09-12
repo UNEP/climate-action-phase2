@@ -17,9 +17,14 @@
       icon: "whatshappening.main"
     },
     {
-      text: "Climate action progress",
-      file: "climate-action-progress.html",
+      text: "Mitigation progress",
+      file: "mitigation-progress.html",
       icon: "climateactionprogress.main"
+    },
+    {
+      text: "Adaptation progress",
+      file: "adaptation-progress.html",
+      icon: "adaptationprogress.main"
     }
   ];
 </script>
@@ -40,11 +45,16 @@
 </div>
 
 <style>
+    @media only screen and (min-width: 600px) {
+      .section {
+        width: calc(100vw - 3.75rem - 1.5rem);
+      }
+    }
 
   .subnavbuttons {
-      display: flex;
-      position: relative;
-      z-index: 1;
+        display: flex;
+        position: relative;
+        z-index: 1;
   }
 
   .subnavbuttons::-webkit-scrollbar {
