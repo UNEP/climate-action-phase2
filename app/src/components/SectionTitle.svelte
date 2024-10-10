@@ -51,4 +51,8 @@
     stroke: black;
   }
 
+  .kicker-icon :global(svg path.fill-black) {
+    fill: black;
+    stroke: none;
+  }
 </style>

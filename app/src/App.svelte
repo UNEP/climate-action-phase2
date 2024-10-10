@@ -4,6 +4,8 @@
   import PewSurvey from 'src/components/PewSurvey.svelte';
   import Intro from 'src/components/text/Intro.svelte';
   import Text from 'src/components/text/Text.svelte';
+  import Image from './components/Image.svelte';
+  import Iframes from './components/text/Iframes.svelte';
   import TopNav from 'src/components/nav/TopNav.svelte';
   import Footer from './components/nav/Footer.svelte';
   import Menu from './components/nav/Menu.svelte';
@@ -11,6 +13,7 @@
   import MethodologySourcesText from 'src/components/MethodologySourcesText.svelte';
   import { strToId } from './util';
   import CartoTemperature from './components/CartoTemperature.svelte';
+  import AdaptationFinance from './components/AdaptiationFinance.svelte';
   import CartoScroller from './components/CartoScroller.svelte';
   import CountryTable from './components/CountryTable.svelte';
   import RiskCountryTable from './components/RiskCountryTable.svelte';
@@ -18,16 +21,18 @@
   import EmbedSection from './components/EmbedSection.svelte';
   import sotc from './stateoftheclimate.json';
   import wh from './whatshappening.json';
-  import cap from './climateactionprogress.json';
+  import cap from './mitigationprogress.json';
+  import ns from './adaptationprogress.json';
+  
   import NavigationPages from './components/NavigationPages.svelte';
 
   export var embed: string;
   export var page: string;
 
-  const gdocs = { sotc, wh, cap };
+  const gdocs = { sotc, wh, cap, ns };
 
   const content: Content[] = embed
-    ? [...sotc.article, ...wh.article, ...cap.article] : gdocs[page].article;
+    ? [...sotc.article, ...wh.article, ...cap.article, ...ns.article] : gdocs[page].article;
 
   const embedBlock = embed && content.find(b => b.embed === embed);
 
@@ -35,9 +40,12 @@
     'pew-survey' : PewSurvey,
     'carto-world': CartoWorld,
     'carto-temperature' : CartoTemperature,
+    'adaptation-finance' : AdaptationFinance,
     'trends': CartoWorld,
     'intro': Intro,
     'text': Text,
+    'image': Image,
+    'iframes': Iframes,
     "menu": Menu,
     'methodology': MethodologySourcesText,
     'carto-scrolly': CartoScroller,

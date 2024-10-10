@@ -1,5 +1,6 @@
 <script lang='ts'>
   export let title = '';
+  export let helpText = '';
   export let colors: string[];
   export let labels: string[] | number[];
   type LegendTypes = 'sequential' | 'categorical';
@@ -33,23 +34,28 @@
   {:else if type === 'categorical'}
   <ul class="cat info" role="menu" aria-label="menu">
     {#each colors as c,i}
-      <li role="menuitem"
-      tabindex="0"
-      class="cat-item note"
-      class:selected-cat="{selected === i}"
-      on:mouseout={() => selected = null}
-      on:blur={() => selected = null}
-      on:mouseover={() => selected = i}
-      on:focus={() => selected = i}
-    >
-        <div
-          class="cat-symbol"
-          style="background-color: {c};
-          background-size: 5.66px 5.66px;"
-        />{labels[i]}
-      </li>
+      {#if labels[i] !== null}
+        <li role="menuitem"
+        tabindex="0"
+        class="cat-item note"
+        class:selected-cat="{selected === i}"
+        on:mouseout={() => selected = null}
+        on:blur={() => selected = null}
+        on:mouseover={() => selected = i}
+        on:focus={() => selected = i}
+      >
+          <div
+            class="cat-symbol"
+            style="background-color: {c};
+            background-size: 5.66px 5.66px;"
+          />{labels[i]}
+        </li>
+      {/if}
     {/each}
   </ul>
+  {/if}
+  {#if helpText !== ''}
+    <p class="help-text note">{ helpText }</p>
   {/if}
 </div>
 
@@ -70,7 +76,7 @@
     display: inline-block;
     position:relative;
     line-height: 1;
-    padding:.3rem;
+    padding: 4px;
     cursor: pointer;
     transition: all .3s;
   }
@@ -109,5 +115,9 @@
     box-shadow: 0 0 .5rem #00000044;
     border: 1px solid #000!important;
     transition: all .3s;
+  }
+
+  .help-text {
+
   }
 </style>

@@ -2,6 +2,7 @@
   import sotc from '../stateoftheclimate.json';
   import wh from '../whatshappening.json';
   import cap from '../climateactionprogress.json';
+  import ns from '../adaptationprogress.json';
 
   import Icon from './Icon.svelte';
 
@@ -27,7 +28,14 @@
       body: cap.article[0].text[0].p.split('.').slice(0,1).join('.') + '.',
       icon: "climateactionprogress.main",
       id: "cap",
-      link: "climate-action-progress.html"
+      link: "mitigation-progress.html"
+    },
+    {
+      title: ns.article[0].head,
+      body: ns.article[0].text[0].p.split('.').slice(0,1).join('.') + '.',
+      icon: "adaptationprogress.main",
+      id: "ns",
+      link: "adaptation-progress.html"
     }
   ];
 </script>
@@ -75,16 +83,29 @@
     flex-wrap: wrap;
   }
 
+  @media (min-width: 900px) {
+    .link-square-container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+    }
+
+  }
+
+
   .link-square {
     cursor: pointer;
     position: relative;
     padding: 30px 0 20px;
     border: 2px solid #DCDCDC;
-    width: 100%;
-    display: inline-table;
+    // width: 100%;
+    // display: inline-table;
     position:relative;
     transition: 0.5s border;
-    flex: 1 1 300px;
+    // flex: 1 1 300px;
+  }
+
+  .link-square:nth-child(3) {
+    display: none !important;
   }
 
   .link-square:hover {
@@ -92,11 +113,20 @@
     transition: 0.5s border;
   }
 
+  h4 {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+  }
+  
   .text {
     padding: 0 2.5rem;
     color: #505050;
-    font-size: 1.125rem;
-    line-height:  1.5rem;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 30px;
   }
 
   .icon {

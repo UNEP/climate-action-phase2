@@ -42,6 +42,8 @@
 </script>
 
 <script lang="ts">
+  import PewSurvey from '../PewSurvey.svelte';
+
   import * as d3 from 'src/d3';
   import { createLookup, throttle, trailingDebounce } from 'src/util';
   import Annotation from './Annotation.svelte';
@@ -58,6 +60,7 @@
   export const rerenderFn: () => void = () => selectedCartogramData = selectedCartogramData;
   export let annotationShowing: boolean = false;
   export let legendIsHoveredValue: string = "";
+  export let searchCountry: string = "";
 
   // workaround as mapped tuples seem to break with generics
   type _CDs = [CartogramData<any>, ...CartogramData<any>[]];
@@ -85,6 +88,9 @@
   let hoverData: {x: number, y: number, country: CDP} = null;
   let helpTextFade = false;
   let annotation: AnnotationData;
+  let isClicked = false;
+  let isClosed = false;
+  let closePopup = false;
 
   let clientWidth: number;
   let containerWidth: number;
@@ -188,39 +194,78 @@
     y: number;
     radius: number;
     html: string;
-    class?: string
+    class?: string;
+    id: string;
+  }
+  
+  const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
+  let isSearch = false;
+  $: {
+    if (searchCountry !== "") {
+      isSearch = true;
+      const s = selectedCartogramData.find(d => d.id === searchCountry);
+      onMouseClick(s);      
+    } else {
+      isSearch = false;
+      isClicked = false;
+      onMouseLeaveCountry();
+    }
   }
 
-  const _debouncedShowHelpText = trailingDebounce(() => helpTextFade = false, 200);
+  $: {
+    if(closePopup) {
+      isSearch = false;
+      isClicked = false;
+      isClosed = false;
+      closePopup = false;
+      searchCountry= "";
+      clickedCountry = "";
+      onMouseLeaveCountry();
+    }
+  }
 
   function onMouseEnterCountry(evt: MouseEvent, country: CDP) {
+    isClosed = false;
     // onHoverFn(country);
-    helpTextFade = false;
-    _debouncedShowHelpText.cancel();
-    hoverData = {
-      country,
-      x: country.left + (country.width / 2),
-      y: country.top + (country.height / 2)
-    };
+    if(searchCountry == "") {      
+      helpTextFade = false;
+      _debouncedShowHelpText.cancel();
+      hoverData = {
+        country,
+        x: country.left + (country.width / 2),
+        y: country.top + (country.height / 2)
+      };
+    }
   }
 
+  let clickedCountry = '';
   function onMouseClick(country: CDP) {
-    // onHoverFn(country);
-    helpTextFade = false;
-    _debouncedShowHelpText.cancel();
+    //add isClicked status
+    clickedCountry = country.id;
+    isClicked = true;
+    isClosed = true;
+
+    if(isClosed === true) {
+      isSearch = false;
+    }
+    
+    // selectedCartogramData.find(d => d.name === country.name);
     hoverData = {
       country,
       x: country.left + (country.width / 2),
-      y: country.top + (country.height / 2)
+      y: country.top + (country.height / 2),
     };
   }
 
   function onMouseLeaveCountry() {
-    clearHoverState();
-    // onHoverFn(null);
+    //add isClicked status to prevent annotation/hover from being removed
+    if(searchCountry === '' && isClicked === false) {
+      clearHoverState();
+    }
   }
 
   function clearHoverState() {
+    // console.log("cleared!");
     hoverData = null;
     window.clearTimeout(hoverTimeout);
     hoverTimeout = null;
@@ -240,14 +285,17 @@
     y: helpCountry.top + helpCountry.height / 2,
     radius: 2 + helpCountry.width / 2,
     html: helpText.text,
-    class: 'help'
+    id: helpCountry.id,
+    class: 'help close'
   };
 
   $: countryAnnotation = hoverData?.country.hoverText && {
     x: hoverData.x,
     y: hoverData.y,
     radius: 2 + hoverData.country.width / 2,
-    html: hoverData.country.hoverText
+    html: hoverData.country.hoverText,
+    id: hoverData.country.id,
+    class: 'close'
   };
 
   $: haveContainerDims = containerWidth > 0 && containerHeight > 0;
@@ -255,6 +303,7 @@
   $: hideAnnotation = helpTextFade || (!countryAnnotation && hoverData);
 
   $: annotationShowing = annotation && !hideAnnotation && annotation !== helpAnnotation;
+
 
   // $: dataset.data && fadeInHelpText();
 
@@ -295,22 +344,27 @@
         {#if d.x && d.y}
           <div
             class="node"
-            class:node--fadeout={legendIsHoveredValue !== "" && legendIsHoveredValue !== d.transforms.colorFn(d)}
+            class:node--fadeout={(legendIsHoveredValue !== "" && legendIsHoveredValue !== d.transforms.colorFn(d)) || (searchCountry !== "" && searchCountry !== d.id) || (isClicked && clickedCountry !== d.id) }
             style={d.style}
             data-code={d.id}
+            data-country={searchCountry}
             on:transitionend={ontransitionend}
           >
             {#each childNodes[d.id] as node}
               <svelte:component this={node.component}
                 d={node.data}
+                isClosed={isClosed}
                 canvasWidth={targetWidth}
                 canvasHeight={targetHeight}
                 datasetSelected={node.datasetIndex === selectedDatasetIndex}
                 {transitioning}
+                clearHoverState()
                 on:mouseenter={(evt) => onMouseEnterCountry(evt, d)}
                 on:mouseleave={() => onMouseLeaveCountry()}
                 on:focus={() => onMouseClick(d)}
-                on:blur={() => onMouseLeaveCountry()}
+                on:click={() => onMouseClick(d)}
+                on:blur={() => onMouseLeaveCountry()
+                }
               />
             {/each}
           </div>
@@ -321,13 +375,13 @@
   {/if}
 
   {#if annotation}
-    <div class="annotation-container"
-      class:annotation-hide={hideAnnotation} class:annotation-help={annotation.class === "help"}
+    <div class="annotation-container" class:is-search={isSearch} class:is-clicked={isClicked}
+      class:annotation-hide={hideAnnotation} class:annotation-help={annotation.class === "help"} class:is-closed={isClosed}
     >
-    <Annotation x={annotation.x} y={annotation.y} text={annotation.html}
+    <Annotation id={annotation.id} x={annotation.x} y={annotation.y} text={annotation.html}
       radius={annotation.radius} forceTopWherePossible={annotation === helpAnnotation}
       topClamp={annotation === helpAnnotation ? 0 : pxAboveScreenTop}
-      canvasWidth={containerWidth} canvasHeight={containerHeight}
+      canvasWidth={containerWidth} canvasHeight={containerHeight} isSearch={isSearch} bind:closePopup isClicked={isClicked} isClosed={isClosed}
     />
     </div>
   {/if}
@@ -336,6 +390,12 @@
 
 <style lang="scss">
 
+  .annotation-container {
+    display: contents;
+    z-index: 111111111111111;
+    position: relative;
+  }
+  
   .node {
     position: absolute;
     transition: 200ms width 50ms, 200ms height 50ms, 200ms left 50ms, 200ms top 50ms, opacity 500ms;
@@ -345,11 +405,16 @@
     }
   }
 
+  .node:hover {
+    box-shadow: 0px 0px 7.7px 0px rgba(31, 31, 31, 0.62);
+  }
+
   .cartogram {
     transform-origin: 0 0;
     height: 100%;
     width: 100%;
     display: flex;
+    max-width: 957px; 
     position: relative;
   }
 
@@ -361,6 +426,14 @@
   .annotation-container {
     opacity: 1;
     pointer-events: none;
+  }
+
+  .annotation-container.is-search {
+    pointer-events: unset;
+  }
+
+  .annotation-container.is-clicked {
+    pointer-events: unset;
   }
 
   .annotation-help {

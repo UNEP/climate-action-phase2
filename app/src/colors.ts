@@ -4,6 +4,10 @@ export const colorNDC = scaleOrdinal<string>()
   .domain(['Nothing submitted','Only INDC','Only First NDC','First 2020 NDC', 'Second 2020 NDC'])
   .range(['#DAE0E6','#BEC7CD','#6fa1d9','#4574b8', '#004a97']);
 
+export const colorNAP = scaleOrdinal<string>()
+  .domain(['1','2','3','4', '5'])
+  .range(['#F4D688','#E99363','#4FB778','#166937', '#C3C3C3']);
+
 export const colorGHG = scaleOrdinal<string>()
   .domain(['falling', 'stable', 'climbing'])
   .range(['#4574b8','#BEC7CD','#f5a14c']);
