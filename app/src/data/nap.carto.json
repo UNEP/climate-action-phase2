@@ -54,7 +54,7 @@
         "financing": "y",
         "me_framework": "y",
         "gender_guiding": "y",
-        "document": "unfccc.int/sites/default/files/resource/NAP-Bangladesh-2023.pdf"
+        "document": "https://unfccc.int/sites/default/files/resource/NAP-Bangladesh-2023.pdf"
     },
     {
         "id": "BEN",
@@ -236,7 +236,7 @@
         "financing": "n",
         "me_framework": "y",
         "gender_guiding": "y",
-        "document": "unfccc.int/sites/default/files/resource/NAP_Documento-2022-2026_Costa-Rica.pdf"
+        "document": "https://unfccc.int/sites/default/files/resource/NAP_Documento-2022-2026_Costa-Rica.pdf"
     },
     {
         "id": "COD",
