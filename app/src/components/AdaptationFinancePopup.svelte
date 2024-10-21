@@ -14,7 +14,7 @@
     </svg>
   </div>
   <p>
-    <strong>{selectedData.region}</strong><br /> Annual adaptation finance needs {`US$${selectedData.usd} billion`}.
+    <strong>{selectedData.region}</strong><br /> Annual adaptation finance needs: {`US$${selectedData.usd} billion`}.
   </p>
   <p>Adaptation finance needs by sector:</p>
   <Donuts bind:selectedData />
