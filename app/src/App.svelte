@@ -23,7 +23,7 @@
   import wh from './whatshappening.json';
   import cap from './mitigationprogress.json';
   import ns from './adaptationprogress.json';
-  
+
   import NavigationPages from './components/NavigationPages.svelte';
 
   export var embed: string;
@@ -95,4 +95,8 @@
   </main>
 
   <Footer />
+  <div class="publishing_info">
+    <span class="publishing_info_original">Published: 22 October 2022</span>
+    <span class="publishing_info_latest_update">Last Updated: 21 October 2024</span>
+	</div>
 {/if}
